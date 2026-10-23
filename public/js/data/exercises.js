@@ -411,7 +411,7 @@ export const EXERCISES = {
       "Long split stance, front foot flat, back knee on a cushion to start.",
       "Slide forward until your hamstring covers your calf and the front knee is well past the toes; front heel stays down.",
       "Keep the back leg long to stretch the hip flexor.",
-      "Hold a chair for balance at first; add dumbbells later.",
+      "Keep a chair beside you for balance at first; add dumbbells later. The animation shows the hands-free version.",
     ],
     bryanVideos: [{ k: "w23", s: 880 }],
     videos: [
@@ -999,7 +999,7 @@ export const EXERCISES = {
     muscles: ["obliques", "core"],
     bryan: "In the Friday session of Bryan’s newest weekly template (exercise newsletter, 4 Oct 2026) and Day 5 of his official protocol (20–30 s per side).",
     how: [
-      "On one forearm, elbow under the shoulder, feet stacked (knees bent to start).",
+      "On one forearm, elbow under the shoulder, feet stacked (bend your knees if that feels easier).",
       "Lift the hips into a straight line and hold.",
     ],
     videos: [{ t: "Side plank: form and 5 progressions", u: "https://www.youtube.com/watch?v=0M-erHBl48U", s: 15 }],
@@ -1015,7 +1015,7 @@ export const EXERCISES = {
       "Stand on one leg, knee soft, other leg straight behind you with the toe just off the floor.",
       "Hinge forward, reaching the opposite hand toward the standing foot; the back leg rises as a counterweight.",
       "Hips stay square to the floor. Stand back up by squeezing the glute.",
-      "Hold a wall at first.",
+      "Keep a wall within reach at first; the animation shows the hands-free version.",
     ],
     videos: [
       {
@@ -1586,7 +1586,7 @@ export const EXERCISES = {
     bryan: "Bryan: 1 × 15.",
     how: [
       "Hold a light band at shoulder height, arms straight, hands shoulder-width.",
-      "Pull it apart to your chest by squeezing the shoulder blades together.",
+      "Pull the band apart at chest height by squeezing the shoulder blades together.",
       "Shoulders stay down, away from the ears; pause 1 s.",
     ],
     bryanVideos: [{ k: "w23", s: 278 }],
@@ -1622,7 +1622,7 @@ export const EXERCISES = {
     muscles: ["rotatorCuff"],
     bryan: "“External rotation” is in the posture part of Bryan’s routine, right after band pull-aparts. It strengthens the rotator cuff that holds the shoulders back.",
     how: [
-      "Sit with one foot up on a chair or bench and rest the elbow of the working arm on the inside of that knee, elbow bent 90°; or lie on your side with the elbow pinned to the ribs.",
+      "Stand with one foot on a stable chair or bench and rest the elbow of the working arm on the inside of that knee, elbow bent 90°; or lie on your side with the elbow pinned to the ribs.",
       "Hold a light dumbbell ({kg:1-4}) and rotate the forearm up and back as far as is comfortable.",
       "Lower slowly in 2–3 s. Keep the shoulder blade back and down.",
     ],

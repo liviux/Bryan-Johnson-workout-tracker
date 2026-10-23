@@ -193,8 +193,8 @@ const CLIMB_BACK = (() => {
 const CLIMB_FEET = {
   back: (s) => ({ pos: [CLIMB_BACK[0] * s, CLIMB_BACK[1], CLIMB_BACK[2]], toe: PLANK_TOE, knee: [0.1 * s, -1, 0.15] }),
   in: (s) => ({ pos: [0.12 * s, 0.24, 0.1], toe: 62, knee: [0.15 * s, -0.2, 1] }),
-  out: (s) => ({ pos: [0.14 * s, 0.17, -0.82], toe: 50, knee: [0.1 * s, -1, 0.3] }),
-  up: (s) => ({ pos: [0.13 * s, 0.19, -0.42], toe: 55, knee: [0.05 * s, -0.5, 1] }),
+  out: (s) => ({ pos: [0.14 * s, 0.24, -0.82], toe: 45, knee: [0.1 * s, -1, 0.3] }),
+  up: (s) => ({ pos: [0.13 * s, 0.26, -0.42], toe: 55, knee: [0.05 * s, -0.5, 1] }),
 };
 function climber(l, r) {
   const L = CLIMB_FEET[l](1), R = CLIMB_FEET[r](-1);
@@ -362,7 +362,7 @@ export default {
         highlight: ["heart", "quads", "glutes"],
         camera: CAM.step,
         alternate: true,
-        ...stepClip(0.27, ["Steady step-ups on a 15–20 cm step, talking pace", null, null, null, null, "Up, up, down, down; switch the lead leg each minute"], { arm: 18, elbow: 28 }),
+        ...stepClip(0.27, ["Steady step-ups on a 15–20 cm step, talking pace", null, null, null, null, "Up, up, down, down; alternate the lead leg"], { arm: 18, elbow: 28 }),
       },
     ],
   },

@@ -331,7 +331,7 @@ function hamstring({ step = 1, hinge = 0, breath = 0 }) {
 const TREE_FOOT = {
   floor: { at: [FOOT_X, ANKLE_Y, 0], pole: [0.15, 0, 1], ankle: 0 }, // ankle flattened in tree()
   lifted: { at: [0.05, 0.36, 0.1], pole: [0.8, 0, 0.7], ankle: 10 },
-  thigh: { at: [-0.002, 0.775, 0.04], pole: [1, -0.15, 0.5], ankle: 5 },
+  thigh: { at: [-0.085, 0.775, 0.02], pole: [1, -0.15, 0.5], ankle: 5 },
 };
 // Hands (chest frame): palms together at the chest, in front of the face, overhead.
 const TREE_HANDS = {

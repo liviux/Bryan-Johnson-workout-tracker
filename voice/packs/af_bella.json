@@ -208,10 +208,10 @@
       "bytes": 89898
     },
     {
-      "id": "28c4eff48195dcccda8de4a8dcc61592f97eada302fc462b32bc9d6ef856aca6",
-      "text": "Face a wall and use your hands for support.",
-      "sha256": "1c15b9e28d1a3cf10f7de81e9d416ef78ae43a77dac7660f08c3fd66de43df29",
-      "bytes": 97025
+      "id": "2be10eb379287a37162476bd0b3a3ad314aa05cd90883c748d190d4a33d8591a",
+      "text": "Stand side-on with one hand on the wall for support.",
+      "sha256": "061ee8913c8caec98d2a73142cf122e0c556f53ea09195bd76e298abc5da19b5",
+      "bytes": 118869
     },
     {
       "id": "a2d7afd4677776118058442876d55b84ba2793a64a1a693510683e5eb713058d",
@@ -1678,10 +1678,16 @@
       "bytes": 104996
     },
     {
-      "id": "580664ed8299711fb2cb4d63a5da892fee154a3784a741c84df99abdb82ba71f",
-      "text": "Hold a chair for balance at first, add dumbbells later.",
-      "sha256": "31368821d4bdf133cfbae043803e3c6b8cc6d30d860fbfb00a2be02bf5736ab8",
-      "bytes": 115695
+      "id": "d3163a6699afabe96789c71be48cb56a3fa295a2d0e3670d6cf59f82175a1d75",
+      "text": "Keep a chair beside you for balance at first, add dumbbells later.",
+      "sha256": "e3bc6b2dfde893f69aee5b60cb46910cd7f81317539de731da6590af0e991749",
+      "bytes": 134552
+    },
+    {
+      "id": "1ad3d79b4b9b9263d26d9f15d8e9aabcd46075da234e4656ea107aa57a2b33d4",
+      "text": "The animation shows the hands-free version.",
+      "sha256": "ccf526c55bc0bee752cb7d9e13ba1f5401905cf68bbd02c493524860e3dbe48c",
+      "bytes": 96012
     },
     {
       "id": "21259bb5de00fc6d46b1e38476761f9695e64b758e9790b47adf400cbebf0637",
@@ -2332,10 +2338,10 @@
       "bytes": 76513
     },
     {
-      "id": "0feccc5b614194cde560caf9f53d93458416233576a0cf62391fbfa85169b50c",
-      "text": "Hold a wall at first.",
-      "sha256": "8758f51ee9265ad2b0100d7570997907048edfa3a32ec4c614f2314a9e6329bf",
-      "bytes": 47153
+      "id": "1c7fcfbe08ceafb2acb981c1994c6bdc10714b73bb8e04dd6a8ef329f67d6928",
+      "text": "Keep a wall within reach at first, the animation shows the hands-free version.",
+      "sha256": "e6d2a2d202f88622431aa82c832928fb4c9a14a96d4932c876efcee26a2eadbc",
+      "bytes": 170632
     },
     {
       "id": "4cf00f5646a9e67d9280a66a00241d0943ad923d4e258618931a0af2ffa67ba8",
@@ -2890,10 +2896,10 @@
       "bytes": 136910
     },
     {
-      "id": "a4c09a2934771bcbbd073e56c595682e7562a1593272e6f0cbcb5d1a319ca837",
-      "text": "On one forearm, elbow under the shoulder, feet stacked, knees bent to start, .",
-      "sha256": "2256ab90055ceddffeeb2ad7423ae4f251c0525280ea47cd8d2e1db6af403d7f",
-      "bytes": 165941
+      "id": "70d3f934f7b12bb73b9d77f8782f7921e4aadec28ea6d871562054b9ebb042e0",
+      "text": "On one forearm, elbow under the shoulder, feet stacked, bend your knees if that feels easier, .",
+      "sha256": "3422863eca236b1e624914a45f2f8f2152096f14d6bf23064706fe7eeb25fdb9",
+      "bytes": 201397
     },
     {
       "id": "2cfec0387a3222723d6b4460b38cc2f29f6afca70f993a9a694fd27b0150de79",
@@ -3232,10 +3238,10 @@
       "bytes": 138407
     },
     {
-      "id": "6c5201da2e07b5b250ced94c86cd5e728d2861baf055edb8122a016fee0ade90",
-      "text": "Pull it apart to your chest by squeezing the shoulder blades together.",
-      "sha256": "cf75bbed06ab2801f371712085a53a535ac678c0cb488d59dc195b42f8dc38e6",
-      "bytes": 136029
+      "id": "4252545c8feaed8c49bd0eb05ac9ac7dbff200a5b4b5438e38eb7dc060c1fcdf",
+      "text": "Pull the band apart at chest height by squeezing the shoulder blades together.",
+      "sha256": "5d2189d8ead7e4e14ac27b44161ca04e34bcf0c664d9ff2efb3e7aca28ff11e1",
+      "bytes": 156005
     },
     {
       "id": "db16a5e0fd47104f97dd176ec7cb46abe6468abdb83b10d11003e895eef84298",
@@ -3304,10 +3310,10 @@
       "bytes": 237504
     },
     {
-      "id": "69b4c09495114613c8dcf43be3ee9ee28ac58cf3d7a2bb95c2a8c1895609925a",
-      "text": "Sit with one foot on a stable chair and rest the working elbow on the inside of that knee, bent ninety degrees.",
-      "sha256": "e161de54495c3f9c5e5fb4a3bb8172f902ac07ce7eda0decf969ffbc4a2b57a6",
-      "bytes": 245625
+      "id": "94f1c5e7800fe807efbe4926e51d3934da1ad71f48411ebdfa4a264708f8cefe",
+      "text": "Stand with one foot on a stable chair and rest the working elbow on the inside of that knee, bent ninety degrees.",
+      "sha256": "c3e65fe4179e8fe27fe858969a8c671d25567b20012219b24f28e3c3609fb623",
+      "bytes": 254408
     },
     {
       "id": "352ca6574f6337e7d34cd160c80a2db1277860c5993acf9f9785f35cc9eb7794",

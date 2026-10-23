@@ -156,17 +156,18 @@ const CHOP_R = [-0.2, ANKLE_Y, 0]; // planted right foot (ankle)
 const CHOP_BALL_L = [0.2, BALL_PT[0]]; // ball of the pivoting left foot (x, z), level with the right one
 
 // High-to-low chop, u = 0 (arms long toward the anchor, up and left) … 1 (hands at the right hip).
-// Hands are held in the chest frame at arm's length, so they sweep an arc as the hips and chest turn.
-// Feet stay in "ground" mode: turnout = hip yaw keeps the right foot pointing ahead, which turns the
-// left foot twice as far as the hips: out toward the anchor at the start, pivoted on its ball (heel
-// up) toward the chop at the end. `ready` is the square stance between sides, handle at the chest.
+// Hands are held in the chest frame at arm's length and well in front of the chest, so the band
+// crosses in front of the body rather than through it. Feet stay in "ground" mode: turnout = hip
+// yaw keeps the right foot pointing ahead, which turns the left foot twice as far as the hips: out
+// toward the anchor at the start, pivoted on its ball (heel up) toward the chop at the end.
+// `ready` is the square stance between sides, handle at the chest.
 function chop(u, ready = false) {
   const mix = (a, b) => (ready ? 0 : a + (b - a) * u);
   const yaw = mix(18, -28);
-  const lift = (ready ? -42 : mix(48, -58)) * D2R; // hand direction above (+) / below (−) the chest's forward axis
-  const reach = ready ? 0.36 : 0.5;
-  const hand = [0, -0.05 + reach * Math.sin(lift), -0.01 + reach * Math.cos(lift)];
-  const grip = ready ? 0 : 0.02; // top hand slightly higher on the handle (level when square)
+  const lift = Math.sin(Math.PI * u);
+  const cx = ready ? 0 : mix(0.07, -0.08);
+  const cy = ready ? -0.02 : mix(0.33, -0.25);
+  const cz = (ready ? 0.34 : mix(0.32, 0.40)) + (ready ? 0 : 0.06 * lift);
   const heel = 32 * u * u * (ready ? 0 : 1);
   const footYaw = 2 * yaw;
   const flatL = [CHOP_BALL_L[0] - BALL_PT[0] * Math.sin(footYaw * D2R), ANKLE_Y, CHOP_BALL_L[1] - BALL_PT[0] * Math.cos(footYaw * D2R)];
@@ -181,10 +182,10 @@ function chop(u, ready = false) {
     footL: tiptoe(flatL, heel, footYaw),
     toeL: heel,
     handsIn: "chest",
-    handL: [0.08, hand[1] + grip, hand[2]],
-    handR: [-0.08, hand[1] - grip, hand[2]],
-    elbowL: [0.6, -0.6, -0.4],
-    elbowR: [-0.6, -0.6, -0.4],
+    handL: [cx + 0.03, cy, cz],
+    handR: [cx - 0.03, cy, cz],
+    elbowL: [0.55, -0.8, -0.35],
+    elbowR: [-0.55, -0.8, -0.35],
   };
 }
 
@@ -293,9 +294,9 @@ export default {
         camera: { view: [0, 0.22, 1], target: [0, 1.0, 0.1], dist: 5.0 },
         alternate: true,
         keys: [
-          { t: 0, p: chop(0, true), cue: "Side-on to the door; arms long toward the anchor" },
+          { t: 0, p: chop(0, true), cue: "Side-on to the door, band in front; handle at your chest" },
           { t: 0.3, p: chop(0, true) },
-          { t: 1.0, p: chop(0) },
+          { t: 1.0, p: chop(0), cue: "Arms long toward the anchor" },
           { t: 1.3, p: chop(0), cue: "Chop fast across, turn the hips, pivot the back foot" },
           ...transition(chop, 0, 1, 1.3, 1.75),
           { t: 2.0, p: chop(1), cue: "Return slowly, 2–3 s" },

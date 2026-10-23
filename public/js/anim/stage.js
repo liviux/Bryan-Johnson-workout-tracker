@@ -215,12 +215,12 @@ export class Stage {
     this.figures = new Map([["mannequin", Promise.resolve(this.man)]]);
     this.loadedFigures = new Set([this.man]);
 
-    this.dumbbells = { L: createDumbbell(this.M), R: createDumbbell(this.M), goblet: createDumbbell(this.M, 1.15) };
+    this.dumbbells = { L: createDumbbell(this.M), R: createDumbbell(this.M), goblet: createDumbbell(this.M, 1.15), both: createDumbbell(this.M) };
     Object.values(this.dumbbells).forEach((d) => {
       d.visible = false;
       scene.add(d);
     });
-    this.bandPool = [createBand(this.M), createBand(this.M), createBand(this.M, true)];
+    this.bandPool = Array.from({ length: 12 }, () => createBand(this.M));
     this.bandPool.forEach((b) => {
       b.mesh.visible = false;
       scene.add(b.mesh);
@@ -619,8 +619,10 @@ export class Stage {
       const bar = clip.props.some((p) => p.type === "bar" || p.bar);
       const grip = {}, gripAxis = {};
       for (const side of ["L", "R"]) {
-        grip[side] = !!(hold.goblet || hold[side] || bar || clip.bands.some((b) => [b.a, b.b].some((end) => (s.mirrored ? swapSide(end) : end) === "hand" + side)));
-        if (hold[side] || hold.goblet) gripAxis[side] = new THREE.Vector3(1, 0, 0).applyQuaternion(this.dumbbells[hold.goblet ? "goblet" : side].quaternion);
+        grip[side] = !!(hold.goblet || hold.both || hold[side] || bar || clip.bands.some((b) => [b.a, b.b].some((end) => (s.mirrored ? swapSide(end) : end) === "hand" + side)));
+        // A goblet holds the top head in both palms, so the hands keep their own
+        // cradling angle. Handle grips turn the knuckles to line up with the bar.
+        if (hold[side] || hold.both) gripAxis[side] = new THREE.Vector3(1, 0, 0).applyQuaternion(this.dumbbells[hold.both ? "both" : side].quaternion);
         else if (grip[side]) gripAxis[side] = new THREE.Vector3(1, 0, 0);
       }
       this.figure.update(J, { t, still: time != null, id: this.id, title: clip.title, grip, gripAxis, breath: 0.5 - 0.5 * Math.cos(t * Math.PI * 2 / 4.2) });
@@ -705,20 +707,31 @@ export class Stage {
   updateAttachments(clip, J, mirrored) {
     const hold = clip.hold ? (mirrored ? mirrorHold(clip.hold) : clip.hold) : null;
     const d = this.dumbbells;
-    d.L.visible = d.R.visible = d.goblet.visible = false;
+    d.L.visible = d.R.visible = d.goblet.visible = d.both.visible = false;
     if (hold) {
       if (hold.goblet) {
         const mid = J.handL.clone().lerp(J.handR, 0.5);
+        const up = new THREE.Vector3(0, 1, 0).applyMatrix4(J.Rc).normalize();
         d.goblet.visible = true;
-        d.goblet.position.copy(mid).add(new THREE.Vector3(0, 0, 0.035).applyMatrix4(J.Rc));
-        const up = new THREE.Vector3(0, 1, 0).applyMatrix4(J.Rc);
+        // The top head rests in the palms: its underside sits at the hand centres,
+        // with the handle and lower head hanging below.
+        d.goblet.position.copy(mid).addScaledVector(up, -0.046);
         d.goblet.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), up);
+      }
+      if (hold.both) {
+        const mid = J.handL.clone().lerp(J.handR, 0.5);
+        const axis = new THREE.Vector3(1, 0, 0).applyMatrix4(J.Rc).normalize();
+        d.both.visible = true;
+        d.both.position.copy(mid);
+        d.both.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), axis);
       }
       for (const s of ["L", "R"]) {
         if (!hold[s]) continue;
         const db = d[s];
         db.visible = true;
-        db.position.copy(J["hand" + s]);
+        // Sit the handle inside the loop the curled fingers make, just forward of
+        // the palm and on the palm side of the knuckles.
+        db.position.copy(J["hand" + s]).addScaledVector(J["handDir" + s], -0.012).addScaledVector(J["handRef" + s], -0.012);
         const fore = J["foreDir" + s];
         const axisName = hold.axis || "x";
         let ref;
@@ -734,15 +747,19 @@ export class Stage {
       }
     }
     this.bandPool.forEach((b) => (b.mesh.visible = false));
-    clip.bands.forEach((spec, i) => {
-      const band = this.bandPool[i];
-      if (!band) return;
-      const a = this.point(mirrored ? swapSide(spec.a) : spec.a, J);
-      const b = this.point(mirrored ? swapSide(spec.b) : spec.b, J);
-      if (!a || !b) return;
-      band.mesh.visible = true;
-      band.set(a, b);
-    });
+    let bandIndex = 0;
+    for (const spec of clip.bands) {
+      const refs = [spec.a, ...(spec.via || []), spec.b];
+      for (let i = 0; i < refs.length - 1; i++) {
+        const band = this.bandPool[bandIndex++];
+        if (!band) break;
+        const a = this.point(mirrored ? swapSide(refs[i]) : refs[i], J);
+        const b = this.point(mirrored ? swapSide(refs[i + 1]) : refs[i + 1], J);
+        if (!a || !b) continue;
+        band.mesh.visible = true;
+        band.set(a, b);
+      }
+    }
     const showString = clip.effects.includes("string");
     this.stringLine.mesh.visible = showString;
     if (showString) {

@@ -92,6 +92,7 @@ function slrdl(phase, { bothHands = false } = {}) {
   const p = {
     root,
     rot: [SL_PITCH * h, 0, 0],
+    spine: [bothHands ? 0 : 24 * h, 0, 0],
     neck: [-14 * h, 0],
     footL: [FOOT_X, ANKLE_Y, 0],
     kneeL: [0.1, 0, 1],
@@ -105,7 +106,8 @@ function slrdl(phase, { bothHands = false } = {}) {
   const hangL = [J.shoulderL.x + 0.015 + 0.03 * lift, J.shoulderL.y - ARM * 0.985, J.shoulderL.z + 0.03];
   const hangR = [J.shoulderR.x - 0.015, J.shoulderR.y - ARM * 0.985, J.shoulderR.z + 0.03];
   const outL = bothHands ? [J.shoulderL.x - 0.03, J.shoulderL.y - 0.53, J.shoulderL.z - 0.04] : [J.shoulderL.x + 0.2, J.shoulderL.y - 0.5, J.shoulderL.z - 0.06];
-  const outR = bothHands ? [J.shoulderR.x + 0.03, J.shoulderR.y - 0.53, J.shoulderR.z - 0.04] : [0.06, J.shoulderR.y - 0.5, J.shoulderR.z - 0.12];
+  const reach = new (J.shoulderR.constructor)(0.11 - J.shoulderR.x, 0.12 - J.shoulderR.y, 0.02 - J.shoulderR.z).normalize();
+  const outR = bothHands ? [J.shoulderR.x + 0.03, J.shoulderR.y - 0.53, J.shoulderR.z - 0.04] : J.shoulderR.clone().addScaledVector(reach, 0.54).toArray();
   return {
     ...p,
     handsIn: "world",
@@ -225,7 +227,7 @@ export default {
       {
         title: "Jefferson curl",
         props: [JC_STEP],
-        hold: { goblet: true },
+        hold: { both: true },
         highlight: ["lowerBack", "back", "hamstrings"],
         camera: { view: "side", target: [0, 0.9, 0.05], dist: 4.2 },
         keys: [

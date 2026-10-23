@@ -1,6 +1,6 @@
 // Animations for the core & stability exercises.
 import { anchor, ground, joints, pinHands, transition } from "../poses.js";
-import { makePose, mirrorPose } from "../rig.js";
+import { DIM, makePose, mirrorPose } from "../rig.js";
 
 const MAT_Y = 0.012; // top of the exercise mat
 
@@ -34,17 +34,17 @@ function birdDog(reach) {
 const SUPINE = ground({ rot: [-90, 0, 0], legL: [90, 4, 90, 10], legR: [90, 4, 90, 10], armL: [90, 6, 0, 0], armR: [90, 6, 0, 0], neck: [6, 0] }, ["pelvis", "thoracic", "head"], 0.008);
 function deadBug(reach) {
   const leg = reach * reach * (3 - 2 * reach);
-  return { ...SUPINE, armL: [90 + 78 * reach, 6, 3 * Math.sin(Math.PI * reach), 0], legR: [90 - 72 * leg, 4, 90 - 86 * leg, 10 + 5 * leg] };
+  return { ...SUPINE, armL: [90 + 78 * reach, 6, 3 * Math.sin(Math.PI * reach), 0], legR: [Math.max(2, 90 - 89 * leg), 4, 90 - 86 * leg, 10 + 5 * leg] };
 }
 
 // ---------- hanging knee / leg raise ----------
 // Active hang (shoulders pulled down) with straight arms on the door-frame bar.
 // hip/knee: leg angles; curl: posterior pelvic tilt at the top; lean: torso pitch that
 // keeps the centre of mass under the bar (no swinging); back: shoulders drift behind the bar.
-const BAR_Y = 2.14;
+const BAR_Y = 2.265;
 const BAR_Z = 0.08;
 const GRIP = 0.25;
-const DOORFRAME = { type: "doorframe", pos: [0, 0, -0.36], w: 0.9, h: 2.05, bar: true, barH: BAR_Y, barZ: BAR_Z + 0.36 };
+const DOORFRAME = { type: "doorframe", pos: [0, 0, -0.36], w: 0.9, h: 2.26, bar: true, barH: BAR_Y, barZ: BAR_Z + 0.36 };
 function legRaise({ hip = 12, knee = 6, curl = 0, lean = 0, back = 0, plantar = 10, shrug = -0.03 } = {}) {
   const p = {
     rot: [lean - curl, 0, 0],
@@ -55,10 +55,11 @@ function legRaise({ hip = 12, knee = 6, curl = 0, lean = 0, back = 0, plantar = 
     shrugR: [shrug, 0],
     neck: [4, 0],
   };
-  // Shoulders sit exactly one (straight) arm length below the hands.
-  const dx = GRIP - joints(p).shoulderL.x;
+  // Shoulders sit one straight arm length below the hands. The shoulder blade
+  // lifts for the overhead reach, so aim the anchor 25 mm lower to compensate.
+  const dx = GRIP - (DIM.shoulderX - 0.012);
   const dz = 0.02 + back;
-  const shoulderY = BAR_Y - 0.085 - Math.sqrt(0.548 ** 2 - dx * dx - dz * dz);
+  const shoulderY = BAR_Y - 0.085 - Math.sqrt(0.548 ** 2 - dx * dx - dz * dz) - 0.025;
   return {
     ...anchor(p, "shoulderL", [0, shoulderY, BAR_Z - dz], "yz"),
     handsIn: "world",
@@ -74,10 +75,10 @@ function legRaise({ hip = 12, knee = 6, curl = 0, lean = 0, back = 0, plantar = 
 }
 const PASSIVE_HANG = legRaise({ shrug: 0.032 });
 const HANG = legRaise();
-const KNEES_UP = legRaise({ hip: 92, knee: 105, curl: 4, lean: 12, back: 0.04 });
-const KNEES_CURL = legRaise({ hip: 106, knee: 115, curl: 20, lean: 16, back: 0.05 });
-const LEGS_UP = legRaise({ hip: 84, knee: 3, curl: 4, lean: 14, back: 0.07 });
-const LEGS_CURL = legRaise({ hip: 88, knee: 3, curl: 15, lean: 15, back: 0.08 });
+const KNEES_UP = legRaise({ hip: 118, knee: 108, curl: 16, lean: 14, back: 0.04 });
+const KNEES_CURL = legRaise({ hip: 128, knee: 116, curl: 28, lean: 18, back: 0.05 });
+const LEGS_UP = legRaise({ hip: 96, knee: 3, curl: 10, lean: 14, back: 0.07 });
+const LEGS_CURL = legRaise({ hip: 102, knee: 3, curl: 22, lean: 16, back: 0.08 });
 
 // ---------- floor back extension ----------
 // Face down on the mat, fingertips at the temples; lift = spine extension in degrees.
@@ -150,7 +151,7 @@ const sideLift = (d) => sidePlank({ tilt: 10 + 6.75 * d, legTilt: 5.7 * (1 - d) 
 // ---------- high plank (shoulder taps) ----------
 // Straight body on the hands, feet a bit wider than the hips; hands planted under the shoulders.
 const TAP_BODY = anchor(
-  { rot: [90 - 16, 0, 0], spine: [-1, 0, 0], legL: [0, 6, 0, -24], legR: [0, 6, 0, -24], neck: [-6, 0] },
+  { rot: [90 - 16.5, 0, 0], spine: [-1, 0, 0], legL: [0, 6, 0, -24], legR: [0, 6, 0, -24], neck: [-6, 0] },
   "toeL",
   [0, 0.006 + MAT_Y, -0.95],
   "yz"
@@ -159,7 +160,7 @@ const TAP_J = joints(TAP_BODY);
 const TAP_HANDS = { L: [0.21, 0.035 + MAT_Y, TAP_J.shoulderL.z + 0.02], R: [-0.21, 0.035 + MAT_Y, TAP_J.shoulderR.z + 0.02] };
 const TAP_TOE = Math.asin(-TAP_J.footFL.y) * 180 / Math.PI;
 // Right hand touching the front of the left shoulder.
-const TAP_TARGET = at(TAP_J.Rc, TAP_J.shoulderL, [-0.06, 0.06, 0.05]);
+const TAP_TARGET = at(TAP_J.Rc, TAP_J.shoulderL, [-0.015, 0.095, 0.02]);
 function shoulderTap(reach = 0) {
   const handR = TAP_HANDS.R.map((v, i) => v + (TAP_TARGET[i] - v) * reach);
   return { ...TAP_BODY, root: [TAP_BODY.root[0] + 0.015 * reach, TAP_BODY.root[1], TAP_BODY.root[2]], footL: TAP_J.ankleL.toArray(), footR: TAP_J.ankleR.toArray(), feetMode: "ground", toeL: TAP_TOE, toeR: TAP_TOE, kneeL: [0.1, -1, 0.3], kneeR: [-0.1, -1, 0.3], palmL: [0, 1, 0], palmR: [0, 1, 0], handsIn: "world", handL: TAP_HANDS.L, handR, elbowL: [0.6, 0.2, -0.6], elbowR: [-1, -0.2, -0.4] };

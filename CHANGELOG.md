@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.36.5] - 2026-10-23
+
+### Fixed
+- Hands stay connected to the palm and grip dumbbells and bands naturally throughout every animation.
+- Fixed dumbbells and bands passing through the body in goblet squats, swings, rows, presses, lunges, woodchops, chest flies and seated calf raises.
+- Hanging exercises now use straight arms and hang clear of the floor; side-to-side leg swings pass in front of the standing leg.
+- Corrected contacts and movement for dead hangs, hanging leg raises, shoulder taps, Nordic curls, dead bugs, push-ups, tree pose, wall slides, hip CARs and single-leg calf raises.
+- Cues now match the shown hold times, setup positions and direction of travel.
+
+### Changed
+- **Plan change:** Clarified the setup notes for ATG split squats, single-leg toe touches, band pull-aparts, standing external rotation, side planks and side-to-side leg swings.
+
 ## [1.36.4] - 2026-10-23
 
 ### Fixed

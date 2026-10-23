@@ -84,13 +84,13 @@ function wallArms(p, up, fore) {
   const out = { ...p, handsIn: "world" };
   for (const [side, s] of [["L", 1], ["R", -1]]) {
     const S = J["shoulder" + side];
-    const ez = WALL_Z + 0.056, wz = WALL_Z + 0.02; // elbow and wrist centres, limb radius off the wall
+    const ez = WALL_Z + 0.09, wz = WALL_Z + 0.035; // elbow and wrist centres, limb radius off the wall
     const ru = Math.sqrt(DIM.upperArm ** 2 - (ez - S.z) ** 2);
     const E = [S.x + s * ru * Math.sin(up * D2R), S.y - ru * Math.cos(up * D2R), ez];
     const rf = Math.sqrt(DIM.forearm ** 2 - (wz - ez) ** 2);
     out["hand" + side] = [E[0] + s * rf * Math.sin(fore * D2R), E[1] + rf * Math.cos(fore * D2R), wz];
     out["elbow" + side] = [E[0] - S.x, E[1] - S.y, E[2] - S.z];
-    out["palm" + side] = [0, 0, -1];
+    out["palm" + side] = [0, 0, 1];
     out["fingers" + side] = [s * Math.sin(fore * D2R), Math.cos(fore * D2R), 0];
   }
   return out;
@@ -321,7 +321,7 @@ export default {
         camera: { view: [0.5, 0.45, 1], target: [0, 1.25, 0.1], dist: 3.5 },
         keys: [
           { t: 0, p: pullApart(0), cue: "Arms straight at shoulder height, hands shoulder-width" },
-          { t: 0.5, p: pullApart(0), cue: "Pull the band to your chest and squeeze your shoulder blades" },
+          { t: 0.5, p: pullApart(0), cue: "Pull the band apart and squeeze your shoulder blades" },
           ...transition(pullApart, 0, 1, 0.5, 1.8, "Shoulders down, away from the ears; pause 1 s"),
           { t: 2.8, p: pullApart(1), cue: "Return slowly" },
           ...transition(pullApart, 1, 0, 2.8, 4.4),
@@ -420,7 +420,7 @@ export default {
           { t: 0.5, p: neckPose(0, 0), cue: "Hand on the forehead, push gently back" },
           { t: 0.95, p: neckPose(0, 0.5), e: "in" },
           { t: 1.4, p: neckPose(0), e: "out" },
-          { t: 1.6, p: neckPose(0), cue: "Neck resists, head still: hold 10 s" },
+          { t: 1.6, p: neckPose(0), cue: "Neck resists, head still: hold" },
           { t: 5.6, p: neckPose(0), cue: "Relax; 5 holds at 30–50% effort" },
           { t: 6.05, p: neckPose(0, 0.5), e: "in" },
           { t: 6.5, p: neckPose(0, 0), e: "out" },
@@ -463,7 +463,7 @@ export default {
           { t: 0.95, p: doorway({ step: 0.5, lift: 1 }), e: "in" },
           { t: 1.3, p: doorway({ step: 1 }), e: "out" },
           { t: 1.5, p: doorway({ step: 1 }), cue: "Lean gently until the chest stretches" },
-          { t: 3.3, p: doorway({ step: 1, lean: 1 }), cue: "Ribs down, breathe; hold 30 s" },
+          { t: 3.3, p: doorway({ step: 1, lean: 1 }), cue: "Ribs down, breathe; hold" },
           { t: 4.5, p: doorway({ step: 1, lean: 1, breath: 1 }) },
           { t: 5.7, p: doorway({ step: 1, lean: 1 }), cue: "Ease back" },
           { t: 7.0, p: doorway({ step: 1 }), cue: "Step back" },

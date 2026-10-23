@@ -104,7 +104,7 @@ function backwalk(ph, { dumbbells = false } = {}) {
   const sway = 0.012 * Math.cos(2 * Math.PI * (ph - 0.3)); // over the stance foot
   const swing = Math.sin(2 * Math.PI * (ph - 0.35)); // right arm forward as the left foot leads
   const arms = dumbbells
-    ? { armL: [12 - 4 * swing, 4, 6, 0], armR: [12 + 4 * swing, 4, 6, 0] } // hanging straight down (chest leans 12°)
+    ? { armL: [12 - 4 * swing, 9, 8, 0], armR: [12 + 4 * swing, 9, 8, 0] } // hanging straight down (chest leans 12°)
     : { armL: [-16 * swing, 8, 32, 0], armR: [16 * swing, 8, 32, 0] };
   return {
     root: [sway, 0.885 + bob, 0],
@@ -212,12 +212,26 @@ function lateralLunge(d) {
   };
 }
 
-// Hip CARs: standing on the right leg, the left knee draws a slow circle: up, out, back, down.
-// Angles for the moving thigh [flex, abduction, knee], turned into an IK target so the leg can start on the floor.
+// Hip CARs: standing on the right leg, one hand on a wall for support, the left knee draws
+// a slow circle: up, out, back, down. Angles for the moving thigh [flex, abduction, knee],
+// turned into an IK target so the leg can start on the floor.
+const CAR_WALL = { type: "wall", pos: [-0.75, 0, 0.08], rotY: 90, w: 1.25, h: 2.1 };
+const CAR_HAND = [-0.685, 1.27, 0.12];
 function hipCar(leg) {
   const p = { root: [-0.035, STAND_Y - 0.008, 0], rot: [0, 0, 1.5], neck: [-2, 0], footR: [-FOOT_X, ANKLE_Y, 0], kneeR: [-0.12, 0, 1], ...ARMS.hips };
-  if (!leg) return { ...p, footL: [FOOT_X, ANKLE_Y, 0], kneeL: [0.12, 0, 1], toeL: 0 };
-  return { ...p, ...legIK(p, "L", leg), toeL: 15 };
+  const body = !leg ? { ...p, footL: [FOOT_X, ANKLE_Y, 0], kneeL: [0.12, 0, 1], toeL: 0 } : { ...p, ...legIK(p, "L", leg), toeL: 15 };
+  // Keep the hip hand where ARMS.hips put it, and put the other palm flat on the wall.
+  const J = joints(body);
+  return {
+    ...body,
+    handsIn: "world",
+    handL: J.wristL.toArray(),
+    elbowL: [1, 0, -0.3],
+    handR: CAR_HAND,
+    elbowR: [-1, -0.8, -0.2],
+    palmR: [1, 0, 0],
+    fingersR: [0, 1, 0],
+  };
 }
 
 // Lunge with twist: the left foot steps forward into a lunge, then the chest turns toward the front knee.
@@ -244,11 +258,12 @@ export default {
     clips: [
       {
         title: "Single-leg balance",
+        props: [{ type: "wall", pos: [-0.74, 0, 0.05], rotY: 90, w: 1.2, h: 2.1 }],
         highlight: ["ankles", "glutes", "core"],
         camera: { view: "front", target: [0, 0.96, 0], dist: 3.95 },
         alternate: true,
         keys: [
-          { t: 0, p: stand(ARMS.hips), cue: "Hands on hips by a wall; lift one foot" },
+          { t: 0, p: stand(ARMS.hips), cue: "Hands on hips, a wall beside you; lift one foot" },
           { t: 0.8, p: oneLeg(0), cue: "Hold for 30 s; close your eyes once this feels easy" },
           { t: 2.2, p: oneLeg(1) },
           { t: 3.6, p: oneLeg(-1) },
@@ -289,17 +304,17 @@ export default {
         camera: { view: "three", target: [0, 1.0, 0], dist: 4.4 },
         keys: [
           { t: 0, p: armCircle(0), cue: "Arm circles: 10 forward, arms long" },
-          { t: 0.5, p: armCircle(-120), e: "in" },
-          { t: 0.83, p: armCircle(-240), e: "lin" },
-          { t: 1.17, p: armCircle(-360), e: "lin" },
-          { t: 1.5, p: armCircle(-480), e: "lin" },
-          { t: 1.83, p: armCircle(-600), e: "lin" },
-          { t: 2.33, p: armCircle(-720), e: "out", cue: "Then 10 backward" },
-          { t: 2.83, p: armCircle(-600), e: "in" },
-          { t: 3.17, p: armCircle(-480), e: "lin" },
-          { t: 3.5, p: armCircle(-360), e: "lin" },
-          { t: 3.83, p: armCircle(-240), e: "lin" },
-          { t: 4.17, p: armCircle(-120), e: "lin" },
+          { t: 0.5, p: armCircle(120), e: "in" },
+          { t: 0.83, p: armCircle(240), e: "lin" },
+          { t: 1.17, p: armCircle(360), e: "lin" },
+          { t: 1.5, p: armCircle(480), e: "lin" },
+          { t: 1.83, p: armCircle(600), e: "lin" },
+          { t: 2.33, p: armCircle(720), e: "out", cue: "Then 10 backward" },
+          { t: 2.83, p: armCircle(600), e: "in" },
+          { t: 3.17, p: armCircle(480), e: "lin" },
+          { t: 3.5, p: armCircle(360), e: "lin" },
+          { t: 3.83, p: armCircle(240), e: "lin" },
+          { t: 4.17, p: armCircle(120), e: "lin" },
           { t: 4.67, p: armCircle(0), e: "out" },
         ],
       },
@@ -312,8 +327,8 @@ export default {
         loops: 1,
         close: false,
         keys: [
-          { t: 0, p: legSwing(0, 1, { hand: false }), cue: "One hand on a wall, stand tall" },
-          { t: 0.5, p: legSwing(0, 9), e: "smooth", cue: "Swing the leg front to back, 10 per leg" },
+          { t: 0, p: legSwing(0, 1, { hand: false }) },
+          { t: 0.5, p: legSwing(0, 9), e: "smooth", cue: "One hand on a wall, stand tall; swing front to back" },
           { t: 1.0, p: legSwing(-26, 18), e: "smooth" },
           { t: 1.4, p: legSwing(0, 22), e: "smooth" },
           { t: 1.8, p: legSwing(62, 6), e: "smooth" },
@@ -322,13 +337,13 @@ export default {
           { t: 3.0, p: legSwing(0, 22), e: "smooth" },
           { t: 3.4, p: legSwing(62, 6), e: "smooth" },
           { t: 4.0, p: legSwing(0, 9), cue: "Then swing the leg side to side, keep your hips square" },
-          { t: 4.4, p: legSwing(0, 9, { abduction: 30 }), e: "smooth" },
+          { t: 4.4, p: legSwing(0, 9, { abduction: 33 }), e: "smooth" },
           { t: 4.8, p: legSwing(0, 9), e: "smooth" },
-          { t: 5.2, p: legSwing(0, 9, { abduction: -25 }), e: "smooth" },
+          { t: 5.2, p: legSwing(16, 18, { abduction: -20 }), e: "smooth" },
           { t: 5.6, p: legSwing(0, 9), e: "smooth" },
-          { t: 6.0, p: legSwing(0, 9, { abduction: 30 }), e: "smooth" },
+          { t: 6.0, p: legSwing(0, 9, { abduction: 33 }), e: "smooth" },
           { t: 6.4, p: legSwing(0, 9), e: "smooth" },
-          { t: 6.8, p: legSwing(0, 9, { abduction: -25 }), e: "smooth" },
+          { t: 6.8, p: legSwing(16, 18, { abduction: -20 }), e: "smooth" },
           { t: 7.2, p: legSwing(0, 9), e: "smooth" },
           { t: 7.8, p: legSwing(0, 1, { hand: false }), cue: "Switch legs" },
           { t: 7.801, p: mirrorPose(makePose(legSwing(0, 1, { hand: false }))), e: "hold" },
@@ -356,13 +371,14 @@ export default {
       },
       {
         title: "Hip CARs",
+        props: [CAR_WALL],
         highlight: ["hips", "glutes"],
         camera: { view: [0.9, 0.3, 0.8], target: [0, 0.85, 0], dist: 3.9 },
         alternate: true,
         close: false,
         loops: 1,
         keys: [
-          { t: 0, p: hipCar(null), cue: "Hands on hips, pelvis still: knee up…" },
+          { t: 0, p: hipCar(null), cue: "One hand on the wall, pelvis still: knee up…" },
           { t: 1.0, p: hipCar([95, 5, 95]), e: "in", cue: "…open it out to the side…" },
           { t: 1.8, p: hipCar([85, 40, 95]), e: "lin" },
           { t: 2.6, p: hipCar([55, 70, 95]), e: "lin", cue: "…rotate it back…" },

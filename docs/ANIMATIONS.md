@@ -139,8 +139,8 @@ export default {
       {
         title: "Heels-elevated goblet squat",
         props: [{ type: "slant", pos: [0, 0, 0.04], w: 0.56, d: 0.36, angle: 14 }],
-        hold: { goblet: true },              // or { L: true, R: true, axis: "x" | "z" | "y" | "wx" | "wz" }
-        bands: [{ a: [0, 1.6, 1.2], b: "handL" }], // ends: world point or any joint name
+        hold: { goblet: true },              // or { both: true }, { L: true, R: true, axis: "x" | "z" | "y" | "wx" | "wz" }
+        bands: [{ a: [0, 1.6, 1.2], b: "handL", via: ["shoulderL"] }], // ends: world point or joint; optional via points route a band around the body
         highlight: ["quads", "glutes"],      // see GROUPS in mannequin.js
         camera: { view: "three", target: [0, 0.75, 0], dist: 3.5 },
         alternate: false,                    // true: plays the keys, then mirrored for the other side
@@ -188,6 +188,12 @@ export default {
 - **Highlight groups**: `quads, hamstrings, adductors, glutes, hips, calves, shins,
   ankles, feet, core, obliques, lowerBack, back, upperBack, chest, shoulders,
   rotatorCuff, biceps, triceps, arms, grip, neck, heart`.
+- **Holds**: `goblet` rests the top head of one dumbbell in both palms (goblet squat,
+  triceps extension). `both` puts both hands on one handle (swing, Jefferson curl).
+  A per-side hold puts a dumbbell in that hand. `axis` is the handle direction.
+- **Bands**: each pair in `bands` is one straight segment. Add `via` joint names or
+  world points to route a band around the body, for example over each shoulder in
+  the chest fly. Every segment uses the same band colour.
 
 ## Props
 

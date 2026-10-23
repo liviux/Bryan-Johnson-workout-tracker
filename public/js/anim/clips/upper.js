@@ -1,6 +1,6 @@
 // Animations for the upper-body exercises.
 import { ANKLE_Y, anchor, ground, joints, stand, transition } from "../poses.js";
-import { makePose, mirrorPose } from "../rig.js";
+import { DIM, makePose, mirrorPose } from "../rig.js";
 
 // Linear blend of two points.
 const mix = (a, b, t) => a.map((x, i) => x + (b[i] - x) * t);
@@ -32,27 +32,27 @@ function pushBody(theta) {
   const p = { rot: [90 - theta, 0, 0], legL: [0, 4, 0, -22], legR: [0, 4, 0, -22], neck: [-6, 0] };
   return anchor(p, "toeL", [0, 0.0, -0.92], "yz");
 }
-const PUSH_TOP = pushBody(16);
+const PUSH_TOP = pushBody(16.8);
 const PUSH_HANDS = (() => {
   const J = joints(PUSH_TOP);
   return { L: [0.2, 0.035, J.shoulderL.z + 0.02], R: [-0.2, 0.035, J.shoulderR.z + 0.02] };
 })();
 function pushup(theta) {
-  const reach = (theta - 5) / 11;
-  return { ...pushBody(theta), shrugL: [0, 0.018 * reach], shrugR: [0, 0.018 * reach], palmL: [0, 1, 0], palmR: [0, 1, 0], handsIn: "world", handL: PUSH_HANDS.L, handR: PUSH_HANDS.R, elbowL: [0.7, 0.35, -0.6], elbowR: [-0.7, 0.35, -0.6] };
+  const reach = (theta - 2) / 14.8;
+  return { ...pushBody(theta), shrugL: [0, 0.018 * reach], shrugR: [0, 0.018 * reach], palmL: [0, 1, 0], palmR: [0, 1, 0], handsIn: "world", handL: PUSH_HANDS.L, handR: PUSH_HANDS.R, elbowL: [0.38, 0.3, -0.8], elbowR: [-0.38, 0.3, -0.8] };
 }
 
 // ---------- pull-up / chin-up ----------
-const BAR_Y = 2.14;
+const BAR_Y = 2.265;
 const BAR_Z = 0.08;
-const DOORFRAME = { type: "doorframe", pos: [0, 0, -0.36], w: 0.9, h: 2.05, bar: true, barH: BAR_Y, barZ: BAR_Z + 0.36 };
-function hang(lift, { grip = 0.27, lean = 0, elbows = [0.55, -1, 0.1], supinated = false } = {}) {
+const DOORFRAME = { type: "doorframe", pos: [0, 0, -0.36], w: 0.9, h: 2.26, bar: true, barH: BAR_Y, barZ: BAR_Z + 0.36 };
+function hang(lift, { grip = 0.27, lean = 0, elbows = [0.3, -1, 0.3], supinated = false } = {}) {
   const p = { rot: [-lean, 0, 0], spine: [-8 * lift, 0, 0], shrugL: [-0.045 * lift, -0.035 * lift], shrugR: [-0.045 * lift, -0.035 * lift], legL: [12 + 8 * lift, 4, 70 - 10 * lift, 25], legR: [12 + 8 * lift, 4, 70 - 10 * lift, 25], neck: [-lift * 16, 0] };
-  const dx = grip - joints(p).shoulderL.x, dz = 0.22;
-  const top = BAR_Y - 0.085 - Math.sqrt(0.548 ** 2 - dx * dx - dz * dz) + lift;
+  const dx = grip - (DIM.shoulderX - 0.012), dz = 0.22;
+  const top = BAR_Y - 0.085 - Math.sqrt(0.548 ** 2 - dx * dx - dz * dz) - 0.025 + lift;
   // The face rises behind the projecting bar, clear of both the rail and door lintel.
   const placed = anchor(p, "shoulderL", [0, top, BAR_Z - dz], "yz");
-  return {
+  const out = {
     ...placed,
     handsIn: "world",
     handL: [grip, BAR_Y - 0.085, BAR_Z],
@@ -64,6 +64,7 @@ function hang(lift, { grip = 0.27, lean = 0, elbows = [0.55, -1, 0.1], supinated
     fingersL: [0, 1, 0],
     fingersR: [0, 1, 0],
   };
+  return out;
 }
 
 // ---------- one-arm dumbbell row ----------
@@ -79,7 +80,7 @@ const ROW_J = joints(ROW_BODY);
 function row(pull) {
   const sh = ROW_J.shoulderR;
   const stretch = [sh.x - 0.015, sh.y - 0.575, sh.z + 0.03]; // arm long, shoulder blade dropped
-  const atHip = [-0.215, sh.y - 0.13, sh.z - 0.255]; // dumbbell beside the lower ribs
+  const atHip = [-0.29, sh.y - 0.13, sh.z - 0.255]; // dumbbell beside the lower ribs
   const p = {
     ...ROW_BODY,
     footR: [-0.27, ANKLE_Y, 0.04],
@@ -90,7 +91,7 @@ function row(pull) {
     palmL: [0, 1, 0],
     handR: mix(stretch, atHip, pull),
     elbowL: [0.4, 0.3, -1],
-    elbowR: [-0.25, 1, -0.6],
+    elbowR: [-0.15, -0.5, -1],
   };
   return turn(p, 90, [-0.125, 0, 0]);
 }
@@ -98,19 +99,23 @@ function row(pull) {
 // ---------- standing dumbbell overhead press ----------
 // Hands in the chest frame: rack at the shoulders (palms in, elbows a bit forward) → straight arms.
 function ohpress(up) {
-  const rack = [0.255, -0.02, 0.135];
-  const top = [0.215, 0.52, -0.005];
+  const rack = [0.215, -0.02, 0.135];
+  const top = [0.2, 0.529, 0];
   const h = mix(rack, top, up);
-  h[2] += 0.045 * Math.sin(Math.PI * up); // clear the face before stacking over the shoulders
+  h[2] += 0.04 * Math.sin(Math.PI * up); // clear the face before stacking over the shoulders
+  const glide = Math.sin(Math.PI * up);
   return {
     ...stand({ root: [0, 0.935, 0] }),
-    shrugL: [0.02 * up, 0],
-    shrugR: [0.02 * up, 0],
+    tuck: 0.018 * glide,
+    neck: [-5 * glide, 0],
+    head: [5 * glide, 0],
+    shrugL: [0.012 * up, 0],
+    shrugR: [0.012 * up, 0],
     handsIn: "chest",
     handL: h,
     handR: [-h[0], h[1], h[2]],
-    elbowL: [0.4, -1, 0.5],
-    elbowR: [-0.4, -1, 0.5],
+    elbowL: [0.5, -1, 0.25],
+    elbowR: [-0.5, -1, 0.25],
   };
 }
 
@@ -154,7 +159,7 @@ function triceps(arm) {
 // ---------- dumbbell biceps curl ----------
 // Upper arms hang still at the sides; the forearms angle slightly out so the dumbbells clear the thighs.
 function curl(up) {
-  const arm = [4 + 3 * up, 10, 18 + 122 * up, 22 - 10 * up];
+  const arm = [4 + 3 * up, 13, 18 + 122 * up, 22 - 10 * up];
   const wrist = [0, 0, 65 * up];
   return { ...stand({ root: [0, 0.938, 0] }), shrugL: [-0.005, -0.01], shrugR: [-0.005, -0.01], armL: arm, armR: arm, wristL: wrist, wristR: wrist };
 }
@@ -165,7 +170,7 @@ function curl(up) {
 const FLY_DOOR = { type: "door", pos: [0, 0, -0.6], w: 0.86 };
 const FLY_ANCHORS = [[0.46, 1.28, -0.55], [-0.46, 1.28, -0.55]];
 function fly(close) {
-  const arm = [87, 95 - 93 * close, 22 + 10 * close, -90];
+  const arm = [87, 95 - 93 * close, 22 + 55 * close, -90];
   return {
     ...stand({ root: [0, 0.932, 0.03] }),
     rot: [4, 0, 0],
@@ -230,8 +235,8 @@ function farmer(ph) {
     toeR: R.toe,
     shrugL: [-0.012, -0.01],
     shrugR: [-0.012, -0.01],
-    armL: [swing, 9, 6, 0],
-    armR: [-swing, 9, 6, 0],
+    armL: [swing, 12, 8, 0],
+    armR: [-swing, 12, 8, 0],
   };
 }
 // Evenly spaced keys over one stride (the last equals the first, so the loop is seamless).
@@ -248,11 +253,11 @@ export default {
         highlight: ["chest", "triceps", "shoulders", "core"],
         camera: { view: [1, 0.42, 0.28], target: [0, 0.28, -0.12], dist: 3.9 },
         keys: [
-          { t: 0, p: pushup(16), cue: "Plank: body in one straight line" },
-          { t: 0.5, p: pushup(16), cue: "Lower until your chest is a fist above the floor" },
-          ...transition(pushup, 16, 5, 0.5, 2.2),
-          { t: 2.5, p: pushup(5), cue: "Press up until your arms are straight" },
-          ...transition(pushup, 5, 16, 2.5, 3.5),
+          { t: 0, p: pushup(16.8), cue: "Plank: body in one straight line" },
+          { t: 0.5, p: pushup(16.8), cue: "Lower until your chest is a fist above the floor" },
+          ...transition(pushup, 16.8, 2, 0.5, 2.2),
+          { t: 2.5, p: pushup(2), cue: "Press up until your arms are straight" },
+          ...transition(pushup, 2, 16.8, 2.5, 3.5),
         ],
       },
     ],
@@ -294,7 +299,7 @@ export default {
       {
         title: "One-arm dumbbell row",
         props: [ROW_BENCH],
-        hold: { R: true, axis: "wx" },
+        hold: { R: true, axis: "wz" },
         highlight: ["back", "upperBack", "biceps", "grip"],
         camera: { view: [0, 0.32, 1], target: [0, 0.6, 0], dist: 3.5 },
         alternate: true,
@@ -392,7 +397,10 @@ export default {
       {
         title: "Band chest fly",
         props: [FLY_DOOR],
-        bands: [{ a: FLY_ANCHORS[0], b: "handL" }, { a: FLY_ANCHORS[1], b: "handR" }],
+        bands: [
+          { a: FLY_ANCHORS[0], b: "handL", via: ["shoulderL"] },
+          { a: FLY_ANCHORS[1], b: "handR", via: ["shoulderR"] },
+        ],
         highlight: ["chest", "shoulders"],
         camera: { view: [0.4, 0.72, 1], target: [0, 1.0, -0.1], dist: 4.2 },
         keys: [

@@ -214,39 +214,45 @@ export function createHand(material, side) {
   const group = new THREE.Group(); group.name = "human-hand" + side;
   const s = side === "L" ? 1 : -1;
   const bones = [new THREE.Bone()], pieces = [];
+  // The palm runs back over the wrist so it covers the forearm's end when the
+  // wrist bends, and stays wide right up to the knuckles so every finger grows
+  // out of the palm instead of meeting it at a point.
   pieces.push(surface([
-    [-0.061, 0.02, 0.017], [-0.047, 0.024, 0.02], [-0.029, 0.032, 0.019],
-    [-0.008, 0.037, 0.016], [0.014, 0.037, 0.014], [0.028, 0.033, 0.012], [0.03, 0.026, 0.009], [0.032, 0.002, 0.002],
+    [-0.061, 0.02, 0.017], [-0.047, 0.024, 0.02], [-0.035, 0.028, 0.02],
+    [-0.03, 0.036, 0.019], [-0.01, 0.039, 0.018], [0.008, 0.041, 0.017],
+    [0.024, 0.042, 0.016], [0.036, 0.043, 0.015], [0.044, 0.042, 0.014],
+    [0.05, 0.04, 0.012], [0.051, 0.001, 0.001],
   ], () => [0, 0, 0], undefined, 24));
   const fingers = [];
+  const fingerRoot = 0.05;
   for (const [i, length] of [0.071, 0.079, 0.074, 0.06].entries()) {
     const indices = [], joints = [];
     let parent = bones[0];
     for (let j = 0; j < 3; j++) {
       const joint = new THREE.Bone();
       joint.name = "human-finger" + side + "-" + i + "-" + j;
-      joint.position.set(j === 0 ? (1.5 - i) * 0.0175 * s : 0, j === 0 ? 0.031 : length * [0.45, 0.32][j - 1], 0);
+      joint.position.set(j === 0 ? (1.5 - i) * 0.017 * s : 0, j === 0 ? fingerRoot : length * [0.45, 0.32][j - 1], 0);
       parent.add(joint); indices.push(bones.length); bones.push(joint); joints.push(joint); parent = joint;
     }
     const radius = [0.008, 0.0085, 0.008, 0.007][i];
-    const profile = [-0.006, 0, 0.14, 0.34, 0.45, 0.56, 0.68, 0.77, 0.87, 0.96, 1].map((u) => [
+    const profile = [-0.008, 0, 0.14, 0.34, 0.45, 0.56, 0.68, 0.77, 0.87, 0.96, 1].map((u) => [
       u * length, radius * (u > 0.96 ? 0.2 : 1 - 0.37 * Math.max(0, u)), radius * (u > 0.96 ? 0.2 : 0.92 - 0.31 * Math.max(0, u)),
     ]);
     const geometry = surface(profile, (y) => y < length * 0.56
       ? [indices[0], indices[1], THREE.MathUtils.smoothstep(y, length * 0.34, length * 0.56)]
       : [indices[1], indices[2], THREE.MathUtils.smoothstep(y, length * 0.68, length * 0.87)], undefined, 12);
-    geometry.translate((1.5 - i) * 0.0175 * s, 0.031, 0);
+    geometry.translate((1.5 - i) * 0.017 * s, fingerRoot, 0);
     pieces.push(geometry); fingers.push(joints);
   }
   const thumb = new THREE.Bone(), thumbTip = new THREE.Bone();
   thumb.name = "human-thumb" + side;
-  thumb.position.set(0.031 * s, -0.025, 0); thumb.rotation.z = -0.85 * s;
+  thumb.position.set(0.03 * s, -0.012, 0.002); thumb.rotation.z = -0.85 * s;
   thumbTip.position.y = 0.032; thumb.add(thumbTip); bones[0].add(thumb);
   const thumbIndex = bones.length; bones.push(thumb, thumbTip);
   bones[0].updateMatrixWorld(true);
   const thumbGeo = surface([
-    [-0.009, 0.014, 0.013], [0, 0.015, 0.014], [0.018, 0.012, 0.011],
-    [0.032, 0.01, 0.009], [0.047, 0.009, 0.008], [0.059, 0.007, 0.007], [0.064, 0.002, 0.002],
+    [-0.012, 0.02, 0.017], [0, 0.018, 0.016], [0.018, 0.014, 0.012],
+    [0.032, 0.011, 0.01], [0.047, 0.009, 0.008], [0.059, 0.007, 0.007], [0.064, 0.002, 0.002],
   ], (y) => [thumbIndex, thumbIndex + 1, THREE.MathUtils.smoothstep(y, 0.025, 0.04)], undefined, 12);
   thumbGeo.applyMatrix4(thumb.matrixWorld); pieces.push(thumbGeo);
   const geometry = mergeGeometries(pieces); pieces.forEach((g) => g.dispose());

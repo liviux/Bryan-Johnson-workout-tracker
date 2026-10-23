@@ -66,6 +66,31 @@ test("leg swings cover both planes while the stance foot and wall hand stay plan
   assert.deepEqual(Object.keys(planted).sort(), ["L", "R"]);
 });
 
+test("side-to-side leg swings cross in front of the standing leg", () => {
+  const clip = prepareClip(getAnimation("legswingside").clips[0]);
+  let crossings = 0;
+  for (let t = 0; t < clip.duration; t += 1 / 60) {
+    const { pose, mirrored } = sampleClip(clip, t), side = mirrored ? "R" : "L", other = side === "L" ? "R" : "L";
+    if (pose["leg" + side][1] > -10) continue;
+    const J = computeJoints(pose);
+    assert.ok(J["knee" + side].z > J["knee" + other].z + 0.05, `the ${side} thigh passes through the standing leg at ${t.toFixed(3)}s`);
+    assert.ok(J["ankle" + side].z > J["ankle" + other].z + 0.01, `the ${side} foot passes through the standing leg at ${t.toFixed(3)}s`);
+    crossings++;
+  }
+  assert.ok(crossings > 0);
+});
+
+test("dead hangs and leg raises use straight arms and leave the floor clear", () => {
+  for (const id of ["deadhang", "legraise"]) {
+    const clip = prepareClip(getAnimation(id).clips[0]), J = computeJoints(sampleClip(clip, 0).pose);
+    for (const side of ["L", "R"]) {
+      const bend = 180 - J["shoulder" + side].clone().sub(J["elbow" + side]).angleTo(J["wrist" + side].clone().sub(J["elbow" + side])) * 180 / Math.PI;
+      assert.ok(bend < 12, `${id}: ${side} elbow is bent ${bend.toFixed(1)}° in the full hang`);
+      assert.ok(J["toe" + side].y > 0.08, `${id}: ${side} foot is on the floor`);
+    }
+  }
+});
+
 test("pogo, heel-drop, and stomp palms stay just outside the torso through each movement", () => {
   const clips = ["pogo", "heeldrop"].flatMap((id) => getAnimation(id).clips);
   const ray = new Raycaster(), point = new Vector3();
