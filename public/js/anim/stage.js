@@ -623,7 +623,7 @@ export class Stage {
         // A goblet holds the top head in both palms, so the hands keep their own
         // cradling angle. Handle grips turn the knuckles to line up with the bar.
         if (hold[side] || hold.both) gripAxis[side] = new THREE.Vector3(1, 0, 0).applyQuaternion(this.dumbbells[hold.both ? "both" : side].quaternion);
-        else if (grip[side]) gripAxis[side] = new THREE.Vector3(1, 0, 0);
+        else if (grip[side] && !hold.goblet) gripAxis[side] = new THREE.Vector3(1, 0, 0);
       }
       this.figure.update(J, { t, still: time != null, id: this.id, title: clip.title, grip, gripAxis, breath: 0.5 - 0.5 * Math.cos(t * Math.PI * 2 / 4.2) });
       this.figure.setPulse(0.5 + 0.5 * Math.sin(s.phase * Math.PI * 2));
@@ -713,9 +713,10 @@ export class Stage {
         const mid = J.handL.clone().lerp(J.handR, 0.5);
         const up = new THREE.Vector3(0, 1, 0).applyMatrix4(J.Rc).normalize();
         d.goblet.visible = true;
-        // The top head rests in the palms: its underside sits at the hand centres,
-        // with the handle and lower head hanging below.
-        d.goblet.position.copy(mid).addScaledVector(up, -0.046);
+        // The top head rests in the palms: its inner face (the underside toward
+        // the handle) sits right at the hand centres, so the palms cup it with
+        // the handle and lower head hanging below.
+        d.goblet.position.copy(mid).addScaledVector(up, -0.07);
         d.goblet.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), up);
       }
       if (hold.both) {

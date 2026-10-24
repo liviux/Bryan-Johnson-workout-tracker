@@ -82,14 +82,14 @@ function sofaOnLegs(z, w, lift) {
 const SLANT = { type: "slant", pos: [0, 0, 0.04], w: 0.56, d: 0.36, angle: 14 };
 
 function gobletSquat(d) {
-  const f = onSlant(SLANT, 0.14, 0.0);
+  const f = onSlant(SLANT, 0.11, 0.0);
   return {
-    ...squat(d, { feet: { y: f.pos[1], z: f.pos[2], toe: f.toe, x: 0.14 } }),
-    rot: [24 * d, 0, 0],
+    ...squat(d, { feet: { y: f.pos[1], z: f.pos[2], toe: f.toe, x: 0.11 } }),
+    rot: [17 * d, 0, 0],
     spine: [2 * d, 0, 0],
     shrugL: [-0.008 * d, 0],
     shrugR: [-0.008 * d, 0],
-    neck: [-10 * d, 0],
+    neck: [-8 * d, 0],
     ...ARMS.goblet,
   };
 }
@@ -97,9 +97,33 @@ function gobletSquat(d) {
 // ---------- Poliquin step-up ----------
 // The slant board stays on the floor; the free heel taps just beyond its front edge.
 
-// RDL: dumbbells hang in front of the thighs (not through them) and slide down the legs.
+// RDL: dumbbells hang close to the thighs and slide down the legs. The hand
+// target is measured from each hinge pose's own shoulder and solved to sit just
+// in front of the thigh/shin line at the wrist's height, as deep as the arm can
+// reach — so the bells graze the legs instead of floating by the chest.
 function rdlPose(d) {
-  return hangArms(hinge(d), { fwd: 0.18 * (1 - 2 * d), out: 0.045, inward: 0, drop: 0.92 });
+  const body = hinge(d, { rot: [74 * d, 0, 0] });
+  const J = joints(body), sh = J.shoulderL;
+  const k = J.kneeL, a = J.ankleL;
+  const out = 0.05;
+  // z follows the front of the shin between knee and ankle, and the front of
+  // the thigh (knee + shin radius) above it. y comes from the reach budget.
+  let w = { x: sh.x + out, y: sh.y - 0.5, z: sh.z - 0.03 };
+  for (let i = 0; i < 8; i++) {
+    const dz = w.z - sh.z;
+    const dy = Math.sqrt(Math.max(0.09, 0.528 ** 2 - out * out - dz * dz));
+    const y = sh.y - dy;
+    const z = y <= k.y ? a.z + (k.z - a.z) * (y - a.y) / (k.y - a.y) + 0.05 : k.z + 0.1;
+    w = { x: sh.x + out, y, z };
+  }
+  return {
+    ...body,
+    handsIn: "world",
+    handL: [w.x, w.y, w.z],
+    handR: [-w.x, w.y, w.z],
+    elbowL: [0.25, 0, -1],
+    elbowR: [-0.25, 0, -1],
+  };
 }
 
 const PQ_BOARD = { type: "slant", pos: [0, 0, 0.06], w: 0.5, d: 0.28, angle: 15 };
@@ -121,7 +145,7 @@ function poliquin(d) {
   // d = 0: standing tall on the left leg, right leg straight in front; 1: heel tap
   const free = d < 0.5
     ? { footR: [-0.07, 0.18, 0.29], toeR: -12 }
-    : { footR: footAt("R", "heel", [-0.08, 0, 0.255], -22), toeR: -22 };
+    : { footR: toesUp(-0.08, 0.255, 22), toeR: -22 };
   return {
     root: mix([0.05, 0.993, 0.0], [0.05, 0.81, -0.02], d),
     rot: [2 + 10 * d, 0, -1.5 * d],
@@ -167,7 +191,7 @@ const ATG_KNEE = joints(ATG_DOWN).kneeR;
 // around the back knee, so it stays on the cushion while the front knee goes past the toes.
 function atgSlide(s) {
   const a = (47.6 * s * Math.PI) / 180;
-  return atgPose([0, ATG_KNEE.y + 0.44 * Math.cos(a), ATG_KNEE.z + 0.44 * Math.sin(a)], 6 + 6 * s, -3 - 5 * s, 70);
+  return atgPose([0, ATG_KNEE.y + 0.44 * Math.cos(a), ATG_KNEE.z + 0.44 * Math.sin(a) + 0.02 * s], 6 + 6 * s, -3 - 5 * s, 70);
 }
 
 // ---------- Nordic hamstring curl ----------
@@ -189,14 +213,10 @@ function nordic(theta, hands = "ready") {
   const body = nordicBody(theta);
   if (hands === "ready") return chestHands(body, [0.11, -0.2, 0.24], NORDIC_POLE);
   if (hands === "reach") return chestHands(body, [0.2, -0.41, 0.37], NORDIC_POLE);
-  // Plant the hands as far forward on the floor as the arms can actually reach.
-  const J = joints(body), hand = (s) => {
-    const x = 0.22 * s, sh = J["shoulder" + (s > 0 ? "L" : "R")];
-    const dy = 0.035 - sh.y, dx = x - sh.x;
-    const dz = Math.sqrt(Math.max(0.02, 0.53 ** 2 - dx * dx - dy * dy));
-    return [x, 0.035, sh.z + dz];
-  };
-  return { ...chestHands(body, [0, 0, 0], NORDIC_POLE), handL: hand(1), handR: hand(-1) };
+  // Plant both palms on one patch of floor: a static target computed at the 71°
+  // pose, so the wrists stay put while the body falls and pushes back up. Keys
+  // at 62° and below stay on "reach"; from 71° the hands are pinned on the spot.
+  return { ...chestHands(body, [0, 0, 0], NORDIC_POLE), handL: [0.22, 0.035, 1.135], handR: [-0.22, 0.035, 1.135] };
 }
 
 // ---------- reverse Nordic ----------
@@ -206,14 +226,14 @@ function revNordic(lean) {
   const slope = 2;
   const leg = [0, 3, 90 - slope + lean, 70];
   const p = { rot: [-lean, 0, 0], legL: leg, legR: leg, neck: [6, 0], armL: [78 + 0.15 * lean, 10, 12 + 0.12 * lean, 0], armR: [78 + 0.15 * lean, 10, 12 + 0.12 * lean, 0] };
-  return anchor(p, "kneeL", [0.118, 0.062, 0], "yz");
+  return anchor(p, "kneeL", [0.118, 0.066, 0], "yz");
 }
 
 // ---------- tibialis raise ----------
 // Back and hips on the wall, straight legs angled forward to the heels.
 
 const TIB_WALL_Z = -0.15; // front face of the wall
-const TIB_HEEL_Z = 0.29; // back of the heels, ~45 cm from the wall
+const TIB_HEEL_Z = 0.31; // back of the heels, 45–60 cm from the wall
 
 function tibRaise(lift) {
   const footL = toesUp(FOOT_X, TIB_HEEL_Z, lift);
@@ -271,8 +291,10 @@ const CALF_WALL = { type: "wall", pos: [0, 0, 0.54], w: 1.6, h: 2.3 };
 const CALF_EDGE_Z = 0.1; // balls of the feet, 3 cm in from the back edge
 
 function stepCalf(raise, oneLeg = true) {
+  const leg = 0.8622; // hip → ankle of a straight standing leg
   const footL = footAt("L", "ball", [0.12, 0.18, CALF_EDGE_Z], raise);
-  const pelvis = [oneLeg ? 0.05 : 0, footL[1] + 0.862, footL[2] - 0.01];
+  // Measure the pelvis from the *ankle* so it rises with the heel, knees straight.
+  const pelvis = [oneLeg ? 0.05 : 0, footL[1] + Math.sqrt(leg * leg - 0.11 * 0.11), footL[2] + 0.11];
   const footR = oneLeg
     ? [-0.06, pelvis[1] - 0.62, pelvis[2] - 0.3]
     : footAt("R", "ball", [-0.12, 0.18, CALF_EDGE_Z], raise);
@@ -313,9 +335,9 @@ const SWING_FEET = {
 // centre, so the dumbbell swings in front of the thighs instead of through them.
 function swing(stage) {
   const S = {
-    top: { legs: [0, 0], rot: -2, spine: -2, arm: [0, -0.12, 0.99], neck: 0 },
+    top: { legs: [0, 0], rot: -2, spine: -2, arm: [0, -0.18, 0.97], neck: 0 },
     drop: { legs: [1, 3], rot: 3, spine: 0, arm: [0, -0.74, 0.67], neck: 0 },
-    hike: { legs: [8, 26], rot: 52, spine: 4, arm: [0, -0.97, -0.16], neck: -24 },
+    hike: { legs: [8, 26], rot: 52, spine: 4, arm: [0, -0.90, -0.42], neck: -24 },
     snap: { legs: [2, 6], rot: 10, spine: 0, arm: [0, -0.55, 0.83], neck: -4 },
   }[stage];
   const { y, z } = legsTo(S.legs[0], S.legs[1]);
@@ -327,16 +349,16 @@ function swing(stage) {
     neck: [S.neck, 0],
   };
   const sh = joints(body).shoulderL;
-  const dir = S.arm, len = Math.hypot(...dir), reach = 0.5;
+  const dir = S.arm, len = Math.hypot(...dir), reach = 0.46;
   const hy = sh.y + (dir[1] / len) * reach;
   const hz = sh.z + (dir[2] / len) * reach;
   return {
     ...body,
     handsIn: "world",
-    handL: [0.04, hy, hz],
-    handR: [-0.04, hy, hz],
-    elbowL: [0.35, -0.1, -1],
-    elbowR: [-0.35, -0.1, -1],
+    handL: [0.05, hy, hz],
+    handR: [-0.05, hy, hz],
+    elbowL: [0.3, -0.1, -1],
+    elbowR: [-0.3, -0.1, -1],
   };
 }
 
@@ -359,7 +381,7 @@ function lunge(stage) {
     toeR = b.toe;
   }
   const p = { root: S.root, rot: [S.rot, 0, 0], neck: [-S.rot, 0], shrugL: [-0.008, 0], shrugR: [-0.008, 0], footL: [0.11, ANKLE_Y, 0], footR, toeR, kneeR: [0, -0.2, 1] };
-  return hangArms(p, { fwd: 0.035, out: 0.08, drop: 0.975 });
+  return hangArms(p, { fwd: 0.01, out: 0.055, drop: 0.975 });
 }
 
 // ---------- step-up ----------
@@ -393,7 +415,7 @@ function stepUp(stage, arms) {
     kneeL: [0.1, 0, 1],
     kneeR: [-0.1, 0, 1],
   };
-  return arms === "dumbbells" ? hangArms(p, { fwd: 0.03, out: 0.08, drop: 0.975 }) : { ...p, ...ARMS.hips };
+  return arms === "dumbbells" ? hangArms(p, { fwd: 0.005, out: 0.06, drop: 0.975 }) : { ...p, ...ARMS.hips };
 }
 
 // One rep: foot onto the box, drive up, stand tall, step back down slowly. cues: [setup, drive, lower]
@@ -446,7 +468,7 @@ export default {
           { t: 0, p: rdlPose(0), cue: "Dumbbells at your thighs, knees soft" },
           { t: 0.5, p: rdlPose(0), cue: "Push your hips back and keep your back flat" },
           { t: 1.75, p: rdlPose(0.5), e: "in" }, // in-between key keeps the hands on the arm's arc
-          { t: 3, p: rdlPose(1), e: "out", cue: "Stretch at mid-shin" },
+          { t: 3, p: rdlPose(1), e: "out", cue: "Full stretch: hang off the hips" },
           { t: 3.4, p: rdlPose(1), cue: "Drive the hips forward" },
           { t: 4.1, p: rdlPose(0.5), e: "in" },
           { t: 4.8, p: rdlPose(0), e: "out" },
@@ -516,12 +538,12 @@ export default {
           { t: 2.25, p: nordic(27), e: "lin" },
           { t: 3.0, p: nordic(42, "reach"), e: "lin" },
           { t: 3.55, p: nordic(53, "reach"), e: "lin", cue: "Catch yourself with your hands" },
-          { t: 3.9, p: nordic(62, "floor"), e: "lin" },
+          { t: 3.9, p: nordic(62, "reach"), e: "lin" },
           { t: 4.15, p: nordic(71, "floor"), e: "lin" },
           { t: 4.45, p: nordic(80, "floor"), e: "out" },
           { t: 4.7, p: nordic(80, "floor"), cue: "Push back up with your hands" },
           { t: 5.0, p: nordic(71, "floor"), e: "in" },
-          { t: 5.2, p: nordic(64, "floor"), e: "out", cue: "Hamstrings pull you back upright" },
+          { t: 5.2, p: nordic(64, "reach"), e: "out", cue: "Hamstrings pull you back upright" },
           { t: 5.75, p: nordic(45, "reach"), e: "in" },
           { t: 6.1, p: nordic(28), e: "lin" },
           { t: 6.42, p: nordic(13), e: "lin" },
@@ -576,7 +598,7 @@ export default {
       {
         title: "Seated dumbbell calf raise",
         props: [CALF_CHAIR, CALF_BOOK],
-        hold: { L: true, R: true, axis: "z" },
+        hold: { L: true, R: true, axis: "wx" },
         highlight: ["calves"],
         camera: { view: [1, 0.22, 0.35], target: [0, 0.68, 0.25], dist: 3.4 },
         keys: [
@@ -593,7 +615,7 @@ export default {
         title: "Single-leg calf raise on a step",
         props: [CALF_STEP, CALF_WALL],
         highlight: ["calves", "ankles"],
-        camera: { view: [1, 0.2, -0.5], target: [0, 1.0, 0.15], dist: 4.6 },
+        camera: { view: [1, 0.2, -0.15], target: [0, 1.0, 0.15], dist: 4.6 },
         alternate: true,
         keys: [
           { t: 0, p: stepCalf(0, false), cue: "Hands on the wall; stand on the step edge" },

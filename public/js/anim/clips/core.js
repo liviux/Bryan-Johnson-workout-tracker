@@ -11,21 +11,24 @@ function at(R, origin, [x, y, z]) {
 }
 
 // ---------- forearm plank ----------
+// On the mat, elbows under the shoulders: fists 1 cm inboard of the shoulder line,
+// wrists 0.035 above the mat so the palms rest flat. Contact constants carry MAT_Y.
 function plankBody(theta, breath = 0) {
-  const p = { rot: [90 - theta, 0, 0], spine: [-1 + breath, 0, 0], legL: [0, 4, 0, -22], legR: [0, 4, 0, -22], neck: [-4, 0] };
-  return anchor(p, "toeL", [0, 0, -0.95], "yz");
+  const p = { rot: [90 - theta, 0, 0], spine: [-1 + breath, 0, 0], legL: [0, 4, 0, -22], legR: [0, 4, 0, -22], neck: [4, 0] };
+  return anchor(p, "toeL", [0, MAT_Y, -0.95], "yz");
 }
 function plank(theta, breath = 0) {
   const body = plankBody(theta, breath);
   const J = joints(plankBody(5));
   const zEl = J.shoulderL.z + 0.02;
-  return { ...body, handsIn: "world", palmL: [0, 1, 0], palmR: [0, 1, 0], handL: [0.1, 0.039, zEl + 0.25], handR: [-0.1, 0.039, zEl + 0.25], elbowL: [0.25, -1, -0.2], elbowR: [-0.25, -1, -0.2] };
+  return { ...body, handsIn: "world", palmL: [0, 1, 0], palmR: [0, 1, 0], handL: [0.175, 0.035 + MAT_Y, zEl + 0.25], handR: [-0.175, 0.035 + MAT_Y, zEl + 0.25], elbowL: [0.25, -1, -0.2], elbowR: [-0.25, -1, -0.2] };
 }
 
 // ---------- quadruped (bird dog base) ----------
-const QUAD = pinHands(ground({ rot: [82, 0, 0], legL: [82, 4, 90, 80], legR: [82, 4, 90, 80], armL: [82, 4, 0, 0], armR: [82, 4, 0, 0], neck: [-8, 0], palmL: [0, 1, 0], palmR: [0, 1, 0] }, ["kneeL", "kneeR", "handL", "handR"]), "R");
+// Support hands sit under the shoulder line (abd 2° keeps the wrists within 2 cm).
+const QUAD = pinHands(ground({ rot: [82, 0, 0], legL: [82, 4, 90, 80], legR: [82, 4, 90, 80], armL: [82, 2, 0, 0], armR: [82, 2, 0, 0], neck: [-8, 0], palmL: [0, 1, 0], palmR: [0, 1, 0] }, ["kneeL", "kneeR", "handL", "handR"]), "R");
 function birdDog(reach) {
-  const p = pinHands({ ...QUAD, armL: [82 + 90 * reach, 4 + 2 * reach, 5 * Math.sin(Math.PI * reach), 0], legR: [82 * (1 - reach), 4 - reach, 90 - 88 * reach, 80 - 50 * reach], shrugL: [0.012 * reach, 0], elbowL: [0.3, 0, -1], elbowR: [-0.3, 0, -1] });
+  const p = pinHands({ ...QUAD, armL: [82 + 90 * reach, 2 + 2 * reach, 5 * Math.sin(Math.PI * reach), 0], legR: [82 * (1 - reach), 4 - reach, 90 - 88 * reach, 80 - 50 * reach], shrugL: [0.012 * reach, 0], elbowL: [0.3, 0, -1], elbowR: [-0.3, 0, -1] });
   // Lower the knees to the floor without moving the pinned palms.
   return { ...p, root: [p.root[0], p.root[1] - 0.018, p.root[2]] };
 }
@@ -33,8 +36,10 @@ function birdDog(reach) {
 // ---------- supine (dead bug base) ----------
 const SUPINE = ground({ rot: [-90, 0, 0], legL: [90, 4, 90, 10], legR: [90, 4, 90, 10], armL: [90, 6, 0, 0], armR: [90, 6, 0, 0], neck: [6, 0] }, ["pelvis", "thoracic", "head"], 0.008);
 function deadBug(reach) {
-  const leg = reach * reach * (3 - 2 * reach);
-  return { ...SUPINE, armL: [90 + 78 * reach, 6, 3 * Math.sin(Math.PI * reach), 0], legR: [Math.max(2, 90 - 89 * leg), 4, 90 - 86 * leg, 10 + 5 * leg] };
+  const s = reach * reach * (3 - 2 * reach); // both limbs share the same easing shaper
+  // 174° flexion swings the working fingers over the head toward the mat while the
+  // straightened leg reaches nearly level, toes pointing at the floor.
+  return { ...SUPINE, armL: [90 + 84 * s, 6, 0, 4], legR: [90 - 88 * s, 4, 90 - 86 * s, 10 + 2 * s] };
 }
 
 // ---------- hanging knee / leg raise ----------
@@ -51,15 +56,18 @@ function legRaise({ hip = 12, knee = 6, curl = 0, lean = 0, back = 0, plantar = 
     spine: [curl, 0, 0],
     legL: [hip, 2, knee, plantar],
     legR: [hip, 2, knee, plantar],
-    shrugL: [shrug, 0],
-    shrugR: [shrug, 0],
+    // A pulled-down hang retracts the blades a little as well; the passive hang keeps them.
+    shrugL: [shrug, shrug < 0 ? -0.012 : 0],
+    shrugR: [shrug, shrug < 0 ? -0.012 : 0],
     neck: [4, 0],
   };
-  // Shoulders sit one straight arm length below the hands. The shoulder blade
-  // lifts for the overhead reach, so aim the anchor 25 mm lower to compensate.
+  // Shoulders sit one straight arm length below the hands, less a 2 mm margin.
+  // A hang is an overhead reach to the rig: it lifts the blade ~25 mm right after the
+  // anchor pins the shoulder, so the drop backs that lift out — the wrists then land
+  // exactly on the bar with straight elbows instead of clamping below the authored spot.
   const dx = GRIP - (DIM.shoulderX - 0.012);
   const dz = 0.02 + back;
-  const shoulderY = BAR_Y - 0.085 - Math.sqrt(0.548 ** 2 - dx * dx - dz * dz) - 0.025;
+  const shoulderY = BAR_Y - 0.085 - Math.sqrt(0.55 ** 2 - dx * dx - dz * dz) + 0.002 - 0.025;
   return {
     ...anchor(p, "shoulderL", [0, shoulderY, BAR_Z - dz], "yz"),
     handsIn: "world",
@@ -171,6 +179,7 @@ export default {
     clips: [
       {
         title: "Forearm plank",
+        props: [{ type: "mat", pos: [0, 0, -0.2], w: 0.62, d: 1.9 }],
         highlight: ["core", "shoulders"],
         camera: { view: [1, 0.4, 0.3], target: [0, 0.25, -0.15], dist: 3.9 },
         keys: [
@@ -193,8 +202,8 @@ export default {
           { t: 0, p: birdDog(0), cue: "Hands under shoulders, knees under hips" },
           { t: 0.4, p: birdDog(0), cue: "Reach one arm forward and the opposite leg back" },
           ...transition(birdDog, 0, 1, 0.4, 1.8, "Hold 2 s, hips level"),
-          { t: 3.3, p: birdDog(1), cue: "Return slowly, switch sides" },
-          ...transition(birdDog, 1, 0, 3.3, 4.5),
+          { t: 3.8, p: birdDog(1), cue: "Return slowly, switch sides" },
+          ...transition(birdDog, 1, 0, 3.8, 5.0),
         ],
       },
     ],
@@ -290,8 +299,8 @@ export default {
         keys: [
           { t: 0, p: backExt(0), cue: "Face down, fingertips lightly at your temples" },
           { t: 0.8, p: backExt(0), cue: "Squeeze your glutes, lift your chest a few cm" },
-          { t: 2.2, p: backExt(19), cue: "Hold 1–2 s, eyes on the floor" },
-          { t: 3.7, p: backExt(19), cue: "Lower slowly" },
+          { t: 2.2, p: backExt(7), cue: "Hold 1–2 s, eyes on the floor" },
+          { t: 3.7, p: backExt(7), cue: "Lower slowly" },
           { t: 5.7, p: backExt(0) },
         ],
       },

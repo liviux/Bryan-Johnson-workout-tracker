@@ -79,7 +79,7 @@ const COW = { tilt: 18.5, flex: -28, neck: -24, shrug: -0.02 };
 // Thread the needle (right arm). u = −1 threaded: right hand slid under the body to the left,
 // chest turned down, right shoulder and temple toward the mat; 0 = hands and knees; +1 open:
 // chest turned up, right arm to the ceiling, eyes on the hand. Left hand and knees stay planted.
-const THREAD_UNDER = [0.42, 0.045 + MAT_Y, QUAD_HANDS.L[2] - 0.15]; // behind the left wrist
+const THREAD_UNDER = [0.42, 0.035 + MAT_Y, QUAD_HANDS.L[2] - 0.15]; // behind the left wrist, at the floor-palm height so the pad sits on the mat
 const THREAD_S0 = joints(quad()).shoulderR;
 function thread(u) {
   const under = Math.max(0, -u), open = Math.max(0, u);
@@ -109,17 +109,20 @@ const threadPose = (q) => thread(q.u ?? 0);
 
 // ---------- prone (cobra) ----------
 // Face down on the mat; lift = spine extension, the hips stay down. Low cobra: hands planted
-// beside the chest, wrists just behind the shoulder line, elbows drawn back along the ribs.
+// beside the chest with the wrists just behind the shoulder line; as the chest lifts the
+// shoulders drift so the palms ride along, finishing under the shoulder line (how-to: hands
+// under the shoulders). Elbows stay drawn back along the ribs.
 function proneBody(lift = 0) {
   const p = { rot: [88, 0, 0], spine: [-lift, 0, 0], lumbar: [-lift * 0.25, 0, 0], neck: [lift * 0.12, 0], shrugL: [-0.0002 * lift, -0.0003 * lift], shrugR: [-0.0002 * lift, -0.0003 * lift], legL: [6, 3, 6, 72], legR: [6, 3, 6, 72] };
   return ground(p, ["pelvis", "kneeL", "kneeR"], MAT_Y + 0.006);
 }
-const COBRA_J = joints(proneBody(0));
-const COBRA_HANDS = { L: [0.22, 0.035 + MAT_Y, COBRA_J.shoulderL.z - 0.07], R: [-0.22, 0.035 + MAT_Y, COBRA_J.shoulderR.z - 0.07] };
 function cobra(lift = 0) {
-  const s = Math.min(1, lift / 50); // elbow pole: up and back when flat, back along the ribs when lifted
+  const s = Math.min(1, lift / 50); // elbow pole and hand offset both trail the lift
   const pole = [0.15, 1 - 0.7 * s, -0.3 - 0.7 * s];
-  return { ...proneBody(lift), handsIn: "world", palmL: [0, 1, 0], palmR: [0, 1, 0], handL: COBRA_HANDS.L, handR: COBRA_HANDS.R, elbowL: pole, elbowR: [-pole[0], pole[1], pole[2]] };
+  const sh = joints(proneBody(lift)).shoulderL;
+  const zOffset = -0.07 + 0.07 * s; // 7 cm behind the shoulders when flat, under them at full lift, so the wrists stay within reach of the shoulder line
+  const handZ = sh.z + zOffset;
+  return { ...proneBody(lift), handsIn: "world", palmL: [0, 1, 0], palmR: [0, 1, 0], handL: [0.22, 0.035 + MAT_Y, handZ], handR: [-0.22, 0.035 + MAT_Y, handZ], elbowL: pole, elbowR: [-pole[0], pole[1], pole[2]] };
 }
 
 // ---------- kneeling (shin stretch, toe sit) ----------
@@ -224,31 +227,40 @@ function onFrontThigh(J, t) {
 const SOFA_FACE = -0.62; // z of the sofa's front
 const COUCH = (() => {
   const g = 14 * D2R; // shin lean back from vertical
-  const knee = [0.1, 0.051 + MAT_Y, SOFA_FACE + 0.37 * Math.tan(g) + 0.045 / Math.cos(g)];
+  // knee z = the shin's head start off the face (its back-lean run to seat height) plus a press
+  // term that plants the shin's front skin against the seat edge at seat height.
+  const knee = [0.1, 0.051 + MAT_Y, SOFA_FACE + 0.37 * Math.tan(g) + 0.048 / Math.cos(g)];
   return { knee, backAnkle: [knee[0], knee[1] + 0.43 * Math.cos(g), knee[2] - 0.43 * Math.sin(g)], backPlantar: -14, frontAnkle: [-0.12, 0.075 + MAT_Y, 0.06] };
 })();
 function couch(o, hands) {
   const body = halfKneel(o, COUCH);
-  return { ...body, handsIn: "world", ...onFrontThigh(joints(body), hands), elbowL: [0.6, -0.2, -1], elbowR: [-0.6, -0.2, -1] };
+  // Hands resting on the front thigh get palm frames so they read as resting: the open palm
+  // presses down onto the quad, fingers trailing down the thigh, dorsum riding above the surface.
+  return { ...body, handsIn: "world", ...onFrontThigh(joints(body), hands), palmL: [0, 0.45, 0.89], palmR: [0, 0.45, 0.89], fingersL: [0, -1, 0.6], fingersR: [0, -1, 0.6], elbowL: [0.6, -0.2, -1], elbowR: [-0.6, -0.2, -1] };
 }
 const COUCH_SET = { beta: 8, tilt: 12, torso: 30 }; // leaning on the front knee
 const COUCH_UP = { beta: 17, tilt: -10, torso: 0 }; // upright, glute squeezed, pelvis tucked
 
 // Hip flexor stretch: back knee on a cushion, top of the back foot flat on the mat.
-const CUSHION = { type: "step", pos: [0.1, 0, -0.27], w: 0.3, d: 0.24, h: 0.05 };
+// The cushion sits on the mat (its base on MAT_Y) and the knee's ball rests on its top surface.
+const CUSHION = { type: "step", pos: [0.1, MAT_Y, -0.27], w: 0.3, d: 0.17, h: 0.05 };
 const HIPFLEX = (() => {
-  const knee = [0.1, 0.05 + 0.051, -0.3];
+  // knee ball = cushion top (0.062) + knee radius; its rear shin and flat back foot follow.
+  const knee = [0.1, MAT_Y + 0.05 + 0.051, -0.3];
   const drop = knee[1] - (0.036 + MAT_Y);
   const run = Math.sqrt(0.43 ** 2 - drop ** 2);
   return { knee, backAnkle: [knee[0], knee[1] - drop, knee[2] - run], backPlantar: 76, frontAnkle: [-0.12, 0.075 + MAT_Y, 0.36] };
 })();
-// The back-leg-side (left) arm reaches up by angles; the right hand rests on the hip.
+// The back-leg-side (left) arm reaches up by angles; the right hand rests on the hip, framed
+// like ARMS.hips: palm against the pelvis, fingers down, back of the hand facing outward.
 function hipFlexor(o, reach = 0) {
   return {
     ...halfKneel(o, HIPFLEX),
     armL: [8 + 164 * reach, 8 + 10 * reach, 12 - 7 * reach, 0],
     handsIn: "pelvis",
     handR: [-0.23, 0.05, 0.03],
+    palmR: [1, 0, 0],
+    fingersR: [0, -1, 0],
     elbowR: [-1, 0, -0.3],
   };
 }
@@ -257,13 +269,14 @@ const HF_TUCK = { beta: 4, tilt: -10 };
 const HF_SHIFT = { beta: 15, tilt: -10 };
 
 // ---------- butterfly (cobbler's pose) ----------
-// Sitting on the mat, soles together, knees out (IK poles point sideways; the feet stay put).
-// hinge: forward tilt of the pelvis from the sitting bones (long spine); drop: knees sinking.
+// Sitting on the mat: the root holds the pelvis shell resting on the mat (a whisker above it),
+// soles together, knees out (IK poles point sideways; the feet stay put). hinge: forward tilt of
+// the pelvis from the sitting bones (long spine); drop: knees sinking.
 const BF_FEET = { x: 0.085, y: 0.068 + MAT_Y, z: 0.32 };
 function butterflyBody({ hinge = 0, drop = 0, breath = 0 }) {
   const pole = [1, 0.25 - drop, 0.1];
   const p = {
-    root: [0, MAT_Y + 0.12 + 0.012 * Math.sin(hinge * D2R), 0],
+    root: [0, MAT_Y + 0.105 + 0.012 * Math.sin(hinge * D2R), 0],
     rot: [hinge + 4, 0, 0],
     spine: [3 + hinge * 0.2 + breath, 0, 0],
     neck: [hinge * 0.15, 0],
@@ -281,13 +294,18 @@ function butterfly(o) {
   const body = butterflyBody(o);
   const J = joints(body);
   // Hands holding the feet: the hand rests on the instep, so the wrist sits a little short of it.
+  // The wrist has to be on an arm's chain (≤ 0.52 from the shoulder), so the grip target is
+  // clamped by the shortfall: d − 0.50 pulled back along the shoulder→instep line.
   const grip = (s) => {
     const a = J["ankle" + s], b = J["ball" + s], sh = J["shoulder" + s];
     const g = [(a.x + b.x) / 2 * 0.7, (a.y + b.y) / 2 + 0.06, (a.z + b.z) / 2];
     const d = Math.hypot(sh.x - g[0], sh.y - g[1], sh.z - g[2]);
-    return g.map((v, i) => v + ([sh.x, sh.y, sh.z][i] - v) * (0.06 / d));
+    const short = Math.max(0, d - 0.50);
+    return g.map((v, i) => v + ([sh.x, sh.y, sh.z][i] - v) * (short / d));
   };
-  return { ...body, shrugL: [0, (o.hinge ?? 0) * 0.0004], shrugR: [0, (o.hinge ?? 0) * 0.0004], handsIn: "world", handL: grip("L"), handR: grip("R"), elbowL: [1, -0.4, -0.2], elbowR: [-1, -0.4, -0.2] };
+  // Palm frames wrap the insteps: the back-of-hand tilts over the outside of the foot and the
+  // fingers hang down across its top, so the palm side presses the instep instead of floating.
+  return { ...body, shrugL: [0, (o.hinge ?? 0) * 0.0004], shrugR: [0, (o.hinge ?? 0) * 0.0004], handsIn: "world", palmL: [0.92, 0.33, -0.22], palmR: [-0.92, 0.33, -0.22], fingersL: [0, -1, 0.6], fingersR: [0, -1, 0.6], handL: grip("L"), handR: grip("R"), elbowL: [1, -0.4, -0.2], elbowR: [-1, -0.4, -0.2] };
 }
 
 // ---------- standing hamstring stretch ----------
@@ -328,10 +346,11 @@ function hamstring({ step = 1, hinge = 0, breath = 0 }) {
 // Standing on the right leg. The left foot is an IK target: on the floor, lifted, then pressed
 // into the inner right thigh above the knee, with the knee pole pointing out to the side.
 // The foot follows the shin ("shin" mode), so its sole faces the standing thigh.
+// The mat carries the standing foot: ankle at ANKLE_Y + MAT_Y keeps its sole on the mat top.
 const TREE_FOOT = {
-  floor: { at: [FOOT_X, ANKLE_Y, 0], pole: [0.15, 0, 1], ankle: 0 }, // ankle flattened in tree()
+  floor: { at: [FOOT_X, ANKLE_Y + MAT_Y, 0], pole: [0.15, 0, 1], ankle: 0 }, // ankle flattened in tree()
   lifted: { at: [0.05, 0.36, 0.1], pole: [0.8, 0, 0.7], ankle: 10 },
-  thigh: { at: [-0.085, 0.775, 0.02], pole: [1, -0.15, 0.5], ankle: 5 },
+  thigh: { at: [-0.035, 0.775, 0.02], pole: [1, -0.2, 0.45], ankle: 8 },
 };
 // Hands (chest frame): palms together at the chest, in front of the face, overhead.
 const TREE_HANDS = {
@@ -342,11 +361,11 @@ const TREE_HANDS = {
 function tree({ shift = 1, foot = "thigh", hands = "chest", sway = 0 }) {
   const F = TREE_FOOT[foot], H = TREE_HANDS[hands];
   const p = {
-    root: [-0.07 * shift + 0.008 * sway, STAND_Y - 0.01, 0],
+    root: [-0.07 * shift + 0.008 * sway, STAND_Y - 0.012, 0],
     rot: [0, 0, sway * 0.8],
     spine: [0, -sway * 0.8, 0],
     turnout: 0, // the lifted foot follows its shin, so keep both feet pointing straight ahead
-    footR: [-FOOT_X, ANKLE_Y, 0],
+    footR: [-FOOT_X, ANKLE_Y + MAT_Y, 0],
     footL: F.at,
     kneeL: F.pole,
     footModeL: "shin",

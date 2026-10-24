@@ -85,6 +85,7 @@ const highKneeKeys = (cue) => cycle((ph) => onTheSpot(ph, HIGH_KNEES), HIGH_KNEE
 // ---------- step-ups ----------
 
 const STEP = { type: "step", pos: [0, 0, 0.4], w: 0.62, d: 0.34, h: 0.18 };
+const MAT = { type: "mat", pos: [0, 0, -0.2], w: 1.0, d: 2.4 }; // workout mat under the floor drills
 const ON = { y: STEP.h + ANKLE_Y, z: 0.36 }; // ankle on top of the step
 // Phases of one step-up cycle led by the left foot: up, up, down, down.
 // Each: pelvis, left/right foot ("on" the step, "push" off the toes, [height, depth, pitch] in the air,
@@ -143,12 +144,15 @@ function stepClip(dt, cues, style) {
 
 // ---------- jumping jacks ----------
 
+// Arms run 0.06 of a cycle ahead of the legs, so they peak overhead as the feet
+// touch down wide instead of holding there through the bottom of the hop.
+const PHI = 2 * Math.PI * 0.06;
 function jack(ph) {
   const outward = ph < 0.5, u = (ph * 2) % 1;
   const flight = Math.min(1, Math.max(0, (u - 0.12) / 0.76));
   const sweep = flight * flight * (3 - 2 * flight);
   const open = outward ? sweep : 1 - sweep;
-  const arms = 0.5 - 0.5 * Math.cos(2 * Math.PI * ph);
+  const arms = 0.5 - 0.5 * Math.cos(2 * Math.PI * ph + PHI);
   const hop = 4 * flight * (1 - flight), air = 0.075 * hop;
   const x = 0.09 + 0.27 * open;
   const pitch = 10 + 16 * hop;
@@ -171,8 +175,10 @@ function jack(ph) {
 
 // ---------- straight-arm plank: mountain climbers and burpees ----------
 
-// Body straight from heels to head, pivoting on the toes (built like the push-up, 20° up from the floor).
-const PLANK = anchor({ rot: [74, 0, 0], legL: [0, 4, 0, -22], legR: [0, 4, 0, -22], neck: [-6, 0], palmL: [0, 1, 0], palmR: [0, 1, 0] }, "toeL", [0, 0, -0.92], "yz");
+// Body straight from heels to head, resting on the balls of the feet (built like the push-up,
+// 20° up from the floor): with the toes still anchored, 32° of pitch puts ball and toe on the
+// floor together (heel up ~10 cm) instead of balancing on the toe tips alone.
+const PLANK = anchor({ rot: [74, 0, 0], legL: [0, 4, 0, -42], legR: [0, 4, 0, -42], neck: [-6, 0], palmL: [0, 1, 0], palmR: [0, 1, 0] }, "toeL", [0, 0, -0.92], "yz");
 const PLANK_J = joints(PLANK);
 const PLANK_TOE = Math.asin(-PLANK_J.footFL.y) / D2R; // the plank's toes as a floor pitch
 const HAND_Y = 0.035; // palm flat on the floor, with the wrist extended
@@ -183,7 +189,8 @@ const v3 = (v, dz = 0) => [v.x, v.y, v.z + dz];
 // in a strict plank (the knee sits 0.44 m from the hip, so it needs that height to pass under the hip
 // without touching the floor). Hands and shoulders stay where the plank put them.
 // Each foot: "back" (toes on the floor, leg long), "in" (knee under the chest, toes off the floor),
-// "out" (on its way back, nearly long) or "up" (on its way in, knee lifting).
+// "out" (on its way back, pitched flat enough that ball and toe clear the floor) or
+// "up" (on its way in, knee lifting). The return arcs ride low, close to the floor.
 const CLIMB_BODY = anchor({ rot: [86, 0, 0], neck: [-8, 0] }, "neckBase", v3(PLANK_J.neckBase), "xyz");
 const CLIMB_BACK = (() => {
   const hip = joints(CLIMB_BODY).hipL;
@@ -192,9 +199,9 @@ const CLIMB_BACK = (() => {
 })();
 const CLIMB_FEET = {
   back: (s) => ({ pos: [CLIMB_BACK[0] * s, CLIMB_BACK[1], CLIMB_BACK[2]], toe: PLANK_TOE, knee: [0.1 * s, -1, 0.15] }),
-  in: (s) => ({ pos: [0.12 * s, 0.24, 0.1], toe: 62, knee: [0.15 * s, -0.2, 1] }),
-  out: (s) => ({ pos: [0.14 * s, 0.24, -0.82], toe: 45, knee: [0.1 * s, -1, 0.3] }),
-  up: (s) => ({ pos: [0.13 * s, 0.26, -0.42], toe: 55, knee: [0.05 * s, -0.5, 1] }),
+  out: (s) => ({ pos: [0.14 * s, 0.14, -0.82], toe: 30, knee: [0.1 * s, -1, 0.3] }), // return: ball ~7 mm / toe ~9 mm above the floor
+  in: (s) => ({ pos: [0.12 * s, 0.20, 0.12], toe: 55, knee: [0.10 * s, -0.2, 1] }), // tucked knee to the chest
+  up: (s) => ({ pos: [0.13 * s, 0.18, -0.42], toe: 55, knee: [0.05 * s, -0.5, 1] }),
 };
 function climber(l, r) {
   const L = CLIMB_FEET[l](1), R = CLIMB_FEET[r](-1);
@@ -285,6 +292,7 @@ function highKneesClip(title, cue) {
 function jacksClip(title, cue) {
   return {
     title,
+    thumb: 0.5,
     highlight: ["heart", "calves", "shoulders"],
     camera: CAM.jacks,
     loops: 4,
@@ -294,6 +302,8 @@ function jacksClip(title, cue) {
 function climbersClip(title, cue) {
   return {
     title,
+    thumb: 0.34,
+    props: [MAT],
     highlight: ["heart", "core", "hips"],
     camera: CAM.plank,
     alternate: true,
@@ -316,7 +326,7 @@ export default {
         highlight: ["heart"],
         camera: CAM.spot,
         loops: 3,
-        keys: cycle((ph) => onTheSpot(ph, MARCH), MARCH.T, 10, "March gently during the rest; count each round"),
+        keys: cycle((ph) => onTheSpot(ph, MARCH), MARCH.T, 10, "March gently during your rest; adjust the pace to the effort"),
       },
     ],
   },
@@ -338,6 +348,8 @@ export default {
       jacksClip("Jumping jacks", "Jumping jacks; side-step jacks for a quiet version"),
       {
         title: "Burpee without push-up",
+        thumb: 1.0,
+        props: [MAT],
         highlight: ["heart", "quads", "core"],
         camera: CAM.burpee,
         keys: [
@@ -358,12 +370,28 @@ export default {
     clips: [
       {
         title: "Zone 2 step-ups",
+        thumb: 1.35,
         props: [STEP],
         highlight: ["heart", "quads", "glutes"],
         camera: CAM.step,
         alternate: true,
-        ...stepClip(0.27, ["Steady step-ups on a 15–20 cm step, talking pace", null, null, null, null, "Up, up, down, down; alternate the lead leg"], { arm: 18, elbow: 28 }),
+        ...stepClip(0.24, ["Steady step-ups on a 15–20 cm step, talking pace", null, null, null, null, "Up, up, down, down; alternate the lead leg"], { arm: 20, elbow: 28 }),
       },
     ],
   },
+};
+
+// Vigorous gets its own honest clip: the Zone-2 demo talks, this one breathes hard.
+export const vigorous = {
+  clips: [{
+    title: "Vigorous: fast alternating step-ups",
+    props: [STEP],
+    highlight: ["heart", "quads", "glutes"],
+    camera: CAM.step,
+    alternate: true,
+    ...stepClip(0.19, [
+      "Vigorous pace on the step: breathing hard, only a few words between breaths",
+      "Up, up, down, down; keep the pace controlled; alternate the lead leg",
+    ], { arm: 28, elbow: 45 }),
+  }],
 };

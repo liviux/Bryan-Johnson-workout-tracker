@@ -147,7 +147,7 @@ export function pinFeet(p, which = "LR") {
 // Common arm placements (IK in the chest frame unless noted).
 export const ARMS = {
   hips: { handsIn: "pelvis", handL: [0.185, 0.06, 0.03], handR: [-0.185, 0.06, 0.03], elbowL: [1, 0, -0.3], elbowR: [-1, 0, -0.3], palmL: [-1, 0, 0], palmR: [1, 0, 0], fingersL: [0, -1, 0], fingersR: [0, -1, 0] },
-  goblet: { handsIn: "chest", handL: [0.043, -0.21, 0.20], handR: [-0.043, -0.21, 0.20], elbowL: [0.3, -1, 0.2], elbowR: [-0.3, -1, 0.2] },
+  goblet: { handsIn: "chest", handL: [0.056, -0.21, 0.20], handR: [-0.056, -0.21, 0.20], elbowL: [0.3, -1, 0.2], elbowR: [-0.3, -1, 0.2] },
   chest: { handsIn: "chest", handL: [0.05, -0.12, 0.13], handR: [-0.05, -0.12, 0.13], elbowL: [0.6, -1, 0], elbowR: [-0.6, -1, 0] },
   prayer: { handsIn: "chest", handL: [0.02, -0.14, 0.2], handR: [-0.02, -0.14, 0.2], elbowL: [1, -0.6, 0], elbowR: [-1, -0.6, 0] },
   overhead: { armL: [175, 12, 5, 0], armR: [175, 12, 5, 0] },

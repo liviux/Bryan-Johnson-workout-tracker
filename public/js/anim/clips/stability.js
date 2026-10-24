@@ -42,7 +42,7 @@ function sidebend(d) {
     handsIn: "world",
     handR: hang,
     elbowR: [-0.3, 0, -1],
-    handL: [p.root[0] + 0.165, p.root[1] + 0.1, 0.02],
+    handL: [p.root[0] + 0.105 - 0.02 * d, p.root[1] + 0.1, 0.02], // palm flat against the ribcage flank through the bend
     elbowL: [1, 0, -0.3],
     palmL: [-1, 0, 0],
     fingersL: [0, -1, 0],
@@ -87,17 +87,22 @@ function slrdl(phase, { bothHands = false } = {}) {
   // phase 0 = both feet down, 1 = on the left leg, 2 = bottom of the hinge
   const lift = Math.min(phase, 1), h = Math.max(phase - 1, 0);
   const root = mix([0.06 * lift, STAND_Y - 0.004 - 0.008 * lift, 0], SL_ROOT, h);
-  const a = (15 + (SL_PITCH - 15) * h) * Math.PI / 180;
-  const length = 0.828 + 0.034 * h;
+  // a/length hang the hind leg off the root: they start on the phase-1 pose
+  // (ankle 0.135 high, 0.28 behind the root — the just-off-floor end) and end on
+  // the 88° hinge, so the arc continues exactly where the mix leaves the foot.
+  const a = (19.3 + (SL_PITCH - 19.3) * h) * Math.PI / 180;
+  const length = 0.846 + 0.016 * h;
   const p = {
     root,
     rot: [SL_PITCH * h, 0, 0],
     spine: [bothHands ? 0 : 24 * h, 0, 0],
     neck: [-14 * h, 0],
     footL: [FOOT_X, ANKLE_Y, 0],
-    kneeL: [0.1, 0, 1],
-    footR: h > 0 ? [root[0] - 0.095, root[1] - length * Math.cos(a), root[2] - length * Math.sin(a)] : mix([-FOOT_X, ANKLE_Y, 0], [-0.12, 0.135, -0.22], lift),
-    toeR: 25 * lift + 65 * h,
+    kneeL: [0.1, 0, 0.6],
+    // The lifted foot rides the lift-phase outboard offset while the leg extends,
+    // so no side shift or z jump at the lift→hinge junction.
+    footR: h > 0 ? [root[0] - 0.095 - 0.085 * (1 - h), root[1] - length * Math.cos(a), root[2] - length * Math.sin(a)] : mix([-FOOT_X, ANKLE_Y, 0], [-0.12, 0.135, -0.28], lift),
+    toeR: 28 * lift + 65 * h,
     kneeR: [0, -0.3 * h, 1 - 1.3 * h],
   };
   // Both hands IK so the two-footed start is mirror-symmetric: they hang at the sides, then the
@@ -171,9 +176,11 @@ export default {
       {
         title: "Band Pallof press",
         props: [PALLOF_DOOR],
-        bands: [{ a: PALLOF_ANCHOR, b: "handL" }],
+        // Both fists close on the band: the door anchors the first segment, the
+        // second spans the two hands the way the woodchop and jefferson clips do.
+        bands: [{ a: PALLOF_ANCHOR, b: "handL" }, { a: "handL", b: "handR" }],
         highlight: ["core", "obliques"],
-        camera: { view: [0, 1.05, 1], target: [0, 0.85, -0.25], dist: 4.0 },
+        camera: { view: [0, 0.22, 1], target: [0, 0.85, -0.25], dist: 4.0 },
         alternate: true,
         close: false,
         keys: [
@@ -229,7 +236,7 @@ export default {
         props: [JC_STEP],
         hold: { both: true },
         highlight: ["lowerBack", "back", "hamstrings"],
-        camera: { view: "side", target: [0, 0.9, 0.05], dist: 4.2 },
+        camera: { view: "side", target: [0, 0.95, 0.05], dist: 4.2 },
         keys: [
           { t: 0, p: jefferson(0, 0, 0), cue: "On a step, legs straight, light weight" },
           { t: 0.6, p: jefferson(0, 0, 0), cue: "Tuck your chin, roll down slowly" },
@@ -237,8 +244,8 @@ export default {
           { t: 2.8, p: jefferson(40, 52, 8, 0.04), e: "lin" },
           { t: 4.0, p: jefferson(42, 90, 66, 0.2), e: "out", cue: "Hang 2–3 s, let the weight pull you down" },
           { t: 6.5, p: jefferson(42, 90, 66, 0.2), cue: "Roll up slowly from your lower back, lifting your head last" },
-          { t: 7.6, p: jefferson(42, 74, 22, 0.08), e: "in" },
-          { t: 8.7, p: jefferson(38, 26, 0), e: "lin" },
+          { t: 7.6, p: jefferson(42, 74, 22, 0.08), e: "smooth" },
+          { t: 8.7, p: jefferson(38, 26, 0), e: "smooth" },
           { t: 9.8, p: jefferson(0, 0, 0), e: "out" },
         ],
       },

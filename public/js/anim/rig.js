@@ -216,11 +216,10 @@ export function computeJoints(pose) {
     // The shoulder blade rotates up with an overhead reach, rather than a fixed ball joint.
     shoulder.add(apply(Rc, -s * 0.012 * raised, 0.025 * raised, 0));
     J["shoulder" + side] = shoulder;
-    let elbow, wrist, foreRef;
+    let elbow, wrist, foreRef, pole = null;
     if (ik) {
       // Default elbow direction: back, down and slightly out, relative to the chest.
       const poleIn = P["elbow" + side];
-      let pole;
       if (handFrame) {
         pole = poleIn ? dirOf(handFrame.R, ...poleIn) : dirOf(Rc, 0.35 * s, -0.4, -0.85);
       } else {
@@ -245,7 +244,17 @@ export function computeJoints(pose) {
     const fore = new THREE.Vector3().subVectors(wrist, elbow).normalize();
     let ref = foreRef || dirOf(Rc, 0, 0, 1);
     ref.addScaledVector(fore, -ref.dot(fore));
-    if (ref.lengthSq() < 1e-6) ref = dirOf(Rc, 0, 1, 0).addScaledVector(fore, -dirOf(Rc, 0, 1, 0).dot(fore));
+    if (ref.lengthSq() < 1e-6) {
+      // A clamped-straight IK arm loses the elbow's hinge plane. Fall back to
+      // the elbow pole's perpendicular part, then the chest, so grips keep a
+      // coherent axis instead of an arbitrary flip.
+      let alt = pole ? pole.clone() : dirOf(Rc, 0, 1, 0);
+      ref = alt.addScaledVector(fore, -alt.dot(fore));
+      if (ref.lengthSq() < 1e-6) {
+        alt = dirOf(Rc, 0, 1, 0);
+        ref = alt.addScaledVector(fore, -alt.dot(fore));
+      }
+    }
     ref.normalize();
     const lateral = new THREE.Vector3().crossVectors(fore, ref).normalize();
     const wr = P["wrist" + side];

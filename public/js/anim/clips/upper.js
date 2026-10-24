@@ -23,6 +23,8 @@ function turn(p, deg, shift = [0, 0, 0]) {
     for (const k of ["handL", "handR"]) if (p[k]) out[k] = pos(p[k]);
     for (const k of ["elbowL", "elbowR"]) if (p[k]) out[k] = dir(p[k]);
   }
+  // Palm and finger normals are world directions; they share the turn.
+  for (const k of ["palmL", "palmR", "fingersL", "fingersR"]) if (p[k]) out[k] = dir(p[k]);
   return out;
 }
 
@@ -39,7 +41,8 @@ const PUSH_HANDS = (() => {
 })();
 function pushup(theta) {
   const reach = (theta - 2) / 14.8;
-  return { ...pushBody(theta), shrugL: [0, 0.018 * reach], shrugR: [0, 0.018 * reach], palmL: [0, 1, 0], palmR: [0, 1, 0], handsIn: "world", handL: PUSH_HANDS.L, handR: PUSH_HANDS.R, elbowL: [0.38, 0.3, -0.8], elbowR: [-0.38, 0.3, -0.8] };
+  const skipped = 0.018 * (1 - reach); // blades splay as the chest nears the floor
+  return { ...pushBody(theta), shrugL: [0, skipped], shrugR: [0, skipped], palmL: [0, 1, 0], palmR: [0, 1, 0], handsIn: "world", handL: PUSH_HANDS.L, handR: PUSH_HANDS.R, elbowL: [0.38, 0.3, -0.8], elbowR: [-0.38, 0.3, -0.8] };
 }
 
 // ---------- pull-up / chin-up ----------
@@ -77,21 +80,29 @@ const ROW_H = 0.42;
 const ROW_BENCH = { type: "bench", pos: [0, 0, -0.13], rotY: 90, w: 0.42, d: 1.05, h: ROW_H };
 const ROW_BODY = anchor({ rot: [82, 0, 0], legL: [82, 2, 88, 40], neck: [-8, 0] }, "kneeL", [0.11, ROW_H + 0.05, 0], "yz");
 const ROW_J = joints(ROW_BODY);
+// The grip stays neutral through the rep: the back of the hand faces out, the
+// fingers wrap down across the handle, so the wrist never has to churn between
+// a pronated hang and a supinated squeeze.
+const ROW_GRIP = {
+  palmR: [-0.98, 0.05, -0.2],
+  fingersR: [0, -1, 0],
+};
 function row(pull) {
   const sh = ROW_J.shoulderR;
-  const stretch = [sh.x - 0.015, sh.y - 0.575, sh.z + 0.03]; // arm long, shoulder blade dropped
+  const stretch = [sh.x - 0.015, sh.y - 0.53, sh.z + 0.03]; // arm long, shoulder blade down
   const atHip = [-0.29, sh.y - 0.13, sh.z - 0.255]; // dumbbell beside the lower ribs
   const p = {
     ...ROW_BODY,
     footR: [-0.27, ANKLE_Y, 0.04],
     kneeR: [-0.35, 0, 1],
-    shrugR: [0, 0.03 - 0.05 * pull],
+    shrugR: [0.012 - 0.02 * pull, 0.03 - 0.055 * pull],
     handsIn: "world",
     handL: [ROW_J.shoulderL.x + 0.015, ROW_H + 0.032, ROW_J.shoulderL.z + 0.07],
     palmL: [0, 1, 0],
     handR: mix(stretch, atHip, pull),
     elbowL: [0.4, 0.3, -1],
-    elbowR: [-0.15, -0.5, -1],
+    elbowR: [-0.15, -0.6, -0.35],
+    ...ROW_GRIP,
   };
   return turn(p, 90, [-0.125, 0, 0]);
 }
@@ -100,7 +111,7 @@ function row(pull) {
 // Hands in the chest frame: rack at the shoulders (palms in, elbows a bit forward) → straight arms.
 function ohpress(up) {
   const rack = [0.215, -0.02, 0.135];
-  const top = [0.2, 0.529, 0];
+  const top = [0.2, 0.535, 0]; // near-lockout, straight through the raised blades
   const h = mix(rack, top, up);
   h[2] += 0.04 * Math.sin(Math.PI * up); // clear the face before stacking over the shoulders
   const glide = Math.sin(Math.PI * up);
@@ -148,9 +159,9 @@ function floorpress(up) {
 // rotation keeps both hands on the one dumbbell all the way down behind the head.
 const TRI = {
   top: [168, -11, 12, -17],
-  high: [168, -11, 50, -14],
-  low: [168, -11, 88, -18],
-  bottom: [168, -11, 124, -31],
+  high: [168, -11, 50, -40],
+  low: [168, -11, 88, -62],
+  bottom: [168, -11, 124, -85],
 };
 function triceps(arm) {
   return { ...stand({ root: [0, 0.938, 0] }), neck: [5, 0], shrugL: [0.015, 0], shrugR: [0.015, 0], armL: arm, armR: arm };
@@ -406,8 +417,10 @@ export default {
         keys: [
           { t: 0, p: fly(0), cue: "Band behind you at chest height, arms wide" },
           { t: 0.4, p: fly(0), cue: "Bring your hands together in front of your chest, as if hugging a tree" },
+          { t: 1.05, p: fly(0.55), e: "lin" },
           { t: 1.6, p: fly(1), cue: "Squeeze 1 s" },
           { t: 2.6, p: fly(1), cue: "Return slowly, elbows slightly bent" },
+          { t: 3.6, p: fly(0.55), e: "lin" },
           { t: 4.6, p: fly(0) },
         ],
       },

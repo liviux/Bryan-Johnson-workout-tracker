@@ -7,12 +7,12 @@ import legs from "./legs.js";
 import upper from "./upper.js";
 import core from "./core.js";
 import stability from "./stability.js";
-import cardio from "./cardio.js";
+import cardio, { vigorous as vigorousClip } from "./cardio.js";
 import mobility from "./mobility.js";
 import posture from "./posture.js";
 
 const ALL = { ...warmup, ...power, ...legs, ...upper, ...core, ...stability, ...cardio, ...mobility, ...posture };
-ALL.vigorous = cardio.zone2;
+ALL.vigorous = vigorousClip;
 for (const [id, movement] of Object.entries(MOVEMENTS)) {
   let clip = { ...ALL[movement.source].clips[movement.clip], title: movement.name };
   if (movement.part === "front" || movement.part === "side") {

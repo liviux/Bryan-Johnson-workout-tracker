@@ -103,11 +103,11 @@ function skip(stage) {
     case "step": // right foot steps down, left foot about to leave the floor
       return { ...base, root: [0, 0.885, 0.02], footR: tiptoe(stance, 15, -7), toeR: 15, kneeR: [-0.12, 0, 1], footL: tiptoe([0.11, ANKLE_Y, 0], 38, 7), toeL: 38, kneeL: [0.12, 0, 1], armL: [30, 10, 85, 0], armR: [10, 10, 85, 0] };
     case "push": { // right leg extends, left knee drives, right arm swings high
-      const p = { ...base, root: [-0.01, 0.995, 0.03], footR: tiptoe(stance, 42, -7), toeR: 42, kneeR: [-0.12, 0, 1], ...arms(95) };
+      const p = { ...base, root: [-0.01, 1.02, 0.03], footR: tiptoe(stance, 42, -7), toeR: 42, kneeR: [-0.12, 0, 1], ...arms(95) };
       return { ...p, ...legIK(p, "L", [62, 4, 95]), toeL: 10 };
     }
     default: { // "air": top of the skip
-      const p = { ...base, root: [-0.01, 1.13, 0.03], footR: tiptoe([-0.11, ANKLE_Y + 0.135, 0.0], 40, -7), toeR: 40, kneeR: [-0.12, 0, 1], ...arms(118) };
+      const p = { ...base, root: [-0.01, 1.13, 0.03], footR: tiptoe([-0.11, ANKLE_Y + 0.135, 0.0], 40, -7), toeR: 40, kneeR: [-0.12, 0, 1], ...arms(130) };
       return { ...p, ...legIK(p, "L", [96, 4, 100]), toeL: 5 };
     }
   }
@@ -116,7 +116,8 @@ const SKIP_LAND = skip("land");
 
 // ---------- Heidens (skater bounds) ----------
 
-// Stuck on the right leg at x = −BOUND/2: hips back, knee over the toes, the free leg tucked behind.
+// Stuck on the right leg at x = −BOUND/2: hips back, knee over the toes, the free leg trailing
+// extended behind the body.
 // The arms have swung across toward the right (the way the body was travelling).
 const BOUND = 1.0;
 function skater(stage) {
@@ -125,7 +126,7 @@ function skater(stage) {
     case "stick": {
       const { y, z } = legsTo(18, 48);
       const p = { root: [xR + 0.075, y, z], rot: [36, 0, -4], spine: [8, -6, -10], neck: [-20, 0], footR: [xR, ANKLE_Y, 0], kneeR: [0.05, 0, 1], toeR: 0, armL: [70, -22, 40, 0], armR: [-50, 12, 20, 0] };
-      return { ...p, ...legIK(p, "L", [62, -14, 92]), toeL: 25 };
+      return { ...p, ...legIK(p, "L", [-8, 8, 78]), toeL: 25 };
     }
     case "load": {
       const { y, z } = legsTo(24, 58);
@@ -152,38 +153,46 @@ const SKATE_STICK = skater("stick");
 // rotation, which would move an off-centre anchorX to the far edge while the band end stays put.
 const DOOR = { type: "door", pos: [1.0, 0, 0.2], rotY: -65, w: 0.86, anchorH: 1.9, anchorX: 0 };
 const ANCHOR = [DOOR.pos[0] + 0.04 * Math.sin(DOOR.rotY * D2R), DOOR.anchorH, DOOR.pos[2] + 0.04 * Math.cos(DOOR.rotY * D2R)];
-const CHOP_R = [-0.2, ANKLE_Y, 0]; // planted right foot (ankle)
-const CHOP_BALL_L = [0.2, BALL_PT[0]]; // ball of the pivoting left foot (x, z), level with the right one
+const CHOP_BALL_L = [0.2, BALL_PT[0]]; // ball of the planted left foot (x, z), level with the right one
+const CHOP_BALL_R = [-0.2, BALL_PT[0]]; // ball spot the back foot pivots on: welded while the heel lifts
 
 // High-to-low chop, u = 0 (arms long toward the anchor, up and left) … 1 (hands at the right hip).
 // Hands are held in the chest frame at arm's length and well in front of the chest, so the band
-// crosses in front of the body rather than through it. Feet stay in "ground" mode: turnout = hip
-// yaw keeps the right foot pointing ahead, which turns the left foot twice as far as the hips: out
-// toward the anchor at the start, pivoted on its ball (heel up) toward the chop at the end.
+// crosses in front of the body rather than through it. Feet stay in "ground" mode: the left foot
+// plants flat on its ball-pivot footprint and keeps pointing ahead while the hips turn, and the
+// back (right) foot takes the turn: out toward the anchor side at the start would leave the leg
+// stretched, so it starts square and sweeps 56° on its ball (heel up) toward the chop at the end —
+// the back-foot pivot the how-to asks for.
 // `ready` is the square stance between sides, handle at the chest.
 function chop(u, ready = false) {
   const mix = (a, b) => (ready ? 0 : a + (b - a) * u);
   const yaw = mix(18, -28);
   const lift = Math.sin(Math.PI * u);
-  const cx = ready ? 0 : mix(0.07, -0.08);
-  const cy = ready ? -0.02 : mix(0.33, -0.25);
   const cz = (ready ? 0.34 : mix(0.32, 0.40)) + (ready ? 0 : 0.06 * lift);
   const heel = 32 * u * u * (ready ? 0 : 1);
-  const footYaw = 2 * yaw;
-  const flatL = [CHOP_BALL_L[0] - BALL_PT[0] * Math.sin(footYaw * D2R), ANKLE_Y, CHOP_BALL_L[1] - BALL_PT[0] * Math.cos(footYaw * D2R)];
+  const footYaw = mix(0, -56);
+  const flatR = [CHOP_BALL_R[0] - BALL_PT[0] * Math.sin(footYaw * D2R), ANKLE_Y, CHOP_BALL_R[1] - BALL_PT[0] * Math.cos(footYaw * D2R)];
+  // Planted lead foot: the ankle sits back along the foot from its ball spot, flat all chop.
+  const flatL = [CHOP_BALL_L[0], ANKLE_Y, CHOP_BALL_L[1] - BALL_PT[0]];
+  // The stop keeps both arms inside the 0.546 reach cap: the left hand crosses to the body midline.
+  const cx = ready ? 0 : mix(0.07, -0.07);
+  const cy = ready ? -0.02 : mix(0.33, -0.35);
+  const spread = ready ? 0.03 : mix(0.03, 0.07);
   return {
-    root: [mix(0.05, -0.06), ready ? 0.93 : mix(0.92, 0.87), mix(0, 0.02)],
+    root: [mix(0.05, -0.06), ready ? 0.93 : mix(0.92, 0.885), mix(0, 0.02)],
     rot: [mix(2, 10), yaw, 0],
     spine: [mix(-4, 14), mix(-8, 6), mix(42, -24)],
     neck: [mix(-10, 6), 0],
-    turnout: yaw,
-    footR: CHOP_R,
-    toeR: 0,
-    footL: tiptoe(flatL, heel, footYaw),
-    toeL: heel,
+    turnout: 0,
+    footYawL: 0,
+    footYawR: footYaw,
+    footR: tiptoe(flatR, heel, footYaw),
+    toeR: heel,
+    footL: flatL,
+    toeL: 0,
     handsIn: "chest",
-    handL: [cx + 0.03, cy, cz],
-    handR: [cx - 0.03, cy, cz],
+    handL: [cx + spread, cy, cz],
+    handR: [cx - spread, cy, cz],
     elbowL: [0.55, -0.8, -0.35],
     elbowR: [-0.55, -0.8, -0.35],
   };
@@ -196,19 +205,21 @@ export default {
     clips: [
       {
         title: "Snap-down (phase 1)",
+        props: [{ type: "mat", pos: [0, -0.012, 0.06], w: 0.62, d: 1.85 }], // top flush with the sole contact
         highlight: ["quads", "glutes", "calves"],
         camera: { view: [0.8, 0.22, 0.75], target: [0, 1.05, 0], dist: 4.7 },
         keys: [
           { t: 0, p: tall("down"), cue: "Rise onto your toes, arms up" },
           { t: 0.9, p: tall("up", 30) },
           { t: 1.3, p: tall("up", 30), cue: "Drop fast into a quarter squat, arms back" },
-          { t: 1.65, p: crouch(20, 46, "back"), e: "smooth", cue: "Hold the landing for 2 s, knees over your toes" },
-          { t: 3.65, p: crouch(20, 46, "back"), cue: "Stand up and reset" },
+          { t: 1.65, p: crouch(14, 36, "back"), e: "smooth", cue: "Hold the landing for 2 s, knees over your toes" },
+          { t: 3.65, p: crouch(14, 36, "back"), cue: "Stand up and reset" },
           { t: 4.8, p: tall("down") },
         ],
       },
       {
         title: "Squat jump (phase 2)",
+        props: [{ type: "mat", pos: [0, -0.012, 0.06], w: 0.62, d: 1.85 }], // top flush with the sole contact
         highlight: ["quads", "glutes", "calves"],
         camera: { view: [0.8, 0.22, 0.75], target: [0, 1.22, 0], dist: 5.7 },
         keys: [
@@ -217,7 +228,7 @@ export default {
           { t: 2.0, p: crouch(28, 66, "back"), cue: "Jump as high as you can" },
           { t: 2.22, p: crouch(14, 32, "low"), e: "in" },
           { t: 2.42, p: tall("swingUp", 42), e: "lin" },
-          { t: 2.67, p: airborne(0.3, "up"), e: "out", cue: "Land softly in the same spot" },
+          { t: 2.67, p: airborne(0.42, "up"), e: "out", cue: "Land softly in the same spot" },
           { t: 2.92, p: tall("swingUp", 34), e: "in" },
           { t: 3.17, p: crouch(26, 58, "front"), e: "out", cue: "Hold 2 s, knees over the toes" },
           { t: 5.17, p: crouch(26, 58, "front"), cue: "Stand up; full rest between jumps" },
@@ -226,6 +237,7 @@ export default {
       },
       {
         title: "Countermovement jump (phase 3)",
+        props: [{ type: "mat", pos: [0, -0.012, 0.06], w: 0.62, d: 1.85 }], // top flush with the sole contact
         highlight: ["quads", "glutes", "calves"],
         camera: { view: [0.8, 0.22, 0.75], target: [0, 1.28, 0], dist: 6.0 },
         keys: [
@@ -234,7 +246,7 @@ export default {
           { t: 0.75, p: crouch(24, 56, "back"), cue: "…then a max-height jump" },
           { t: 0.92, p: crouch(12, 28, "low"), e: "in" },
           { t: 1.1, p: tall("swingUp", 42), e: "out" },
-          { t: 1.4, p: airborne(0.38, "up"), e: "out", cue: "Stick the landing" },
+          { t: 1.4, p: airborne(0.48, "up"), e: "out", cue: "Stick the landing" },
           { t: 1.7, p: tall("swingUp", 34), e: "in" },
           { t: 1.95, p: crouch(24, 54, "front"), e: "out", cue: "Hold: knees track over the toes" },
           { t: 3.45, p: crouch(24, 54, "front"), cue: "Stand up; full rest between jumps" },
@@ -289,10 +301,13 @@ export default {
       {
         title: "Band woodchop",
         props: [DOOR],
-        bands: [{ a: ANCHOR, b: "handL" }, { a: "handL", b: "handR" }],
+        // The band rides over the shoulder the way the chest fly does, so it never cuts through
+        // the left shoulder near the bottom of the chop; via endpoints follow the live joints.
+        bands: [{ a: ANCHOR, b: "handL", via: ["shoulderL"] }, { a: "handL", b: "handR" }],
         highlight: ["obliques", "core", "shoulders"],
         camera: { view: [0, 0.22, 1], target: [0, 1.0, 0.1], dist: 5.0 },
         alternate: true,
+        close: false, // the mirrored setup key is the half's endpoint, not a blend back to the far side
         keys: [
           { t: 0, p: chop(0, true), cue: "Side-on to the door, band in front; handle at your chest" },
           { t: 0.3, p: chop(0, true) },
@@ -303,7 +318,7 @@ export default {
           { t: 2.8, p: chop(0.67), e: "in" },
           { t: 3.6, p: chop(0.33), e: "lin" },
           { t: 4.4, p: chop(0), e: "out" },
-          { t: 5.1, p: chop(0, true), cue: "Repeat the same number of reps on the other side" },
+          { t: 5.1, p: mirrorPose(makePose(chop(0, true))), cue: "Repeat the same number of reps on the other side" },
         ],
       },
     ],

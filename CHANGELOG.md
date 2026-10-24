@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.36.6] - 2026-10-23
+
+### Fixed
+- Every exercise animation was re-audited against the plan; this pass reworks the woodchop: the band wraps over the shoulder instead of through the body, the back foot pivots, and the hands finish at the hip.
+- Dumbbells stay in the hands through whole reps: the goblet squat cups the weight at the chest, the swing passes between the thighs with relaxed arms, and reverse lunges, step-ups and calf raises hang level at the sides.
+- Rows keep the elbow beside the ribs with a neutral grip, and standing presses keep palms facing in from rack to lockout.
+- Pull bars close tightly on the hands with straight arms in hangs and leg raises; forearm planks put the elbows under the shoulders on a mat.
+- Wall-supported drills keep the supporting hand planted the whole time (leg swings and standing hip CARs), and hip CARs circle both directions as the steps describe.
+- Resting contacts land where they should: the Nordic catch, butterfly seat and instep grips, cobra hands under the shoulders, couch stretch shin on the sofa, side bend hand on the waist, tree foot against the thigh and kneeling cushion on the floor.
+- The neck hold demos a full 10-second hold, external rotation sweeps up-and-back, heel drops land with soft knees, jumps land on a mat at quarter-squat depth, climbers rest the forefoot and the Pallof press closes both fists.
+- Grips no longer pop through their rotation mid-rep; handles turn through the shortest step instead.
+
+### Changed
+- **Plan change:** Side-to-side leg swings say "Stand tall with one hand on the wall" (the animation stands square, not side-on).
+- Vigorous cardio shows its own fast-pace demo with matching coach cues instead of the Zone 2 "talking pace" lines; the marching-on-the-spot cue no longer mentions round counting.
+- Coach audio rebuilt for all five voices for the side-swing sentence; 1,355 recordings per voice are reused.
+
 ## [1.36.5] - 2026-10-23
 
 ### Fixed

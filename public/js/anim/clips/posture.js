@@ -41,7 +41,7 @@ function slouched() {
     spine: [25, 0, 0],
     neck: [15, 0],
     head: [-27, 0], // rot + spine + neck + head = 0: eyes level
-    tuck: -0.015,
+    tuck: -0.032,
     ...shrug(-0.006, 0.035),
     ...relaxedArms(12, { rot: -25, elbow: 14 }),
   });
@@ -84,7 +84,7 @@ function wallArms(p, up, fore) {
   const out = { ...p, handsIn: "world" };
   for (const [side, s] of [["L", 1], ["R", -1]]) {
     const S = J["shoulder" + side];
-    const ez = WALL_Z + 0.09, wz = WALL_Z + 0.035; // elbow and wrist centres, limb radius off the wall
+    const ez = WALL_Z + 0.08, wz = WALL_Z + 0.036; // elbow sits clear of the wall; the forearm lies flat
     const ru = Math.sqrt(DIM.upperArm ** 2 - (ez - S.z) ** 2);
     const E = [S.x + s * ru * Math.sin(up * D2R), S.y - ru * Math.cos(up * D2R), ez];
     const rf = Math.sqrt(DIM.forearm ** 2 - (wz - ez) ** 2);
@@ -121,15 +121,16 @@ const TOP = [0.045, 0.012]; // up toward the ears, slightly forward
 // A closed door in front; the band is looped round an anchor at face height (rotY 180 turns
 // the anchor side toward the figure) and both ends are held.
 const DOOR_Z = 1.12;
-const DOOR = { type: "door", pos: [0, 0, DOOR_Z], rotY: 180, anchorH: 1.66 };
-const ANCHOR = [0, 1.66, DOOR_Z - 0.07];
+// The knob (rotY 180 turns its local x around) sits hinge-side at world x −0.4.
+const DOOR = { type: "door", pos: [0, 0, DOOR_Z], rotY: 180, anchorH: 1.66, anchorX: 0.4 };
+const ANCHOR = [-0.4, 1.66, DOOR_Z - 0.07];
 const mirrorX = (v) => [-v[0], v[1], v[2]];
 function faceArms(hand, pole, sh) {
   return stand({ tuck: 0.01, ...shrug(...sh), handsIn: "world", handL: hand, handR: mirrorX(hand), elbowL: pole, elbowR: mirrorX(pole) });
 }
 function facePull(pull) {
   const mix = (a, b) => a.map((v, i) => v + (b[i] - v) * pull);
-  const wrist = [0, 0, -35 * pull];
+  const wrist = [0, 0, -55 * pull];
   return { ...faceArms(mix([0.075, 1.585, 0.535], [0.26, 1.69, 0.06]), mix([1, -0.4, -0.1], [1, 0.05, -0.35]), mix([0.004, 0.028], [-0.006, -0.03])), wristL: wrist, wristR: wrist };
 }
 
@@ -378,13 +379,13 @@ export default {
         alternate: true,
         close: false,
         keys: [
-          { t: 0, p: elbowOnKnee(-55), cue: "Prop one foot up and rest your elbow on the knee at 90°" },
-          { t: 0.001, p: elbowOnKnee(-55), e: "hold" },
-          { t: 0.6, p: elbowOnKnee(-55), cue: "Rotate the forearm up and back" },
-          ...transition(elbowOnKnee, -55, 50, 0.6, 1.8),
-          { t: 2.2, p: elbowOnKnee(50), cue: "Lower slowly in 2–3 s, shoulder blade down" },
-          ...transition(elbowOnKnee, 50, -55, 2.2, 4.69),
-          { t: 4.7, p: mirrorPose(makePose(elbowOnKnee(-55))), e: "hold" },
+          { t: 0, p: elbowOnKnee(50), cue: "Prop one foot up and rest your elbow on the knee at 90°" },
+          { t: 0.001, p: elbowOnKnee(50), e: "hold" },
+          { t: 0.6, p: elbowOnKnee(50), cue: "Rotate the forearm up and back" },
+          ...transition(elbowOnKnee, 50, -55, 0.6, 1.8),
+          { t: 2.2, p: elbowOnKnee(-55), cue: "Lower slowly in 2–3 s, shoulder blade down" },
+          ...transition(elbowOnKnee, -55, 50, 2.2, 4.69),
+          { t: 4.7, p: mirrorPose(makePose(elbowOnKnee(50))), e: "hold" },
         ],
       },
       {
@@ -420,11 +421,9 @@ export default {
           { t: 0.5, p: neckPose(0, 0), cue: "Hand on the forehead, push gently back" },
           { t: 0.95, p: neckPose(0, 0.5), e: "in" },
           { t: 1.4, p: neckPose(0), e: "out" },
-          { t: 1.6, p: neckPose(0), cue: "Neck resists, head still: hold" },
-          { t: 5.6, p: neckPose(0), cue: "Relax; 5 holds at 30–50% effort" },
-          { t: 6.05, p: neckPose(0, 0.5), e: "in" },
-          { t: 6.5, p: neckPose(0, 0), e: "out" },
-          { t: 7.0, p: neckPose(0, 0) },
+          { t: 1.6, p: neckPose(0), cue: "Neck resists, head still: hold for 10 s" },
+          { t: 11.6, p: neckPose(0), cue: "Relax; that's one hold — repeat 5× at 30–50% effort" },
+          { t: 12.2, p: neckPose(0, 0) },
         ],
       },
       {

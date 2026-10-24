@@ -57,14 +57,16 @@ function armIK(p, side, [flex, abd, elbow]) {
 
 // ---------- single-leg balance ----------
 
-// Standing on the right leg; the left knee lifts in front.
+// Standing on the right leg; the left knee lifts in front. sway 1 wobbles the figure a
+// full breath around the stance foot, and eyes 10 nods the head toward the floor for the
+// eyes-closed progression.
 function oneLeg(sway = 0, eyes = 0) {
   return {
-    root: [-0.05 + sway * 0.01, STAND_Y - 0.004, 0],
-    rot: [0, 0, sway * 1.2],
+    root: [-0.05 + sway * 0.015, STAND_Y - 0.004, 0],
+    rot: [0, 0, sway * 2.0],
     spine: [0, -sway * 1.2, 0],
     footR: [-FOOT_X, ANKLE_Y, 0],
-    footL: [FOOT_X - 0.02, 0.44, 0.14],
+    footL: [FOOT_X - 0.02, 0.32, -0.02], // lifted quiet and clear, toes hanging down
     toeL: 28,
     ...ARMS.hips,
     head: [eyes, 0],
@@ -125,7 +127,7 @@ function backwalk(ph, { dumbbells = false } = {}) {
 
 // Feet hip-width, hands on hips. Most of the spring comes from the ankles; knees stay almost straight.
 const HIP_HANDS = { ...ARMS.hips, handL: [0.17, 0.05, 0.03], handR: [-0.17, 0.05, 0.03] };
-function pogo(stage) {
+function pogo(stage, pushPitch = 30) {
   const feet = (pitch, lift) => ({
     footL: tiptoe([FOOT_X, ANKLE_Y + lift, 0], pitch, 7),
     footR: tiptoe([-FOOT_X, ANKLE_Y + lift, 0], pitch, -7),
@@ -134,9 +136,22 @@ function pogo(stage) {
   });
   const base = { ...HIP_HANDS, rot: [3, 0, 0], neck: [-3, 0] };
   if (stage === "bottom") return { ...base, root: [0, 0.934, 0.0], ...feet(0, 0) }; // heels kiss the floor
-  if (stage === "push") return { ...base, root: [0, 0.997, 0.045], ...feet(30, 0) }; // on the balls, legs long
+  if (stage === "push") return { ...base, root: [0, 0.997, 0.045], ...feet(pushPitch, 0) }; // on the balls, legs long; pushPitch caps the rise (heel drops lift 3–5 cm)
   return { ...base, root: [0, 1.05, 0.045], ...feet(32, 0.05) }; // flight, toes pointed
 }
+
+// Heel-drop landing: the whole weight arrives on flat feet with the knees visibly soft
+// (root ≈ 7 cm below the push height bends the knees about 25°), hands kept at the hips.
+const HEEL_LAND = {
+  ...HIP_HANDS,
+  root: [0, 0.9244, 0],
+  rot: [4, 0, 0],
+  neck: [-4, 0],
+  footL: tiptoe([FOOT_X, ANKLE_Y, 0], 0, 7),
+  footR: tiptoe([-FOOT_X, ANKLE_Y, 0], 0, -7),
+  toeL: 0,
+  toeR: 0,
+};
 
 // ---------- dynamic series ----------
 
@@ -154,7 +169,13 @@ function legSwing(flex, knee, { hand = true, abduction = 3 } = {}) {
   const legs = {
     root: [0, STAND_Y, 0],
     neck: [-3, 0],
-    legR: [0, 3, 1, 0],
+    // IK stance, like the hipCar pose (the shin-following FK foot used to dip a few
+    // millimetres below the floor). The ankle target carries ground()'s 4 mm contact
+    // radius, so the sole lands on the floor while the leg stays just short of full
+    // reach; the knee pole pushes its sideways solve bulge behind the ankle so the
+    // swinging leg crosses well in front of the standing knee.
+    footR: [-FOOT_X, ANKLE_Y + 0.004, 0],
+    kneeR: [0, 0, -1],
     legL: [flex, abduction, knee, knee > 1 ? (flex < 10 ? -10 : 6) : 0], // toes up as the foot brushes past the floor
   };
   const p = { ...ground(legs, ["heelR", "ballR"]), handsIn: "world" };
@@ -265,9 +286,9 @@ export default {
         keys: [
           { t: 0, p: stand(ARMS.hips), cue: "Hands on hips, a wall beside you; lift one foot" },
           { t: 0.8, p: oneLeg(0), cue: "Hold for 30 s; close your eyes once this feels easy" },
-          { t: 2.2, p: oneLeg(1) },
-          { t: 3.6, p: oneLeg(-1) },
-          { t: 4.6, p: oneLeg(0), cue: "Lower the foot" },
+          { t: 2.2, p: oneLeg(1, 10) }, // eyes closed once the hold feels easy
+          { t: 3.6, p: oneLeg(-1, 10) },
+          { t: 4.6, p: oneLeg(0, 10), cue: "Lower the foot" },
           { t: 5.4, p: stand(ARMS.hips), cue: "Switch legs" },
         ],
       },
@@ -327,7 +348,7 @@ export default {
         loops: 1,
         close: false,
         keys: [
-          { t: 0, p: legSwing(0, 1, { hand: false }) },
+          { t: 0, p: legSwing(0, 1) }, // the movement demos (front and side) open from this stance: hand on the wall
           { t: 0.5, p: legSwing(0, 9), e: "smooth", cue: "One hand on a wall, stand tall; swing front to back" },
           { t: 1.0, p: legSwing(-26, 18), e: "smooth" },
           { t: 1.4, p: legSwing(0, 22), e: "smooth" },
@@ -339,14 +360,14 @@ export default {
           { t: 4.0, p: legSwing(0, 9), cue: "Then swing the leg side to side, keep your hips square" },
           { t: 4.4, p: legSwing(0, 9, { abduction: 33 }), e: "smooth" },
           { t: 4.8, p: legSwing(0, 9), e: "smooth" },
-          { t: 5.2, p: legSwing(16, 18, { abduction: -20 }), e: "smooth" },
+          { t: 5.2, p: legSwing(24, 10, { abduction: -20 }), e: "smooth" },
           { t: 5.6, p: legSwing(0, 9), e: "smooth" },
           { t: 6.0, p: legSwing(0, 9, { abduction: 33 }), e: "smooth" },
           { t: 6.4, p: legSwing(0, 9), e: "smooth" },
-          { t: 6.8, p: legSwing(16, 18, { abduction: -20 }), e: "smooth" },
+          { t: 6.8, p: legSwing(24, 10, { abduction: -20 }), e: "smooth" },
           { t: 7.2, p: legSwing(0, 9), e: "smooth" },
-          { t: 7.8, p: legSwing(0, 1, { hand: false }), cue: "Switch legs" },
-          { t: 7.801, p: mirrorPose(makePose(legSwing(0, 1, { hand: false }))), e: "hold" },
+          { t: 7.8, p: legSwing(0, 1), cue: "Switch legs" },
+          { t: 7.801, p: mirrorPose(makePose(legSwing(0, 1))), e: "hold" },
         ],
       },
       {
@@ -384,8 +405,15 @@ export default {
           { t: 2.6, p: hipCar([55, 70, 95]), e: "lin", cue: "…rotate it back…" },
           { t: 3.4, p: hipCar([10, 55, 95]), e: "lin" },
           { t: 4.2, p: hipCar([-15, 20, 95]), e: "lin", cue: "…and lower" },
-          { t: 5.199, p: hipCar(null), e: "out", cue: "Other leg; 3 slow circles each way" },
-          { t: 5.2, p: mirrorPose(makePose(hipCar(null))), e: "hold" },
+          // Reverse circle so the demo covers the "each way": the knee crosses in front
+          // through the same four stations, then the leg switch takes it to the other side.
+          { t: 5.6, p: hipCar([95, -22, 95]), e: "in", cue: "Knee up again; now cross it in front" },
+          { t: 6.25, p: hipCar([70, -34, 95]), e: "lin" },
+          { t: 7.0, p: hipCar([30, -36, 95]), e: "lin" },
+          { t: 7.75, p: hipCar([-12, -16, 95]), e: "lin", cue: "…rotate it back and lower" },
+          { t: 8.55, p: hipCar(null), e: "out", cue: "3 slow circles each way, then switch" },
+          { t: 9.199, p: hipCar(null), cue: "Other leg; hips stay square" },
+          { t: 9.2, p: mirrorPose(makePose(hipCar(null))), e: "hold" },
         ],
       },
       {
@@ -414,6 +442,7 @@ export default {
     clips: [
       {
         title: "Pogo hops",
+        props: [{ type: "mat" }],
         highlight: ["calves", "ankles"],
         camera: { view: [1, 0.18, 0.55], target: [0, 0.92, 0], dist: 4.1 },
         keys: [
@@ -431,18 +460,20 @@ export default {
     clips: [
       {
         title: "Heel drops",
+        props: [{ type: "mat" }],
         highlight: ["calves", "quads", "hips"],
         camera: { view: [1, 0.18, 0.55], target: [0, 0.92, 0], dist: 4.1 },
         keys: [
           { t: 0, p: pogo("bottom"), cue: "Stand tall, feet hip-width" },
-          { t: 0.6, p: pogo("push"), cue: "Rise onto the balls of your feet" },
-          { t: 1.2, p: pogo("push") },
-          { t: 1.35, p: pogo("bottom"), cue: "Drop firmly onto your heels with soft knees" },
-          { t: 2.0, p: pogo("bottom") },
+          { t: 0.6, p: pogo("push", 26), cue: "Rise onto the balls of your feet" }, // lift stays inside the 3–5 cm cue
+          { t: 1.2, p: pogo("push", 26) },
+          { t: 1.35, p: HEEL_LAND, cue: "Drop firmly onto your heels with soft knees" },
+          { t: 2.0, p: HEEL_LAND },
         ],
       },
       {
         title: "Stomp drills",
+        props: [{ type: "mat" }],
         highlight: ["calves", "quads", "glutes"],
         camera: { view: [0.85, 0.2, 0.7], target: [0, 0.92, 0], dist: 4.1 },
         alternate: true,

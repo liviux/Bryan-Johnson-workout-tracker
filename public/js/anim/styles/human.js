@@ -262,9 +262,16 @@ export function createHand(material, side) {
     group,
     update(grip = false, flat = false, axis = null) {
       mesh.position.set(0, grip ? -0.01 : 0, grip ? 0.014 : 0);
-      group.rotation.y = axis && Math.hypot(axis.x, axis.z) > 1e-4 ? Math.atan2(-axis.z, axis.x) : 0;
-      if (group.rotation.y > Math.PI / 2) group.rotation.y -= Math.PI;
-      if (group.rotation.y < -Math.PI / 2) group.rotation.y += Math.PI;
+      if (axis && Math.hypot(axis.x, axis.z) > 1e-4) {
+        // Turn toward the handle through the shortest signed step. A handle is a
+        // line, so either end may grip it: equivalent targets ±π apart are both
+        // fine, which keeps the knuckle side stable while the axis turns.
+        const target = Math.atan2(-axis.z, axis.x);
+        let delta = target - group.rotation.y;
+        delta = ((delta + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
+        if (Math.abs(delta) > Math.PI / 2) delta -= Math.sign(delta) * Math.PI;
+        group.rotation.y += delta;
+      } else group.rotation.y = Math.round(group.rotation.y / (2 * Math.PI)) * 2 * Math.PI;
       for (const [i, joints] of fingers.entries()) for (const [j, joint] of joints.entries()) {
         joint.rotation.x = -(grip ? [1.5, 1.45, 0.9][j] : ([0.12, 0.22, 0.16][j] + i * 0.025) * (1 - flat) + 0.004 * flat);
         if (j === 0) {
