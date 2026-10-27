@@ -180,13 +180,14 @@ export function startGuided(date, onExit) {
       </div>
       <div class="logger-host guided-logger-host${s.scope !== "main" ? " addon-scope" : ""}"></div>`;
     const logger = renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), timerHost: side.querySelector(".guided-timer-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
-    logger.startTimer();
+    logger.showTimerPrompt();
+    const showVideoTop = () => side.querySelector('[data-tool-panel="videos"] .video-frame')?.scrollIntoView({ block: "start" });
     videoCtrl = renderVideos(side.querySelector('[data-g="videos"]'), videosFor(demo), {
       groups: videoGroupsFor(demo),
       activeGroup: stage.clipIndex,
-      onSelectGroup: (gi) => stage.setClip(gi),
-      onSelectVideo: () => { stage.setAutoAdvance(false); videoVoice(true); },
-      onPlay: () => { stage.setAutoAdvance(false); videoVoice(true); },
+      onSelectGroup: (gi) => { stage.setClip(gi); showVideoTop(); },
+      onSelectVideo: () => { stage.setAutoAdvance(false); videoVoice(true); showVideoTop(); },
+      onPlay: () => { stage.setAutoAdvance(false); videoVoice(true); showVideoTop(); },
     });
     wrap.querySelector('[data-g="prev"]').disabled = i === 0;
     voice.enter(i, reason);

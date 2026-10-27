@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.38.2] - 2026-10-27
+
+### Changed
+- Guided timed exercises show a compact **Start timer** card instead of starting on their own. Only one timer sits in the right panel, and stopping or logging it brings the Start card back for the next set.
+- The running timer is a slim line with the time, phase and progress bar, so long text such as a Zone 2 heart-rate range sits below it instead of over it.
+- Set cards are narrower than the panel and keep the set name, field name and value on one line. **Add set** sits at the end of the last set row, and per-set timer icons are gone in guided mode.
+
+### Fixed
+- Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.
+
 ## [1.38.1] - 2026-10-27
 
 ### Changed

@@ -53,7 +53,7 @@ export function stopInlineTimer() {
 }
 
 // phases: [{ kind: "work" | "rest" | "ready", label, sec, sub }]
-function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = null, auto = false }) {
+function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = null, auto = false, onClose = null }) {
   if (host) stopInlineTimer();
   const notifyTimer = !(host && auto);
   if (notifyTimer) for (const fn of timerListeners) fn(true);
@@ -69,9 +69,14 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
   let manifest = null;
   let started = false;
   let closed = false;
+  const inlineClock = `<div class="timer-inline-main">
+        <span class="big mono">0:00</span><span class="phase"></span><span class="sub"></span>
+        <span class="timer-line"><i></i></span>
+      </div>`;
+  const ringClock = `<div class="timer-ring"><svg viewBox="0 0 280 280"><circle class="bg" cx="140" cy="140" r="${R}"/><circle class="fg" cx="140" cy="140" r="${R}" stroke-dasharray="${C}" stroke-dashoffset="0"/></svg>
+        <div class="timer-center"><span class="phase"></span><span class="big mono">0:00</span><span class="sub"></span></div></div>`;
   const timerHtml = `<div class="timer${host ? " inline" : ""}" data-kind="ready">
-        <div class="timer-ring"><svg viewBox="0 0 280 280"><circle class="bg" cx="140" cy="140" r="${R}"/><circle class="fg" cx="140" cy="140" r="${R}" stroke-dasharray="${C}" stroke-dashoffset="0"/></svg>
-          <div class="timer-center"><span class="phase"></span><span class="big mono">0:00</span><span class="sub"></span></div></div>
+        ${host ? inlineClock : ringClock}
         <div class="btn-row">
           <button class="btn primary" data-t="begin" hidden>Start without waiting</button>
           <button class="btn" data-t="pause" disabled>${icon("pause")} Pause</button>
@@ -92,6 +97,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
   const el = host ? host.querySelector(".timer") : dialog.el.querySelector(".timer");
   if (host && title) el.setAttribute("aria-label", title);
   const fg = el.querySelector(".fg");
+  const progress = el.querySelector(".timer-line i");
   const phaseEl = el.querySelector(".phase");
   const big = el.querySelector(".big");
   const sub = el.querySelector(".sub");
@@ -125,7 +131,8 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
     phaseEl.textContent = p.ex ? `${p.label}: ${EXERCISES[p.ex].name}` : p.label;
     big.textContent = fmtSecs(Math.ceil(left));
     sub.textContent = p.sub || "";
-    fg.setAttribute("stroke-dashoffset", String(C * (1 - left / p.sec)));
+    if (fg) fg.setAttribute("stroke-dashoffset", String(C * (1 - left / p.sec)));
+    if (progress) progress.style.width = `${Math.max(0, Math.min(100, (1 - left / p.sec) * 100))}%`;
     const totalWork = phases.filter(isRoundEnd).length;
     const currentWork = workDone() + (p.kind === "work" ? 1 : 0);
     info.textContent = p.total ? `Round ${p.round} of ${p.total}` : totalWork > 1 ? `Interval ${Math.min(currentWork, totalWork)} of ${totalWork}` : "";
@@ -176,7 +183,8 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
     phaseEl.textContent = "Done";
     big.textContent = "✓";
     sub.textContent = "";
-    fg.setAttribute("stroke-dashoffset", "0");
+    if (fg) fg.setAttribute("stroke-dashoffset", "0");
+    if (progress) progress.style.width = "100%";
     el.querySelector(".btn-row").innerHTML = `<button class="btn primary" data-t="close">${icon("check")} Log it</button>`;
     if (stage) { stage.dispose(); stage = null; }
     if (onFinish) onFinish(phases.filter(isRoundEnd).length);
@@ -194,6 +202,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
     if (host) {
       inlineCleanup = null;
       el.remove();
+      if (onClose) queueMicrotask(() => host.isConnected && onClose());
     } else if (close) dialog.close();
   }
   el.addEventListener("click", (e) => {
@@ -254,27 +263,27 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
 }
 
 // Interval timer from a preset: { rounds, work, rest, blocks?, blockRest?, workHr?, restHr? }
-export function startIntervals({ title, preset, hr, exId, moves, onFinish, voiceContext, presetIndex = 0, host = null, auto = false }) {
+export function startIntervals({ title, preset, hr, exId, moves, onFinish, voiceContext, presetIndex = 0, host = null, auto = false, onClose = null }) {
   const phases = intervalPhases(exId, preset, moves);
   for (const phase of phases) {
     if (phase.kind === "work" && hr?.work) phase.sub = `Aim for ${hr.work}`;
     else if (phase.kind === "rest" && hr?.rest) phase.sub += ` · ${hr.rest}`;
   }
-  runPhases({ title, phases, onFinish, voiceContext, voiceTimer: { type: "intervals", preset: presetIndex, moves }, host, auto });
+  runPhases({ title, phases, onFinish, voiceContext, voiceTimer: { type: "intervals", preset: presetIndex, moves }, host, auto, onClose });
 }
 
 // Hold timer: seconds per side, optionally both sides with a short switch.
-export function startHold({ title, seconds, sides = 1, onFinish, voiceContext, host = null, auto = false }) {
+export function startHold({ title, seconds, sides = 1, onFinish, voiceContext, host = null, auto = false, onClose = null }) {
   const phases = [{ kind: "ready", label: "Get set", sec: 5 }];
   for (let s = 0; s < sides; s++) {
     phases.push({ kind: "work", label: sides > 1 ? (s === 0 ? "First side" : "Other side") : "Hold", sec: seconds, sub: "Breathe slowly" });
     if (s < sides - 1) phases.push({ kind: "rest", label: "Switch", sec: 5 });
   }
-  runPhases({ title, phases, onFinish, voiceContext, voiceTimer: { type: "hold", seconds, sides }, host, auto });
+  runPhases({ title, phases, onFinish, voiceContext, voiceTimer: { type: "hold", seconds, sides }, host, auto, onClose });
 }
 
-export function startCountdown({ title, minutes, sub, onFinish, voiceContext, host = null, auto = false }) {
-  runPhases({ title, phases: [{ kind: "ready", label: "Get ready", sec: 5 }, { kind: "work", label: "Go", sec: Math.round(minutes * 60), sub }], onFinish, voiceContext, voiceTimer: { type: "countdown", minutes }, host, auto });
+export function startCountdown({ title, minutes, sub, onFinish, voiceContext, host = null, auto = false, onClose = null }) {
+  runPhases({ title, phases: [{ kind: "ready", label: "Get ready", sec: 5 }, { kind: "work", label: "Go", sec: Math.round(minutes * 60), sub }], onFinish, voiceContext, voiceTimer: { type: "countdown", minutes }, host, auto, onClose });
 }
 
 // Floating rest timer after a set. Tap it to dismiss.

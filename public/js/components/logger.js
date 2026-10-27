@@ -343,16 +343,20 @@ export function renderLogger(container, ctx) {
                   return `<label class="set-field"><span>${esc(label)}</span><input class="input num" inputmode="decimal" data-set="${i}" data-k="${k}" value="${esc(v)}" placeholder="${esc(ph && !isPlan ? ph : "")}"${isPlan ? ' data-default="true"' : ""}${hint ? ` title="${esc(hint)}"` : ""} aria-label="Set ${i + 1} ${esc(label)}"></label>`;
                 })
                 .join("")}
-              ${
-                timed
-                  ? `<button type="button" class="btn sm icon-only" data-l="hold" data-i="${i}" aria-label="Start ${defaults.sec || target.seconds || 30} second timer for set ${i + 1}">${icon("timer", "sm")}</button>`
-                  : `<button type="button" class="btn sm icon-only ghost" data-l="del" data-i="${i}" aria-label="Remove set ${i + 1}">${icon("minus", "sm")}</button>`
-              }
+              <span class="set-actions">
+                ${
+                  timed && !ctx.guided
+                    ? `<button type="button" class="btn sm icon-only" data-l="hold" data-i="${i}" aria-label="Start ${defaults.sec || target.seconds || 30} second timer for set ${i + 1}">${icon("timer", "sm")}</button>`
+                    : ""
+                }
+                ${sets.length > 1 ? `<button type="button" class="btn sm icon-only ghost" data-l="del" data-i="${i}" aria-label="Remove set ${i + 1}">${icon("minus", "sm")}</button>` : ""}
+                ${i === sets.length - 1 && ctx.setIndex == null ? `<button type="button" class="btn sm icon-only" data-l="add" aria-label="Add set" title="Add set">${icon("plus", "sm")}</button>` : ""}
+              </span>
             </div>`
           )
           .join("")}
       </div>
-      <div class="btn-row">${ctx.setIndex == null ? `${doneBtn}<button type="button" class="btn sm ghost" data-l="add">${icon("plus", "sm")} Add set</button>` : ""}</div>`;
+      ${doneBtn ? `<div class="btn-row">${doneBtn}</div>` : ""}`;
     } else if (type === "cardio" || (type === "check" && target.minutes != null)) {
       const c = l.cardio || {};
       const isCheck = type === "check";
@@ -363,13 +367,13 @@ export function renderLogger(container, ctx) {
           ${isCheck ? "" : `<label class="field inline"><span>Avg bpm</span><input class="input num" inputmode="numeric" data-c="avg" value="${esc(c.avg ?? "")}" placeholder="${esc(bpmRange(p, ...cardioRange).replace(" bpm", ""))}"></label>
           <label class="field inline"><span>Max bpm</span><input class="input num" inputmode="numeric" data-c="max" value="${esc(c.max ?? "")}"></label>`}
         </div>
-        <div class="btn-row">${doneBtn}${target.minutes ? `<button type="button" class="btn" data-l="countdown">${icon("timer")} ${ctx.guided ? "Restart" : `${target.minutes} min`} timer</button>` : ""}</div>`;
+        <div class="btn-row">${doneBtn}${target.minutes && !ctx.guided ? `<button type="button" class="btn" data-l="countdown">${icon("timer")} ${target.minutes} min timer</button>` : ""}</div>`;
     } else if (type === "intervals") {
       const presets = timerPresets(item, level);
       const pi = Math.min(l.preset || 0, Math.max(0, presets.length - 1));
       if (item.ex === "shortint") body += `<div class="grid-form">${[0, 1].map((index) => `<label class="field"><span>${index ? "Alternate with (optional)" : "Movement for work bursts"}</span><select class="input" data-interval-move="${index}">${index ? '<option value="">Same movement every burst</option>' : ""}${INTERVAL_MOVES.map((id) => `<option value="${id}" ${(l.moves?.[index] || (index === 0 ? "highknees" : "")) === id ? "selected" : ""}>${esc(EXERCISES[id].name)}</option>`).join("")}</select></label>`).join("")}</div><p class="muted interval-choice-help">Each work burst uses one movement. Pick an alternate to switch movements each round: first → march → alternate → march.</p>`;
       body += `${presets.length > 1 ? `<div class="seg" role="group" aria-label="Preset">${presets.map((pr, i) => `<button type="button" data-preset="${i}" aria-pressed="${i === pi}">${esc(pr.label)}</button>`).join("")}</div>` : ""}
-        <div class="btn-row"><button type="button" class="btn primary" data-l="intervals">${icon("timer")} ${ctx.guided ? "Restart" : "Start"} interval timer</button>${doneBtn}</div>
+        ${ctx.guided ? "" : `<div class="btn-row"><button type="button" class="btn primary" data-l="intervals">${icon("timer")} Start interval timer</button>${doneBtn}</div>`}
         <div class="grid-form" style="grid-template-columns:repeat(2,minmax(0,1fr))">
           <label class="field inline"><span>Hard intervals done</span><input class="input num" inputmode="numeric" data-r="rounds" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ' data-default="true" title="Plan default"' : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"></label>
           <label class="field inline"><span>Peak bpm</span><input class="input num" inputmode="numeric" data-r="peak" value="${esc(l.peak ?? "")}"></label>
@@ -570,6 +574,7 @@ export function renderLogger(container, ctx) {
         });
         draw();
       },
+      onClose: showTimerPrompt,
     });
   }
 
@@ -590,6 +595,7 @@ export function renderLogger(container, ctx) {
         });
         draw();
       },
+      onClose: showTimerPrompt,
     });
   }
 
@@ -615,30 +621,55 @@ export function renderLogger(container, ctx) {
         });
         draw();
       },
+      onClose: showTimerPrompt,
     });
   }
 
-  // Guided work starts its timer as soon as the step opens. Nothing is marked
-  // done here; the normal Done button still controls completion.
-  function startPlannedTimer() {
-    if (!ctx.timerHost) return false;
+  function timerPlan() {
+    if (!ctx.timerHost) return null;
     const t = currentTarget();
     if (type === "intervals") {
-      if (!timerPresets(item, level).length) return false;
-      startIntervalsTimer(true);
-      return true;
+      const presets = timerPresets(item, level);
+      const l0 = getItemLog(date, scope, item.id) || {};
+      const preset = presets[Math.min(l0.preset || 0, presets.length - 1)];
+      if (!preset) return null;
+      return { label: "Intervals", value: preset.label, sub: "Start when ready", start: () => startIntervalsTimer() };
     }
     if (type === "cardio" || (type === "check" && t.minutes != null)) {
-      if (!t.minutes) return false;
-      startCountdownTimer(true);
-      return true;
+      if (!t.minutes) return null;
+      return { label: type === "cardio" ? cardioLabel : "Minutes", value: `${t.minutes} min`, sub: "Countdown", start: () => startCountdownTimer() };
     }
     if (type === "hold" || type === "carry" || (type === "check" && t.seconds != null)) {
-      if (!t.seconds) return false;
-      startHoldTimer(ctx.setIndex ?? 0, true);
-      return true;
+      if (!t.seconds) return null;
+      const l = getItemLog(date, scope, item.id) || {};
+      const saved = Array.isArray(l.sets) ? l.sets : [];
+      const sets = Math.max(saved.length, t.sets || 1);
+      let index = ctx.setIndex;
+      if (index == null) {
+        const next = saved.findIndex((s) => s.sec == null);
+        index = next >= 0 ? next : 0;
+      }
+      const details = [t.perSide ? "Both sides" : "", sets > 1 ? `Set ${index + 1} of ${sets}` : ""].filter(Boolean);
+      return { label: "Hold", value: `${t.seconds} s`, sub: details.join(" · ") || "Start when ready", start: () => startHoldTimer(index) };
     }
-    return false;
+    return null;
+  }
+
+  // A timed exercise shows one compact card in the guided right panel with a
+  // Start button. It never starts by itself.
+  function showTimerPrompt() {
+    if (!ctx.timerHost || ctx.timerHost.querySelector(".timer")) return false;
+    const plan = timerPlan();
+    if (!plan) {
+      ctx.timerHost.innerHTML = "";
+      return false;
+    }
+    ctx.timerHost.innerHTML = `<div class="timer-prompt">
+      <div class="timer-prompt-copy"><span class="eyebrow">${esc(plan.label)}</span><b class="mono">${esc(plan.value)}</b><small>${esc(plan.sub)}</small></div>
+      <button type="button" class="btn sm primary" data-timer-start>${icon("play", "sm")} Start timer</button>
+    </div>`;
+    ctx.timerHost.querySelector("[data-timer-start]")?.addEventListener("click", plan.start);
+    return true;
   }
 
   container.addEventListener("click", (e) => {
@@ -696,12 +727,14 @@ export function renderLogger(container, ctx) {
       draw();
       const sets = container.querySelector(".sets");
       if (sets) sets.scrollTop = sets.scrollHeight;
+      if (ctx.guided) showTimerPrompt();
     } else if (a === "del") {
       const i = Number(b.dataset.i);
       save((l) => {
         if (l.sets && l.sets.length > i) l.sets.splice(i, 1);
       });
       draw();
+      if (ctx.guided) showTimerPrompt();
     } else if (a === "hold") {
       startHoldTimer(Number(b.dataset.i));
     } else if (a === "countdown") {
@@ -717,5 +750,5 @@ export function renderLogger(container, ctx) {
   });
 
   draw();
-  return { redraw: draw, startTimer: startPlannedTimer };
+  return { redraw: draw, showTimerPrompt };
 }
