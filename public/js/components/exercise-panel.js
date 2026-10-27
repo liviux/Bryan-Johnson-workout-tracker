@@ -40,13 +40,24 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
   });
   const body = container.querySelector(".detail-body");
   let tab = "how";
+  let tabOpen = mode !== "log";
   let current = null;
   let movement = null;
 
   function drawTab() {
     const host = body.querySelector(".tab-body");
     if (!host || !current) return;
-    body.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === tab)));
+    body.querySelectorAll("[data-tab]").forEach((b) => {
+      const selected = tabOpen && b.dataset.tab === tab;
+      b.setAttribute("aria-selected", String(selected));
+      b.setAttribute("aria-expanded", String(selected));
+    });
+    host.hidden = !tabOpen;
+    if (!tabOpen) {
+      videoCtrl = null;
+      host.innerHTML = "";
+      return;
+    }
     const ex = EXERCISES[movement || current.exId];
     if (tab === "videos") {
       host.innerHTML = "";
@@ -80,21 +91,20 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
       <div style="display:grid;gap:8px">
         <span class="eyebrow">${esc(ex.cat)}${ctx.scopeName ? ` · ${esc(ctx.scopeName)}` : ""}</span>
         <h2>${esc(item && item.label ? personalize(item.label, p) : ex.name)} ${ex.classic ? '<span class="badge-classic">classic</span>' : ""}</h2>
-        ${rx ? `<div class="rx">${esc(rx)}</div>` : ""}
+        ${rx || item?.bryan ? `<div class="detail-dose-row">${rx ? `<div class="rx">${esc(rx)}</div>` : ""}${item && item.bryan ? `<span class="chip bryan">${esc(personalize(item.bryan, p))}</span>` : ""}</div>` : ""}
         <div class="chips">
-          ${item && item.bryan ? `<span class="chip bryan">${esc(personalize(item.bryan, p))}</span>` : ""}
           ${(ex.equipment || []).map((e) => `<span class="chip" title="${esc(EQUIPMENT_NAMES[e] || e)}">${icon(e)} ${esc(EQUIPMENT_NAMES[e] || e)}</span>`).join("")}
           ${(ex.muscles || []).map((m) => `<span class="chip accent">${esc(MUSCLE_NAMES[m] || m)}</span>`).join("")}
         </div>
       </div>
+      <div class="detail-tools" role="tablist" aria-label="Exercise details">
+        <button type="button" class="btn sm ghost" role="tab" data-tab="how" aria-selected="false" aria-expanded="false">${icon("list", "sm")} How to</button>
+        <button type="button" class="btn sm ghost" role="tab" data-tab="videos" aria-selected="false" aria-expanded="false">${icon("video", "sm")} Videos (${vids.length}${bryanCount ? `, ${bryanCount} with Bryan` : ""})</button>
+      </div>
+      <div class="tab-body" role="tabpanel"${mode === "log" ? " hidden" : ""}></div>
       ${alternativeHtml(item, ctx.level)}
       ${ex.routine ? `<div data-routine>${routineHtml(item || { ex: ctx.exId }, ctx.level || 0, itemLog || {})}</div>` : ""}
-      ${mode === "log" && item && ctx.date ? '<div class="logger-host"></div>' : ""}
-      <div class="tabs" role="tablist">
-        <button type="button" role="tab" data-tab="how">How to</button>
-        <button type="button" role="tab" data-tab="videos">Videos (${vids.length}${bryanCount ? `, ${bryanCount} with Bryan` : ""})</button>
-      </div>
-      <div class="tab-body" role="tabpanel"></div>`;
+      ${mode === "log" && item && ctx.date ? '<div class="logger-host"></div>' : ""}`;
     const lh = body.querySelector(".logger-host");
     if (lh)
       renderLogger(lh, {
@@ -127,7 +137,12 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
     }
     const b = e.target.closest("[data-tab]");
     if (b) {
-      tab = b.dataset.tab;
+      const next = b.dataset.tab;
+      if (tabOpen && tab === next) tabOpen = false;
+      else {
+        tab = next;
+        tabOpen = true;
+      }
       drawTab();
     }
   });

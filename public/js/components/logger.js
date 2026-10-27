@@ -345,12 +345,12 @@ export function renderLogger(container, ctx) {
                 .join("")}
               <span class="set-actions">
                 ${
-                  timed && !ctx.guided
-                    ? `<button type="button" class="btn sm icon-only" data-l="hold" data-i="${i}" aria-label="Start ${defaults.sec || target.seconds || 30} second timer for set ${i + 1}">${icon("timer", "sm")}</button>`
+                  timed
+                    ? `<button type="button" class="btn sm icon-only" data-l="hold" data-i="${i}" aria-label="Start ${defaults.sec || target.seconds || 30} second timer for set ${i + 1}" title="Start set timer">${icon("timer", "sm")}</button>`
                     : ""
                 }
                 ${sets.length > 1 ? `<button type="button" class="btn sm icon-only ghost" data-l="del" data-i="${i}" aria-label="Remove set ${i + 1}">${icon("minus", "sm")}</button>` : ""}
-                ${i === sets.length - 1 && ctx.setIndex == null ? `<button type="button" class="btn sm icon-only" data-l="add" aria-label="Add set" title="Add set">${icon("plus", "sm")}</button>` : ""}
+                ${i === sets.length - 1 && ctx.setIndex == null ? `<button type="button" class="btn sm" data-l="add" aria-label="Add set" title="Add set">${icon("plus", "sm")} Add set</button>` : ""}
               </span>
             </div>`
           )
@@ -363,21 +363,21 @@ export function renderLogger(container, ctx) {
       const min = c.min ?? defaults.min ?? "";
       const minPlan = c.min == null && defaults.min != null;
       body += `<div class="grid-form cardio-form${isCheck ? " one" : ""}">
-          <label class="field inline"><span>Minutes</span><input class="input num" inputmode="decimal" data-c="min" value="${esc(min)}" placeholder="${esc(target.minutes || "")}"${minPlan ? ' data-default="true" title="Plan default"' : ""}></label>
+          <div class="field inline"><span>Minutes</span><input class="input num" inputmode="decimal" data-c="min" aria-label="Minutes" value="${esc(min)}" placeholder="${esc(target.minutes || "")}"${minPlan ? ' data-default="true" title="Plan default"' : ""}>${target.minutes ? `<button type="button" class="btn sm icon-only" data-l="countdown" aria-label="Start ${target.minutes} minute timer" title="Start ${target.minutes} minute timer">${icon("timer", "sm")}</button>` : ""}</div>
           ${isCheck ? "" : `<label class="field inline"><span>Avg bpm</span><input class="input num" inputmode="numeric" data-c="avg" value="${esc(c.avg ?? "")}" placeholder="${esc(bpmRange(p, ...cardioRange).replace(" bpm", ""))}"></label>
           <label class="field inline"><span>Max bpm</span><input class="input num" inputmode="numeric" data-c="max" value="${esc(c.max ?? "")}"></label>`}
         </div>
-        <div class="btn-row">${doneBtn}${target.minutes && !ctx.guided ? `<button type="button" class="btn" data-l="countdown">${icon("timer")} ${target.minutes} min timer</button>` : ""}</div>`;
+        <div class="btn-row">${doneBtn}</div>`;
     } else if (type === "intervals") {
       const presets = timerPresets(item, level);
       const pi = Math.min(l.preset || 0, Math.max(0, presets.length - 1));
       if (item.ex === "shortint") body += `<div class="grid-form">${[0, 1].map((index) => `<label class="field"><span>${index ? "Alternate with (optional)" : "Movement for work bursts"}</span><select class="input" data-interval-move="${index}">${index ? '<option value="">Same movement every burst</option>' : ""}${INTERVAL_MOVES.map((id) => `<option value="${id}" ${(l.moves?.[index] || (index === 0 ? "highknees" : "")) === id ? "selected" : ""}>${esc(EXERCISES[id].name)}</option>`).join("")}</select></label>`).join("")}</div><p class="muted interval-choice-help">Each work burst uses one movement. Pick an alternate to switch movements each round: first → march → alternate → march.</p>`;
       body += `${presets.length > 1 ? `<div class="seg" role="group" aria-label="Preset">${presets.map((pr, i) => `<button type="button" data-preset="${i}" aria-pressed="${i === pi}">${esc(pr.label)}</button>`).join("")}</div>` : ""}
-        ${ctx.guided ? "" : `<div class="btn-row"><button type="button" class="btn primary" data-l="intervals">${icon("timer")} Start interval timer</button>${doneBtn}</div>`}
         <div class="grid-form" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-          <label class="field inline"><span>Hard intervals done</span><input class="input num" inputmode="numeric" data-r="rounds" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ' data-default="true" title="Plan default"' : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"></label>
+          <div class="field inline"><span>Hard intervals done</span><input class="input num" inputmode="numeric" data-r="rounds" aria-label="Hard intervals done" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ' data-default="true" title="Plan default"' : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"><button type="button" class="btn sm icon-only" data-l="intervals" aria-label="Start interval timer" title="Start interval timer">${icon("timer", "sm")}</button></div>
           <label class="field inline"><span>Peak bpm</span><input class="input num" inputmode="numeric" data-r="peak" value="${esc(l.peak ?? "")}"></label>
-        </div>`;
+        </div>
+        ${doneBtn ? `<div class="btn-row">${doneBtn}</div>` : ""}`;
     } else {
       // Unmeasured checks keep the plain done action.
       body += `<div class="btn-row">${doneBtn}</div>`;
@@ -387,7 +387,9 @@ export function renderLogger(container, ctx) {
       const label = l.easier.choice === "skip" ? "Skipped today" : "Easier today";
       body += `<div class="banner easier"><span>${icon("info", "lg")}</span><div class="grow"><b>${esc(label)}</b><span>${esc(l.easier.text || "")}</span></div><button type="button" class="btn sm ghost" data-l="easier-undo">${icon("undo", "sm")} Undo</button></div>`;
     }
-    body += suggestionHtml(l.holdProgress ? { kind: "repeat", text: "Progression paused today after the easier choice. Repeat this session next time." } : suggestion);
+    const nextTime = suggestionHtml(l.holdProgress ? { kind: "repeat", text: "Progression paused today after the easier choice. Repeat this session next time." } : suggestion);
+    if (ctx.nextTimeHost) ctx.nextTimeHost.innerHTML = nextTime;
+    else body += nextTime;
     const easierButton = `<button type="button" class="btn sm ghost" data-l="easier" aria-label="${l.easier ? "Change easier choice" : "Something hurts or too hard?"}" title="Something hurts or too hard?">${icon("info", "sm")} ${l.easier ? "Change easier choice" : ctx.compactActions ? "Something hurts?" : "Something hurts or too hard?"}</button>`;
     const last = type !== "check" && type !== "cardio" && type !== "intervals" ? lastPerformance(item.ex, date, { level }) : null;
     body += last ? `<p class="muted" style="font-size:0.84rem">Last time (${esc(fmtShort(last.date))}): <span class="mono">${esc(summarizeLog(last.log, type))}</span></p>` : "";
@@ -525,6 +527,12 @@ export function renderLogger(container, ctx) {
       if (e.target.closest('[data-l="easier"]')) openEasier();
     });
   }
+  if (ctx.nextTimeHost) {
+    ctx.nextTimeHost.onclick = (e) => {
+      const b = e.target.closest('[data-l="use"]');
+      if (b) useSuggestion(b);
+    };
+  }
 
   // Rest timer after you log the reps of a set.
   container.addEventListener("change", (e) => {
@@ -574,7 +582,6 @@ export function renderLogger(container, ctx) {
         });
         draw();
       },
-      onClose: showTimerPrompt,
     });
   }
 
@@ -595,7 +602,6 @@ export function renderLogger(container, ctx) {
         });
         draw();
       },
-      onClose: showTimerPrompt,
     });
   }
 
@@ -621,55 +627,25 @@ export function renderLogger(container, ctx) {
         });
         draw();
       },
-      onClose: showTimerPrompt,
     });
   }
 
-  function timerPlan() {
-    if (!ctx.timerHost) return null;
+  function useSuggestion(b) {
+    const kind = b.dataset.useKind;
+    const v = Number(b.dataset.useValue);
     const t = currentTarget();
-    if (type === "intervals") {
-      const presets = timerPresets(item, level);
-      const l0 = getItemLog(date, scope, item.id) || {};
-      const preset = presets[Math.min(l0.preset || 0, presets.length - 1)];
-      if (!preset) return null;
-      return { label: "Intervals", value: preset.label, sub: "Start when ready", start: () => startIntervalsTimer() };
-    }
-    if (type === "cardio" || (type === "check" && t.minutes != null)) {
-      if (!t.minutes) return null;
-      return { label: type === "cardio" ? cardioLabel : "Minutes", value: `${t.minutes} min`, sub: "Countdown", start: () => startCountdownTimer() };
-    }
-    if (type === "hold" || type === "carry" || (type === "check" && t.seconds != null)) {
-      if (!t.seconds) return null;
-      const l = getItemLog(date, scope, item.id) || {};
-      const saved = Array.isArray(l.sets) ? l.sets : [];
-      const sets = Math.max(saved.length, t.sets || 1);
-      let index = ctx.setIndex;
-      if (index == null) {
-        const next = saved.findIndex((s) => s.sec == null);
-        index = next >= 0 ? next : 0;
+    save((l) => {
+      l.sets = l.sets || [];
+      const n = Math.max(l.sets.length, t.sets || 1);
+      while (l.sets.length < n) l.sets.push({});
+      for (const s of l.sets) {
+        if (kind === "kg" && s.kg == null) s.kg = v;
+        else if (kind === "reps" && s.reps == null) s.reps = v;
+        else if (kind === "sec" && s.sec == null) s.sec = v;
       }
-      const details = [t.perSide ? "Both sides" : "", sets > 1 ? `Set ${index + 1} of ${sets}` : ""].filter(Boolean);
-      return { label: "Hold", value: `${t.seconds} s`, sub: details.join(" · ") || "Start when ready", start: () => startHoldTimer(index) };
-    }
-    return null;
-  }
-
-  // A timed exercise shows one compact card in the guided right panel with a
-  // Start button. It never starts by itself.
-  function showTimerPrompt() {
-    if (!ctx.timerHost || ctx.timerHost.querySelector(".timer")) return false;
-    const plan = timerPlan();
-    if (!plan) {
-      ctx.timerHost.innerHTML = "";
-      return false;
-    }
-    ctx.timerHost.innerHTML = `<div class="timer-prompt">
-      <div class="timer-prompt-copy"><span class="eyebrow">${esc(plan.label)}</span><b class="mono">${esc(plan.value)}</b><small>${esc(plan.sub)}</small></div>
-      <button type="button" class="btn sm primary" data-timer-start>${icon("play", "sm")} Start timer</button>
-    </div>`;
-    ctx.timerHost.querySelector("[data-timer-start]")?.addEventListener("click", plan.start);
-    return true;
+    });
+    draw();
+    toast("Filled in the suggestion");
   }
 
   container.addEventListener("click", (e) => {
@@ -701,21 +677,7 @@ export function renderLogger(container, ctx) {
       draw();
       toast("Back to the plan's dose for today");
     } else if (a === "use") {
-      const kind = b.dataset.useKind;
-      const v = Number(b.dataset.useValue);
-      const t = currentTarget();
-      save((l) => {
-        l.sets = l.sets || [];
-        const n = Math.max(l.sets.length, t.sets || 1);
-        while (l.sets.length < n) l.sets.push({});
-        for (const s of l.sets) {
-          if (kind === "kg" && s.kg == null) s.kg = v;
-          else if (kind === "reps" && s.reps == null) s.reps = v;
-          else if (kind === "sec" && s.sec == null) s.sec = v;
-        }
-      });
-      draw();
-      toast("Filled in the suggestion");
+      useSuggestion(b);
     } else if (a === "add") {
       const target = currentTarget();
       save((l) => {
@@ -727,14 +689,12 @@ export function renderLogger(container, ctx) {
       draw();
       const sets = container.querySelector(".sets");
       if (sets) sets.scrollTop = sets.scrollHeight;
-      if (ctx.guided) showTimerPrompt();
     } else if (a === "del") {
       const i = Number(b.dataset.i);
       save((l) => {
         if (l.sets && l.sets.length > i) l.sets.splice(i, 1);
       });
       draw();
-      if (ctx.guided) showTimerPrompt();
     } else if (a === "hold") {
       startHoldTimer(Number(b.dataset.i));
     } else if (a === "countdown") {
@@ -750,5 +710,5 @@ export function renderLogger(container, ctx) {
   });
 
   draw();
-  return { redraw: draw, showTimerPrompt };
+  return { redraw: draw };
 }

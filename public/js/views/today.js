@@ -844,7 +844,7 @@ export function render(el, params) {
     const nav = document.querySelector(".sidebar");
     const height = nav && nav.offsetWidth > window.innerWidth / 2 ? nav.offsetHeight : 0;
     el.style.setProperty("--today-nav-height", `${height}px`);
-    el.style.setProperty("--today-bottom-space", `${Math.max(16, parseFloat(getComputedStyle(el.closest(".main") || el).paddingBottom) || 0)}px`);
+    el.style.setProperty("--today-bottom-space", "16px");
   }
   const navigationSize = new ResizeObserver(updatePanelTop);
   if (navigation) navigationSize.observe(navigation);

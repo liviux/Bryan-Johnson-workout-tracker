@@ -64,7 +64,7 @@ export function startGuided(date, onExit) {
       <div class="bar guided-progress"><i></i><div class="guided-progress-steps" role="group" aria-label="Jump to workout step">${stepLabels.map((label, index) => `<button type="button" data-step-index="${index}" aria-label="${esc(label)}"><span class="guided-progress-preview">${esc(label)}</span></button>`).join("")}</div></div>
       <div class="radio-host"></div>
     </div>
-    <div class="guided-main"><div class="guided-demo"><div class="stage-host"></div><div data-routine></div></div><div><div class="guided-side"></div><p class="guided-voice-status muted" role="status" aria-live="polite"></p></div></div>
+    <div class="guided-main"><div class="guided-demo"><div class="stage-host"></div><div data-routine></div></div><div class="guided-column"><div class="guided-side"></div><div class="guided-foot"><p class="guided-voice-status muted" role="status" aria-live="polite"></p><div class="guided-next-time-host"></div></div></div></div>
     <div class="guided-bottom">
       <button type="button" class="btn" data-g="prev">${icon("chevronL")} Back</button>
       <button type="button" class="btn ghost" data-g="skip">Skip ${icon("skip", "sm")}</button>
@@ -121,6 +121,8 @@ export function startGuided(date, onExit) {
     stopRest(); stopInlineTimer(); voice.finish();
     clearInterval(clockTimer); clockTimer = null;
     tickClocks();
+    wrap.querySelector(".guided-foot").hidden = true;
+    wrap.querySelector(".guided-next-time-host").innerHTML = "";
     const done = steps.filter((s) => stepDone(date, s)).length;
     stage.pause();
     wrap.querySelector("[data-routine]").innerHTML = "";
@@ -142,6 +144,7 @@ export function startGuided(date, onExit) {
     stepStartedAt = Date.now();
     startClocks();
     wrap.querySelector(".guided-bottom").hidden = false;
+    wrap.querySelector(".guided-foot").hidden = false;
     const s = steps[i];
     const ex = EXERCISES[s.item.ex];
     const p = state.profile;
@@ -158,16 +161,10 @@ export function startGuided(date, onExit) {
     });
     const itemLog = getItemLog(date, s.scope, s.item.id);
     wrap.querySelector("[data-routine]").innerHTML = ex.routine ? routineHtml(s.item, s.level, itemLog || {}, { compact: true }) : "";
-    const sideScroller = side.parentElement;
-    if (sideScroller) sideScroller.scrollTop = 0;
+    side.scrollTop = 0;
     side.innerHTML = `
       <span class="eyebrow">${esc(s.item.group || s.block)}${s.round ? ` · Round ${s.round} of ${s.rounds}` : ""}</span>
       <h2 class="display" style="font-size:2.1rem;line-height:1">${esc(s.item.label ? personalize(s.item.label, p) : ex.name)}</h2>
-      <div class="rx guided-rx">${esc(personalize((itemLog && itemLog.rxOverride) || rxFor(s.item, s.level), p))}</div>
-      ${s.item.bryan ? `<span class="chip bryan guided-bryan">${esc(personalize(s.item.bryan, p))}</span>` : ""}
-      ${s.setIndex != null ? `<p class="muted guided-set-note">Complete set ${s.setIndex + 1} of ${s.sets}, then continue to the next movement.</p>` : ""}
-      ${alternativeHtml(s.item, s.level)}
-      <div class="guided-timer-host"></div>
       <div class="guided-tools" role="group" aria-label="Exercise details">
         <button type="button" class="btn sm ghost" data-tool="note" aria-expanded="false">${icon("note", "sm")} Note</button>
         <button type="button" class="btn sm ghost" data-tool="how" aria-expanded="false">${icon("list", "sm")} How to</button>
@@ -178,16 +175,21 @@ export function startGuided(date, onExit) {
         <section data-tool-panel="how" hidden>${exerciseInfoHtml(ex)}</section>
         <section data-tool-panel="videos" hidden data-g="videos"></section>
       </div>
+      <div class="guided-dose-row">
+        <div class="rx guided-rx">${esc(personalize((itemLog && itemLog.rxOverride) || rxFor(s.item, s.level), p))}</div>
+        ${s.item.bryan ? `<span class="chip bryan guided-bryan">${esc(personalize(s.item.bryan, p))}</span>` : ""}
+      </div>
+      ${s.setIndex != null ? `<p class="muted guided-set-note">Complete set ${s.setIndex + 1} of ${s.sets}, then continue to the next movement.</p>` : ""}
+      ${alternativeHtml(s.item, s.level)}
+      <div class="guided-timer-host"></div>
       <div class="logger-host guided-logger-host${s.scope !== "main" ? " addon-scope" : ""}"></div>`;
-    const logger = renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), timerHost: side.querySelector(".guided-timer-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
-    logger.showTimerPrompt();
-    const showVideoTop = () => side.querySelector('[data-tool-panel="videos"] .video-frame')?.scrollIntoView({ block: "start" });
+    renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), nextTimeHost: wrap.querySelector(".guided-next-time-host"), timerHost: side.querySelector(".guided-timer-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
     videoCtrl = renderVideos(side.querySelector('[data-g="videos"]'), videosFor(demo), {
       groups: videoGroupsFor(demo),
       activeGroup: stage.clipIndex,
-      onSelectGroup: (gi) => { stage.setClip(gi); showVideoTop(); },
-      onSelectVideo: () => { stage.setAutoAdvance(false); videoVoice(true); showVideoTop(); },
-      onPlay: () => { stage.setAutoAdvance(false); videoVoice(true); showVideoTop(); },
+      onSelectGroup: (gi) => stage.setClip(gi),
+      onSelectVideo: () => { stage.setAutoAdvance(false); videoVoice(true); },
+      onPlay: () => { stage.setAutoAdvance(false); videoVoice(true); },
     });
     wrap.querySelector('[data-g="prev"]').disabled = i === 0;
     voice.enter(i, reason);
@@ -204,7 +206,6 @@ export function startGuided(date, onExit) {
     body.querySelectorAll("[data-tool-panel]").forEach((panel) => {
       panel.hidden = panel.dataset.toolPanel !== next;
     });
-    if (next) body.scrollIntoView({ block: "start" });
   }
 
   function close() {

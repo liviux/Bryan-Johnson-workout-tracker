@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.38.3] - 2026-10-27
+
+### Changed
+- Guided timers start from the timer button beside each editable value instead of a separate Start card. They still never start by themselves.
+- Minutes and interval timers sit beside their numbers on Today too.
+- The running timer is one slim line with Pause, Next and Stop; long text such as a Zone 2 range sits below it.
+- **Add set** is a labelled button at the end of the last set row. Set cards stay narrow and extra sets scroll inside their box.
+- Note, How to and Videos sit directly below the exercise name and stay pinned while the guided panel scrolls. Next time sits at the bottom, below the coach status.
+- The Today exercise panel fills the height of the screen. How to and Videos sit in a pinned row, and the Bryan note sits at the right of the dose row.
+
+### Fixed
+- Opening guided tools or choosing a video no longer moves the scroll position or focus. The video player stays above the list.
+
 ## [1.38.2] - 2026-10-27
 
 ### Changed
