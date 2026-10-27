@@ -168,7 +168,6 @@ export function startGuided(date, onExit) {
       ${s.setIndex != null ? `<p class="muted guided-set-note">Complete set ${s.setIndex + 1} of ${s.sets}, then continue to the next movement.</p>` : ""}
       ${alternativeHtml(s.item, s.level)}
       <div class="guided-timer-host"></div>
-      <div class="logger-host guided-logger-host${s.scope !== "main" ? " addon-scope" : ""}"></div>
       <div class="guided-tools" role="group" aria-label="Exercise details">
         <button type="button" class="btn sm ghost" data-tool="note" aria-expanded="false">${icon("note", "sm")} Note</button>
         <button type="button" class="btn sm ghost" data-tool="how" aria-expanded="false">${icon("list", "sm")} How to</button>
@@ -178,8 +177,10 @@ export function startGuided(date, onExit) {
         <section data-tool-panel="note"><span class="eyebrow">Note for this exercise</span><div data-note-host></div></section>
         <section data-tool-panel="how" hidden>${exerciseInfoHtml(ex)}</section>
         <section data-tool-panel="videos" hidden data-g="videos"></section>
-      </div>`;
-    renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), timerHost: side.querySelector(".guided-timer-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
+      </div>
+      <div class="logger-host guided-logger-host${s.scope !== "main" ? " addon-scope" : ""}"></div>`;
+    const logger = renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), timerHost: side.querySelector(".guided-timer-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
+    logger.startTimer();
     videoCtrl = renderVideos(side.querySelector('[data-g="videos"]'), videosFor(demo), {
       groups: videoGroupsFor(demo),
       activeGroup: stage.clipIndex,
@@ -202,7 +203,7 @@ export function startGuided(date, onExit) {
     body.querySelectorAll("[data-tool-panel]").forEach((panel) => {
       panel.hidden = panel.dataset.toolPanel !== next;
     });
-    if (next) body.scrollIntoView({ block: "nearest" });
+    if (next) body.scrollIntoView({ block: "start" });
   }
 
   function close() {

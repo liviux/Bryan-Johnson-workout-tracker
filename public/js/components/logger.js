@@ -327,26 +327,25 @@ export function renderLogger(container, ctx) {
       const timed = type === "hold" || type === "carry" || timedCheck;
       const n = Math.max(l.sets ? l.sets.length : 0, target.sets || 1);
       const sets = Array.from({ length: n }, (_, i) => (l.sets && l.sets[i]) || {});
-      body += `<div class="sets" style="--cols:${cols.length}">
-        <div class="set-row set-head"><span>Set</span>${cols.map((c) => `<span>${esc(c[1])}</span>`).join("")}<span></span></div>
+      body += `<div class="sets">
         ${sets
           .map(
             (s, i) => ctx.setIndex != null && i !== ctx.setIndex ? "" : `<div class="set-row">
-              <span class="n">${i + 1}</span>
+              <span class="n">Set ${i + 1}</span>
               ${cols
-                .map(([k, , ph]) => {
+                .map(([k, label, ph]) => {
                   const plan = defaults[k];
                   const blank = s[k] == null;
                   const v = blank ? (plan ?? "") : k === "kg" ? toUnit(s[k]) : s[k];
                   const isPlan = blank && plan != null;
                   const planText = k === "kg" ? fmtWeight(p, plan) : k === "sec" ? `${plan} s` : `${plan}`;
                   const hint = isPlan ? `Plan default: ${planText}` : ph ? `Plan: ${ph}` : "";
-                  return `<input class="input num" inputmode="decimal" data-set="${i}" data-k="${k}" value="${esc(v)}" placeholder="${esc(ph && !isPlan ? ph : "")}"${isPlan ? ' data-default="true"' : ""}${hint ? ` title="${esc(hint)}"` : ""} aria-label="Set ${i + 1} ${k}">`;
+                  return `<label class="set-field"><span>${esc(label)}</span><input class="input num" inputmode="decimal" data-set="${i}" data-k="${k}" value="${esc(v)}" placeholder="${esc(ph && !isPlan ? ph : "")}"${isPlan ? ' data-default="true"' : ""}${hint ? ` title="${esc(hint)}"` : ""} aria-label="Set ${i + 1} ${esc(label)}"></label>`;
                 })
                 .join("")}
               ${
                 timed
-                  ? `<button type="button" class="btn sm icon-only" data-l="hold" data-i="${i}" aria-label="Start ${defaults.sec || target.seconds || 30} second timer">${icon("timer", "sm")}</button>`
+                  ? `<button type="button" class="btn sm icon-only" data-l="hold" data-i="${i}" aria-label="Start ${defaults.sec || target.seconds || 30} second timer for set ${i + 1}">${icon("timer", "sm")}</button>`
                   : `<button type="button" class="btn sm icon-only ghost" data-l="del" data-i="${i}" aria-label="Remove set ${i + 1}">${icon("minus", "sm")}</button>`
               }
             </div>`
@@ -360,20 +359,20 @@ export function renderLogger(container, ctx) {
       const min = c.min ?? defaults.min ?? "";
       const minPlan = c.min == null && defaults.min != null;
       body += `<div class="grid-form cardio-form${isCheck ? " one" : ""}">
-          <label class="field"><span>Minutes</span><input class="input num" inputmode="decimal" data-c="min" value="${esc(min)}" placeholder="${esc(target.minutes || "")}"${minPlan ? ' data-default="true" title="Plan default"' : ""}></label>
-          ${isCheck ? "" : `<label class="field"><span>Avg bpm</span><input class="input num" inputmode="numeric" data-c="avg" value="${esc(c.avg ?? "")}" placeholder="${esc(bpmRange(p, ...cardioRange).replace(" bpm", ""))}"></label>
-          <label class="field"><span>Max bpm</span><input class="input num" inputmode="numeric" data-c="max" value="${esc(c.max ?? "")}"></label>`}
+          <label class="field inline"><span>Minutes</span><input class="input num" inputmode="decimal" data-c="min" value="${esc(min)}" placeholder="${esc(target.minutes || "")}"${minPlan ? ' data-default="true" title="Plan default"' : ""}></label>
+          ${isCheck ? "" : `<label class="field inline"><span>Avg bpm</span><input class="input num" inputmode="numeric" data-c="avg" value="${esc(c.avg ?? "")}" placeholder="${esc(bpmRange(p, ...cardioRange).replace(" bpm", ""))}"></label>
+          <label class="field inline"><span>Max bpm</span><input class="input num" inputmode="numeric" data-c="max" value="${esc(c.max ?? "")}"></label>`}
         </div>
-        <div class="btn-row">${doneBtn}${target.minutes ? `<button type="button" class="btn" data-l="countdown">${icon("timer")} ${target.minutes} min timer</button>` : ""}</div>`;
+        <div class="btn-row">${doneBtn}${target.minutes ? `<button type="button" class="btn" data-l="countdown">${icon("timer")} ${ctx.guided ? "Restart" : `${target.minutes} min`} timer</button>` : ""}</div>`;
     } else if (type === "intervals") {
       const presets = timerPresets(item, level);
       const pi = Math.min(l.preset || 0, Math.max(0, presets.length - 1));
       if (item.ex === "shortint") body += `<div class="grid-form">${[0, 1].map((index) => `<label class="field"><span>${index ? "Alternate with (optional)" : "Movement for work bursts"}</span><select class="input" data-interval-move="${index}">${index ? '<option value="">Same movement every burst</option>' : ""}${INTERVAL_MOVES.map((id) => `<option value="${id}" ${(l.moves?.[index] || (index === 0 ? "highknees" : "")) === id ? "selected" : ""}>${esc(EXERCISES[id].name)}</option>`).join("")}</select></label>`).join("")}</div><p class="muted interval-choice-help">Each work burst uses one movement. Pick an alternate to switch movements each round: first → march → alternate → march.</p>`;
       body += `${presets.length > 1 ? `<div class="seg" role="group" aria-label="Preset">${presets.map((pr, i) => `<button type="button" data-preset="${i}" aria-pressed="${i === pi}">${esc(pr.label)}</button>`).join("")}</div>` : ""}
-        <div class="btn-row"><button type="button" class="btn primary" data-l="intervals">${icon("timer")} Start interval timer</button>${doneBtn}</div>
+        <div class="btn-row"><button type="button" class="btn primary" data-l="intervals">${icon("timer")} ${ctx.guided ? "Restart" : "Start"} interval timer</button>${doneBtn}</div>
         <div class="grid-form" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-          <label class="field"><span>Hard intervals done</span><input class="input num" inputmode="numeric" data-r="rounds" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ' data-default="true" title="Plan default"' : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"></label>
-          <label class="field"><span>Peak bpm</span><input class="input num" inputmode="numeric" data-r="peak" value="${esc(l.peak ?? "")}"></label>
+          <label class="field inline"><span>Hard intervals done</span><input class="input num" inputmode="numeric" data-r="rounds" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ' data-default="true" title="Plan default"' : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"></label>
+          <label class="field inline"><span>Peak bpm</span><input class="input num" inputmode="numeric" data-r="peak" value="${esc(l.peak ?? "")}"></label>
         </div>`;
     } else {
       // Unmeasured checks keep the plain done action.
@@ -550,6 +549,98 @@ export function renderLogger(container, ctx) {
     }
   }
 
+  function startHoldTimer(i, auto = false) {
+    const t = currentTarget();
+    const secs = t.seconds || 30;
+    startHold({
+      title: ex.name,
+      host: ctx.timerHost,
+      auto,
+      voiceContext: voiceRequest(item, level, getItemLog(date, scope, item.id) || {}, restSec),
+      seconds: secs,
+      sides: t.perSide ? 2 : 1,
+      onFinish: () => {
+        save((l) => {
+          if (type === "hold" || type === "carry" || type === "check") {
+            l.sets = l.sets || [];
+            while (l.sets.length <= i) l.sets.push({});
+            if (l.sets[i].sec == null) l.sets[i].sec = secs;
+          }
+          if (ctx.setIndex == null) l.done = true;
+        });
+        draw();
+      },
+    });
+  }
+
+  function startCountdownTimer(auto = false) {
+    const t = currentTarget();
+    startCountdown({
+      title: ex.name,
+      host: ctx.timerHost,
+      auto,
+      voiceContext: voiceRequest(item, level, getItemLog(date, scope, item.id) || {}, restSec),
+      minutes: t.minutes,
+      sub: `${cardioLabel}: ${bpmRange(p, ...cardioRange)}`,
+      onFinish: () => {
+        save((l) => {
+          l.cardio = l.cardio || {};
+          if (l.cardio.min == null) l.cardio.min = t.minutes;
+          l.done = true;
+        });
+        draw();
+      },
+    });
+  }
+
+  function startIntervalsTimer(auto = false) {
+    const presets = timerPresets(item, level);
+    const l0 = getItemLog(date, scope, item.id) || {};
+    const preset = presets[Math.min(l0.preset || 0, presets.length - 1)];
+    if (!preset) return;
+    const hr = { work: preset.workHr ? bpmRange(p, ...preset.workHr) : "", rest: preset.restHr ? bpmRange(p, ...preset.restHr) : "" };
+    startIntervals({
+      title: `${ex.name} · ${preset.label}`,
+      host: ctx.timerHost,
+      auto,
+      voiceContext: voiceRequest(item, level, l0, restSec),
+      presetIndex: Math.min(l0.preset || 0, presets.length - 1),
+      exId: item.ex, moves: l0.moves,
+      preset,
+      hr,
+      onFinish: (rounds) => {
+        save((l) => {
+          l.rounds = rounds;
+          l.done = true;
+        });
+        draw();
+      },
+    });
+  }
+
+  // Guided work starts its timer as soon as the step opens. Nothing is marked
+  // done here; the normal Done button still controls completion.
+  function startPlannedTimer() {
+    if (!ctx.timerHost) return false;
+    const t = currentTarget();
+    if (type === "intervals") {
+      if (!timerPresets(item, level).length) return false;
+      startIntervalsTimer(true);
+      return true;
+    }
+    if (type === "cardio" || (type === "check" && t.minutes != null)) {
+      if (!t.minutes) return false;
+      startCountdownTimer(true);
+      return true;
+    }
+    if (type === "hold" || type === "carry" || (type === "check" && t.seconds != null)) {
+      if (!t.seconds) return false;
+      startHoldTimer(ctx.setIndex ?? 0, true);
+      return true;
+    }
+    return false;
+  }
+
   container.addEventListener("click", (e) => {
     const b = e.target.closest("button");
     if (!b) return;
@@ -603,6 +694,8 @@ export function renderLogger(container, ctx) {
         l.sets.push({});
       });
       draw();
+      const sets = container.querySelector(".sets");
+      if (sets) sets.scrollTop = sets.scrollHeight;
     } else if (a === "del") {
       const i = Number(b.dataset.i);
       save((l) => {
@@ -610,66 +703,11 @@ export function renderLogger(container, ctx) {
       });
       draw();
     } else if (a === "hold") {
-      const i = Number(b.dataset.i);
-      const target = currentTarget();
-      const secs = target.seconds || 30;
-      startHold({
-        title: ex.name,
-        host: ctx.timerHost,
-        voiceContext: voiceRequest(item, level, getItemLog(date, scope, item.id) || {}, restSec),
-        seconds: secs,
-        sides: target.perSide ? 2 : 1,
-        onFinish: () => {
-          save((l) => {
-            if (type === "hold" || type === "carry" || type === "check") {
-              l.sets = l.sets || [];
-              while (l.sets.length <= i) l.sets.push({});
-              if (l.sets[i].sec == null) l.sets[i].sec = secs;
-            }
-            if (ctx.setIndex == null) l.done = true;
-          });
-          draw();
-        },
-      });
+      startHoldTimer(Number(b.dataset.i));
     } else if (a === "countdown") {
-      const target = currentTarget();
-      startCountdown({
-        title: ex.name,
-        host: ctx.timerHost,
-        voiceContext: voiceRequest(item, level, getItemLog(date, scope, item.id) || {}, restSec),
-        minutes: target.minutes,
-        sub: `${cardioLabel}: ${bpmRange(p, ...cardioRange)}`,
-        onFinish: () => {
-          save((l) => {
-            l.cardio = l.cardio || {};
-            if (l.cardio.min == null) l.cardio.min = target.minutes;
-            l.done = true;
-          });
-          draw();
-        },
-      });
+      startCountdownTimer();
     } else if (a === "intervals") {
-      const presets = timerPresets(item, level);
-      const l0 = getItemLog(date, scope, item.id) || {};
-      const preset = presets[Math.min(l0.preset || 0, presets.length - 1)];
-      if (!preset) return;
-      const hr = { work: preset.workHr ? bpmRange(p, ...preset.workHr) : "", rest: preset.restHr ? bpmRange(p, ...preset.restHr) : "" };
-      startIntervals({
-        title: `${ex.name} · ${preset.label}`,
-        host: ctx.timerHost,
-        voiceContext: voiceRequest(item, level, l0, restSec),
-        presetIndex: Math.min(l0.preset || 0, presets.length - 1),
-        exId: item.ex, moves: l0.moves,
-        preset,
-        hr,
-        onFinish: (rounds) => {
-          save((l) => {
-            l.rounds = rounds;
-            l.done = true;
-          });
-          draw();
-        },
-      });
+      startIntervalsTimer();
     } else if (b.dataset.preset != null) {
       save((l) => {
         l.preset = Number(b.dataset.preset);
@@ -679,5 +717,5 @@ export function renderLogger(container, ctx) {
   });
 
   draw();
-  return { redraw: draw };
+  return { redraw: draw, startTimer: startPlannedTimer };
 }

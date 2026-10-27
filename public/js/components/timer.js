@@ -53,12 +53,15 @@ export function stopInlineTimer() {
 }
 
 // phases: [{ kind: "work" | "rest" | "ready", label, sec, sub }]
-function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = null }) {
+function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = null, auto = false }) {
   if (host) stopInlineTimer();
-  for (const fn of timerListeners) fn(true);
+  const notifyTimer = !(host && auto);
+  if (notifyTimer) for (const fn of timerListeners) fn(true);
   stopRest();
-  cancelVoice();
-  videoVoice(false);
+  if (!host || !auto) {
+    cancelVoice();
+    videoVoice(false);
+  }
   unlockVoice();
   const R = 120;
   const C = 2 * Math.PI * R;
@@ -181,7 +184,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
   function stop(close = true) {
     if (closed) return;
     closed = true;
-    for (const fn of timerListeners) fn(false);
+    if (notifyTimer) for (const fn of timerListeners) fn(false);
     clearInterval(timer);
     if (stage) { stage.dispose(); stage = null; }
     cancelVoice();
@@ -219,7 +222,8 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
     if (startBtn) startBtn.hidden = true;
     el.querySelector('[data-t="pause"]').disabled = false;
     el.querySelector('[data-t="skip"]').disabled = false;
-    beep(660, 160); show(); timer = setInterval(tick, 100);
+    if (!auto) beep(660, 160);
+    show(); timer = setInterval(tick, 100);
   }
   async function prepare() {
     try {
@@ -250,27 +254,27 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
 }
 
 // Interval timer from a preset: { rounds, work, rest, blocks?, blockRest?, workHr?, restHr? }
-export function startIntervals({ title, preset, hr, exId, moves, onFinish, voiceContext, presetIndex = 0, host = null }) {
+export function startIntervals({ title, preset, hr, exId, moves, onFinish, voiceContext, presetIndex = 0, host = null, auto = false }) {
   const phases = intervalPhases(exId, preset, moves);
   for (const phase of phases) {
     if (phase.kind === "work" && hr?.work) phase.sub = `Aim for ${hr.work}`;
     else if (phase.kind === "rest" && hr?.rest) phase.sub += ` · ${hr.rest}`;
   }
-  runPhases({ title, phases, onFinish, voiceContext, voiceTimer: { type: "intervals", preset: presetIndex, moves }, host });
+  runPhases({ title, phases, onFinish, voiceContext, voiceTimer: { type: "intervals", preset: presetIndex, moves }, host, auto });
 }
 
 // Hold timer: seconds per side, optionally both sides with a short switch.
-export function startHold({ title, seconds, sides = 1, onFinish, voiceContext, host = null }) {
+export function startHold({ title, seconds, sides = 1, onFinish, voiceContext, host = null, auto = false }) {
   const phases = [{ kind: "ready", label: "Get set", sec: 5 }];
   for (let s = 0; s < sides; s++) {
     phases.push({ kind: "work", label: sides > 1 ? (s === 0 ? "First side" : "Other side") : "Hold", sec: seconds, sub: "Breathe slowly" });
     if (s < sides - 1) phases.push({ kind: "rest", label: "Switch", sec: 5 });
   }
-  runPhases({ title, phases, onFinish, voiceContext, voiceTimer: { type: "hold", seconds, sides }, host });
+  runPhases({ title, phases, onFinish, voiceContext, voiceTimer: { type: "hold", seconds, sides }, host, auto });
 }
 
-export function startCountdown({ title, minutes, sub, onFinish, voiceContext, host = null }) {
-  runPhases({ title, phases: [{ kind: "ready", label: "Get ready", sec: 5 }, { kind: "work", label: "Go", sec: Math.round(minutes * 60), sub }], onFinish, voiceContext, voiceTimer: { type: "countdown", minutes }, host });
+export function startCountdown({ title, minutes, sub, onFinish, voiceContext, host = null, auto = false }) {
+  runPhases({ title, phases: [{ kind: "ready", label: "Get ready", sec: 5 }, { kind: "work", label: "Go", sec: Math.round(minutes * 60), sub }], onFinish, voiceContext, voiceTimer: { type: "countdown", minutes }, host, auto });
 }
 
 // Floating rest timer after a set. Tap it to dismiss.

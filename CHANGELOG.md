@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.38.1] - 2026-10-27
+
+### Changed
+- Guided timed exercises now open with the timer already running in the right panel; Pause, Next and Stop sit beside it, and the old timer button is only a restart.
+- Set rows put the set name, field name and value on one compact line, with narrow inputs. Extra sets scroll inside a capped box instead of stretching the panel.
+- Minutes, reps, heart-rate and interval fields use inline labels and smaller inputs.
+
+### Fixed
+- The guided Note, How to and Videos row stays pinned to the top, and the video player now opens above the list instead of jumping to the bottom.
+
 ## [1.38.0] - 2026-10-27
 
 ### Added
