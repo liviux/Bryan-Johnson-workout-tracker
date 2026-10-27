@@ -422,7 +422,7 @@ export default {
           { t: 0.95, p: neckPose(0, 0.5), e: "in" },
           { t: 1.4, p: neckPose(0), e: "out" },
           { t: 1.6, p: neckPose(0), cue: "Neck resists, head still: hold for 10 s" },
-          { t: 11.6, p: neckPose(0), cue: "Relax; that's one hold — repeat 5× at 30–50% effort" },
+          { t: 11.6, p: neckPose(0), cue: "Relax; that's one hold — repeat as your level prescribes at 30–50% effort" },
           { t: 12.2, p: neckPose(0, 0) },
         ],
       },

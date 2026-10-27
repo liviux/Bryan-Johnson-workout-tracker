@@ -14,7 +14,7 @@ import { EQUIPMENT_NAMES, icon } from "../components/icons.js";
 import { createExercisePanel } from "../components/exercise-panel.js";
 import { animBarOpen } from "../components/anim-bar.js";
 import { hasAnimStyles } from "../anim-styles.js";
-import { getItemLog, editItem, summarizeLog } from "../components/logger.js";
+import { getItemLog, editItem, fillDefaults, summarizeLog } from "../components/logger.js";
 import { deskState, deskStreak, doneDesk, pauseDesk, resumeDesk, snoozeDesk, startDesk, stopDesk, subscribeDesk } from "../components/desk.js";
 import { mountLevelCheck } from "../components/level-check.js";
 import { weekTargets } from "../week-targets.js";
@@ -596,11 +596,13 @@ export function render(el, params) {
     if (tick) {
       const li = tick.closest(".item");
       const found = findItem(li.dataset.scope, li.dataset.id);
-      if (found)
+      if (found) {
+        if (tick.checked) fillDefaults({ date, scope: li.dataset.scope, item: found.item, ex: EXERCISES[found.item.ex], level: found.level });
         editItem(date, li.dataset.scope, found.item, (l) => {
           l.done = tick.checked;
           if (tick.checked) l.skipped = false;
         });
+      }
       refreshStatus();
       if (panel && selected && selected.id === li.dataset.id) showPanel(selected);
       return;
@@ -639,6 +641,7 @@ export function render(el, params) {
       });
     } else if (b.hasAttribute("data-all")) {
       const ctx = context();
+      for (const bl of ctx.def.blocks) for (const it of blockItems(bl, ctx.level)) if (countable(it)) fillDefaults({ date, item: it, ex: EXERCISES[it.ex], level: ctx.level });
       editDay(date, (d) => {
         for (const bl of ctx.def.blocks) for (const it of blockItems(bl, ctx.level)) if (countable(it)) {
           d.items[it.id] = d.items[it.id] || { ex: it.ex };
@@ -755,6 +758,7 @@ export function render(el, params) {
       const aid = b.closest("[data-addon]").dataset.addon;
       const entry = addonsForDate(date).find((a) => a.addon.id === aid);
       const level = context().level;
+      for (const it of entry.variant.items) if (visible(it, level)) fillDefaults({ date, scope: aid, item: it, ex: EXERCISES[it.ex], level });
       editDay(date, (d) => {
         d.addons[aid] = d.addons[aid] || { items: {} };
         d.addons[aid].items = d.addons[aid].items || {};

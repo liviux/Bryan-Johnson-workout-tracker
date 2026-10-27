@@ -285,7 +285,7 @@ export default {
         alternate: true,
         keys: [
           { t: 0, p: stand(ARMS.hips), cue: "Hands on hips, a wall beside you; lift one foot" },
-          { t: 0.8, p: oneLeg(0), cue: "Hold for 30 s; close your eyes once this feels easy" },
+          { t: 0.8, p: oneLeg(0), cue: "Hold for the time your level prescribes; close your eyes once this feels easy" },
           { t: 2.2, p: oneLeg(1, 10) }, // eyes closed once the hold feels easy
           { t: 3.6, p: oneLeg(-1, 10) },
           { t: 4.6, p: oneLeg(0, 10), cue: "Lower the foot" },

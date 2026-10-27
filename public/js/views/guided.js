@@ -7,15 +7,15 @@ import { EXERCISES } from "../data/exercises.js";
 import { state } from "../store.js";
 import { addonsForDate, blockItems, countable, dayDef, levelFor, rxFor, sessionKeyFor, visible } from "../plan.js";
 import { personalize } from "../personalize.js";
-import { esc, h } from "../util.js";
+import { esc, fmtSecs, h } from "../util.js";
 import { icon } from "../components/icons.js";
 import { createStagePanel } from "../components/stage-panel.js";
-import { editItem, getItemLog, renderLogger } from "../components/logger.js";
+import { editItem, fillDefaults, getItemLog, renderLogger } from "../components/logger.js";
 import { exerciseInfoHtml } from "../components/exercise-panel.js";
 import { renderVideos, videoGroupsFor, videosFor } from "../components/video.js";
 import { mountLevelCheck } from "../components/level-check.js";
 import { pauseDesk, resumeDesk } from "../components/desk.js";
-import { onRest, onTimer, stopRest } from "../components/timer.js";
+import { onRest, onTimer, stopInlineTimer, stopRest } from "../components/timer.js";
 import { createWorkoutRadio } from "../components/radio.js";
 import { createCoachControls } from "../components/coach-controls.js";
 import { createGuidedVoice } from "../voice/session.js";
@@ -45,6 +45,7 @@ function stepDone(date, step) {
 }
 
 export function startGuided(date, onExit) {
+  if (document.querySelector(".guided")) return;
   unlockVoice();
   const steps = buildSteps(date);
   if (!steps.length) return;
@@ -67,6 +68,10 @@ export function startGuided(date, onExit) {
     <div class="guided-bottom">
       <button type="button" class="btn" data-g="prev">${icon("chevronL")} Back</button>
       <button type="button" class="btn ghost" data-g="skip">Skip ${icon("skip", "sm")}</button>
+      <div class="guided-clock" aria-label="Workout time">
+        <span><small>Total</small><b class="mono" data-g="total-time">0:00</b></span>
+        <span><small>This step</small><b class="mono" data-g="step-time">0:00</b></span>
+      </div>
       <button type="button" class="btn primary" data-g="next">${icon("check")} Done, next</button>
     </div>
   </div>`);
@@ -96,8 +101,26 @@ export function startGuided(date, onExit) {
   wrap.querySelector(".radio-host").append(radio.el, coach.el);
   wrap.addEventListener("input", () => voice.input());
 
+  // Two quiet clocks in the bottom bar: the whole session and the current step.
+  const startedAt = Date.now();
+  let stepStartedAt = startedAt;
+  let clockTimer = null;
+  const totalClock = wrap.querySelector('[data-g="total-time"]');
+  const stepClock = wrap.querySelector('[data-g="step-time"]');
+  function tickClocks() {
+    totalClock.textContent = fmtSecs((Date.now() - startedAt) / 1000);
+    stepClock.textContent = fmtSecs((Date.now() - stepStartedAt) / 1000);
+  }
+  function startClocks() {
+    tickClocks();
+    if (!clockTimer) clockTimer = setInterval(tickClocks, 1000);
+  }
+  startClocks();
+
   function finishScreen() {
-    stopRest(); voice.finish();
+    stopRest(); stopInlineTimer(); voice.finish();
+    clearInterval(clockTimer); clockTimer = null;
+    tickClocks();
     const done = steps.filter((s) => stepDone(date, s)).length;
     stage.pause();
     wrap.querySelector("[data-routine]").innerHTML = "";
@@ -114,7 +137,10 @@ export function startGuided(date, onExit) {
 
   function show(reason = "next") {
     stopRest();
+    stopInlineTimer();
     if (i >= steps.length) return finishScreen();
+    stepStartedAt = Date.now();
+    startClocks();
     wrap.querySelector(".guided-bottom").hidden = false;
     const s = steps[i];
     const ex = EXERCISES[s.item.ex];
@@ -132,17 +158,28 @@ export function startGuided(date, onExit) {
     });
     const itemLog = getItemLog(date, s.scope, s.item.id);
     wrap.querySelector("[data-routine]").innerHTML = ex.routine ? routineHtml(s.item, s.level, itemLog || {}, { compact: true }) : "";
+    const sideScroller = side.parentElement;
+    if (sideScroller) sideScroller.scrollTop = 0;
     side.innerHTML = `
       <span class="eyebrow">${esc(s.item.group || s.block)}${s.round ? ` · Round ${s.round} of ${s.rounds}` : ""}</span>
       <h2 class="display" style="font-size:2.1rem;line-height:1">${esc(s.item.label ? personalize(s.item.label, p) : ex.name)}</h2>
-      <div class="rx" style="font-family:var(--font-mono);padding:10px 12px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line)">${esc(personalize((itemLog && itemLog.rxOverride) || rxFor(s.item, s.level), p))}</div>
-      ${s.item.bryan ? `<span class="chip bryan" style="justify-self:start">${esc(personalize(s.item.bryan, p))}</span>` : ""}
-      ${s.setIndex != null ? `<p class="muted">Complete set ${s.setIndex + 1} of ${s.sets}, then continue to the next movement.</p>` : ""}
+      <div class="rx guided-rx">${esc(personalize((itemLog && itemLog.rxOverride) || rxFor(s.item, s.level), p))}</div>
+      ${s.item.bryan ? `<span class="chip bryan guided-bryan">${esc(personalize(s.item.bryan, p))}</span>` : ""}
+      ${s.setIndex != null ? `<p class="muted guided-set-note">Complete set ${s.setIndex + 1} of ${s.sets}, then continue to the next movement.</p>` : ""}
       ${alternativeHtml(s.item, s.level)}
-      <div class="logger-host${s.scope !== "main" ? " addon-scope" : ""}"></div>
-      <details><summary style="cursor:pointer;font-weight:600">How to do it</summary><div style="margin-top:10px">${exerciseInfoHtml(ex)}</div></details>
-      <details><summary style="cursor:pointer;font-weight:600">Videos</summary><div style="margin-top:10px" data-g="videos"></div></details>`;
-    renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, setIndex: s.setIndex, manualCompletion: true, onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
+      <div class="guided-timer-host"></div>
+      <div class="logger-host guided-logger-host${s.scope !== "main" ? " addon-scope" : ""}"></div>
+      <div class="guided-tools" role="group" aria-label="Exercise details">
+        <button type="button" class="btn sm ghost" data-tool="note" aria-expanded="false">${icon("note", "sm")} Note</button>
+        <button type="button" class="btn sm ghost" data-tool="how" aria-expanded="false">${icon("list", "sm")} How to</button>
+        <button type="button" class="btn sm ghost" data-tool="videos" aria-expanded="false">${icon("video", "sm")} Videos</button>
+      </div>
+      <div class="guided-tool-body" hidden>
+        <section data-tool-panel="note"><span class="eyebrow">Note for this exercise</span><div data-note-host></div></section>
+        <section data-tool-panel="how" hidden>${exerciseInfoHtml(ex)}</section>
+        <section data-tool-panel="videos" hidden data-g="videos"></section>
+      </div>`;
+    renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), timerHost: side.querySelector(".guided-timer-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
     videoCtrl = renderVideos(side.querySelector('[data-g="videos"]'), videosFor(demo), {
       groups: videoGroupsFor(demo),
       activeGroup: stage.clipIndex,
@@ -154,8 +191,24 @@ export function startGuided(date, onExit) {
     voice.enter(i, reason);
   }
 
+  function toggleTool(name) {
+    const bar = side.querySelector(".guided-tools");
+    const body = side.querySelector(".guided-tool-body");
+    if (!bar || !body) return;
+    const current = bar.querySelector('[aria-expanded="true"]')?.dataset.tool;
+    const next = current === name ? null : name;
+    bar.querySelectorAll("[data-tool]").forEach((b) => b.setAttribute("aria-expanded", String(b.dataset.tool === next)));
+    body.hidden = !next;
+    body.querySelectorAll("[data-tool-panel]").forEach((panel) => {
+      panel.hidden = panel.dataset.toolPanel !== next;
+    });
+    if (next) body.scrollIntoView({ block: "nearest" });
+  }
+
   function close() {
     stopRest();
+    stopInlineTimer();
+    clearInterval(clockTimer);
     stopRestListener(); stopTimerListener(); voice.dispose(); coach.dispose();
     resumeDesk("guided");
     radio.dispose();
@@ -190,6 +243,11 @@ export function startGuided(date, onExit) {
   }
 
   wrap.addEventListener("click", (e) => {
+    const tool = e.target.closest("[data-tool]");
+    if (tool) {
+      toggleTool(tool.dataset.tool);
+      return;
+    }
     const target = e.target.closest("[data-step-index]");
     if (target) {
       const next = Number(target.dataset.stepIndex);
@@ -224,6 +282,7 @@ export function startGuided(date, onExit) {
     } else if (a === "next") {
       if (i >= steps.length) return show();
       const s = steps[i];
+      fillDefaults({ date, scope: s.scope, item: s.item, ex: EXERCISES[s.item.ex], level: s.level, setIndex: s.setIndex });
       editItem(date, s.scope, s.item, (l) => {
         l.skipped = false;
         if (s.setIndex == null) l.done = true;

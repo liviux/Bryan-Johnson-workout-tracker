@@ -565,6 +565,77 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
 .coach-status, .coach-note { font-size: 0.85rem; line-height: 1.5; }
 .guided-voice-status { flex: none; margin: auto 0 0; padding: 0 16px 12px; min-height: 3.5em; font-size: 0.82rem; }
 .guided-voice-status:not(:empty) { padding-top: 12px; }
+
+/* The guided side panel: compact clocks, one details row and a small logger. */
+.guided-side { gap: 12px; }
+.guided-rx { font-family: var(--font-mono); padding: 8px 10px; border-radius: var(--r-sm); background: var(--surface-2); border: 1px solid var(--line); font-size: 0.9rem; }
+.guided-bryan { justify-self: start; white-space: normal; }
+.guided-set-note { font-size: 0.82rem; margin: 0; }
+.guided-timer-host:empty { display: none; }
+.guided-tools { display: flex; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface-2); }
+.guided-tools [data-tool] { flex: 1; min-width: 0; min-height: 34px; padding: 5px 7px; border-radius: var(--r-sm); color: var(--ink-2); font-size: 0.8rem; }
+.guided-tools [data-tool][aria-expanded="true"] { background: var(--surface); color: var(--accent); box-shadow: var(--shadow); }
+.guided-tool-body { padding: 12px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
+.guided-tool-body[hidden], .guided-tool-body [data-tool-panel][hidden] { display: none; }
+.guided-tool-body > [data-tool-panel] > .eyebrow { display: block; margin-bottom: 8px; }
+.guided-tool-body .how { gap: 8px; }
+.guided .logger { gap: 8px; }
+.guided .sets { gap: 4px; padding: 8px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface-2); }
+.guided .set-row { grid-template-columns: 22px repeat(var(--cols, 2), minmax(0, 1fr)) 30px; gap: 4px; }
+.guided .set-head { padding: 0 2px; }
+.guided .set-row .n { font-size: 0.72rem; }
+.guided .set-row .input.num { min-height: 32px; padding: 4px 2px; font-size: 0.9rem; border-radius: var(--r-sm); background: var(--surface); }
+.guided .set-row .btn.sm.icon-only { width: 30px; min-height: 30px; }
+.guided .btn-row { gap: 6px; }
+.guided .btn-row .btn.sm { min-height: 30px; padding: 4px 8px; font-size: 0.78rem; }
+.guided .grid-form { gap: 8px; }
+.guided .field { gap: 3px; }
+.guided .field > span { font-size: 0.72rem; }
+.guided .next-time { padding: 8px 10px; gap: 8px; }
+.guided .next-time p { font-size: 0.8rem; }
+.guided .next-time .btn.sm { min-height: 28px; padding: 3px 8px; font-size: 0.76rem; }
+.guided .logger > p.muted { font-size: 0.78rem; }
+.guided .guided-tool-body .input[data-default="true"] { border-bottom-style: dashed; }
+.input[data-default="true"] { color: var(--ink-2); }
+.note-panel { display: grid; gap: 8px; }
+.note-panel[hidden] { display: none; }
+.note-panel textarea.input { margin: 0; min-height: 68px; resize: vertical; }
+.note-easier { display: flex; justify-content: flex-start; }
+.note-easier .btn { white-space: normal; text-align: left; }
+
+.guided-clock { flex: 1; display: flex; gap: 12px; align-items: center; justify-content: center; color: var(--muted); font-size: 0.72rem; }
+.guided-clock > span { display: inline-flex; gap: 5px; align-items: baseline; }
+.guided-clock small { font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.guided-clock b { color: var(--ink-2); font-weight: 500; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .guided-bottom { flex-wrap: wrap; }
+  .guided-clock { order: 4; flex-basis: 100%; justify-content: space-between; padding-top: 2px; }
+  .guided-clock small { display: none; }
+}
+
+.cardio-form { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cardio-form.one { grid-template-columns: minmax(0, 160px); }
+.guided .cardio-form.one { grid-template-columns: minmax(0, 120px); }
+
+.timer.inline {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); box-shadow: var(--shadow);
+  display: grid; grid-template-columns: minmax(0, 130px) minmax(0, 1fr); grid-template-areas: "ring controls" "ring info";
+  align-items: center; justify-items: stretch; gap: 2px 12px;
+}
+.timer.inline .timer-ring, [data-skin] .timer.inline .timer-ring { grid-area: ring; width: min(124px, 40vw); justify-self: center; }
+.timer.inline .timer-ring circle { stroke-width: 7; }
+.timer.inline .timer-center .phase { font-size: 0.78rem; }
+.timer.inline .timer-center .big, [data-skin] .timer.inline .timer-center .big { font-size: clamp(1.5rem, 4vw, 1.9rem); }
+.timer.inline .timer-center .sub { font-size: 0.7rem; }
+.timer.inline .btn-row { grid-area: controls; gap: 6px; justify-content: flex-start; align-self: end; }
+.timer.inline .btn { min-height: 32px; padding: 5px 9px; font-size: 0.78rem; }
+.timer.inline [data-t="info"] { grid-area: info; font-size: 0.72rem; margin: 0; text-align: left; align-self: start; }
+@media (max-width: 520px) {
+  .timer.inline { grid-template-columns: minmax(0, 1fr); grid-template-areas: "ring" "controls" "info"; }
+  .timer.inline .timer-ring { width: min(130px, 45vw); }
+  .timer.inline .btn-row { justify-content: center; }
+  .timer.inline [data-t="info"] { text-align: center; }
+}
 .radio-toggle { gap: 6px; }
 .radio-toggle .icon { width: 18px; height: 18px; }
 .radio-mute { color: var(--muted); }
@@ -1059,6 +1130,8 @@ td.cur, th.cur { background: var(--accent-soft); }
 .routine-steps .muted { display: block; margin-top: 3px; font-size: 0.8rem; }
 .routine-steps a { font-size: 0.8rem; }
 .interval-stage.stage { width: 100%; height: 240px; aspect-ratio: auto; border: 1px solid var(--line); border-radius: 10px; }
+.timer [data-t="info"] { text-align: center; }
+.timer.inline [data-t="info"] { text-align: left; }
 .timer:has(.interval-stage) .timer-ring { width: min(220px, 65vw); }
 .timer:has(.interval-stage) .phase { font-size: 1rem; padding: 0 12px; }
 

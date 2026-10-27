@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.38.0] - 2026-10-27
+
+### Added
+- Guided workouts fill each exercise with your level's reps, seconds, minutes or rounds, so **Done, next** records the plan even when you leave the fields alone.
+- Checked exercises now have a value to log too: seconds, minutes, breaths or reps, with the plan's default where there is one.
+- The guided side panel groups Note, How to do it and Videos on one row, and timed work gets a compact timer in the panel with Pause, Next and Stop.
+- The guided bottom bar shows the total workout time and the time spent on the current step.
+
+### Changed
+- "Something hurts or too hard?" now sits inside the exercise note, collapsed with it, instead of taking its own row.
+- The guided logger is more compact: a tighter set table, smaller inputs and a smaller field for a single number of minutes.
+
+### Fixed
+- **Plan change:** Single-leg balance and the forehead-resistance hold no longer state a fixed time or count that differs from your level; their animation cues now point to the time or holds your level prescribes.
+
 ## [1.37.0] - 2026-10-27
 
 ### Added

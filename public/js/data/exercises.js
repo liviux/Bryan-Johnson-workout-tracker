@@ -230,7 +230,7 @@ export const EXERCISES = {
     bryan: "Balance is one of Bryan’s five exercise pillars (his May 2026 video). His free biological-age check uses a one-leg stand with eyes closed. Being able to stand on one leg for 10 s is linked with lower all-cause mortality.",
     how: [
       "Stand on one leg next to a wall, hands on hips, other foot off the floor.",
-      "Hold 30 s, then progress to eyes closed.",
+      "Hold for the time your level prescribes, then progress to eyes closed.",
       "Stop the clock when the foot shifts, a hand leaves the hip or the raised foot touches down.",
       "Once a month, record your best eyes-closed time per leg.",
     ],
@@ -1668,7 +1668,7 @@ export const EXERCISES = {
       "Sit or stand tall (string cue), chin slightly tucked so the back of the neck is long.",
       "Put a hand on your forehead and push gently backward.",
       "Resist with your neck. Either hold still, or let the hand win slowly over 3–5 s, moving the head back up to about 30°, then return.",
-      "Daily: 5 × 10 s holds at 30–50% effort. Wednesday and Saturday: 1 set to fatigue.",
+      "Daily: 3–5 × 10 s holds at 30–50% effort; your level sets the number. Wednesday and Saturday: 1 set to fatigue.",
     ],
     tips: [
       "Bryan calls this technical and was taught it for his own diagnosed condition. Stay gentle, and stop if you get dizziness, tingling or a headache.",
