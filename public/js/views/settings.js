@@ -3,7 +3,7 @@
 
 import { ADDONS } from "../data/addons/index.js";
 import { CATEGORIES, EXERCISES } from "../data/exercises.js";
-import { exportAll, importAll, resetAll, state, updateProfile } from "../store.js";
+import { exportAll, importAll, resetAll, resetDays, state, updateProfile } from "../store.js";
 import { SEXES, bpmRange, hrMax, levelIndex } from "../personalize.js";
 import { blockItems, dayDef, levelFor, sessionKeyFor, sessionsDone, addonRunsOn, addonSchedule, ADDON_EVERY_MAX } from "../plan.js";
 import { levelPickerHtml } from "../components/level-picker.js";
@@ -190,6 +190,7 @@ export function render(el) {
           <label class="btn">${icon("upload")} Import backup<input type="file" accept="application/json,.json" data-import hidden></label>
           <a class="btn" href="#/setup/redo">${icon("rotate")} Run setup again</a>
           <button type="button" class="btn danger" data-reset>${icon("trash")} Reset everything</button>
+          <button type="button" class="btn danger" data-reset-days>${icon("trash")} Reset workout history</button>
         </div>
       </section>
 
@@ -363,6 +364,15 @@ export function render(el) {
         await resetAll();
         applyAnimStyle({});
         location.hash = "#/setup";
+      }
+    } else if (b.hasAttribute("data-reset-days")) {
+      if (await confirmDialog({ title: "Reset workout history?", message: "This deletes every logged day: sets, notes, skips, body weight and extra activity. Your profile, settings, equipment and add-ons stay. Export a backup first if you might want the logs back.", confirm: "Delete history", danger: true })) {
+        try {
+          await resetDays();
+          toast("Workout history reset");
+        } catch {
+          toast("Couldn't reach the server, so nothing was deleted.", { icon: "info" });
+        }
       }
     }
   });

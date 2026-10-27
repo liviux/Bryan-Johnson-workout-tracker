@@ -104,6 +104,7 @@ Open **Settings → Latest changes** for the newest 20 releases, with a link to 
 
 - **Back up** in **Settings → Export backup**. Keep the downloaded file somewhere safe.
 - **Restore a backup** in **Settings → Import backup**. Choose merge to combine it with your existing logs, or replace to overwrite your current logs.
+- **Reset only your workout history** in **Settings → Your data → Reset workout history**. It deletes every logged day but keeps your profile, equipment, settings and add-ons.
 
 <details>
 <summary><b>Advanced: data files and browser storage</b></summary>

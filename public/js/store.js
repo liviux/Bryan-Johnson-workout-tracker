@@ -251,6 +251,30 @@ export async function importAll(payload, mode = "merge") {
   emit({ type: "all" });
 }
 
+// Clears every logged day, keeping the profile, settings, equipment and add-ons.
+export async function resetDays() {
+  if (state.mode === "server") {
+    const res = await fetch("/api/import", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ mode: "replace", days: {} }) });
+    if (!res.ok) throw new Error("Reset failed (HTTP " + res.status + ")");
+  }
+  for (const key of [...versions.keys()]) {
+    if (!key.startsWith("day:")) continue;
+    clearTimeout(timers.get(key));
+    timers.delete(key);
+    versions.delete(key);
+  }
+  state.days = {};
+  if (state.mode === "local") {
+    lsSet(LS.days, {});
+    const parked = lsGet(LS.pending, null);
+    if (parked) {
+      parked.days = {};
+      lsSet(LS.pending, parked.profile ? parked : undefined);
+    }
+  } else parkUnsaved();
+  emit({ type: "all" });
+}
+
 export async function resetAll() {
   if (state.mode === "server") {
     await fetch("/api/import", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ mode: "replace", days: {} }) });

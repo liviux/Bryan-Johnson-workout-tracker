@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.37.0] - 2026-10-27
+
+### Added
+- **Reset workout history** in Settings → Your data clears every logged day while keeping your profile, equipment, settings and add-ons.
+
 ## [1.36.6] - 2026-10-23
 
 ### Fixed
