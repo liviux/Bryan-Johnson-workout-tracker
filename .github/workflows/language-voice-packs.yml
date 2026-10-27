@@ -1,0 +1,53 @@
+name: Build translated coach voices
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: ro
+            voice: ro_alina
+          - language: de
+            voice: de_katja
+          - language: it
+            voice: it_elsa
+          - language: fr
+            voice: fr_denise
+          - language: es
+            voice: es_elvira
+          - language: zh
+            voice: zh_xiaoxiao
+          - language: hi
+            voice: hi_swara
+          - language: ar
+            voice: ar_zariyah
+          - language: bn
+            voice: bn_nabanita
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
+        with:
+          node-version: 22
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: "3.12"
+      - run: pip install edge-tts==7.3.1
+      - name: List every spoken clip for this language
+        run: node voice/language-entries.js ${{ matrix.language }} ${{ matrix.voice }} > entries.json
+      - name: Synthesize missing clips
+        run: python3 voice/build-language-audio.py entries.json
+      - name: Package the shared voice
+        run: node voice/finish-language-pack.js entries.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: coach-${{ matrix.voice }}
+          path: |
+            voice/packs/${{ matrix.voice }}.json
+            voice/packs/${{ matrix.voice }}/
+          retention-days: 1

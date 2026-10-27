@@ -1,3 +1,4 @@
+import { localized } from "../../i18n.js";
 import { splitItems } from "../split-items.js";
 // Optional add-ons shown after the main session (the posture block is the first).
 // The user picks them in the first-run setup and can change them in Settings.
@@ -14,8 +15,10 @@ import desk from "./desk.js";
 import bone from "./bone.js";
 import hang from "./hang.js";
 
-export const ADDONS = [posture, desk, bone, hang];
-for (const addon of ADDONS) for (const variant of Object.values(addon.variants)) variant.items = splitItems(variant.items);
+const addons = [posture, desk, bone, hang];
+for (const addon of addons) for (const variant of Object.values(addon.variants)) variant.items = splitItems(variant.items);
+
+export const ADDONS = localized(addons);
 
 export function getAddon(id) {
   return ADDONS.find((a) => a.id === id) || null;

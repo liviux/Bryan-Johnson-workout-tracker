@@ -1,7 +1,8 @@
 // Calendar periods are separate from longer spans; every end date is inclusive.
+import { localized } from "./i18n.js";
 import { addDays, iso, todayIso, weekStart } from "./util.js";
 
-export const PROGRESS_RANGES = [
+export const PROGRESS_RANGES = localized([
   { id: "this-week", name: "This week", group: "Recent" },
   { id: "last-week", name: "Last week", group: "Recent" },
   { id: "this-month", name: "This month", group: "Recent" },
@@ -11,7 +12,7 @@ export const PROGRESS_RANGES = [
   { id: "6m", name: "6 months", group: "Longer" },
   { id: "1y", name: "1 year", group: "Longer" },
   { id: "all", name: "Since beginning", group: "Longer" },
-];
+]);
 
 export function progressBeginning(profile, days, today = todayIso()) {
   const dates = [profile?.startDate, ...Object.keys(days)].filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d || "") && d <= today);
@@ -36,7 +37,7 @@ export function progressRange(id, profile, days, today = todayIso()) {
   else if (range.id === "8w" || range.id === "12w") start = addDays(thisWeek, -7 * (Number(range.id.slice(0, -1)) - 1));
   else if (range.id === "6m" || range.id === "1y") start = addDays(monthsBefore(today, range.id === "6m" ? 6 : 12), 1);
   else start = progressBeginning(profile, days, today);
-  if (range.group === "Longer") start = [start, progressBeginning(profile, days, today)].sort()[1];
+  if (["8w", "12w", "6m", "1y", "all"].includes(range.id)) start = [start, progressBeginning(profile, days, today)].sort()[1];
   return { ...range, start, end };
 }
 

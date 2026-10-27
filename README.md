@@ -22,6 +22,7 @@ A local web app that plans and tracks a six-day home workout built from **Bryan 
 - **Your equipment**: record what you own, with names and product links, during setup or any time in Settings. Add equivalent or extra equipment, including a separate Massage category. Exercise instructions keep generic equipment names.
 - **Personalised**: heart-rate zones from your age (or measured max), starting weights scaled to your weight, sex, age and level, metric or imperial.
 - **Optional add-ons** chosen on first run: a daily **posture correction** block for tech neck and forward shoulders, **bone density loading** (heel drops and pogo hops), **dead hang & grip longevity** (passive and active hangs), and separate **desk breaks** for long sitting days.
+- **Ten languages**: English, Romanian, German, Italian, French, Spanish, Simplified Chinese, Hindi, Arabic and Bengali. The interface, exercise names, instructions and coach audio follow the language you pick in Settings; Arabic switches the layout to right-to-left.
 - **Nine themes** to pick from during setup or any time in Settings, each with its own layout, type and colours (not just a palette), in light or dark.
 - **Activity**: a weekly schedule, history calendar with skip reasons, progress charts and longevity benchmarks.
 - An exercise library with equipment, muscle, source and category filters, and the full plan with dated sources.
@@ -90,7 +91,7 @@ sudo tailscale serve --bg --https=10000 http://127.0.0.1:3030
 
 Then open `https://<device>.<tailnet>.ts.net:10000` on a Tailscale device. This stays within your tailnet. The app has no login, so do not expose it with Tailscale Funnel or a public port forward.
 
-`npm install` only downloads three.js and three web fonts; the server itself uses nothing but Node. The [voice coach](#voice-coach) recordings are included in the Git download (about 640 MiB for all five voices).
+`npm install` only downloads three.js and three web fonts; the server itself uses nothing but Node. The [voice coach](#voice-coach) recordings are included in the Git download (about 900 MiB for the five English voices and nine translated voices).
 
 </details>
 
@@ -133,6 +134,7 @@ Enter your details during setup and change them any time in **Settings**. If you
 | Equipment | Your optional inventory: names, links, equivalents and extra accessories. Exercises keep their generic labels. |
 | Heaviest dumbbell | Suggested weights are capped at it |
 | Units | kg/cm or lb/in throughout |
+| Language | The interface, plan text and coach audio. Arabic also switches to a right-to-left layout. |
 | Training level | Which exercises you do, how many sets and reps, and how long the cardio lasts. Your level only changes when you choose it; past logs keep their original level. |
 | Start date | Day one of your program |
 | Add-ons | Which optional blocks appear after the main session |
@@ -242,7 +244,7 @@ Music keeps playing between exercises, and your station and volume are saved for
 
 ## Voice coach
 
-Choose **Turn coaching on** in **Coach** during a guided workout, or in **Settings → Voice coach**. Five English voices give exercise, set and timer cues using included recordings that work offline.
+Choose **Turn coaching on** in **Coach** during a guided workout, or in **Settings → Voice coach**. English has five recorded voices; each other language has its own native coach voice. Exercise, set and timer cues use included recordings that work offline.
 
 <details>
 <summary><b>Voices, controls and audio storage</b></summary>

@@ -9,6 +9,7 @@ import { applyAnimStyle } from "./anim-styles.js";
 import { restoreSkinBar } from "./components/skin-bar.js";
 import { restoreAnimBar } from "./components/anim-bar.js";
 import { openChangelogDialog } from "./components/changelog.js";
+import { onLanguage, setLanguage, t, watchTranslations } from "./i18n.js";
 
 const VIEWS = {
   today: () => import("./views/today.js"),
@@ -38,6 +39,7 @@ const TABS = [
 const viewEl = document.getElementById("view");
 let current = null;
 let token = 0;
+let lastRoute = "today";
 
 function drawNav(route) {
   const active = route === "day" ? "today" : route;
@@ -52,6 +54,16 @@ function drawNav(route) {
   document.querySelector(".topbar").hidden = setup;
   document.getElementById("tabbar").hidden = setup;
   document.getElementById("app").style.gridTemplateColumns = setup ? "minmax(0,1fr)" : "";
+}
+
+function drawShell() {
+  const brand = t("Home Protocol");
+  const tagline = t("Inspired by Bryan Johnson");
+  document.title = t("Home Protocol · workout tracker");
+  document.querySelectorAll(".brand-text b, .brand.small b").forEach((el) => { el.textContent = brand; });
+  document.querySelectorAll(".brand-text small").forEach((el) => { el.textContent = tagline; });
+  document.querySelector(".sidebar")?.setAttribute("aria-label", t("Main"));
+  document.querySelector(".tabbar")?.setAttribute("aria-label", t("Main"));
 }
 
 function parseHash() {
@@ -81,6 +93,7 @@ async function route() {
   document.documentElement.dataset.route = name;
   delete document.documentElement.dataset.venue;
   drawNav(name);
+  drawShell();
   // A fresh container per view, so event listeners never outlive their view.
   viewEl.innerHTML = "";
   const host = document.createElement("div");
@@ -93,17 +106,17 @@ async function route() {
 function drawStatus(s) {
   const local = store.state.mode === "local";
   const text = {
-    idle: local ? "Saved in this browser" : "All changes saved",
-    pending: "Saving…",
-    saving: "Saving…",
-    saved: local ? "Saved in this browser" : "All changes saved",
-    offline: "Can't reach the server. Retrying…",
+    idle: local ? t("Saved in this browser") : t("All changes saved"),
+    pending: t("Saving…"),
+    saving: t("Saving…"),
+    saved: local ? t("Saved in this browser") : t("All changes saved"),
+    offline: t("Can't reach the server. Retrying…"),
   }[s];
   for (const id of ["save-status", "save-status-top"]) {
     const el = document.getElementById(id);
     el.dataset.s = s;
     el.innerHTML = `<span class="dot"></span><span>${esc(text)}</span>`;
-    el.title = local ? "Saved only in this browser. Run npm start to save as files on this computer." : `Saved to ${store.state.dataDir}/ on this computer`;
+    el.title = local ? t("Saved only in this browser. Run npm start to save as files on this computer.") : t("Saved to {dir}/ on this computer", { dir: store.state.dataDir });
   }
 }
 
@@ -120,7 +133,7 @@ function drawVersion() {
   const v = store.state.version;
   el.textContent = v ? `v${v}` : "";
   el.hidden = !v;
-  el.title = v ? `Version ${v} · Latest changes` : "Latest changes";
+  el.title = v ? t("Version {version} · Latest changes", { version: v }) : t("Latest changes");
 }
 
 document.getElementById("sidebar-version")?.addEventListener("click", () => {
@@ -130,6 +143,8 @@ document.getElementById("sidebar-version")?.addEventListener("click", () => {
 drawVersion();
 await store.init();
 drawVersion();
+if (store.state.profile) await setLanguage(store.state.profile.settings?.language || "en", { silent: true });
+watchTranslations();
 // The profile on disk decides the look (this browser may have an older copy in localStorage).
 if (store.state.profile) applyLook(store.state.profile.settings);
 if (store.state.profile) applyAnimStyle(store.state.profile.settings);
@@ -137,4 +152,11 @@ restoreSkinBar();
 restoreAnimBar();
 store.onStatus(drawStatus);
 window.addEventListener("hashchange", route);
+onLanguage(() => {
+  drawNav(lastRoute);
+  drawShell();
+  drawStatus(store.state.saveStatus);
+  drawVersion();
+  route();
+});
 route();

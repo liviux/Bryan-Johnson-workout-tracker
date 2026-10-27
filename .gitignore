@@ -1,6 +1,9 @@
 # Your personal data (profile, daily logs). Never committed.
 /data/
 
+# Generated speech cache (packs are committed)
+/voice/language-audio/
+
 # Dependencies
 node_modules/
 /.voice/
@@ -11,3 +14,6 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+
+# Translation build cache
+/scripts/i18n-cache.json

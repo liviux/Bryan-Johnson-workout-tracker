@@ -5,6 +5,7 @@
 import { BRYAN_VIDEOS, VIDEO_META } from "../data/videos.js";
 import { esc, fmtMinSec, fmtSecs } from "../util.js";
 import { icon } from "./icons.js";
+import { t } from "../i18n.js";
 
 export function youtubeId(url) {
   const m = /(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{11})/.exec(url || "");
@@ -115,17 +116,21 @@ export function lookDetailHtml(v) {
   const at = typeof v.start === "number" ? v.start : 0;
   const ms = fmtMinSec(at);
   const clock = fmtSecs(at);
-  const range = v.end ? ` to <b>${fmtMinSec(v.end)}</b> (${fmtSecs(v.end)})` : "";
+  const range = v.end ? ` ${t("to")} <b>${fmtMinSec(v.end)}</b> (${fmtSecs(v.end)})` : "";
+  const where = `${t("Where to look:")} <b>${ms}</b> (${clock})${range}`;
   if (!v.id) {
-    return `<div class="video-look">${icon("clock", "sm")}<span>Where to look: <b>${ms}</b> (${clock}) · Direct embedding isn't available for X posts; open the link below to watch the clip.</span></div>`;
+    return `<div class="video-look">${icon("clock", "sm")}<span>${where} · ${t("Direct embedding isn't available for X posts; open the link below to watch the clip.")}</span></div>`;
   }
   if (v.isShort) {
-    return `<div class="video-look">${icon("clock", "sm")}<span>Where to look: <b>${ms}</b> (${clock})${range} · ${at > 0 ? `Embed starts at ${ms}; if the Short restarts from the beginning, look at ${ms}.` : `Short clip showing this exercise from ${ms}.`}</span></div>`;
+    const detail = at > 0
+      ? t("Embed starts at {time}; if the Short restarts from the beginning, look at {time}.", { time: ms })
+      : t("Short clip showing this exercise from {time}.", { time: ms });
+    return `<div class="video-look">${icon("clock", "sm")}<span>${where} · ${detail}</span></div>`;
   }
   if (at > 0) {
-    return `<div class="video-look">${icon("clock", "sm")}<span>Where to look: <b>${ms}</b> (${clock})${range} · Embed starts right at this exercise (if your player resets, seek to ${ms}).</span></div>`;
+    return `<div class="video-look">${icon("clock", "sm")}<span>${where} · ${t("Embed starts right at this exercise (if your player resets, seek to {time}).", { time: ms })}</span></div>`;
   }
-  return `<div class="video-look">${icon("clock", "sm")}<span>Where to look: <b>${ms}</b> (${clock})${range} · Dedicated clip demonstrating this exercise from the start.</span></div>`;
+  return `<div class="video-look">${icon("clock", "sm")}<span>${where} · ${t("Dedicated clip demonstrating this exercise from the start.")}</span></div>`;
 }
 
 export function renderVideos(container, list, opts = {}) {
@@ -135,7 +140,7 @@ export function renderVideos(container, list, opts = {}) {
       : [{ title: "", videos: Array.isArray(list) ? list : videosFor(list) }];
   const hasAny = groups.some((g) => g.videos && g.videos.length);
   if (!hasAny) {
-    container.innerHTML = `<p class="muted">No video available. Follow the instructions and animation.</p>`;
+    container.innerHTML = `<p class="muted">${t("No video available. Follow the instructions and animation.")}</p>`;
     return { setGroup() {}, playing: false, activeGroup: 0 };
   }
   let activeGroup = Math.min(Math.max(0, opts.activeGroup || 0), groups.length - 1);
@@ -154,10 +159,10 @@ export function renderVideos(container, list, opts = {}) {
       groups.length > 1
         ? `<div class="video-sub">
             <div class="video-sub-head">
-              <span class="eyebrow">Movement ${activeGroup + 1} of ${groups.length}: ${esc(groups[activeGroup].title)}</span>
-              <span class="muted">Switches with the animation</span>
+              <span class="eyebrow">${t("Movement {current} of {total}: {title}", { current: activeGroup + 1, total: groups.length, title: esc(groups[activeGroup].title) })}</span>
+              <span class="muted">${t("Switches with the animation")}</span>
             </div>
-            <div class="video-sub-tabs" role="group" aria-label="Exercise movements">
+            <div class="video-sub-tabs" role="group" aria-label="${esc(t("Exercise movements"))}">
               ${groups
                 .map(
                   (g, gi) =>
@@ -168,7 +173,7 @@ export function renderVideos(container, list, opts = {}) {
           </div>`
         : "";
     if (!v) {
-      container.innerHTML = `<div class="videos">${subTabsHtml}<p class="muted">No video available for this movement. Follow the instructions and animation.</p></div>`;
+      container.innerHTML = `<div class="videos">${subTabsHtml}<p class="muted">${t("No video available for this movement. Follow the instructions and animation.")}</p></div>`;
       return;
     }
     const at = typeof v.start === "number" ? v.start : 0;
@@ -176,22 +181,22 @@ export function renderVideos(container, list, opts = {}) {
     container.innerHTML = `
       <div class="videos">
         ${subTabsHtml}
-        <div class="video-tabs" role="group" aria-label="Videos">
+        <div class="video-tabs" role="group" aria-label="${esc(t("Videos"))}">
           ${items
             .map((x, i) => {
               const m = videoChannelDate(x);
               const sub = [m.channel, m.date].filter(Boolean).join(" · ");
-              return `<button type="button" data-i="${i}" aria-pressed="${i === active}"><span class="tag ${x.kind === "demo" ? "demo" : ""}">${x.kind === "bryan" ? "Bryan" : "Demo"}</span><span class="video-tab-info"><span class="video-tab-title">${esc(x.title)}</span>${sub ? `<small class="video-tab-sub">${esc(sub)}</small>` : ""}</span></button>`;
+              return `<button type="button" data-i="${i}" aria-pressed="${i === active}"><span class="tag ${x.kind === "demo" ? "demo" : ""}">${x.kind === "bryan" ? t("Bryan") : t("Demo")}</span><span class="video-tab-info"><span class="video-tab-title">${esc(x.title)}</span>${sub ? `<small class="video-tab-sub">${esc(sub)}</small>` : ""}</span></button>`;
             })
             .join("")}
         </div>
         ${lookDetailHtml(v)}
         ${
           v.id
-            ? `<div class="video-frame"><div class="poster" role="button" tabindex="0" aria-label="Play ${esc(v.title)}" style="background-image:url('https://i.ytimg.com/vi/${v.id}/hqdefault.jpg')"><span class="play">${icon("play")}</span><span class="vt">${esc(v.title)} · ${fmtMinSec(at)} (${fmtSecs(at)})</span></div></div>`
-            : `<div class="banner"><div class="grow"><b>${esc(v.title)}</b><span class="muted">Open this post on X to watch the clip.</span></div></div>`
+            ? `<div class="video-frame"><div class="poster" role="button" tabindex="0" aria-label="${esc(t("Play {title}", { title: v.title }))}" style="background-image:url('https://i.ytimg.com/vi/${v.id}/hqdefault.jpg')"><span class="play">${icon("play")}</span><span class="vt">${esc(v.title)} · ${fmtMinSec(at)} (${fmtSecs(at)})</span></div></div>`
+            : `<div class="banner"><div class="grow"><b>${esc(v.title)}</b><span class="muted">${t("Open this post on X to watch the clip.")}</span></div></div>`
         }
-        <div class="video-meta"><div class="video-meta-info">${vm.channel || vm.date ? `<div class="video-byline"><b>${esc(vm.channel)}</b>${vm.date ? ` · <span>Uploaded ${esc(vm.date)}</span>` : ""}</div>` : ""}<div>${v.kind === "bryan" ? (at > 0 ? `Bryan demonstrates it at ${fmtMinSec(at)} (${fmtSecs(at)})` : "Bryan's video or post") : at > 0 ? `Demonstration starts at ${fmtMinSec(at)} (${fmtSecs(at)})` : "Technique demonstration by another coach"}</div></div><a href="${esc(watchUrl(v))}" target="_blank" rel="noopener">Open ${icon("external", "sm")}</a></div>
+        <div class="video-meta"><div class="video-meta-info">${vm.channel || vm.date ? `<div class="video-byline"><b>${esc(vm.channel)}</b>${vm.date ? ` · <span>${t("Uploaded {date}", { date: esc(vm.date) })}</span>` : ""}</div>` : ""}<div>${v.kind === "bryan" ? (at > 0 ? t("Bryan demonstrates it at {time} ({clock})", { time: fmtMinSec(at), clock: fmtSecs(at) }) : t("Bryan's video or post")) : at > 0 ? t("Demonstration starts at {time} ({clock})", { time: fmtMinSec(at), clock: fmtSecs(at) }) : t("Technique demonstration by another coach")}</div></div><a href="${esc(watchUrl(v))}" target="_blank" rel="noopener">${t("Open")} ${icon("external", "sm")}</a></div>
       </div>`;
   }
 

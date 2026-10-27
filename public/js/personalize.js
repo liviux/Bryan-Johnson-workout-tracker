@@ -9,17 +9,18 @@
 // everyone else gets the same loads scaled. They are starting points: the effort
 // target of your level (reps left in the tank) always wins.
 
+import { localized, t } from "./i18n.js";
 import { iso } from "./util.js";
 import { DEFAULT_RADIO_STATION, DEFAULT_RADIO_VOLUME } from "./data/radio.js";
 
 // Each level has its own workouts (index into the dose arrays of data/program.js)
 // and scales the starting weights. Weight, sex and age scale the weights too.
-export const LEVELS = [
+export const LEVELS = localized([
   { id: "new", name: "New to training", detail: "You have little or no strength training experience.", load: 0.7, plan: "Start with supported exercises, 1–2 sets and light weights. There are no jumps." },
   { id: "returning", name: "Returning", detail: "You trained before and have taken months or years off.", load: 1.0, plan: "Practise the movements with 2 sets, landing drills in place of jumps and short, controlled intervals." },
   { id: "active", name: "Active", detail: "You have trained regularly for the last few months.", load: 1.15, plan: "Do 3 sets, add jumps and spend longer on intervals and Zone 2." },
   { id: "trained", name: "Well trained", detail: "You have lifted and done hard cardio regularly for at least a year.", load: 1.3, plan: "Follow the full plan with heavy main lifts, all-out intervals and the full Norwegian 4×4." },
-];
+]);
 
 export function levelIndex(p) {
   const i = LEVELS.findIndex((l) => l.id === (p && p.level));
@@ -51,11 +52,11 @@ export function migrateProfile(p, days = {}) {
   return true;
 }
 
-export const SEXES = [
+export const SEXES = localized([
   { id: "male", name: "Male" },
   { id: "female", name: "Female" },
   { id: "other", name: "Prefer not to say" },
-];
+]);
 
 export function defaultProfile() {
   return {
@@ -71,7 +72,7 @@ export function defaultProfile() {
     hrMax: null,
     startDate: iso(new Date()),
     addons: { posture: true },
-    settings: { theme: "system", skin: "original", restSec: 75, sound: true, voiceCoach: true, radio: { station: DEFAULT_RADIO_STATION, volume: DEFAULT_RADIO_VOLUME } },
+    settings: { language: "en", theme: "system", skin: "original", restSec: 75, sound: true, voiceCoach: true, radio: { station: DEFAULT_RADIO_STATION, volume: DEFAULT_RADIO_VOLUME } },
     createdAt: new Date().toISOString(),
   };
 }
@@ -138,7 +139,7 @@ export function fmtLoad(p, lo, hi = null) {
     if (a >= max) {
       a = max;
       b = null;
-      note = " (your heaviest)";
+      note = ` (${t("your heaviest")})`;
     } else if (b != null && b > max) b = max;
   }
   if (b != null && b <= a) b = null;

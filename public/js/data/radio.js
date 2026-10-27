@@ -3,6 +3,8 @@
 // volume, mute and station changes work without an iframe. FIP Electro is the
 // upbeat default.
 
+import { localized } from "../i18n.js";
+
 export const DEFAULT_RADIO_STATION = "fipelectro";
 export const DEFAULT_RADIO_VOLUME = 0.55;
 
@@ -18,7 +20,7 @@ export const RADIO_SOURCES = [
   { name: "Rinse FM", url: "https://www.rinse.fm/" },
 ];
 
-export const RADIO_STATIONS = [
+export const RADIO_STATIONS = localized([
   {
     id: "fipelectro",
     name: "FIP Electro",
@@ -176,7 +178,7 @@ export const RADIO_STATIONS = [
     description: "Music from around the world.",
     stream: fip("fipworld"),
   },
-];
+]);
 
 export function radioStation(id) {
   return RADIO_STATIONS.find((station) => station.id === id) || null;

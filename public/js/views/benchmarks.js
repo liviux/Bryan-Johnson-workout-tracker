@@ -1,3 +1,4 @@
+import { localized } from "../i18n.js";
 // Blueprint Longevity Benchmarks: 8 zero-blood, at-home physical capability tests
 // from Bryan Johnson's published testing battery and longevity fitness standards.
 
@@ -6,8 +7,9 @@ import { icon } from "../components/icons.js";
 import { esc, fmtShort, todayIso } from "../util.js";
 import { startHold } from "../components/timer.js";
 import { toast } from "../components/ui.js";
+import { t } from "../i18n.js";
 
-export const BENCHMARKS = [
+export const BENCHMARKS = localized([
   {
     id: "pushups",
     name: "Strict Continuous Push-Ups",
@@ -129,7 +131,7 @@ export const BENCHMARKS = [
       return { tier: "developing", label: "Slow recovery (<15 bpm)" };
     },
   },
-];
+]);
 
 export function getBenchmarkLogs() {
   const p = state.profile || {};
@@ -164,7 +166,7 @@ export function render(el) {
 
     let dueNotice = "";
     if (!latestDate) {
-      dueNotice = `<div class="banner hint"><span>${icon("info", "lg")}</span><div class="grow"><b>Ready for your first longevity baseline?</b><span>Test your physical benchmarks today to establish your biological fitness starting point.</span></div></div>`;
+      dueNotice = `<div class="banner hint"><span>${icon("info", "lg")}</span><div class="grow"><b>${t("Ready for your first longevity baseline?")}</b><span>${t("Test your physical benchmarks today to establish your biological fitness starting point.")}</span></div></div>`;
     }
 
     el.innerHTML = `<div class="page benchmarks-page" style="display:grid;gap:18px">
@@ -174,8 +176,8 @@ export function render(el) {
         <div class="cadence-picker" style="display:flex;align-items:center;gap:12px;margin-top:4px">
           <span class="muted" style="font-size:0.86rem">Testing cadence:</span>
           <div class="seg" data-bm-cadence>
-            <button type="button" data-cadence="monthly" aria-pressed="${cadence === "monthly"}">Monthly (every 30 days)</button>
-            <button type="button" data-cadence="quarterly" aria-pressed="${cadence === "quarterly"}">Quarterly (every 90 days)</button>
+            <button type="button" data-cadence="monthly" aria-pressed="${cadence === "monthly"}">${t("Monthly (every 30 days)")}</button>
+            <button type="button" data-cadence="quarterly" aria-pressed="${cadence === "quarterly"}">${t("Quarterly (every 90 days)")}</button>
           </div>
         </div>
       </header>
@@ -201,7 +203,7 @@ export function render(el) {
           <span class="eyebrow">${esc(b.cat)}</span>
           <h3 style="font-size:1.15rem;margin:0">${esc(b.name)}</h3>
         </div>
-        ${rating ? `<span class="chip" style="color:${tierColor};border-color:${tierColor};font-weight:600;font-size:0.75rem">${esc(rating.label)}</span>` : `<span class="chip muted" style="font-size:0.75rem">Not tested</span>`}
+        ${rating ? `<span class="chip" style="color:${tierColor};border-color:${tierColor};font-weight:600;font-size:0.75rem">${esc(t(rating.label))}</span>` : `<span class="chip muted" style="font-size:0.75rem">${t("Not tested")}</span>`}
       </div>
 
       <p class="muted" style="font-size:0.84rem;margin:0;line-height:1.4">${esc(b.bryan)}</p>
@@ -221,9 +223,9 @@ export function render(el) {
       </details>
 
       <form class="benchmark-log-form" data-bm-form="${esc(b.id)}">
-        <label class="field"><span>Score (${esc(b.unit)})</span><input class="input" inputmode="decimal" data-bm-input="${esc(b.id)}" placeholder="Enter score" required></label>
-        ${b.hasTimer ? `<button type="button" class="btn sm ghost" data-bm-timer="${esc(b.id)}" data-sec="${b.timerSec}">${icon("timer", "sm")} Timer</button>` : ""}
-        <button type="submit" class="btn sm primary">${icon("check", "sm")} Save</button>
+        <label class="field"><span>${t("Score ({unit})", { unit: esc(b.unit) })}</span><input class="input" inputmode="decimal" data-bm-input="${esc(b.id)}" placeholder="${esc(t("Enter score"))}" required></label>
+        ${b.hasTimer ? `<button type="button" class="btn sm ghost" data-bm-timer="${esc(b.id)}" data-sec="${b.timerSec}">${icon("timer", "sm")} ${t("Timer")}</button>` : ""}
+        <button type="submit" class="btn sm primary">${icon("check", "sm")} ${t("Save")}</button>
       </form>
     </section>`;
   }

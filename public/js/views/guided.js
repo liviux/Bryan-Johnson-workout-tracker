@@ -14,6 +14,7 @@ import { editItem, fillDefaults, getItemLog, renderLogger } from "../components/
 import { exerciseInfoHtml } from "../components/exercise-panel.js";
 import { renderVideos, videoGroupsFor, videosFor } from "../components/video.js";
 import { mountLevelCheck } from "../components/level-check.js";
+import { t } from "../i18n.js";
 import { pauseDesk, resumeDesk } from "../components/desk.js";
 import { onRest, onTimer, stopInlineTimer, stopRest } from "../components/timer.js";
 import { createWorkoutRadio } from "../components/radio.js";
@@ -53,26 +54,26 @@ export function startGuided(date, onExit) {
   pauseDesk("guided");
   let i = steps.findIndex((s) => !stepDone(date, s));
   if (i < 0) i = 0;
-  const stepLabels = steps.map((step, index) => `${index + 1}/${steps.length} · ${personalize(step.item.label || EXERCISES[step.item.ex].name, state.profile)}${step.setIndex != null ? ` · Set ${step.setIndex + 1} of ${step.sets}` : ""}`);
-  const wrap = h(`<div class="guided" role="dialog" aria-modal="true" aria-label="Guided workout">
+  const stepLabels = steps.map((step, index) => `${index + 1}/${steps.length} · ${personalize(step.item.label || EXERCISES[step.item.ex].name, state.profile)}${step.setIndex != null ? ` · ${t("Set {set} of {sets}", { set: step.setIndex + 1, sets: step.sets })}` : ""}`);
+  const wrap = h(`<div class="guided" role="dialog" aria-modal="true" aria-label="${esc(t("Guided workout"))}">
     <div class="guided-top">
-      <button type="button" class="btn sm ghost" data-g="close">${icon("x")} Exit</button>
+      <button type="button" class="btn sm ghost" data-g="close">${icon("x")} ${t("Exit")}</button>
       <details class="guided-jump">
-        <summary class="btn sm ghost mono" data-g="count" aria-label="Choose workout step"></summary>
-        <div class="radio-panel guided-step-list" role="group" aria-label="Workout steps">${steps.map((step, index) => `<button type="button" class="btn sm ghost" data-step-index="${index}"><span>${esc(stepLabels[index])}</span><small class="muted">${esc(step.block)}</small></button>`).join("")}</div>
+        <summary class="btn sm ghost mono" data-g="count" aria-label="${esc(t("Choose workout step"))}"></summary>
+        <div class="radio-panel guided-step-list" role="group" aria-label="${esc(t("Workout steps"))}">${steps.map((step, index) => `<button type="button" class="btn sm ghost" data-step-index="${index}"><span>${esc(stepLabels[index])}</span><small class="muted">${esc(step.block)}</small></button>`).join("")}</div>
       </details>
-      <div class="bar guided-progress"><i></i><div class="guided-progress-steps" role="group" aria-label="Jump to workout step">${stepLabels.map((label, index) => `<button type="button" data-step-index="${index}" aria-label="${esc(label)}"><span class="guided-progress-preview">${esc(label)}</span></button>`).join("")}</div></div>
+      <div class="bar guided-progress"><i></i><div class="guided-progress-steps" role="group" aria-label="${esc(t("Jump to workout step"))}">${stepLabels.map((label, index) => `<button type="button" data-step-index="${index}" aria-label="${esc(label)}"><span class="guided-progress-preview">${esc(label)}</span></button>`).join("")}</div></div>
       <div class="radio-host"></div>
     </div>
     <div class="guided-main"><div class="guided-demo"><div class="stage-host"></div><div data-routine></div></div><div class="guided-column"><div class="guided-side"></div><div class="guided-foot"><p class="guided-voice-status muted" role="status" aria-live="polite"></p><div class="guided-next-time-host"></div></div></div></div>
     <div class="guided-bottom">
-      <button type="button" class="btn" data-g="prev">${icon("chevronL")} Back</button>
+      <button type="button" class="btn" data-g="prev">${icon("chevronL")} ${t("Back")}</button>
       <button type="button" class="btn ghost" data-g="skip">Skip ${icon("skip", "sm")}</button>
-      <div class="guided-clock" aria-label="Workout time">
-        <span><small>Total</small><b class="mono" data-g="total-time">0:00</b></span>
-        <span><small>This step</small><b class="mono" data-g="step-time">0:00</b></span>
+      <div class="guided-clock" aria-label="${esc(t("Workout time"))}">
+        <span><small>${t("Total")}</small><b class="mono" data-g="total-time">0:00</b></span>
+        <span><small>${t("This step")}</small><b class="mono" data-g="step-time">0:00</b></span>
       </div>
-      <button type="button" class="btn primary" data-g="next">${icon("check")} Done, next</button>
+      <button type="button" class="btn primary" data-g="next">${icon("check")} ${t("Done, next")}</button>
     </div>
   </div>`);
   document.getElementById("overlay-root").appendChild(wrap);
@@ -126,9 +127,9 @@ export function startGuided(date, onExit) {
     const done = steps.filter((s) => stepDone(date, s)).length;
     stage.pause();
     wrap.querySelector("[data-routine]").innerHTML = "";
-    side.innerHTML = `<span class="eyebrow">Finished</span><h2 class="display" style="font-size:2.2rem">Workout complete</h2>
-      <p>${done} of ${steps.length} steps done. You can record how it felt in the day's notes.</p>
-      <div class="btn-row"><button type="button" class="btn primary" data-g="close">${icon("check")} Back to the day</button></div>
+    side.innerHTML = `<span class="eyebrow">${t("Finished")}</span><h2 class="display" style="font-size:2.2rem">${t("Workout complete")}</h2>
+      <p>${t("{done} of {total} steps done. You can record how it felt in the day's notes.", { done, total: steps.length })}</p>
+      <div class="btn-row"><button type="button" class="btn primary" data-g="close">${icon("check")} ${t("Back to the day")}</button></div>
       <div data-level-check-host></div>`;
     bar.style.width = `${done / steps.length * 100}%`;
     count.textContent = `${steps.length}/${steps.length}`;
@@ -153,7 +154,7 @@ export function startGuided(date, onExit) {
     stage.load(demoId);
     bar.style.width = `${steps.filter((step) => stepDone(date, step)).length / steps.length * 100}%`;
     count.textContent = `${i + 1}/${steps.length}`;
-    count.setAttribute("aria-label", `Step ${i + 1} of ${steps.length}. Choose workout step`);
+    count.setAttribute("aria-label", t("Step {step} of {total}. Choose workout step", { step: i + 1, total: steps.length }));
     wrap.querySelectorAll("[data-step-index]").forEach((button) => {
       const index = Number(button.dataset.stepIndex);
       button.setAttribute("aria-current", index === i ? "step" : "false");
@@ -163,15 +164,15 @@ export function startGuided(date, onExit) {
     wrap.querySelector("[data-routine]").innerHTML = ex.routine ? routineHtml(s.item, s.level, itemLog || {}, { compact: true }) : "";
     side.scrollTop = 0;
     side.innerHTML = `
-      <span class="eyebrow">${esc(s.item.group || s.block)}${s.round ? ` · Round ${s.round} of ${s.rounds}` : ""}</span>
+      <span class="eyebrow">${esc(s.item.group || s.block)}${s.round ? ` · ${t("Round {round} of {rounds}", { round: s.round, rounds: s.rounds })}` : ""}</span>
       <h2 class="display" style="font-size:2.1rem;line-height:1">${esc(s.item.label ? personalize(s.item.label, p) : ex.name)}</h2>
-      <div class="guided-tools" role="group" aria-label="Exercise details">
-        <button type="button" class="btn sm ghost" data-tool="note" aria-expanded="false">${icon("note", "sm")} Note</button>
-        <button type="button" class="btn sm ghost" data-tool="how" aria-expanded="false">${icon("list", "sm")} How to</button>
-        <button type="button" class="btn sm ghost" data-tool="videos" aria-expanded="false">${icon("video", "sm")} Videos</button>
+      <div class="guided-tools" role="group" aria-label="${esc(t("Exercise details"))}">
+        <button type="button" class="btn sm ghost" data-tool="note" aria-expanded="false">${icon("note", "sm")} ${t("Note")}</button>
+        <button type="button" class="btn sm ghost" data-tool="how" aria-expanded="false">${icon("list", "sm")} ${t("How to")}</button>
+        <button type="button" class="btn sm ghost" data-tool="videos" aria-expanded="false">${icon("video", "sm")} ${t("Videos")}</button>
       </div>
       <div class="guided-tool-body" hidden>
-        <section data-tool-panel="note"><span class="eyebrow">Note for this exercise</span><div data-note-host></div></section>
+        <section data-tool-panel="note"><span class="eyebrow">${t("Note for this exercise")}</span><div data-note-host></div></section>
         <section data-tool-panel="how" hidden>${exerciseInfoHtml(ex)}</section>
         <section data-tool-panel="videos" hidden data-g="videos"></section>
       </div>
@@ -179,7 +180,7 @@ export function startGuided(date, onExit) {
         <div class="rx guided-rx">${esc(personalize((itemLog && itemLog.rxOverride) || rxFor(s.item, s.level), p))}</div>
         ${s.item.bryan ? `<span class="chip bryan guided-bryan">${esc(personalize(s.item.bryan, p))}</span>` : ""}
       </div>
-      ${s.setIndex != null ? `<p class="muted guided-set-note">Complete set ${s.setIndex + 1} of ${s.sets}, then continue to the next movement.</p>` : ""}
+      ${s.setIndex != null ? `<p class="muted guided-set-note">${t("Complete set {set} of {sets}, then continue to the next movement.", { set: s.setIndex + 1, sets: s.sets })}</p>` : ""}
       ${alternativeHtml(s.item, s.level)}
       <div class="logger-host guided-logger-host${s.scope !== "main" ? " addon-scope" : ""}"></div>`;
     renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), nextTimeHost: wrap.querySelector(".guided-next-time-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });

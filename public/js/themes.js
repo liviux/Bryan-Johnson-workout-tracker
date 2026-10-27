@@ -1,3 +1,4 @@
+import { localized } from "./i18n.js";
 // Themes: each look has its own layout, type and
 // colours (css/themes.css), on top of the light/dark mode setting.
 //
@@ -9,7 +10,7 @@
 
 import { esc } from "./util.js";
 
-export const SKINS = [
+export const SKINS = localized([
   {
     id: "original",
     name: "Original",
@@ -73,7 +74,7 @@ export const SKINS = [
     modes: ["light", "dark"],
     preview: "Backward walk with the Paper cutouts animation",
   },
-];
+]);
 
 export const DEFAULT_SKIN = "original";
 const LS_SKIN = "hp:skin";

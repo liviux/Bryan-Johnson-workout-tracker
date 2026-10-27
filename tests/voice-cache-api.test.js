@@ -106,7 +106,7 @@ test("included recordings activate, switch voices and speak custom timers withou
   await rm(path.join(root, ".voice/audio", `${preview.id}.wav`));
   assert.equal((await fetch(base + preview.url)).status, 200, "a removed playback file is restored from the included recording");
   const saved = JSON.parse(await readFile(path.join(root, ".voice/packs/am_michael.json"), "utf8"));
-  assert(saved.entries.every((entry) => Object.keys(entry).every((key) => ["id", "text", "sid", "speed"].includes(key))));
+  assert(saved.entries.every((entry) => Object.keys(entry).every((key) => ["id", "text", "sid", "vid", "speed"].includes(key))));
   await stop(); await start();
   assert.equal((await ready("am_michael")).cache.state, "ready");
   await post("/api/voice/prepare", { voice: "am_michael", itemId: "mon-strength-row", level: 2, restSec: 777 });

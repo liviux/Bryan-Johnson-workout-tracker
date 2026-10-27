@@ -1,3 +1,4 @@
+import { localized } from "../i18n.js";
 import { MOVEMENTS } from "./movements.js";
 
 // Every exercise in the plan.
@@ -21,7 +22,7 @@ import { MOVEMENTS } from "./movements.js";
 // user's max heart rate, {kg:4-6} → load scaled to the user, {cm:30} → length in
 // the user's units. See personalize.js.
 
-export const CATEGORIES = [
+export const CATEGORIES = localized([
   "Warm-up & balance",
   "Power",
   "Legs & knees",
@@ -30,9 +31,9 @@ export const CATEGORIES = [
   "Cardio (indoor)",
   "Mobility & stretching",
   "Posture",
-];
+]);
 
-export const EXERCISES = {
+export const EXERCISES = localized({
   backwalk: {
     name: "Backward walk (sled substitute)",
     cat: "Warm-up & balance",
@@ -1753,7 +1754,7 @@ export const EXERCISES = {
       { t: "Doorway pec and shoulder stretch", u: "https://www.youtube.com/watch?v=Dmm8_S23I74", s: 12 },
     ],
   },
-};
+});
 
 // Keep the old ids readable for saved logs and bookmarks.
 for (const [id, movement] of Object.entries(MOVEMENTS)) {

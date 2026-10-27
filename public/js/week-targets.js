@@ -3,7 +3,7 @@
 // strength, cardio, jumps, balance, mobility and posture targets that the plan
 // asks for.
 
-import { EXERCISES } from "./data/exercises.js";
+import { CATEGORIES, EXERCISES } from "./data/exercises.js";
 import { state } from "./store.js";
 import { addDays } from "./util.js";
 import { levelIndex } from "./personalize.js";
@@ -20,7 +20,7 @@ const STRENGTH_KEYS = new Set(["mon", "wed", "fri"]);
 const JUMP_IDS = new Set(["pogo", "jumps", "snapdown", "squatjump", "cmjump", "powerskip", "heidens"]);
 const BALANCE_IDS = new Set(["tree"]);
 const BALANCE_CATS = new Set(["Warm-up & balance", "Core & stability"]);
-const MOBILITY_CAT = "Mobility & stretching";
+const MOBILITY_CAT = CATEGORIES[6];
 
 // Item ids come from the program; the log stores the exercise id as `ex`.
 function exIdFor(date, scope, id) {

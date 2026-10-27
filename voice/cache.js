@@ -17,7 +17,7 @@ export class VoiceCache {
   async load() {
     this.loaded ||= (async () => {
       const names = await readdir(path.join(this.dir, "packs")).catch((err) => { if (err.code === "ENOENT") return []; throw err; });
-      for (const name of names.filter((name) => /^(af_heart|af_bella|am_michael|am_puck|bf_emma)\.json$/.test(name))) {
+      for (const name of names.filter((name) => /^[a-z]{2}_[a-z]+\.json$/.test(name))) {
         try {
           const pack = JSON.parse(await readFile(path.join(this.dir, "packs", name), "utf8"));
           if (`${pack.voice}.json` !== name || !Array.isArray(pack.entries) || !pack.entries.every((entry) => /^[a-f0-9]{64}$/.test(entry.id) && typeof entry.text === "string")) throw new Error("Invalid voice pack");
@@ -32,7 +32,13 @@ export class VoiceCache {
     await this.loaded;
   }
 
-  file(id) { return path.join(this.dir, "audio", `${id}.wav`); }
+  file(id) {
+    for (const ext of ["wav", "mp3"]) {
+      const file = path.join(this.dir, "audio", `${id}.${ext}`);
+      if (existsSync(file)) return file;
+    }
+    return path.join(this.dir, "audio", `${id}.wav`);
+  }
 
   async start(voice, entries) {
     await this.load();

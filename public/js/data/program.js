@@ -1,3 +1,4 @@
+import { localized } from "../i18n.js";
 import { splitItems } from "./split-items.js";
 
 // The weekly program: the six training days and their doses per training level.
@@ -6,15 +7,15 @@ import { splitItems } from "./split-items.js";
 // Item ids are stable keys for your logs; change them only with care.
 // Separate Zone 2 top-ups preserve the implied durations of older logs.
 
-export const PROGRAM = {
+export const PROGRAM = localized({
   name: "Home program inspired by Bryan Johnson",
   version: "v2 · October 2026",
   summary: "Train strength on Monday, Wednesday and Friday, do short intervals on Tuesday and the Norwegian 4×4 on Thursday, then mixed cardio on Saturday. Rest on Sunday. Zone 2 and controlled vigorous blocks build toward Bryan Johnson's weekly cardio targets. His public protocol is adapted here for bodyweight, adjustable dumbbells, a pull-up bar and bands.",
-};
+});
 
 // What each training level means for the workouts, in the same order as LEVELS in
 // personalize.js. Your level alone decides the doses; change it in Settings.
-export const LEVEL_PLANS = [
+export const LEVEL_PLANS = localized([
   {
     id: "new",
     effort: "Effort 4–5 out of 10: stop each set with 5 or more easy reps left.",
@@ -84,18 +85,18 @@ export const LEVEL_PLANS = [
     ],
     moveUp: "Keep adding weight using the rules below. After illness, injury or a long break, step down a level for a while.",
   },
-];
+]);
 
-export const RULES = [
+export const RULES = localized([
   "Add weight only when you hit the top of the rep range on every set with clean form, two sessions in a row: about +{kg:1-2} per dumbbell for upper body, +{kg:2-4} for legs. Bryan’s protocol stresses progressive overload: increase the load gradually.",
   "Bryan puts injury prevention first. If a joint hurts, open the exercise and switch to its easier version.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.",
   "During a week of poor sleep, stress or sickness, repeat sessions or step down a level for a while.",
   "If you have been inactive for a while, are over 50 or have any heart condition, get a basic check-up (blood pressure, resting ECG) before your first all-out intervals.",
-];
+]);
 
 // Heart-rate zones as % of max heart rate; bpm are computed from the user's profile.
-export const ZONES = [
+export const ZONES = localized([
   { zone: "Zone 1", pct: [50, 60], feel: "Very easy: warm-ups, easy walking" },
   { zone: "Zone 2", pct: [60, 70], feel: "You can speak in full sentences: Bryan’s 150 min/week" },
   { zone: "Zone 3", pct: [70, 80], feel: "Short phrases only" },
@@ -105,9 +106,9 @@ export const ZONES = [
     pct: [90, 100],
     feel: "You cannot talk: the end of 20 s bursts and each 4×4 round",
   },
-];
+]);
 
-export const DAYS = [
+export const DAYS = localized([
   {
     key: "mon",
     name: "Monday",
@@ -931,7 +932,7 @@ export const DAYS = [
     focus: "No training. Keep the posture habits; the daily posture block and an easy walk are optional.",
     blocks: [],
   },
-];
+]);
 
 for (const day of DAYS) for (const block of day.blocks) {
   for (const item of block.items) {
@@ -949,18 +950,18 @@ for (const day of DAYS) for (const block of day.blocks) {
   }
 }
 
-export const TARGETS = [
+export const TARGETS = localized([
   ["ok", "150 min of scheduled Zone 2 a week at {hr:60-70}, without relying on extra walks or outdoor activity. The easy 4×4 recoveries can add another 9 min when kept in Zone 2."],
   ["ok", "About 75 min of hard cardio: 54 min of controlled vigorous work on Tue/Thu/Sat, 16 work minutes in Thursday’s 4×4 and 5 min 20 s of Tuesday’s bursts. Easy recoveries, warm-ups, jumps and strength sets are not credited as hard cardio."],
   ["ok", "Only about 10 of the hard minutes are intended near max: Tuesday’s bursts and the ends of the 4×4 rounds. The added vigorous blocks stay controlled."],
   ["ok", "Strength Mon/Wed/Fri, short intervals Tue and Norwegian 4×4 Thu follow Bryan’s template. Saturday adds controlled vigorous work to the indoor Zone 2 session to meet his weekly totals."],
   ["ok", "Hops in 4 warm-ups and power work twice a week (bone protocol: 4–7 and 2)."],
   ["ok", "Balance or stability on 5 days, stretching every day, posture every day with his two physical-therapist exercises to fatigue twice a week."],
-];
+]);
 
 // icon, ex (an exercise whose animation shows the item) and use (how it's used in
 // that exercise) are for the setup screen.
-export const EQUIPMENT = {
+export const EQUIPMENT = localized({
   have: [
     {
       i: "Adjustable dumbbells",
@@ -1018,9 +1019,9 @@ export const EQUIPMENT = {
     { i: "Jump rope", d: "Only if your ceiling and neighbours allow it." },
     { i: "Weighted vest", d: "For Zone 2 at Well trained (Bryan’s bone protocol).", icon: "vest" },
   ],
-};
+});
 
-export const SWAPS = [
+export const SWAPS = localized([
   ["Backward sled drag", "Backward walk indoors, then holding dumbbells or band-resisted"],
   ["Sled push-pull (power)", "Stationary power skips, skater bounds"],
   ["Slant-board goblet squat", "Heels-elevated goblet squat on a slant board or plates"],
@@ -1046,9 +1047,9 @@ export const SWAPS = [
     "Weekend hike, bike or pickleball",
     "Indoor controlled vigorous cardio + Zone 2 + long stretch on Saturday; outdoor swaps are optional",
   ],
-];
+]);
 
-export const TIMELINE = [
+export const TIMELINE = localized([
   {
     d: "14 Oct 2026",
     t: "Bryan’s Workout Protocol: direct published update",
@@ -1226,17 +1227,17 @@ export const TIMELINE = [
       }
     ]
   }
-];
+]);
 
-export const TAKEAWAYS = [
+export const TAKEAWAYS = localized([
   "The week follows Bryan’s newest template: strength on Monday, Wednesday and Friday, short intervals on Tuesday, the Norwegian 4×4 on Thursday, mixed cardio on Saturday and rest on Sunday. All sessions are indoors. Scheduled cardio increases by level toward 150 min of Zone 2 and 75 min of hard work, without relying on extra activity.",
   "Strength days take the template’s basics (squat, push-up, row, swing, lunge, presses, step-up, carry, planks) and add his signature Knees-Over-Toes and high-rep posture work.",
   "From his 2026 training: hops in every warm-up, a few jumps, a heavy hinge followed by jumps, and ankle and Achilles work, because he named those as his own weak points.",
   "Balance and the stability exercises from his official protocol run through the week. Every session ends with flexibility work.",
   "Posture uses his 5 habits, his 10-squat tip and his posture exercises, plus chin tucks and a doorway stretch as classic extras.",
-];
+]);
 
-export const SOURCES = [
+export const SOURCES = localized([
   {
     g: "Bryan Johnson: official pages",
     items: [
@@ -1428,4 +1429,4 @@ export const SOURCES = [
       }
     ]
   }
-];
+]);

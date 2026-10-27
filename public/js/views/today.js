@@ -21,6 +21,7 @@ import { weekTargets } from "../week-targets.js";
 import { confirmDialog, openDialog, ring, toast } from "../components/ui.js";
 import { blockKind, detailMode, sessionKind } from "../themes.js";
 import { unlockVoice } from "../voice/player.js";
+import { t } from "../i18n.js";
 
 const ENERGY = ["Very low", "Low", "OK", "Good", "Great"];
 const STATUS_TEXT = { done: "Done", partial: "In progress", skipped: "Skipped" };
@@ -55,11 +56,11 @@ export function render(el, params) {
     const name = item.label ? personalize(item.label, profile()) : ex.name;
     const sel = selected && selected.scope === scope && selected.id === item.id;
     const summary = summarizeLog(l, ex.log);
-    const easier = l && l.easier ? `<div class="item-easier${l.skipped ? " skip" : ""}">${esc(l.skipped ? "Skipped today" : `Easier today: ${l.easier.text || ""}`)}</div>` : "";
-    return `<li class="item${l && l.done ? " done" : ""}${l && l.skipped ? " skipped" : ""}${info ? " info" : ""}" data-scope="${esc(scope)}" data-id="${esc(item.id)}" aria-selected="${sel}"${info ? "" : ` tabindex="0" aria-label="${esc(name)}: open details"`}>
-      ${info ? `<span aria-hidden="true" style="display:grid;place-items:center;color:var(--muted)">${icon("list")}</span>` : `<input type="checkbox" class="tick" data-tick ${l && l.done ? "checked" : ""} aria-label="Done: ${esc(name)}">`}
+    const easier = l && l.easier ? `<div class="item-easier${l.skipped ? " skip" : ""}">${esc(l.skipped ? t("Skipped today") : t("Easier today: {text}", { text: l.easier.text || "" }))}</div>` : "";
+    return `<li class="item${l && l.done ? " done" : ""}${l && l.skipped ? " skipped" : ""}${info ? " info" : ""}" data-scope="${esc(scope)}" data-id="${esc(item.id)}" aria-selected="${sel}"${info ? "" : ` tabindex="0" aria-label="${esc(t("{name}: open details", { name }))}"`}>
+      ${info ? `<span aria-hidden="true" style="display:grid;place-items:center;color:var(--muted)">${icon("list")}</span>` : `<input type="checkbox" class="tick" data-tick ${l && l.done ? "checked" : ""} aria-label="${esc(t("Done: {name}", { name }))}">`}
       <div class="item-main">
-        <div class="item-name">${esc(name)}${ex.classic ? ' <span class="badge-classic">classic</span>' : ""}</div>
+        <div class="item-name">${esc(name)}${ex.classic ? ` <span class="badge-classic">${t("classic")}</span>` : ""}</div>
         <div class="item-rx">${esc(personalize((l && l.rxOverride) || rxFor(item, level), profile()))}</div>
         ${item.bryan ? `<div class="item-b">${esc(personalize(item.bryan, profile()))}</div>` : ""}
         <div class="item-log" data-summary>${esc(summary)}</div>
@@ -79,7 +80,7 @@ export function render(el, params) {
         const items = blockItems(b, level);
         if (!items.length) return "";
         return `<section class="card block" data-kind="${blockKind(b.name)}">
-          <div class="block-head"><h3>${esc(b.name)}</h3><span class="eyebrow">≈${blockMins(b, level)} min</span></div>
+          <div class="block-head"><h3>${esc(b.name)}</h3><span class="eyebrow">${t("≈{count} min", { count: blockMins(b, level) })}</span></div>
           ${b.note ? `<p class="block-note">${esc(personalize(b.note, profile()))}</p>` : ""}
           <ul class="items">${itemRows(items, level, "main")}</ul>
         </section>`;
@@ -106,8 +107,8 @@ export function render(el, params) {
       .join("");
     return `<details class="card block addon-scope" data-addon="${esc(addon.id)}" ${collapsedAddons.has(addon.id) ? "" : "open"}>
       <summary class="block-head">
-        <div class="addon-head">${icon(addon.icon || "sparkle", "lg")}<h3>${esc(addon.name)}</h3><span class="chip addon">${optional ? "Optional today" : "Add-on"}</span></div>
-        <span class="addon-summary"><span class="eyebrow" data-addon-prog>${prog.skipped ? "skipped" : `${prog.done}/${prog.total} · ≈${variant.mins} min`}</span>${icon("chevronD", "addon-chevron")}</span>
+        <div class="addon-head">${icon(addon.icon || "sparkle", "lg")}<h3>${esc(addon.name)}</h3><span class="chip addon">${optional ? t("Optional today") : t("Add-on")}</span></div>
+        <span class="addon-summary"><span class="eyebrow" data-addon-prog>${prog.skipped ? t("skipped") : t("{done}/{total} · ≈{mins} min", { done: prog.done, total: prog.total, mins: variant.mins })}</span>${icon("chevronD", "addon-chevron")}</span>
       </summary>
       <p class="block-note">${esc(variant.name)}. ${esc(variant.note || "")}</p>
       ${
@@ -129,8 +130,8 @@ export function render(el, params) {
     const total = (d.move || 0) + (d.squats || 0);
     return `<details class="card block desk-addon" data-addon="desk" ${collapsedAddons.has("desk") ? "" : "open"}>
       <summary class="block-head">
-        <div class="addon-head">${icon(addon.icon || "clock", "lg")}<h3>${esc(addon.name)}</h3><span class="chip">${optional ? "Optional today" : "Add-on"}</span></div>
-        <span class="addon-summary"><span class="eyebrow" data-desk-count-label>${total ? `${total} logged today` : "Not started"}</span>${icon("chevronD", "addon-chevron")}</span>
+        <div class="addon-head">${icon(addon.icon || "clock", "lg")}<h3>${esc(addon.name)}</h3><span class="chip">${optional ? t("Optional today") : t("Add-on")}</span></div>
+        <span class="addon-summary"><span class="eyebrow" data-desk-count-label>${total ? t("{count} logged today", { count: total }) : t("Not started")}</span>${icon("chevronD", "addon-chevron")}</span>
       </summary>
       <p class="block-note">${esc(addon.description)}</p>
       <div class="desk-inner" data-desk>${deskBodyHtml()}</div>
@@ -148,8 +149,8 @@ export function render(el, params) {
       const isDue = due(kind);
       return `<div class="desk-timer${isDue ? " due" : ""}" data-desk-kind="${kind}">
         <span class="grow" data-desk-label="${kind}">${ds.paused ? label : isDue ? `${label} now` : label}</span>
-        <b class="mono" data-desk-left="${kind}">${ds.paused ? "paused" : isDue ? "due" : left}</b>
-        ${isDue ? `<button type="button" class="btn sm ghost" data-desk-snooze="${action}">${icon("clock", "sm")} Not now, 5 min</button>` : ""}
+        <b class="mono" data-desk-left="${kind}">${ds.paused ? t("paused") : isDue ? t("due") : left}</b>
+        ${isDue ? `<button type="button" class="btn sm ghost" data-desk-snooze="${action}">${icon("clock", "sm")} ${t("Not now, 5 min")}</button>` : ""}
         <button type="button" class="btn sm" data-desk-${action}>${icon("check", "sm")} Done</button>
       </div>`;
     };
@@ -164,7 +165,7 @@ export function render(el, params) {
               <div class="btn-row"><button type="button" class="btn sm ghost" data-desk-stop>${icon("pause", "sm")} Stop</button></div>`
             : `<div class="btn-row"><button type="button" class="btn sm" data-desk-start>${icon("play", "sm")} Start desk mode</button></div>`
         }
-        <div class="desk-counts muted">Today: <b>${move}</b> move ${move === 1 ? "break" : "breaks"} · <b>${squats}</b> squat ${squats === 1 ? "set" : "sets"} · <b>${streak}</b>-day streak</div>
+        <div class="desk-counts muted">${t("Today: {move} move breaks · {squats} squat sets · {streak}-day streak", { move, squats, streak })}</div>
       </div>`;
   }
 
@@ -196,7 +197,7 @@ export function render(el, params) {
     if (label) {
       const d = (log() && log().desk) || {};
       const total = (d.move || 0) + (d.squats || 0);
-      label.textContent = total ? `${total} logged today` : "Not started";
+      label.textContent = total ? t("{count} logged today", { count: total }) : t("Not started");
     }
   }
 
@@ -245,7 +246,7 @@ export function render(el, params) {
         <div class="rating-line"><span class="label">Energy today</span><div class="seg" role="group" aria-label="Energy today">${energy}</div></div>
       </div>
       <label class="field"><span>Notes</span><textarea class="input" data-notes rows="3" placeholder="How did the workout feel? Note soreness or anything to change next time.">${esc(l.notes || "")}</textarea></label>
-      <div class="field"><span>Extra activity <small>· counts toward your weekly minutes</small></span>
+      <div class="field"><span>Extra activity <small>· ${t("counts toward your weekly minutes")}</small></span>
         <div class="extras">${extras}</div>
         <div><button type="button" class="btn sm" data-x-add>${icon("plus", "sm")} Add activity</button></div>
       </div>
@@ -269,7 +270,7 @@ export function render(el, params) {
       const prev = state.days[d];
       if (prev && (prev.status === "done" || prev.status === "partial")) break;
       const def = dayDef(key);
-      return `<div class="banner hint"><span>${icon("info")}</span><div class="grow"><b>No workout logged for ${esc(def.name)} (${esc(def.title)}).</b><span>You can do that session today. Choose one session; don't do both in one day.</span></div><div class="btn-row"><button type="button" class="btn sm" data-swap-to="${esc(key)}">Do ${esc(def.short)}'s session</button><button type="button" class="btn sm ghost" data-hint-off aria-label="Dismiss">${icon("x", "sm")}</button></div></div>`;
+      return `<div class="banner hint"><span>${icon("info")}</span><div class="grow"><b>${t("No workout logged for {day} ({title}).", { day: esc(def.name), title: esc(def.title) })}</b><span>${t("You can do that session today. Choose one session; don't do both in one day.")}</span></div><div class="btn-row"><button type="button" class="btn sm" data-swap-to="${esc(key)}">${t("Do {day}'s session", { day: esc(def.short) })}</button><button type="button" class="btn sm ghost" data-hint-off aria-label="${esc(t("Dismiss"))}">${icon("x", "sm")}</button></div></div>`;
     }
     return "";
   }
@@ -284,7 +285,7 @@ export function render(el, params) {
     const last = lastSessionDate();
     if (lvl > 0 && last && daysBetween(last, todayIso()) >= 14 && kept.breakDismissedFor !== last) {
       const prev = LEVELS[lvl - 1];
-      return `<div class="banner hint"><span>${icon("info", "lg")}</span><div class="grow"><b>Coming back after a break?</b><span>Your last session was ${daysBetween(last, todayIso())} days ago. The plan says step down for a while after a long break.</span></div><div class="btn-row"><button type="button" class="btn sm" data-level-down="${esc(prev.id)}">Step down to ${esc(prev.name)}</button><button type="button" class="btn sm ghost" data-level-stay="${esc(last)}">Stay at this level</button></div></div>`;
+      return `<div class="banner hint"><span>${icon("info", "lg")}</span><div class="grow"><b>${t("Coming back after a break?")}</b><span>${t("Your last session was {days} days ago. The plan says step down for a while after a long break.", { days: daysBetween(last, todayIso()) })}</span></div><div class="btn-row"><button type="button" class="btn sm" data-level-down="${esc(prev.id)}">${t("Step down to {level}", { level: esc(prev.name) })}</button><button type="button" class="btn sm ghost" data-level-stay="${esc(last)}">${t("Stay at this level")}</button></div></div>`;
     }
     return "";
   }
@@ -302,14 +303,14 @@ export function render(el, params) {
     if (l && l.readiness) {
       const rd = l.readiness;
       const isScaled = todayLevelIdx < curLevelIdx;
-      const title = rd === "ready" ? "Feeling 100%" : rd === "tired" ? "Tired / Low recovery" : "Joint tightness / Sore";
+      const title = rd === "ready" ? t("Feeling 100%") : rd === "tired" ? t("Tired / Low recovery") : t("Joint tightness / Sore");
       const desc = isScaled
-        ? `Session volume temporarily scaled to ${LEVELS[todayLevelIdx].name} for today.`
+        ? t("Session volume temporarily scaled to {level} for today.", { level: LEVELS[todayLevelIdx].name })
         : rd === "ready"
-        ? "Normal session volume loaded."
-        : "Taking it controlled today.";
+        ? t("Normal session volume loaded.")
+        : t("Taking it controlled today.");
       const ic = rd === "ready" ? "check" : rd === "tired" ? "battery" : "bandage";
-      return `<div class="banner hint readiness-banner"><span>${icon(ic, "lg")}</span><div class="grow"><b>Daily Readiness: ${esc(title)}</b><span>${esc(desc)}</span></div><button type="button" class="btn sm ghost" data-readiness-reset>${icon("undo", "sm")} Change</button></div>`;
+      return `<div class="banner hint readiness-banner"><span>${icon(ic, "lg")}</span><div class="grow"><b>${t("Daily Readiness: {status}", { status: esc(title) })}</b><span>${esc(desc)}</span></div><button type="button" class="btn sm ghost" data-readiness-reset>${icon("undo", "sm")} ${t("Change")}</button></div>`;
     }
 
     try {
@@ -344,7 +345,7 @@ export function render(el, params) {
     const total = rest ? 0 : prog.total || def.blocks.flatMap((b) => blockItems(b, level)).filter(countable).length;
     const done = prog.done;
     // A day already logged keeps the level it was done at.
-    const levelLine = level !== levelIndex(profile()) ? `Logged at ${LEVELS[level].name} level` : `${LEVELS[level].name} level`;
+    const levelLine = level !== levelIndex(profile()) ? t("Logged at {level} level", { level: LEVELS[level].name }) : t("{level} level", { level: LEVELS[level].name });
     const wt = isToday && !rest ? weekTargets(weekStart(todayIso())) : null;
     const rd = isToday && !rest ? currentReadiness() : null;
     const swapOptions = DAYS.filter((d) => d.blocks.length)
@@ -354,13 +355,13 @@ export function render(el, params) {
       <div class="hero-top">
         <div style="display:grid;gap:10px;min-width:0">
           <span class="eyebrow">${esc(levelLine)}</span>
-          <h1>${esc(rest ? "Rest day" : def.title)}</h1>
-          <p class="focus">${esc(rest ? "Take a rest day. Keep up your posture habits or go for an easy walk. You can log activity and notes below." : def.focus)}</p>
+          <h1>${esc(rest ? t("Rest day") : def.title)}</h1>
+          <p class="focus">${esc(rest ? t("Take a rest day. Keep up your posture habits or go for an easy walk. You can log activity and notes below.") : def.focus)}</p>
           <div class="chips">
-            ${rest ? "" : `<span class="chip mono">${icon("clock", "sm")} ≈${dayMins(def, level)} min${addonMins ? ` + ${addonMins} min add-ons` : ""}</span>`}
-            ${ctx.swapped ? `<span class="chip bryan">${icon("swap", "sm")} Doing ${esc(def.name)}'s session</span>` : ""}
-            ${wt ? `<a class="chip link" href="#/activity/week" title="Weekly targets for your level; open This week for the full Bryan comparison">${icon("check", "sm")} ${wt.metCount}/${wt.total} weekly targets</a>` : ""}
-            ${rd && rd.ready ? `<button type="button" class="chip accent link" data-level-jump title="See your level check in Notes & observations">${icon("check", "sm")} Level check ready</button>` : ""}
+            ${rest ? "" : `<span class="chip mono">${icon("clock", "sm")} ${t("≈{mins} min", { mins: dayMins(def, level) })}${addonMins ? ` ${t("+ {mins} min add-ons", { mins: addonMins })}` : ""}</span>`}
+            ${ctx.swapped ? `<span class="chip bryan">${icon("swap", "sm")} ${t("Doing {day}'s session", { day: esc(def.name) })}</span>` : ""}
+            ${wt ? `<a class="chip link" href="#/activity/week" title="${esc(t("Weekly targets for your level; open This week for the full Bryan comparison"))}">${icon("check", "sm")} ${t("{met}/{total} weekly targets", { met: wt.metCount, total: wt.total })}</a>` : ""}
+            ${rd && rd.ready ? `<button type="button" class="chip accent link" data-level-jump title="${esc(t("See your level check in Notes & observations"))}">${icon("check", "sm")} Level check ready</button>` : ""}
             ${st ? `<span class="chip ${st === "skipped" ? "skip" : "accent"}" data-status>${esc(STATUS_TEXT[st] || st)}</span>` : `<span class="chip" data-status>${date > todayIso() ? "Planned" : isToday ? "Not started" : profile().startDate && date < profile().startDate ? "Before your start" : "Not logged"}</span>`}
           </div>
         </div>
@@ -384,7 +385,7 @@ export function render(el, params) {
     const l = log();
     if (!l || !l.skip) return "";
     const r = SKIP_REASONS.find((x) => x.id === l.skip.reason) || SKIP_REASONS[SKIP_REASONS.length - 1];
-    return `<div class="banner skip"><span>${icon(r.icon, "lg")}</span><div class="grow"><b>Skipped: ${esc(r.name)}</b>${l.skip.note ? `<span>${esc(l.skip.note)}</span>` : ""}</div><div class="btn-row"><button type="button" class="btn sm" data-skip-edit>${icon("note", "sm")} Edit</button><button type="button" class="btn sm" data-unskip>${icon("undo", "sm")} Undo skip</button></div></div>`;
+    return `<div class="banner skip"><span>${icon(r.icon, "lg")}</span><div class="grow"><b>${t("Skipped: {reason}", { reason: esc(r.name) })}</b>${l.skip.note ? `<span>${esc(l.skip.note)}</span>` : ""}</div><div class="btn-row"><button type="button" class="btn sm" data-skip-edit>${icon("note", "sm")} ${t("Edit")}</button><button type="button" class="btn sm" data-unskip>${icon("undo", "sm")} ${t("Undo skip")}</button></div></div>`;
   }
 
   function draw() {
@@ -404,14 +405,14 @@ export function render(el, params) {
             <a class="btn sm icon-only" href="#/day/${prev}" aria-label="Previous day">${icon("chevronL")}</a>
             <a class="btn sm icon-only" href="#/day/${next}" aria-label="Next day">${icon("chevronR")}</a>
             <span class="date">${esc(fmtDate(date))}</span>
-            ${isToday ? '<span class="chip accent">Today</span>' : `<a class="btn sm ghost" href="#/today">Back to today</a>`}
+            ${isToday ? `<span class="chip accent">${t("Today")}</span>` : `<a class="btn sm ghost" href="#/today">${t("Back to today")}</a>`}
           </div>
           ${heroHtml(ctx)}
           ${skipBanner()}
           ${breakBanner(ctx)}
           ${missedHint(ctx)}
           ${readinessBanner(ctx)}
-          ${l && l.skip && !ctx.rest ? `<div><button type="button" class="btn sm ghost" data-show-skipped>${showSkipped ? "Hide" : "Show"} skipped session</button></div>` : ""}
+          ${l && l.skip && !ctx.rest ? `<div><button type="button" class="btn sm ghost" data-show-skipped>${showSkipped ? t("Hide") : t("Show")} ${t("skipped session")}</button></div>` : ""}
         </div>
         <div class="day-list">
           ${showBlocks ? blocksHtml(ctx.def, ctx.level) : ""}
@@ -531,7 +532,7 @@ export function render(el, params) {
       if (il && il.easier) {
         const div = document.createElement("div");
         div.className = `item-easier${il.skipped ? " skip" : ""}`;
-        div.textContent = il.skipped ? "Skipped today" : `Easier today: ${il.easier.text || ""}`;
+        div.textContent = il.skipped ? t("Skipped today") : t("Easier today: {text}", { text: il.easier.text || "" });
         li.querySelector(".item-main").appendChild(div);
       }
     });
@@ -548,7 +549,7 @@ export function render(el, params) {
     for (const a of addonsForDate(date)) {
       const pEl = el.querySelector(`[data-addon="${a.addon.id}"] [data-addon-prog]`);
       const pr = addonProgress(l, a, ctx.level);
-      if (pEl) pEl.textContent = pr.skipped ? "skipped" : `${pr.done}/${pr.total} · ≈${a.variant.mins} min`;
+      if (pEl) pEl.textContent = pr.skipped ? t("skipped") : t("{done}/{total} · ≈{mins} min", { done: pr.done, total: pr.total, mins: a.variant.mins });
     }
     syncDeskPause();
     if (l && l.status === "done" && lastStatus !== "done") toast("Workout complete.", { icon: "flame" });
@@ -658,7 +659,7 @@ export function render(el, params) {
         p.level = id;
         p.levelCheck = null;
       });
-      toast(`Level set to ${name}. Past logs keep the level they were done at.`);
+      toast(t("Level set to {level}. Past logs keep the level they were done at.", { level: name }));
       draw();
     } else if (b.dataset.levelStay) {
       updateProfile((p) => {
@@ -682,7 +683,7 @@ export function render(el, params) {
       });
       doneDesk(kind);
       refreshDesk(true);
-      toast(kind === "move" ? "Stand-and-move break logged" : "10 squats logged", { icon: "check" });
+      toast(kind === "move" ? t("Stand-and-move break logged") : t("10 squats logged"), { icon: "check" });
     } else if (b.hasAttribute("data-skip") || b.hasAttribute("data-skip-edit")) openSkip();
     else if (b.hasAttribute("data-unskip")) {
       editDay(date, (d) => {
@@ -720,14 +721,14 @@ export function render(el, params) {
           delete d.level;
         }
       });
-      toast(pick === "ready" ? "Logged: Feeling 100%" : `Scaled session to ${LEVELS[curLvl > 0 ? curLvl - 1 : 0].name} for today`);
+      toast(pick === "ready" ? t("Logged: Feeling 100%") : t("Scaled session to {level} for today", { level: LEVELS[curLvl > 0 ? curLvl - 1 : 0].name }));
       draw();
     } else if (b.hasAttribute("data-readiness-reset")) {
       editDay(date, (d) => {
         delete d.readiness;
         delete d.level;
       });
-      toast("Readiness reset to standard plan");
+      toast(t("Readiness reset to standard plan"));
       draw();
     } else if (b.hasAttribute("data-readiness-dismiss")) {
       try {

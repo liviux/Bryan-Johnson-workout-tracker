@@ -1,7 +1,8 @@
 // One player for guided coaching, timers and previews. Only prepared local clips play.
 import { state, updateProfile } from "../store.js";
-import { VOICES } from "./script.js";
+import { voicesForLanguage } from "./script.js";
 import { rxFor } from "../plan.js";
+import { language, t } from "../i18n.js";
 
 let context = null;
 let source = null;
@@ -20,7 +21,7 @@ const notify = () => { for (const fn of listeners) fn({ ...voiceStatus, speaking
 export function onVoice(fn) { listeners.add(fn); fn({ ...voiceStatus, speaking }); return () => listeners.delete(fn); }
 export function setVoicePreparing(value) { voiceStatus.preparing = value; notify(); }
 export const voiceEnabled = () => state.profile?.settings?.voiceCoach === true && voiceStatus.cacheEnabled;
-export const selectedVoice = () => VOICES.find((v) => v.id === state.profile?.settings?.coachVoice) || VOICES[0];
+export const selectedVoice = () => voicesForLanguage(language()).find((v) => v.id === state.profile?.settings?.coachVoice) || voicesForLanguage(language())[0];
 
 export function unlockVoice() {
   try {
@@ -34,7 +35,7 @@ export function unlockVoice() {
     voiceStatus.blocked = false;
     return resumed;
   } catch {
-    voiceStatus.message = "Audio is unavailable in this browser."; notify();
+    voiceStatus.message = t("Audio is unavailable in this browser."); notify();
     return Promise.resolve();
   }
 }
@@ -65,21 +66,21 @@ export async function refreshVoiceStatus() {
     const result = await response.json();
     if (pendingCache || selectedVoice().id !== voice || requestedCache !== cacheRequest) return voiceStatus;
     Object.assign(voiceStatus, result);
-  } catch { voiceStatus.installed = false; voiceStatus.message = "Start the local server to use voice coaching."; }
+  } catch { voiceStatus.installed = false; voiceStatus.message = t("Start the local server to use voice coaching."); }
   notify();
   return voiceStatus;
 }
 
 export function voiceCacheMessage() {
   const cache = voiceStatus.cache;
-  if (!voiceStatus.cacheEnabled) return "Turn coaching on once to save the included recordings for playback. No audio is unpacked before that.";
-  if (!cache) return "This voice has not been cached yet. Select it to start its one-time preparation.";
-  if (cache.state === "error") return `Voice cache paused: ${cache.error} Turn coaching on again to retry; finished audio is kept.`;
-  if (cache.state === "ready") return `${selectedVoice().name} is cached. Saved audio is ready for your workout.`;
-  if (cache.shared) return `Preparing ${selectedVoice().name} from the included recordings: ${cache.completed} of ${cache.total || "…"} clips ready. This only copies saved audio; no speech model needs to run. You can close this page while it finishes.`;
+  if (!voiceStatus.cacheEnabled) return t("Turn coaching on once to save the included recordings for playback. No audio is unpacked before that.");
+  if (!cache) return t("This voice has not been cached yet. Select it to start its one-time preparation.");
+  if (cache.state === "error") return t("Voice cache paused: {error} Turn coaching on again to retry; finished audio is kept.", { error: cache.error });
+  if (cache.state === "ready") return t("{voice} is cached. Saved audio is ready for your workout.", { voice: selectedVoice().name });
+  if (cache.shared) return t("Preparing {voice} from the included recordings: {done} of {total} clips ready. This only copies saved audio; no speech model needs to run. You can close this page while it finishes.", { voice: selectedVoice().name, done: cache.completed, total: cache.total || "…" });
   const seconds = cache.remainingSeconds;
-  const remaining = seconds ? seconds >= 3600 ? ` About ${Math.ceil(seconds / 3600)} hours remaining.` : ` About ${Math.max(1, Math.ceil(seconds / 60))} minutes remaining.` : " The first build can take a long time on a slow CPU.";
-  return `Caching ${selectedVoice().name}: ${cache.completed} of ${cache.total || "…"} clips saved.${remaining} Your week, timer options and form cues are being saved once. You can leave this page; preparation continues on the server.`;
+  const remaining = seconds ? seconds >= 3600 ? ` ${t("About {count} hours remaining.", { count: Math.ceil(seconds / 3600) })}` : ` ${t("About {count} minutes remaining.", { count: Math.max(1, Math.ceil(seconds / 60)) })}` : ` ${t("The first build can take a long time on a slow CPU.")}`;
+  return t("Caching {voice}: {done} of {total} clips saved.{remaining} Your week, timer options and form cues are being saved once. You can leave this page; preparation continues on the server.", { voice: selectedVoice().name, done: cache.completed, total: cache.total || "…", remaining });
 }
 
 export async function cacheVoice({ activate = false } = {}) {
@@ -96,7 +97,7 @@ export async function cacheVoice({ activate = false } = {}) {
   try {
     const response = await fetch("/api/voice/cache", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
     const result = await response.json();
-    if (!response.ok) throw new Error(result.error || "Could not prepare the voice cache.");
+    if (!response.ok) throw new Error(result.error || t("Could not prepare the voice cache."));
     if (cacheRequest === key) Object.assign(voiceStatus, result);
   } catch (err) {
     if (cacheRequest === key) { voiceStatus.cacheEnabled = wasEnabled; voiceStatus.cache = { state: "error", error: err.message }; voiceStatus.message = err.message; cacheRequest = ""; }
@@ -107,7 +108,7 @@ export async function cacheVoice({ activate = false } = {}) {
 export async function installVoice() {
   const response = await fetch("/api/voice/install", { method: "POST" });
   const data = await response.json();
-  if (!response.ok) throw new Error(data.error || "Could not start the download.");
+  if (!response.ok) throw new Error(data.error || t("Could not start the download."));
   Object.assign(voiceStatus, { installing: true, message: data.message }); notify();
 }
 
@@ -126,7 +127,7 @@ export async function prepareVoice(request) {
     body: JSON.stringify({ ...request, voice: selectedVoice().id, pace: state.profile?.settings?.coachPace || "steady" }),
   });
   const result = await response.json();
-  if (!response.ok) throw new Error(result.error || "Could not prepare this voice.");
+  if (!response.ok) throw new Error(result.error || t("Could not prepare this voice."));
   return result;
 }
 
@@ -136,7 +137,7 @@ export function loadClip(clip) {
   const entry = { buffer: null, promise: null };
   entry.promise = (async () => {
     const response = await fetch(clip.url, { signal: AbortSignal.timeout(90000) });
-    if (!response.ok) throw new Error("Could not prepare the local voice. Try the preview again.");
+    if (!response.ok) throw new Error(t("Could not prepare the local voice. Try the preview again."));
     entry.buffer = await context.decodeAudioData(await response.arrayBuffer());
     return entry.buffer;
   })().catch((err) => { buffers.delete(clip.id); voiceStatus.message = err.message; notify(); return null; });
@@ -183,7 +184,7 @@ export async function playVoice(clips, { urgent = false, teaching = false, wait 
       source?.disconnect(); source = null; finishSource = null;
     }
   } catch {
-    if (token === generation) { voiceStatus.blocked = true; voiceStatus.message = "Audio playback stopped. Tap to enable audio again."; }
+    if (token === generation) { voiceStatus.blocked = true; voiceStatus.message = t("Audio playback stopped. Tap to enable audio again."); }
   } finally {
     if (token === generation) {
       source?.disconnect(); source = null; finishSource = null;

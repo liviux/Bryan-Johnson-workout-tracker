@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.39.0] - 2026-10-27
+
+### Added
+- Ten languages in Settings: English, Romanian, German, Italian, French, Spanish, Simplified Chinese, Hindi, Arabic and Bengali. The interface, exercise names, instructions, plan notes, add-ons and coach audio follow the chosen language.
+- Native coach recordings for every translated language, built by a new GitHub Actions workflow. English keeps its five recorded voices; each other language has one native voice.
+- Right-to-left layout for Arabic, including navigation, cards and form rows.
+
+### Changed
+- The app remembers the language in your profile, and dates and numbers use that language's format.
+
 ## [1.38.4] - 2026-10-27
 
 ### Changed

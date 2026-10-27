@@ -6,6 +6,7 @@ import { adjacentStation, DEFAULT_RADIO_STATION, DEFAULT_RADIO_VOLUME, RADIO_SOU
 import { state, updateProfile } from "../store.js";
 import { clamp, esc, h } from "../util.js";
 import { icon } from "./icons.js";
+import { t } from "../i18n.js";
 import { onVoice } from "../voice/player.js";
 
 const TOPICS = [...new Set(RADIO_STATIONS.map((station) => station.mood))];
@@ -53,23 +54,23 @@ export function createWorkoutRadio() {
           <span class="radio-mark">${icon("radio")}</span>
           <span class="radio-now-copy"><b data-radio="name"></b><small data-radio="description"></small></span>
         </div>
-        <button type="button" class="btn sm ghost icon-only" data-radio="close" aria-label="Close radio">${icon("x", "sm")}</button>
+        <button type="button" class="btn sm ghost icon-only" data-radio="close" aria-label="${esc(t("Close radio"))}">${icon("x", "sm")}</button>
       </div>
       <div class="radio-controls">
-        <button type="button" class="btn sm ghost icon-only radio-mute" data-radio="mute" aria-label="Mute radio" aria-pressed="false" title="Mute radio">${icon("volume", "sm")}</button>
-        <button type="button" class="btn sm icon-only" data-radio="prev" aria-label="Previous station" title="Previous station">${icon("chevronL")}</button>
-        <button type="button" class="btn primary radio-play" data-radio="play" aria-label="Play radio">${icon("play")}<span>Play</span></button>
-        <button type="button" class="btn sm icon-only" data-radio="next" aria-label="Next station" title="Next station">${icon("chevronR")}</button>
+        <button type="button" class="btn sm ghost icon-only radio-mute" data-radio="mute" aria-label="${esc(t("Mute radio"))}" aria-pressed="false" title="${esc(t("Mute radio"))}">${icon("volume", "sm")}</button>
+        <button type="button" class="btn sm icon-only" data-radio="prev" aria-label="${esc(t("Previous station"))}" title="${esc(t("Previous station"))}">${icon("chevronL")}</button>
+        <button type="button" class="btn primary radio-play" data-radio="play" aria-label="${esc(t("Play radio"))}">${icon("play")}<span>${t("Play")}</span></button>
+        <button type="button" class="btn sm icon-only" data-radio="next" aria-label="${esc(t("Next station"))}" title="${esc(t("Next station"))}">${icon("chevronR")}</button>
         <span class="radio-state" data-radio="status" role="status" aria-live="polite">Paused</span>
       </div>
       <label class="radio-volume">
         ${icon("volume", "sm")}
         <span class="sr-only">Radio volume</span>
-        <input type="range" min="0" max="1" step="0.01" value="${volume}" aria-label="Radio volume">
+        <input type="range" min="0" max="1" step="0.01" value="${volume}" aria-label="${esc(t("Radio volume"))}">
         <output data-radio="volume">${Math.round(volume * 100)}%</output>
       </label>
       <div class="radio-list" data-radio="stations">${stationGroupsHtml()}</div>
-      <div class="radio-foot"><span>Live streams need internet.</span><span class="radio-sources">Stations: ${sourceLinksHtml()}</span></div>
+      <div class="radio-foot"><span>${t("Live streams need internet.")}</span><span class="radio-sources">${t("Stations:")} ${sourceLinksHtml()}</span></div>
     </div>
     <audio preload="none"></audio>
   </div>`);
@@ -120,10 +121,10 @@ export function createWorkoutRadio() {
 
   function syncPlayButton() {
     const playing = intent && !audio.paused;
-    playBtn.innerHTML = playing ? `${icon("pause")}<span>Pause</span>` : `${icon("play")}<span>Play</span>`;
+    playBtn.innerHTML = playing ? `${icon("pause")}<span>Pause</span>` : `${icon("play")}<span>${t("Play")}</span>`;
     playBtn.setAttribute("aria-label", playing ? "Pause radio" : "Play radio");
     wrap.classList.toggle("is-playing", playing);
-    toggle.setAttribute("aria-label", playing ? `Workout radio, playing ${station.name}` : "Workout radio");
+    toggle.setAttribute("aria-label", playing ? t("Workout radio, playing {station}", { station: station.name }) : t("Workout radio"));
   }
 
   function syncStation() {

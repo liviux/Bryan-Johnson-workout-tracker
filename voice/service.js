@@ -6,13 +6,14 @@ import path from "node:path";
 import { ROOT, VOICE_DIR, MODEL, MODEL_SHA, nativeEnv } from "./runtime.js";
 import { VoiceCache } from "./cache.js";
 import { combineWaves, readBundle, unpackBundle } from "./bundles.js";
-import { CLOCK, EFFORT, PREVIEW, VOICES, durationParts, exerciseScript, phaseLine, speechText } from "../public/js/voice/script.js";
+import { ALL_VOICES, CLOCK, EFFORT, PREVIEW, VOICES, durationParts, durationText, exerciseScript, numberWords, phaseLine, speechText, voiceById } from "../public/js/voice/script.js";
 import { DAYS } from "../public/js/data/program.js";
 import { ADDONS } from "../public/js/data/addons/index.js";
 import { EXERCISES } from "../public/js/data/exercises.js";
 import { INTERVAL_MOVES, intervalPhases } from "../public/js/data/routines.js";
 import { rxFor, timerPresets } from "../public/js/plan.js";
 import { defaultProfile, LEVELS, levelIndex, personalize } from "../public/js/personalize.js";
+import { language, setLanguage, t as tr } from "../public/js/i18n.js";
 
 const catalog = new Map();
 for (const block of DAYS.flatMap((d) => d.blocks)) for (const item of block.items) catalog.set(item.id, { item, block: block.name });
@@ -33,7 +34,7 @@ const bundleEntries = new Map();
 let migration = null;
 const bundled = (voice) => existsSync(path.join(bundleDir, `${voice}.json`));
 function sharedEntries(voice) {
-  if (!bundleEntries.has(voice)) bundleEntries.set(voice, readBundle(voice, bundleDir).then((metadata) => metadata.clips.map((clip) => ({ id: clip.id, text: clip.text || "", sid: VOICES.find((v) => v.id === voice).sid, speed: 1 }))).catch((err) => { bundleEntries.delete(voice); throw err; }));
+  if (!bundleEntries.has(voice)) bundleEntries.set(voice, readBundle(voice, bundleDir).then((metadata) => metadata.clips.map((clip) => ({ id: clip.id, text: clip.text || "", sid: voiceById(voice).sid, vid: voice, speed: 1 }))).catch((err) => { bundleEntries.delete(voice); throw err; }));
   return bundleEntries.get(voice);
 }
 function unpackVoice(voice) {
@@ -55,7 +56,7 @@ const voiceCache = new VoiceCache(VOICE_DIR, async (entry) => {
   // Only one background clip is queued; workout requests get the next turn.
   while (pending.size) await Promise.allSettled([...pending.values()].map((task) => task.promise));
   clips.set(entry.id, entry);
-  const voice = VOICES.find((voice) => voice.sid === entry.sid)?.id;
+  const voice = entry.vid || ALL_VOICES.find((candidate) => candidate.sid === entry.sid)?.id;
   if (voice && bundled(voice)) await unpackVoice(voice);
   else await audioFile(entry.id);
 });
@@ -72,7 +73,7 @@ function clip(text, voice, speed) {
   if (!text) return null;
   const id = createHash("sha256").update(JSON.stringify([MODEL_SHA, "sherpa-1.13.8", voice.id, 1, text])).digest("hex");
   clips.delete(id);
-  clips.set(id, { text, sid: voice.sid, speed: 1 });
+  clips.set(id, { text, sid: voice.sid, vid: voice.id, speed: 1 });
   while (clips.size > 3000) clips.delete(clips.keys().next().value);
   return { id, text, rate: speed, url: `/api/voice/audio/${id}.wav` };
 }
@@ -87,11 +88,11 @@ function joinedClip(texts, voice, speed) {
 
 export function prepareManifest(body, savedProfile = {}) {
   if (!body || typeof body !== "object" || Array.isArray(body)) bad("Expected a voice request");
-  const voice = VOICES.find((v) => v.id === (body.voice || "af_heart"));
+  const voice = voiceById(body.voice || "af_heart");
   if (!voice || ![undefined, "steady", "brisk"].includes(body.pace)) bad("Unknown voice or pace");
   const speed = body.pace === "brisk" ? 1.06 : 1;
   const cue = (text) => clip(text, voice, speed);
-  if (body.preview === true) return { preview: cue(PREVIEW) };
+  if (body.preview === true) return { preview: cue(tr(PREVIEW)) };
   const entry = catalog.get(body.itemId);
   if (!entry || !integer(body.level, 0, 3)) bad("Unknown workout step or level");
   const { item, block } = entry;
@@ -121,11 +122,11 @@ export function prepareManifest(body, savedProfile = {}) {
     name: script.name, setCount: script.setCount,
     intro: script.intro.map(cue), safety: script.safety.map(cue),
     how: script.how.map((text) => clip(text, voice, 1)), sets: script.sets.map(cue),
-    block: cue(`${speechText(block, profile)} is next.`),
-    effort: /strength/i.test(block) ? cue(EFFORT[body.level]) : null,
-    rest: joinedClip(["Rest for", ...durationParts(seconds), "Continue when you are ready."], voice, speed), next: cue(`Next is ${script.name}.`),
-    back: cue(`Back to ${script.name}.`),
-    clock: Object.fromEntries(Object.entries(CLOCK).map(([key, text]) => [key, cue(text)])),
+    block: cue(tr("{block} is next.", { block: speechText(block, profile) })),
+    effort: /strength/i.test(block) ? cue(tr(EFFORT[body.level])) : null,
+    rest: language() === "en" ? joinedClip(["Rest for", ...durationParts(seconds), "Continue when you are ready."], voice, speed) : joinedClip([tr("Rest for {duration}. Continue when you are ready.", { duration: durationText(seconds) })], voice, speed), next: cue(tr("Next is {name}.", { name: script.name })),
+    back: cue(tr("Back to {name}.", { name: script.name })),
+    clock: Object.fromEntries(Object.entries(CLOCK).map(([key, text]) => [key, cue(tr(text))])),
   };
   if (body.timer) {
     const t = body.timer;
@@ -134,13 +135,13 @@ export function prepareManifest(body, savedProfile = {}) {
       if (!integer(t.seconds, 1, 3600) || ![1, 2].includes(t.sides)) bad("Invalid hold");
       phases = [{ kind: "ready", sec: 5 }];
       for (let i = 0; i < t.sides; i++) {
-        phases.push({ kind: "work", label: t.sides === 2 ? i === 0 ? "First side" : "Other side" : "Hold", sec: t.seconds });
-        if (i === 0 && t.sides === 2) phases.push({ kind: "rest", label: "Switch", sec: 5 });
+        phases.push({ kind: "work", label: tr(t.sides === 2 ? i === 0 ? "First side" : "Other side" : "Hold"), sec: t.seconds });
+        if (i === 0 && t.sides === 2) phases.push({ kind: "rest", label: tr("Switch"), sec: 5 });
       }
     } else if (t.type === "countdown") {
       if (typeof t.minutes !== "number" || !Number.isFinite(t.minutes) || t.minutes <= 0 || t.minutes > 240) bad("Invalid countdown");
-      const label = item.intensity === "light" ? "Easy pace" : ex.intensity === "hard" ? "Vigorous" : "Zone 2";
-      phases = [{ kind: "ready", sec: 5 }, { kind: "work", label, sec: Math.round(t.minutes * 60), sub: `${label}: your prescribed heart-rate range` }];
+      const label = tr(item.intensity === "light" ? "Easy pace" : ex.intensity === "hard" ? "Vigorous" : "Zone 2");
+      phases = [{ kind: "ready", sec: 5 }, { kind: "work", label, sec: Math.round(t.minutes * 60), sub: tr("{label}: your prescribed heart-rate range", { label }) }];
     } else if (t.type === "intervals") {
       const presets = timerPresets(item, body.level);
       if (!integer(t.preset ?? 0, 0, presets.length - 1)) bad("Unknown interval preset");
@@ -149,17 +150,17 @@ export function prepareManifest(body, savedProfile = {}) {
       phases = intervalPhases(item.ex, preset, t.moves);
       for (const phase of phases) {
         const range = phase.kind === "work" ? preset.workHr : phase.kind === "rest" ? preset.restHr : null;
-        phase.sub = range ? "Follow your prescribed heart-rate range." : "";
+        phase.sub = range ? tr("Follow your prescribed heart-rate range.") : "";
       }
     } else bad("Unknown timer");
     result.phases = phases.map((phase) => {
       if (phase.kind === "ready" || (t.type === "hold" && phase.kind === "rest")) return [cue(phaseLine(phase, t.type, profile))];
       const duration = durationParts(phase.sec);
-      if (t.type === "hold") return [joinedClip([`${phase.label}.`, ...duration, "Breathe steadily throughout the hold."], voice, speed)];
-      if (t.type === "countdown") return [joinedClip([`${speechText(phase.label, profile)}.`, ...duration, "Follow your prescribed heart-rate range."], voice, speed)];
-      if (phase.kind === "rest") return [joinedClip(["Recover with easy marching.", ...duration, phase.sec > 30 ? phase.sub : ""], voice, speed)];
-      const movement = phase.ex ? cue(`For this interval, do ${speechText(EXERCISES[phase.ex].name, profile)}.`) : null;
-      const round = phase.round ? cue(`Round ${speechText(String(phase.round))} of ${speechText(String(phase.total))}. Follow today's prescribed pace.`) : null;
+      if (t.type === "hold") return [joinedClip([`${phase.label}.`, ...duration, tr("Breathe steadily throughout the hold.")], voice, speed)];
+      if (t.type === "countdown") return [joinedClip([`${speechText(phase.label, profile)}.`, ...duration, tr("Follow your prescribed heart-rate range.")], voice, speed)];
+      if (phase.kind === "rest") return [joinedClip([tr("Recover with easy marching."), ...duration, phase.sec > 30 ? phase.sub : ""], voice, speed)];
+      const movement = phase.ex ? cue(tr("For this interval, do {name}.", { name: speechText(EXERCISES[phase.ex].name, profile) })) : null;
+      const round = phase.round ? cue(language() === "en" ? `Round ${numberWords(phase.round)} of ${numberWords(phase.total)}. Follow today's prescribed pace.` : tr("Round {round} of {total}. Follow today's prescribed pace.", { round: phase.round, total: phase.total })) : null;
       return [movement, round, joinedClip([...duration, phase.sec > 30 ? phase.sub : ""], voice, speed)].filter(Boolean);
     });
   }
@@ -213,7 +214,7 @@ export function buildSharedVoicePack(voice) {
     const profile = { ...defaultProfile(), level: id, units };
     buildVoicePack({ voice, level, addons: ADDONS.map((addon) => addon.id) }, profile).forEach(collect);
   }
-  const selected = VOICES.find((v) => v.id === voice);
+  const selected = voiceById(voice);
   if (!selected) bad("Unknown voice");
   for (let seconds = 1; seconds < 60; seconds++) for (const text of durationParts(seconds)) {
     const c = clip(text, selected, 1); collect({ id: c.id, ...clips.get(c.id) });
@@ -227,7 +228,7 @@ export function buildSharedVoicePack(voice) {
 
 async function pruneCache() {
   const entries = await readdir(cacheDir).catch(() => []);
-  const files = await Promise.all(entries.filter((name) => /^[a-f0-9]{64}\.wav$/.test(name) && !voiceCache.pinned(name.slice(0, -4))).map(async (name) => ({ name, ...await stat(path.join(cacheDir, name)) })));
+  const files = await Promise.all(entries.filter((name) => /^[a-f0-9]{64}\.(?:wav|mp3)$/.test(name) && !voiceCache.pinned(name.slice(0, -4))).map(async (name) => ({ name, ...await stat(path.join(cacheDir, name)) })));
   let size = files.reduce((total, f) => total + f.size, 0);
   for (const file of files.sort((a, b) => a.mtimeMs - b.mtimeMs)) {
     if (size <= 256 * 1024 * 1024) break;
@@ -268,10 +269,19 @@ function startWorker() {
   return workerReady;
 }
 
+function cachedAudio(id) {
+  for (const ext of ["wav", "mp3"]) {
+    const file = path.join(cacheDir, `${id}.${ext}`);
+    if (existsSync(file)) return file;
+  }
+  return null;
+}
+
 async function audioFile(id) {
+  const cached = cachedAudio(id);
+  if (cached) return cached;
   const file = path.join(cacheDir, `${id}.wav`);
-  if (existsSync(file)) return file;
-  if (pending.has(id)) { await pending.get(id).promise; return file; }
+  if (pending.has(id)) { await pending.get(id).promise; return cachedAudio(id) || file; }
   const data = clips.get(id);
   if (!data) throw Object.assign(new Error("Prepare this workout cue again"), { status: 404 });
   if (data.parts) {
@@ -285,11 +295,15 @@ async function audioFile(id) {
     await writeFile(tmp, combineWaves(waves)); await rename(tmp, file);
     return file;
   }
-  const voice = VOICES.find((voice) => voice.sid === data.sid)?.id;
+  const voice = data.vid || ALL_VOICES.find((candidate) => candidate.sid === data.sid)?.id;
   if (voice && bundled(voice)) {
     await unpackBundle(voice, bundleDir, cacheDir, id);
-    if (existsSync(file)) return file;
+    const unpacked = cachedAudio(id);
+    if (unpacked) return unpacked;
     throw Object.assign(new Error("Shared voice audio is out of date. Update the app's voice packs."), { status: 503 });
+  }
+  if (voice && voiceById(voice)?.engine === "edge") {
+    throw Object.assign(new Error("This language's coach audio is missing. Update the app's voice packs."), { status: 503 });
   }
   if (pending.size > 100) throw Object.assign(new Error("Voice is busy preparing cues"), { status: 429 });
   let resolve, reject;
@@ -323,7 +337,7 @@ export async function handleVoice(req, res, pathname, { readBody, send, fail, pr
   await migrateSharedPacks();
   if (pathname === "/api/voice/status" && method === "GET") {
     const voice = new URL(req.url, "http://localhost").searchParams.get("voice") || "af_heart";
-    if (!VOICES.some((v) => v.id === voice)) return fail(res, 400, "Unknown voice");
+    if (!ALL_VOICES.some((v) => v.id === voice)) return fail(res, 400, "Unknown voice");
     const shared = bundled(voice);
     const ready = shared || await modelInstalled();
     if (ready && !installer) voiceCache.resume();
@@ -359,7 +373,7 @@ export async function handleVoice(req, res, pathname, { readBody, send, fail, pr
     if (!voiceCache.packs.size) return fail(res, 409, "Turn coaching on once to prepare and save voice audio");
     if (!clips.has(match[1])) return fail(res, 404, "Prepare this workout cue first");
     const file = await audioFile(match[1]);
-    return send(res, 200, await readFile(file), "audio/wav");
+    return send(res, 200, await readFile(file), file.endsWith(".mp3") ? "audio/mpeg" : "audio/wav");
   }
   return fail(res, 404, "Unknown voice route");
 }

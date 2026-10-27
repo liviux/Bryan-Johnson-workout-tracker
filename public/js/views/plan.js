@@ -8,6 +8,7 @@ import { LEVELS, bpm, hrMax, levelIndex, personalize } from "../personalize.js";
 import { esc } from "../util.js";
 import { newestFirst, sourceListHtml } from "../components/sources.js";
 import { toast } from "../components/ui.js";
+import { t } from "../i18n.js";
 
 const ZONE_COLORS = ["#8aa0ba", "#3ee0b0", "#e0b93c", "#f08f47", "#ef6a60"];
 
@@ -25,14 +26,14 @@ export function render(el) {
       <p class="muted" style="font-size:0.85rem">This app is unofficial. Bryan Johnson and Blueprint do not endorse it. It provides a training plan, not medical advice.</p>
     </section>
 
-    <div class="section-title"><h2>Training levels</h2><span class="chip accent">Your level: ${esc(LEVELS[cur].name)}</span></div>
+    <div class="section-title"><h2>Training levels</h2><span class="chip accent">${t("Your level: {level}", { level: esc(LEVELS[cur].name) })}</span></div>
     <p class="muted">Choose a level below when you need an easier or harder workout. Past logs keep their original level.</p>
     <div class="plan-levels">${LEVEL_PLANS.map(
       (lp, i) => `<section class="card card-pad plan-level${i === cur ? " current" : ""}" style="display:grid;gap:8px">
         <span class="eyebrow">${esc(LEVELS[i].detail)}</span><h3 class="display" style="font-size:1.5rem">${esc(LEVELS[i].name)}</h3>
         <p><b>${P(lp.effort)}</b></p><ul class="list">${lp.points.map((s) => `<li>${P(s)}</li>`).join("")}</ul>
         <p class="muted" style="font-size:0.88rem">${P(lp.moveUp)}</p>
-        <button type="button" class="btn${i === cur ? " primary" : ""}" data-plan-level="${LEVELS[i].id}" aria-pressed="${i === cur}">${i === cur ? "Your current level" : `Use ${esc(LEVELS[i].name)}`}</button></section>`
+        <button type="button" class="btn${i === cur ? " primary" : ""}" data-plan-level="${LEVELS[i].id}" aria-pressed="${i === cur}">${i === cur ? t("Your current level") : t("Use {level}", { level: esc(LEVELS[i].name) })}</button></section>`
     ).join("")}</div>
     <section class="card card-pad" style="display:grid;gap:8px"><h3>Rules</h3><ul class="list">${RULES.map((s) => `<li>${P(s)}</li>`).join("")}</ul></section>
 
@@ -40,20 +41,20 @@ export function render(el) {
     <div class="table-wrap"><table class="plan-week">
       <colgroup><col class="weekday-col"><col class="session-col">${LEVELS.map(() => '<col class="duration-col">').join("")}</colgroup>
       <thead><tr><th>Day</th><th>Session</th>${LEVELS.map((l, i) => `<th class="num ${i === cur ? "cur" : ""}"><span class="level-full">${esc(l.name)}</span><abbr class="level-short" title="${esc(l.name)}">${["New", "Return.", "Active", "Trained"][i]}</abbr></th>`).join("")}</tr></thead>
-      <tbody>${DAYS.map((d) => `<tr><td><b>${esc(d.short)}</b></td><td><a href="#/library">${esc(d.title)}</a></td>${LEVELS.map((_, i) => `<td class="num ${i === cur ? "cur" : ""}">${d.blocks.length ? dayMins(d, i) + " min" : "Rest"}</td>`).join("")}</tr>`).join("")}
-      <tr><td colspan="2"><b>Total</b> (without add-ons)</td>${totals.map((t, i) => `<td class="num ${i === cur ? "cur" : ""}"><b>${t} h</b></td>`).join("")}</tr></tbody>
+      <tbody>${DAYS.map((d) => `<tr><td><b>${esc(d.short)}</b></td><td><a href="#/library">${esc(d.title)}</a></td>${LEVELS.map((_, i) => `<td class="num ${i === cur ? "cur" : ""}">${d.blocks.length ? t("{count} min", { count: dayMins(d, i) }) : t("Rest")}</td>`).join("")}</tr>`).join("")}
+      <tr><td colspan="2"><b>Total</b> (without add-ons)</td>${totals.map((total, i) => `<td class="num ${i === cur ? "cur" : ""}"><b>${t("{hours} h", { hours: total })}</b></td>`).join("")}</tr></tbody>
     </table></div>
     <p class="muted">Your workouts include the scheduled cardio. Extra activity is optional. Lower levels build toward Bryan's weekly targets. At Well trained, sessions take about 72 to 93 minutes (8.2 hours a week) with all strength and mobility work, before add-ons or extra recovery breaks. The extra vigorous cardio and Zone 2 time adapt his weekly targets for this home plan.</p>
     <section class="card card-pad" style="display:grid;gap:10px"><h3>How this plan follows Bryan's routine</h3>
       <p class="muted">Well trained meets his full weekly targets. Lower levels build toward them.</p>
-      <ul style="list-style:none;margin:0;padding:0;display:grid;gap:8px">${TARGETS.map(([s, t]) => `<li style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start"><span class="status ${s === "ok" ? "ok" : "part"}">${s === "ok" ? "Met" : "Partly"}</span><span>${P(t)}</span></li>`).join("")}</ul>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;gap:8px">${TARGETS.map(([status, text]) => `<li style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start"><span class="status ${status === "ok" ? "ok" : "part"}">${status === "ok" ? t("Met") : t("Partly")}</span><span>${P(text)}</span></li>`).join("")}</ul>
       <details><summary>Home exercise choices</summary><ul class="list">${TAKEAWAYS.slice(1).map((s) => `<li>${esc(s)}</li>`).join("")}</ul></details>
     </section>
 
-    <div class="section-title"><h2>Your heart-rate zones</h2><span class="muted">Max ${hrMax(p)} bpm ${p && p.hrMax ? "(measured)" : "(estimated from your age)"}</span></div>
+    <div class="section-title"><h2>Your heart-rate zones</h2><span class="muted">${t("Max {max} bpm {source}", { max: hrMax(p), source: p && p.hrMax ? t("(measured)") : t("(estimated from your age)") })}</span></div>
     <div class="table-wrap"><table><thead><tr><th>Zone</th><th class="num">% of max</th><th class="num">Your bpm</th><th>How it feels and when to use it</th></tr></thead><tbody>
-      ${ZONES.map((z, i) => `<tr><td><span class="zone-sw" style="background:${ZONE_COLORS[i]}"></span><b>${esc(z.zone)}</b></td><td class="num">${z.pct[0]} to ${z.pct[1]}%</td><td class="num">${bpm(p, z.pct[0])} to ${bpm(p, z.pct[1])}</td><td>${esc(z.feel)}</td></tr>`).join("")}
-      <tr><td><b>4×4 work</b></td><td class="num">85 to 95%</td><td class="num">${bpm(p, 85)} to ${bpm(p, 95)}</td><td>Thursday's hard 4×4 intervals at Well trained. Other levels use a lower target.</td></tr>
+      ${ZONES.map((z, i) => `<tr><td><span class="zone-sw" style="background:${ZONE_COLORS[i]}"></span><b>${esc(z.zone)}</b></td><td class="num">${t("{low} to {high}%", { low: z.pct[0], high: z.pct[1] })}</td><td class="num">${t("{low} to {high}", { low: bpm(p, z.pct[0]), high: bpm(p, z.pct[1]) })}</td><td>${esc(z.feel)}</td></tr>`).join("")}
+      <tr><td><b>4×4 work</b></td><td class="num">85 to 95%</td><td class="num">${t("{low} to {high}", { low: bpm(p, 85), high: bpm(p, 95) })}</td><td>Thursday's hard 4×4 intervals at Well trained. Other levels use a lower target.</td></tr>
     </tbody></table></div>
 
     <div class="section-title"><h2>Home substitutions</h2><a class="btn sm" href="#/setup/redo/equipment">Set up your equipment</a></div>
@@ -76,7 +77,7 @@ export function render(el) {
       });
       render(el);
       el.querySelector(`[data-plan-level="${id}"]`).focus({ preventScroll: true });
-      toast(`Level set to ${LEVELS.find((level) => level.id === id).name}. Past logs keep their original level.`);
+      toast(t("Level set to {level}. Past logs keep their original level.", { level: LEVELS.find((level) => level.id === id).name }));
     });
   });
 }

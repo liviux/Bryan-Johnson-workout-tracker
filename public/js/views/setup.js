@@ -13,6 +13,7 @@ import { createStagePanel } from "../components/stage-panel.js";
 import { createEquipmentEditor } from "../components/equipment-editor.js";
 import { seg } from "../components/ui.js";
 import { applyLook, skinById, skinPickerHtml } from "../themes.js";
+import { t } from "../i18n.js";
 
 const STEPS = ["Welcome", "Theme", "About you", "Your level", "Equipment", "Add-ons", "Ready"];
 const LB = 2.20462;
@@ -21,7 +22,7 @@ const GEAR = [...EQUIPMENT.have, ...EQUIPMENT.add].filter((g) => g.ex);
 
 function gearUse(g) {
   const ex = EXERCISES[g.ex];
-  return `${icon(g.icon)}<span><b>${esc(g.i)}</b> <span class="muted">${esc(g.d)}</span><br><span class="muted">Example, ${esc(ex ? ex.name.toLowerCase() : g.ex)}:</span> ${esc(g.use)}</span>`;
+  return `${icon(g.icon)}<span><b>${esc(g.i)}</b> <span class="muted">${esc(g.d)}</span><br><span class="muted">${t("Example, {exercise}:", { exercise: esc(ex ? ex.name : g.ex) })}</span> ${esc(g.use)}</span>`;
 }
 
 export function render(el, params) {
@@ -51,9 +52,9 @@ export function render(el, params) {
       return `<p>Plan and track six home workouts a week based on Bryan Johnson's public exercise protocol. You'll do strength training three days a week, plus short intervals, the Norwegian 4×4, Zone 2, balance and mobility. The workouts use bodyweight, adjustable dumbbells, a pull-up bar and bands.</p>
         <div class="preview">
           <p>${icon("info")} This app is unofficial and isn't affiliated with or endorsed by Bryan Johnson or Blueprint. It provides a training plan, not medical advice.</p>
-          <p>${icon("download")} ${state.mode === "server" ? `Your details and workouts save in the <code>${esc(state.dataDir)}/</code> folder on this computer.` : "Your details and workouts are saved in this browser because the local server isn't running. Run <code>npm start</code> to save them as files."}</p>
+          <p>${icon("download")} ${state.mode === "server" ? t("Your details and workouts save in the <code>{dir}/</code> folder on this computer.", { dir: esc(state.dataDir) }) : t("Your details and workouts are saved in this browser because the local server isn't running. Run <code>npm start</code> to save them as files.")}</p>
         </div>
-        <label class="field"><span>Your name (optional)</span><input class="input" data-f="name" value="${esc(draft.name)}" placeholder="Your first name" autocomplete="given-name"></label>`;
+        <label class="field"><span>${t("Your name (optional)")}</span><input class="input" data-f="name" value="${esc(draft.name)}" placeholder="${esc(t("Your first name"))}" autocomplete="given-name"></label>`;
     }
     if (step === 1) {
       const sk = skinById(draft.settings.skin);
@@ -107,12 +108,12 @@ export function render(el, params) {
     const lvl = LEVELS.find((l) => l.id === draft.level);
     return `<div class="preview"><dl>
         ${draft.name ? `<dt>Name</dt><dd>${esc(draft.name)}</dd>` : ""}
-        <dt>Age, weight</dt><dd>${esc(draft.age)} · ${esc(wShow(draft.weightKg))} ${imperial() ? "lb" : "kg"}</dd>
-        <dt>Level</dt><dd>${esc(lvl ? lvl.name : "")}</dd>
-        <dt>Theme</dt><dd>${esc(skinById(draft.settings.skin).name)}</dd>
-        <dt>Starts</dt><dd>${esc(draft.startDate)}</dd>
+        <dt>${t("Age, weight")}</dt><dd>${esc(draft.age)} · ${esc(wShow(draft.weightKg))} ${imperial() ? "lb" : "kg"}</dd>
+        <dt>${t("Level")}</dt><dd>${esc(lvl ? lvl.name : "")}</dd>
+        <dt>${t("Theme")}</dt><dd>${esc(skinById(draft.settings.skin).name)}</dd>
+        <dt>${t("Starts")}</dt><dd>${esc(draft.startDate)}</dd>
         <dt>Zone 2</dt><dd>${bpmRange(draft, 60, 70)}</dd>
-        <dt>Add-ons</dt><dd>${esc(ADDONS.filter((a) => draft.addons && draft.addons[a.id]).map((a) => a.name).join(", ") || "None")}</dd>
+        <dt>${t("Add-ons")}</dt><dd>${esc(ADDONS.filter((a) => draft.addons && draft.addons[a.id]).map((a) => a.name).join(", ") || t("None"))}</dd>
       </dl></div>
       <p>Your week: Mon, strength; Tue, short intervals and Zone 2; Wed, strength and mobility; Thu, Norwegian 4×4 and stability; Fri, power and strength; Sat, controlled vigorous cardio, Zone 2 and a long stretch; Sun, rest.</p>
       <p>Open an exercise for its animation, instructions and videos, including Bryan's demonstrations at the relevant timestamp.</p>`;
@@ -126,14 +127,14 @@ export function render(el, params) {
     el.innerHTML = `<div class="setup"><div class="card setup-card">
       <div class="setup-head">
         <div class="steps">${STEPS.map((_, i) => `<i class="${i <= step ? "on" : ""}"></i>`).join("")}</div>
-        <span class="eyebrow">Step ${step + 1} of ${STEPS.length} · ${esc(STEPS[step])}</span>
-        <h1>${step === 0 ? "Home Protocol" : esc(STEPS[step])}</h1>
+        <span class="eyebrow">${t("Step {step} of {total} · {name}", { step: step + 1, total: STEPS.length, name: esc(t(STEPS[step])) })}</span>
+        <h1>${step === 0 ? "Home Protocol" : esc(t(STEPS[step]))}</h1>
       </div>
       <div class="setup-body">${stepBody()}${error ? `<p style="color:var(--danger)">${esc(error)}</p>` : ""}</div>
       <div class="setup-foot">
-        ${step > 0 ? `<button type="button" class="btn" data-back>${icon("chevronL")} Back</button>` : redo ? `<a class="btn" href="#/settings">Cancel</a>` : "<span></span>"}
-        ${step === 4 ? '<button type="button" class="btn ghost" data-skip-equipment>Skip for now</button>' : ""}
-        <button type="button" class="btn primary" data-next>${step === STEPS.length - 1 ? `${icon("check")} ${redo ? "Save" : "Start training"}` : `Next ${icon("chevronR")}`}</button>
+        ${step > 0 ? `<button type="button" class="btn" data-back>${icon("chevronL")} ${t("Back")}</button>` : redo ? `<a class="btn" href="#/settings">Cancel</a>` : "<span></span>"}
+        ${step === 4 ? `<button type="button" class="btn ghost" data-skip-equipment>${t("Skip for now")}</button>` : ""}
+        <button type="button" class="btn primary" data-next>${step === STEPS.length - 1 ? `${icon("check")} ${redo ? t("Save") : t("Start training")}` : `${t("Next")} ${icon("chevronR")}`}</button>
       </div>
     </div></div>`;
     const editorHost = el.querySelector("[data-equipment-editor]");
@@ -148,12 +149,12 @@ export function render(el, params) {
   function validate() {
     if (step === 4) {
       const invalid = [...el.querySelectorAll("[data-equipment-id]")].filter((row) => row.querySelector('[data-equipment-field="owned"]').checked).map((row) => row.querySelector("input:invalid")).find(Boolean);
-      if (invalid) { invalid.reportValidity(); return "Please check the equipment name or product link."; }
+      if (invalid) { invalid.reportValidity(); return t("Please check the equipment name or product link."); }
     }
     if (step === 2) {
       const age = Number(draft.age);
-      if (!(age >= 14 && age <= 99)) return "Please enter an age between 14 and 99.";
-      if (!(draft.weightKg >= 30 && draft.weightKg <= 250)) return "Please enter your weight.";
+      if (!(age >= 14 && age <= 99)) return t("Please enter an age between 14 and 99.");
+      if (!(draft.weightKg >= 30 && draft.weightKg <= 250)) return t("Please enter your weight.");
     }
     return "";
   }

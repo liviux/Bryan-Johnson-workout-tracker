@@ -7,6 +7,7 @@ import { state } from "../store.js";
 import { personalize } from "../personalize.js";
 import { rxFor } from "../plan.js";
 import { esc } from "../util.js";
+import { t } from "../i18n.js";
 import { EQUIPMENT_NAMES, icon } from "./icons.js";
 import { getItemLog, renderLogger } from "./logger.js";
 import { createStagePanel } from "./stage-panel.js";
@@ -23,10 +24,10 @@ export function exerciseInfoHtml(ex) {
   const p = state.profile;
   const steps = ex.how.map((s) => `<li>${esc(personalize(s, p))}</li>`).join("");
   return `<div class="how">
-      <div class="from-bryan${ex.classic ? " classic" : ""}"><span class="eyebrow">${ex.classic ? "Classic exercise outside Bryan's protocol" : "From Bryan's protocol"}</span><p>${esc(personalize(ex.bryan, p))}</p></div>
-      <h4>How to do it</h4><ol>${steps}</ol>
-      ${ex.tips && ex.tips.length ? `<h4>Tips</h4><ul>${ex.tips.map((s) => `<li>${esc(personalize(s, p))}</li>`).join("")}</ul>` : ""}
-      ${ex.easier ? `<h4>Easier version</h4><p>${esc(personalize(ex.easier, p))}</p>` : ""}
+      <div class="from-bryan${ex.classic ? " classic" : ""}"><span class="eyebrow">${ex.classic ? t("Classic exercise outside Bryan's protocol") : t("From Bryan's protocol")}</span><p>${esc(personalize(ex.bryan, p))}</p></div>
+      <h4>${t("How to do it")}</h4><ol>${steps}</ol>
+      ${ex.tips && ex.tips.length ? `<h4>${t("Tips")}</h4><ul>${ex.tips.map((s) => `<li>${esc(personalize(s, p))}</li>`).join("")}</ul>` : ""}
+      ${ex.easier ? `<h4>${t("Easier version")}</h4><p>${esc(personalize(ex.easier, p))}</p>` : ""}
     </div>`;
 }
 
@@ -90,7 +91,7 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
     body.innerHTML = `
       <div style="display:grid;gap:8px">
         <span class="eyebrow">${esc(ex.cat)}${ctx.scopeName ? ` · ${esc(ctx.scopeName)}` : ""}</span>
-        <h2>${esc(item && item.label ? personalize(item.label, p) : ex.name)} ${ex.classic ? '<span class="badge-classic">classic</span>' : ""}</h2>
+        <h2>${esc(item && item.label ? personalize(item.label, p) : ex.name)} ${ex.classic ? `<span class="badge-classic">${t("classic")}</span>` : ""}</h2>
         ${rx ? `<div class="rx">${esc(rx)}</div>` : ""}
         <div class="chips">
           ${item && item.bryan ? `<span class="chip bryan">${esc(personalize(item.bryan, p))}</span>` : ""}
@@ -103,12 +104,12 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
       ${mode === "log" && item && ctx.date ? '<div class="logger-host"></div>' : ""}
       ${mode !== "log" ? `<div class="tabs" role="tablist">
         <button type="button" role="tab" data-tab="how">How to</button>
-        <button type="button" role="tab" data-tab="videos">Videos (${vids.length}${bryanCount ? `, ${bryanCount} with Bryan` : ""})</button>
+        <button type="button" role="tab" data-tab="videos">${t("Videos ({count}{bryan})", { count: vids.length, bryan: bryanCount ? t(", {count} with Bryan", { count: bryanCount }) : "" })}</button>
       </div>` : ""}
       <div class="tab-body" role="tabpanel"${mode === "log" ? " hidden" : ""}></div>`;
     const toolActions = () => `
-      <button type="button" class="btn sm ghost" data-tab="how" aria-selected="${tabOpen && tab === "how"}" aria-expanded="${tabOpen && tab === "how"}">${icon("list", "sm")} How to</button>
-      <button type="button" class="btn sm ghost" data-tab="videos" aria-selected="${tabOpen && tab === "videos"}" aria-expanded="${tabOpen && tab === "videos"}" aria-label="Videos (${vids.length}${bryanCount ? `, ${bryanCount} with Bryan` : ""})">${icon("video", "sm")} Videos</button>`;
+      <button type="button" class="btn sm ghost" data-tab="how" aria-selected="${tabOpen && tab === "how"}" aria-expanded="${tabOpen && tab === "how"}">${icon("list", "sm")} ${t("How to")}</button>
+      <button type="button" class="btn sm ghost" data-tab="videos" aria-selected="${tabOpen && tab === "videos"}" aria-expanded="${tabOpen && tab === "videos"}" aria-label="${t("Videos ({count}{bryan})", { count: vids.length, bryan: bryanCount ? t(", {count} with Bryan", { count: bryanCount }) : "" })}">${icon("video", "sm")} ${t("Videos")}</button>`;
     const lh = body.querySelector(".logger-host");
     if (lh)
       renderLogger(lh, {

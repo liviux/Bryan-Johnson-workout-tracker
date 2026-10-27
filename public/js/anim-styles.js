@@ -1,3 +1,4 @@
+import { localized } from "./i18n.js";
 // Animation styles: other ways to draw the exercise animations, on top of the
 // original mannequin. Picked in Settings → Animation style or from the floating style
 // bar (components/anim-bar.js). They apply to every exercise (STYLED_EXERCISES).
@@ -11,7 +12,7 @@ import { esc } from "./util.js";
 // "3d" styles are three.js scenes; the others draw the same moving skeleton without
 // three.js: "svg" vector shapes, "canvas" 2D canvas, "text" characters.
 // fun: one of the funny ones.
-export const ANIM_STYLES = [
+export const ANIM_STYLES = localized([
   { id: "athlete", name: "Athlete", tech: "3d", after: "Semi-realistic, like Mixamo characters", blurb: "A person in a T-shirt, shorts and trainers, lit by soft studio light." },
   { id: "female", name: "Female athlete", tech: "3d", after: "Modern sports cartoons", blurb: "A cartoon athlete with tied-back hair, a turquoise training top and violet leggings. Hands grip equipment and plant on the floor." },
   { id: "mannequin", name: "Mannequin", tech: "3d", after: "the app's original figure", blurb: "A smooth grey figure with lights showing which muscles are working." },
@@ -33,7 +34,7 @@ export const ANIM_STYLES = [
   { id: "halftone", name: "Halftone", tech: "canvas", after: "Two-colour printed comics", blurb: "A moving comic figure with newsprint dots and bold ink outlines. Working muscles are vermilion." },
   { id: "linocut", name: "Linocut", tech: "canvas", after: "Hand-carved printmaking", blurb: "A carved ink figure against a vermilion sun, with paper grain, gouged lines and uneven edges. Working muscles use ochre ink." },
   { id: "orrery", name: "Orrery", tech: "canvas", after: "Antique mechanical solar systems", blurb: "A clockwork constellation with planets for joints, orbiting moons and a sun in the chest. Brass rods turn coral where muscles work." },
-];
+]);
 
 // The style until you pick one.
 export const DEFAULT_ANIM_STYLE = "athlete";

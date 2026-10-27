@@ -1,7 +1,7 @@
 // Logging UI for one exercise on one day: sets × reps × load, holds with a timer,
 // cardio minutes and heart rate, or interval rounds. Everything auto-saves.
 
-import { EXERCISES } from "../data/exercises.js";
+import { CATEGORIES, EXERCISES } from "../data/exercises.js";
 import { INTERVAL_MOVES } from "../data/routines.js";
 import { state } from "../store.js";
 import { editDay, itemLog, loggedExerciseId, logLevel, rxFor, timerPresets } from "../plan.js";
@@ -9,6 +9,7 @@ import { LEVELS, bpmRange, fmtWeight, kgUnit, personalize, suggestedKg } from ".
 import { esc, fmtShort } from "../util.js";
 import { icon } from "./icons.js";
 import { openDialog, toast } from "./ui.js";
+import { t } from "../i18n.js";
 import { startCountdown, startHold, startIntervals, startRest } from "./timer.js";
 import { voiceRequest } from "../voice/player.js";
 
@@ -132,7 +133,7 @@ function topCountFor(hist, target, key) {
   return Math.min(2, n);
 }
 
-const topText = (n, what = "sessions") => `${n} of 2 ${what} at the top of the range`;
+const topText = (n, what = "sessions") => t("{count} of 2 {what} at the top of the range", { count: n, what: t(what) });
 
 const showKg = (p, kg) => fmtWeight(p, kg, 1);
 
@@ -153,10 +154,10 @@ export function nextTimeRecommendation({ item, ex, level, date }) {
     const top = topValue(target, "seconds");
     if (!top) return null;
     const count = topCountFor(hist, target, "sec");
-    if (!last) return { kind: "start", seconds: top, text: `Hold ${top} s and build from there.` };
-    if (last.log.holdProgress) return { kind: "repeat", seconds: top, text: `Repeat ${top} s — progression is paused after the easier session.` };
-    if (count >= 2) return { kind: "add", seconds: top + 5, text: `Try ${top + 5} s next time — ${topText(count, "holds")}.` };
-    return { kind: "repeat", seconds: top, text: `Hold ${top} s again — ${topText(count, "holds")}; two in a row unlock more time.` };
+    if (!last) return { kind: "start", seconds: top, text: t("Hold {seconds} s and build from there.", { seconds: top }) };
+    if (last.log.holdProgress) return { kind: "repeat", seconds: top, text: t("Repeat {seconds} s — progression is paused after the easier session.", { seconds: top }) };
+    if (count >= 2) return { kind: "add", seconds: top + 5, text: t("Try {seconds} s next time — {top}.", { seconds: top + 5, top: topText(count, "holds") }) };
+    return { kind: "repeat", seconds: top, text: t("Hold {seconds} s again — {top}; two in a row unlock more time.", { seconds: top, top: topText(count, "holds") }) };
   }
 
   if (ex.log === "carry") {
@@ -164,10 +165,10 @@ export function nextTimeRecommendation({ item, ex, level, date }) {
     const lastKg = topKg(last && last.log);
     const suggested = suggestedKg(rx, p);
     const count = topCountFor(hist, target, "sec");
-    if (!last) return suggested != null ? { kind: "start", kg: suggested, seconds: secs, text: `Start around ${showKg(p, suggested)} for ${secs || 30} s.` } : null;
-    if (last.log.holdProgress) return { kind: "repeat", kg: lastKg || null, seconds: secs, text: lastKg ? `Repeat ${showKg(p, lastKg)} — progression is paused after the easier session.` : `Repeat the same hold — progression is paused after the easier session.` };
-    if (count >= 2 && lastKg) return { kind: "add", kg: lastKg + 1, seconds: secs, text: `Try ${showKg(p, lastKg + 1)} next time — ${topText(count, "holds")}.` };
-    return { kind: "repeat", kg: lastKg || null, seconds: secs, text: lastKg ? `Repeat ${showKg(p, lastKg)} — ${topText(count, "holds")}; two in a row unlock the next step.` : `Repeat the same hold — ${topText(count, "holds")}; two in a row unlock the next step.` };
+    if (!last) return suggested != null ? { kind: "start", kg: suggested, seconds: secs, text: t("Start around {weight} for {seconds} s.", { weight: showKg(p, suggested), seconds: secs || 30 }) } : null;
+    if (last.log.holdProgress) return { kind: "repeat", kg: lastKg || null, seconds: secs, text: lastKg ? t("Repeat {weight} — progression is paused after the easier session.", { weight: showKg(p, lastKg) }) : t("Repeat the same hold — progression is paused after the easier session.") };
+    if (count >= 2 && lastKg) return { kind: "add", kg: lastKg + 1, seconds: secs, text: t("Try {weight} next time — {top}.", { weight: showKg(p, lastKg + 1), top: topText(count, "holds") }) };
+    return { kind: "repeat", kg: lastKg || null, seconds: secs, text: lastKg ? t("Repeat {weight} — {top}; two in a row unlock the next step.", { weight: showKg(p, lastKg), top: topText(count, "holds") }) : t("Repeat the same hold — {top}; two in a row unlock the next step.", { top: topText(count, "holds") }) };
   }
 
   if (ex.log === "load") {
@@ -175,37 +176,37 @@ export function nextTimeRecommendation({ item, ex, level, date }) {
     const suggested = suggestedKg(rx, p);
     if (!last) {
       if (suggested == null) return null;
-      return { kind: "start", kg: suggested, text: `Start around ${showKg(p, suggested)} — adjust so you finish with the reps your level recommends.` };
+      return { kind: "start", kg: suggested, text: t("Start around {weight} — adjust so you finish with the reps your level recommends.", { weight: showKg(p, suggested) }) };
     }
     const lastKg = topKg(last.log);
     const count = topCountFor(hist, target, "reps");
     if (!lastKg) {
-      if (top) return { kind: "repeat", reps: top, text: `Aim for ${top} reps and add reps before adding weight — ${topText(count)}.` };
+      if (top) return { kind: "repeat", reps: top, text: t("Aim for {reps} reps and add reps before adding weight — {top}.", { reps: top, top: topText(count) }) };
       return null;
     }
-    if (last.log.holdProgress) return { kind: "repeat", kg: lastKg, text: `Repeat ${showKg(p, lastKg)} — progression is paused after the easier session.` };
+    if (last.log.holdProgress) return { kind: "repeat", kg: lastKg, text: t("Repeat {weight} — progression is paused after the easier session.", { weight: showKg(p, lastKg) }) };
     if (top && count >= 2) {
-      const inc = ex.cat === "Legs & knees" ? 2 : 1;
+      const inc = ex.cat === CATEGORIES[2] ? 2 : 1;
       let kg = lastKg + inc;
       const max = Number(p && p.maxDumbbellKg) || null;
       let note = "";
       if (max && kg > max) {
         kg = max;
-        note = " You are at your heaviest dumbbell: aim for one more rep instead.";
+        note = " " + t("You are at your heaviest dumbbell: aim for one more rep instead.");
       }
-      return { kind: "add", kg, text: `Try ${showKg(p, kg)} next time — ${topText(count)}.${note}` };
+      return { kind: "add", kg, text: t("Try {weight} next time — {top}.", { weight: showKg(p, kg), top: topText(count) }) + note };
     }
-    return { kind: "repeat", kg: lastKg, text: `Repeat ${showKg(p, lastKg)} — ${topText(count)}; two in a row unlock the next jump.` };
+    return { kind: "repeat", kg: lastKg, text: t("Repeat {weight} — {top}; two in a row unlock the next jump.", { weight: showKg(p, lastKg), top: topText(count) }) };
   }
 
   // Bodyweight reps.
   const top = topValue(target, "reps");
   if (!top) return null;
   const count = topCountFor(hist, target, "reps");
-  if (!last) return { kind: "start", reps: top, text: `Aim for ${top} reps.` };
-  if (last.log.holdProgress) return { kind: "repeat", reps: top, text: `Repeat ${top} reps — progression is paused after the easier session.` };
-  if (count >= 2) return { kind: "add", reps: top + 1, text: `Try ${top + 1} reps next time — ${topText(count)}.` };
-  return { kind: "repeat", reps: top, text: `Aim for ${top} reps again — ${topText(count)}; two in a row unlock the next step.` };
+  if (!last) return { kind: "start", reps: top, text: t("Aim for {reps} reps.", { reps: top }) };
+  if (last.log.holdProgress) return { kind: "repeat", reps: top, text: t("Repeat {reps} reps — progression is paused after the easier session.", { reps: top }) };
+  if (count >= 2) return { kind: "add", reps: top + 1, text: t("Try {reps} reps next time — {top}.", { reps: top + 1, top: topText(count) }) };
+  return { kind: "repeat", reps: top, text: t("Aim for {reps} reps again — {top}; two in a row unlock the next step.", { reps: top, top: topText(count) }) };
 }
 
 // The number to record when a field is left blank: the level's target (top of
@@ -308,15 +309,15 @@ export function renderLogger(container, ctx) {
     if (ctx.onDraw) ctx.onDraw(l);
     const suggestion = nextTimeRecommendation({ item, ex, level, date });
     const defaults = planDefaults({ item, ex, level, date, target, type, log: l });
-    const checkLabel = target.unit === "breaths" ? "Breaths" : target.unit === "circles" ? "Circles" : "Reps";
+    const checkLabel = target.unit === "breaths" ? t("Breaths") : target.unit === "circles" ? t("Circles") : t("Reps");
     const timedCheck = type === "check" && target.seconds != null;
     const setType = ["reps", "load", "hold", "carry"].includes(type) || (type === "check" && target.minutes == null);
     let body = "";
     if (type === "none") {
-      container.innerHTML = `<p class="muted">Choose movements from this list for your intervals, then record them in the interval block.</p>`;
+      container.innerHTML = `<p class="muted">${t("Choose movements from this list for your intervals, then record them in the interval block.")}</p>`;
       return;
     }
-    const doneButton = ctx.manualCompletion ? "" : `<button type="button" class="btn ${done ? "primary" : ""}" data-l="done" aria-pressed="${done}">${icon("check")} ${done || ctx.compactActions ? "Done" : "Mark done"}</button>`;
+    const doneButton = ctx.manualCompletion ? "" : `<button type="button" class="btn ${done ? "primary" : ""}" data-l="done" aria-pressed="${done}">${icon("check")} ${done || ctx.compactActions ? t("Done") : t("Mark done")}</button>`;
     const doneBtn = ctx.compactActions ? "" : doneButton;
 
     if (setType) {
@@ -331,7 +332,7 @@ export function renderLogger(container, ctx) {
         ${sets
           .map(
             (s, i) => ctx.setIndex != null && i !== ctx.setIndex ? "" : `<div class="set-row">
-              <span class="n">Set ${i + 1}</span>
+              <span class="n">${t("Set {set}", { set: i + 1 })}</span>
               ${cols
                 .map(([k, label, ph]) => {
                   const plan = defaults[k];
@@ -339,17 +340,17 @@ export function renderLogger(container, ctx) {
                   const v = blank ? (plan ?? "") : k === "kg" ? toUnit(s[k]) : s[k];
                   const isPlan = blank && plan != null;
                   const planText = k === "kg" ? fmtWeight(p, plan) : k === "sec" ? `${plan} s` : `${plan}`;
-                  const hint = isPlan ? `Plan default: ${planText}` : ph ? `Plan: ${ph}` : "";
+                  const hint = isPlan ? t("Plan default: {value}", { value: planText }) : ph ? t("Plan: {value}", { value: ph }) : "";
                   return `<label class="set-field"><span>${esc(label)}</span><input class="input num" inputmode="decimal" data-set="${i}" data-k="${k}" value="${esc(v)}" placeholder="${esc(ph && !isPlan ? ph : "")}"${isPlan ? ' data-default="true"' : ""}${hint ? ` title="${esc(hint)}"` : ""} aria-label="Set ${i + 1} ${esc(label)}"></label>`;
                 })
                 .join("")}
               <span class="set-actions${timed ? " has-timer" : ""}">
                 <span class="set-timer-cell">
                   <span class="timer-slot"></span>
-                  ${timed ? `<button type="button" class="btn sm icon-only timer-start" data-l="hold" data-i="${i}" aria-label="Start ${defaults.sec || target.seconds || 30} second timer for set ${i + 1}" title="Start set timer">${icon("timer", "sm")}</button>` : ""}
+                  ${timed ? `<button type="button" class="btn sm icon-only timer-start" data-l="hold" data-i="${i}" aria-label="${esc(t("Start {seconds} second timer for set {set}", { seconds: defaults.sec || target.seconds || 30, set: i + 1 }))}" title="${esc(t("Start set timer"))}">${icon("timer", "sm")}</button>` : ""}
                 </span>
-                ${sets.length > 1 ? `<button type="button" class="btn sm icon-only ghost" data-l="del" data-i="${i}" aria-label="Remove set ${i + 1}">${icon("minus", "sm")}</button>` : ""}
-                ${i === sets.length - 1 && ctx.setIndex == null ? `<button type="button" class="btn sm" data-l="add" aria-label="Add set" title="Add set">${icon("plus", "sm")} Add set</button>` : ""}
+                ${sets.length > 1 ? `<button type="button" class="btn sm icon-only ghost" data-l="del" data-i="${i}" aria-label="${esc(t("Remove set {set}", { set: i + 1 }))}">${icon("minus", "sm")}</button>` : ""}
+                ${i === sets.length - 1 && ctx.setIndex == null ? `<button type="button" class="btn sm" data-l="add" aria-label="${esc(t("Add set"))}" title="${esc(t("Add set"))}">${icon("plus", "sm")} ${t("Add set")}</button>` : ""}
               </span>
             </div>`
           )
@@ -362,19 +363,19 @@ export function renderLogger(container, ctx) {
       const min = c.min ?? defaults.min ?? "";
       const minPlan = c.min == null && defaults.min != null;
       body += `<div class="grid-form cardio-form${isCheck ? " one" : ""}">
-          <div class="field inline"><span>Minutes</span><input class="input num" inputmode="decimal" data-c="min" aria-label="Minutes" value="${esc(min)}" placeholder="${esc(target.minutes || "")}"${minPlan ? ' data-default="true" title="Plan default"' : ""}><span class="timer-slot"></span>${target.minutes ? `<button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="countdown" aria-label="Start ${target.minutes} minute timer" title="Start ${target.minutes} minute timer">${icon("timer", "sm")}${ctx.guided ? "" : " Timer"}</button>` : ""}</div>
-          ${isCheck ? "" : `<label class="field inline"><span>Avg bpm</span><input class="input num" inputmode="numeric" data-c="avg" value="${esc(c.avg ?? "")}" placeholder="${esc(bpmRange(p, ...cardioRange).replace(" bpm", ""))}"></label>
-          <label class="field inline"><span>Max bpm</span><input class="input num" inputmode="numeric" data-c="max" value="${esc(c.max ?? "")}"></label>`}
+          <div class="field inline"><span>${t("Minutes")}</span><input class="input num" inputmode="decimal" data-c="min" aria-label="${esc(t("Minutes"))}" value="${esc(min)}" placeholder="${esc(target.minutes || "")}"${minPlan ? ' data-default="true" title="${esc(t("Plan default"))}"' : ""}><span class="timer-slot"></span>${target.minutes ? `<button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="countdown" aria-label="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}" title="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}">${icon("timer", "sm")}${ctx.guided ? "" : ` ${t("Timer")}`}</button>` : ""}</div>
+          ${isCheck ? "" : `<label class="field inline"><span>${t("Avg bpm")}</span><input class="input num" inputmode="numeric" data-c="avg" value="${esc(c.avg ?? "")}" placeholder="${esc(bpmRange(p, ...cardioRange).replace(" bpm", ""))}"></label>
+          <label class="field inline"><span>${t("Max bpm")}</span><input class="input num" inputmode="numeric" data-c="max" value="${esc(c.max ?? "")}"></label>`}
         </div>
         <div class="btn-row">${doneBtn}</div>`;
     } else if (type === "intervals") {
       const presets = timerPresets(item, level);
       const pi = Math.min(l.preset || 0, Math.max(0, presets.length - 1));
-      if (item.ex === "shortint") body += `<div class="grid-form">${[0, 1].map((index) => `<label class="field"><span>${index ? "Alternate with (optional)" : "Movement for work bursts"}</span><select class="input" data-interval-move="${index}">${index ? '<option value="">Same movement every burst</option>' : ""}${INTERVAL_MOVES.map((id) => `<option value="${id}" ${(l.moves?.[index] || (index === 0 ? "highknees" : "")) === id ? "selected" : ""}>${esc(EXERCISES[id].name)}</option>`).join("")}</select></label>`).join("")}</div><p class="muted interval-choice-help">Each work burst uses one movement. Pick an alternate to switch movements each round: first → march → alternate → march.</p>`;
-      body += `${presets.length > 1 ? `<div class="seg" role="group" aria-label="Preset">${presets.map((pr, i) => `<button type="button" data-preset="${i}" aria-pressed="${i === pi}">${esc(pr.label)}</button>`).join("")}</div>` : ""}
+      if (item.ex === "shortint") body += `<div class="grid-form">${[0, 1].map((index) => `<label class="field"><span>${index ? t("Alternate with (optional)") : t("Movement for work bursts")}</span><select class="input" data-interval-move="${index}">${index ? '<option value="">${t("Same movement every burst")}</option>' : ""}${INTERVAL_MOVES.map((id) => `<option value="${id}" ${(l.moves?.[index] || (index === 0 ? "highknees" : "")) === id ? "selected" : ""}>${esc(EXERCISES[id].name)}</option>`).join("")}</select></label>`).join("")}</div><p class="muted interval-choice-help">${t("Each work burst uses one movement. Pick an alternate to switch movements each round: first → march → alternate → march.")}</p>`;
+      body += `${presets.length > 1 ? `<div class="seg" role="group" aria-label="${esc(t("Preset"))}">${presets.map((pr, i) => `<button type="button" data-preset="${i}" aria-pressed="${i === pi}">${esc(pr.label)}</button>`).join("")}</div>` : ""}
         <div class="grid-form" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-          <div class="field inline"><span>Hard intervals done</span><input class="input num" inputmode="numeric" data-r="rounds" aria-label="Hard intervals done" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ' data-default="true" title="Plan default"' : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"><span class="timer-slot"></span><button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="intervals" aria-label="Start interval timer" title="Start interval timer">${icon("timer", "sm")}${ctx.guided ? "" : " Timer"}</button></div>
-          <label class="field inline"><span>Peak bpm</span><input class="input num" inputmode="numeric" data-r="peak" value="${esc(l.peak ?? "")}"></label>
+          <div class="field inline"><span>${t("Hard intervals done")}</span><input class="input num" inputmode="numeric" data-r="rounds" aria-label="${esc(t("Hard intervals done"))}" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ' data-default="true" title="${esc(t("Plan default"))}"' : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"><span class="timer-slot"></span><button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="intervals" aria-label="${esc(t("Start interval timer"))}" title="${esc(t("Start interval timer"))}">${icon("timer", "sm")}${ctx.guided ? "" : ` ${t("Timer")}`}</button></div>
+          <label class="field inline"><span>${t("Peak bpm")}</span><input class="input num" inputmode="numeric" data-r="peak" value="${esc(l.peak ?? "")}"></label>
         </div>
         ${doneBtn ? `<div class="btn-row">${doneBtn}</div>` : ""}`;
     } else {
@@ -383,23 +384,23 @@ export function renderLogger(container, ctx) {
     }
 
     if (l.easier) {
-      const label = l.easier.choice === "skip" ? "Skipped today" : "Easier today";
-      body += `<div class="banner easier"><span>${icon("info", "lg")}</span><div class="grow"><b>${esc(label)}</b><span>${esc(l.easier.text || "")}</span></div><button type="button" class="btn sm ghost" data-l="easier-undo">${icon("undo", "sm")} Undo</button></div>`;
+      const label = l.easier.choice === "skip" ? t("Skipped today") : t("Easier today");
+      body += `<div class="banner easier"><span>${icon("info", "lg")}</span><div class="grow"><b>${esc(label)}</b><span>${esc(l.easier.text || "")}</span></div><button type="button" class="btn sm ghost" data-l="easier-undo">${icon("undo", "sm")} ${t("Undo")}</button></div>`;
     }
-    const nextTime = suggestionHtml(l.holdProgress ? { kind: "repeat", text: "Progression paused today after the easier choice. Repeat this session next time." } : suggestion);
+    const nextTime = suggestionHtml(l.holdProgress ? { kind: "repeat", text: t("Progression paused today after the easier choice. Repeat this session next time.") } : suggestion);
     if (ctx.nextTimeHost) ctx.nextTimeHost.innerHTML = nextTime;
     else body += nextTime;
-    const easierButton = `<button type="button" class="btn sm ghost" data-l="easier" aria-label="${l.easier ? "Change easier choice" : "Something hurts or too hard?"}" title="Something hurts or too hard?">${icon("info", "sm")} ${l.easier ? "Change easier choice" : ctx.compactActions ? "Something hurts?" : "Something hurts or too hard?"}</button>`;
+    const easierButton = `<button type="button" class="btn sm ghost" data-l="easier" aria-label="${esc(l.easier ? t("Change easier choice") : t("Something hurts or too hard?"))}" title="${esc(t("Something hurts or too hard?"))}">${icon("info", "sm")} ${l.easier ? t("Change easier choice") : ctx.compactActions ? t("Something hurts?") : t("Something hurts or too hard?")}</button>`;
     const last = type !== "check" && type !== "cardio" && type !== "intervals" ? lastPerformance(item.ex, date, { level }) : null;
-    body += last ? `<p class="muted" style="font-size:0.84rem">Last time (${esc(fmtShort(last.date))}): <span class="mono">${esc(summarizeLog(last.log, type))}</span></p>` : "";
-    const noteField = `<textarea class="input" data-l="note" aria-label="Note for this exercise" rows="2" placeholder="Note how it felt, any pain or a technique cue to remember.">${esc(l.note || "")}</textarea>`;
+    body += last ? `<p class="muted" style="font-size:0.84rem">${t("Last time ({date}):", { date: esc(fmtShort(last.date)) })} <span class="mono">${esc(summarizeLog(last.log, type))}</span></p>` : "";
+    const noteField = `<textarea class="input" data-l="note" aria-label="Note for this exercise" rows="2" placeholder="${esc(t("Note how it felt, any pain or a technique cue to remember."))}">${esc(l.note || "")}</textarea>`;
     const notePanel = `<div class="note-panel">${noteField}<div class="note-easier">${easierButton}</div></div>`;
     if (ctx.noteHost) ctx.noteHost.innerHTML = notePanel;
     body += ctx.noteHost
       ? ""
       : ctx.compactActions
-        ? `<div class="logger-actions">${doneButton}<button type="button" class="btn sm ghost${l.note ? " has-note" : ""}" data-l="note-toggle" aria-label="Note for this exercise" aria-expanded="${!!l.note}">${icon("note", "sm")} Note</button>${typeof ctx.extraActions === "function" ? ctx.extraActions() : ctx.extraActions || ""}</div><div class="note-panel" data-note-panel${l.note ? "" : " hidden"}>${noteField}<div class="note-easier">${easierButton}</div></div>`
-        : `<details ${l.note ? "open" : ""}><summary class="muted" style="cursor:pointer;font-size:0.86rem">${icon("note", "sm")} Note for this exercise</summary>${notePanel}</details>`;
+        ? `<div class="logger-actions">${doneButton}<button type="button" class="btn sm ghost${l.note ? " has-note" : ""}" data-l="note-toggle" aria-label="Note for this exercise" aria-expanded="${!!l.note}">${icon("note", "sm")} ${t("Note")}</button>${typeof ctx.extraActions === "function" ? ctx.extraActions() : ctx.extraActions || ""}</div><div class="note-panel" data-note-panel${l.note ? "" : " hidden"}>${noteField}<div class="note-easier">${easierButton}</div></div>`
+        : `<details ${l.note ? "open" : ""}><summary class="muted" style="cursor:pointer;font-size:0.86rem">${icon("note", "sm")} ${t("Note for this exercise")}</summary>${notePanel}</details>`;
     container.innerHTML = `<div class="logger${ctx.compactActions ? " compact-actions" : ""}${ctx.guided ? " guided-logger" : ""}">${body}</div>`;
   }
 
@@ -409,9 +410,9 @@ export function renderLogger(container, ctx) {
     const value = rec.kg != null ? fmtWeight(p, rec.kg) : rec.reps != null ? `${rec.reps} reps` : rec.seconds != null ? `${rec.seconds} s` : "";
     const kind = rec.kg != null ? "kg" : rec.reps != null ? "reps" : rec.seconds != null ? "sec" : null;
     const raw = rec.kg != null ? rec.kg : rec.reps != null ? rec.reps : rec.seconds;
-    const use = kind && raw != null ? `<button type="button" class="btn sm" data-l="use" data-use-kind="${kind}" data-use-value="${raw}">${icon("check", "sm")} Use ${esc(value)}</button>` : "";
+    const use = kind && raw != null ? `<button type="button" class="btn sm" data-l="use" data-use-kind="${kind}" data-use-value="${raw}">${icon("check", "sm")} ${t("Use {value}", { value: esc(value) })}</button>` : "";
     return `<div class="next-time" data-kind="${esc(rec.kind)}">
-      <div class="grow"><span class="eyebrow">Next time</span><p>${esc(rec.text)}</p></div>
+      <div class="grow"><span class="eyebrow">${t("Next time")}</span><p>${esc(rec.text)}</p></div>
       ${use}
     </div>`;
   }
@@ -427,19 +428,19 @@ export function renderLogger(container, ctx) {
     content.className = "easier-dialog";
     content.style.display = "grid";
     content.style.gap = "12px";
-    content.innerHTML = `<p class="muted">Bryan's rule: injury prevention comes first. Swap to the easier variant whenever a joint complains; never train through sharp pain.</p>
+    content.innerHTML = `<p class="muted">${t("Bryan's rule: injury prevention comes first. Swap to the easier variant whenever a joint complains; never train through sharp pain.")}</p>
       <div class="reason-grid">
-        <button type="button" data-easy-reason="hard" aria-pressed="false">${icon("battery")} Too hard today</button>
-        <button type="button" data-easy-reason="joint" aria-pressed="false">${icon("bandage")} A joint hurts</button>
+        <button type="button" data-easy-reason="hard" aria-pressed="false">${icon("battery")} ${t("Too hard today")}</button>
+        <button type="button" data-easy-reason="joint" aria-pressed="false">${icon("bandage")} ${t("A joint hurts")}</button>
       </div>
       <div data-easy-options hidden>
-        ${hasEasier ? `<button type="button" class="choice" data-easy-choice="version"><b>Use the easier version</b><small>${esc(personalize(ex.easier, p))}</small></button>` : ""}
-        ${prevRx ? `<button type="button" class="choice" data-easy-choice="dose"><b>Use the easier dose</b><small>${esc(prevName)}: ${esc(prevRx)}</small></button>` : ""}
-        ${ctx.manualCompletion ? "" : `<button type="button" class="choice" data-easy-choice="skip"><b>Skip this exercise today</b><small>Today's dose only; the rest of the session is unchanged.</small></button>`}
-        <p class="muted" data-easy-advice hidden>Sharp pain, tingling, numbness or a joint that gives way: stop this movement and get it checked before training it again.</p>
+        ${hasEasier ? `<button type="button" class="choice" data-easy-choice="version"><b>${t("Use the easier version")}</b><small>${esc(personalize(ex.easier, p))}</small></button>` : ""}
+        ${prevRx ? `<button type="button" class="choice" data-easy-choice="dose"><b>${t("Use the easier dose")}</b><small>${esc(prevName)}: ${esc(prevRx)}</small></button>` : ""}
+        ${ctx.manualCompletion ? "" : `<button type="button" class="choice" data-easy-choice="skip"><b>${t("Skip this exercise today")}</b><small>${t("Today's dose only; the rest of the session is unchanged.")}</small></button>`}
+        <p class="muted" data-easy-advice hidden>${t("Sharp pain, tingling, numbness or a joint that gives way: stop this movement and get it checked before training it again.")}</p>
       </div>
-      <div class="btn-row" style="justify-content:flex-end"><button type="button" class="btn" data-easy-cancel>Cancel</button></div>`;
-    const d = openDialog({ title: "Make today easier", content, sheet: false });
+      <div class="btn-row" style="justify-content:flex-end"><button type="button" class="btn" data-easy-cancel>${t("Cancel")}</button></div>`;
+    const d = openDialog({ title: t("Make today easier"), content, sheet: false });
     let reason = null;
     content.addEventListener("click", (e) => {
       const r = e.target.closest("[data-easy-reason]");
@@ -556,7 +557,7 @@ export function renderLogger(container, ctx) {
     if (b) {
       b.classList.toggle("primary", !!l.done);
       b.setAttribute("aria-pressed", String(!!l.done));
-      b.innerHTML = `${icon("check")} ${l.done || ctx.compactActions ? "Done" : "Mark done"}`;
+      b.innerHTML = `${icon("check")} ${l.done || ctx.compactActions ? t("Done") : t("Mark done")}`;
     }
   }
 

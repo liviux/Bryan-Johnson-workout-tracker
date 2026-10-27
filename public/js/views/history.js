@@ -5,6 +5,7 @@ import { state } from "../store.js";
 import { SKIP_REASONS, countsAsSession, dayDef, isRestKey, sessionKeyFor, streak } from "../plan.js";
 import { addDays, esc, fmtDate, iso, parseIso, todayIso, weekdayKey } from "../util.js";
 import { icon } from "../components/icons.js";
+import { locale, t } from "../i18n.js";
 
 const STATUS = { done: "Done", partial: "Partly done", skipped: "Skipped" };
 
@@ -54,7 +55,7 @@ export function render(el, params) {
       const rest = isRestKey(sessionKeyFor(date));
       const cls = [log && log.status ? log.status : rest ? "rest" : "", date === today ? "today" : "", date > today ? "future" : ""].join(" ");
       const addon = log && Object.values(log.addons || {}).some((a) => a && a.items && Object.values(a.items).some((x) => x.done));
-      const title = `${fmtDate(date)}${log && log.status ? ` · ${STATUS[log.status]}` : ""}${log && log.skip ? ` (${(SKIP_REASONS.find((r) => r.id === log.skip.reason) || {}).name || ""})` : ""}`;
+      const title = [fmtDate(date), log && log.status ? STATUS[log.status] : "", log && log.skip ? `(${(SKIP_REASONS.find((r) => r.id === log.skip.reason) || {}).name || ""})` : ""].filter(Boolean).join(" · ");
       cells.push(`<a class="${cls}" href="#/day/${date}" title="${esc(title)}">${n}${addon ? '<i class="mk"></i>' : ""}</a>`);
     }
     return cells.join("");
@@ -107,13 +108,13 @@ export function render(el, params) {
     const [y, m] = month.split("-").map(Number);
     const prev = iso(new Date(y, m - 2, 1)).slice(0, 7);
     const next = iso(new Date(y, m, 1)).slice(0, 7);
-    const title = new Date(y, m - 1, 1).toLocaleDateString(undefined, { month: "long", year: "numeric" });
+    const title = new Date(y, m - 1, 1).toLocaleDateString(locale(), { month: "long", year: "numeric" });
     el.innerHTML = `<div class="page">
       <div class="section-title"><h2>History</h2></div>
       <div class="kpis">
         <div class="card kpi">${icon("flame")}<b>${streak(today)}</b><span>day streak (rest days don't break it)</span></div>
         <div class="card kpi">${icon("check")}<b>${s.adherence == null ? "–" : s.adherence + "%"}</b><span>of training days done, last 4 weeks</span></div>
-        <div class="card kpi">${icon("history")}<b>${s.total}</b><span>sessions in total · best streak ${s.best}</span></div>
+        <div class="card kpi">${icon("history")}<b>${s.total}</b><span>${t("sessions in total · best streak {best}", { best: s.best })}</span></div>
         <div class="card kpi">${icon("skip")}<b>${s.skipped}</b><span>days skipped, last 4 weeks</span></div>
       </div>
       <div class="two-col">

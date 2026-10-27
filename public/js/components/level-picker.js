@@ -6,6 +6,7 @@ import { LEVEL_PLANS } from "../data/program.js";
 import { LEVELS } from "../personalize.js";
 import { esc } from "../util.js";
 import { icon } from "./icons.js";
+import { t } from "../i18n.js";
 
 // sessions: completed sessions at the chosen level (Settings), or null (setup).
 export function levelPickerHtml(selected, { sessions = null } = {}) {
@@ -15,12 +16,12 @@ export function levelPickerHtml(selected, { sessions = null } = {}) {
   const chips = LEVELS.map(
     (l) => `<button type="button" class="choice" data-level="${l.id}" aria-pressed="${l.id === lvl.id}"><b>${esc(l.name)}</b><small>${esc(l.detail)}</small></button>`
   ).join("");
-  const down = i > 0 ? ` If workouts feel too hard or you're returning after a break, you can switch to ${esc(LEVELS[i - 1].name)}.` : "";
+  const down = i > 0 ? t(" If workouts feel too hard or you're returning after a break, you can switch to {level}.", { level: esc(LEVELS[i - 1].name) }) : "";
   const after =
     sessions != null
-      ? `<br><span class="muted">You've completed ${sessions} ${sessions === 1 ? "session" : "sessions"} at this level. Past workouts keep the level you logged them at.</span>`
+      ? `<br><span class="muted">${sessions === 1 ? t("You've completed 1 session at this level. Past workouts keep the level you logged them at.") : t("You've completed {count} sessions at this level. Past workouts keep the level you logged them at.", { count: sessions })}</span>`
       : `<br><span class="muted">Change your level in Settings whenever you need easier workouts or feel ready for harder ones.</span>`;
-  return `<div class="choice-grid levels" role="group" aria-label="Training level">${chips}</div>
+  return `<div class="choice-grid levels" role="group" aria-label="${esc(t("Training level"))}">${chips}</div>
     <p class="level-note">${icon("info")}<span><b>${esc(lvl.name)}:</b> ${esc(lvl.plan)} ${esc(lp.effort)}
-      <br><b>When to change:</b> ${esc(lp.moveUp)}${down}${after}</span></p>`;
+      <br><b>${t("When to change:")}</b> ${esc(lp.moveUp)}${down}${after}</span></p>`;
 }

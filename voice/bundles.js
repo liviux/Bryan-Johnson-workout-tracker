@@ -33,36 +33,37 @@ export function combineWaves(waves) {
   return Buffer.concat([header, data]);
 }
 
-export async function writeBundle(voice, entries, audioDir, outputDir) {
+export async function writeBundle(voice, entries, audioDir, outputDir, { ext = "wav", mime = "audio/wav" } = {}) {
   const dir = path.join(outputDir, voice);
   await mkdir(dir, { recursive: true });
-  const metadata = { format: 2, voice, model: MODEL_SHA, clips: [] };
+  const metadata = { format: ext === "wav" ? 2 : 3, voice, model: MODEL_SHA, ext, mime, clips: [] };
   let previous = new Map();
   try {
     const saved = JSON.parse(await readFile(path.join(outputDir, `${voice}.json`), "utf8"));
-    if (saved.format === 2 && saved.voice === voice && saved.model === MODEL_SHA) previous = new Map(saved.clips.map((clip) => [clip.id, clip]));
+    if ([2, 3].includes(saved.format) && saved.voice === voice && saved.model === MODEL_SHA) previous = new Map(saved.clips.map((clip) => [clip.id, clip]));
   } catch {}
   for (const entry of entries) {
-    const file = path.join(dir, `${entry.id}.wav.gz`), saved = previous.get(entry.id);
+    const file = path.join(dir, `${entry.id}.${ext}.gz`), saved = previous.get(entry.id);
     if (saved && existsSync(file)) {
       const bytes = await readFile(file);
-      if (bytes.length === saved.bytes && hash(bytes) === saved.sha256) { metadata.clips.push({ ...saved, text: entry.text }); continue; }
+      if (bytes.length === saved.bytes && hash(bytes) === saved.sha256) { metadata.clips.push({ ...saved, text: entry.text, ext, mime }); continue; }
     }
-    const audio = await readFile(path.join(audioDir, `${entry.id}.wav`));
+    const audio = await readFile(path.join(audioDir, `${entry.id}.${ext}`));
     const bytes = gzipSync(audio, { level: 9 });
     await writeFile(file, bytes);
-    metadata.clips.push({ id: entry.id, text: entry.text, sha256: hash(bytes), bytes: bytes.length });
+    metadata.clips.push({ id: entry.id, text: entry.text, ext, mime, sha256: hash(bytes), bytes: bytes.length });
   }
   const ids = new Set(entries.map((entry) => entry.id));
-  for (const name of await readdir(dir)) if (/^[a-f0-9]{64}\.wav\.gz$/.test(name) && !ids.has(name.slice(0, 64))) await rm(path.join(dir, name));
+  for (const name of await readdir(dir)) if (/^[a-f0-9]{64}\.(?:wav|mp3)\.gz$/.test(name) && !ids.has(name.slice(0, 64))) await rm(path.join(dir, name));
   await writeFile(path.join(outputDir, `${voice}.json`), JSON.stringify(metadata, null, 2) + "\n");
   return metadata;
 }
 
 export async function readBundle(voice, sourceDir) {
-  if (!/^(af_heart|af_bella|am_michael|am_puck|bf_emma)$/.test(voice)) throw new Error("Unknown voice");
+  if (!/^[a-z]{2}_[a-z]+$/.test(voice)) throw new Error("Unknown voice");
   const metadata = JSON.parse(await readFile(path.join(sourceDir, `${voice}.json`), "utf8"));
-  if (metadata.format !== 2 || metadata.voice !== voice || metadata.model !== MODEL_SHA || !Array.isArray(metadata.clips) || !metadata.clips.length || metadata.clips.length > 20000 || !metadata.clips.every((clip) => clip && validId(clip.id) && validId(clip.sha256) && (clip.text === undefined || (typeof clip.text === "string" && clip.text.length <= 1024)) && Number.isInteger(clip.bytes) && clip.bytes > 0 && clip.bytes <= 16 * 1024 * 1024) || new Set(metadata.clips.map((clip) => clip.id)).size !== metadata.clips.length) throw new Error("Invalid shared voice pack");
+  const ext = metadata.ext || "wav";
+  if (![2, 3].includes(metadata.format) || metadata.voice !== voice || metadata.model !== MODEL_SHA || !["wav", "mp3"].includes(ext) || !Array.isArray(metadata.clips) || !metadata.clips.length || metadata.clips.length > 20000 || !metadata.clips.every((clip) => clip && validId(clip.id) && validId(clip.sha256) && (clip.text === undefined || (typeof clip.text === "string" && clip.text.length <= 1024)) && Number.isInteger(clip.bytes) && clip.bytes > 0 && clip.bytes <= 16 * 1024 * 1024) || new Set(metadata.clips.map((clip) => clip.id)).size !== metadata.clips.length) throw new Error("Invalid shared voice pack");
   return metadata;
 }
 
@@ -70,14 +71,15 @@ export async function unpackBundle(voice, sourceDir, audioDir, clipId) {
   const metadata = await readBundle(voice, sourceDir);
   await mkdir(audioDir, { recursive: true });
   const clips = clipId ? metadata.clips.filter((clip) => clip.id === clipId) : metadata.clips;
+  const ext = metadata.ext || "wav";
   for (let start = 0; start < clips.length; start += 16) {
     await Promise.all(clips.slice(start, start + 16).map(async (clip) => {
-      const file = path.join(audioDir, `${clip.id}.wav`);
+      const file = path.join(audioDir, `${clip.id}.${ext}`);
       if (existsSync(file)) return;
-      const bytes = await readFile(path.join(sourceDir, voice, `${clip.id}.wav.gz`));
+      const bytes = await readFile(path.join(sourceDir, voice, `${clip.id}.${ext}.gz`));
       if (bytes.length !== clip.bytes || hash(bytes) !== clip.sha256) throw new Error("Voice pack checksum failed. Update the app and retry.");
       const audio = gunzipSync(bytes, { maxOutputLength: 16 * 1024 * 1024 });
-      combineWaves([audio]);
+      if (ext === "wav") combineWaves([audio]);
       const tmp = path.join(audioDir, `${clip.id}.${randomUUID()}.tmp`);
       await writeFile(tmp, audio); await rename(tmp, file);
     }));

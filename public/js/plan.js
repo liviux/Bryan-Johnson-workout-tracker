@@ -1,3 +1,4 @@
+import { localized } from "./i18n.js";
 // Program logic: which session belongs to a date, which training level's doses a
 // day uses, completion status, add-ons for the day, and the numbers behind the stats pages.
 
@@ -328,7 +329,7 @@ export function liftHistory(exId) {
   return out;
 }
 
-export const SKIP_REASONS = [
+export const SKIP_REASONS = localized([
   { id: "sick", name: "Sick", icon: "thermo" },
   { id: "injury", name: "Pain or injury", icon: "bandage" },
   { id: "tired", name: "Too tired or sore", icon: "battery" },
@@ -337,9 +338,9 @@ export const SKIP_REASONS = [
   { id: "family", name: "Family or social", icon: "people" },
   { id: "time", name: "No time", icon: "clock" },
   { id: "other", name: "Other", icon: "dots" },
-];
+]);
 
-export const EXTRA_TYPES = [
+export const EXTRA_TYPES = localized([
   { id: "desk", name: "Desk treadmill walk" },
   { id: "walk", name: "Walk" },
   { id: "hike", name: "Hike" },
@@ -376,4 +377,4 @@ export const EXTRA_TYPES = [
   { id: "snowboard", name: "Snowboarding" },
   { id: "kayak", name: "Kayaking / canoeing" },
   { id: "other", name: "Other" },
-];
+]);

@@ -20,6 +20,7 @@ import { createStagePanel } from "../components/stage-panel.js";
 import { thumbnail } from "../components/thumbs.js";
 import { createCoachControls } from "../components/coach-controls.js";
 import { REPO, openChangelogDialog } from "../components/changelog.js";
+import { LANGUAGES, setLanguage, t } from "../i18n.js";
 
 const LB = 2.20462;
 const REST_PRESETS = [45, 60, 75, 90, 120];
@@ -49,7 +50,7 @@ export function render(el) {
     fetch("/api/info", { cache: "no-store" }).then((res) => res.ok ? res.json() : null).then((info) => {
       if (disposed || !info?.version) return;
       state.version = info.version;
-      el.querySelector("[data-changelog]").textContent = `Version ${info.version} · Latest changes`;
+      el.querySelector("[data-changelog]").textContent = t("Version {version} · Latest changes", { version: info.version });
     }).catch(() => {});
   }
   const previewObserver = new IntersectionObserver((entries) => {
@@ -91,8 +92,8 @@ export function render(el) {
     const name = esc(a.name);
     return `<div class="addon-card">${icon(a.icon || "sparkle")}<span style="display:grid;gap:4px"><b>${name}</b><small class="muted">${esc(a.description)}</small></span>${switchHtml("addon:" + a.id, pr.addons && pr.addons[a.id], a.name)}
       <div class="addon-schedule">
-        <label class="addon-repeat"><span>Repeat</span><select class="input" data-addon-repeat="${esc(a.id)}" aria-label="How often ${name} runs"><option value="daily"${mode === "daily" ? " selected" : ""}>Daily</option>${Array.from({ length: ADDON_EVERY_MAX - 1 }, (_, i) => i + 2).map((n) => `<option value="${n}"${mode === "every" && n === every ? " selected" : ""}>Every ${n} days</option>`).join("")}</select>${next ? `<small class="addon-next">${next === todayIso() ? "Due today" : `Next ${fmtShort(next)}`}</small>` : ""}</label>
-        <label class="addon-sunday">${switchHtml("addon-sunday:" + a.id, sunday, "Include Sunday", "sm")}<span>Include Sunday</span></label>
+        <label class="addon-repeat"><span>${t("Repeat")}</span><select class="input" data-addon-repeat="${esc(a.id)}" aria-label="${esc(t("How often {name} runs", { name }))}"><option value="daily"${mode === "daily" ? " selected" : ""}>${t("Daily")}</option>${Array.from({ length: ADDON_EVERY_MAX - 1 }, (_, i) => i + 2).map((n) => `<option value="${n}"${mode === "every" && n === every ? " selected" : ""}>${t("Every {days} days", { days: n })}</option>`).join("")}</select>${next ? `<small class="addon-next">${next === todayIso() ? t("Due today") : t("Next {date}", { date: fmtShort(next) })}</small>` : ""}</label>
+        <label class="addon-sunday">${switchHtml("addon-sunday:" + a.id, sunday, t("Include Sunday"), "sm")}<span>${t("Include Sunday")}</span></label>
       </div>
     </div>`;
   }
@@ -102,6 +103,12 @@ export function render(el) {
     const st = pr.settings || {};
     el.innerHTML = `<div class="page narrow">
       <div class="section-title"><h2>Settings</h2><span class="muted">Changes save automatically</span></div>
+
+      <section class="card card-pad" style="display:grid;gap:10px">
+        <h3>Language</h3>
+        <label class="field"><span>App language</span><select class="input" data-language>${LANGUAGES.map((l) => `<option value="${l.id}"${l.id === (st.language || "en") ? " selected" : ""}>${esc(l.native)} · ${esc(l.name)}</option>`).join("")}</select></label>
+        <p class="muted" style="font-size:0.85rem">The interface, workout instructions, exercise names and coach audio follow this language. Dates use this language's format.</p>
+      </section>
 
       <section class="card card-pad" style="display:grid;gap:16px">
         <h3>Your details</h3>
@@ -178,13 +185,13 @@ export function render(el) {
         ${animStylePickerHtml(st.animStyle)}
         <div class="live-row">
           <button type="button" class="btn" data-anim-live>${icon("eye")} Try styles live</button>
-          <small class="muted">Compare ${ANIM_STYLES.length} styles during today's session. On a phone or rest day, the exercise above opens instead. Hover a number for the style name, or use ‹ › on a phone. Close the switcher with ×.</small>
+          <small class="muted">${t("Compare {count} styles during today's session. On a phone or rest day, the exercise above opens instead. Hover a number for the style name, or use ‹ › on a phone. Close the switcher with ×.", { count: ANIM_STYLES.length })}</small>
         </div>
       </section>
 
       <section class="card card-pad" style="display:grid;gap:12px">
         <h3>Your data</h3>
-        <p class="muted" style="font-size:0.88rem">${state.mode === "server" ? `Your data saves to <code>${esc(state.dataDir)}/</code> on this computer. Git ignores this folder. Copy it or export a backup below to keep a spare copy.` : "The local server is unavailable, so your data saves only in this browser. Export a backup regularly, or run <code>npm start</code> to save to files on your computer."}</p>
+        <p class="muted" style="font-size:0.88rem">${state.mode === "server" ? t("Your data saves to <code>{dir}/</code> on this computer. Git ignores this folder. Copy it or export a backup below to keep a spare copy.", { dir: esc(state.dataDir) }) : t("The local server is unavailable, so your data saves only in this browser. Export a backup regularly, or run <code>npm start</code> to save to files on your computer.")}</p>
         <div class="btn-row">
           <button type="button" class="btn" data-export>${icon("download")} Export backup</button>
           <label class="btn">${icon("upload")} Import backup<input type="file" accept="application/json,.json" data-import hidden></label>
@@ -195,7 +202,7 @@ export function render(el) {
       </section>
 
       <p class="muted" style="font-size:0.82rem">Home Protocol is open source and unaffiliated with Bryan Johnson or Blueprint. It provides a training plan, not medical advice.</p>
-      <div class="settings-footer"><button type="button" class="btn ghost sm" data-changelog>Version ${esc(state.version || "unavailable")} · Latest changes</button><a href="${REPO}" target="_blank" rel="noopener noreferrer">GitHub repository ${icon("external", "sm")}</a></div>
+      <div class="settings-footer"><button type="button" class="btn ghost sm" data-changelog>${t("Version {version} · Latest changes", { version: esc(state.version || t("unavailable")) })}</button><a href="${REPO}" target="_blank" rel="noopener noreferrer">GitHub repository ${icon("external", "sm")}</a></div>
     </div>`;
   }
 
@@ -207,7 +214,7 @@ export function render(el) {
     const ok = v !== "" && Number.isFinite(n);
     if (f === "restCustom") {
       const valid = ok && Number.isInteger(n) && n >= 1 && n <= 3600;
-      e.target.setCustomValidity(valid ? "" : "Enter a whole number from 1 to 3,600 seconds.");
+      e.target.setCustomValidity(valid ? "" : t("Enter a whole number from 1 to 3,600 seconds."));
       if (!valid) return;
     }
     updateProfile((pr) => {
@@ -227,6 +234,12 @@ export function render(el) {
 
   el.addEventListener("change", async (e) => {
     const t = e.target;
+    if (t.matches("[data-language]")) {
+      const id = t.value;
+      updateProfile((pr) => { pr.settings = pr.settings || {}; pr.settings.language = id; }, { silent: true });
+      await setLanguage(id);
+      return;
+    }
     if (t.matches("[data-anim-ex]")) {
       previewEx = t.value;
       try {
@@ -257,7 +270,7 @@ export function render(el) {
       if (name === "deskNotify" && t.checked && typeof Notification !== "undefined") {
         try {
           const req = Notification.requestPermission();
-          if (req && req.then) req.then((permission) => { if (permission !== "granted") toast("Browser notifications are blocked for this site.", { icon: "info" }); });
+          if (req && req.then) req.then((permission) => { if (permission !== "granted") toast(t("Browser notifications are blocked for this site."), { icon: "info" }); });
         } catch {
           /* notifications are optional */
         }
@@ -273,15 +286,15 @@ export function render(el) {
       try {
         const data = JSON.parse(await t.files[0].text());
         const days = Object.keys(data.days || {}).length;
-        const replace = await confirmDialog({ title: "Import backup", message: `This backup has ${days} logged days${data.profile ? " and a profile" : ""}. Choose Replace all to overwrite your current data. Cancel merges the backup instead; its days overwrite matching dates.`, confirm: "Replace all", danger: true });
+        const replace = await confirmDialog({ title: t("Import backup"), message: t("This backup has {days} logged days{mixed}. Choose Replace all to overwrite your current data. Cancel merges the backup instead; its days overwrite matching dates.", { days, mixed: data.profile ? t(" and a profile") : "" }), confirm: t("Replace all"), danger: true });
         await importAll(data, replace ? "replace" : "merge");
         customRest = !REST_PRESETS.includes(p().settings?.restSec || 75);
         applyLook(state.profile && state.profile.settings);
         applyAnimStyle((state.profile && state.profile.settings) || {});
-        toast(`Imported ${days} days`);
+        toast(t("Imported {days} days", { days }));
         draw();
       } catch (err) {
-        toast("That file isn't a backup from this app", { icon: "info" });
+        toast(t("That file isn't a backup from this app"), { icon: "info" });
       }
       t.value = "";
     }

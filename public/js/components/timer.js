@@ -6,11 +6,12 @@ import { EXERCISES } from "../data/exercises.js";
 import { intervalPhases } from "../data/routines.js";
 import { createStagePanel } from "./stage-panel.js";
 import { state } from "../store.js";
-import { fmtSecs } from "../util.js";
+import { esc, fmtSecs } from "../util.js";
 import { icon } from "./icons.js";
 import { openDialog } from "./ui.js";
 import { clockKey } from "../voice/script.js";
 import { cacheVoice, cancelVoice, playVoice, preloadVoice, prepareVoice, refreshVoiceStatus, setVoiceEnabled, unlockVoice, videoVoice, voiceEnabled, voiceStatus } from "../voice/player.js";
+import { t } from "../i18n.js";
 
 let audio = null;
 export function beep(freq = 880, ms = 120, vol = 0.18) {
@@ -69,17 +70,17 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
   let manifest = null;
   let started = false;
   let closed = false;
-  const miniClock = `<span class="timer-mini-copy"><span class="big mono">0:00</span><span class="phase"></span><span class="sub"></span></span><span class="timer-mini-controls"><button class="btn sm icon-only" data-t="pause" title="Pause timer" aria-label="Pause timer">${icon("pause", "sm")}</button><button class="btn sm icon-only" data-t="skip" title="Next phase" aria-label="Next phase">${icon("skip", "sm")}</button><button class="btn sm icon-only danger" data-t="stop" title="Stop timer" aria-label="Stop timer">${icon("x", "sm")}</button></span><span class="timer-line"><i></i></span><span class="sr-only" data-t="info"></span>`;
+  const miniClock = `<span class="timer-mini-copy"><span class="big mono">0:00</span><span class="phase"></span><span class="sub"></span></span><span class="timer-mini-controls"><button class="btn sm icon-only" data-t="pause" title="${esc(t("Pause timer"))}" aria-label="${esc(t("Pause timer"))}">${icon("pause", "sm")}</button><button class="btn sm icon-only" data-t="skip" title="${esc(t("Next phase"))}" aria-label="${esc(t("Next phase"))}">${icon("skip", "sm")}</button><button class="btn sm icon-only danger" data-t="stop" title="${esc(t("Stop timer"))}" aria-label="${esc(t("Stop timer"))}">${icon("x", "sm")}</button></span><span class="timer-line"><i></i></span><span class="sr-only" data-t="info"></span>`;
   const ringClock = `<div class="timer-ring"><svg viewBox="0 0 280 280"><circle class="bg" cx="140" cy="140" r="${R}"/><circle class="fg" cx="140" cy="140" r="${R}" stroke-dasharray="${C}" stroke-dashoffset="0"/></svg>
         <div class="timer-center"><span class="phase"></span><span class="big mono">0:00</span><span class="sub"></span></div></div>`;
   const timerHtml = `<div class="timer${mini ? " mini" : host ? " inline" : ""}" data-kind="ready">
         ${mini ? miniClock : ringClock}
         ${mini ? "" : `<div class="btn-row">
           <button class="btn primary" data-t="begin" hidden>Start without waiting</button>
-          <button class="btn" data-t="pause" disabled>${icon("pause")} Pause</button>
-          <button class="btn" data-t="skip" disabled>${icon("skip")} Next</button>
-          ${host ? "" : `<button class="btn sm ghost" data-t="voice" aria-label="Toggle voice coach">${icon(voiceOn ? "volume" : "mute", "sm")} ${voiceOn ? "Voice on" : "Voice off"}</button>`}
-          <button class="btn danger" data-t="stop">${icon("x")} Stop</button>
+          <button class="btn" data-t="pause" disabled>${icon("pause")} ${t("Pause")}</button>
+          <button class="btn" data-t="skip" disabled>${icon("skip")} ${t("Next")}</button>
+          ${host ? "" : `<button class="btn sm ghost" data-t="voice" aria-label="${esc(t("Toggle voice coach"))}">${icon(voiceOn ? "volume" : "mute", "sm")} ${voiceOn ? t("Voice on") : t("Voice off")}</button>`}
+          <button class="btn danger" data-t="stop">${icon("x")} ${t("Stop")}</button>
         </div>
         <p class="muted" data-t="info"></p>`}
       </div>`;
@@ -132,7 +133,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
     if (progress) progress.style.width = `${Math.max(0, Math.min(100, (1 - left / p.sec) * 100))}%`;
     const totalWork = phases.filter(isRoundEnd).length;
     const currentWork = workDone() + (p.kind === "work" ? 1 : 0);
-    info.textContent = p.total ? `Round ${p.round} of ${p.total}` : totalWork > 1 ? `Interval ${Math.min(currentWork, totalWork)} of ${totalWork}` : "";
+    info.textContent = p.total ? t("Round {round} of {rounds}", { round: p.round, rounds: p.total }) : totalWork > 1 ? t("Interval {current} of {total}", { current: Math.min(currentWork, totalWork), total: totalWork }) : "";
 
     if (lastSpokenPhase !== i) {
       lastSpokenPhase = i;
@@ -182,7 +183,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
     sub.textContent = "";
     if (fg) fg.setAttribute("stroke-dashoffset", "0");
     if (progress) progress.style.width = "100%";
-    if (controls) controls.innerHTML = mini ? `<button class="btn sm icon-only primary" data-t="close" title="Log it" aria-label="Log it">${icon("check", "sm")}</button>` : `<button class="btn primary" data-t="close">${icon("check")} Log it</button>`;
+    if (controls) controls.innerHTML = mini ? `<button class="btn sm icon-only primary" data-t="close" title="${esc(t("Log it"))}" aria-label="${esc(t("Log it"))}">${icon("check", "sm")}</button>` : `<button class="btn primary" data-t="close">${icon("check")} ${t("Log it")}</button>`;
     if (stage) { stage.dispose(); stage = null; }
     if (onFinish) onFinish(phases.filter(isRoundEnd).length);
   }
@@ -214,14 +215,14 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
         b.title = label;
         b.setAttribute("aria-label", label);
       } else {
-        b.innerHTML = paused ? `${icon("play")} Resume` : `${icon("pause")} Pause`;
+        b.innerHTML = paused ? `${icon("play")} ${t("Resume")}` : `${icon("pause")} ${t("Pause")}`;
       }
       if (stage) paused ? stage.pause() : stage.play();
       if (paused) cancelVoice();
     } else if (b.dataset.t === "voice") {
       setVoiceEnabled(!voiceEnabled());
       voiceOn = voiceEnabled();
-      b.innerHTML = `${icon(voiceOn ? "volume" : "mute", "sm")} ${voiceOn ? "Voice on" : "Voice off"}`;
+      b.innerHTML = `${icon(voiceOn ? "volume" : "mute", "sm")} ${voiceOn ? t("Voice on") : t("Voice off")}`;
       if (voiceOn && !manifest) prepare();
       else if (!voiceOn) begin();
     } else if (b.dataset.t === "begin") begin();
@@ -251,7 +252,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
         return begin();
       }
       voiceOn = voiceEnabled();
-      el.querySelector('[data-t="voice"]').innerHTML = `${icon(voiceOn ? "volume" : "mute", "sm")} ${voiceOn ? "Voice on" : "Voice off"}`;
+      el.querySelector('[data-t="voice"]').innerHTML = `${icon(voiceOn ? "volume" : "mute", "sm")} ${voiceOn ? t("Voice on") : t("Voice off")}`;
       if (!voiceOn) return begin();
       cacheVoice();
       el.querySelector('[data-t="begin"]').hidden = started;
@@ -270,7 +271,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
 export function startIntervals({ title, preset, hr, exId, moves, onFinish, voiceContext, presetIndex = 0, host = null, mini = false }) {
   const phases = intervalPhases(exId, preset, moves);
   for (const phase of phases) {
-    if (phase.kind === "work" && hr?.work) phase.sub = `Aim for ${hr.work}`;
+    if (phase.kind === "work" && hr?.work) phase.sub = t("Aim for {range}", { range: hr.work });
     else if (phase.kind === "rest" && hr?.rest) phase.sub += ` · ${hr.rest}`;
   }
   runPhases({ title, phases, onFinish, voiceContext, voiceTimer: { type: "intervals", preset: presetIndex, moves }, host, mini });
@@ -306,7 +307,7 @@ export function startRest(seconds, context = null) {
   restEl = document.createElement("div");
   restEl.className = "rest-pill";
   restEl.setAttribute("role", "timer");
-  restEl.innerHTML = `${icon("timer")}<span>Rest</span><b class="mono">${fmtSecs(left)}</b><button class="btn sm" data-r="add">+15 s</button><button class="btn sm icon-only" data-r="x" aria-label="Dismiss rest timer">${icon("x", "sm")}</button>`;
+  restEl.innerHTML = `${icon("timer")}<span>${t("Rest")}</span><b class="mono">${fmtSecs(left)}</b><button class="btn sm" data-r="add">${t("+15 s")}</button><button class="btn sm icon-only" data-r="x" aria-label="${esc(t("Dismiss rest timer"))}">${icon("x", "sm")}</button>`;
   document.body.appendChild(restEl);
   const out = restEl.querySelector("b");
   restEl.addEventListener("click", (e) => {

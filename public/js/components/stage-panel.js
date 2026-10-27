@@ -2,7 +2,9 @@
 // buttons, clip switching and the cue line. The three.js engine is loaded on
 // first use, so the rest of the app never waits for it.
 
+import { esc } from "../util.js";
 import { icon } from "./icons.js";
+import { t } from "../i18n.js";
 
 let enginePromise = null;
 const loadEngine = () => (enginePromise ||= import("../anim/stage.js"));
@@ -24,10 +26,10 @@ export function createStagePanel(container, { onClipChange } = {}) {
   container.classList.add("stage");
   container.innerHTML = `
     <div class="ctrls">
-      <button type="button" class="btn sm icon-only" data-a="play" aria-label="Pause animation">${icon("pause")}</button>
+      <button type="button" class="btn sm icon-only" data-a="play" aria-label="${esc(t("Pause animation"))}">${icon("pause")}</button>
       <button type="button" class="btn sm mono" data-a="speed" aria-label="Animation speed">1×</button>
-      <button type="button" class="btn sm icon-only" data-a="zoom-in" aria-label="Zoom in">${icon("plus")}</button>
-      <button type="button" class="btn sm icon-only" data-a="zoom-out" aria-label="Zoom out">${icon("minus")}</button>
+      <button type="button" class="btn sm icon-only" data-a="zoom-in" aria-label="${esc(t("Zoom in"))}">${icon("plus")}</button>
+      <button type="button" class="btn sm icon-only" data-a="zoom-out" aria-label="${esc(t("Zoom out"))}">${icon("minus")}</button>
     </div>
     <div class="views" role="group" aria-label="Camera">
       <button type="button" class="btn sm" data-view="front">Front</button>
@@ -64,7 +66,7 @@ export function createStagePanel(container, { onClipChange } = {}) {
     cueEl.textContent = cue || title || "";
     navEl.innerHTML =
       clipCount > 1
-        ? `<button type="button" class="btn sm icon-only" data-clip="-1" aria-label="Previous movement">${icon("chevronL", "sm")}</button><span class="mono" aria-label="Movement ${clipIndex + 1} of ${clipCount}">${clipIndex + 1}/${clipCount}</span><button type="button" class="btn sm icon-only" data-clip="1" aria-label="Next movement">${icon("chevronR", "sm")}</button><button type="button" class="btn sm" data-a="advance" aria-pressed="${autoAdvance}" title="${autoAdvance ? "Automatically switch movements" : "Keep this movement selected"}">${autoAdvance ? "Auto" : "Fixed"}</button>`
+        ? `<button type="button" class="btn sm icon-only" data-clip="-1" aria-label="${esc(t("Previous movement"))}">${icon("chevronL", "sm")}</button><span class="mono" aria-label="${esc(t("Movement {current} of {total}", { current: clipIndex + 1, total: clipCount }))}">${clipIndex + 1}/${clipCount}</span><button type="button" class="btn sm icon-only" data-clip="1" aria-label="${esc(t("Next movement"))}">${icon("chevronR", "sm")}</button><button type="button" class="btn sm" data-a="advance" aria-pressed="${autoAdvance}" title="${esc(autoAdvance ? t("Automatically switch movements") : t("Keep this movement selected"))}">${autoAdvance ? t("Auto") : t("Fixed")}</button>`
         : "";
     titleEl.textContent = title || "";
     if (changed && onClipChange) {
@@ -114,13 +116,13 @@ export function createStagePanel(container, { onClipChange } = {}) {
     container.querySelectorAll(".ctrls, .views, .cue").forEach((el) => (el.hidden = false));
     const ok = stage.load(id);
     if (!ok) {
-      cueEl.textContent = "No animation available. Use the instructions and videos.";
+      cueEl.textContent = t("No animation available. Use the instructions and videos.");
       titleEl.textContent = "";
       navEl.innerHTML = "";
     }
     if (!stage.playing) stage.play();
     playBtn.innerHTML = icon("pause");
-    playBtn.setAttribute("aria-label", "Pause animation");
+    playBtn.setAttribute("aria-label", t("Pause animation"));
   }
 
   function setAutoAdvance(enabled) {
@@ -144,7 +146,7 @@ export function createStagePanel(container, { onClipChange } = {}) {
     if (b.dataset.a === "play") {
       const playing = stage.toggle();
       b.innerHTML = icon(playing ? "pause" : "play");
-      b.setAttribute("aria-label", playing ? "Pause animation" : "Play animation");
+      b.setAttribute("aria-label", playing ? t("Pause animation") : t("Play animation"));
     } else if (b.dataset.a === "speed") {
       speed = SPEEDS[(SPEEDS.indexOf(speed) + 1) % SPEEDS.length];
       stage.setSpeed(speed);

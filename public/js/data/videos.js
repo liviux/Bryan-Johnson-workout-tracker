@@ -2,7 +2,9 @@
 // (see bryanVideos in exercises.js). Titles starting "Bryan:" are his videos,
 // "Bryan on X:" his posts on X.
 
-export const BRYAN_VIDEOS = {
+import { localized } from "../i18n.js";
+
+export const BRYAN_VIDEOS = localized({
   w23: {
     t: "Bryan: My Complete Anti-Aging Workout · gym version",
     u: "https://www.youtube.com/watch?v=sYyVi-H-ozI",
@@ -63,10 +65,10 @@ export const BRYAN_VIDEOS = {
     c: "Bryan Johnson (@bryan_johnson)",
     date: "2026-09-04",
   },
-};
+});
 
 // Shown at the top of the exercise library, in the order worth watching.
-export const WATCH = [
+export const WATCH = localized([
   [
     "pillars",
     "May 2026: his five pillars (strength, Zone 2, high-intensity cardio, mobility & flexibility, balance) and how he trains them now.",
@@ -85,10 +87,10 @@ export const WATCH = [
   ["hiitx", "How he does his own 4×4 intervals."],
   ["squatsx", "April 2026: 10 squats every 45 minutes of sitting."],
   ["jumpsets", "2026: jumps between heavy sets in his dunk training."],
-];
+]);
 
 // Channel name and upload date for every YouTube video ID used in the library.
-export const VIDEO_META = {
+export const VIDEO_META = localized({
   "sYyVi-H-ozI": { c: "Bryan Johnson", d: "Jul 18, 2023" },
   "QhL4VBHRBJY": { c: "Bryan Johnson", d: "Nov 18, 2024" },
   "JNuORofHhrk": { c: "Bryan Johnson", d: "May 26, 2026" },
@@ -262,4 +264,4 @@ export const VIDEO_META = {
   "4rK-m6GvNCk": { c: "AskDoctorJo", d: "Oct 23, 2017" },
   "069o76BafTk": { c: "OMPTSpecialists", d: "Feb 17, 2022" },
   "Dmm8_S23I74": { c: "Center For Total Back Care", d: "Aug 26, 2020" },
-};
+});

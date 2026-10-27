@@ -1194,3 +1194,12 @@ td.cur, th.cur { background: var(--accent-soft); }
 .logger-actions > [data-l="easier"] { flex: 1; }
 .logger-actions > [data-l="note-toggle"]:is(.has-note, [aria-expanded="true"]) { color: var(--accent); background: var(--accent-soft); }
 .compact-actions > .btn-row:empty { display: none; }
+
+/* ---------- right-to-left (Arabic) ---------- */
+html[dir="rtl"] .app { direction: rtl; }
+html[dir="rtl"] .sidebar { border-right: 0; border-left: 1px solid var(--line); }
+html[dir="rtl"] .brand-mark::after { box-shadow: -9px 0 0 var(--accent-ink); }
+html[dir="rtl"] .brand.small .brand-mark::after { box-shadow: -7px 0 0 var(--accent-ink); }
+html[dir="rtl"] .eyebrow { letter-spacing: 0; }
+html[dir="rtl"] .num, html[dir="rtl"] .mono { direction: ltr; unicode-bidi: isolate; }
+html[dir="rtl"] .range-options, html[dir="rtl"] .seg { direction: rtl; }

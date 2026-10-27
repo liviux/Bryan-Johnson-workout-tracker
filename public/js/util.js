@@ -1,5 +1,7 @@
 // Small shared helpers: HTML escaping, dates, formatting, DOM shortcuts.
 
+import { locale } from "./i18n.js";
+
 export function esc(s) {
   return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 }
@@ -52,11 +54,11 @@ export function daysBetween(a, b) {
 }
 
 export function fmtDate(s, opts = { weekday: "long", day: "numeric", month: "long" }) {
-  return parseIso(s).toLocaleDateString(undefined, opts);
+  return parseIso(s).toLocaleDateString(locale(), opts);
 }
 
 export function fmtShort(s) {
-  return parseIso(s).toLocaleDateString(undefined, { day: "numeric", month: "short" });
+  return parseIso(s).toLocaleDateString(locale(), { day: "numeric", month: "short" });
 }
 
 export function isoWeekNumber(s) {
