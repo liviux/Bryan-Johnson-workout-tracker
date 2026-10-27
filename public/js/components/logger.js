@@ -343,12 +343,11 @@ export function renderLogger(container, ctx) {
                   return `<label class="set-field"><span>${esc(label)}</span><input class="input num" inputmode="decimal" data-set="${i}" data-k="${k}" value="${esc(v)}" placeholder="${esc(ph && !isPlan ? ph : "")}"${isPlan ? ' data-default="true"' : ""}${hint ? ` title="${esc(hint)}"` : ""} aria-label="Set ${i + 1} ${esc(label)}"></label>`;
                 })
                 .join("")}
-              <span class="set-actions">
-                ${
-                  timed
-                    ? `<button type="button" class="btn sm icon-only" data-l="hold" data-i="${i}" aria-label="Start ${defaults.sec || target.seconds || 30} second timer for set ${i + 1}" title="Start set timer">${icon("timer", "sm")}</button>`
-                    : ""
-                }
+              <span class="set-actions${timed ? " has-timer" : ""}">
+                <span class="set-timer-cell">
+                  <span class="timer-slot"></span>
+                  ${timed ? `<button type="button" class="btn sm icon-only timer-start" data-l="hold" data-i="${i}" aria-label="Start ${defaults.sec || target.seconds || 30} second timer for set ${i + 1}" title="Start set timer">${icon("timer", "sm")}</button>` : ""}
+                </span>
                 ${sets.length > 1 ? `<button type="button" class="btn sm icon-only ghost" data-l="del" data-i="${i}" aria-label="Remove set ${i + 1}">${icon("minus", "sm")}</button>` : ""}
                 ${i === sets.length - 1 && ctx.setIndex == null ? `<button type="button" class="btn sm" data-l="add" aria-label="Add set" title="Add set">${icon("plus", "sm")} Add set</button>` : ""}
               </span>
@@ -363,7 +362,7 @@ export function renderLogger(container, ctx) {
       const min = c.min ?? defaults.min ?? "";
       const minPlan = c.min == null && defaults.min != null;
       body += `<div class="grid-form cardio-form${isCheck ? " one" : ""}">
-          <div class="field inline"><span>Minutes</span><input class="input num" inputmode="decimal" data-c="min" aria-label="Minutes" value="${esc(min)}" placeholder="${esc(target.minutes || "")}"${minPlan ? ' data-default="true" title="Plan default"' : ""}>${target.minutes ? `<button type="button" class="btn sm icon-only" data-l="countdown" aria-label="Start ${target.minutes} minute timer" title="Start ${target.minutes} minute timer">${icon("timer", "sm")}</button>` : ""}</div>
+          <div class="field inline"><span>Minutes</span><input class="input num" inputmode="decimal" data-c="min" aria-label="Minutes" value="${esc(min)}" placeholder="${esc(target.minutes || "")}"${minPlan ? ' data-default="true" title="Plan default"' : ""}><span class="timer-slot"></span>${target.minutes ? `<button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="countdown" aria-label="Start ${target.minutes} minute timer" title="Start ${target.minutes} minute timer">${icon("timer", "sm")}${ctx.guided ? "" : " Timer"}</button>` : ""}</div>
           ${isCheck ? "" : `<label class="field inline"><span>Avg bpm</span><input class="input num" inputmode="numeric" data-c="avg" value="${esc(c.avg ?? "")}" placeholder="${esc(bpmRange(p, ...cardioRange).replace(" bpm", ""))}"></label>
           <label class="field inline"><span>Max bpm</span><input class="input num" inputmode="numeric" data-c="max" value="${esc(c.max ?? "")}"></label>`}
         </div>
@@ -374,7 +373,7 @@ export function renderLogger(container, ctx) {
       if (item.ex === "shortint") body += `<div class="grid-form">${[0, 1].map((index) => `<label class="field"><span>${index ? "Alternate with (optional)" : "Movement for work bursts"}</span><select class="input" data-interval-move="${index}">${index ? '<option value="">Same movement every burst</option>' : ""}${INTERVAL_MOVES.map((id) => `<option value="${id}" ${(l.moves?.[index] || (index === 0 ? "highknees" : "")) === id ? "selected" : ""}>${esc(EXERCISES[id].name)}</option>`).join("")}</select></label>`).join("")}</div><p class="muted interval-choice-help">Each work burst uses one movement. Pick an alternate to switch movements each round: first → march → alternate → march.</p>`;
       body += `${presets.length > 1 ? `<div class="seg" role="group" aria-label="Preset">${presets.map((pr, i) => `<button type="button" data-preset="${i}" aria-pressed="${i === pi}">${esc(pr.label)}</button>`).join("")}</div>` : ""}
         <div class="grid-form" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-          <div class="field inline"><span>Hard intervals done</span><input class="input num" inputmode="numeric" data-r="rounds" aria-label="Hard intervals done" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ' data-default="true" title="Plan default"' : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"><button type="button" class="btn sm icon-only" data-l="intervals" aria-label="Start interval timer" title="Start interval timer">${icon("timer", "sm")}</button></div>
+          <div class="field inline"><span>Hard intervals done</span><input class="input num" inputmode="numeric" data-r="rounds" aria-label="Hard intervals done" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ' data-default="true" title="Plan default"' : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"><span class="timer-slot"></span><button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="intervals" aria-label="Start interval timer" title="Start interval timer">${icon("timer", "sm")}${ctx.guided ? "" : " Timer"}</button></div>
           <label class="field inline"><span>Peak bpm</span><input class="input num" inputmode="numeric" data-r="peak" value="${esc(l.peak ?? "")}"></label>
         </div>
         ${doneBtn ? `<div class="btn-row">${doneBtn}</div>` : ""}`;
@@ -399,7 +398,7 @@ export function renderLogger(container, ctx) {
     body += ctx.noteHost
       ? ""
       : ctx.compactActions
-        ? `<div class="logger-actions">${doneButton}<button type="button" class="btn sm ghost${l.note ? " has-note" : ""}" data-l="note-toggle" aria-label="Note for this exercise" aria-expanded="${!!l.note}">${icon("note", "sm")} Note</button></div><div class="note-panel" data-note-panel${l.note ? "" : " hidden"}>${noteField}<div class="note-easier">${easierButton}</div></div>`
+        ? `<div class="logger-actions">${doneButton}<button type="button" class="btn sm ghost${l.note ? " has-note" : ""}" data-l="note-toggle" aria-label="Note for this exercise" aria-expanded="${!!l.note}">${icon("note", "sm")} Note</button>${typeof ctx.extraActions === "function" ? ctx.extraActions() : ctx.extraActions || ""}</div><div class="note-panel" data-note-panel${l.note ? "" : " hidden"}>${noteField}<div class="note-easier">${easierButton}</div></div>`
         : `<details ${l.note ? "open" : ""}><summary class="muted" style="cursor:pointer;font-size:0.86rem">${icon("note", "sm")} Note for this exercise</summary>${notePanel}</details>`;
     container.innerHTML = `<div class="logger${ctx.compactActions ? " compact-actions" : ""}${ctx.guided ? " guided-logger" : ""}">${body}</div>`;
   }
@@ -561,13 +560,13 @@ export function renderLogger(container, ctx) {
     }
   }
 
-  function startHoldTimer(i, auto = false) {
+  function startHoldTimer(i, host = null) {
     const t = currentTarget();
     const secs = t.seconds || 30;
     startHold({
       title: ex.name,
-      host: ctx.timerHost,
-      auto,
+      host,
+      mini: !!host,
       voiceContext: voiceRequest(item, level, getItemLog(date, scope, item.id) || {}, restSec),
       seconds: secs,
       sides: t.perSide ? 2 : 1,
@@ -585,12 +584,12 @@ export function renderLogger(container, ctx) {
     });
   }
 
-  function startCountdownTimer(auto = false) {
+  function startCountdownTimer(host = null) {
     const t = currentTarget();
     startCountdown({
       title: ex.name,
-      host: ctx.timerHost,
-      auto,
+      host,
+      mini: !!host,
       voiceContext: voiceRequest(item, level, getItemLog(date, scope, item.id) || {}, restSec),
       minutes: t.minutes,
       sub: `${cardioLabel}: ${bpmRange(p, ...cardioRange)}`,
@@ -605,7 +604,7 @@ export function renderLogger(container, ctx) {
     });
   }
 
-  function startIntervalsTimer(auto = false) {
+  function startIntervalsTimer(host = null) {
     const presets = timerPresets(item, level);
     const l0 = getItemLog(date, scope, item.id) || {};
     const preset = presets[Math.min(l0.preset || 0, presets.length - 1)];
@@ -613,8 +612,8 @@ export function renderLogger(container, ctx) {
     const hr = { work: preset.workHr ? bpmRange(p, ...preset.workHr) : "", rest: preset.restHr ? bpmRange(p, ...preset.restHr) : "" };
     startIntervals({
       title: `${ex.name} · ${preset.label}`,
-      host: ctx.timerHost,
-      auto,
+      host,
+      mini: !!host,
       voiceContext: voiceRequest(item, level, l0, restSec),
       presetIndex: Math.min(l0.preset || 0, presets.length - 1),
       exId: item.ex, moves: l0.moves,
@@ -696,11 +695,14 @@ export function renderLogger(container, ctx) {
       });
       draw();
     } else if (a === "hold") {
-      startHoldTimer(Number(b.dataset.i));
+      const slot = b.closest(".set-row, .field")?.querySelector(".timer-slot");
+      startHoldTimer(Number(b.dataset.i), slot);
     } else if (a === "countdown") {
-      startCountdownTimer();
+      const slot = b.closest(".field")?.querySelector(".timer-slot");
+      startCountdownTimer(slot);
     } else if (a === "intervals") {
-      startIntervalsTimer();
+      const slot = b.closest(".field")?.querySelector(".timer-slot");
+      startIntervalsTimer(slot);
     } else if (b.dataset.preset != null) {
       save((l) => {
         l.preset = Number(b.dataset.preset);

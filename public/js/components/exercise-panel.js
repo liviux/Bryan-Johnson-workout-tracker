@@ -91,20 +91,24 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
       <div style="display:grid;gap:8px">
         <span class="eyebrow">${esc(ex.cat)}${ctx.scopeName ? ` · ${esc(ctx.scopeName)}` : ""}</span>
         <h2>${esc(item && item.label ? personalize(item.label, p) : ex.name)} ${ex.classic ? '<span class="badge-classic">classic</span>' : ""}</h2>
-        ${rx || item?.bryan ? `<div class="detail-dose-row">${rx ? `<div class="rx">${esc(rx)}</div>` : ""}${item && item.bryan ? `<span class="chip bryan">${esc(personalize(item.bryan, p))}</span>` : ""}</div>` : ""}
+        ${rx ? `<div class="rx">${esc(rx)}</div>` : ""}
         <div class="chips">
+          ${item && item.bryan ? `<span class="chip bryan">${esc(personalize(item.bryan, p))}</span>` : ""}
           ${(ex.equipment || []).map((e) => `<span class="chip" title="${esc(EQUIPMENT_NAMES[e] || e)}">${icon(e)} ${esc(EQUIPMENT_NAMES[e] || e)}</span>`).join("")}
           ${(ex.muscles || []).map((m) => `<span class="chip accent">${esc(MUSCLE_NAMES[m] || m)}</span>`).join("")}
         </div>
       </div>
-      <div class="detail-tools" role="tablist" aria-label="Exercise details">
-        <button type="button" class="btn sm ghost" role="tab" data-tab="how" aria-selected="false" aria-expanded="false">${icon("list", "sm")} How to</button>
-        <button type="button" class="btn sm ghost" role="tab" data-tab="videos" aria-selected="false" aria-expanded="false">${icon("video", "sm")} Videos (${vids.length}${bryanCount ? `, ${bryanCount} with Bryan` : ""})</button>
-      </div>
-      <div class="tab-body" role="tabpanel"${mode === "log" ? " hidden" : ""}></div>
       ${alternativeHtml(item, ctx.level)}
       ${ex.routine ? `<div data-routine>${routineHtml(item || { ex: ctx.exId }, ctx.level || 0, itemLog || {})}</div>` : ""}
-      ${mode === "log" && item && ctx.date ? '<div class="logger-host"></div>' : ""}`;
+      ${mode === "log" && item && ctx.date ? '<div class="logger-host"></div>' : ""}
+      ${mode !== "log" ? `<div class="tabs" role="tablist">
+        <button type="button" role="tab" data-tab="how">How to</button>
+        <button type="button" role="tab" data-tab="videos">Videos (${vids.length}${bryanCount ? `, ${bryanCount} with Bryan` : ""})</button>
+      </div>` : ""}
+      <div class="tab-body" role="tabpanel"${mode === "log" ? " hidden" : ""}></div>`;
+    const toolActions = () => `
+      <button type="button" class="btn sm ghost" data-tab="how" aria-selected="${tabOpen && tab === "how"}" aria-expanded="${tabOpen && tab === "how"}">${icon("list", "sm")} How to</button>
+      <button type="button" class="btn sm ghost" data-tab="videos" aria-selected="${tabOpen && tab === "videos"}" aria-expanded="${tabOpen && tab === "videos"}" aria-label="Videos (${vids.length}${bryanCount ? `, ${bryanCount} with Bryan` : ""})">${icon("video", "sm")} Videos</button>`;
     const lh = body.querySelector(".logger-host");
     if (lh)
       renderLogger(lh, {
@@ -115,6 +119,7 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
         scope: ctx.scope || "main",
         onChange: ctx.onChange,
         compactActions: ctx.compactActions,
+        extraActions: toolActions,
         // Keep the dose above the logger in step with an easier choice.
         onDraw: (log) => {
           const routine = body.querySelector("[data-routine]");

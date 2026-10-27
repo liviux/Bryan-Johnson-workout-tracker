@@ -181,9 +181,8 @@ export function startGuided(date, onExit) {
       </div>
       ${s.setIndex != null ? `<p class="muted guided-set-note">Complete set ${s.setIndex + 1} of ${s.sets}, then continue to the next movement.</p>` : ""}
       ${alternativeHtml(s.item, s.level)}
-      <div class="guided-timer-host"></div>
       <div class="logger-host guided-logger-host${s.scope !== "main" ? " addon-scope" : ""}"></div>`;
-    renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), nextTimeHost: wrap.querySelector(".guided-next-time-host"), timerHost: side.querySelector(".guided-timer-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
+    renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), nextTimeHost: wrap.querySelector(".guided-next-time-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
     videoCtrl = renderVideos(side.querySelector('[data-g="videos"]'), videosFor(demo), {
       groups: videoGroupsFor(demo),
       activeGroup: stage.clipIndex,

@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.38.4] - 2026-10-27
+
+### Changed
+- Guided timers run in the same row as the value, in place of the timer button, and no longer push the form down.
+- Today uses the same inline timer instead of opening a separate timer window. The Timer button beside Minutes and intervals is a little larger.
+- **Add set** stays at the end of the last set row, and the timer and remove buttons line up across every row.
+- On Today, How to and Videos sit back in the Note row, and the Bryan note stays with the other chips. The exercise panel still fills the screen height.
+- Videos in guided mode scroll with the panel instead of staying pinned over the list below.
+
+### Fixed
+- Timer start, pause, resume, next and stop work again after the inline timer change.
+- Opening guided tools or choosing a video no longer moves the scroll position or focus.
+
 ## [1.38.3] - 2026-10-27
 
 ### Changed
