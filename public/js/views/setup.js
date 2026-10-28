@@ -14,6 +14,7 @@ import { createEquipmentEditor } from "../components/equipment-editor.js";
 import { seg } from "../components/ui.js";
 import { applyLook, skinById, skinPickerHtml } from "../themes.js";
 import { LANGUAGES, normaliseLanguage, setLanguage, t } from "../i18n.js";
+import { voicesForLanguage } from "../voice/script.js";
 
 const STEPS = ["Language", "Welcome", "Theme", "About you", "Your level", "Equipment", "Add-ons", "Ready"];
 const LB = 2.20462;
@@ -200,6 +201,7 @@ export function render(el, params) {
     if (b.dataset.language) {
       const id = normaliseLanguage(b.dataset.language);
       draft.settings.language = id;
+      draft.settings.coachVoice = voicesForLanguage(id)[0]?.id;
       await setLanguage(id, { silent: true });
       draw();
       el.querySelector(`[data-language="${id}"]`)?.focus();

@@ -80,7 +80,7 @@ test("included recordings activate, switch voices and speak custom timers withou
   await start();
   const initial = await (await fetch(base + "/api/voice/status")).json();
   assert.equal(initial.installed, true, "included audio needs no model installation");
-  assert.equal(initial.cacheEnabled, false);
+  assert.equal(initial.cacheEnabled, true, "included packs can play without unpacking every clip");
   assert(!existsSync(path.join(root, ".voice/audio")), "opening controls does not unpack audio before opt-in");
   const activated = await post("/api/voice/cache", { voice: "am_michael" });
   assert.equal(activated.status, 202);
@@ -93,9 +93,11 @@ test("included recordings activate, switch voices and speak custom timers withou
     }
     assert.fail("included voice did not finish unpacking");
   };
-  assert.equal((await ready("am_michael")).cache.shared, true);
+  const streamed = await ready("am_michael");
+  assert.equal(streamed.cache.shared, true);
+  assert.equal(streamed.cache.streamed, true);
   await ready("af_heart");
-  assert.deepEqual((await readdir(path.join(root, ".voice/packs"))).sort(), ["af_heart.json", "am_michael.json"]);
+  assert.deepEqual((await readdir(path.join(root, ".voice/packs"))).sort(), ["af_heart.json"], "only the default voice is unpacked locally");
   assert(!existsSync(path.join(root, ".voice/model")), "no model is downloaded or used");
   const manifest = await (await post("/api/voice/prepare", { voice: "am_michael", itemId: "mon-strength-row", level: 2, restSec: 777 })).json();
   assert(manifest.rest, JSON.stringify(manifest));
@@ -103,9 +105,9 @@ test("included recordings activate, switch voices and speak custom timers withou
   assert.equal(combined.subarray(0, 4).toString(), "RIFF");
   assert(combined.length > audio.length, "custom rest duration is assembled from saved fragments");
   const preview = (await (await post("/api/voice/prepare", { voice: "am_michael", preview: true })).json()).preview;
-  await rm(path.join(root, ".voice/audio", `${preview.id}.wav`));
+  await rm(path.join(root, ".voice/audio", `${preview.id}.wav`), { force: true });
   assert.equal((await fetch(base + preview.url)).status, 200, "a removed playback file is restored from the included recording");
-  const saved = JSON.parse(await readFile(path.join(root, ".voice/packs/am_michael.json"), "utf8"));
+  const saved = JSON.parse(await readFile(path.join(root, ".voice/packs/af_heart.json"), "utf8"));
   assert(saved.entries.every((entry) => Object.keys(entry).every((key) => ["id", "text", "sid", "vid", "speed"].includes(key))));
   await stop(); await start();
   assert.equal((await ready("am_michael")).cache.state, "ready");

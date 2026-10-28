@@ -10,6 +10,7 @@ import { restoreSkinBar } from "./components/skin-bar.js";
 import { restoreAnimBar } from "./components/anim-bar.js";
 import { openChangelogDialog } from "./components/changelog.js";
 import { onLanguage, setLanguage, t, watchTranslations } from "./i18n.js";
+import { voicesForLanguage } from "./voice/script.js";
 
 const VIEWS = {
   today: () => import("./views/today.js"),
@@ -146,6 +147,13 @@ drawVersion();
 await store.init();
 drawVersion();
 if (store.state.profile) await setLanguage(store.state.profile.settings?.language || "en", { silent: true });
+if (store.state.profile) {
+  const lang = store.state.profile.settings?.language || "en";
+  const voices = voicesForLanguage(lang);
+  if (voices.length && !voices.some((voice) => voice.id === store.state.profile.settings?.coachVoice)) {
+    store.updateProfile((p) => { p.settings = p.settings || {}; p.settings.coachVoice = voices[0].id; }, { silent: true });
+  }
+}
 watchTranslations();
 // The profile on disk decides the look (this browser may have an older copy in localStorage).
 if (store.state.profile) applyLook(store.state.profile.settings);

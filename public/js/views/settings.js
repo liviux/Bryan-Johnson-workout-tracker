@@ -21,6 +21,7 @@ import { thumbnail } from "../components/thumbs.js";
 import { createCoachControls } from "../components/coach-controls.js";
 import { REPO, openChangelogDialog } from "../components/changelog.js";
 import { LANGUAGES, setLanguage, t } from "../i18n.js";
+import { voicesForLanguage } from "../voice/script.js";
 
 const LB = 2.20462;
 const REST_PRESETS = [45, 60, 75, 90, 120];
@@ -236,7 +237,12 @@ export function render(el) {
     const target = e.target;
     if (target.matches("[data-language]")) {
       const id = target.value;
-      updateProfile((pr) => { pr.settings = pr.settings || {}; pr.settings.language = id; }, { silent: true });
+      const voice = voicesForLanguage(id)[0]?.id;
+      updateProfile((pr) => {
+        pr.settings = pr.settings || {};
+        pr.settings.language = id;
+        if (voice) pr.settings.coachVoice = voice;
+      }, { silent: true });
       await setLanguage(id);
       return;
     }

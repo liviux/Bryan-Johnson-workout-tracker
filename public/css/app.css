@@ -505,7 +505,6 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
 .video-meta { display: flex; justify-content: space-between; gap: 10px; align-items: center; font-size: 0.82rem; color: var(--muted); }
 .video-meta-info { display: grid; gap: 2px; }
 .video-byline { color: var(--ink-2); }
-.video-byline .video-runtime { font-family: var(--font-mono); color: var(--ink-2); }
 .video-byline b { color: var(--ink); font-weight: 600; }
 
 /* ---------- overlays ---------- */

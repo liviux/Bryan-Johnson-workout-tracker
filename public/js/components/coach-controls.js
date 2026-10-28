@@ -42,7 +42,7 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
     const progressText = el.querySelector('[data-coach="progress-text"]');
     const cache = status.cache;
     const building = cache?.state === "building";
-    const cacheReady = status.cacheEnabled && cache?.state === "ready";
+    const cacheReady = status.cacheEnabled && (cache?.state === "ready" || cache?.streamed);
     const installing = !!status.installing;
     progress.hidden = !building && !installing;
     if (building) {
@@ -56,7 +56,7 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
     const cacheButton = el.querySelector('[data-coach="cache"]');
     cacheButton.hidden = !status.known || !status.installed || installing || building || cacheReady;
     cacheButton.disabled = installing;
-    cacheButton.innerHTML = `${icon("download", "sm")} ${t("Download voice")}`;
+    cacheButton.innerHTML = `${icon("download", "sm")} ${t("Prepare default voice")}`;
     const button = el.querySelector('[data-coach="enable"]');
     button.textContent = enabled ? t("Turn coaching off") : t("Turn coaching on");
     button.setAttribute("aria-pressed", String(enabled));
@@ -79,7 +79,7 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
   const unsubscribe = onVoice(sync);
   refreshVoiceStatus().then(() => {
     if (disposed) return;
-    if (state.profile?.settings?.voiceCoach && voiceStatus.installed && !voiceStatus.cacheEnabled) cacheVoice({ activate: true });
+    if (state.profile?.settings?.voiceCoach && voiceStatus.installed && !voiceStatus.defaultCached) cacheVoice({ activate: true });
     onChange();
   });
   toggle?.addEventListener("click", () => setOpen(panel.hidden));

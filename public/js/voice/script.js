@@ -28,6 +28,7 @@ export const LANGUAGE_VOICES = [
 ];
 
 export const ALL_VOICES = [...VOICES, ...LANGUAGE_VOICES];
+export const DEFAULT_VOICE = "af_heart";
 
 export function voicesForLanguage(lang = "en") {
   return ALL_VOICES.filter((voice) => voice.lang === lang);

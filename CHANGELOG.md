@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.42.1] - 2026-10-28
+
+### Changed
+- Only the default **Heart** voice is cached on your computer. Every other voice plays directly from the included compressed packs, one clip at a time, so changing language no longer unpacks a whole voice into `.voice/`.
+- The **Prepare default voice** button replaces the old per-voice download, and the voice cache message explains which voice is local.
+
+### Removed
+- Video durations from the video byline. The available metadata source was incomplete and the feature is withdrawn.
+
+### Fixed
+- Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.
+- The default voice cache keeps counting and finishes reliably; old non-default voice caches are cleared on startup.
+- The app no longer starts a full translated-voice download when you switch language.
+
 ## [1.42.0] - 2026-10-28
 
 ### Added

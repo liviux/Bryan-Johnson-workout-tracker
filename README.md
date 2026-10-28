@@ -3,7 +3,7 @@
 A local web app that plans and tracks a six-day home workout built from **Bryan Johnson's public exercise protocol** (his October 2026 weekly template), rebuilt for bodyweight, adjustable dumbbells, a pull-up bar and resistance bands.
 
 - **What to do each day**, block by block, with workouts set by your training level (New to training, Returning, Active, Well trained). Feel ready for more, or need it easier? Switch level any time.
-- **A 3D animation for every exercise**, plus three demonstration videos each: two technique videos and one short, focused clip. Bryan's own video, when there is one, opens first and stays the default. The player also has a `min X sec Y` timestamp guide, the video length beside the channel and upload date, and per-movement video sets that switch automatically with multi-movement animations.
+- **A 3D animation for every exercise**, plus three demonstration videos each: two technique videos and one short, focused clip. Bryan's own video, when there is one, opens first and stays the default. The player also has a `min X sec Y` timestamp guide and per-movement video sets that switch automatically with multi-movement animations.
 - **Today’s desktop exercise panel** stays beside the list as you scroll. Scroll inside it for instructions and videos; selecting another exercise returns the panel to its animation. Done, Something hurts? and Note share one action row; Note opens the editor below it.
 - **Animations on phones and tablets**: Today opens the first exercise inline automatically. Tap another exercise to switch; resizing keeps the selected demonstration visible.
 - **Navigation** has five destinations: Today, Activity, Exercises, Plan and Settings. Activity groups This week, History, Progress and Benchmarks into four tabs.
@@ -251,7 +251,7 @@ Choose **Turn coaching on** in **Coach** during a guided workout, or in **Settin
 
 The app includes recorded Kokoro audio for Heart and Bella (American women), Michael and Puck (American men), and Emma (British woman). No speech model or local generation is needed.
 
-The first activation unpacks the default and selected voices for playback. **Download voice** in **Settings → Voice coach** does the same for the selected voice and shows clip-by-clip progress. Requested speech can play while the rest copies in the background. No audio is unpacked until you turn coaching on or press Download voice yourself. Choosing another voice saves its recordings too; completed voices stay ready when you switch back. Preparation can finish with the page closed and resumes after a server restart. Your PC, tablet and phone all use the audio saved on the computer hosting the app.
+The first activation unpacks the default Heart voice. Other voices play straight from the compressed recordings, one clip at a time, so only the default voice is saved locally. **Prepare default voice** in **Settings → Voice coach** does the same for Heart and shows clip-by-clip progress. Requested speech can play while the rest copies in the background. No audio is unpacked until you turn coaching on or prepare the default voice yourself. Completed default audio stays ready after a restart. Your PC, tablet and phone all use the audio saved on the computer hosting the app.
 
 Each voice covers all four training levels, both unit systems, enabled add-ons, easier alternatives, form tips and timer choices. **Cues and form tips** adds short instructions during rests; **Essential cues only** keeps exercise, dose, set and timer announcements. Steady and Brisk reuse the same recordings. The coach reads the prescribed reps and durations, and refers to the weights and heart-rate targets on screen. Personal profile values stay out of the shared audio. You count your own reps.
 
@@ -261,7 +261,7 @@ Radio drops to 12% of your chosen volume while speech plays, then returns to tha
 
 Recordings are stored individually under `voice/packs/`, with a filename based on the voice and spoken text. Changing one sentence only requires new recordings for that sentence in each voice. Unchanged files are reused. See [the voice implementation notes](docs/GUIDED-VOICE.md) for rebuilding the shared recordings after workout content changes.
 
-Unpacked audio stays in the gitignored `.voice/` folder, separate from personal logs and backups. Selected voice packs are protected from automatic cleanup; other generated audio has a separate 256 MB limit. Speech works offline; radio needs internet. The optional native model installer remains available for rebuilding recordings or using a checkout without shared audio.
+Unpacked audio stays in the gitignored `.voice/` folder, separate from personal logs and backups. The default Heart pack is protected from automatic cleanup; other generated audio has a separate 256 MB limit. Speech works offline; radio needs internet. The optional native model installer remains available for rebuilding recordings or using a checkout without shared audio.
 
 </details>
 
@@ -383,7 +383,6 @@ Each add-on has its own schedule in **Settings → Add-ons**: run it daily or ev
 - `public/js/data/program.js` — the days, blocks and doses per training level, what each level means, rules, sources.
 - `public/js/data/exercises.js` — every exercise: how-to steps, Bryan's notes, videos (with timestamps into his videos), equipment, what it's logged as.
 - `public/js/data/extra-videos.js` — the extra demo videos and short clips added to every exercise.
-- `public/js/data/video-lengths.js` — the runtime shown beside each video’s channel and date.
 - `public/js/data/bands.js` — the resistance-band colours and values used by the band picker.
 - `public/js/data/addons/` — optional blocks.
 - `public/js/anim/clips/` — the 3D animations. See [docs/ANIMATIONS.md](docs/ANIMATIONS.md) for how to write or tweak one, and open `/dev/animations.html?ids=pushup` to see every keyframe side by side.

@@ -28,6 +28,7 @@ import bn from "../public/js/locales/bn.js";
 // requested voice, not the last browser request.
 const CATALOGUES = { en: {}, ro, de, it, fr, es, zh, hi, ar, bn };
 const useVoiceLanguage = (voice) => useCatalogue(voice?.lang || "en", CATALOGUES[voice?.lang || "en"] || {});
+export const DEFAULT_VOICE = "af_heart";
 
 const catalog = new Map();
 for (const block of DAYS.flatMap((d) => d.blocks)) for (const item of block.items) catalog.set(item.id, { item, block: block.name, strength: /strength/i.test(block.name) });
@@ -55,17 +56,50 @@ function unpackVoice(voice, onProgress) {
   if (!unpacking.has(voice)) unpacking.set(voice, unpackBundle(voice, bundleDir, cacheDir, null, onProgress).finally(() => unpacking.delete(voice)));
   return unpacking.get(voice);
 }
+let pruned = null;
+async function pruneNonDefaultCache() {
+  // Keep only the default voice unpacked. Other voices stay as compressed packs
+  // and their requested clips are unpacked one at a time.
+  pruned ||= (async () => {
+    const packsDir = path.join(VOICE_DIR, "packs");
+    for (const name of await readdir(packsDir).catch(() => [])) {
+      const match = /^([a-z]{2}_[a-z]+)\.json$/.exec(name);
+      if (!match || match[1] === DEFAULT_VOICE) continue;
+      const voice = match[1];
+      const pack = voiceCache.packs.get(voice);
+      for (const entry of pack?.entries || []) {
+        voiceCache.pinnedIds.delete(entry.id);
+        for (const ext of ["wav", "mp3"]) await unlink(path.join(cacheDir, `${entry.id}.${ext}`)).catch(() => {});
+      }
+      voiceCache.packs.delete(voice);
+      await unlink(path.join(packsDir, name)).catch(() => {});
+    }
+    // Translated voices use mp3 clips. Any that are not in a saved pack are
+    // left over from an older cache and only take disk space.
+    const defaultPack = voiceCache.packs.get(DEFAULT_VOICE);
+    const keep = new Set(defaultPack?.entries?.map((entry) => entry.id) || []);
+    for (const name of await readdir(cacheDir).catch(() => [])) {
+      if (!/^[a-f0-9]{64}\.(?:wav|mp3)$/.test(name)) continue;
+      if (name.endsWith(".mp3") || (keep.size && !keep.has(name.slice(0, 64)))) await unlink(path.join(cacheDir, name)).catch(() => {});
+    }
+    if (voiceCache.selected && voiceCache.selected !== DEFAULT_VOICE) voiceCache.selected = DEFAULT_VOICE;
+  })();
+  await pruned;
+}
 async function migrateSharedPacks() {
   await voiceCache.load();
+  await pruneNonDefaultCache();
   migration ||= (async () => {
     for (const voice of voiceCache.packs.keys()) if (bundled(voice)) await voiceCache.start(voice, await sharedEntries(voice));
   })();
   await migration;
 }
 function cacheStatus(voice) {
+  if (voice !== DEFAULT_VOICE && bundled(voice)) return { state: "ready", completed: 0, total: 0, remainingSeconds: null, error: null, shared: true, streamed: true };
   const cache = voiceCache.status(voice);
   return cache ? { ...cache, shared: bundled(voice) } : null;
 }
+const voiceCacheAvailable = (voice) => bundled(voice) || voiceCache.packs.has(voice);
 const voiceCache = new VoiceCache(VOICE_DIR, async (entry, onProgress) => {
   // Only one background clip is queued; workout requests get the next turn.
   while (pending.size) await Promise.allSettled([...pending.values()].map((task) => task.promise));
@@ -246,11 +280,13 @@ export function buildSharedVoicePack(voice) {
 
 async function pruneCache() {
   const entries = await readdir(cacheDir).catch(() => []);
-  const files = await Promise.all(entries.filter((name) => /^[a-f0-9]{64}\.(?:wav|mp3)$/.test(name) && !voiceCache.pinned(name.slice(0, -4))).map(async (name) => ({ name, ...await stat(path.join(cacheDir, name)) })));
+  const files = (await Promise.all(entries.filter((name) => /^[a-f0-9]{64}\.(?:wav|mp3)$/.test(name) && !voiceCache.pinned(name.slice(0, -4))).map(async (name) => {
+    try { return { name, ...await stat(path.join(cacheDir, name)) }; } catch { return null; }
+  }))).filter(Boolean);
   let size = files.reduce((total, f) => total + f.size, 0);
   for (const file of files.sort((a, b) => a.mtimeMs - b.mtimeMs)) {
     if (size <= 256 * 1024 * 1024) break;
-    await unlink(path.join(cacheDir, file.name));
+    await unlink(path.join(cacheDir, file.name)).catch(() => {});
     size -= file.size;
   }
 }
@@ -359,20 +395,28 @@ export async function handleVoice(req, res, pathname, { readBody, send, fail, pr
     const shared = bundled(voice);
     const ready = shared || await modelInstalled();
     if (ready && !installer) voiceCache.resume();
-    return send(res, 200, { known: true, voice, installed: ready, installing: !!installer, error: !!engineError, message: installer ? installMessage : engineError || installMessage || (shared ? "Recorded coach voices are included. Audio works offline." : ready ? "Local voice is ready. Speech works offline." : "Download the local voice to hear coaching."), model: MODEL, cacheEnabled: voiceCache.packs.has(voice), cache: cacheStatus(voice) });
+    return send(res, 200, { known: true, voice, installed: ready, installing: !!installer, error: !!engineError, message: installer ? installMessage : engineError || installMessage || (shared ? "Recorded coach voices are included. Audio works offline." : ready ? "Local voice is ready. Speech works offline." : "Download the local voice to hear coaching."), model: MODEL, cacheEnabled: voiceCacheAvailable(voice), defaultCached: voiceCache.packs.has(DEFAULT_VOICE), cache: cacheStatus(voice) });
   }
   if (pathname === "/api/voice/cache" && method === "POST") {
     const body = await readBody(req);
-    const voice = body?.voice || "af_heart";
-    if (!voiceById(voice)) return fail(res, 400, "Unknown voice");
+    const voice = body?.voice || DEFAULT_VOICE;
+    const selected = voiceById(voice);
+    if (!selected) return fail(res, 400, "Unknown voice");
     if (installer || (!bundled(voice) && !await modelInstalled())) return fail(res, 409, "Install the local voice first");
-    if (bundled(voice)) await voiceCache.start(voice, await sharedEntries(voice));
-    else await voiceCache.start(voice, buildVoicePack(body, await profile()));
-    if (voice !== "af_heart" && !voiceCache.packs.has("af_heart")) {
-      await voiceCache.start("af_heart", await sharedEntries("af_heart"));
-      voiceCache.selected = voice;
+    if (voice === DEFAULT_VOICE) {
+      if (bundled(DEFAULT_VOICE)) await voiceCache.start(DEFAULT_VOICE, await sharedEntries(DEFAULT_VOICE));
+      else await voiceCache.start(DEFAULT_VOICE, buildVoicePack({ ...body, voice: DEFAULT_VOICE }, await profile()));
+    } else if (bundled(voice)) {
+      // Only the default voice is unpacked locally. Other voices are served
+      // from their compressed pack one clip at a time.
+      if (!voiceCache.packs.has(DEFAULT_VOICE)) {
+        if (bundled(DEFAULT_VOICE)) await voiceCache.start(DEFAULT_VOICE, await sharedEntries(DEFAULT_VOICE));
+        else await voiceCache.start(DEFAULT_VOICE, buildVoicePack({ ...body, voice: DEFAULT_VOICE }, await profile()));
+      }
+    } else {
+      await voiceCache.start(voice, buildVoicePack(body, await profile()));
     }
-    return send(res, 202, { cacheEnabled: true, cache: cacheStatus(voice) });
+    return send(res, 202, { cacheEnabled: true, defaultCached: voiceCache.packs.has(DEFAULT_VOICE), cache: cacheStatus(voice) });
   }
   if (pathname === "/api/voice/install" && method === "POST") {
     const body = await readBody(req).catch(() => null);
@@ -396,8 +440,9 @@ export async function handleVoice(req, res, pathname, { readBody, send, fail, pr
   if (pathname === "/api/voice/prepare" && method === "POST") return send(res, 200, prepareManifest(await readBody(req), await profile()));
   const match = pathname.match(/^\/api\/voice\/audio\/([a-f0-9]{64})\.wav$/);
   if (match && method === "GET") {
-    if (!voiceCache.packs.size) return fail(res, 409, "Turn coaching on once to prepare and save voice audio");
-    if (!clips.has(match[1])) return fail(res, 404, "Prepare this workout cue first");
+    const data = clips.get(match[1]);
+    if (!data) return fail(res, 404, "Prepare this workout cue first");
+    if (!voiceCache.packs.size && !(data.vid && bundled(data.vid))) return fail(res, 409, "Turn coaching on once to prepare and save voice audio");
     const file = await audioFile(match[1]);
     return send(res, 200, await readFile(file), file.endsWith(".mp3") ? "audio/mpeg" : "audio/wav");
   }
