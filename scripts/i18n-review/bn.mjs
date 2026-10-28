@@ -1,6 +1,7 @@
 // Hand-checked corrections from the language review. Applied last.
 export default {
   "— Bryan's #1 rule: injury prevention first": "— ব্রায়ানের ১ নম্বর নিয়ম: আগে আঘাত প্রতিরোধ",
+  "Band": "রেজিস্ট্যান্স ব্যান্ড",
   "· counts toward your weekly minutes": "· আপনার সাপ্তাহিক মিনিটে গণনা হয়",
   "“Everyone Is Wrong About Exercise”": "“ব্যায়াম নিয়ে সবাই ভুল”",
   "“External rotation” is in the posture part of Bryan’s routine, right after band pull-aparts. It strengthens the rotator cuff that holds the shoulders back.": "“এক্সটার্নাল রোটেশন” ব্রায়ানের রুটিনের ভঙ্গি অংশে, ব্যান্ড পুল-অ্যাপার্টের ঠিক পরে। এটি রোটেটর কাফ শক্তিশালী করে, যা কাঁধ পিছনে ধরে রাখে।",

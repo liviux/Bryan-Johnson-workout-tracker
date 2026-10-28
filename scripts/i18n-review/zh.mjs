@@ -2,6 +2,9 @@
 // Applied after the machine pass, overrides and terminology fixes.
 export default {
   "Home Protocol": "家庭训练计划",
+  "Band": "弹力带",
+  "Set {set} band": "设置第 {set} 组的弹力带",
+  "Set {set} custom band value": "设置第 {set} 组的自定义弹力带数值",
   "Home Protocol · workout tracker": "家庭训练计划 · 训练记录",
   "Inspired by Bryan Johnson": "灵感来自 Bryan Johnson",
   "Inspired by {source}": "灵感来自{source}",

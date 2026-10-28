@@ -47,10 +47,10 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
     toggle?.setAttribute("aria-busy", String(status.preparing));
     toggle?.setAttribute("aria-label", t("Voice coach, {state}", { state: enabled && status.installed ? t("on") : t("off") }));
     const install = el.querySelector('[data-coach="install"]');
-    install.hidden = status.installed && !status.installing && !status.error;
+    install.hidden = !status.known || (status.installed && !status.installing && !status.error);
     install.disabled = status.installing;
     install.textContent = status.installing ? t("Downloading…") : status.error ? t("Reinstall local voice") : t("Download local voice");
-    el.querySelector('[data-coach="download-info"]').hidden = status.installed && !status.installing;
+    el.querySelector('[data-coach="download-info"]').hidden = !status.known || (status.installed && !status.installing);
     el.querySelector('[data-coach="preview"]').disabled = !status.installed || status.installing || !status.cacheEnabled;
     el.querySelector('[data-coach="unlock"]').hidden = !status.blocked;
     for (const v of el.querySelectorAll("[data-coach-voice]")) v.setAttribute("aria-pressed", String(v.dataset.coachVoice === selectedVoice().id));
@@ -95,8 +95,12 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
   el.addEventListener("change", (event) => {
     const key = event.target.dataset.coachOption;
     if (!key) return;
-    cancelVoice(); previewToken += 1;
-    updateProfile((p) => { p.settings ||= {}; p.settings[key] = event.target.value; }, { silent: true });
+    // Read the value before cancelVoice() notifies sync(), which writes the
+    // saved profile back into these selects.
+    const value = event.target.value;
+    previewToken += 1;
+    updateProfile((p) => { p.settings ||= {}; p.settings[key] = value; }, { silent: true });
+    cancelVoice();
     onChange();
   });
   const pointer = (event) => { if (popup && !el.contains(event.target)) setOpen(false); };

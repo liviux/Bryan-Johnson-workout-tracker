@@ -233,23 +233,23 @@ export function render(el) {
   });
 
   el.addEventListener("change", async (e) => {
-    const t = e.target;
-    if (t.matches("[data-language]")) {
-      const id = t.value;
+    const target = e.target;
+    if (target.matches("[data-language]")) {
+      const id = target.value;
       updateProfile((pr) => { pr.settings = pr.settings || {}; pr.settings.language = id; }, { silent: true });
       await setLanguage(id);
       return;
     }
-    if (t.matches("[data-anim-ex]")) {
-      previewEx = t.value;
+    if (target.matches("[data-anim-ex]")) {
+      previewEx = target.value;
       try {
         sessionStorage.setItem("hp:animpreview", previewEx);
       } catch {}
       preview?.load(previewEx);
       fillAnimThumbs();
-    } else if (t.matches("[data-addon-repeat]")) {
-      const v = t.value;
-      const id = t.dataset.addonRepeat;
+    } else if (target.matches("[data-addon-repeat]")) {
+      const v = target.value;
+      const id = target.dataset.addonRepeat;
       editAddonSchedule(id, (sched) => {
         sched.mode = v === "daily" ? "daily" : "every";
         if (v !== "daily") {
@@ -259,15 +259,15 @@ export function render(el) {
       });
       draw();
       el.querySelector(`[data-addon-repeat="${id}"]`)?.focus();
-    } else if (t.dataset.switch) {
-      const name = t.dataset.switch;
+    } else if (target.dataset.switch) {
+      const name = target.dataset.switch;
       if (name.startsWith("addon-sunday:")) {
-        editAddonSchedule(name.slice("addon-sunday:".length), (sched) => (sched.sunday = t.checked));
+        editAddonSchedule(name.slice("addon-sunday:".length), (sched) => (sched.sunday = target.checked));
         draw();
         el.querySelector(`[data-switch="${name}"]`)?.focus();
         return;
       }
-      if (name === "deskNotify" && t.checked && typeof Notification !== "undefined") {
+      if (name === "deskNotify" && target.checked && typeof Notification !== "undefined") {
         try {
           const req = Notification.requestPermission();
           if (req && req.then) req.then((permission) => { if (permission !== "granted") toast(t("Browser notifications are blocked for this site."), { icon: "info" }); });
@@ -279,12 +279,12 @@ export function render(el) {
         pr.settings = pr.settings || {};
         if (name.startsWith("addon:")) {
           pr.addons = pr.addons || {};
-          pr.addons[name.slice(6)] = t.checked;
-        } else pr.settings[name] = t.checked;
+          pr.addons[name.slice(6)] = target.checked;
+        } else pr.settings[name] = target.checked;
       });
-    } else if (t.matches("[data-import]") && t.files && t.files[0]) {
+    } else if (target.matches("[data-import]") && target.files && target.files[0]) {
       try {
-        const data = JSON.parse(await t.files[0].text());
+        const data = JSON.parse(await target.files[0].text());
         const days = Object.keys(data.days || {}).length;
         const replace = await confirmDialog({ title: t("Import backup"), message: t("This backup has {days} logged days{mixed}. Choose Replace all to overwrite your current data. Cancel merges the backup instead; its days overwrite matching dates.", { days, mixed: data.profile ? ` ${t("and a profile")}` : "" }), confirm: t("Replace all"), danger: true });
         await importAll(data, replace ? "replace" : "merge");
@@ -296,7 +296,7 @@ export function render(el) {
       } catch (err) {
         toast(t("That file isn't a backup from this app"), { icon: "info" });
       }
-      t.value = "";
+      target.value = "";
     }
   });
 

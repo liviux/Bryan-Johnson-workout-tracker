@@ -1,6 +1,7 @@
 // Hand-checked corrections from the German review. Applied last.
 export default {
   "Level": "Stufe",
+  "Band": "Widerstandsband",
   "Current level": "Aktuelle Stufe",
   "Your current level": "Ihre aktuelle Stufe",
   "Your level": "Ihre Stufe",

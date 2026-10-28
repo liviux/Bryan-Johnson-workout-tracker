@@ -31,6 +31,8 @@ Native inference runs in a child process with two CPU threads. A model failure c
 
 ## Script and playback
 
+Each voice request carries its voice ID, and the service loads that voice's language catalogue before building clip text or IDs. A translated voice therefore prepares its own recordings rather than English ones. Pace is a browser playback rate (1.06 for Brisk); both paces share the same recordings.
+
 `public/js/voice/script.js` is shared by Node and the browser. It reads the prescribed dose rather than the logger's `parseRx` heuristic. A pair of dumbbells remains equipment; minute prescriptions do not become sets. Tempo, per-side wording, ranges and technique clauses stay in the dose. Speech refers to the weights and heart-rate targets on screen, keeping personal profile values out of shared recordings. The server accepts known exercise IDs, enum choices and bounded numeric values. There is no endpoint accepting arbitrary speech text.
 
 Each shared pack covers all four levels, both unit systems, add-ons and easier alternatives. Personal weights and heart rates stay on screen. Changing personal details does not require different recordings.

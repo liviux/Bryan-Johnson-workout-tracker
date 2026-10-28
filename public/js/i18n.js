@@ -20,9 +20,11 @@ export const LANGUAGES = [
 
 const byId = new Map(LANGUAGES.map((language) => [language.id, language]));
 let current = "en";
+let loaded = "en";
 let catalogue = {};
 let translatedValues = new Set();
 let loading = null;
+let loadSeq = 0;
 const listeners = new Set();
 const objectCache = new WeakMap();
 
@@ -53,6 +55,8 @@ export function normaliseLanguage(value) {
 // Server-side pack builders import a catalogue and switch to it without a DOM.
 export function useCatalogue(id, map) {
   current = normaliseLanguage(id);
+  loaded = current;
+  loading = null;
   catalogue = map || {};
   translatedValues = new Set(Object.values(catalogue));
   return current;
@@ -62,13 +66,20 @@ export function useCatalogue(id, map) {
 // no file; every other language returns a plain source-string → translation map.
 export async function setLanguage(value, { silent = false } = {}) {
   const id = normaliseLanguage(value);
-  if (id !== current) {
+  const seq = ++loadSeq;
+  if (id !== loaded) {
     current = id;
-    catalogue = {};
-    translatedValues = new Set();
-    loading = id === "en" ? Promise.resolve() : import(`./locales/${id}.js`).then((module) => { catalogue = module.default || {}; translatedValues = new Set(Object.values(catalogue)); }).catch((err) => { console.warn(`Language ${id}:`, err.message); catalogue = {}; translatedValues = new Set(); });
+    loading = id === "en" ? Promise.resolve().then(() => { if (seq === loadSeq) { catalogue = {}; translatedValues = new Set(); loaded = "en"; } }) : import(`./locales/${id}.js`).then((module) => {
+      if (seq !== loadSeq) return;
+      catalogue = module.default || {};
+      translatedValues = new Set(Object.values(catalogue));
+      loaded = id;
+    }).catch((err) => { console.warn(`Language ${id}:`, err.message); if (seq === loadSeq) { loaded = ""; } });
+  } else {
+    current = id;
   }
   await loading;
+  if (seq !== loadSeq || current !== id) return current;
   if (typeof document !== "undefined") {
     document.documentElement.lang = languageInfo().locale;
     document.documentElement.dir = languageInfo().rtl ? "rtl" : "ltr";
@@ -184,7 +195,7 @@ export function watchTranslations() {
 
 // Plan objects are wrapped once. Reading a display string returns the current
 // language's version; ids, urls, enum values and numbers pass through.
-const RAW_KEYS = new Set(["id", "ex", "u", "k", "s", "icon", "color", "log", "type", "kind", "scope", "equipment", "muscles", "cats", "mode", "optional", "tier", "key", "url", "session", "date", "variant"]);
+const RAW_KEYS = new Set(["id", "ex", "u", "c", "k", "s", "icon", "color", "log", "type", "kind", "scope", "equipment", "muscles", "cats", "mode", "optional", "tier", "key", "url", "session", "date", "variant"]);
 
 function localizeValue(value, parentKey = "") {
   if (typeof value === "string") return RAW_KEYS.has(parentKey) ? value : translate(value);

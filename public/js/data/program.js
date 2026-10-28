@@ -1,5 +1,6 @@
 import { localized } from "../i18n.js";
 import { splitItems } from "./split-items.js";
+import { blockKindFromName } from "./block-kinds.js";
 
 // The weekly program: the six training days and their doses per training level.
 // rx and mins arrays are [New to training, Returning, Active, Well trained] (the
@@ -933,6 +934,8 @@ export const DAYS = localized([
     blocks: [],
   },
 ]);
+
+for (const day of DAYS) for (const block of day.blocks) block.kind = blockKindFromName(block.name);
 
 for (const day of DAYS) for (const block of day.blocks) {
   for (const item of block.items) {

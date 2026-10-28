@@ -2,6 +2,7 @@
 // scripts/i18n-core.mjs still wins for the small set of shared UI words.
 export default {
   ", optional)": ", opțional)",
+  "Band": "Bandă elastică",
   "· counts toward your weekly minutes": "· contează pentru minutele săptămânale",
   "(estimated from your age)": "(estimată din vârstă)",
   "(only used to scale starting weights)": "(folosit doar pentru a estima greutățile de pornire)",

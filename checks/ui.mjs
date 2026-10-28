@@ -15,14 +15,14 @@ import { state } from "../public/js/store.js";
 import { render } from "../public/js/views/plan.js";
 
 state.profile = defaultProfile();
-const host = { innerHTML: "" };
+const host = { innerHTML: "", querySelectorAll: () => [], querySelector: () => null };
 render(host);
 assert(!host.innerHTML.includes("=&gt;") && !host.innerHTML.includes("=>"), "The week must contain totals, never function source");
 assert.equal((host.innerHTML.match(/<b>\d+\.\d h<\/b>/g) || []).length, 4);
 assert(TIMELINE.every((item) => item.date && item.links?.length && item.links.every((link) => link.u.startsWith("https://"))));
 assert.equal(newestFirst(TIMELINE)[0].date, "2026-10-14");
 
-assert.equal(filterExercises().length, Object.keys(EXERCISES).length);
+assert.equal(filterExercises().length, Object.values(EXERCISES).filter((ex) => !ex.hidden).length);
 assert(filterExercises({ equipment: "none" }).every(([, ex]) => !ex.equipment?.length));
 assert(filterExercises({ equipment: "band", muscle: "shoulders" }).every(([, ex]) => ex.equipment.includes("band") && ex.muscles.includes("shoulders")));
 assert(filterExercises({ origin: "classic" }).every(([, ex]) => ex.classic));
@@ -35,13 +35,13 @@ assert.deepEqual(filterExercises({ sort: "reverse" }).map(([, ex]) => ex.name), 
 const sources = [{ t: "Old", date: "2023" }, { t: "Unknown" }, { t: "Newest", date: "2026-05-26" }, { t: "Month", date: "2026-04" }];
 assert.deepEqual(newestFirst(sources).map((s) => s.t), ["Newest", "Month", "Old", "Unknown"]);
 assert.equal(sources[0].t, "Old");
-assert.equal(sourceDate("2026-05-26"), "26 May 2026");
+assert.equal(sourceDate("2026-05-26"), "May 26, 2026");
 assert.equal(sourceDate("2023-07"), "Jul 2023");
 assert.equal(sourceDate("2023"), "2023");
 assert.equal(sourceDate(), "Undated");
 assert(sourceListHtml([{ t: "Safe <title>", u: "https://example.com", date: "2023" }]).includes("Safe &lt;title&gt;"));
-assert.equal(ANIM_STYLES.length, 17);
-assert.equal(ANIM_STYLES.filter((s) => s.tech === "3d").length, 7);
+assert.equal(ANIM_STYLES.length, 21);
+assert.equal(ANIM_STYLES.filter((s) => s.tech === "3d").length, 9);
 assert.equal(new Set(EXTRA_TYPES.map((t) => t.id)).size, EXTRA_TYPES.length);
 assert(EXTRA_TYPES.length >= 30);
 for (const id of ["desk", "walk", "hike", "bike", "run", "swim", "sport", "other"]) assert(EXTRA_TYPES.some((t) => t.id === id));

@@ -1,5 +1,6 @@
 import { localized } from "../i18n.js";
 import { MOVEMENTS } from "./movements.js";
+import { EXTRA_VIDEOS, CLIP_VIDEOS, SHORT_TRIM } from "./extra-videos.js";
 
 // Every exercise in the plan.
 //
@@ -1755,6 +1756,28 @@ export const EXERCISES = localized({
     ],
   },
 });
+
+// Three demo videos per exercise. The additions and the short trims live in
+// extra-videos.js so the large exercise entries stay readable.
+for (const [id, vids] of Object.entries(EXTRA_VIDEOS)) {
+  const ex = EXERCISES[id];
+  if (ex) ex.videos = [...(ex.videos || []), ...vids];
+}
+for (const [parent, groups] of Object.entries(CLIP_VIDEOS)) {
+  const ex = EXERCISES[parent];
+  if (!ex || !Array.isArray(ex.clipVideos)) continue;
+  for (const [index, vids] of Object.entries(groups)) {
+    const clip = ex.clipVideos[Number(index)];
+    if (clip) clip.videos = [...(clip.videos || []), ...vids];
+  }
+}
+for (const [key, trim] of Object.entries(SHORT_TRIM)) {
+  const [parent, index] = key.split(":");
+  const ex = EXERCISES[parent];
+  const group = index == null ? ex : ex && ex.clipVideos && ex.clipVideos[Number(index)];
+  const entry = group && group.videos && group.videos[trim.index];
+  if (entry && entry.e == null) entry.e = (entry.s || 0) + trim.seconds;
+}
 
 // Keep the old ids readable for saved logs and bookmarks.
 for (const [id, movement] of Object.entries(MOVEMENTS)) {

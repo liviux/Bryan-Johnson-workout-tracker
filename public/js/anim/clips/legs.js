@@ -145,7 +145,7 @@ function poliquin(d) {
   // d = 0: standing tall on the left leg, right leg straight in front; 1: heel tap
   const free = d < 0.5
     ? { footR: [-0.07, 0.18, 0.29], toeR: -12 }
-    : { footR: toesUp(-0.08, 0.255, 22), toeR: -22 };
+    : { footR: footAt("R", "heel", [-0.08, 0, 0.255], -22), toeR: -22 };
   return {
     root: mix([0.05, 0.993, 0.0], [0.05, 0.81, -0.02], d),
     rot: [2 + 10 * d, 0, -1.5 * d],

@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.41.0] - 2026-10-28
+
+### Added
+- Three demonstration videos for every exercise: two technique videos and one short, focused clip. When Bryan has a video it still opens first and stays the default.
+- A band picker on band exercises, with the six FitBeast colours and their resistance ranges, plus a custom value. It sits on the same row as reps and weight.
+- Bold separators between the set inputs on Today and in guided workouts.
+- A small **Bryan** hint beside the Videos tab when the exercise has a Bryan video.
+
+### Changed
+- Short clips are labelled **Short** in the video list.
+- The language picker sits above Voice coach in Settings.
+
+### Fixed
+- Daily readiness buttons now update the day and show the scaled level.
+- Romanian and the other translated coach voices prepare the right language, and **Download local voice** no longer starts an unrelated English model.
+- Changing **Pace** or **Coaching** in Voice coach now saves the new choice.
+- A playing video stops when you switch to another exercise or another guided tab.
+- Translated workout doses set the same timers and defaults as English.
+- Backup import, extra-activity removal, level-down and desk-break messages, and the Next time suggestion work again.
+- Equipment categories stay visible after changing language, balance days still count, and themed block colours keep their kind.
+- The inline timer stops when you leave an exercise.
+- The Poliquin heel tap meets the floor again.
+
 ## [1.40.0] - 2026-10-28
 
 ### Added

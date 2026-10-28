@@ -48,6 +48,9 @@ function add(value) {
   if (/^["']|["']$|\.querySelector|\?\.|viewBox|stroke-|\baria-[a-z]+=|\bdata-[a-z-]+=?|<[a-z/]|\bclass=|\bstyle=|\bxmlns=|\bfont-|\bwidth=|\bheight=|\bpath\b/.test(text)) return;
   if (/^[A-Za-z0-9_-]{11}$/.test(text) && /\d/.test(text)) return;
   if (!/[A-Za-zÀ-ž\u0900-\u097F\u4e00-\u9fff]{2}/.test(text)) return;
+  if (/^[a-z]+:\d+$/.test(text)) return;
+  if (/^[a-z][a-zA-Z0-9]*$/.test(text) && /[A-Z]/.test(text)) return;
+  if (/^[a-z-]+:$/.test(text)) return;
   keys.add(text);
 }
 
@@ -111,7 +114,7 @@ function files(dir) {
   for (const name of readdirSync(dir)) {
     const file = path.join(dir, name);
     if (statSync(file).isDirectory()) { if (!["anim", "voice"].includes(name)) files(file); }
-    else if (name.endsWith(".js")) uiFiles.push(file);
+    else if (name.endsWith(".js") && !["rx.js", "block-kinds.js", "util.js", "i18n.js"].includes(name)) uiFiles.push(file);
   }
 }
 files(path.join(root, "public/js"));

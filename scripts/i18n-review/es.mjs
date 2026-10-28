@@ -1,6 +1,7 @@
 // Hand-checked corrections from the Spanish language review. Applied last.
 export default {
   "(0:00) · Dedicated clip demonstrating this exercise from the start.": "(0:00) · Clip dedicado que demuestra este ejercicio desde el principio.",
+  "Band": "Banda elástica",
   "{count} {unit} left": "Quedan {count} {unit}",
   "{count} logged today": "{count} registrados hoy",
   "{met}/{total} met": "{met}/{total} cumplidos",

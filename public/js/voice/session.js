@@ -20,6 +20,7 @@ export function createGuidedVoice(date, steps, statusEl) {
   const prepared = new Map();
   const stepKey = (step) => `${step.scope}:${step.item.id}`;
   const request = (step) => voiceRequest(step.item, step.level, getItemLog(date, step.scope, step.item.id) || {}, step.item.id === "fri-strength-rdl" && step.level === 3 ? 25 : state.profile?.settings?.restSec || 75);
+  const stepRequestKey = (step) => JSON.stringify([request(step), state.profile?.settings?.coachVoice, state.profile?.settings?.coachPace]);
   function getManifest(step) {
     const body = request(step);
     const key = JSON.stringify([body, state.profile?.settings?.coachVoice, state.profile?.settings?.coachPace]);
@@ -35,7 +36,7 @@ export function createGuidedVoice(date, steps, statusEl) {
     if (!steps[index] || !voiceEnabled()) { statusEl.textContent = ""; setVoicePreparing(false); return; }
     statusEl.textContent = PREPARING_VOICE;
     setVoicePreparing(true);
-    requestKey = JSON.stringify(request(steps[index]));
+    requestKey = stepRequestKey(steps[index]);
     try {
       if (!voiceStatus.installed) await refreshVoiceStatus();
       if (disposed || stamp !== token || !voiceEnabled()) return;
@@ -74,7 +75,7 @@ export function createGuidedVoice(date, steps, statusEl) {
     enter,
     changed() {
       const step = steps[index];
-      if (step && requestKey && requestKey !== JSON.stringify(request(step))) enter(index);
+      if (step && requestKey && requestKey !== stepRequestKey(step)) enter(index);
     },
     input() { lastInput = Date.now(); cancelTeaching(); },
     timer(value) { timerOpen = value; activity += 1; cancelVoice(); statusEl.textContent = ""; setVoicePreparing(false); },

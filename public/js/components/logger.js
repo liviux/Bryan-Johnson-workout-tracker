@@ -3,47 +3,20 @@
 
 import { CATEGORIES, EXERCISES } from "../data/exercises.js";
 import { INTERVAL_MOVES } from "../data/routines.js";
+import { bandById, bandOptionsHtml } from "../data/bands.js";
 import { state } from "../store.js";
 import { editDay, itemLog, loggedExerciseId, logLevel, rxFor, timerPresets } from "../plan.js";
 import { LEVELS, bpmRange, fmtWeight, kgUnit, personalize, suggestedKg } from "../personalize.js";
 import { esc, fmtShort } from "../util.js";
+import { parseRx } from "../rx.js";
 import { icon } from "./icons.js";
 import { openDialog, toast } from "./ui.js";
 import { t } from "../i18n.js";
 import { startCountdown, startHold, startIntervals, startRest } from "./timer.js";
 import { voiceRequest } from "../voice/player.js";
 
-// "3 × 8–10 @ …" → { sets: 3, reps: "8–10", seconds: null, perSide: false }
-// A load such as "12–16 kg" is not a rep count, so it is removed before the
-// prescription is read.
-export function parseRx(rx) {
-  const raw = rx || "";
-  const t = raw.replace(/\d+(?:[.,]\d+)?(?:\s*[–-]\s*\d+(?:[.,]\d+)?)?\s*(?:kg|lb)\b/gi, " ");
-  const out = { sets: 1, reps: "", seconds: null, minutes: null, perSide: /\/(side|leg|arm)\b/.test(raw), unit: "" };
-  const m = /(\d+)\s*×\s*(\d+)(?:–(\d+))?\s*(s\b|min\b)?/.exec(t);
-  if (m) {
-    out.sets = Number(m[1]);
-    if (m[4] === "s") out.seconds = Number(m[3] || m[2]);
-    else if (m[4] === "min") out.minutes = Number(m[2]);
-    else out.reps = m[3] ? `${m[2]}–${m[3]}` : m[2];
-  } else {
-    const r = /(\d+)(?:–(\d+))?\s*reps?\b/.exec(t);
-    if (r) out.reps = r[2] ? `${r[1]}–${r[2]}` : r[1];
-    const s = /(\d+)(?:–(\d+))?\s*s\b/.exec(t);
-    if (s) out.seconds = Number(s[2] || s[1]);
-    const mi = /(\d+)(?:–(\d+))?\s*min\b/.exec(t);
-    if (mi) out.minutes = Number(mi[1]);
-    if (/fatigue/.test(raw)) out.reps = "max";
-    else if (!out.reps && out.seconds == null && out.minutes == null) {
-      // "10/leg", "10 forward", "3 circles" and "10 breaths" are rep counts too.
-      const lead = /^\s*(?:≈\s*)?(\d+)(?:[.,]\d+)?(?:\s*[–-]\s*(\d+))?/.exec(raw);
-      if (lead) out.reps = lead[2] ? `${lead[1]}–${lead[2]}` : lead[1];
-    }
-  }
-  if (/breath/i.test(raw)) out.unit = "breaths";
-  else if (/circles?/i.test(raw)) out.unit = "circles";
-  return out;
-}
+export { parseRx };
+
 
 const toUnit = (kg) => (state.profile && state.profile.units === "imperial" ? Math.round(kg * 2.20462 * 10) / 10 : kg);
 const fromUnit = (v) => (state.profile && state.profile.units === "imperial" ? Math.round((v / 2.20462) * 10) / 10 : v);
@@ -282,7 +255,8 @@ export function summarizeLog(l, logType) {
       .map((s) => {
         const a = s.sec != null ? `${s.sec} s` : s.reps != null ? `${s.reps}` : "";
         const b = s.kg != null ? ` × ${toUnit(s.kg)} ${u}` : "";
-        return a + b;
+        const band = s.band === "custom" ? s.bandCustom : bandById(s.band)?.name;
+        return a + b + (band ? ` · ${band}` : "");
       });
     if (parts.length) return parts.join(" · ");
   }
@@ -299,6 +273,7 @@ export function renderLogger(container, ctx) {
   const restSec = item.id === "fri-strength-rdl" && level === 3 ? 25 : (p && p.settings && p.settings.restSec) || 75;
   const cardioRange = item.intensity === "light" ? [50, 60] : ex.intensity === "hard" ? [80, level === 1 ? 85 : 90] : [60, 70];
   const cardioLabel = item.intensity === "light" ? t("Easy pace") : ex.intensity === "hard" ? t("Vigorous") : t("Zone 2");
+  const hasBand = ex.band === true || (ex.equipment || []).includes("band");
 
   function draw() {
     const l = getItemLog(date, scope, item.id) || {};
@@ -325,6 +300,7 @@ export function renderLogger(container, ctx) {
       if (type === "reps" || type === "load" || (type === "check" && !timedCheck)) cols.push(["reps", checkLabel, target.reps || ""]);
       if (type === "hold" || type === "carry" || timedCheck) cols.push(["sec", t("Seconds"), target.seconds || ""]);
       if (type === "load" || type === "carry") cols.push(["kg", u, ""]);
+      if (hasBand) cols.push(["band", t("Band"), ""]);
       const timed = type === "hold" || type === "carry" || timedCheck;
       const n = Math.max(l.sets ? l.sets.length : 0, target.sets || 1);
       const sets = Array.from({ length: n }, (_, i) => (l.sets && l.sets[i]) || {});
@@ -335,6 +311,12 @@ export function renderLogger(container, ctx) {
               <span class="n">${t("Set {set}", { set: i + 1 })}</span>
               ${cols
                 .map(([k, label, ph]) => {
+                  if (k === "band") {
+                    const selected = s.band || "";
+                    const band = bandById(selected);
+                    const custom = selected === "custom";
+                    return `<span class="set-field band-field"><span>${esc(label)}</span><span class="band-dot" style="${band ? `background:${band.color}` : ""}" aria-hidden="true"></span><select class="input band-pick" data-set="${i}" data-k="band" aria-label="${esc(t("Set {set} band", { set: i + 1 }))}"><option value="">${t("None")}</option>${bandOptionsHtml(p?.units, selected)}<option value="custom"${custom ? " selected" : ""}>${t("Custom")}</option></select>${custom ? `<input class="input num band-custom" data-set="${i}" data-k="bandCustom" value="${esc(s.bandCustom || "")}" placeholder="${esc(u)}" aria-label="${esc(t("Set {set} custom band value", { set: i + 1 }))}">` : ""}</span>`;
+                  }
                   const plan = defaults[k];
                   const blank = s[k] == null;
                   const v = blank ? (plan ?? "") : k === "kg" ? toUnit(s[k]) : s[k];
@@ -343,7 +325,7 @@ export function renderLogger(container, ctx) {
                   const hint = isPlan ? t("Plan default: {value}", { value: planText }) : ph ? t("Plan: {value}", { value: ph }) : "";
                   return `<label class="set-field"><span>${esc(label)}</span><input class="input num" inputmode="decimal" data-set="${i}" data-k="${k}" value="${esc(v)}" placeholder="${esc(ph && !isPlan ? ph : "")}"${isPlan ? ' data-default="true"' : ""}${hint ? ` title="${esc(hint)}"` : ""} aria-label="${esc(t("Set {set} {field}", { set: i + 1, field: label }))}"></label>`;
                 })
-                .join("")}
+                .join('<span class="set-sep" aria-hidden="true">×</span>')}
               <span class="set-actions${timed ? " has-timer" : ""}">
                 <span class="set-timer-cell">
                   <span class="timer-slot"></span>
@@ -496,6 +478,10 @@ export function renderLogger(container, ctx) {
       save((l) => {
         l.sets = l.sets || [];
         while (l.sets.length <= i) l.sets.push({});
+        if (k === "band" || k === "bandCustom") {
+          l.sets[i][k] = t.value || null;
+          return;
+        }
         const v = num(t.value);
         l.sets[i][k] = v == null ? null : k === "kg" ? fromUnit(v) : v;
         if (v != null && ctx.setIndex == null) l.done = true;
@@ -537,6 +523,15 @@ export function renderLogger(container, ctx) {
   // Rest timer after you log the reps of a set.
   container.addEventListener("change", (e) => {
     const t = e.target;
+    if (t.dataset.k === "band") {
+      save((l) => {
+        l.sets = l.sets || [];
+        while (l.sets.length <= Number(t.dataset.set)) l.sets.push({});
+        l.sets[Number(t.dataset.set)].band = t.value || null;
+      });
+      draw();
+      return;
+    }
     if (t.dataset.intervalMove != null) {
       const index = Number(t.dataset.intervalMove);
       if (![0, 1].includes(index) || (t.value && !INTERVAL_MOVES.includes(t.value))) return;
@@ -633,10 +628,10 @@ export function renderLogger(container, ctx) {
   function useSuggestion(b) {
     const kind = b.dataset.useKind;
     const v = Number(b.dataset.useValue);
-    const t = currentTarget();
+    const target = currentTarget();
     save((l) => {
       l.sets = l.sets || [];
-      const n = Math.max(l.sets.length, t.sets || 1);
+      const n = Math.max(l.sets.length, target.sets || 1);
       while (l.sets.length < n) l.sets.push({});
       for (const s of l.sets) {
         if (kind === "kg" && s.kg == null) s.kg = v;

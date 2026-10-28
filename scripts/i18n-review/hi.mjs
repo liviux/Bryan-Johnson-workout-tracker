@@ -1,6 +1,7 @@
 // Hand-checked corrections from the Hindi review. Applied last.
 export default {
   "Bird dog": "बर्ड डॉग",
+  "Band": "रेज़िस्टेंस बैंड",
   "Bird dog: mistakes and variations": "बर्ड डॉग: गलतियाँ और वेरिएशन",
   "How to do a bird dog": "बर्ड डॉग कैसे करें",
   "Dead bug": "डेड बग",

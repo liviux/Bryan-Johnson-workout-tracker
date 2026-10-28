@@ -3,19 +3,34 @@ import { esc, uid } from "../util.js";
 import { icon } from "./icons.js";
 import { t } from "../i18n.js";
 
+// Saved categories use the English source keys so changing language never moves
+// equipment into a different section.
+const CATEGORY_KEYS = ["Strength", "Mobility & floor work", "Cardio & monitoring", "Massage", "Other"];
+function categoryKey(value) {
+  const index = EQUIPMENT_CATEGORIES.indexOf(value);
+  if (index >= 0) return CATEGORY_KEYS[index];
+  return CATEGORY_KEYS.includes(value) ? value : "Other";
+}
+
 export function createEquipmentEditor(host, { profile, save }) {
   const inventory = () => Array.isArray(profile().equipment) ? profile().equipment : [];
   const recommendations = () => RECOMMENDED_EQUIPMENT.map((g) => ({ ...g, id: "recommended-" + g.type, owned: false, url: "" }));
   const rows = () => {
     const saved = inventory();
-    return [...recommendations().map((g) => ({ ...g, ...saved.find((x) => x.id === g.id) })), ...saved.filter((g) => g && !recommendations().some((r) => r.id === g.id))];
+    return [...recommendations().map((g) => {
+      const row = { ...g, ...saved.find((x) => x.id === g.id) };
+      // Recommended items keep their built-in section even if an older profile
+      // saved the label in another language.
+      row.category = g.category;
+      return row;
+    }), ...saved.filter((g) => g && !recommendations().some((r) => r.id === g.id))];
   };
   const options = (values) => values.map(([id, name]) => `<option value="${esc(id)}">${esc(name)}</option>`).join("");
 
   function draw() {
     host.innerHTML = `<div class="equipment-editor">
       <p class="muted">${t("Your equipment list is optional. Tick what you own, then add a name and optional product link. You can add equivalent equipment below. These details stay in your inventory; exercise instructions use generic names.")}</p>
-      ${EQUIPMENT_CATEGORIES.map((category) => `<details class="equipment-category" open><summary>${esc(t(category))}</summary><div class="equipment-grid">${rows().filter((g) => (EQUIPMENT_CATEGORIES.includes(g.category) ? g.category : "Other") === category).map((g) => `<article class="equipment-row" data-equipment-id="${esc(g.id)}">        <label class="equipment-owned"><input type="checkbox" data-equipment-field="owned" ${g.owned ? "checked" : ""}> <b>${esc(RECOMMENDED_EQUIPMENT.find((r) => r.type === g.type)?.name || t("Extra equipment"))}</b></label>
+      ${CATEGORY_KEYS.map((key, index) => `<details class="equipment-category" open><summary>${esc(t(CATEGORY_KEYS[index]))}</summary><div class="equipment-grid">${rows().filter((g) => categoryKey(g.category) === key).map((g) => `<article class="equipment-row" data-equipment-id="${esc(g.id)}">        <label class="equipment-owned"><input type="checkbox" data-equipment-field="owned" ${g.owned ? "checked" : ""}> <b>${esc(RECOMMENDED_EQUIPMENT.find((r) => r.type === g.type)?.name || t("Extra equipment"))}</b></label>
         ${g.description ? `<p class="muted">${esc(g.description)}</p>` : ""}
         <label class="field"><span>${t("Name")}</span><input class="input" data-equipment-field="name" value="${esc(g.name || "")}" maxlength="200" required></label>
         <label class="field"><span>${t("Product link (optional)")}</span><input class="input" type="url" data-equipment-field="url" value="${esc(g.url || "")}" placeholder="https://…" maxlength="2000"><small data-equipment-error role="status"></small></label>
@@ -24,7 +39,7 @@ export function createEquipmentEditor(host, { profile, save }) {
       </article>`).join("") || `<p class="muted">${t("Add your own equipment below.")}</p>`}</div></details>`).join("")}
       <form data-add-equipment class="card card-pad" style="display:grid;gap:12px">
         <h4>${t("Add equipment")}</h4>
-        <label class="field"><span>${t("Category")}</span><select class="input" name="category">${options(EQUIPMENT_CATEGORIES.map((g) => [g, t(g)]))}</select></label>
+        <label class="field"><span>${t("Category")}</span><select class="input" name="category">${options(CATEGORY_KEYS.map((key, index) => [key, t(EQUIPMENT_CATEGORIES[index])]))}</select></label>
         <label class="field"><span>${t("Name")}</span><input class="input" name="name" required maxlength="200" placeholder="${esc(t("Your equipment or equivalent"))}"></label>
         <label class="field"><span>${t("Product link (optional)")}</span><input class="input" type="url" name="url" maxlength="2000" placeholder="https://…"></label>
         <button class="btn" type="submit">${icon("plus")} ${t("Add equipment")}</button>
@@ -50,7 +65,7 @@ export function createEquipmentEditor(host, { profile, save }) {
       p.equipment = inventory().slice();
       const index = p.equipment.findIndex((g) => g.id === entry.id);
       const { id, type, category, name, url, owned, note } = entry;
-      const updated = { id, type, category, name, url, owned, ...(note ? { note } : {}), [field]: value };
+      const updated = { id, type, category: categoryKey(category), name, url, owned, ...(note ? { note } : {}), [field]: value };
       if (index < 0) p.equipment.push(updated);
       else p.equipment[index] = updated;
     });

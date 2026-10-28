@@ -12,6 +12,7 @@ import { EQUIPMENT_NAMES, icon } from "./icons.js";
 import { getItemLog, renderLogger } from "./logger.js";
 import { createStagePanel } from "./stage-panel.js";
 import { renderVideos, videoGroupsFor, videosFor } from "./video.js";
+import { stopInlineTimer } from "./timer.js";
 
 const MUSCLE_NAMES = {
   quads: "Quads", hamstrings: "Hamstrings", adductors: "Inner thighs", glutes: "Glutes", hips: "Hips", calves: "Calves",
@@ -55,6 +56,7 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
     });
     host.hidden = !tabOpen;
     if (!tabOpen) {
+      videoCtrl?.destroy();
       videoCtrl = null;
       host.innerHTML = "";
       return;
@@ -70,6 +72,7 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
         onPlay: () => stage.setAutoAdvance(false),
       });
     } else {
+      videoCtrl?.destroy();
       videoCtrl = null;
       host.innerHTML = exerciseInfoHtml(ex);
     }
@@ -82,7 +85,12 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
     if (!ex) return;
     const p = state.profile;
     if (!sameExercise) movement = ex.routine ? routineSteps(ctx.item || { ex: ctx.exId }, ctx.level || 0, ctx.date ? getItemLog(ctx.date, ctx.scope || "main", ctx.item?.id) || {} : {})[0]?.ex : null;
-    if (!sameExercise) stage.load(movement || ctx.exId);
+    if (!sameExercise) {
+      stopInlineTimer();
+      videoCtrl?.destroy();
+      videoCtrl = null;
+      stage.load(movement || ctx.exId);
+    }
     const item = ctx.item;
     const itemLog = item && ctx.date ? getItemLog(ctx.date, ctx.scope || "main", item.id) : null;
     const rx = item ? personalize((itemLog && itemLog.rxOverride) || rxFor(item, ctx.level), p) : "";
@@ -104,12 +112,12 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
       ${mode === "log" && item && ctx.date ? '<div class="logger-host"></div>' : ""}
       ${mode !== "log" ? `<div class="tabs" role="tablist">
         <button type="button" role="tab" data-tab="how">How to</button>
-        <button type="button" role="tab" data-tab="videos">${t("Videos ({count}{bryan})", { count: vids.length, bryan: bryanCount ? t(", {count} with Bryan", { count: bryanCount }) : "" })}</button>
+        <button type="button" role="tab" data-tab="videos" aria-label="${esc(t("Videos ({count}{bryan})", { count: vids.length, bryan: bryanCount ? t(", {count} with Bryan", { count: bryanCount }) : "" }))}">${t("Videos")}${bryanCount ? ` <small class="tab-bryan">${t("Bryan")}</small>` : ""}</button>
       </div>` : ""}
       <div class="tab-body" role="tabpanel"${mode === "log" ? " hidden" : ""}></div>`;
     const toolActions = () => `
       <button type="button" class="btn sm ghost" data-tab="how" aria-selected="${tabOpen && tab === "how"}" aria-expanded="${tabOpen && tab === "how"}">${icon("list", "sm")} ${t("How to")}</button>
-      <button type="button" class="btn sm ghost" data-tab="videos" aria-selected="${tabOpen && tab === "videos"}" aria-expanded="${tabOpen && tab === "videos"}" aria-label="${t("Videos ({count}{bryan})", { count: vids.length, bryan: bryanCount ? t(", {count} with Bryan", { count: bryanCount }) : "" })}">${icon("video", "sm")} ${t("Videos")}</button>`;
+      <button type="button" class="btn sm ghost" data-tab="videos" aria-selected="${tabOpen && tab === "videos"}" aria-expanded="${tabOpen && tab === "videos"}" aria-label="${t("Videos ({count}{bryan})", { count: vids.length, bryan: bryanCount ? t(", {count} with Bryan", { count: bryanCount }) : "" })}">${icon("video", "sm")} ${t("Videos")}${bryanCount ? ` <small class="tab-bryan">${t("Bryan")}</small>` : ""}</button>`;
     const lh = body.querySelector(".logger-host");
     if (lh)
       renderLogger(lh, {
@@ -158,7 +166,12 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
     get current() {
       return current;
     },
-    dispose: () => stage.dispose(),
+    dispose: () => {
+      stopInlineTimer();
+      videoCtrl?.destroy();
+      videoCtrl = null;
+      stage.dispose();
+    },
     pause: () => stage.pause(),
   };
 }

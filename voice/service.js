@@ -13,11 +13,25 @@ import { EXERCISES } from "../public/js/data/exercises.js";
 import { INTERVAL_MOVES, intervalPhases } from "../public/js/data/routines.js";
 import { rxFor, timerPresets } from "../public/js/plan.js";
 import { defaultProfile, LEVELS, levelIndex, personalize } from "../public/js/personalize.js";
-import { language, setLanguage, t as tr } from "../public/js/i18n.js";
+import { useCatalogue, language, t as tr } from "../public/js/i18n.js";
+import ro from "../public/js/locales/ro.js";
+import de from "../public/js/locales/de.js";
+import it from "../public/js/locales/it.js";
+import fr from "../public/js/locales/fr.js";
+import es from "../public/js/locales/es.js";
+import zh from "../public/js/locales/zh.js";
+import hi from "../public/js/locales/hi.js";
+import ar from "../public/js/locales/ar.js";
+import bn from "../public/js/locales/bn.js";
+
+// The voice service builds one language at a time. The catalogue follows the
+// requested voice, not the last browser request.
+const CATALOGUES = { en: {}, ro, de, it, fr, es, zh, hi, ar, bn };
+const useVoiceLanguage = (voice) => useCatalogue(voice?.lang || "en", CATALOGUES[voice?.lang || "en"] || {});
 
 const catalog = new Map();
-for (const block of DAYS.flatMap((d) => d.blocks)) for (const item of block.items) catalog.set(item.id, { item, block: block.name });
-for (const addon of ADDONS) for (const variant of Object.values(addon.variants)) for (const item of variant.items) catalog.set(item.id, { item, block: addon.name, addon: addon.id });
+for (const block of DAYS.flatMap((d) => d.blocks)) for (const item of block.items) catalog.set(item.id, { item, block: block.name, strength: /strength/i.test(block.name) });
+for (const addon of ADDONS) for (const variant of Object.values(addon.variants)) for (const item of variant.items) catalog.set(item.id, { item, block: addon.name, addon: addon.id, strength: false });
 const clips = new Map();
 const pending = new Map();
 let worker = null;
@@ -90,12 +104,13 @@ export function prepareManifest(body, savedProfile = {}) {
   if (!body || typeof body !== "object" || Array.isArray(body)) bad("Expected a voice request");
   const voice = voiceById(body.voice || "af_heart");
   if (!voice || ![undefined, "steady", "brisk"].includes(body.pace)) bad("Unknown voice or pace");
+  useVoiceLanguage(voice);
   const speed = body.pace === "brisk" ? 1.06 : 1;
   const cue = (text) => clip(text, voice, speed);
   if (body.preview === true) return { preview: cue(tr(PREVIEW)) };
   const entry = catalog.get(body.itemId);
   if (!entry || !integer(body.level, 0, 3)) bad("Unknown workout step or level");
-  const { item, block } = entry;
+  const { item, block, strength } = entry;
   const ex = EXERCISES[item.ex];
   const profile = { ...defaultProfile(), ...savedProfile };
   // Pending browser edits may not be saved yet. Only numeric and enum inputs cross this boundary.
@@ -123,7 +138,7 @@ export function prepareManifest(body, savedProfile = {}) {
     intro: script.intro.map(cue), safety: script.safety.map(cue),
     how: script.how.map((text) => clip(text, voice, 1)), sets: script.sets.map(cue),
     block: cue(tr("{block} is next.", { block: speechText(block, profile) })),
-    effort: /strength/i.test(block) ? cue(tr(EFFORT[body.level])) : null,
+    effort: strength ? cue(tr(EFFORT[body.level])) : null,
     rest: language() === "en" ? joinedClip(["Rest for", ...durationParts(seconds), "Continue when you are ready."], voice, speed) : joinedClip([tr("Rest for {duration}. Continue when you are ready.", { duration: durationText(seconds) })], voice, speed), next: cue(tr("Next is {name}.", { name: script.name })),
     back: cue(tr("Back to {name}.", { name: script.name })),
     clock: Object.fromEntries(Object.entries(CLOCK).map(([key, text]) => [key, cue(tr(text))])),
@@ -169,6 +184,9 @@ export function prepareManifest(body, savedProfile = {}) {
 
 export function buildVoicePack(body, savedProfile = {}) {
   if (!body || typeof body !== "object" || Array.isArray(body)) bad("Expected a voice cache request");
+  const voice = voiceById(body.voice || "af_heart");
+  if (!voice) bad("Unknown voice");
+  useVoiceLanguage(voice);
   const profile = { ...defaultProfile(), ...savedProfile };
   const level = body.level ?? levelIndex(profile);
   if (!integer(level, 0, 3)) bad("Invalid training level");
@@ -341,21 +359,29 @@ export async function handleVoice(req, res, pathname, { readBody, send, fail, pr
     const shared = bundled(voice);
     const ready = shared || await modelInstalled();
     if (ready && !installer) voiceCache.resume();
-    return send(res, 200, { installed: ready, installing: !!installer, error: !!engineError, message: installer ? installMessage : engineError || installMessage || (shared ? "Recorded coach voices are included. Audio works offline." : ready ? "Local voice is ready. Speech works offline." : "Download the local voice to hear coaching."), model: MODEL, cacheEnabled: voiceCache.packs.size > 0, cache: cacheStatus(voice) });
+    return send(res, 200, { known: true, voice, installed: ready, installing: !!installer, error: !!engineError, message: installer ? installMessage : engineError || installMessage || (shared ? "Recorded coach voices are included. Audio works offline." : ready ? "Local voice is ready. Speech works offline." : "Download the local voice to hear coaching."), model: MODEL, cacheEnabled: voiceCache.packs.has(voice), cache: cacheStatus(voice) });
   }
   if (pathname === "/api/voice/cache" && method === "POST") {
     const body = await readBody(req);
-    const requested = buildVoicePack(body, await profile());
-    const voice = body.voice || "af_heart";
+    const voice = body?.voice || "af_heart";
+    if (!voiceById(voice)) return fail(res, 400, "Unknown voice");
     if (installer || (!bundled(voice) && !await modelInstalled())) return fail(res, 409, "Install the local voice first");
-    await voiceCache.start(voice, bundled(voice) ? await sharedEntries(voice) : requested);
+    if (bundled(voice)) await voiceCache.start(voice, await sharedEntries(voice));
+    else await voiceCache.start(voice, buildVoicePack(body, await profile()));
     if (voice !== "af_heart" && !voiceCache.packs.has("af_heart")) {
-      await voiceCache.start("af_heart", bundled("af_heart") ? await sharedEntries("af_heart") : buildVoicePack({ ...body, voice: "af_heart" }, await profile()));
+      await voiceCache.start("af_heart", await sharedEntries("af_heart"));
       voiceCache.selected = voice;
     }
     return send(res, 202, { cacheEnabled: true, cache: cacheStatus(voice) });
   }
   if (pathname === "/api/voice/install" && method === "POST") {
+    const body = await readBody(req).catch(() => null);
+    const voice = voiceById(body?.voice || "af_heart");
+    if (!voice) return fail(res, 400, "Unknown voice");
+    // Translated voices and every included English voice already have shared
+    // recordings. The speech model is only for rebuilds and old checkouts.
+    if (bundled(voice.id)) return send(res, 200, { installed: true, installing: false, message: "Recorded coach voices are included. Audio works offline." });
+    if (voice.engine === "edge") return fail(res, 409, "This language's coach audio is missing. Update the app's voice packs.");
     if (!installer) {
       if (worker || pending.size) return fail(res, 409, "Finish the voice preview or workout before reinstalling.");
       installMessage = "Installing the local speech runtime…";
@@ -365,7 +391,7 @@ export async function handleVoice(req, res, pathname, { readBody, send, fail, pr
       installer.once("error", (err) => { installMessage = `Voice installation failed: ${err.message}`; installer = null; });
       installer.once("exit", () => { installer = null; });
     }
-    return send(res, 202, { message: installMessage });
+    return send(res, 202, { installed: false, installing: true, message: installMessage });
   }
   if (pathname === "/api/voice/prepare" && method === "POST") return send(res, 200, prepareManifest(await readBody(req), await profile()));
   const match = pathname.match(/^\/api\/voice\/audio\/([a-f0-9]{64})\.wav$/);

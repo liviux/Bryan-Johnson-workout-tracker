@@ -16,7 +16,7 @@ const listeners = new Set();
 let cacheRequest = "";
 let pendingCache = "";
 export const PREPARING_VOICE = "Loading coach audio. Saved clips play as soon as they arrive. If this voice is still being cached, its progress is shown in Coach.";
-export const voiceStatus = { installed: false, installing: false, preparing: false, cacheEnabled: false, cache: null, message: "Checking local voice…", blocked: false };
+export const voiceStatus = { known: false, voice: null, installed: false, installing: false, preparing: false, cacheEnabled: false, cache: null, message: "Checking local voice…", blocked: false };
 const notify = () => { for (const fn of listeners) fn({ ...voiceStatus, speaking }); };
 export function onVoice(fn) { listeners.add(fn); fn({ ...voiceStatus, speaking }); return () => listeners.delete(fn); }
 export function setVoicePreparing(value) { voiceStatus.preparing = value; notify(); }
@@ -57,16 +57,16 @@ export function setVoiceEnabled(value) {
 }
 
 export async function refreshVoiceStatus() {
-  if (pendingCache) return voiceStatus;
+  if (pendingCache) { notify(); return voiceStatus; }
   const voice = selectedVoice().id;
   const requestedCache = cacheRequest;
   try {
     const response = await fetch(`/api/voice/status?voice=${voice}`, { cache: "no-store" });
     if (!response.ok) throw new Error();
     const result = await response.json();
-    if (pendingCache || selectedVoice().id !== voice || requestedCache !== cacheRequest) return voiceStatus;
-    Object.assign(voiceStatus, result);
-  } catch { voiceStatus.installed = false; voiceStatus.message = t("Start the local server to use voice coaching."); }
+    if (pendingCache || selectedVoice().id !== voice || requestedCache !== cacheRequest) { notify(); return voiceStatus; }
+    Object.assign(voiceStatus, result, { known: true, voice });
+  } catch { voiceStatus.known = false; voiceStatus.installed = false; voiceStatus.message = t("Start the local server to use voice coaching."); }
   notify();
   return voiceStatus;
 }
@@ -106,10 +106,11 @@ export async function cacheVoice({ activate = false } = {}) {
   notify();
 }
 export async function installVoice() {
-  const response = await fetch("/api/voice/install", { method: "POST" });
+  if (voiceStatus.installed && !voiceStatus.error) return;
+  const response = await fetch("/api/voice/install", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ voice: selectedVoice().id }) });
   const data = await response.json();
   if (!response.ok) throw new Error(data.error || t("Could not start the download."));
-  Object.assign(voiceStatus, { installing: true, message: data.message }); notify();
+  Object.assign(voiceStatus, { installing: !!data.installing, installed: !!data.installed, message: data.message }); notify();
 }
 
 export function voiceRequest(item, level, log = {}, restSec = 75) {

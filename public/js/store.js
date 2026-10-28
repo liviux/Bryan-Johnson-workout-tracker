@@ -195,6 +195,8 @@ export function newDay(date) {
     date,
     session: null, // program day key actually done (null = the weekday's own session)
     level: null, // training level id frozen when you first log the day (older days have phase 0–2 instead)
+    readiness: null, // "ready" | "tired" | "sore"
+    readinessLevel: null, // level override made by the readiness check, if any
     status: null, // "done" | "partial" | "skipped" | null
     skip: null, // { reason, note }
     items: {}, // item id → { done, sets: [{ reps, kg, sec }], cardio: { min, avg, max }, rounds, peak, note }

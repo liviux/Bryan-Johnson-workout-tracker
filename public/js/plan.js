@@ -7,7 +7,7 @@ import { EXERCISES } from "./data/exercises.js";
 import { ADDONS } from "./data/addons/index.js";
 import { state, updateDay } from "./store.js";
 import { LEVELS, levelIndex } from "./personalize.js";
-import { addDays, daysBetween, todayIso, weekdayKey } from "./util.js";
+import { addDays, daysBetween, normalizeDigits, todayIso, weekdayKey } from "./util.js";
 
 const scheduledItems = [...DAYS.flatMap((d) => d.blocks.flatMap((b) => b.items)), ...ADDONS.flatMap((a) => Object.values(a.variants).flatMap((v) => v.items))];
 const itemsById = new Map(scheduledItems.map((item) => [item.id, item]));
@@ -228,7 +228,7 @@ export function addonProgress(log, entry, lvl) {
 // ---------- stats ----------
 
 const firstNumber = (s) => {
-  const m = /(\d+(?:\.\d+)?)/.exec(s || "");
+  const m = /(\d+(?:\.\d+)?)/.exec(normalizeDigits(s) || "");
   return m ? Number(m[1]) : 0;
 };
 

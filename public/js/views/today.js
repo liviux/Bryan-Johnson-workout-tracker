@@ -21,6 +21,7 @@ import { weekTargets } from "../week-targets.js";
 import { confirmDialog, openDialog, ring, toast } from "../components/ui.js";
 import { blockKind, detailMode, sessionKind } from "../themes.js";
 import { unlockVoice } from "../voice/player.js";
+import { stopInlineTimer } from "../components/timer.js";
 import { t } from "../i18n.js";
 
 const ENERGY = ["Very low", "Low", "OK", "Good", "Great"];
@@ -79,7 +80,7 @@ export function render(el, params) {
       .map((b) => {
         const items = blockItems(b, level);
         if (!items.length) return "";
-        return `<section class="card block" data-kind="${blockKind(b.name)}">
+        return `<section class="card block" data-kind="${blockKind(b)}">
           <div class="block-head"><h3>${esc(b.name)}</h3><span class="eyebrow">${t("≈{count} min", { count: blockMins(b, level) })}</span></div>
           ${b.note ? `<p class="block-note">${esc(personalize(b.note, profile()))}</p>` : ""}
           <ul class="items">${itemRows(items, level, "main")}</ul>
@@ -592,8 +593,8 @@ export function render(el, params) {
   }
 
   el.addEventListener("click", async (e) => {
-    const t = e.target;
-    const tick = t.closest("[data-tick]");
+    const target = e.target;
+    const tick = target.closest("[data-tick]");
     if (tick) {
       const li = tick.closest(".item");
       const found = findItem(li.dataset.scope, li.dataset.id);
@@ -608,7 +609,7 @@ export function render(el, params) {
       if (panel && selected && selected.id === li.dataset.id) showPanel(selected);
       return;
     }
-    const periodic = t.closest("[data-periodic]");
+    const periodic = target.closest("[data-periodic]");
     if (periodic) {
       const aid = periodic.closest("[data-addon]").dataset.addon;
       editDay(date, (d) => {
@@ -618,12 +619,12 @@ export function render(el, params) {
       });
       return;
     }
-    const li = t.closest(".item");
-    if (li && !li.classList.contains("info") && !t.closest("input")) {
+    const li = target.closest(".item");
+    if (li && !li.classList.contains("info") && !target.closest("input")) {
       select(li.dataset.scope, li.dataset.id);
       return;
     }
-    const b = t.closest("button");
+    const b = target.closest("button");
     if (!b) return;
     if (b.hasAttribute("data-level-jump")) {
       const host = el.querySelector("[data-level-check-host]");
@@ -717,19 +718,25 @@ export function render(el, params) {
         d.readiness = pick;
         if (pick !== "ready" && curLvl > 0) {
           d.level = LEVELS[curLvl - 1].id;
+          d.readinessLevel = d.level;
         } else if (pick === "ready") {
           delete d.level;
+          delete d.readinessLevel;
         }
       });
-      toast(pick === "ready" ? t("Logged: Feeling 100%") : t("Scaled session to {level} for today", { level: LEVELS[curLvl > 0 ? curLvl - 1 : 0].name }));
       draw();
+      toast(pick === "ready" ? t("Logged: Feeling 100%") : curLvl > 0 ? t("Scaled session to {level} for today", { level: LEVELS[curLvl - 1].name }) : t("Taking it controlled today."));
     } else if (b.hasAttribute("data-readiness-reset")) {
       editDay(date, (d) => {
+        const currentId = LEVELS[levelIndex(profile())].id;
+        const scaled = d.readinessLevel || (d.readiness && d.level && d.level !== currentId ? d.level : null);
         delete d.readiness;
-        delete d.level;
+        delete d.readinessLevel;
+        // Only undo the level override that the readiness check itself made.
+        if (scaled && d.level === scaled) delete d.level;
       });
-      toast(t("Readiness reset to standard plan"));
       draw();
+      toast(t("Readiness reset to standard plan"));
     } else if (b.hasAttribute("data-readiness-dismiss")) {
       try {
         sessionStorage.setItem("hp:readiness-dismiss:" + date, "1");
@@ -805,29 +812,29 @@ export function render(el, params) {
   });
 
   el.addEventListener("change", (e) => {
-    const t = e.target;
-    if (t.matches("[data-x]") && t.tagName === "SELECT") {
-      const id = t.closest("[data-extra]").dataset.extra;
+    const target = e.target;
+    if (target.matches("[data-x]") && target.tagName === "SELECT") {
+      const id = target.closest("[data-extra]").dataset.extra;
       editDay(date, (d) => {
         const x = d.extras.find((y) => y.id === id);
-        if (x) x[t.dataset.x] = t.value;
+        if (x) x[target.dataset.x] = target.value;
       });
     }
   });
 
   el.addEventListener("input", (e) => {
-    const t = e.target;
-    if (t.matches("[data-notes]")) editDay(date, (d) => (d.notes = t.value), { delay: 900 });
-    else if (t.matches("[data-bw]")) {
-      const v = Number(String(t.value).replace(",", "."));
-      const kg = t.value === "" || !Number.isFinite(v) ? null : kgUnit(profile()) === "lb" ? Math.round((v / 2.20462) * 10) / 10 : v;
+    const target = e.target;
+    if (target.matches("[data-notes]")) editDay(date, (d) => (d.notes = target.value), { delay: 900 });
+    else if (target.matches("[data-bw]")) {
+      const v = Number(String(target.value).replace(",", "."));
+      const kg = target.value === "" || !Number.isFinite(v) ? null : kgUnit(profile()) === "lb" ? Math.round((v / 2.20462) * 10) / 10 : v;
       editDay(date, (d) => (d.bodyWeightKg = kg), { delay: 900 });
-    } else if (t.matches("[data-x]") && t.tagName === "INPUT") {
-      const id = t.closest("[data-extra]").dataset.extra;
-      const v = t.value === "" ? null : Number(t.value);
+    } else if (target.matches("[data-x]") && target.tagName === "INPUT") {
+      const id = target.closest("[data-extra]").dataset.extra;
+      const v = target.value === "" ? null : Number(target.value);
       editDay(date, (d) => {
         const x = d.extras.find((y) => y.id === id);
-        if (x) x[t.dataset.x] = Number.isFinite(v) ? v : null;
+        if (x) x[target.dataset.x] = Number.isFinite(v) ? v : null;
       });
     }
   });
@@ -854,6 +861,7 @@ export function render(el, params) {
     destroy() {
       unsub();
       unsubDesk();
+      stopInlineTimer();
       window.removeEventListener("hp:look", onLook);
       narrowView.removeEventListener("change", onLook);
       navigationSize.disconnect();

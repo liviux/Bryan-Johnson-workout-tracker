@@ -79,6 +79,7 @@ export function startGuided(date, onExit) {
   document.getElementById("overlay-root").appendChild(wrap);
   document.body.style.overflow = "hidden";
   let videoCtrl = null;
+  let currentDemo = null;
   const stage = createStagePanel(wrap.querySelector(".stage-host"), {
     onClipChange: ({ clipIndex, manual }) => {
       if (videoCtrl) videoCtrl.setGroup(clipIndex, { manual });
@@ -151,6 +152,7 @@ export function startGuided(date, onExit) {
     const p = state.profile;
     const demoId = routineSteps(s.item, s.level, getItemLog(date, s.scope, s.item.id) || {})[0]?.ex || s.item.ex;
     const demo = EXERCISES[demoId];
+    currentDemo = demo;
     stage.load(demoId);
     bar.style.width = `${steps.filter((step) => stepDone(date, step)).length / steps.length * 100}%`;
     count.textContent = `${i + 1}/${steps.length}`;
@@ -163,13 +165,14 @@ export function startGuided(date, onExit) {
     const itemLog = getItemLog(date, s.scope, s.item.id);
     wrap.querySelector("[data-routine]").innerHTML = ex.routine ? routineHtml(s.item, s.level, itemLog || {}, { compact: true }) : "";
     side.scrollTop = 0;
+    const bryanCount = videosFor(demo).filter((v) => v.kind === "bryan").length;
     side.innerHTML = `
       <span class="eyebrow">${esc(s.item.group || s.block)}${s.round ? ` · ${t("Round {round} of {rounds}", { round: s.round, rounds: s.rounds })}` : ""}</span>
       <h2 class="display" style="font-size:2.1rem;line-height:1">${esc(s.item.label ? personalize(s.item.label, p) : ex.name)}</h2>
       <div class="guided-tools" role="group" aria-label="${esc(t("Exercise details"))}">
         <button type="button" class="btn sm ghost" data-tool="note" aria-expanded="false">${icon("note", "sm")} ${t("Note")}</button>
         <button type="button" class="btn sm ghost" data-tool="how" aria-expanded="false">${icon("list", "sm")} ${t("How to")}</button>
-        <button type="button" class="btn sm ghost" data-tool="videos" aria-expanded="false">${icon("video", "sm")} ${t("Videos")}</button>
+        <button type="button" class="btn sm ghost" data-tool="videos" aria-expanded="false">${icon("video", "sm")} ${t("Videos")}${bryanCount ? ` <small class="tab-bryan">${t("Bryan")}</small>` : ""}</button>
       </div>
       <div class="guided-tool-body" hidden>
         <section data-tool-panel="note"><span class="eyebrow">${t("Note for this exercise")}</span><div data-note-host></div></section>
@@ -184,6 +187,7 @@ export function startGuided(date, onExit) {
       ${alternativeHtml(s.item, s.level)}
       <div class="logger-host guided-logger-host${s.scope !== "main" ? " addon-scope" : ""}"></div>`;
     renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), nextTimeHost: wrap.querySelector(".guided-next-time-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
+    videoCtrl?.destroy();
     videoCtrl = renderVideos(side.querySelector('[data-g="videos"]'), videosFor(demo), {
       groups: videoGroupsFor(demo),
       activeGroup: stage.clipIndex,
@@ -201,6 +205,20 @@ export function startGuided(date, onExit) {
     if (!bar || !body) return;
     const current = bar.querySelector('[aria-expanded="true"]')?.dataset.tool;
     const next = current === name ? null : name;
+    if (current === "videos" && next !== "videos") {
+      videoCtrl?.destroy();
+      videoCtrl = null;
+      videoVoice(false);
+    }
+    if (next === "videos" && !videoCtrl && currentDemo) {
+      videoCtrl = renderVideos(side.querySelector('[data-g="videos"]'), videosFor(currentDemo), {
+        groups: videoGroupsFor(currentDemo),
+        activeGroup: stage.clipIndex,
+        onSelectGroup: (gi) => stage.setClip(gi),
+        onSelectVideo: () => { stage.setAutoAdvance(false); videoVoice(true); },
+        onPlay: () => { stage.setAutoAdvance(false); videoVoice(true); },
+      });
+    }
     bar.querySelectorAll("[data-tool]").forEach((b) => b.setAttribute("aria-expanded", String(b.dataset.tool === next)));
     body.hidden = !next;
     body.querySelectorAll("[data-tool-panel]").forEach((panel) => {
@@ -212,6 +230,8 @@ export function startGuided(date, onExit) {
     stopRest();
     stopInlineTimer();
     clearInterval(clockTimer);
+    videoCtrl?.destroy();
+    videoCtrl = null;
     stopRestListener(); stopTimerListener(); voice.dispose(); coach.dispose();
     resumeDesk("guided");
     radio.dispose();
@@ -265,9 +285,17 @@ export function startGuided(date, onExit) {
     if (!e.target.closest(".guided-jump")) jump.open = false;
     const movement = e.target.closest("[data-movement]");
     if (movement) {
+      const demo = EXERCISES[movement.dataset.movement];
+      currentDemo = demo;
       stage.load(movement.dataset.movement);
-      videoVoice(true);
-      videoCtrl = renderVideos(side.querySelector('[data-g="videos"]'), videosFor(EXERCISES[movement.dataset.movement]), { onPlay: () => videoVoice(true), onSelectVideo: () => videoVoice(true) });
+      videoCtrl?.destroy();
+      videoCtrl = renderVideos(side.querySelector('[data-g="videos"]'), videosFor(demo), {
+        groups: videoGroupsFor(demo),
+        activeGroup: stage.clipIndex,
+        onSelectGroup: (gi) => stage.setClip(gi),
+        onSelectVideo: () => { stage.setAutoAdvance(false); videoVoice(true); },
+        onPlay: () => { stage.setAutoAdvance(false); videoVoice(true); },
+      });
       return;
     }
     const b = e.target.closest("[data-g]");

@@ -6,6 +6,23 @@ export function esc(s) {
   return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 }
 
+// Bengali, Hindi, Arabic-Indic and Eastern Arabic-Indic digits used by the
+// translated plan. Dose parsing and totals read every number as ASCII.
+const DIGIT_GROUPS = [
+  ["০১২৩৪৫৬৭৮৯", "0123456789"],
+  ["०१२३४५६७८९", "0123456789"],
+  ["٠١٢٣٤٥٦٧٨٩", "0123456789"],
+  ["۰۱۲۳۴۵۶۷۸۹", "0123456789"],
+];
+export function normalizeDigits(value) {
+  let text = String(value ?? "");
+  for (const [from, to] of DIGIT_GROUPS) {
+    const map = new Map([...from].map((d, i) => [d, to[i]]));
+    text = text.replace(new RegExp(`[${from}]`, "g"), (d) => map.get(d));
+  }
+  return text.replace(/\u066b/g, ".").replace(/\u066c/g, ",");
+}
+
 export const $ = (sel, root = document) => root.querySelector(sel);
 export const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 

@@ -49,6 +49,7 @@ function buildVideoList(src) {
       url: v.u,
       id,
       isShort: isYoutubeShort(v.u),
+      short: isYoutubeShort(v.u) || (end != null && end > at && end - at <= 45),
       start: at,
       end,
       channel: v.c || meta.c || "Bryan Johnson",
@@ -66,6 +67,7 @@ function buildVideoList(src) {
       url: v.u,
       id,
       isShort: isYoutubeShort(v.u),
+      short: isYoutubeShort(v.u) || (end != null && end > at && end - at <= 45),
       start: at,
       end,
       channel: v.c || meta.c || "",
@@ -186,7 +188,7 @@ export function renderVideos(container, list, opts = {}) {
             .map((x, i) => {
               const m = videoChannelDate(x);
               const sub = [m.channel, m.date].filter(Boolean).join(" · ");
-              return `<button type="button" data-i="${i}" aria-pressed="${i === active}"><span class="tag ${x.kind === "demo" ? "demo" : ""}">${x.kind === "bryan" ? t("Bryan") : t("Demo")}</span><span class="video-tab-info"><span class="video-tab-title">${esc(x.title)}</span>${sub ? `<small class="video-tab-sub">${esc(sub)}</small>` : ""}</span></button>`;
+              return `<button type="button" data-i="${i}" aria-pressed="${i === active}"><span class="tag ${x.kind === "demo" ? (x.short ? "short" : "demo") : ""}">${x.kind === "bryan" ? t("Bryan") : x.short ? t("Short") : t("Demo")}</span><span class="video-tab-info"><span class="video-tab-title">${esc(x.title)}</span>${sub ? `<small class="video-tab-sub">${esc(sub)}</small>` : ""}</span></button>`;
             })
             .join("")}
         </div>
@@ -258,6 +260,18 @@ export function renderVideos(container, list, opts = {}) {
       active = 0;
       playing = false;
       draw();
+    },
+    destroy() {
+      playing = false;
+      if (container._videoClick) {
+        container.removeEventListener("click", container._videoClick);
+        container.removeEventListener("keydown", container._videoKey);
+        container._videoClick = null;
+        container._videoKey = null;
+      }
+      const frame = container.querySelector(".video-frame");
+      if (frame) frame.innerHTML = "";
+      container.innerHTML = "";
     },
     get playing() {
       return playing;

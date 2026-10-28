@@ -1,4 +1,5 @@
 import { localized, t } from "./i18n.js";
+import { blockKindFromName } from "./data/block-kinds.js";
 // Themes: each look has its own layout, type and
 // colours (css/themes.css), on top of the light/dark mode setting.
 //
@@ -134,18 +135,9 @@ export function sessionKind(dayKey) {
 }
 
 // Order matters: "Dynamic mobility" is a warm-up, "yoga & balance" is balance work.
-const BLOCK_KINDS = [
-  [/warm|dynamic/i, "warm"],
-  [/jump|speed|power|interval|4×4|4x4/i, "power"],
-  [/strength/i, "strength"],
-  [/core|plank|tendon|stabil|balance|knee|back/i, "core"],
-  [/zone|cardio/i, "cardio"],
-  [/stretch|cool|yoga|mobil/i, "stretch"],
-];
-
-export function blockKind(name) {
-  const hit = BLOCK_KINDS.find(([re]) => re.test(name || ""));
-  return hit ? hit[1] : "other";
+export function blockKind(block) {
+  if (block && typeof block === "object") return block.kind || blockKindFromName(block.name);
+  return blockKindFromName(block);
 }
 
 // ---------- the theme picker (setup and settings) ----------
