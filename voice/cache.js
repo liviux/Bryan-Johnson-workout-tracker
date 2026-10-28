@@ -80,7 +80,7 @@ export class VoiceCache {
         const entry = pack.entries.find((entry) => !existsSync(this.file(entry.id)));
         if (!entry) { pack.state = "ready"; pack.completed = pack.entries.length; continue; }
         try {
-          await this.render(entry);
+          await this.render(entry, (completed) => { pack.completed = completed; });
           pack.completed = pack.entries.filter((entry) => existsSync(this.file(entry.id))).length;
         } catch (err) { pack.state = "error"; pack.error = err.message; }
       }

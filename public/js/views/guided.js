@@ -55,14 +55,24 @@ export function startGuided(date, onExit) {
   let i = steps.findIndex((s) => !stepDone(date, s));
   if (i < 0) i = 0;
   const stepLabels = steps.map((step, index) => `${index + 1}/${steps.length} · ${personalize(step.item.label || EXERCISES[step.item.ex].name, state.profile)}${step.setIndex != null ? ` · ${t("Set {set} of {sets}", { set: step.setIndex + 1, sets: step.sets })}` : ""}`);
+  // Keep the guided workout in the same blocks as Today. Consecutive steps with
+  // the same block share a group; add-ons get their own colour.
+  const stepGroups = [];
+  for (const [index, step] of steps.entries()) {
+    const key = `${step.scope}:${step.block}`;
+    const last = stepGroups[stepGroups.length - 1];
+    if (!last || last.key !== key) stepGroups.push({ key, title: step.block, addon: step.scope !== "main", steps: [] });
+    stepGroups[stepGroups.length - 1].steps.push(index);
+  }
+  const stepButton = (index) => `<button type="button" data-step-index="${index}" aria-label="${esc(stepLabels[index])}"><span class="guided-progress-preview">${esc(stepLabels[index])}</span></button>`;
   const wrap = h(`<div class="guided" role="dialog" aria-modal="true" aria-label="${esc(t("Guided workout"))}">
     <div class="guided-top">
       <button type="button" class="btn sm ghost" data-g="close">${icon("x")} ${t("Exit")}</button>
       <details class="guided-jump">
         <summary class="btn sm ghost mono" data-g="count" aria-label="${esc(t("Choose workout step"))}"></summary>
-        <div class="radio-panel guided-step-list" role="group" aria-label="${esc(t("Workout steps"))}">${steps.map((step, index) => `<button type="button" class="btn sm ghost" data-step-index="${index}"><span>${esc(stepLabels[index])}</span><small class="muted">${esc(step.block)}</small></button>`).join("")}</div>
+        <div class="radio-panel guided-step-list" role="group" aria-label="${esc(t("Workout steps"))}">${stepGroups.map((group) => `<div class="guided-step-group${group.addon ? " addon" : ""}"><span class="guided-step-group-name">${esc(group.title)}</span>${group.steps.map((index) => `<button type="button" class="btn sm ghost" data-step-index="${index}"><span>${esc(stepLabels[index])}</span></button>`).join("")}</div>`).join("")}</div>
       </details>
-      <div class="bar guided-progress"><i></i><div class="guided-progress-steps" role="group" aria-label="${esc(t("Jump to workout step"))}">${stepLabels.map((label, index) => `<button type="button" data-step-index="${index}" aria-label="${esc(label)}"><span class="guided-progress-preview">${esc(label)}</span></button>`).join("")}</div></div>
+      <div class="bar guided-progress"><i></i><div class="guided-progress-steps" role="group" aria-label="${esc(t("Jump to workout step"))}">${stepGroups.map((group) => `<div class="guided-progress-group${group.addon ? " addon" : ""}" style="flex:${group.steps.length}"><div class="guided-progress-buttons">${group.steps.map(stepButton).join("")}</div><small class="guided-progress-group-name">${esc(group.title)}</small></div>`).join("")}</div></div>
       <div class="radio-host"></div>
     </div>
     <div class="guided-main"><div class="guided-demo"><div class="stage-host"></div><div data-routine></div></div><div class="guided-column"><div class="guided-side"></div><div class="guided-foot"><p class="guided-voice-status muted" role="status" aria-live="polite"></p><div class="guided-next-time-host"></div></div></div></div>
@@ -155,7 +165,7 @@ export function startGuided(date, onExit) {
     currentDemo = demo;
     stage.load(demoId);
     bar.style.width = `${steps.filter((step) => stepDone(date, step)).length / steps.length * 100}%`;
-    count.textContent = `${i + 1}/${steps.length}`;
+    count.innerHTML = `${i + 1}/${steps.length}<small class="guided-count-group${s.scope !== "main" ? " addon" : ""}">${esc(s.block)}</small>`;
     count.setAttribute("aria-label", t("Step {step} of {total}. Choose workout step", { step: i + 1, total: steps.length }));
     wrap.querySelectorAll("[data-step-index]").forEach((button) => {
       const index = Number(button.dataset.stepIndex);
@@ -167,7 +177,7 @@ export function startGuided(date, onExit) {
     side.scrollTop = 0;
     const bryanCount = videosFor(demo).filter((v) => v.kind === "bryan").length;
     side.innerHTML = `
-      <span class="eyebrow">${esc(s.item.group || s.block)}${s.round ? ` · ${t("Round {round} of {rounds}", { round: s.round, rounds: s.rounds })}` : ""}</span>
+      <span class="eyebrow${s.scope !== "main" ? " addon" : ""}">${esc(s.item.group || s.block)}${s.round ? ` · ${t("Round {round} of {rounds}", { round: s.round, rounds: s.rounds })}` : ""}</span>
       <h2 class="display" style="font-size:2.1rem;line-height:1">${esc(s.item.label ? personalize(s.item.label, p) : ex.name)}</h2>
       <div class="guided-tools" role="group" aria-label="${esc(t("Exercise details"))}">
         <button type="button" class="btn sm ghost" data-tool="note" aria-expanded="false">${icon("note", "sm")} ${t("Note")}</button>

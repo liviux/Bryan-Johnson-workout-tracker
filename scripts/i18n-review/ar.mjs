@@ -2,6 +2,9 @@
 export default {
   "· counts toward your weekly minutes": "· تُحتسب ضمن دقائقك الأسبوعية",
   "Band": "شريط مقاومة",
+  "Download voice": "تنزيل الصوت",
+  "{done} of {total} clips ready": "{done} من {total} مقطعًا جاهز",
+  "Downloading the local speech runtime…": "جارٍ تنزيل محرك الصوت المحلي…",
   "Set {set} band": "تعيين شريط المقاومة للمجموعة {set}",
   "Set {set} custom band value": "تعيين قيمة شريط المقاومة المخصصة للمجموعة {set}",
   "“External rotation” is in the posture part of Bryan’s routine, right after band pull-aparts. It strengthens the rotator cuff that holds the shoulders back.": "«الدوران الخارجي» في جزء الوضعية من روتين براين، مباشرة بعد فتح المطاط. ويقوي الكفة المدورة التي تبقي الكتفين للخلف.",

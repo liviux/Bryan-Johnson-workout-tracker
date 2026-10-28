@@ -3,7 +3,8 @@
 // loads when you press play.
 
 import { BRYAN_VIDEOS, VIDEO_META } from "../data/videos.js";
-import { esc, fmtMinSec, fmtSecs } from "../util.js";
+import { VIDEO_LENGTHS } from "../data/video-lengths.js";
+import { esc, fmtMinSec, fmtRuntime, fmtSecs } from "../util.js";
 import { icon } from "./icons.js";
 import { locale, t } from "../i18n.js";
 
@@ -52,6 +53,7 @@ function buildVideoList(src) {
       short: isYoutubeShort(v.u) || (end != null && end > at && end - at <= 45),
       start: at,
       end,
+      length: VIDEO_LENGTHS[id] || (typeof v.length === "number" ? v.length : null),
       channel: v.c || meta.c || "Bryan Johnson",
       date: meta.d || fmtUploadDate(v.date) || "",
     });
@@ -70,6 +72,7 @@ function buildVideoList(src) {
       short: isYoutubeShort(v.u) || (end != null && end > at && end - at <= 45),
       start: at,
       end,
+      length: VIDEO_LENGTHS[id] || (typeof v.length === "number" ? v.length : null),
       channel: v.c || meta.c || "",
       date: v.d || fmtUploadDate(v.date) || meta.d || "",
     });
@@ -198,7 +201,14 @@ export function renderVideos(container, list, opts = {}) {
             ? `<div class="video-frame"><div class="poster" role="button" tabindex="0" aria-label="${esc(t("Play {title}", { title: v.title }))}" style="background-image:url('https://i.ytimg.com/vi/${v.id}/hqdefault.jpg')"><span class="play">${icon("play")}</span><span class="vt">${esc(v.title)} · ${fmtMinSec(at)} (${fmtSecs(at)})</span></div></div>`
             : `<div class="banner"><div class="grow"><b>${esc(v.title)}</b><span class="muted">${t("Open this post on X to watch the clip.")}</span></div></div>`
         }
-        <div class="video-meta"><div class="video-meta-info">${vm.channel || vm.date ? `<div class="video-byline"><b>${esc(vm.channel)}</b>${vm.date ? ` · <span>${t("Uploaded {date}", { date: esc(vm.date) })}</span>` : ""}</div>` : ""}<div>${v.kind === "bryan" ? (at > 0 ? t("Bryan demonstrates it at {time} ({clock})", { time: fmtMinSec(at), clock: fmtSecs(at) }) : t("Bryan's video or post")) : at > 0 ? t("Demonstration starts at {time} ({clock})", { time: fmtMinSec(at), clock: fmtSecs(at) }) : t("Technique demonstration by another coach")}</div></div><a href="${esc(watchUrl(v))}" target="_blank" rel="noopener">${t("Open link")} ${icon("external", "sm")}</a></div>
+        <div class="video-meta"><div class="video-meta-info">${(() => {
+          const parts = [
+            v.length ? `<span class="video-runtime">${fmtRuntime(v.length)}</span>` : "",
+            vm.channel ? `<b>${esc(vm.channel)}</b>` : "",
+            vm.date ? `<span>${t("Uploaded {date}", { date: esc(vm.date) })}</span>` : "",
+          ].filter(Boolean);
+          return parts.length ? `<div class="video-byline">${parts.join(" · ")}</div>` : "";
+        })()}<div>${v.kind === "bryan" ? (at > 0 ? t("Bryan demonstrates it at {time} ({clock})", { time: fmtMinSec(at), clock: fmtSecs(at) }) : t("Bryan's video or post")) : at > 0 ? t("Demonstration starts at {time} ({clock})", { time: fmtMinSec(at), clock: fmtSecs(at) }) : t("Technique demonstration by another coach")}</div></div><a href="${esc(watchUrl(v))}" target="_blank" rel="noopener">${t("Open link")} ${icon("external", "sm")}</a></div>
       </div>`;
   }
 

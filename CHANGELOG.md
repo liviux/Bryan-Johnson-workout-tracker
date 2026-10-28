@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.42.0] - 2026-10-28
+
+### Added
+- Guided workouts now keep the session blocks together. A small group name under the top progress bar and in the step list shows where you are, and add-ons use their own colour.
+- Each video shows its length before the channel and upload date.
+- Voice coach has a **Download voice** button for any included voice that is not ready, with clip-by-clip progress. Downloading also starts automatically when coaching is already on, and Preview waits until the voice is ready.
+
+### Changed
+- The language picker sits between **During workouts** and **Voice coach** in Settings.
+- **Coaching** and **Pace** sit on one line.
+- **How to** and **Videos** on Today now show the same selected style as **Note**.
+- The small **Bryan** hint beside Videos is much smaller.
+
+### Fixed
+- Translated voices keep polling while their cache is prepared, so the download no longer appears stuck at 0.
+- Voice cache progress counts the clips already unpacked instead of jumping backwards or staying at zero.
+
 ## [1.41.0] - 2026-10-28
 
 ### Added

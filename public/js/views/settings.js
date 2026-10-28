@@ -104,12 +104,6 @@ export function render(el) {
     el.innerHTML = `<div class="page narrow">
       <div class="section-title"><h2>Settings</h2><span class="muted">Changes save automatically</span></div>
 
-      <section class="card card-pad" style="display:grid;gap:10px">
-        <h3>Language</h3>
-        <label class="field"><span>${t("App language")}</span><select class="input" data-language>${LANGUAGES.map((l) => `<option value="${l.id}" data-i18n-skip${l.id === (st.language || "en") ? " selected" : ""}>${esc(l.native)}</option>`).join("")}</select></label>
-        <p class="muted" style="font-size:0.85rem">${t("The interface, workout instructions, exercise names and coach audio follow this language. Dates use this language's format.")}</p>
-      </section>
-
       <section class="card card-pad" style="display:grid;gap:16px">
         <h3>Your details</h3>
         <p class="muted" style="font-size:0.86rem">${t("Your details set your suggested starting weights and heart-rate zones: max {bpm} bpm, Zone 2 {range}.", { bpm: hrMax(pr), range: bpmRange(pr, 60, 70) })}</p>
@@ -155,13 +149,19 @@ export function render(el) {
         ${ADDONS.map((a) => addonCardHtml(a, pr)).join("")}
       </section>
 
-      <section class="card card-pad" style="display:grid;gap:14px">
+      <section class="card card-pad" data-settings="during" style="display:grid;gap:14px">
         <h3>During workouts</h3>
         <div class="field"><span>Rest timer after a set</span>${seg("rest", [...REST_PRESETS.map((s) => ({ id: String(s), name: `${s} s` })), { id: "custom", name: "Custom" }], customRest ? "custom" : String(st.restSec || 75))}</div>
         <label class="field rest-custom" ${customRest ? "" : "hidden"}><span>Custom rest (seconds)</span><input class="input" type="number" data-f="restCustom" min="1" max="3600" step="1" required value="${esc(st.restSec || 75)}"><small>Enter 1 to 3,600 seconds.</small></label>
         <label style="display:flex;gap:12px;align-items:center">${switchHtml("autoRest", st.autoRest !== false, "Start the rest timer automatically")}<span>${t("Start the rest timer automatically when you log a set")}</span></label>
         <label style="display:flex;gap:12px;align-items:center">${switchHtml("sound", st.sound !== false, "Timer sounds")}<span>${t("Timer beeps")}</span></label>
         <label style="display:flex;gap:12px;align-items:center">${switchHtml("deskNotify", !!st.deskNotify, "Desk break notifications")}<span>${t("Desk break notifications while this tab is in the background")} <small class="muted">${t("(off by default; your browser asks for permission)")}</small></span></label>
+      </section>
+
+      <section class="card card-pad" data-settings="language" style="display:grid;gap:10px">
+        <h3>Language</h3>
+        <label class="field"><span>${t("App language")}</span><select class="input" data-language>${LANGUAGES.map((l) => `<option value="${l.id}" data-i18n-skip${l.id === (st.language || "en") ? " selected" : ""}>${esc(l.native)}</option>`).join("")}</select></label>
+        <p class="muted" style="font-size:0.85rem">${t("The interface, workout instructions, exercise names and coach audio follow this language. Dates use this language's format.")}</p>
       </section>
 
       <section class="card card-pad" data-coach-settings></section>

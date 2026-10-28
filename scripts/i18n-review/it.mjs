@@ -2,6 +2,9 @@
 export default {
   ", or": ", oppure",
   "Band": "Elastico",
+  "Download voice": "Scarica la voce",
+  "{done} of {total} clips ready": "{done} clip su {total} pronti",
+  "Downloading the local speech runtime…": "Download del motore vocale locale…",
   "· counts toward your weekly minutes": "· conta per i minuti settimanali",
   "“External rotation” is in the posture part of Bryan’s routine, right after band pull-aparts. It strengthens the rotator cuff that holds the shoulders back.": "La “rotazione esterna” fa parte della postura nella routine di Bryan, subito dopo i pull-apart con elastico. Rafforza la cuffia dei rotatori che tiene indietro le spalle.",
   "(only used to scale starting weights)": "(usato solo per calibrare i pesi iniziali)",

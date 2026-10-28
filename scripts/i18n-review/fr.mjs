@@ -7,6 +7,8 @@ export default {
   "…and out (3 of 3)": "…et vers l'extérieur (3 sur 3)",
   "…rotate it back and lower": "…faites-le pivoter vers l'arrière et redescendez",
   "Band": "Élastique",
+  "{done} of {total} clips ready": "{done} clips sur {total} prêts",
+  "Downloading the local speech runtime…": "Téléchargement du moteur vocal local…",
   "“External rotation” is in the posture part of Bryan’s routine, right after band pull-aparts. It strengthens the rotator cuff that holds the shoulders back.": "La « rotation externe » fait partie de la posture dans la routine de Bryan, juste après les pull-aparts à l'élastique. Elle renforce la coiffe des rotateurs qui maintient les épaules en arrière.",
   "(0:00) · Dedicated clip demonstrating this exercise from the start.": "(0:00) · Extrait dédié montrant cet exercice depuis le début.",
   "(only used to scale starting weights)": "(utilisé uniquement pour ajuster les charges de départ)",

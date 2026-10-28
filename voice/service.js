@@ -51,8 +51,8 @@ function sharedEntries(voice) {
   if (!bundleEntries.has(voice)) bundleEntries.set(voice, readBundle(voice, bundleDir).then((metadata) => metadata.clips.map((clip) => ({ id: clip.id, text: clip.text || "", sid: voiceById(voice).sid, vid: voice, speed: 1 }))).catch((err) => { bundleEntries.delete(voice); throw err; }));
   return bundleEntries.get(voice);
 }
-function unpackVoice(voice) {
-  if (!unpacking.has(voice)) unpacking.set(voice, unpackBundle(voice, bundleDir, cacheDir).finally(() => unpacking.delete(voice)));
+function unpackVoice(voice, onProgress) {
+  if (!unpacking.has(voice)) unpacking.set(voice, unpackBundle(voice, bundleDir, cacheDir, null, onProgress).finally(() => unpacking.delete(voice)));
   return unpacking.get(voice);
 }
 async function migrateSharedPacks() {
@@ -66,12 +66,12 @@ function cacheStatus(voice) {
   const cache = voiceCache.status(voice);
   return cache ? { ...cache, shared: bundled(voice) } : null;
 }
-const voiceCache = new VoiceCache(VOICE_DIR, async (entry) => {
+const voiceCache = new VoiceCache(VOICE_DIR, async (entry, onProgress) => {
   // Only one background clip is queued; workout requests get the next turn.
   while (pending.size) await Promise.allSettled([...pending.values()].map((task) => task.promise));
   clips.set(entry.id, entry);
   const voice = entry.vid || ALL_VOICES.find((candidate) => candidate.sid === entry.sid)?.id;
-  if (voice && bundled(voice)) await unpackVoice(voice);
+  if (voice && bundled(voice)) await unpackVoice(voice, onProgress);
   else await audioFile(entry.id);
 });
 

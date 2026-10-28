@@ -3,6 +3,10 @@
 export default {
   ", optional)": ", opțional)",
   "Band": "Bandă elastică",
+  "Download voice": "Descarcă vocea",
+  "{done} of {total} clips ready": "{done} din {total} clipuri pregătite",
+  "Preparing the voice…": "Se pregătește vocea…",
+  "Downloading the local speech runtime…": "Se descarcă motorul vocal local…",
   "· counts toward your weekly minutes": "· contează pentru minutele săptămânale",
   "(estimated from your age)": "(estimată din vârstă)",
   "(only used to scale starting weights)": "(folosit doar pentru a estima greutățile de pornire)",

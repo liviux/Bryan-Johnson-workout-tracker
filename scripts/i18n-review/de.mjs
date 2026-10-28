@@ -2,6 +2,8 @@
 export default {
   "Level": "Stufe",
   "Band": "Widerstandsband",
+  "{done} of {total} clips ready": "{done} von {total} Clips bereit",
+  "Downloading the local speech runtime…": "Der lokale Sprachmotor wird heruntergeladen…",
   "Current level": "Aktuelle Stufe",
   "Your current level": "Ihre aktuelle Stufe",
   "Your level": "Ihre Stufe",

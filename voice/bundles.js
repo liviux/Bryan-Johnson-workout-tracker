@@ -67,14 +67,19 @@ export async function readBundle(voice, sourceDir) {
   return metadata;
 }
 
-export async function unpackBundle(voice, sourceDir, audioDir, clipId) {
+export async function unpackBundle(voice, sourceDir, audioDir, clipId, onProgress) {
   const metadata = await readBundle(voice, sourceDir);
   await mkdir(audioDir, { recursive: true });
   const clips = clipId ? metadata.clips.filter((clip) => clip.id === clipId) : metadata.clips;
   const ext = metadata.ext || "wav";
+  const fileFor = (clip) => path.join(audioDir, `${clip.id}.${ext}`);
+  const present = new Set(clips.filter((clip) => existsSync(fileFor(clip))).map((clip) => clip.id));
+  let done = present.size;
+  onProgress?.(done);
   for (let start = 0; start < clips.length; start += 16) {
-    await Promise.all(clips.slice(start, start + 16).map(async (clip) => {
-      const file = path.join(audioDir, `${clip.id}.${ext}`);
+    const chunk = clips.slice(start, start + 16);
+    await Promise.all(chunk.map(async (clip) => {
+      const file = fileFor(clip);
       if (existsSync(file)) return;
       const bytes = await readFile(path.join(sourceDir, voice, `${clip.id}.${ext}.gz`));
       if (bytes.length !== clip.bytes || hash(bytes) !== clip.sha256) throw new Error("Voice pack checksum failed. Update the app and retry.");
@@ -82,7 +87,11 @@ export async function unpackBundle(voice, sourceDir, audioDir, clipId) {
       if (ext === "wav") combineWaves([audio]);
       const tmp = path.join(audioDir, `${clip.id}.${randomUUID()}.tmp`);
       await writeFile(tmp, audio); await rename(tmp, file);
+      present.add(clip.id);
     }));
+    done = present.size;
+    onProgress?.(done);
   }
+  onProgress?.(clips.length);
   return metadata;
 }

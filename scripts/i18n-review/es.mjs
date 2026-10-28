@@ -2,6 +2,8 @@
 export default {
   "(0:00) · Dedicated clip demonstrating this exercise from the start.": "(0:00) · Clip dedicado que demuestra este ejercicio desde el principio.",
   "Band": "Banda elástica",
+  "{done} of {total} clips ready": "{done} de {total} clips listos",
+  "Downloading the local speech runtime…": "Descargando el motor de voz local…",
   "{count} {unit} left": "Quedan {count} {unit}",
   "{count} logged today": "{count} registrados hoy",
   "{met}/{total} met": "{met}/{total} cumplidos",

@@ -386,7 +386,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 .item-main { display: grid; gap: 2px; min-width: 0; }
 .item-name { font-weight: 650; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .item-rx { font-family: var(--font-mono); font-size: 0.84rem; color: var(--ink-2); }
-.tab-bryan { font-family: var(--font-mono); font-size: 0.64rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bryan); margin-left: 4px; }
+.tab-bryan { font-family: var(--font-mono); font-size: 0.54rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--bryan); margin-left: 3px; }
 .item-b { font-size: 0.78rem; color: var(--bryan); }
 .item-log { font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent); }
 .item-side { display: flex; align-items: center; gap: 6px; color: var(--muted); }
@@ -505,6 +505,7 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
 .video-meta { display: flex; justify-content: space-between; gap: 10px; align-items: center; font-size: 0.82rem; color: var(--muted); }
 .video-meta-info { display: grid; gap: 2px; }
 .video-byline { color: var(--ink-2); }
+.video-byline .video-runtime { font-family: var(--font-mono); color: var(--ink-2); }
 .video-byline b { color: var(--ink); font-weight: 600; }
 
 /* ---------- overlays ---------- */
@@ -578,6 +579,9 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
 .coach-popup { position: relative; flex: none; }
 .coach-panel { display: grid; gap: 14px; }
 .coach-panel[hidden] { display: none; }
+.coach-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; align-items: end; }
+.coach-options .field { min-width: 0; }
+.coach-progress-text { margin-top: -8px; font-variant-numeric: tabular-nums; }
 .coach-toggle.is-on { color: var(--accent); background: var(--accent-soft); }
 .coach-voices { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
 .coach-voices .choice { min-width: 0; padding: 12px; }
@@ -1176,29 +1180,42 @@ td.cur, th.cur { background: var(--accent-soft); }
 }
 
 .guided-jump { position: relative; flex: none; }
-.guided-jump > summary { list-style: none; cursor: pointer; }
+.guided-jump > summary { list-style: none; cursor: pointer; position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; padding-right: 18px; line-height: 1.05; }
 .guided-jump > summary::-webkit-details-marker { display: none; }
-.guided-jump > summary::after { content: "▾"; margin-left: 5px; }
-.guided-step-list { top: 100%; left: 0; right: auto; width: min(440px, calc(100vw - 100px)); gap: 3px; padding: 8px; }
-.guided-step-list > button { display: grid; gap: 2px; justify-items: start; justify-content: stretch; text-align: left; white-space: normal; }
-.guided-step-list > button[aria-current="step"] { background: var(--accent-soft); color: var(--accent); }
+.guided-jump > summary::after { content: "▾"; position: absolute; right: 7px; top: 50%; transform: translateY(-50%); margin: 0; }
+.guided-count-group { display: block; color: var(--muted); font-family: var(--font-mono); font-size: 0.54rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.guided-count-group.addon { color: var(--addon); }
+.guided-step-list { top: 100%; left: 0; right: auto; width: min(440px, calc(100vw - 100px)); gap: 8px; padding: 8px; }
+.guided-step-group { display: grid; gap: 3px; }
+.guided-step-group-name { padding: 2px 4px 1px; color: var(--muted); font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.guided-step-group.addon .guided-step-group-name { color: var(--addon); }
+.guided-step-group > button { display: grid; gap: 2px; justify-items: start; justify-content: stretch; text-align: left; white-space: normal; }
+.guided-step-group > button[aria-current="step"] { background: var(--accent-soft); color: var(--accent); }
+.guided-step-group.addon > button[aria-current="step"] { background: var(--addon-soft); color: var(--addon); }
 
-.guided-top .guided-progress { position: relative; height: 30px; overflow: visible; background: none; }
-.guided-progress::before { content: ""; position: absolute; inset: 12px 0; background: var(--surface-3); border-radius: 3px; }
-.guided-top .guided-progress > i { position: absolute; top: 12px; height: 6px; border-radius: 3px; pointer-events: none; }
-.guided-progress-steps { position: absolute; inset: 0; display: flex; }
-.guided-progress-steps > button { flex: 1; min-width: 0; padding: 0; border: 0; border-right: 1px solid var(--line); background: none; cursor: pointer; }
-.guided-progress-steps > button:last-child { border-right: 0; }
-.guided-progress-steps > button:is(:hover, :focus-visible) { background: var(--accent-soft); outline: 2px solid var(--accent); outline-offset: -2px; }
-.guided-progress-preview { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); width: max-content; max-width: min(400px, 80vw); padding: 10px 12px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); color: var(--ink); box-shadow: var(--shadow-pop); font-size: 0.85rem; pointer-events: none; }
-.guided-progress-steps > button:is(:hover, :focus-visible) > .guided-progress-preview { display: block; }
-
-.guided-progress-steps > button[data-completion="done"] { background: var(--accent-soft); }
-.guided-progress-steps > button[data-completion="skipped"] { border-bottom: 2px dashed var(--muted); }
-.guided-progress-steps > button[aria-current="step"] { box-shadow: inset 0 -3px var(--accent); }
+.guided-top .guided-progress { position: relative; height: 42px; overflow: visible; background: none; }
+.guided-progress::before { content: ""; position: absolute; top: 8px; left: 0; right: 0; height: 6px; background: var(--surface-3); border-radius: 3px; }
+.guided-top .guided-progress > i { position: absolute; top: 8px; height: 6px; border-radius: 3px; pointer-events: none; }
+.guided-progress-steps { position: absolute; inset: 0; display: flex; align-items: stretch; }
+.guided-progress-group { position: relative; display: flex; flex-direction: column; min-width: 0; border-right: 1px solid var(--line); }
+.guided-progress-group:last-child { border-right: 0; }
+.guided-progress-buttons { display: flex; flex: 1; min-height: 22px; }
+.guided-progress-buttons > button { position: relative; flex: 1; min-width: 0; padding: 0; border: 0; background: none; cursor: pointer; }
+.guided-progress-buttons > button:is(:hover, :focus-visible) { background: var(--accent-soft); outline: 2px solid var(--accent); outline-offset: -2px; }
+.guided-progress-preview { display: none; position: absolute; top: 100%; left: 50%; z-index: 12; transform: translateX(-50%); width: max-content; max-width: min(400px, 80vw); padding: 10px 12px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); color: var(--ink); box-shadow: var(--shadow-pop); font-size: 0.85rem; pointer-events: none; }
+.guided-progress-buttons > button:is(:hover, :focus-visible) > .guided-progress-preview { display: block; }
+.guided-progress-buttons > button[data-completion="done"] { background: var(--accent-soft); }
+.guided-progress-buttons > button[data-completion="skipped"] { border-bottom: 2px dashed var(--muted); }
+.guided-progress-buttons > button[aria-current="step"] { box-shadow: inset 0 -3px var(--accent); }
+.guided-progress-group.addon .guided-progress-buttons > button[data-completion="done"] { background: var(--addon-soft); }
+.guided-progress-group.addon .guided-progress-buttons > button[aria-current="step"] { box-shadow: inset 0 -3px var(--addon); }
+.guided-progress-group-name { flex: none; display: block; padding: 1px 3px 0; color: var(--muted); font-family: var(--font-mono); font-size: 0.58rem; line-height: 1.1; letter-spacing: 0.04em; text-align: center; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.guided-progress-group.addon .guided-progress-group-name { color: var(--addon); }
+.guided .eyebrow.addon { color: var(--addon); }
 
 .logger-actions { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; padding: 5px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; }
 .logger-actions > .btn { min-height: 36px; padding: 7px 9px; font-size: 0.8rem; }
+.logger-actions > .btn[aria-selected="true"], .logger-actions > .btn[aria-expanded="true"] { color: var(--accent); background: var(--accent-soft); }
 .logger-actions > [data-l="easier"] { flex: 1; }
 .logger-actions > [data-l="note-toggle"]:is(.has-note, [aria-expanded="true"]) { color: var(--accent); background: var(--accent-soft); }
 .compact-actions > .btn-row:empty { display: none; }

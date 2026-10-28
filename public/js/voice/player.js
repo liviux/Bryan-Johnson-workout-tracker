@@ -15,6 +15,7 @@ const buffers = new Map();
 const listeners = new Set();
 let cacheRequest = "";
 let pendingCache = "";
+let cachePoll = null;
 export const PREPARING_VOICE = "Loading coach audio. Saved clips play as soon as they arrive. If this voice is still being cached, its progress is shown in Coach.";
 export const voiceStatus = { known: false, voice: null, installed: false, installing: false, preparing: false, cacheEnabled: false, cache: null, message: "Checking local voice…", blocked: false };
 const notify = () => { for (const fn of listeners) fn({ ...voiceStatus, speaking }); };
@@ -73,7 +74,7 @@ export async function refreshVoiceStatus() {
 
 export function voiceCacheMessage() {
   const cache = voiceStatus.cache;
-  if (!voiceStatus.cacheEnabled) return t("Turn coaching on once to save the included recordings for playback. No audio is unpacked before that.");
+  if (!voiceStatus.cacheEnabled) return t("Download the included {voice} recordings for playback. This only copies saved audio; no speech model runs.", { voice: selectedVoice().name });
   if (!cache) return t("This voice has not been cached yet. Select it to start its one-time preparation.");
   if (cache.state === "error") return t("Voice cache paused: {error} Turn coaching on again to retry; finished audio is kept.", { error: cache.error });
   if (cache.state === "ready") return t("{voice} is cached. Saved audio is ready for your workout.", { voice: selectedVoice().name });
@@ -90,6 +91,7 @@ export async function cacheVoice({ activate = false } = {}) {
   if (cacheRequest === key && voiceStatus.cache?.state !== "error") return;
   cacheRequest = key;
   pendingCache = key;
+  clearTimeout(cachePoll);
   const wasEnabled = voiceStatus.cacheEnabled;
   voiceStatus.cacheEnabled = true;
   voiceStatus.cache = { state: "building", completed: 0, total: 0 };
@@ -104,6 +106,14 @@ export async function cacheVoice({ activate = false } = {}) {
   }
   if (pendingCache === key) pendingCache = "";
   notify();
+  // Keep polling even if the coach controls that started this are redrawn. The
+  // server may still be copying clips after the POST returns.
+  const tick = async () => {
+    if (cacheRequest !== key) return;
+    await refreshVoiceStatus();
+    if (cacheRequest === key && voiceStatus.cache?.state === "building") cachePoll = setTimeout(tick, 1000);
+  };
+  if (voiceStatus.cache?.state === "building") cachePoll = setTimeout(tick, 1000);
 }
 export async function installVoice() {
   if (voiceStatus.installed && !voiceStatus.error) return;
