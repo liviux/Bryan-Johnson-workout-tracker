@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { EXERCISES } from "../public/js/data/exercises.js";
-import { videoChannelDate, videoGroupsFor, videosFor } from "../public/js/components/video.js";
+import { videoChannelDate, videoGroupsFor, videosFor, renderVideos } from "../public/js/components/video.js";
 
 const isShort = (video) =>
   /youtube\.com\/shorts\//.test(video.url || "") ||
@@ -40,4 +40,25 @@ test("video bylines never depend on an absent metadata entry", () => {
       assert.ok(byline.channel || byline.date, `${ex.name}: ${video.title} has no channel or date`);
     }
   }
+});
+
+test("video bylines include video duration before channel name and upload date", () => {
+  for (const ex of Object.values(EXERCISES)) {
+    for (const video of videosFor(ex)) {
+      if (!video.id) continue;
+      const byline = videoChannelDate(video);
+      assert.equal(typeof byline.length, "number", `${ex.name}: ${video.title} has no numeric length`);
+      assert.ok(byline.length > 0, `${ex.name}: ${video.title} length must be > 0`);
+    }
+  }
+
+  const container = { innerHTML: "", addEventListener() {}, removeEventListener() {} };
+  renderVideos(container, videosFor(EXERCISES.gobletsquat));
+  const bylineHtml = container.innerHTML.slice(container.innerHTML.indexOf('class="video-byline"'));
+  const runtimeIndex = bylineHtml.indexOf('class="video-runtime"');
+  const channelIndex = bylineHtml.indexOf('<b>');
+  const dateIndex = bylineHtml.indexOf('Uploaded');
+  assert.ok(runtimeIndex !== -1, "Runtime must appear in video byline");
+  assert.ok(runtimeIndex < channelIndex, "Duration must appear before channel name");
+  assert.ok(channelIndex < dateIndex, "Channel name must appear before upload date");
 });

@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.43.0] - 2026-10-28
+
+### Added
+- Each video shows its length before the channel and upload date, with complete runtimes for all demonstration and Bryan Johnson videos.
+
 ## [1.42.2] - 2026-10-28
 
 ### Changed
