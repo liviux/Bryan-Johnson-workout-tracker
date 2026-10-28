@@ -45,10 +45,10 @@ export function createWorkoutRadio() {
   let ducked = false;
 
   const wrap = h(`<div class="workout-radio">
-    <button type="button" class="btn sm ghost radio-toggle" data-radio="toggle" aria-expanded="false" aria-controls="workout-radio-panel" aria-label="Workout radio">
-      ${icon("radio")}<span class="radio-toggle-text">Radio</span><span class="radio-eq" aria-hidden="true"><i></i><i></i><i></i></span>
+    <button type="button" class="btn sm ghost radio-toggle" data-radio="toggle" aria-expanded="false" aria-controls="workout-radio-panel" aria-label="${esc(t("Workout radio"))}">
+      ${icon("radio")}<span class="radio-toggle-text">${t("Radio")}</span><span class="radio-eq" aria-hidden="true"><i></i><i></i><i></i></span>
     </button>
-    <div class="radio-panel" id="workout-radio-panel" data-radio="panel" role="group" aria-label="Workout radio" hidden>
+    <div class="radio-panel" id="workout-radio-panel" data-radio="panel" role="group" aria-label="${esc(t("Workout radio"))}" hidden>
       <div class="radio-head">
         <div class="radio-now">
           <span class="radio-mark">${icon("radio")}</span>
@@ -61,11 +61,11 @@ export function createWorkoutRadio() {
         <button type="button" class="btn sm icon-only" data-radio="prev" aria-label="${esc(t("Previous station"))}" title="${esc(t("Previous station"))}">${icon("chevronL")}</button>
         <button type="button" class="btn primary radio-play" data-radio="play" aria-label="${esc(t("Play radio"))}">${icon("play")}<span>${t("Play")}</span></button>
         <button type="button" class="btn sm icon-only" data-radio="next" aria-label="${esc(t("Next station"))}" title="${esc(t("Next station"))}">${icon("chevronR")}</button>
-        <span class="radio-state" data-radio="status" role="status" aria-live="polite">Paused</span>
+        <span class="radio-state" data-radio="status" role="status" aria-live="polite">${t("Paused")}</span>
       </div>
       <label class="radio-volume">
         ${icon("volume", "sm")}
-        <span class="sr-only">Radio volume</span>
+        <span class="sr-only">${t("Radio volume")}</span>
         <input type="range" min="0" max="1" step="0.01" value="${volume}" aria-label="${esc(t("Radio volume"))}">
         <output data-radio="volume">${Math.round(volume * 100)}%</output>
       </label>
@@ -104,9 +104,9 @@ export function createWorkoutRadio() {
 
   function syncMute() {
     muteBtn.innerHTML = icon(muted ? "mute" : "volume", "sm");
-    muteBtn.setAttribute("aria-label", muted ? "Unmute radio" : "Mute radio");
+    muteBtn.setAttribute("aria-label", muted ? t("Unmute radio") : t("Mute radio"));
     muteBtn.setAttribute("aria-pressed", muted ? "true" : "false");
-    muteBtn.title = muted ? "Unmute radio" : "Mute radio";
+    muteBtn.title = muted ? t("Unmute radio") : t("Mute radio");
     muteBtn.classList.toggle("is-muted", muted);
   }
 
@@ -114,15 +114,15 @@ export function createWorkoutRadio() {
     muted = !muted;
     applyVolume();
     syncMute();
-    if (muted) setStatus(intent ? "Muted" : "Paused");
-    else if (intent && !audio.paused) setStatus(audio.readyState >= 3 ? "Live" : "Connecting…");
-    else setStatus("Paused");
+    if (muted) setStatus(intent ? t("Muted") : t("Paused"));
+    else if (intent && !audio.paused) setStatus(audio.readyState >= 3 ? t("Live") : t("Connecting…"));
+    else setStatus(t("Paused"));
   }
 
   function syncPlayButton() {
     const playing = intent && !audio.paused;
-    playBtn.innerHTML = playing ? `${icon("pause")}<span>Pause</span>` : `${icon("play")}<span>${t("Play")}</span>`;
-    playBtn.setAttribute("aria-label", playing ? "Pause radio" : "Play radio");
+    playBtn.innerHTML = playing ? `${icon("pause")}<span>${t("Pause")}</span>` : `${icon("play")}<span>${t("Play")}</span>`;
+    playBtn.setAttribute("aria-label", playing ? t("Pause radio") : t("Play radio"));
     wrap.classList.toggle("is-playing", playing);
     toggle.setAttribute("aria-label", playing ? t("Workout radio, playing {station}", { station: station.name }) : t("Workout radio"));
   }
@@ -158,14 +158,14 @@ export function createWorkoutRadio() {
     ensureSource();
     syncPlayButton();
     if (!audio.paused) return;
-    setStatus("Connecting…");
+    setStatus(t("Connecting…"));
     let started;
     try {
       started = audio.play();
     } catch {
       intent = false;
       syncPlayButton();
-      setStatus("Press play to start.", true);
+      setStatus(t("Press play to start."), true);
       return;
     }
     if (started && started.catch) {
@@ -173,7 +173,7 @@ export function createWorkoutRadio() {
         if (disposed || !intent || audio.error) return;
         intent = false;
         syncPlayButton();
-        setStatus("Press play to start.", true);
+        setStatus(t("Press play to start."), true);
       });
     }
   }
@@ -182,7 +182,7 @@ export function createWorkoutRadio() {
     intent = false;
     audio.pause();
     syncPlayButton();
-    setStatus("Paused");
+    setStatus(t("Paused"));
   }
 
   function selectStation(id) {
@@ -247,12 +247,12 @@ export function createWorkoutRadio() {
 
   audio.addEventListener("playing", () => {
     if (disposed) return;
-    setStatus(muted ? "Muted" : "Live");
+    setStatus(muted ? t("Muted") : t("Live"));
     syncPlayButton();
   });
   audio.addEventListener("waiting", () => {
     if (disposed || !intent) return;
-    setStatus("Buffering…");
+    setStatus(t("Buffering…"));
   });
   audio.addEventListener("pause", () => {
     if (disposed) return;
@@ -269,7 +269,7 @@ export function createWorkoutRadio() {
     }
     intent = false;
     syncPlayButton();
-    setStatus("Can't reach this station. Try another or check your connection.", true);
+    setStatus(t("Can't reach this station. Try another or check your connection."), true);
   });
 
   function onPointerDown(event) {

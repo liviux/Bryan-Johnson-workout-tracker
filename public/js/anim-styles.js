@@ -1,4 +1,4 @@
-import { localized } from "./i18n.js";
+import { localized, t } from "./i18n.js";
 // Animation styles: other ways to draw the exercise animations, on top of the
 // original mannequin. Picked in Settings → Animation style or from the floating style
 // bar (components/anim-bar.js). They apply to every exercise (STYLED_EXERCISES).
@@ -83,7 +83,7 @@ export function animStylePickerHtml(current) {
   const card = (s) => `<button type="button" class="skin-card anim-card" data-anim-style="${s.id}" aria-pressed="${s.id === cur}">
       <span class="anim-thumb"><span class="anim-num mono">${ANIM_STYLES.indexOf(s) + 1}</span><img alt="" data-anim-thumb="${s.id}" hidden></span>
       <span class="anim-badges"><span class="anim-badge">${TECH_NAMES[s.tech]}</span>${s.fun ? '<span class="anim-badge fun">Funny</span>' : ""}</span>
-      <span class="skin-meta"><b>${esc(s.name)}</b><small>${esc(s.blurb)}</small><small class="skin-src">Inspired by ${esc(s.after)}</small></span>
+      <span class="skin-meta"><b>${esc(s.name)}</b><small>${esc(s.blurb)}</small><small class="skin-src">${t("Inspired by {source}", { source: esc(s.after) })}</small></span>
     </button>`;
   const group = (title, note, list) => `<div class="anim-group"><h4>${esc(title)} <small class="muted">${esc(note)}</small></h4>
     <div class="skin-grid anim-grid">${list.map(card).join("")}</div></div>`;

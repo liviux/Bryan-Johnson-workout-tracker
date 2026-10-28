@@ -2,6 +2,7 @@
 
 import { esc, h } from "../util.js";
 import { icon } from "./icons.js";
+import { t } from "../i18n.js";
 
 const root = () => document.getElementById("overlay-root");
 const isPhone = () => window.matchMedia("(max-width: 900px)").matches;
@@ -12,9 +13,9 @@ export function openDialog({ title, content, sheet = isPhone(), wide = false, hi
   const last = document.activeElement;
   const overlay = h(`<div class="overlay${sheet ? " sheet-overlay" : ""}" role="presentation"></div>`);
   const box = h(
-    `<div class="${sheet ? "sheet" : "modal"}${hideTitle ? " no-title" : ""}" role="dialog" aria-modal="true" aria-label="${esc(title || "Dialog")}"${wide ? ' style="width:min(860px,100%)"' : ""}>
+    `<div class="${sheet ? "sheet" : "modal"}${hideTitle ? " no-title" : ""}" role="dialog" aria-modal="true" aria-label="${esc(title || t("Dialog"))}"${wide ? ' style="width:min(860px,100%)"' : ""}>
       ${sheet ? '<div class="grab"></div>' : ""}
-      <div class="modal-head"><h2${hideTitle ? ' class="sr-only"' : ""}>${esc(title || "")}</h2><button type="button" class="btn ghost icon-only" data-close aria-label="Close">${icon("x")}</button></div>
+      <div class="modal-head"><h2${hideTitle ? ' class="sr-only"' : ""}>${esc(title || "")}</h2><button type="button" class="btn ghost icon-only" data-close aria-label="${esc(t("Close dialog"))}">${icon("x")}</button></div>
       <div class="modal-body"></div>
     </div>`
   );
@@ -51,13 +52,13 @@ export function toast(message, { icon: ic = "check", ms = 2600 } = {}) {
   setTimeout(() => t.remove(), ms);
 }
 
-export function confirmDialog({ title, message, confirm = "Confirm", danger = false }) {
+export function confirmDialog({ title, message, confirm = t("Confirm"), danger = false }) {
   return new Promise((resolve) => {
     let answered = false;
     const d = openDialog({
       title,
       sheet: false,
-      content: `<p>${esc(message)}</p><div class="btn-row" style="justify-content:flex-end"><button class="btn" data-no>Cancel</button><button class="btn ${danger ? "danger" : "primary"}" data-yes>${esc(confirm)}</button></div>`,
+      content: `<p>${esc(message)}</p><div class="btn-row" style="justify-content:flex-end"><button class="btn" data-no>${t("Cancel")}</button><button class="btn ${danger ? "danger" : "primary"}" data-yes>${esc(confirm)}</button></div>`,
       onClose: () => !answered && resolve(false),
     });
     d.el.querySelector("[data-no]").addEventListener("click", () => d.close());
@@ -72,12 +73,12 @@ export function confirmDialog({ title, message, confirm = "Confirm", danger = fa
 // Segmented control HTML. options: [{ id, name }]
 export function seg(name, options, value, cls = "") {
   return `<div class="seg ${cls}" role="group" data-seg="${esc(name)}">${options
-    .map((o) => `<button type="button" data-value="${esc(o.id)}" aria-pressed="${String(o.id) === String(value)}">${esc(o.name)}</button>`)
+    .map((o) => `<button type="button" data-value="${esc(o.id)}" aria-pressed="${String(o.id) === String(value)}">${esc(t(o.name))}</button>`)
     .join("")}</div>`;
 }
 
 export function switchHtml(name, checked, label = "", cls = "") {
-  return `<label class="switch${cls ? ` ${esc(cls)}` : ""}"><input type="checkbox" data-switch="${esc(name)}" ${checked ? "checked" : ""} aria-label="${esc(label)}"><span></span></label>`;
+  return `<label class="switch${cls ? ` ${esc(cls)}` : ""}"><input type="checkbox" data-switch="${esc(name)}" ${checked ? "checked" : ""} aria-label="${esc(t(label))}"><span></span></label>`;
 }
 
 export function ring(done, total, size = 64) {

@@ -44,10 +44,10 @@ let lastRoute = "today";
 function drawNav(route) {
   const active = route === "day" ? "today" : route;
   document.getElementById("nav").innerHTML = NAV.map(
-    ([id, label, ic]) => `<a href="#/${id}" ${active === id ? 'aria-current="page"' : ""}>${icon(ic)}<span>${esc(label)}</span></a>`
+    ([id, label, ic]) => `<a href="#/${id}" ${active === id ? 'aria-current="page"' : ""}>${icon(ic)}<span>${esc(t(label))}</span></a>`
   ).join("");
   document.getElementById("tabbar").innerHTML = TABS.map(
-    ([id, label, ic]) => `<a href="#/${id}" ${active === id ? 'aria-current="page"' : ""}>${icon(ic)}<span>${esc(label)}</span></a>`
+    ([id, label, ic]) => `<a href="#/${id}" ${active === id ? 'aria-current="page"' : ""}>${icon(ic)}<span>${esc(t(label))}</span></a>`
   ).join("");
   const setup = route === "setup";
   document.querySelector(".sidebar").hidden = setup;
@@ -64,6 +64,8 @@ function drawShell() {
   document.querySelectorAll(".brand-text small").forEach((el) => { el.textContent = tagline; });
   document.querySelector(".sidebar")?.setAttribute("aria-label", t("Main"));
   document.querySelector(".tabbar")?.setAttribute("aria-label", t("Main"));
+  const versionEl = document.getElementById("sidebar-version");
+  if (versionEl && store.state.version) versionEl.title = t("Version {version} · Latest changes", { version: store.state.version });
 }
 
 function parseHash() {

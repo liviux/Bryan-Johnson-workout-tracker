@@ -27,16 +27,16 @@ export function createStagePanel(container, { onClipChange } = {}) {
   container.innerHTML = `
     <div class="ctrls">
       <button type="button" class="btn sm icon-only" data-a="play" aria-label="${esc(t("Pause animation"))}">${icon("pause")}</button>
-      <button type="button" class="btn sm mono" data-a="speed" aria-label="Animation speed">1×</button>
+      <button type="button" class="btn sm mono" data-a="speed" aria-label="${esc(t("Animation speed"))}">1×</button>
       <button type="button" class="btn sm icon-only" data-a="zoom-in" aria-label="${esc(t("Zoom in"))}">${icon("plus")}</button>
       <button type="button" class="btn sm icon-only" data-a="zoom-out" aria-label="${esc(t("Zoom out"))}">${icon("minus")}</button>
     </div>
-    <div class="views" role="group" aria-label="Camera">
-      <button type="button" class="btn sm" data-view="front">Front</button>
-      <button type="button" class="btn sm" data-view="side">Side</button>
+    <div class="views" role="group" aria-label="${esc(t("Camera view"))}">
+      <button type="button" class="btn sm" data-view="front">${t("Front view")}</button>
+      <button type="button" class="btn sm" data-view="side">${t("Side view")}</button>
       <button type="button" class="btn sm" data-view="three">3/4</button>
     </div>
-    <div class="cue"><span class="clip-nav"></span><span class="cue-text"><span class="ttl"></span><span class="txt">Loading 3D…</span></span></div>`;
+    <div class="cue"><span class="clip-nav"></span><span class="cue-text"><span class="ttl"></span><span class="txt">${t("Loading 3D…")}</span></span></div>`;
   const cueEl = container.querySelector(".cue .txt");
   const titleEl = container.querySelector(".cue .ttl");
   const navEl = container.querySelector(".cue .clip-nav");
@@ -54,21 +54,23 @@ export function createStagePanel(container, { onClipChange } = {}) {
   function syncAdvanceBtn() {
     const b = navEl.querySelector('[data-a="advance"]');
     if (!b) return;
-    b.textContent = autoAdvance ? "Auto" : "Fixed";
+    b.textContent = autoAdvance ? t("Auto") : t("Fixed");
     b.setAttribute("aria-pressed", String(autoAdvance));
-    b.title = autoAdvance ? "Automatically switch movements" : "Keep this movement selected";
+    b.title = autoAdvance ? t("Automatically switch movements") : t("Keep this movement selected");
   }
 
   function onCue({ cue, title, clipIndex, clipCount }) {
     const changed = clipIndex !== curClipIndex || clipCount !== curClipCount;
     curClipIndex = clipIndex || 0;
     curClipCount = clipCount || 0;
-    cueEl.textContent = cue || title || "";
+    const cueText = cue ? t(cue) : "";
+    const titleText = title ? t(title) : "";
+    cueEl.textContent = cueText || titleText || "";
     navEl.innerHTML =
       clipCount > 1
         ? `<button type="button" class="btn sm icon-only" data-clip="-1" aria-label="${esc(t("Previous movement"))}">${icon("chevronL", "sm")}</button><span class="mono" aria-label="${esc(t("Movement {current} of {total}", { current: clipIndex + 1, total: clipCount }))}">${clipIndex + 1}/${clipCount}</span><button type="button" class="btn sm icon-only" data-clip="1" aria-label="${esc(t("Next movement"))}">${icon("chevronR", "sm")}</button><button type="button" class="btn sm" data-a="advance" aria-pressed="${autoAdvance}" title="${esc(autoAdvance ? t("Automatically switch movements") : t("Keep this movement selected"))}">${autoAdvance ? t("Auto") : t("Fixed")}</button>`
         : "";
-    titleEl.textContent = title || "";
+    titleEl.textContent = titleText;
     if (changed && onClipChange) {
       const manual = pendingManual;
       pendingManual = false;
@@ -88,7 +90,7 @@ export function createStagePanel(container, { onClipChange } = {}) {
   }
 
   if (!webglAvailable()) {
-    fail("This browser can't display the 3D animation because WebGL is unavailable. Use the instructions and videos below.");
+    fail(t("This browser can't display the 3D animation because WebGL is unavailable. Use the instructions and videos below."));
   } else {
     loadEngine()
       .then(({ Stage }) => {
@@ -101,7 +103,7 @@ export function createStagePanel(container, { onClipChange } = {}) {
       })
       .catch((err) => {
         console.error(err);
-        fail("The animation couldn't load. Run npm install in the project folder, then reload this page.");
+        fail(t("The animation couldn't load. Run npm install in the project folder, then reload this page."));
       });
   }
 

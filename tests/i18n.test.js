@@ -45,6 +45,19 @@ test("plan data and exercise names switch language without changing ids", async 
   }
 });
 
+test("language review files keep every placeholder", async () => {
+  const { review } = await import("../scripts/i18n-review/index.mjs");
+  const { core } = await import("../scripts/i18n-core.mjs");
+  for (const language of translated) {
+    for (const [key, value] of [...Object.entries(review[language.id] || {}), ...Object.entries(core[language.id] || {})]) {
+      assert.equal(typeof value, "string", `${language.id}: ${key} is text`);
+      assert(value.trim(), `${language.id}: ${key} is not empty`);
+      for (const match of key.matchAll(/\{(\w+)\}/g)) assert(value.includes(`{${match[1]}}`), `${language.id}: ${key} lost {${match[1]}}`);
+      assert(!value.includes("QQQ"), `${language.id}: ${key} has a protected-token leftover`);
+    }
+  }
+});
+
 test("each language has a native coach voice and English keeps its five", () => {
   assert.equal(VOICES.length, 5);
   assert.equal(LANGUAGE_VOICES.length, 9);

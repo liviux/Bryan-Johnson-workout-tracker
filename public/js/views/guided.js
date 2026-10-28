@@ -67,8 +67,8 @@ export function startGuided(date, onExit) {
     </div>
     <div class="guided-main"><div class="guided-demo"><div class="stage-host"></div><div data-routine></div></div><div class="guided-column"><div class="guided-side"></div><div class="guided-foot"><p class="guided-voice-status muted" role="status" aria-live="polite"></p><div class="guided-next-time-host"></div></div></div></div>
     <div class="guided-bottom">
-      <button type="button" class="btn" data-g="prev">${icon("chevronL")} ${t("Back")}</button>
-      <button type="button" class="btn ghost" data-g="skip">Skip ${icon("skip", "sm")}</button>
+      <button type="button" class="btn" data-g="prev">${icon("chevronL")} ${t("Go back")}</button>
+      <button type="button" class="btn ghost" data-g="skip">${t("Skip")} ${icon("skip", "sm")}</button>
       <div class="guided-clock" aria-label="${esc(t("Workout time"))}">
         <span><small>${t("Total")}</small><b class="mono" data-g="total-time">0:00</b></span>
         <span><small>${t("This step")}</small><b class="mono" data-g="step-time">0:00</b></span>

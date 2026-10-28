@@ -1,6 +1,7 @@
 import { EQUIPMENT_CATEGORIES, RECOMMENDED_EQUIPMENT, equipmentUrl } from "../data/equipment.js";
 import { esc, uid } from "../util.js";
 import { icon } from "./icons.js";
+import { t } from "../i18n.js";
 
 export function createEquipmentEditor(host, { profile, save }) {
   const inventory = () => Array.isArray(profile().equipment) ? profile().equipment : [];
@@ -13,21 +14,20 @@ export function createEquipmentEditor(host, { profile, save }) {
 
   function draw() {
     host.innerHTML = `<div class="equipment-editor">
-      <p class="muted">Your equipment list is optional. Tick what you own, then add a name and optional product link. You can add equivalent equipment below. These details stay in your inventory; exercise instructions use generic names.</p>
-      ${EQUIPMENT_CATEGORIES.map((category) => `<details class="equipment-category" open><summary>${esc(category)}</summary><div class="equipment-grid">${rows().filter((g) => (EQUIPMENT_CATEGORIES.includes(g.category) ? g.category : "Other") === category).map((g) => `<article class="equipment-row" data-equipment-id="${esc(g.id)}">
-        <label class="equipment-owned"><input type="checkbox" data-equipment-field="owned" ${g.owned ? "checked" : ""}> <b>${esc(RECOMMENDED_EQUIPMENT.find((r) => r.type === g.type)?.name || "Extra equipment")}</b></label>
+      <p class="muted">${t("Your equipment list is optional. Tick what you own, then add a name and optional product link. You can add equivalent equipment below. These details stay in your inventory; exercise instructions use generic names.")}</p>
+      ${EQUIPMENT_CATEGORIES.map((category) => `<details class="equipment-category" open><summary>${esc(t(category))}</summary><div class="equipment-grid">${rows().filter((g) => (EQUIPMENT_CATEGORIES.includes(g.category) ? g.category : "Other") === category).map((g) => `<article class="equipment-row" data-equipment-id="${esc(g.id)}">        <label class="equipment-owned"><input type="checkbox" data-equipment-field="owned" ${g.owned ? "checked" : ""}> <b>${esc(RECOMMENDED_EQUIPMENT.find((r) => r.type === g.type)?.name || t("Extra equipment"))}</b></label>
         ${g.description ? `<p class="muted">${esc(g.description)}</p>` : ""}
-        <label class="field"><span>Name</span><input class="input" data-equipment-field="name" value="${esc(g.name || "")}" maxlength="200" required></label>
-        <label class="field"><span>Product link (optional)</span><input class="input" type="url" data-equipment-field="url" value="${esc(g.url || "")}" placeholder="https://…" maxlength="2000"><small data-equipment-error role="status"></small></label>
+        <label class="field"><span>${t("Name")}</span><input class="input" data-equipment-field="name" value="${esc(g.name || "")}" maxlength="200" required></label>
+        <label class="field"><span>${t("Product link (optional)")}</span><input class="input" type="url" data-equipment-field="url" value="${esc(g.url || "")}" placeholder="https://…" maxlength="2000"><small data-equipment-error role="status"></small></label>
         ${g.note ? `<small class="muted">${esc(g.note)}</small>` : ""}
-        <div class="btn-row">${equipmentUrl(g.url) ? `<a class="btn sm" data-equipment-link href="${esc(equipmentUrl(g.url))}" target="_blank" rel="noopener noreferrer">View product</a>` : '<span data-equipment-link></span>'}${g.id.startsWith("recommended-") ? "" : `<button type="button" class="btn ghost sm" data-remove-equipment>${icon("trash")} Remove</button>`}</div>
-      </article>`).join("") || '<p class="muted">Add your own equipment below.</p>'}</div></details>`).join("")}
+        <div class="btn-row">${equipmentUrl(g.url) ? `<a class="btn sm" data-equipment-link href="${esc(equipmentUrl(g.url))}" target="_blank" rel="noopener noreferrer">${t("View product")}</a>` : '<span data-equipment-link></span>'}${g.id.startsWith("recommended-") ? "" : `<button type="button" class="btn ghost sm" data-remove-equipment>${icon("trash")} ${t("Remove")}</button>`}</div>
+      </article>`).join("") || `<p class="muted">${t("Add your own equipment below.")}</p>`}</div></details>`).join("")}
       <form data-add-equipment class="card card-pad" style="display:grid;gap:12px">
-        <h4>Add equipment</h4>
-        <label class="field"><span>Category</span><select class="input" name="category">${options(EQUIPMENT_CATEGORIES.map((g) => [g, g]))}</select></label>
-        <label class="field"><span>Name</span><input class="input" name="name" required maxlength="200" placeholder="Your equipment or equivalent"></label>
-        <label class="field"><span>Product link (optional)</span><input class="input" type="url" name="url" maxlength="2000" placeholder="https://…"></label>
-        <button class="btn" type="submit">${icon("plus")} Add equipment</button>
+        <h4>${t("Add equipment")}</h4>
+        <label class="field"><span>${t("Category")}</span><select class="input" name="category">${options(EQUIPMENT_CATEGORIES.map((g) => [g, t(g)]))}</select></label>
+        <label class="field"><span>${t("Name")}</span><input class="input" name="name" required maxlength="200" placeholder="${esc(t("Your equipment or equivalent"))}"></label>
+        <label class="field"><span>${t("Product link (optional)")}</span><input class="input" type="url" name="url" maxlength="2000" placeholder="https://…"></label>
+        <button class="btn" type="submit">${icon("plus")} ${t("Add equipment")}</button>
       </form>
     </div>`;
   }
@@ -39,11 +39,11 @@ export function createEquipmentEditor(host, { profile, save }) {
     const value = field === "owned" ? e.target.checked : e.target.value;
     if (field === "url") {
       const url = equipmentUrl(value);
-      const error = value.trim() && !url ? "Use a full http:// or https:// product link." : "";
+      const error = value.trim() && !url ? t("Use a full http:// or https:// product link.") : "";
       row.querySelector("[data-equipment-error]").textContent = error;
       e.target.setCustomValidity(error);
       const link = row.querySelector("[data-equipment-link]");
-      link.outerHTML = url ? `<a class="btn sm" data-equipment-link href="${esc(url)}" target="_blank" rel="noopener noreferrer">View product</a>` : '<span data-equipment-link></span>';
+      link.outerHTML = url ? `<a class="btn sm" data-equipment-link href="${esc(url)}" target="_blank" rel="noopener noreferrer">${t("View product")}</a>` : '<span data-equipment-link></span>';
     }
     const entry = rows().find((g) => g.id === row.dataset.equipmentId);
     save((p) => {
@@ -72,7 +72,7 @@ export function createEquipmentEditor(host, { profile, save }) {
     const url = equipmentUrl(rawUrl);
     if (!name || (rawUrl && !url)) {
       const input = e.target.elements[!name ? "name" : "url"];
-      input.setCustomValidity(!name ? "Enter an equipment name." : "Use a full http:// or https:// product link.");
+      input.setCustomValidity(!name ? t("Enter an equipment name.") : t("Use a full http:// or https:// product link."));
       input.reportValidity();
       return;
     }

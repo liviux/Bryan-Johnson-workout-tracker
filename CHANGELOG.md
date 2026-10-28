@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.40.0] - 2026-10-28
+
+### Added
+- Setup now starts with the language picker, so the rest of setup is in your language.
+- The language picker in Settings sits above Voice coach and lists each language by its native name.
+
+### Changed
+- Reviewed all ten languages across setup, Today, guided workouts, movement lists, timers, Radio, Coach, Activity, Exercises, Plan, Settings and dialogs. Missing labels are translated, and exercise, movement, add-on and radio names follow the chosen language.
+- Replaced machine translations that were wrong or read like dictionary entries, including Play, Back, Camera, Skip, workout sets, holds, rounds and level names.
+- Rebuilt the translated coach recordings for the corrected wording.
+- Dates under videos use your language's format.
+- The interface, instructions and coach audio follow the language chosen in setup.
+
+### Fixed
+- Elements below the guided animation now translate, including movement order, rounds, block recovery, details and optional replacements.
+- Dose text such as "2 s hold", "eyes open" and "per side" now translates.
+- Changing language during setup keeps the details you already entered.
+- Text added after a page is drawn, including tooltips and labels, now translates too.
+
 ## [1.39.0] - 2026-10-27
 
 ### Added

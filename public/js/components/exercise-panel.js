@@ -96,7 +96,7 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
         <div class="chips">
           ${item && item.bryan ? `<span class="chip bryan">${esc(personalize(item.bryan, p))}</span>` : ""}
           ${(ex.equipment || []).map((e) => `<span class="chip" title="${esc(EQUIPMENT_NAMES[e] || e)}">${icon(e)} ${esc(EQUIPMENT_NAMES[e] || e)}</span>`).join("")}
-          ${(ex.muscles || []).map((m) => `<span class="chip accent">${esc(MUSCLE_NAMES[m] || m)}</span>`).join("")}
+          ${(ex.muscles || []).map((m) => `<span class="chip accent">${esc(t(MUSCLE_NAMES[m] || m))}</span>`).join("")}
         </div>
       </div>
       ${alternativeHtml(item, ctx.level)}

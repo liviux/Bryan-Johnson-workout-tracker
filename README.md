@@ -22,7 +22,7 @@ A local web app that plans and tracks a six-day home workout built from **Bryan 
 - **Your equipment**: record what you own, with names and product links, during setup or any time in Settings. Add equivalent or extra equipment, including a separate Massage category. Exercise instructions keep generic equipment names.
 - **Personalised**: heart-rate zones from your age (or measured max), starting weights scaled to your weight, sex, age and level, metric or imperial.
 - **Optional add-ons** chosen on first run: a daily **posture correction** block for tech neck and forward shoulders, **bone density loading** (heel drops and pogo hops), **dead hang & grip longevity** (passive and active hangs), and separate **desk breaks** for long sitting days.
-- **Ten languages**: English, Romanian, German, Italian, French, Spanish, Simplified Chinese, Hindi, Arabic and Bengali. The interface, exercise names, instructions and coach audio follow the language you pick in Settings; Arabic switches the layout to right-to-left.
+- **Ten languages**: English, Romanian, German, Italian, French, Spanish, Simplified Chinese, Hindi, Arabic and Bengali. Pick one first in setup, or change it any time in Settings. The interface, exercise names, instructions and coach audio follow it; Arabic switches the layout to right-to-left.
 - **Nine themes** to pick from during setup or any time in Settings, each with its own layout, type and colours (not just a palette), in light or dark.
 - **Activity**: a weekly schedule, history calendar with skip reasons, progress charts and longevity benchmarks.
 - An exercise library with equipment, muscle, source and category filters, and the full plan with dated sources.
@@ -61,7 +61,7 @@ npm install
 npm start
 ```
 
-Open **http://localhost:3030**. The first visit opens a short setup where you enter your details, pick your training level, record the equipment you own with names and links (the main accessories also have 3D examples) and pick add-ons.
+Open **http://localhost:3030**. The first visit opens a short setup. It starts with the language picker, then asks for your details, training level and the equipment you own with names and links (the main accessories also have 3D examples), and finishes with add-ons.
 
 Keep the terminal window open while you use the app. To stop it, press **Ctrl+C** in that window. Next time, open a terminal in the project folder and run `npm start` again.
 
@@ -384,6 +384,7 @@ Each add-on has its own schedule in **Settings → Add-ons**: run it daily or ev
 - `public/js/data/exercises.js` — every exercise: how-to steps, Bryan's notes, videos (with timestamps into his videos), equipment, what it's logged as.
 - `public/js/data/addons/` — optional blocks.
 - `public/js/anim/clips/` — the 3D animations. See [docs/ANIMATIONS.md](docs/ANIMATIONS.md) for how to write or tweak one, and open `/dev/animations.html?ids=pushup` to see every keyframe side by side.
+- `scripts/i18n-keys.json`, `scripts/i18n-core.mjs` and `scripts/i18n-review/` — the English phrases, core interface terms and per-language corrections. Rebuild the catalogues with `node scripts/i18n-translate.mjs` after changing UI text.
 
 Text in the data can use tokens that adapt to each user: `{hr:60-70}` becomes the user's heart-rate range, `{kg:10-14}` a weight scaled to them in their units, `{cm:30}` a length in their units.
 

@@ -286,8 +286,8 @@ export function summarizeLog(l, logType) {
       });
     if (parts.length) return parts.join(" · ");
   }
-  if (l.cardio && (l.cardio.min || l.cardio.avg)) return [l.cardio.min && `${l.cardio.min} min`, l.cardio.avg && `avg ${l.cardio.avg} bpm`].filter(Boolean).join(" · ");
-  if (l.rounds) return `${l.rounds} rounds${l.peak ? ` · peak ${l.peak} bpm` : ""}`;
+  if (l.cardio && (l.cardio.min || l.cardio.avg)) return [l.cardio.min && `${l.cardio.min} min`, l.cardio.avg && t("avg {bpm} bpm", { bpm: l.cardio.avg })].filter(Boolean).join(" · ");
+  if (l.rounds) return `${t("{count} rounds", { count: l.rounds })}${l.peak ? ` · ${t("peak {bpm} bpm", { bpm: l.peak })}` : ""}`;
   return "";
 }
 
@@ -298,7 +298,7 @@ export function renderLogger(container, ctx) {
   const u = kgUnit(p);
   const restSec = item.id === "fri-strength-rdl" && level === 3 ? 25 : (p && p.settings && p.settings.restSec) || 75;
   const cardioRange = item.intensity === "light" ? [50, 60] : ex.intensity === "hard" ? [80, level === 1 ? 85 : 90] : [60, 70];
-  const cardioLabel = item.intensity === "light" ? "Easy pace" : ex.intensity === "hard" ? "Vigorous" : "Zone 2";
+  const cardioLabel = item.intensity === "light" ? t("Easy pace") : ex.intensity === "hard" ? t("Vigorous") : t("Zone 2");
 
   function draw() {
     const l = getItemLog(date, scope, item.id) || {};
@@ -323,7 +323,7 @@ export function renderLogger(container, ctx) {
     if (setType) {
       const cols = [];
       if (type === "reps" || type === "load" || (type === "check" && !timedCheck)) cols.push(["reps", checkLabel, target.reps || ""]);
-      if (type === "hold" || type === "carry" || timedCheck) cols.push(["sec", "Seconds", target.seconds || ""]);
+      if (type === "hold" || type === "carry" || timedCheck) cols.push(["sec", t("Seconds"), target.seconds || ""]);
       if (type === "load" || type === "carry") cols.push(["kg", u, ""]);
       const timed = type === "hold" || type === "carry" || timedCheck;
       const n = Math.max(l.sets ? l.sets.length : 0, target.sets || 1);
@@ -341,7 +341,7 @@ export function renderLogger(container, ctx) {
                   const isPlan = blank && plan != null;
                   const planText = k === "kg" ? fmtWeight(p, plan) : k === "sec" ? `${plan} s` : `${plan}`;
                   const hint = isPlan ? t("Plan default: {value}", { value: planText }) : ph ? t("Plan: {value}", { value: ph }) : "";
-                  return `<label class="set-field"><span>${esc(label)}</span><input class="input num" inputmode="decimal" data-set="${i}" data-k="${k}" value="${esc(v)}" placeholder="${esc(ph && !isPlan ? ph : "")}"${isPlan ? ' data-default="true"' : ""}${hint ? ` title="${esc(hint)}"` : ""} aria-label="Set ${i + 1} ${esc(label)}"></label>`;
+                  return `<label class="set-field"><span>${esc(label)}</span><input class="input num" inputmode="decimal" data-set="${i}" data-k="${k}" value="${esc(v)}" placeholder="${esc(ph && !isPlan ? ph : "")}"${isPlan ? ' data-default="true"' : ""}${hint ? ` title="${esc(hint)}"` : ""} aria-label="${esc(t("Set {set} {field}", { set: i + 1, field: label }))}"></label>`;
                 })
                 .join("")}
               <span class="set-actions${timed ? " has-timer" : ""}">
@@ -363,7 +363,7 @@ export function renderLogger(container, ctx) {
       const min = c.min ?? defaults.min ?? "";
       const minPlan = c.min == null && defaults.min != null;
       body += `<div class="grid-form cardio-form${isCheck ? " one" : ""}">
-          <div class="field inline"><span>${t("Minutes")}</span><input class="input num" inputmode="decimal" data-c="min" aria-label="${esc(t("Minutes"))}" value="${esc(min)}" placeholder="${esc(target.minutes || "")}"${minPlan ? ' data-default="true" title="${esc(t("Plan default"))}"' : ""}><span class="timer-slot"></span>${target.minutes ? `<button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="countdown" aria-label="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}" title="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}">${icon("timer", "sm")}${ctx.guided ? "" : ` ${t("Timer")}`}</button>` : ""}</div>
+          <div class="field inline"><span>${t("Minutes")}</span><input class="input num" inputmode="decimal" data-c="min" aria-label="${esc(t("Minutes"))}" value="${esc(min)}" placeholder="${esc(target.minutes || "")}"${minPlan ? ` data-default="true" title="${esc(t("Plan default"))}"` : ""}><span class="timer-slot"></span>${target.minutes ? `<button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="countdown" aria-label="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}" title="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}">${icon("timer", "sm")}${ctx.guided ? "" : ` ${t("Timer")}`}</button>` : ""}</div>
           ${isCheck ? "" : `<label class="field inline"><span>${t("Avg bpm")}</span><input class="input num" inputmode="numeric" data-c="avg" value="${esc(c.avg ?? "")}" placeholder="${esc(bpmRange(p, ...cardioRange).replace(" bpm", ""))}"></label>
           <label class="field inline"><span>${t("Max bpm")}</span><input class="input num" inputmode="numeric" data-c="max" value="${esc(c.max ?? "")}"></label>`}
         </div>
@@ -371,10 +371,10 @@ export function renderLogger(container, ctx) {
     } else if (type === "intervals") {
       const presets = timerPresets(item, level);
       const pi = Math.min(l.preset || 0, Math.max(0, presets.length - 1));
-      if (item.ex === "shortint") body += `<div class="grid-form">${[0, 1].map((index) => `<label class="field"><span>${index ? t("Alternate with (optional)") : t("Movement for work bursts")}</span><select class="input" data-interval-move="${index}">${index ? '<option value="">${t("Same movement every burst")}</option>' : ""}${INTERVAL_MOVES.map((id) => `<option value="${id}" ${(l.moves?.[index] || (index === 0 ? "highknees" : "")) === id ? "selected" : ""}>${esc(EXERCISES[id].name)}</option>`).join("")}</select></label>`).join("")}</div><p class="muted interval-choice-help">${t("Each work burst uses one movement. Pick an alternate to switch movements each round: first → march → alternate → march.")}</p>`;
+      if (item.ex === "shortint") body += `<div class="grid-form">${[0, 1].map((index) => `<label class="field"><span>${index ? t("Alternate with (optional)") : t("Movement for work bursts")}</span><select class="input" data-interval-move="${index}">${index ? `<option value="">${t("Same movement every burst")}</option>` : ""}${INTERVAL_MOVES.map((id) => `<option value="${id}" ${(l.moves?.[index] || (index === 0 ? "highknees" : "")) === id ? "selected" : ""}>${esc(EXERCISES[id].name)}</option>`).join("")}</select></label>`).join("")}</div><p class="muted interval-choice-help">${t("Each work burst uses one movement. Pick an alternate to switch movements each round: first → march → alternate → march.")}</p>`;
       body += `${presets.length > 1 ? `<div class="seg" role="group" aria-label="${esc(t("Preset"))}">${presets.map((pr, i) => `<button type="button" data-preset="${i}" aria-pressed="${i === pi}">${esc(pr.label)}</button>`).join("")}</div>` : ""}
         <div class="grid-form" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-          <div class="field inline"><span>${t("Hard intervals done")}</span><input class="input num" inputmode="numeric" data-r="rounds" aria-label="${esc(t("Hard intervals done"))}" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ' data-default="true" title="${esc(t("Plan default"))}"' : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"><span class="timer-slot"></span><button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="intervals" aria-label="${esc(t("Start interval timer"))}" title="${esc(t("Start interval timer"))}">${icon("timer", "sm")}${ctx.guided ? "" : ` ${t("Timer")}`}</button></div>
+          <div class="field inline"><span>${t("Hard intervals done")}</span><input class="input num" inputmode="numeric" data-r="rounds" aria-label="${esc(t("Hard intervals done"))}" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ` data-default="true" title="${esc(t("Plan default"))}"` : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"><span class="timer-slot"></span><button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="intervals" aria-label="${esc(t("Start interval timer"))}" title="${esc(t("Start interval timer"))}">${icon("timer", "sm")}${ctx.guided ? "" : ` ${t("Timer")}`}</button></div>
           <label class="field inline"><span>${t("Peak bpm")}</span><input class="input num" inputmode="numeric" data-r="peak" value="${esc(l.peak ?? "")}"></label>
         </div>
         ${doneBtn ? `<div class="btn-row">${doneBtn}</div>` : ""}`;
@@ -393,13 +393,13 @@ export function renderLogger(container, ctx) {
     const easierButton = `<button type="button" class="btn sm ghost" data-l="easier" aria-label="${esc(l.easier ? t("Change easier choice") : t("Something hurts or too hard?"))}" title="${esc(t("Something hurts or too hard?"))}">${icon("info", "sm")} ${l.easier ? t("Change easier choice") : ctx.compactActions ? t("Something hurts?") : t("Something hurts or too hard?")}</button>`;
     const last = type !== "check" && type !== "cardio" && type !== "intervals" ? lastPerformance(item.ex, date, { level }) : null;
     body += last ? `<p class="muted" style="font-size:0.84rem">${t("Last time ({date}):", { date: esc(fmtShort(last.date)) })} <span class="mono">${esc(summarizeLog(last.log, type))}</span></p>` : "";
-    const noteField = `<textarea class="input" data-l="note" aria-label="Note for this exercise" rows="2" placeholder="${esc(t("Note how it felt, any pain or a technique cue to remember."))}">${esc(l.note || "")}</textarea>`;
+    const noteField = `<textarea class="input" data-l="note" aria-label="${esc(t("Note for this exercise"))}" rows="2" placeholder="${esc(t("Note how it felt, any pain or a technique cue to remember."))}">${esc(l.note || "")}</textarea>`;
     const notePanel = `<div class="note-panel">${noteField}<div class="note-easier">${easierButton}</div></div>`;
     if (ctx.noteHost) ctx.noteHost.innerHTML = notePanel;
     body += ctx.noteHost
       ? ""
       : ctx.compactActions
-        ? `<div class="logger-actions">${doneButton}<button type="button" class="btn sm ghost${l.note ? " has-note" : ""}" data-l="note-toggle" aria-label="Note for this exercise" aria-expanded="${!!l.note}">${icon("note", "sm")} ${t("Note")}</button>${typeof ctx.extraActions === "function" ? ctx.extraActions() : ctx.extraActions || ""}</div><div class="note-panel" data-note-panel${l.note ? "" : " hidden"}>${noteField}<div class="note-easier">${easierButton}</div></div>`
+        ? `<div class="logger-actions">${doneButton}<button type="button" class="btn sm ghost${l.note ? " has-note" : ""}" data-l="note-toggle" aria-label="${esc(t("Note for this exercise"))}" aria-expanded="${!!l.note}">${icon("note", "sm")} ${t("Note")}</button>${typeof ctx.extraActions === "function" ? ctx.extraActions() : ctx.extraActions || ""}</div><div class="note-panel" data-note-panel${l.note ? "" : " hidden"}>${noteField}<div class="note-easier">${easierButton}</div></div>`
         : `<details ${l.note ? "open" : ""}><summary class="muted" style="cursor:pointer;font-size:0.86rem">${icon("note", "sm")} ${t("Note for this exercise")}</summary>${notePanel}</details>`;
     container.innerHTML = `<div class="logger${ctx.compactActions ? " compact-actions" : ""}${ctx.guided ? " guided-logger" : ""}">${body}</div>`;
   }
@@ -407,7 +407,7 @@ export function renderLogger(container, ctx) {
   // The next-time line turns the plan's progression rule into one clear action.
   function suggestionHtml(rec) {
     if (!rec) return "";
-    const value = rec.kg != null ? fmtWeight(p, rec.kg) : rec.reps != null ? `${rec.reps} reps` : rec.seconds != null ? `${rec.seconds} s` : "";
+    const value = rec.kg != null ? fmtWeight(p, rec.kg) : rec.reps != null ? t("{count} reps", { count: rec.reps }) : rec.seconds != null ? `${rec.seconds} s` : "";
     const kind = rec.kg != null ? "kg" : rec.reps != null ? "reps" : rec.seconds != null ? "sec" : null;
     const raw = rec.kg != null ? rec.kg : rec.reps != null ? rec.reps : rec.seconds;
     const use = kind && raw != null ? `<button type="button" class="btn sm" data-l="use" data-use-kind="${kind}" data-use-value="${raw}">${icon("check", "sm")} ${t("Use {value}", { value: esc(value) })}</button>` : "";
@@ -455,7 +455,7 @@ export function renderLogger(container, ctx) {
       const c = e.target.closest("[data-easy-choice]");
       if (!c || !reason) return;
       const choice = c.dataset.easyChoice;
-      const text = choice === "version" ? personalize(ex.easier, p) : choice === "dose" ? `${prevName}: ${prevRx}` : "Skipped today";
+      const text = choice === "version" ? personalize(ex.easier, p) : choice === "dose" ? `${prevName}: ${prevRx}` : t("Skipped today");
       save((l) => {
         l.easier = { reason, choice, text, at: new Date().toISOString() };
         l.holdProgress = true;
@@ -467,7 +467,7 @@ export function renderLogger(container, ctx) {
       });
       d.close();
       draw();
-      toast(choice === "skip" ? "Exercise skipped today" : "Easier version logged for today");
+      toast(choice === "skip" ? t("Exercise skipped today") : t("Easier version logged for today"));
     });
   }
 
@@ -645,7 +645,7 @@ export function renderLogger(container, ctx) {
       }
     });
     draw();
-    toast("Filled in the suggestion");
+    toast(t("Filled in the suggestion"));
   }
 
   container.addEventListener("click", (e) => {
@@ -675,7 +675,7 @@ export function renderLogger(container, ctx) {
         l.holdProgress = false;
       });
       draw();
-      toast("Back to the plan's dose for today");
+      toast(t("Back to the plan's dose for today"));
     } else if (a === "use") {
       useSuggestion(b);
     } else if (a === "add") {

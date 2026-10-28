@@ -1,4 +1,4 @@
-import { localized } from "./i18n.js";
+import { localized, t } from "./i18n.js";
 // Themes: each look has its own layout, type and
 // colours (css/themes.css), on top of the light/dark mode setting.
 //
@@ -154,7 +154,7 @@ export function skinPickerHtml(current) {
   const cur = skinById(current).id;
   return `<div class="skin-grid" role="group" aria-label="Theme">${SKINS.map(
     (s) => `<button type="button" class="skin-card" data-skin="${s.id}" aria-pressed="${s.id === cur}">
-      <img class="skin-pv" src="/images/themes/${s.id}.jpg" alt="Today: ${esc(s.preview)}" width="1440" height="1000" loading="lazy">
+      <img class="skin-pv" src="/images/themes/${s.id}.jpg" alt="${esc(t("Today"))}: ${esc(s.preview)}" width="1440" height="1000" loading="lazy">
       <span class="skin-meta"><b>${esc(s.name)}</b><small>${esc(s.blurb)}</small></span>
     </button>`
   ).join("")}</div>`;

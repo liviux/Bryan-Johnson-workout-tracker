@@ -106,13 +106,13 @@ export function render(el) {
 
       <section class="card card-pad" style="display:grid;gap:10px">
         <h3>Language</h3>
-        <label class="field"><span>App language</span><select class="input" data-language>${LANGUAGES.map((l) => `<option value="${l.id}"${l.id === (st.language || "en") ? " selected" : ""}>${esc(l.native)} · ${esc(l.name)}</option>`).join("")}</select></label>
-        <p class="muted" style="font-size:0.85rem">The interface, workout instructions, exercise names and coach audio follow this language. Dates use this language's format.</p>
+        <label class="field"><span>${t("App language")}</span><select class="input" data-language>${LANGUAGES.map((l) => `<option value="${l.id}" data-i18n-skip${l.id === (st.language || "en") ? " selected" : ""}>${esc(l.native)}</option>`).join("")}</select></label>
+        <p class="muted" style="font-size:0.85rem">${t("The interface, workout instructions, exercise names and coach audio follow this language. Dates use this language's format.")}</p>
       </section>
 
       <section class="card card-pad" style="display:grid;gap:16px">
         <h3>Your details</h3>
-        <p class="muted" style="font-size:0.86rem">Your details set your suggested starting weights and heart-rate zones: max ${hrMax(pr)} bpm, Zone 2 ${bpmRange(pr, 60, 70)}.</p>
+        <p class="muted" style="font-size:0.86rem">${t("Your details set your suggested starting weights and heart-rate zones: max {bpm} bpm, Zone 2 {range}.", { bpm: hrMax(pr), range: bpmRange(pr, 60, 70) })}</p>
         <div class="profile-row">
           <label class="field profile-name"><span>Name</span><input class="input" data-f="name" value="${esc(pr.name || "")}"></label>
           <label class="field"><span>Age</span><input class="input" data-f="age" inputmode="numeric" value="${esc(pr.age)}"></label>
@@ -125,7 +125,7 @@ export function render(el) {
         </div>
         <div class="grid-form">
           <label class="field"><span>Heaviest dumbbell (${imperial() ? "lb" : "kg"})</span><input class="input" data-f="maxdb" inputmode="decimal" value="${esc(w(pr.maxDumbbellKg))}"></label>
-          <label class="field"><span>Measured max heart rate</span><input class="input" data-f="hrmax" inputmode="numeric" value="${esc(pr.hrMax ?? "")}" placeholder="estimated from age"></label>
+          <label class="field"><span>${t("Measured max heart rate")}</span><input class="input" data-f="hrmax" inputmode="numeric" value="${esc(pr.hrMax ?? "")}" placeholder="${esc(t("estimated from age"))}"></label>
           <label class="field"><span>Program start date</span><input class="input" type="date" data-f="start" value="${esc(pr.startDate || "")}"></label>
         </div>
       </section>
@@ -159,9 +159,9 @@ export function render(el) {
         <h3>During workouts</h3>
         <div class="field"><span>Rest timer after a set</span>${seg("rest", [...REST_PRESETS.map((s) => ({ id: String(s), name: `${s} s` })), { id: "custom", name: "Custom" }], customRest ? "custom" : String(st.restSec || 75))}</div>
         <label class="field rest-custom" ${customRest ? "" : "hidden"}><span>Custom rest (seconds)</span><input class="input" type="number" data-f="restCustom" min="1" max="3600" step="1" required value="${esc(st.restSec || 75)}"><small>Enter 1 to 3,600 seconds.</small></label>
-        <label style="display:flex;gap:12px;align-items:center">${switchHtml("autoRest", st.autoRest !== false, "Start the rest timer automatically")}<span>Start the rest timer automatically when you log a set</span></label>
-        <label style="display:flex;gap:12px;align-items:center">${switchHtml("sound", st.sound !== false, "Timer sounds")}<span>Timer beeps</span></label>
-        <label style="display:flex;gap:12px;align-items:center">${switchHtml("deskNotify", !!st.deskNotify, "Desk break notifications")}<span>Desk break notifications while this tab is in the background <small class="muted">(off by default; your browser asks for permission)</small></span></label>
+        <label style="display:flex;gap:12px;align-items:center">${switchHtml("autoRest", st.autoRest !== false, "Start the rest timer automatically")}<span>${t("Start the rest timer automatically when you log a set")}</span></label>
+        <label style="display:flex;gap:12px;align-items:center">${switchHtml("sound", st.sound !== false, "Timer sounds")}<span>${t("Timer beeps")}</span></label>
+        <label style="display:flex;gap:12px;align-items:center">${switchHtml("deskNotify", !!st.deskNotify, "Desk break notifications")}<span>${t("Desk break notifications while this tab is in the background")} <small class="muted">${t("(off by default; your browser asks for permission)")}</small></span></label>
       </section>
 
       <section class="card card-pad" data-coach-settings></section>
@@ -174,7 +174,7 @@ export function render(el) {
           <button type="button" class="btn" data-live>${icon("eye")} Try themes live</button>
           <small class="muted">Compare themes on Today with the switcher at the top. Hover a letter to see the theme name. Close it with ×.</small>
         </div>
-        <div class="field"><span>Light or dark</span>${skinById(st.skin).modes.length > 1 ? seg("theme", [{ id: "system", name: "Follow the system" }, { id: "light", name: "Light" }, { id: "dark", name: "Dark" }], st.theme || "system") : `<small>${esc(skinById(st.skin).name)} is always dark.</small>`}</div>
+        <div class="field"><span>Light or dark</span>${skinById(st.skin).modes.length > 1 ? seg("theme", [{ id: "system", name: "Follow the system" }, { id: "light", name: "Light mode" }, { id: "dark", name: "Dark mode" }], st.theme || "system") : `<small>${esc(skinById(st.skin).name)} is always dark.</small>`}</div>
       </section>
 
       <section class="card card-pad" data-anim-settings style="display:grid;gap:14px">
@@ -286,7 +286,7 @@ export function render(el) {
       try {
         const data = JSON.parse(await t.files[0].text());
         const days = Object.keys(data.days || {}).length;
-        const replace = await confirmDialog({ title: t("Import backup"), message: t("This backup has {days} logged days{mixed}. Choose Replace all to overwrite your current data. Cancel merges the backup instead; its days overwrite matching dates.", { days, mixed: data.profile ? t(" and a profile") : "" }), confirm: t("Replace all"), danger: true });
+        const replace = await confirmDialog({ title: t("Import backup"), message: t("This backup has {days} logged days{mixed}. Choose Replace all to overwrite your current data. Cancel merges the backup instead; its days overwrite matching dates.", { days, mixed: data.profile ? ` ${t("and a profile")}` : "" }), confirm: t("Replace all"), danger: true });
         await importAll(data, replace ? "replace" : "merge");
         customRest = !REST_PRESETS.includes(p().settings?.restSec || 75);
         applyLook(state.profile && state.profile.settings);

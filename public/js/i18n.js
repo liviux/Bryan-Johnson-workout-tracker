@@ -21,6 +21,7 @@ export const LANGUAGES = [
 const byId = new Map(LANGUAGES.map((language) => [language.id, language]));
 let current = "en";
 let catalogue = {};
+let translatedValues = new Set();
 let loading = null;
 const listeners = new Set();
 const objectCache = new WeakMap();
@@ -53,6 +54,7 @@ export function normaliseLanguage(value) {
 export function useCatalogue(id, map) {
   current = normaliseLanguage(id);
   catalogue = map || {};
+  translatedValues = new Set(Object.values(catalogue));
   return current;
 }
 
@@ -63,7 +65,8 @@ export async function setLanguage(value, { silent = false } = {}) {
   if (id !== current) {
     current = id;
     catalogue = {};
-    loading = id === "en" ? Promise.resolve() : import(`./locales/${id}.js`).then((module) => { catalogue = module.default || {}; }).catch((err) => { console.warn(`Language ${id}:`, err.message); catalogue = {}; });
+    translatedValues = new Set();
+    loading = id === "en" ? Promise.resolve() : import(`./locales/${id}.js`).then((module) => { catalogue = module.default || {}; translatedValues = new Set(Object.values(catalogue)); }).catch((err) => { console.warn(`Language ${id}:`, err.message); catalogue = {}; translatedValues = new Set(); });
   }
   await loading;
   if (typeof document !== "undefined") {
@@ -91,11 +94,18 @@ export function translate(source) {
   return typeof source === "string" ? catalogue[source] ?? source : source;
 }
 
+// Rendered text may already be the translation of a different key. Do not run
+// it through the catalogue again: "Minute" is Romanian for "Minutes" but also
+// the English key for one minute, and double translation would shorten it.
+function translateRendered(source) {
+  return translatedValues.has(source) ? source : translate(source);
+}
+
 function translatedNodeValue(value) {
   const text = String(value ?? "");
   const trimmed = text.trim();
   if (!trimmed) return text;
-  const next = translate(trimmed);
+  const next = translateRendered(trimmed);
   if (next === trimmed) return text;
   const start = text.indexOf(trimmed);
   return `${text.slice(0, start)}${next}${text.slice(start + trimmed.length)}`;
@@ -115,7 +125,7 @@ export function localizeDocument(root = document) {
     for (const name of ATTRIBUTES) {
       if (!root.hasAttribute(name)) continue;
       const value = root.getAttribute(name);
-      const next = translate(value);
+      const next = translateRendered(value);
       if (next !== value) root.setAttribute(name, next);
     }
     if (root.matches(SKIP)) return;
@@ -135,7 +145,7 @@ export function localizeDocument(root = document) {
       for (const name of ATTRIBUTES) {
         if (!walker.currentNode.hasAttribute(name)) continue;
         const value = walker.currentNode.getAttribute(name);
-        const next = translate(value);
+        const next = translateRendered(value);
         if (next !== value) walker.currentNode.setAttribute(name, next);
       }
     }
@@ -150,6 +160,12 @@ export function watchTranslations() {
   watchTranslations.started = true;
   const observer = new MutationObserver((mutations) => {
     for (const mutation of mutations) {
+      if (mutation.type === "attributes") {
+        const value = mutation.target.getAttribute(mutation.attributeName);
+        const next = translateRendered(value);
+        if (next !== value) mutation.target.setAttribute(mutation.attributeName, next);
+        continue;
+      }
       if (mutation.type === "characterData") {
         const parent = mutation.target.parentElement;
         if (parent && !parent.closest(SKIP)) {
@@ -162,13 +178,13 @@ export function watchTranslations() {
       for (const node of mutation.addedNodes) if (node.isConnected) localizeDocument(node);
     }
   });
-  observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+  observer.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ATTRIBUTES });
   localizeDocument();
 }
 
 // Plan objects are wrapped once. Reading a display string returns the current
 // language's version; ids, urls, enum values and numbers pass through.
-const RAW_KEYS = new Set(["id", "ex", "u", "k", "s", "icon", "color", "log", "type", "kind", "scope", "equipment", "muscles", "cats", "mode", "daily", "strength", "optional", "tier", "key", "url", "session", "date", "variant"]);
+const RAW_KEYS = new Set(["id", "ex", "u", "k", "s", "icon", "color", "log", "type", "kind", "scope", "equipment", "muscles", "cats", "mode", "optional", "tier", "key", "url", "session", "date", "variant"]);
 
 function localizeValue(value, parentKey = "") {
   if (typeof value === "string") return RAW_KEYS.has(parentKey) ? value : translate(value);

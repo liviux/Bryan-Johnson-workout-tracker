@@ -16,12 +16,12 @@ export function levelPickerHtml(selected, { sessions = null } = {}) {
   const chips = LEVELS.map(
     (l) => `<button type="button" class="choice" data-level="${l.id}" aria-pressed="${l.id === lvl.id}"><b>${esc(l.name)}</b><small>${esc(l.detail)}</small></button>`
   ).join("");
-  const down = i > 0 ? t(" If workouts feel too hard or you're returning after a break, you can switch to {level}.", { level: esc(LEVELS[i - 1].name) }) : "";
+  const down = i > 0 ? ` ${t("If workouts feel too hard or you're returning after a break, you can switch to {level}.", { level: esc(LEVELS[i - 1].name) })}` : "";
   const after =
     sessions != null
       ? `<br><span class="muted">${sessions === 1 ? t("You've completed 1 session at this level. Past workouts keep the level you logged them at.") : t("You've completed {count} sessions at this level. Past workouts keep the level you logged them at.", { count: sessions })}</span>`
-      : `<br><span class="muted">Change your level in Settings whenever you need easier workouts or feel ready for harder ones.</span>`;
+      : `<br><span class="muted">${t("Change your level in Settings whenever you need easier workouts or feel ready for harder ones.")}</span>`;
   return `<div class="choice-grid levels" role="group" aria-label="${esc(t("Training level"))}">${chips}</div>
-    <p class="level-note">${icon("info")}<span><b>${esc(lvl.name)}:</b> ${esc(lvl.plan)} ${esc(lp.effort)}
+    <p class="level-note">${icon("info")}<span><b>${esc(lvl.name)}${t(":")}</b> ${esc(lvl.plan)} ${esc(lp.effort)}
       <br><b>${t("When to change:")}</b> ${esc(lp.moveUp)}${down}${after}</span></p>`;
 }

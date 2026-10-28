@@ -98,7 +98,7 @@ export function render(el, params) {
         const v = a.metrics ? a.metrics[m.id] : null;
         const btns = [];
         for (let i = m.min; i <= m.max; i++) btns.push(`<button type="button" data-metric="${esc(m.id)}" data-v="${i}" aria-pressed="${v === i}">${i}</button>`);
-        return `<div class="field"><span>${esc(m.label)} <small class="muted">(${esc(m.low)} → ${esc(m.high)})</small></span><div class="scale">${btns.join("")}</div></div>`;
+        return `<div class="field"><span>${esc(m.label)} <small class="muted">(${esc(t(m.low))} → ${esc(t(m.high))})</small></span><div class="scale">${btns.join("")}</div></div>`;
       })
       .join("");
     const due = (addon.periodic || []).filter((pd) => isDue(addon.id, pd));
@@ -113,10 +113,10 @@ export function render(el, params) {
       <p class="block-note">${esc(variant.name)}. ${esc(variant.note || "")}</p>
       ${
         a.skipped
-          ? `<div class="banner skip" style="margin:0 20px 16px"><div class="grow"><b>Skipped today</b>${a.skipReason ? `<span>${esc(a.skipReason)}</span>` : ""}</div><button type="button" class="btn sm" data-addon-unskip>${icon("undo", "sm")} Undo</button></div>`
+          ? `<div class="banner skip" style="margin:0 20px 16px"><div class="grow"><b>${t("Skipped today")}</b>${a.skipReason ? `<span>${esc(a.skipReason)}</span>` : ""}</div><button type="button" class="btn sm" data-addon-unskip>${icon("undo", "sm")} ${t("Undo")}</button></div>`
           : `<ul class="items">${itemRows(items, level, addon.id)}</ul>
              <div style="padding:6px 20px 18px;display:grid;gap:14px">${metrics}${periodic}
-               <div class="btn-row"><button type="button" class="btn sm" data-addon-all>${icon("check", "sm")} Mark all done</button><button type="button" class="btn sm ghost skip" data-addon-skip>${icon("skip", "sm")} Skip ${esc(addon.short || addon.name)} today</button></div>
+               <div class="btn-row"><button type="button" class="btn sm" data-addon-all>${icon("check", "sm")} ${t("Mark all done")}</button><button type="button" class="btn sm ghost skip" data-addon-skip>${icon("skip", "sm")} ${t("Skip {name} today", { name: addon.short || addon.name })}</button></div>
              </div>`
       }
     </details>`;
@@ -148,22 +148,22 @@ export function render(el, params) {
     const timerRow = (kind, label, left, action) => {
       const isDue = due(kind);
       return `<div class="desk-timer${isDue ? " due" : ""}" data-desk-kind="${kind}">
-        <span class="grow" data-desk-label="${kind}">${ds.paused ? label : isDue ? `${label} now` : label}</span>
+        <span class="grow" data-desk-label="${kind}">${ds.paused ? label : isDue ? t("{label} now", { label }) : label}</span>
         <b class="mono" data-desk-left="${kind}">${ds.paused ? t("paused") : isDue ? t("due") : left}</b>
         ${isDue ? `<button type="button" class="btn sm ghost" data-desk-snooze="${action}">${icon("clock", "sm")} ${t("Not now, 5 min")}</button>` : ""}
-        <button type="button" class="btn sm" data-desk-${action}>${icon("check", "sm")} Done</button>
+        <button type="button" class="btn sm" data-desk-${action}>${icon("check", "sm")} ${t("Done")}</button>
       </div>`;
     };
     return `<div class="desk-start">
-        ${ds.paused ? `<div class="banner hint desk-paused"><span>${icon("pause", "lg")}</span><div class="grow"><b>Paused during your workout</b><span>The countdowns resume when the session is done.</span></div></div>` : ""}
+        ${ds.paused ? `<div class="banner hint desk-paused"><span>${icon("pause", "lg")}</span><div class="grow"><b>${t("Paused during your workout")}</b><span>${t("The countdowns resume when the session is done.")}</span></div></div>` : ""}
         ${
           ds.running
             ? `<div class="desk-timers">
-                ${timerRow("move", "Next stand-up", ds.nextMoveInText, "move")}
-                ${timerRow("squats", "Next 10 squats", ds.nextSquatInText, "squats")}
+                ${timerRow("move", t("Next stand-up"), ds.nextMoveInText, "move")}
+                ${timerRow("squats", t("Next 10 squats"), ds.nextSquatInText, "squats")}
               </div>
-              <div class="btn-row"><button type="button" class="btn sm ghost" data-desk-stop>${icon("pause", "sm")} Stop</button></div>`
-            : `<div class="btn-row"><button type="button" class="btn sm" data-desk-start>${icon("play", "sm")} Start desk mode</button></div>`
+              <div class="btn-row"><button type="button" class="btn sm ghost" data-desk-stop>${icon("pause", "sm")} ${t("Stop")}</button></div>`
+            : `<div class="btn-row"><button type="button" class="btn sm" data-desk-start>${icon("play", "sm")} ${t("Start desk mode")}</button></div>`
         }
         <div class="desk-counts muted">${t("Today: {move} move breaks · {squats} squat sets · {streak}-day streak", { move, squats, streak })}</div>
       </div>`;
@@ -186,12 +186,12 @@ export function render(el, params) {
         const el2 = box.querySelector(`[data-desk-kind="${kind}"]`);
         const value = box.querySelector(`[data-desk-left="${kind}"]`);
         const name = box.querySelector(`[data-desk-label="${kind}"]`);
-        if (value) value.textContent = ds.paused ? "paused" : isDue ? "due" : left;
-        if (name) name.textContent = ds.paused || !isDue ? label : `${label} now`;
+        if (value) value.textContent = ds.paused ? t("paused") : isDue ? t("due") : left;
+        if (name) name.textContent = ds.paused || !isDue ? label : t("{label} now", { label });
         if (el2) el2.classList.toggle("due", isDue);
       };
-      row("move", ds.nextMoveInText, "Next stand-up");
-      row("squats", ds.nextSquatInText, "Next 10 squats");
+      row("move", ds.nextMoveInText, t("Next stand-up"));
+      row("squats", ds.nextSquatInText, t("Next 10 squats"));
     });
     const label = el.querySelector("[data-desk-count-label]");
     if (label) {
@@ -231,26 +231,26 @@ export function render(el, params) {
     const extras = (l.extras || [])
       .map(
         (x) => `<div class="extra-row" data-extra="${esc(x.id)}">
-          <select class="input" data-x="type" aria-label="Activity">${EXTRA_TYPES.map((t) => `<option value="${t.id}" ${x.type === t.id ? "selected" : ""}>${esc(t.name)}</option>`).join("")}</select>
-          <input class="input num" data-x="min" inputmode="numeric" placeholder="min" value="${esc(x.min ?? "")}" aria-label="Minutes">
-          <input class="input num" data-x="avg" inputmode="numeric" placeholder="bpm" value="${esc(x.avg ?? "")}" aria-label="Average heart rate">
-          <select class="input" data-x="intensity" aria-label="Intensity"><option value="zone2" ${x.intensity !== "hard" && x.intensity !== "light" ? "selected" : ""}>Easy / Zone 2</option><option value="hard" ${x.intensity === "hard" ? "selected" : ""}>Hard</option><option value="light" ${x.intensity === "light" ? "selected" : ""}>Light</option></select>
-          <button type="button" class="btn sm icon-only ghost" data-x-del aria-label="Remove activity">${icon("trash", "sm")}</button>
+          <select class="input" data-x="type" aria-label="${esc(t("Activity"))}">${EXTRA_TYPES.map((t) => `<option value="${t.id}" ${x.type === t.id ? "selected" : ""}>${esc(t.name)}</option>`).join("")}</select>
+          <input class="input num" data-x="min" inputmode="numeric" placeholder="${esc(t("min"))}" value="${esc(x.min ?? "")}" aria-label="${esc(t("Minutes"))}">
+          <input class="input num" data-x="avg" inputmode="numeric" placeholder="bpm" value="${esc(x.avg ?? "")}" aria-label="${esc(t("Average heart rate"))}">
+          <select class="input" data-x="intensity" aria-label="${esc(t("Intensity"))}"><option value="zone2" ${x.intensity !== "hard" && x.intensity !== "light" ? "selected" : ""}>${t("Easy / Zone 2")}</option><option value="hard" ${x.intensity === "hard" ? "selected" : ""}>${t("Hard effort")}</option><option value="light" ${x.intensity === "light" ? "selected" : ""}>${t("Light effort")}</option></select>
+          <button type="button" class="btn sm icon-only ghost" data-x-del aria-label="${esc(t("Remove activity"))}">${icon("trash", "sm")}</button>
         </div>`
       )
       .join("");
     return `<section class="card card-pad obs">
-      <div class="section-title"><h2>Notes & observations</h2><span class="eyebrow">saved automatically</span></div>
+      <div class="section-title"><h2>${t("Notes & observations")}</h2><span class="eyebrow">${t("saved automatically")}</span></div>
       <div class="obs-ratings">
-        <div class="rating-line"><span class="label" title="1 = very easy, 10 = maximum">Session effort <small>(1–10)</small></span><div class="scale" role="group" aria-label="Session effort, 1 very easy to 10 maximum">${rpe}</div></div>
-        <div class="rating-line"><span class="label">Energy today</span><div class="seg" role="group" aria-label="Energy today">${energy}</div></div>
+        <div class="rating-line"><span class="label" title="${esc(t("1 = very easy, 10 = maximum"))}">${t("Session effort")} <small>(1–10)</small></span><div class="scale" role="group" aria-label="${esc(t("Session effort, 1 very easy to 10 maximum"))}">${rpe}</div></div>
+        <div class="rating-line"><span class="label">${t("Energy today")}</span><div class="seg" role="group" aria-label="${esc(t("Energy today"))}">${energy}</div></div>
       </div>
-      <label class="field"><span>Notes</span><textarea class="input" data-notes rows="3" placeholder="How did the workout feel? Note soreness or anything to change next time.">${esc(l.notes || "")}</textarea></label>
-      <div class="field"><span>Extra activity <small>· ${t("counts toward your weekly minutes")}</small></span>
+      <label class="field"><span>${t("Notes")}</span><textarea class="input" data-notes rows="3" placeholder="${esc(t("How did the workout feel? Note soreness or anything to change next time."))}">${esc(l.notes || "")}</textarea></label>
+      <div class="field"><span>${t("Extra activity")} <small>· ${t("counts toward your weekly minutes")}</small></span>
         <div class="extras">${extras}</div>
-        <div><button type="button" class="btn sm" data-x-add>${icon("plus", "sm")} Add activity</button></div>
+        <div><button type="button" class="btn sm" data-x-add>${icon("plus", "sm")} ${t("Add activity")}</button></div>
       </div>
-      <label class="field" style="max-width:220px"><span>Body weight today (optional, ${esc(u)})</span><input class="input num" data-bw inputmode="decimal" value="${l.bodyWeightKg != null ? esc(u === "lb" ? Math.round(l.bodyWeightKg * 2.20462 * 10) / 10 : l.bodyWeightKg) : ""}" placeholder="${esc(fmtWeight(profile(), profile() && profile().weightKg).replace(/ (kg|lb)$/, ""))}"></label>
+      <label class="field" style="max-width:220px"><span>${t("Body weight today (optional, {unit})", { unit: esc(u) })}</span><input class="input num" data-bw inputmode="decimal" value="${l.bodyWeightKg != null ? esc(u === "lb" ? Math.round(l.bodyWeightKg * 2.20462 * 10) / 10 : l.bodyWeightKg) : ""}" placeholder="${esc(fmtWeight(profile(), profile() && profile().weightKg).replace(/ (kg|lb)$/, ""))}"></label>
       ${isToday ? '<div class="level-check-host" data-level-check-host></div>' : ""}
     </section>`;
   }
@@ -321,16 +321,16 @@ export function render(el, params) {
       <div style="display:flex;align-items:center;justify-content:space-between">
         <div style="display:flex;align-items:center;gap:8px">
           <span>${icon("heart", "sm")}</span>
-          <b style="font-size:0.92rem">Daily Readiness Check</b>
-          <small class="muted">— Bryan's #1 rule: injury prevention first</small>
+          <b style="font-size:0.92rem">${t("Daily Readiness Check")}</b>
+          <small class="muted">${t("— Bryan's #1 rule: injury prevention first")}</small>
         </div>
-        <button type="button" class="btn sm icon-only ghost" data-readiness-dismiss aria-label="Dismiss">${icon("x", "sm")}</button>
+        <button type="button" class="btn sm icon-only ghost" data-readiness-dismiss aria-label="${esc(t("Dismiss"))}">${icon("x", "sm")}</button>
       </div>
-      <p class="muted" style="font-size:0.84rem;margin:0">How did you recover overnight? Adapt today's dose to match how your body feels.</p>
+      <p class="muted" style="font-size:0.84rem;margin:0">${t("How did you recover overnight? Adapt today's dose to match how your body feels.")}</p>
       <div class="btn-row" style="flex-wrap:wrap">
-        <button type="button" class="btn sm" data-readiness-pick="ready">${icon("check", "sm")} Feeling 100%</button>
-        <button type="button" class="btn sm ghost" data-readiness-pick="tired">${icon("battery", "sm")} Tired / Low sleep</button>
-        <button type="button" class="btn sm ghost" data-readiness-pick="sore">${icon("bandage", "sm")} Sore / Joint tight</button>
+        <button type="button" class="btn sm" data-readiness-pick="ready">${icon("check", "sm")} ${t("Feeling 100%")}</button>
+        <button type="button" class="btn sm ghost" data-readiness-pick="tired">${icon("battery", "sm")} ${t("Tired / Low sleep")}</button>
+        <button type="button" class="btn sm ghost" data-readiness-pick="sore">${icon("bandage", "sm")} ${t("Sore / Joint tight")}</button>
       </div>
     </div>`;
   }
@@ -361,22 +361,22 @@ export function render(el, params) {
             ${rest ? "" : `<span class="chip mono">${icon("clock", "sm")} ${t("≈{mins} min", { mins: dayMins(def, level) })}${addonMins ? ` ${t("+ {mins} min add-ons", { mins: addonMins })}` : ""}</span>`}
             ${ctx.swapped ? `<span class="chip bryan">${icon("swap", "sm")} ${t("Doing {day}'s session", { day: esc(def.name) })}</span>` : ""}
             ${wt ? `<a class="chip link" href="#/activity/week" title="${esc(t("Weekly targets for your level; open This week for the full Bryan comparison"))}">${icon("check", "sm")} ${t("{met}/{total} weekly targets", { met: wt.metCount, total: wt.total })}</a>` : ""}
-            ${rd && rd.ready ? `<button type="button" class="chip accent link" data-level-jump title="${esc(t("See your level check in Notes & observations"))}">${icon("check", "sm")} Level check ready</button>` : ""}
-            ${st ? `<span class="chip ${st === "skipped" ? "skip" : "accent"}" data-status>${esc(STATUS_TEXT[st] || st)}</span>` : `<span class="chip" data-status>${date > todayIso() ? "Planned" : isToday ? "Not started" : profile().startDate && date < profile().startDate ? "Before your start" : "Not logged"}</span>`}
+            ${rd && rd.ready ? `<button type="button" class="chip accent link" data-level-jump title="${esc(t("See your level check in Notes & observations"))}">${icon("check", "sm")} ${t("Level check ready")}</button>` : ""}
+            ${st ? `<span class="chip ${st === "skipped" ? "skip" : "accent"}" data-status>${esc(t(STATUS_TEXT[st] || st))}</span>` : `<span class="chip" data-status>${date > todayIso() ? t("Planned") : isToday ? t("Not started") : profile().startDate && date < profile().startDate ? t("Before your start") : t("Not logged")}</span>`}
           </div>
         </div>
         ${rest ? "" : `<div data-ring>${ring(done, total, 76)}</div>`}
       </div>
       <div class="btn-row">
-        ${rest || (l && l.skip) ? "" : `<button type="button" class="btn primary" data-guided>${icon("play")} Start guided workout</button><button type="button" class="btn" data-all>${icon("check")} Mark all done</button>`}
+        ${rest || (l && l.skip) ? "" : `<button type="button" class="btn primary" data-guided>${icon("play")} ${t("Start guided workout")}</button><button type="button" class="btn" data-all>${icon("check")} ${t("Mark all done")}</button>`}
         <details class="session-swap">
-          <summary class="btn">${icon("swap")} <span>${rest ? "Train anyway" : "Swap session"}</span>${icon("chevronD", "sm session-swap-chevron")}</summary>
+          <summary class="btn">${icon("swap")} <span>${rest ? t("Train anyway") : t("Swap session")}</span>${icon("chevronD", "sm session-swap-chevron")}</summary>
           <div class="session-swap-menu">
-            ${ctx.swapped ? `<button type="button" data-swap-reset>Scheduled session</button>` : ""}
+            ${ctx.swapped ? `<button type="button" data-swap-reset>${t("Scheduled session")}</button>` : ""}
             ${swapOptions}
           </div>
         </details>
-        ${rest || (l && l.skip) ? "" : `<button type="button" class="btn ghost skip" data-skip>${icon("skip")} Skip day</button>`}
+        ${rest || (l && l.skip) ? "" : `<button type="button" class="btn ghost skip" data-skip>${icon("skip")} ${t("Skip day")}</button>`}
       </div>
     </section>`;
   }
@@ -402,8 +402,8 @@ export function render(el, params) {
       <div class="day-layout today-layout">
         <div class="day-head">
           <div class="day-nav">
-            <a class="btn sm icon-only" href="#/day/${prev}" aria-label="Previous day">${icon("chevronL")}</a>
-            <a class="btn sm icon-only" href="#/day/${next}" aria-label="Next day">${icon("chevronR")}</a>
+            <a class="btn sm icon-only" href="#/day/${prev}" aria-label="${esc(t("Previous day"))}">${icon("chevronL")}</a>
+            <a class="btn sm icon-only" href="#/day/${next}" aria-label="${esc(t("Next day"))}">${icon("chevronR")}</a>
             <span class="date">${esc(fmtDate(date))}</span>
             ${isToday ? `<span class="chip accent">${t("Today")}</span>` : `<a class="btn sm ghost" href="#/today">${t("Back to today")}</a>`}
           </div>
@@ -543,7 +543,7 @@ export function render(el, params) {
     }
     const chip = el.querySelector("[data-status]");
     if (chip && l) {
-      chip.textContent = l.status ? STATUS_TEXT[l.status] : isToday ? "Not started" : "Not logged";
+      chip.textContent = l.status ? t(STATUS_TEXT[l.status]) : isToday ? t("Not started") : t("Not logged");
       chip.className = `chip ${l.status === "skipped" ? "skip" : l.status ? "accent" : ""}`;
     }
     for (const a of addonsForDate(date)) {
@@ -552,7 +552,7 @@ export function render(el, params) {
       if (pEl) pEl.textContent = pr.skipped ? t("skipped") : t("{done}/{total} · ≈{mins} min", { done: pr.done, total: pr.total, mins: a.variant.mins });
     }
     syncDeskPause();
-    if (l && l.status === "done" && lastStatus !== "done") toast("Workout complete.", { icon: "flame" });
+    if (l && l.status === "done" && lastStatus !== "done") toast(t("Workout complete."), { icon: "flame" });
     lastStatus = l && l.status;
   }
 
@@ -564,11 +564,11 @@ export function render(el, params) {
     const content = document.createElement("div");
     content.style.display = "grid";
     content.style.gap = "14px";
-    content.innerHTML = `<p class="muted">Choose a reason so you can see it later in History. You can return to your usual schedule or swap sessions when you're ready.</p>
+    content.innerHTML = `<p class="muted">${t("Choose a reason so you can see it later in History. You can return to your usual schedule or swap sessions when you're ready.")}</p>
       <div class="reason-grid">${SKIP_REASONS.map((r) => `<button type="button" data-reason="${r.id}" aria-pressed="${cur.reason === r.id}">${icon(r.icon)} ${esc(r.name)}</button>`).join("")}</div>
-      <label class="field"><span>Note (optional)</span><textarea class="input" rows="3" data-skip-note placeholder="e.g. flight at 7 am, will do Tuesday's session tomorrow">${esc(cur.note || "")}</textarea></label>
-      <div class="btn-row" style="justify-content:flex-end"><button type="button" class="btn" data-cancel>Cancel</button><button type="button" class="btn primary" data-confirm>${icon("skip")} Skip ${date === todayIso() ? "today" : "this day"}</button></div>`;
-    const d = openDialog({ title: "Skip this day", content, sheet: false });
+      <label class="field"><span>${t("Note (optional)")}</span><textarea class="input" rows="3" data-skip-note placeholder="${esc(t("e.g. flight at 7 am, will do Tuesday's session tomorrow"))}">${esc(cur.note || "")}</textarea></label>
+      <div class="btn-row" style="justify-content:flex-end"><button type="button" class="btn" data-cancel>${t("Cancel")}</button><button type="button" class="btn primary" data-confirm>${icon("skip")} ${date === todayIso() ? t("Skip today") : t("Skip this day")}</button></div>`;
+    const d = openDialog({ title: t("Skip this day"), content, sheet: false });
     let reason = cur.reason || "other";
     content.addEventListener("click", (e) => {
       const r = e.target.closest("[data-reason]");
@@ -586,7 +586,7 @@ export function render(el, params) {
         showSkipped = false;
         selected = null;
         draw();
-        toast("Day marked as skipped.", { icon: "skip" });
+        toast(t("Day marked as skipped."), { icon: "skip" });
       }
     });
   }
@@ -787,7 +787,7 @@ export function render(el, params) {
       draw();
     } else if (b.hasAttribute("data-x-del")) {
       const id = b.closest("[data-extra]").dataset.extra;
-      if (await confirmDialog({ title: "Remove activity?", message: "This removes the activity from this day.", confirm: "Remove", danger: true })) {
+      if (await confirmDialog({ title: t("Remove activity?"), message: t("This removes the activity from this day."), confirm: t("Remove"), danger: true })) {
         editDay(date, (d) => {
           d.extras = (d.extras || []).filter((x) => x.id !== id);
         });

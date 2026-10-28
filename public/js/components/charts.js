@@ -4,6 +4,7 @@
 // Colours come from CSS variables (--viz-*), validated for both themes.
 
 import { esc } from "../util.js";
+import { t } from "../i18n.js";
 
 const H = 210; // plot height
 const PAD = { top: 14, right: 16, bottom: 30, left: 40 };
@@ -94,7 +95,7 @@ export function mountChart(host, spec) {
       <g class="axis">${xLabels}</g>
       <line class="cross" x1="0" x2="0" y1="${PAD.top}" y2="${y0}" visible="false" style="display:none"/>
       <g>${hits}</g>
-    </svg><div class="chart-tip" hidden></div>${vals.some((v) => v) ? "" : '<p class="muted" style="font-size:0.82rem;margin-top:4px">Nothing logged in this range yet.</p>'}`;
+    </svg><div class="chart-tip" hidden></div>${vals.some((v) => v) ? "" : `<p class="muted" style="font-size:0.82rem;margin-top:4px">${t("Nothing logged in this range yet.")}</p>`}`;
     wire();
   }
 

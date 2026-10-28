@@ -41,7 +41,7 @@ export function render(el, params) {
   let io = null;
   const equipment = [...new Set(Object.values(EXERCISES).flatMap((ex) => ex.equipment || []))].sort((a, b) => (EQUIPMENT_NAMES[a] || a).localeCompare(EQUIPMENT_NAMES[b] || b));
   const muscles = [...new Set(Object.values(EXERCISES).flatMap((ex) => ex.muscles || []))].sort();
-  const muscleName = (name) => name.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/^./, (c) => c.toUpperCase());
+  const muscleName = (name) => name.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/^./, (c) => c.toUpperCase()).replace(/ Back$/, " back").replace(/^Rotator Cuff$/, "Rotator cuff").replace(/^Heart$/, "Heart & lungs");
 
   function cards() {
     const list = filterExercises(filters);
@@ -68,18 +68,18 @@ export function render(el, params) {
           <div data-watch></div>
         </div>
       </details>
-      <div class="card card-pad"><h3>Workout sequences</h3><p class="muted">Open a group to see its individual movements and their order.</p><div class="btn-row">${["dynamic", "shortint", "norwegian", "indoorhiit"].map((id) => `<a class="btn sm" href="#/library/${id}">${esc(EXERCISES[id].name)}</a>`).join("")}</div></div>
+      <div class="card card-pad"><h3>${t("Workout sequences")}</h3><p class="muted">${t("Open a group to see its individual movements and their order.")}</p><div class="btn-row">${["dynamic", "shortint", "norwegian", "indoorhiit"].map((id) => `<a class="btn sm" href="#/library/${id}">${esc(EXERCISES[id].name)}</a>`).join("")}</div></div>
       <div class="lib-tools">
-        <input class="input" type="search" data-filter="query" placeholder="Search names, equipment or muscles…" aria-label="Search exercises">
-        <button type="button" class="btn ghost sm" data-clear-filters>Clear filters</button>
+        <input class="input" type="search" data-filter="query" placeholder="${esc(t("Search names, equipment or muscles…"))}" aria-label="${esc(t("Search exercises"))}">
+        <button type="button" class="btn ghost sm" data-clear-filters>${t("Clear filters")}</button>
       </div>
       <div class="lib-filters">${[
-        ["category", "Category", [["all", "All categories"], ...CATEGORIES.map((c) => [c, c])]],
-        ["equipment", "Equipment", [["all", "All equipment"], ["none", "No equipment"], ...equipment.map((g) => [g, EQUIPMENT_NAMES[g] || g])]],
-        ["muscle", "Muscle", [["all", "All muscles"], ...muscles.map((m) => [m, muscleName(m)])]],
-        ["origin", "Source", [["all", "All sources"], ["bryan", "Bryan's protocol and home alternatives"], ["classic", "Classic additions"], ["video", "Bryan demo with timestamp"]]],
-        ["sort", "Sort", [["original", "Original order"], ["name", "Name: A to Z"], ["reverse", "Name: Z to A"], ["category", "Category, then name"]]],
-      ].map(([key, title, options]) => `<label class="field"><span>${title}</span><select class="input" data-filter="${key}">${options.map(([id, name]) => `<option value="${esc(id)}">${esc(name)}</option>`).join("")}</select></label>`).join("")}</div>
+        ["category", t("Category"), [["all", t("All categories")], ...CATEGORIES.map((c) => [c, c])]],
+        ["equipment", t("Equipment"), [["all", t("All equipment")], ["none", t("No equipment")], ...equipment.map((g) => [g, EQUIPMENT_NAMES[g] || g])]],
+        ["muscle", t("Muscle"), [["all", t("All muscles")], ...muscles.map((m) => [m, t(muscleName(m))])]],
+        ["origin", t("Source"), [["all", t("All sources")], ["bryan", t("Bryan's protocol and home alternatives")], ["classic", t("Classic additions")], ["video", t("Bryan demo with timestamp")]]],
+        ["sort", t("Sort"), [["original", t("Original order")], ["name", t("Name: A to Z")], ["reverse", t("Name: Z to A")], ["category", t("Category, then name")]]],
+      ].map(([key, title, options]) => `<label class="field"><span>${esc(title)}</span><select class="input" data-filter="${key}">${options.map(([id, name]) => `<option value="${esc(id)}">${esc(name)}</option>`).join("")}</select></label>`).join("")}</div>
       <p class="muted library-count" data-library-count role="status">${t("{shown} of {total} exercises", { shown: filterExercises(filters).length, total })}</p>
       <div data-cards>${cards()}</div>
     </div>`;

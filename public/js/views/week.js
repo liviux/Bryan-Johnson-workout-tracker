@@ -35,7 +35,7 @@ export function render(el, params) {
       <div class="d"><b>${esc(parseIso(date).toLocaleDateString(locale(), { weekday: "short" }))}</b><span class="muted mono">${esc(fmtShort(date))}</span></div>
       <span class="t">${esc(rest ? t("Rest day") : def.title)}</span>
       ${rest ? "" : `<span class="muted mono" style="font-size:0.8rem">${t("≈{mins} min", { mins: dayMins(def, level) })}</span>`}
-      <span class="chips"><span class="status-dot ${st || ""}"></span><span style="font-size:0.85rem">${esc(statusText)}</span>${addonDone ? '<span class="status-dot addon" title="${esc(t("Add-on done"))}"></span>' : ""}</span>
+      <span class="chips"><span class="status-dot ${st || ""}"></span><span style="font-size:0.85rem">${esc(statusText)}</span>${addonDone ? `<span class="status-dot addon" title="${esc(t("Add-on done"))}"></span>` : ""}</span>
       ${skip ? `<span class="chip skip">${icon(skip.icon, "sm")} ${esc(skip.name)}</span>` : ""}
       ${log && log.notes ? `<span class="muted" style="font-size:0.82rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">${esc(log.notes)}</span>` : ""}
     </a>`;
