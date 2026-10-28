@@ -8,6 +8,8 @@ export default {
   "Preparing the voice…": "Se pregătește vocea…",
   "Downloading the local speech runtime…": "Se descarcă motorul vocal local…",
   "Prepare default voice": "Pregătește vocea implicită",
+  "Download locally": "Descarcă local",
+  "Download this voice locally to prepare it.": "Descarcă vocea local ca să o pregătești.",
   "This included voice plays as needed from the recordings on GitHub. Only the default Heart voice is saved locally.": "Această voce se redă din înregistrările de pe GitHub, pe măsură ce este nevoie. Doar vocea implicită Heart este salvată local.",
   "· counts toward your weekly minutes": "· contează pentru minutele săptămânale",
   "(estimated from your age)": "(estimată din vârstă)",

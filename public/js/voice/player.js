@@ -75,8 +75,7 @@ export async function refreshVoiceStatus() {
 export function voiceCacheMessage() {
   const cache = voiceStatus.cache;
   if (!voiceStatus.cacheEnabled) return t("Download the included {voice} recordings for playback. This only copies saved audio; no speech model runs.", { voice: selectedVoice().name });
-  if (!cache) return t("This voice has not been cached yet. Select it to start its one-time preparation.");
-  if (cache.streamed) return t("This included voice plays as needed from the recordings on GitHub. Only the default Heart voice is saved locally.");
+  if (!cache) return t("Download this voice locally to prepare it.");
   if (cache.state === "error") return t("Voice cache paused: {error} Turn coaching on again to retry; finished audio is kept.", { error: cache.error });
   if (cache.state === "ready") return t("{voice} is cached. Saved audio is ready for your workout.", { voice: selectedVoice().name });
   if (cache.shared) return t("Preparing {voice} from the included recordings: {done} of {total} clips ready. This only copies saved audio; no speech model needs to run. You can close this page while it finishes.", { voice: selectedVoice().name, done: cache.completed, total: cache.total || "…" });

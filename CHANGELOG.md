@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.42.2] - 2026-10-28
+
+### Changed
+- Only the default **Heart** voice is prepared locally. Every other voice shows **Download locally** in Voice coach and is copied to your computer only when you ask for it.
+- The download button shows clip-by-clip progress while the voice is written, and downloaded voices stay available after a restart.
+- The voice cache message explains what is local and what still needs downloading.
+
+### Fixed
+- Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.
+- Voice downloads no longer start automatically for every language; only Heart is prepared on its own.
+- The default and downloaded voice caches complete reliably and show progress.
+
 ## [1.42.1] - 2026-10-28
 
 ### Changed

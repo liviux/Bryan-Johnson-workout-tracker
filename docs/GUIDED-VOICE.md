@@ -19,7 +19,7 @@ The model is [Kokoro v1.0 int8 packaged by Sherpa](https://k2-fsa.github.io/sher
 
 ## Included recordings and rebuilding
 
-The app plays shared Kokoro recordings without installing or running a speech model. **Turn coaching on** unpacks the default Heart voice once. Every other voice is read from its compressed pack one clip at a time, so only the default voice is copied into the local cache. Opening Settings or selecting a voice before the first activation saves no playback cache. Recordings work offline on the server and are shared by PC, tablet and phone browsers.
+The app plays shared Kokoro recordings without installing or running a speech model. **Turn coaching on** unpacks the default Heart voice once. Every other voice stays in its compressed pack until you press **Download locally**; the download shows clip-by-clip progress and saves that voice for later. Opening Settings or selecting a voice before the first activation saves no playback cache. Recordings work offline on the server and are shared by PC, tablet and phone browsers.
 
 Each compressed clip in `voice/packs/<voice>/` is one short recording. English packs use `wav.gz` from Kokoro; translated packs use `mp3.gz` from native Microsoft Edge neural voices. The ID includes the voice and exact spoken text. `<voice>.json` records the file sizes and SHA-256 checksums. Form tips are split by sentence, and timer durations use reusable minute and second phrases. A sentence edit creates only the affected clip in each voice; existing recordings keep their filenames and bytes. Obsolete recordings are removed from the current pack when it is rebuilt.
 
@@ -47,9 +47,9 @@ Radio ducking follows actual playback, including previews: volume is multiplied 
 
 ## Persistent playback cache
 
-`voice/cache.js` records opt-in and preparation progress under `.voice/packs/`. First activation copies the default Heart recordings into `.voice/audio/`. Other voices are not unpacked as a set: `voice/bundles.js` reads one clip from `voice/packs/` when it is requested, checks the compressed size and SHA-256 hash, and writes only that clip to the local cache. Files are written atomically. A failed copy keeps finished audio for retry; unfinished default packs resume after a server restart.
+`voice/cache.js` records opt-in and preparation progress under `.voice/packs/`. First activation copies the default Heart recordings into `.voice/audio/`. Other voices are copied only when you press **Download locally**; each requested clip is unpacked from `voice/packs/`, checked by compressed size and SHA-256 hash, and written to the local cache. Files are written atomically. A failed copy keeps finished audio for retry; unfinished packs resume after a server restart.
 
-The default Heart pack is protected from eviction. The 256 MB cleanup limit applies only to other generated clips, including assembled timer phrases and clips unpacked on demand for other voices. Both paces share the same recording: Brisk uses browser playback rate 1.06, while teaching stays at 1. Browser buffers and prepared server cue IDs have bounds. Everything stays outside `data/`; personal logs and backups are unchanged.
+The default Heart pack is protected from eviction. Downloaded voices stay protected too. The 256 MB cleanup limit applies only to other generated clips, including assembled timer phrases. Both paces share the same recording: Brisk uses browser playback rate 1.06, while teaching stays at 1. Browser buffers and prepared server cue IDs have bounds. Everything stays outside `data/`; personal logs and backups are unchanged.
 
 ## Verification
 
