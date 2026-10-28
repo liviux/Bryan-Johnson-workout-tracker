@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.43.1] - 2026-10-28
+
+### Added
+- Video durations are now shown first in the video picker list next to the channel and upload date, making it easy to see how long each clip is before selecting it.
+
 ## [1.43.0] - 2026-10-28
 
 ### Added

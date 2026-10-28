@@ -61,4 +61,12 @@ test("video bylines include video duration before channel name and upload date",
   assert.ok(runtimeIndex !== -1, "Runtime must appear in video byline");
   assert.ok(runtimeIndex < channelIndex, "Duration must appear before channel name");
   assert.ok(channelIndex < dateIndex, "Channel name must appear before upload date");
+
+  const tabSubMatches = [...container.innerHTML.matchAll(/<small class="video-tab-sub">([^<]+)<\/small>/g)].map((m) => m[1]);
+  assert.ok(tabSubMatches.length > 0, "Video picker tabs must have sub-labels");
+  for (const sub of tabSubMatches) {
+    const parts = sub.split(" · ");
+    assert.ok(/^\d+:\d{2}(?::\d{2})?$/.test(parts[0]), `Tab sub-label duration must be formatted runtime, got "${parts[0]}" in "${sub}"`);
+    assert.ok(parts.length >= 2, `Tab sub-label must include duration and channel/date: "${sub}"`);
+  }
 });

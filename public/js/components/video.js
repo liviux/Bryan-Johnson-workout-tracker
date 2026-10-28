@@ -191,7 +191,8 @@ export function renderVideos(container, list, opts = {}) {
           ${items
             .map((x, i) => {
               const m = videoChannelDate(x);
-              const sub = [m.channel, m.date].filter(Boolean).join(" · ");
+              const length = x.length || m.length;
+              const sub = [length ? fmtRuntime(length) : "", m.channel, m.date].filter(Boolean).join(" · ");
               return `<button type="button" data-i="${i}" aria-pressed="${i === active}"><span class="tag ${x.kind === "demo" ? (x.short ? "short" : "demo") : ""}">${x.kind === "bryan" ? t("Bryan") : x.short ? t("Short") : t("Demo")}</span><span class="video-tab-info"><span class="video-tab-title">${esc(x.title)}</span>${sub ? `<small class="video-tab-sub">${esc(sub)}</small>` : ""}</span></button>`;
             })
             .join("")}
