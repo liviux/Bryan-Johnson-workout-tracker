@@ -32,7 +32,8 @@ async def one(entry, voice, folder, sem):
                 except OSError:
                     pass
                 if attempt == 9:
-                    raise RuntimeError(f"{entry['id']}: {err}") from err
+                    print(f"{voice}: skipped {entry['id']} after {err}", flush=True)
+                    return -1
                 # Rate limits and transient empty responses need a longer pause
                 # than a real input error; the quadratic cap keeps jobs moving.
                 await asyncio.sleep(min(30, 1.5 * (attempt + 1) ** 2))
@@ -49,14 +50,20 @@ async def main():
     folder.mkdir(parents=True, exist_ok=True)
     sem = asyncio.Semaphore(CONCURRENCY)
     done = 0
+    failed = 0
     total = len(entries)
     async def task(entry):
-        nonlocal done
+        nonlocal done, failed
         made = await one(entry, payload["edge"], folder, sem)
+        if made < 0:
+            failed += 1
         done += 1
         if made or done % 100 == 0:
             print(f"{payload['language']}/{payload['voice']}: {done}/{total}", flush=True)
     await asyncio.gather(*(task(entry) for entry in entries))
+    if failed:
+        print(f"{payload['language']}/{payload['voice']}: {failed} clip(s) still missing; run the builder again", flush=True)
+        sys.exit(1)
     print(f"{payload['language']}/{payload['voice']}: ready ({total} clips)", flush=True)
 
 
