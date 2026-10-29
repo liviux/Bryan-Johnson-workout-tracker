@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Çdo seancë përfundon me punë fleksibiliteti.",
   "Every session felt comfortable": "Çdo seancë ndihej rehat",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Çdo video tani tregon emrin e kanalit dhe datën e ngarkimit si poshtë luajtësit të videos ashtu edhe nën titullin e saj në listën e videove.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Çdo zë në Voice coach tani ka butonin e vet të shkarkimit, duke përfshirë të pesë zërat në anglisht dhe secilën gjuhë të përkthyer. Zgjedhja e një zëri ende fillon shkarkimin e tij kur trajnimi është aktiv.",
   "Everyone Is Wrong About Exercise": "Të gjithë e kanë gabim me ushtrimin",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Të gjithë janë të gabuar në lidhje me ushtrimin · min 0 sek 0 (0:00)",
   "Example, {exercise}:": "Shembull, {exercise}:",

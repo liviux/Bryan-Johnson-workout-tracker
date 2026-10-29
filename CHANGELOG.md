@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.44.1] - 2026-10-29
+
+### Added
+- Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.
+
 ## [1.44.0] - 2026-10-29
 
 ### Added

@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "প্রতিটি সেশন নমনীয়তা কাজ দিয়ে শেষ হয়.",
   "Every session felt comfortable": "প্রতিটি সেশন আরামদায়ক লেগেছে",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "প্রতিটি ভিডিও এখন ভিডিও প্লেয়ারের নিচে ও ভিডিও তালিকায় শিরোনামের নিচে চ্যানেলের নাম ও আপলোডের তারিখ দেখায়।",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "ভয়েস কোচের প্রতিটি ভয়েস এখন তার নিজস্ব ডাউনলোড বোতাম রয়েছে, যার মধ্যে পাঁচটি ইংরেজি ভয়েস এবং প্রতিটি অনুবাদিত ভাষা রয়েছে। যখন কোচিং চালু থাকে তখনও একটি ভয়েস নির্বাচন করা তার ডাউনলোড শুরু করে।",
   "Everyone Is Wrong About Exercise": "ব্যায়াম নিয়ে সবাই ভুল",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "ব্যায়াম নিয়ে সবাই ভুল · মিনিট ০ সেকেন্ড ০ (0:00)",
   "Example, {exercise}:": "উদাহরণ, {exercise}:",

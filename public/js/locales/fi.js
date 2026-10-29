@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Jokainen istunto päättyy joustavuustyöhön.",
   "Every session felt comfortable": "Jokainen istunto tuntui mukavalta",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Jokaisen videon kanavan nimi ja latauspäivä näkyvät nyt sekä videosoittimen alla että videoluettelon nimen alla.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Voice coachin jokaisella äänellä on nyt oma latauspainike, mukaan lukien kaikki viisi englanninkielistä ääntä ja jokainen käännetty kieli. Äänen valitseminen aloittaa silti sen lataamisen, kun valmennus on päällä.",
   "Everyone Is Wrong About Exercise": "Kaikki ovat väärässä harjoituksen suhteen",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Kaikki ovat väärässä harjoituksesta · min 0 s 0 (0:00)",
   "Example, {exercise}:": "Esimerkki, {exercise}:",

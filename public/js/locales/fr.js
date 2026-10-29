@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Chaque séance se termine par un travail d'assouplissement.",
   "Every session felt comfortable": "Chaque séance était confortable",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Chaque vidéo affiche désormais le nom de sa chaîne et sa date de mise en ligne sous le lecteur vidéo et sous son titre dans la liste des vidéos.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Chaque voix dans Voice Coach possède désormais son propre bouton de téléchargement, comprenant les cinq voix en anglais et chaque langue traduite. La sélection d'une voix démarre toujours son téléchargement lorsque le coaching est activé.",
   "Everyone Is Wrong About Exercise": "Tout le monde a tort à propos de l'exercice",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Tout le monde a tort à propos de l'exercice · min 0 sec 0 (0:00)",
   "Example, {exercise}:": "Exemple, {exercise} :",

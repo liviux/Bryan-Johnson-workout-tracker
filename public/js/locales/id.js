@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Setiap sesi diakhiri dengan kerja fleksibilitas.",
   "Every session felt comfortable": "Setiap sesi terasa nyaman",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Setiap video kini menampilkan nama saluran dan tanggal pengunggahannya di bawah pemutar video dan di bawah judulnya dalam daftar video.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Setiap suara di Pelatih Suara kini memiliki tombol unduh sendiri, termasuk kelima suara bahasa Inggris dan setiap bahasa terjemahan. Memilih suara masih akan mulai diunduh saat pelatihan aktif.",
   "Everyone Is Wrong About Exercise": "Semua Orang Salah Tentang Olahraga",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Semua Orang Salah Tentang Latihan · menit 0 detik 0 (0:00)",
   "Example, {exercise}:": "Contoh, {exercise}:",

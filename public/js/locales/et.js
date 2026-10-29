@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Iga seanss lõpeb paindlikkustööga.",
   "Every session felt comfortable": "Iga seanss tundus mugav",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Nüüd kuvatakse iga video kanali nimi ja üleslaadimise kuupäev nii videopleieri all kui ka videoloendi pealkirja all.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Igal Voice coach'i häälel on nüüd oma allalaadimisnupp, sealhulgas kõik viis ingliskeelset häält ja iga tõlgitud keel. Hääle valimisel alustatakse selle allalaadimist ka siis, kui juhendamine on sisse lülitatud.",
   "Everyone Is Wrong About Exercise": "Kõik eksivad treeningu osas",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Kõik eksivad treeningu suhtes · min 0 sek 0 (0:00)",
   "Example, {exercise}:": "Näide, {exercise}:",

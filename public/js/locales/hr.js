@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Svaka sesija završava radom na fleksibilnosti.",
   "Every session felt comfortable": "Svaka sesija bila je ugodna",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Svaki videozapis sada prikazuje naziv kanala i datum prijenosa i ispod videoplayera i ispod naslova na popisu videozapisa.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Svaki glas u Voice coachu sada ima vlastiti gumb za preuzimanje, uključujući svih pet engleskih glasova i svaki prevedeni jezik. Odabirom glasa još uvijek počinje njegovo preuzimanje kada je obučavanje uključeno.",
   "Everyone Is Wrong About Exercise": "Svi su u krivu u vezi s vježbanjem",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Svi su u krivu u vezi s vježbanjem · min 0 sek 0 (0:00)",
   "Example, {exercise}:": "Primjer, {exercise}:",

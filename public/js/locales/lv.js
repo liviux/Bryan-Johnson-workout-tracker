@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Katra sesija beidzas ar elastības darbu.",
   "Every session felt comfortable": "Katra sesija jutās ērti",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Katram videoklipam tagad tiek rādīts tā kanāla nosaukums un augšupielādes datums gan zem video atskaņotāja, gan zem nosaukuma videoklipu sarakstā.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Katrai balsij pakalpojumā Voice coach tagad ir sava lejupielādes poga, tostarp visas piecas angļu valodas balsis un katra tulkotā valoda. Balss atlase joprojām sāk lejupielādi, kad apmācība ir ieslēgta.",
   "Everyone Is Wrong About Exercise": "Visi kļūdās par vingrošanu",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Visi kļūdās par vingrinājumiem · min 0 sek 0 (0:00)",
   "Example, {exercise}:": "Piemērs, {exercise}:",

@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "すべてのセッションは柔軟なワークで終わります。",
   "Every session felt comfortable": "どのセッションも快適でした",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "すべてのビデオには、ビデオ プレーヤーの下とビデオ リストのタイトルの下の両方にチャンネル名とアップロード日が表示されます。",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Voice Coach のすべての音声には、5 つの英語音声すべてと翻訳された各言語を含む、独自のダウンロード ボタンが追加されました。コーチングがオンの場合でも、音声を選択するとダウンロードが開始されます。",
   "Everyone Is Wrong About Exercise": "運動について誰もが間違っています",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "運動についてみんな間違っている · 分 0 秒 0 (0:00)",
   "Example, {exercise}:": "例、{exercise}:",

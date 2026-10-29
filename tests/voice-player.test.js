@@ -71,6 +71,21 @@ test("one player cancels stale audio, prioritises clocks, and restores ducking o
   assert.equal(await playVoice(clock), false);
 });
 
+test("a coach voice can be downloaded explicitly by id", async (t) => {
+  const originalFetch = globalThis.fetch;
+  const previousStatus = { ...voiceStatus };
+  t.after(() => { globalThis.fetch = originalFetch; Object.assign(voiceStatus, previousStatus); state.profile = null; });
+  state.profile = { settings: { coachVoice: "af_heart" } };
+  voiceStatus.cacheEnabled = false;
+  let body;
+  globalThis.fetch = async (_url, options) => {
+    body = JSON.parse(options.body);
+    return { ok: true, json: async () => ({ cacheEnabled: true, cache: { state: "ready", completed: 1, total: 1 } }) };
+  };
+  await cacheVoice({ activate: true, voice: "af_bella" });
+  assert.equal(body.voice, "af_bella");
+});
+
 test("voice selection cannot cache before opt-in and status polling cannot undo activation", async (t) => {
   const originalFetch = globalThis.fetch;
   const previousStatus = { ...voiceStatus };

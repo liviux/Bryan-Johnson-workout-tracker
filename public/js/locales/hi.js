@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "हर सत्र फ्लेक्सिबिलिटी वर्क के साथ खत्म होता है।",
   "Every session felt comfortable": "प्रत्येक सत्र सहज महसूस हुआ",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "प्रत्येक वीडियो अब अपने चैनल का नाम और अपलोड तिथि वीडियो प्लेयर के नीचे और वीडियो सूची में उसके शीर्षक के नीचे दिखाता है।",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "वॉयस कोच में अब प्रत्येक आवाज का अपना डाउनलोड बटन है, जिसमें सभी पांच अंग्रेजी आवाजें और प्रत्येक अनुवादित भाषा शामिल है। कोचिंग चालू होने पर भी आवाज का चयन करने से उसका डाउनलोड शुरू हो जाता है।",
   "Everyone Is Wrong About Exercise": "व्यायाम के बारे में हर कोई गलत है",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "व्यायाम के बारे में हर कोई गलत है · मिनट 0 सेकंड 0 (0:00)",
   "Example, {exercise}:": "उदाहरण, {exercise}:",

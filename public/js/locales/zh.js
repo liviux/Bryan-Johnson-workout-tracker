@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "每节课都以灵活性工作结束。",
   "Every session felt comfortable": "每次训练都感觉轻松",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "现在，每个视频都会在视频播放器下方和视频列表中的标题下方显示其频道名称和上传日期。",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "语音教练中的每个语音现在都有自己的下载按钮，包括所有五个英语语音和每种翻译语言。当辅导开启时，选择语音仍会开始下载。",
   "Everyone Is Wrong About Exercise": "《人人都误解了运动》",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "《人人都误解了运动》 · 0 分 0 秒（0:00）",
   "Example, {exercise}:": "例如，{exercise}：",

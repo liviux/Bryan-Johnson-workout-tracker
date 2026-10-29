@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "ყოველი სესია მთავრდება მოქნილობის შრომით.",
   "Every session felt comfortable": "ყოველი სესია თავს კომფორტულად გრძნობდა",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "ახლა ყველა ვიდეო აჩვენებს მისი არხის სახელს და ატვირთვის თარიღს როგორც ვიდეო დამკვრელის ქვემოთ, ასევე მისი სათაურის ქვეშ ვიდეო სიაში.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Voice coach-ში ყველა ხმას ახლა აქვს ჩამოტვირთვის საკუთარი ღილაკი, მათ შორის ხუთივე ინგლისური ხმა და თითოეული ნათარგმნი ენა. ხმის არჩევა მაინც იწყებს მის ჩამოტვირთვას, როცა ქოუჩინგი ჩართულია.",
   "Everyone Is Wrong About Exercise": "ყველა ცდება ვარჯიშთან დაკავშირებით",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "ყველა არასწორია ვარჯიშთან დაკავშირებით · წთ 0 წმ 0 (0:00)",
   "Example, {exercise}:": "მაგალითი, {exercise}:",

@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Hər sessiya çeviklik işi ilə başa çatır.",
   "Every session felt comfortable": "Hər seansda rahatlıq hiss olunurdu",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "İndi hər videonun kanal adı və yükləmə tarixi həm video pleyerin altında, həm də video siyahısında başlığının altında göstərilir.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Voice coach-da hər bir səsin indi beş ingilis səsi və hər bir tərcümə dili daxil olmaqla öz yükləmə düyməsi var. Kouçinq aktiv olduqda səsin seçilməsi onu endirməyə davam edir.",
   "Everyone Is Wrong About Exercise": "Hər kəs məşq haqqında səhv edir",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Hər kəs məşqdə səhv edir · dəq 0 san 0 (0:00)",
   "Example, {exercise}:": "Məsələn, {exercise}:",

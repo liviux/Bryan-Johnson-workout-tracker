@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Hver økt avsluttes med fleksibilitetsarbeid.",
   "Every session felt comfortable": "Hver økt føltes behagelig",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Hver video viser nå kanalnavnet og opplastingsdatoen både under videospilleren og under tittelen i videolisten.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Hver stemme i Voice coach har nå sin egen nedlastingsknapp, inkludert alle fem engelske stemmene og hvert oversatt språk. Å velge en stemme starter fortsatt nedlastingen når coaching er på.",
   "Everyone Is Wrong About Exercise": "Alle tar feil om trening",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Alle tar feil om trening · min 0 sek 0 (0:00)",
   "Example, {exercise}:": "Eksempel, {exercise}:",

@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Kila kipindi huisha na kazi ya kubadilika.",
   "Every session felt comfortable": "Kila kikao kilijisikia vizuri",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Kila video sasa inaonyesha jina la kituo chake na tarehe ya kupakiwa chini ya kicheza video na chini ya kichwa chake katika orodha ya video.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Kila sauti katika Kocha ya Sauti sasa ina kitufe chake cha kupakua, ikijumuisha sauti zote tano za Kiingereza na kila lugha iliyotafsiriwa. Kuchagua sauti bado kunaanza upakuaji wake wakati ufundishaji umewashwa.",
   "Everyone Is Wrong About Exercise": "Kila Mtu Anakosea Kuhusu Mazoezi",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Kila Mtu Ana Makosa Kuhusu Mazoezi · dakika 0 sec 0 (0:00)",
   "Example, {exercise}:": "Mfano, {exercise}:",

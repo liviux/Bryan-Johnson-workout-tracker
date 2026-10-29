@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Každé sezení končí flexibilní prací.",
   "Every session felt comfortable": "Každé sezení bylo příjemné",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "U každého videa se nyní zobrazuje název kanálu a datum nahrání jak pod přehrávačem videa, tak pod názvem v seznamu videí.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Každý hlas v aplikaci Voice Coach má nyní své vlastní tlačítko pro stažení, včetně všech pěti anglických hlasů a každého přeloženého jazyka. Výběr hlasu stále zahájí jeho stahování, když je koučování zapnuté.",
   "Everyone Is Wrong About Exercise": "Každý se mýlí ohledně cvičení",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Všichni se při cvičení mýlí · min 0 s 0 (0:00)",
   "Example, {exercise}:": "Příklad, {exercise}:",

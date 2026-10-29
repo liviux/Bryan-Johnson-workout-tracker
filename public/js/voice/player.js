@@ -84,9 +84,9 @@ export function voiceCacheMessage() {
   return t("Caching {voice}: {done} of {total} clips saved.{remaining} Your week, timer options and form cues are being saved once. You can leave this page; preparation continues on the server.", { voice: selectedVoice().name, done: cache.completed, total: cache.total || "…", remaining });
 }
 
-export async function cacheVoice({ activate = false } = {}) {
+export async function cacheVoice({ activate = false, voice = selectedVoice().id } = {}) {
   if (!activate && !voiceStatus.cacheEnabled) return;
-  const body = { voice: selectedVoice().id };
+  const body = { voice };
   const key = JSON.stringify(body);
   if (cacheRequest === key && voiceStatus.cache?.state !== "error") return;
   cacheRequest = key;

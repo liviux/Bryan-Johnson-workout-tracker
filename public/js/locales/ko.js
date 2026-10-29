@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "모든 세션은 유연성 운동으로 마무리됩니다.",
   "Every session felt comfortable": "모든 세션이 편안하게 느껴졌습니다.",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "이제 모든 동영상에는 동영상 플레이어 아래와 동영상 목록의 제목 아래에 채널 이름과 업로드 날짜가 표시됩니다.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "이제 Voice Coach의 모든 음성에는 5개의 영어 음성과 각각의 번역된 언어를 포함하여 자체 다운로드 버튼이 있습니다. 코칭이 켜져 있을 때 음성을 선택해도 다운로드가 시작됩니다.",
   "Everyone Is Wrong About Exercise": "운동에 관해 모두가 틀렸다",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "운동에 대해 모두가 틀렸다 · 분 0 초 0 (0:00)",
   "Example, {exercise}:": "예, {exercise}:",

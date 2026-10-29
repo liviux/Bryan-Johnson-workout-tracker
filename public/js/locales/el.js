@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Κάθε συνεδρία τελειώνει με εργασία ευελιξίας.",
   "Every session felt comfortable": "Κάθε συνεδρία αισθάνθηκε άνετα",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Κάθε βίντεο εμφανίζει πλέον το όνομα του καναλιού του και την ημερομηνία μεταφόρτωσης τόσο κάτω από το πρόγραμμα αναπαραγωγής βίντεο όσο και κάτω από τον τίτλο του στη λίστα βίντεο.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Κάθε φωνή στο Voice coach έχει πλέον το δικό της κουμπί λήψης, συμπεριλαμβανομένων και των πέντε αγγλικών φωνών και κάθε μεταφρασμένης γλώσσας. Η επιλογή μιας φωνής εξακολουθεί να ξεκινά τη λήψη της όταν είναι ενεργοποιημένη η καθοδήγηση.",
   "Everyone Is Wrong About Exercise": "Όλοι κάνουν λάθος σχετικά με την άσκηση",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Όλοι κάνουν λάθος σχετικά με την άσκηση · ελάχ. 0 δευτ. 0 (0:00)",
   "Example, {exercise}:": "Παράδειγμα, {exercise}:",

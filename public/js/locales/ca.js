@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Cada sessió acaba amb un treball de flexibilitat.",
   "Every session felt comfortable": "Cada sessió se sentia còmoda",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Ara cada vídeo mostra el nom del seu canal i la data de pujada tant a sota del reproductor de vídeo com sota el seu títol a la llista de vídeos.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Cada veu de Voice coach ara té el seu propi botó de descàrrega, incloses les cinc veus en anglès i cada idioma traduït. La selecció d'una veu encara comença la seva baixada quan l'entrenament està activat.",
   "Everyone Is Wrong About Exercise": "Tothom està equivocat amb l'exercici",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Tothom s'equivoca sobre l'exercici · min 0 seg 0 (0:00)",
   "Example, {exercise}:": "Exemple, {exercise}:",

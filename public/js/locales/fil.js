@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Ang bawat session ay nagtatapos sa flexibility work.",
   "Every session felt comfortable": "Bawat session ay komportable",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Ipinapakita na ngayon ng bawat video ang pangalan ng channel nito at petsa ng pag-upload sa ibaba ng video player at sa ilalim ng pamagat nito sa listahan ng video.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Ang bawat boses sa Voice coach ay mayroon na ngayong sariling download button, kasama ang lahat ng limang English na boses at bawat isinaling wika. Ang pagpili ng boses ay magsisimula pa rin sa pag-download nito kapag naka-on ang coaching.",
   "Everyone Is Wrong About Exercise": "Lahat ay Mali Tungkol sa Pag-eehersisyo",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Lahat ay Mali Tungkol sa Pag-eehersisyo · min 0 seg 0 (0:00)",
   "Example, {exercise}:": "Halimbawa, {exercise}:",

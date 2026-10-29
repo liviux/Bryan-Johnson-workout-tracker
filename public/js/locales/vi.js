@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Mỗi phiên kết thúc với công việc linh hoạt.",
   "Every session felt comfortable": "Mỗi buổi tập đều cảm thấy thoải mái",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Giờ đây, mọi video đều hiển thị tên kênh và ngày tải lên ở bên dưới trình phát video cũng như bên dưới tiêu đề của video đó trong danh sách video.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Giờ đây, mỗi giọng nói trong Voice huấn luyện viên đều có nút tải xuống riêng, bao gồm tất cả năm giọng nói tiếng Anh và từng ngôn ngữ được dịch. Việc chọn giọng nói vẫn bắt đầu tải xuống khi huấn luyện được bật.",
   "Everyone Is Wrong About Exercise": "Mọi người đều sai về việc tập thể dục",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Mọi người đều sai về việc tập thể dục · phút 0 giây 0 (0:00)",
   "Example, {exercise}:": "Ví dụ, {exercise}:",

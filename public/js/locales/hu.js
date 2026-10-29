@@ -1479,6 +1479,7 @@ export default {
   "Every session ends with flexibility work.": "Minden foglalkozás rugalmas munkával zárul.",
   "Every session felt comfortable": "Minden ülés kényelmes volt",
   "Every video now shows its channel name and upload date both below the video player and underneath its title in the video list.": "Mostantól minden videónál megjelenik a csatorna neve és a feltöltés dátuma a videólejátszó alatt és a videólistában a címe alatt is.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "A Voice coach minden hangjához mostantól saját letöltési gomb tartozik, beleértve mind az öt angol hangot és minden lefordított nyelvet. Ha kiválaszt egy hangot, a letöltés akkor is elindul, ha a coaching be van kapcsolva.",
   "Everyone Is Wrong About Exercise": "Mindenki téved az edzéssel kapcsolatban",
   "Everyone Is Wrong About Exercise · min 0 sec 0 (0:00)": "Mindenki téved az edzésben · min 0 mp 0 (0:00)",
   "Example, {exercise}:": "Példa, {exercise}:",
