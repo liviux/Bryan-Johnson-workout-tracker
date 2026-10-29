@@ -169,13 +169,13 @@ export function render(el) {
 
       <section class="card card-pad" style="display:grid;gap:14px">
         <h3>Appearance</h3>
-        <p class="muted" style="font-size:0.86rem">Choose a theme from these Today screenshots. Each shows a different exercise and animation style; you can choose your animation style below.</p>
-        ${skinPickerHtml(st.skin)}
+        <div class="field"><span>Light or dark</span>${skinById(st.skin).modes.length > 1 ? seg("theme", [{ id: "system", name: "Follow the system" }, { id: "light", name: "Light mode" }, { id: "dark", name: "Dark mode" }], st.theme || "system") : `<small>${esc(skinById(st.skin).name)} is always dark.</small>`}</div>
         <div class="live-row">
           <button type="button" class="btn" data-live>${icon("eye")} Try themes live</button>
-          <small class="muted">Compare themes on Today with the switcher at the top. Hover a letter to see the theme name. Close it with ×.</small>
+          <small class="muted">Compare themes on Today with the switcher at the top. Hover a letter to see the theme name. Use the × at the end to close it.</small>
         </div>
-        <div class="field"><span>Light or dark</span>${skinById(st.skin).modes.length > 1 ? seg("theme", [{ id: "system", name: "Follow the system" }, { id: "light", name: "Light mode" }, { id: "dark", name: "Dark mode" }], st.theme || "system") : `<small>${esc(skinById(st.skin).name)} is always dark.</small>`}</div>
+        <p class="muted" style="font-size:0.86rem">Choose a theme from these Today screenshots. Each shows a different exercise and animation style; you can choose your animation style below.</p>
+        ${skinPickerHtml(st.skin)}
       </section>
 
       <section class="card card-pad" data-anim-settings style="display:grid;gap:14px">

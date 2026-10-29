@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.43.2] - 2026-10-29
+
+### Changed
+- Settings → Appearance now puts **Light or dark** first, then **Try themes live**, then the theme screenshots.
+- The live theme hint no longer leaves the × alone on a second line.
+
 ## [1.43.1] - 2026-10-28
 
 ### Added
