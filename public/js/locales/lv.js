@@ -3644,7 +3644,7 @@ export default {
   "Step · Mat": "Solis · Mat",
   "Step · Slant board or plates": "Solis · Slīps dēlis vai plāksnes",
   "Step · Wall": "Solis · Siena",
-  "Step {step} of {total} · {name}": "{step} {total} · {name} solis",
+  "Step {step} of {total} · {name}": "{step}. solis no {total} · {name}",
   "Step {step} of {total}. Choose workout step": "{total} solis {step}. Izvēlieties treniņa soli",
   "Step back": "Atkāpieties",
   "Step back into a long split stance": "Atgriezieties garā šķelšanās stāvoklī",

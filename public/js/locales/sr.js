@@ -3644,7 +3644,7 @@ export default {
   "Step · Mat": "Корак · Мат",
   "Step · Slant board or plates": "Корак · Коса плоча или плоче",
   "Step · Wall": "Корак · Зид",
-  "Step {step} of {total} · {name}": "Step {step} of {total} · {name}",
+  "Step {step} of {total} · {name}": "Корак {step} од {total} · {name}",
   "Step {step} of {total}. Choose workout step": "Step {step} of {total}. Choose workout step",
   "Step back": "Одмакни се",
   "Step back into a long split stance": "Вратите се у дуг став",

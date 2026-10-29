@@ -3644,7 +3644,7 @@ export default {
   "Step · Mat": "Addım · Mat",
   "Step · Slant board or plates": "Addım · Maili lövhə və ya lövhələr",
   "Step · Wall": "Addım · Divar",
-  "Step {step} of {total} · {name}": "{total} və {step} addımı · {name}",
+  "Step {step} of {total} · {name}": "Addım {step}/{total} · {name}",
   "Step {step} of {total}. Choose workout step": "{total}-nin {step} addımı. Məşq addımını seçin",
   "Step back": "Geri çəkil",
   "Step back into a long split stance": "Uzun bir bölünmüş mövqeyə qayıdın",

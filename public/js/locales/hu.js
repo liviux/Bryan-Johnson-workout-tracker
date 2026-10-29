@@ -3644,7 +3644,7 @@ export default {
   "Step · Mat": "lépés · Mat",
   "Step · Slant board or plates": "Lépés · Ferde tábla vagy lemezek",
   "Step · Wall": "Lépés · Fal",
-  "Step {step} of {total} · {name}": "A {total} · {name} {step} lépése",
+  "Step {step} of {total} · {name}": "{step}. lépés / {total} · {name}",
   "Step {step} of {total}. Choose workout step": "A {total} {step} lépése. Válassza ki az edzés lépéseit",
   "Step back": "Lépj hátra",
   "Step back into a long split stance": "Lépjen vissza egy hosszú megosztott álláspontba",

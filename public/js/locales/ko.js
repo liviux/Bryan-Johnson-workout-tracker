@@ -3644,7 +3644,7 @@ export default {
   "Step · Mat": "계단 · 매트",
   "Step · Slant board or plates": "계단 · 경사판 또는 판",
   "Step · Wall": "계단 · 벽",
-  "Step {step} of {total} · {name}": "{total} · {name}의 {step} 단계",
+  "Step {step} of {total} · {name}": "스텝 {step}/{total} · {name}",
   "Step {step} of {total}. Choose workout step": "{total}의 {step} 단계입니다. 운동 단계 선택",
   "Step back": "뒤로 물러나세요",
   "Step back into a long split stance": "다시 긴 분할 자세로 돌아갑니다.",

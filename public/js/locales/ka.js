@@ -3644,7 +3644,7 @@ export default {
   "Step · Mat": "ნაბიჯი · მატ",
   "Step · Slant board or plates": "ნაბიჯი · დახრილი დაფა ან ფირფიტები",
   "Step · Wall": "ნაბიჯი · კედელი",
-  "Step {step} of {total} · {name}": "ნაბიჯი {step} {total} · {name}",
+  "Step {step} of {total} · {name}": "ნაბიჯი {step}/{total} · {name}",
   "Step {step} of {total}. Choose workout step": "ნაბიჯი {step} {total}. აირჩიეთ ვარჯიშის ეტაპი",
   "Step back": "უკან დახევა",
   "Step back into a long split stance": "დაიბრუნეთ გრძელი გაყოფილი პოზიცია",

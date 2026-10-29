@@ -3644,7 +3644,7 @@ export default {
   "Step · Mat": "Žingsnis · Mat",
   "Step · Slant board or plates": "Žingsnis · Nuožulni lenta arba plokštės",
   "Step · Wall": "Žingsnis · Siena",
-  "Step {step} of {total} · {name}": "{step} žingsnis {total} · {name}",
+  "Step {step} of {total} · {name}": "{step} žingsnis iš {total} · {name}",
   "Step {step} of {total}. Choose workout step": "{step} iš {total} žingsnis. Pasirinkite treniruotės žingsnį",
   "Step back": "Atsitrauk",
   "Step back into a long split stance": "Grįžkite į ilgą padalijimo poziciją",

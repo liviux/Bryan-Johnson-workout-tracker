@@ -3644,7 +3644,7 @@ export default {
   "Step · Mat": "ステップ・マット",
   "Step · Slant board or plates": "ステップ・傾斜板またはプレート",
   "Step · Wall": "ステップ・ウォール",
-  "Step {step} of {total} · {name}": "{total}・{name}のステップ{step}",
+  "Step {step} of {total} · {name}": "ステップ{step}/{total} · {name}",
   "Step {step} of {total}. Choose workout step": "{total} のステップ {step}。ワークアウトステップを選択してください",
   "Step back": "一歩下がってください",
   "Step back into a long split stance": "長いスプリットスタンスに戻ります",

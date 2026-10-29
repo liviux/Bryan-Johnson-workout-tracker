@@ -3644,7 +3644,7 @@ export default {
   "Step · Mat": "Vaihe · Mat",
   "Step · Slant board or plates": "Vaihe · Vino lauta tai levyt",
   "Step · Wall": "Vaihe · Seinä",
-  "Step {step} of {total} · {name}": "Vaihe {step} {total} · {name}",
+  "Step {step} of {total} · {name}": "Vaihe {step}/{total} · {name}",
   "Step {step} of {total}. Choose workout step": "Vaihe {step} {total}. Valitse harjoitusvaihe",
   "Step back": "Astu taaksepäin",
   "Step back into a long split stance": "Astu takaisin pitkälle jakautuneeseen asenteeseen",

@@ -3644,7 +3644,7 @@ export default {
   "Step · Mat": "Adım · Mat",
   "Step · Slant board or plates": "Basamak · Eğimli tahta veya plakalar",
   "Step · Wall": "Adım · Duvar",
-  "Step {step} of {total} · {name}": "{total} Adımı {step} · {name}",
+  "Step {step} of {total} · {name}": "Adım {step}/{total} · {name}",
   "Step {step} of {total}. Choose workout step": "{total}'nun {step} adımı. Antrenman adımını seçin",
   "Step back": "Geri adım atın",
   "Step back into a long split stance": "Uzun bölünmüş duruşa geri adım atın",

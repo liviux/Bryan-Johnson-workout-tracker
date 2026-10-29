@@ -3644,7 +3644,7 @@ export default {
   "Step · Mat": "مرحلہ · چٹائی",
   "Step · Slant board or plates": "مرحلہ · ترچھا بورڈ یا پلیٹیں۔",
   "Step · Wall": "قدم · دیوار",
-  "Step {step} of {total} · {name}": "{total} کا مرحلہ {step} · {name}",
+  "Step {step} of {total} · {name}": "مرحلہ {step}/{total} · {name}",
   "Step {step} of {total}. Choose workout step": "{total} کا مرحلہ {step}۔ ورزش کا مرحلہ منتخب کریں۔",
   "Step back": "پیچھے ہٹو",
   "Step back into a long split stance": "ایک طویل تقسیم کے موقف میں واپس جائیں۔",

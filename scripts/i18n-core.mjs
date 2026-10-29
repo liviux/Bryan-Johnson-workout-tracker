@@ -734,6 +734,7 @@ export const core = {
     "Minutes": "Минуты",
   },
   ja: {
+    "Step {step} of {total} · {name}": "ステップ{step}/{total} · {name}",
     "Back": "背中",
     "Play": "再生",
     "Workout": "トレーニング",
@@ -778,6 +779,7 @@ export const core = {
     "Minutes": "Menit",
   },
   tr: {
+    "Step {step} of {total} · {name}": "Adım {step}/{total} · {name}",
     "Back": "Sırt",
     "Play": "Oynat",
     "Workout": "Antrenman",
@@ -822,6 +824,7 @@ export const core = {
     "Minutes": "Phút",
   },
   ko: {
+    "Step {step} of {total} · {name}": "스텝 {step}/{total} · {name}",
     "Back": "등",
     "Play": "재생",
     "Workout": "운동",
@@ -866,6 +869,7 @@ export const core = {
     "Minutes": "دقیقه",
   },
   ur: {
+    "Step {step} of {total} · {name}": "مرحلہ {step}/{total} · {name}",
     "Back": "کمر",
     "Play": "چلائیں",
     "Workout": "ورزش",
@@ -1108,6 +1112,7 @@ export const core = {
     "Minutes": "Minuter",
   },
   hu: {
+    "Step {step} of {total} · {name}": "{step}. lépés / {total} · {name}",
     "Back": "Hát",
     "Play": "Lejátszás",
     "Workout": "Edzés",
@@ -1174,6 +1179,7 @@ export const core = {
     "Minutes": "Minutter",
   },
   fi: {
+    "Step {step} of {total} · {name}": "Vaihe {step}/{total} · {name}",
     "Back": "Selkä",
     "Play": "Toista",
     "Workout": "Harjoitus",
@@ -1284,6 +1290,7 @@ export const core = {
     "Minutes": "Minute",
   },
   sr: {
+    "Step {step} of {total} · {name}": "Корак {step} од {total} · {name}",
     "Back": "Леђа",
     "Play": "Пусти",
     "Workout": "Тренинг",
@@ -1306,6 +1313,7 @@ export const core = {
     "Minutes": "Минути",
   },
   lt: {
+    "Step {step} of {total} · {name}": "{step} žingsnis iš {total} · {name}",
     "Back": "Nugara",
     "Play": "Leisti",
     "Workout": "Treniruotė",
@@ -1350,6 +1358,7 @@ export const core = {
     "Minutes": "Minute",
   },
   lv: {
+    "Step {step} of {total} · {name}": "{step}. solis no {total} · {name}",
     "Back": "Mugura",
     "Play": "Atskaņot",
     "Workout": "Treniņš",
@@ -1372,6 +1381,7 @@ export const core = {
     "Minutes": "Minūtes",
   },
   et: {
+    "Step {step} of {total} · {name}": "Samm {step}/{total} · {name}",
     "Back": "Selg",
     "Play": "Esita",
     "Workout": "Treening",
@@ -1526,6 +1536,7 @@ export const core = {
     "Minutes": "Minute",
   },
   ka: {
+    "Step {step} of {total} · {name}": "ნაბიჯი {step}/{total} · {name}",
     "Back": "ზურგი",
     "Play": "დაკვრა",
     "Workout": "ვარჯიში",
@@ -1548,6 +1559,7 @@ export const core = {
     "Minutes": "წუთი",
   },
   az: {
+    "Step {step} of {total} · {name}": "Addım {step}/{total} · {name}",
     "Back": "Kürək",
     "Play": "Oynat",
     "Workout": "Məşq",

@@ -3644,7 +3644,7 @@ export default {
   "Step · Mat": "Samm · Mat",
   "Step · Slant board or plates": "Samm · Kaldplaat või plaadid",
   "Step · Wall": "Samm · Sein",
-  "Step {step} of {total} · {name}": "{total} · {name} samm {step}",
+  "Step {step} of {total} · {name}": "Samm {step}/{total} · {name}",
   "Step {step} of {total}. Choose workout step": "{total} samm {step}. Valige treeningu etapp",
   "Step back": "Astuge tagasi",
   "Step back into a long split stance": "Astuge tagasi pika lõhenenud asendisse",
