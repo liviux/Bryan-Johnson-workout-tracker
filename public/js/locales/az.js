@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Dəyişikliklər avtomatik saxlanılır",
   "Changing language during setup keeps the details you already entered.": "Quraşdırma zamanı dilin dəyişdirilməsi artıq daxil etdiyiniz detalları saxlayır.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "İndi dilin dəyişdirilməsi əvvəlki dilin səsini seçmək əvəzinə həmin dilin defolt məşqçi səsini də seçir.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Dilin dəyişdirilməsi indi səsli endirmə düyməsini və onun gedişatını dərhal göstərir və endirmə davam edərkən kouçinqi söndürün funksiyası əlçatan qalır.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Səsli məşqçidə tempin və ya kouçluğun dəyişdirilməsi indi yeni seçimi saxlayır.",
   "Chapters": "Fəsillər",
   "Chart": "Qrafik",

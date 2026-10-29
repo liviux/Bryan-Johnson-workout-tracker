@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "تغییرات به صورت خودکار ذخیره می شوند",
   "Changing language during setup keeps the details you already entered.": "تغییر زبان در حین راه‌اندازی، جزئیاتی را که قبلاً وارد کرده‌اید حفظ می‌کند.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "اکنون با تغییر زبان، به جای اینکه صدای زبان قبلی انتخاب شود، صدای مربی پیش‌فرض آن زبان نیز انتخاب می‌شود.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "تغییر زبان اکنون دکمه دانلود صوتی و پیشرفت آن را فوراً نشان می دهد، و Turn coaching off تا زمانی که دانلود اجرا می شود در دسترس باقی می ماند.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "تغییر سرعت یا مربی در Voice اکنون انتخاب جدید را ذخیره می کند.",
   "Chapters": "فصل ها",
   "Chart": "نمودار",

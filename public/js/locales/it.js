@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Le modifiche vengono salvate automaticamente",
   "Changing language during setup keeps the details you already entered.": "La modifica della lingua durante la configurazione mantiene i dettagli già inseriti.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "La modifica della lingua ora seleziona anche la voce predefinita dell'allenatore di quella lingua, invece di lasciare selezionata la voce della lingua precedente.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "La modifica della lingua ora mostra immediatamente il pulsante vocale di download e il relativo avanzamento e Disattiva coaching rimane disponibile durante l'esecuzione del download.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "La modifica del ritmo o del coaching nel coach vocale ora salva la nuova scelta.",
   "Chapters": "Capitoli",
   "Chart": "Grafico",

@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Промените се запазват автоматично",
   "Changing language during setup keeps the details you already entered.": "Промяната на езика по време на настройка запазва данните, които вече сте въвели.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Промяната на езика вече също избира гласа на треньора по подразбиране за този език, вместо да оставя гласа на предишния език избран.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Промяната на езика вече показва незабавно бутона за гласово изтегляне и напредъка му, а Изключването на обучението остава налице, докато тече изтеглянето.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Промяната на темпото или обучението в Voice coach вече запазва новия избор.",
   "Chapters": "глави",
   "Chart": "Диаграма",

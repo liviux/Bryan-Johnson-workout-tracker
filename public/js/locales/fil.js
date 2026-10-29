@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Awtomatikong nai-save ang mga pagbabago",
   "Changing language during setup keeps the details you already entered.": "Ang pagpapalit ng wika sa panahon ng pag-setup ay nagpapanatili ng mga detalyeng nailagay mo na.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Pinipili din ngayon ng pagpapalit ng wika ang default na boses ng coach ng wika, sa halip na hayaang piliin ang boses ng nakaraang wika.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Ipinapakita na ngayon ng pagpapalit ng wika ang button sa pag-download ng boses at ang pag-usad nito kaagad, at ang I-off ang coaching ay mananatiling available habang tumatakbo ang pag-download.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Ang Pagbabago ng Pace o Pagtuturo sa Voice coach ay nagse-save na ngayon ng bagong pagpipilian.",
   "Chapters": "Mga kabanata",
   "Chart": "Tsart",

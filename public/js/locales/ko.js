@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "변경사항이 자동으로 저장됩니다.",
   "Changing language during setup keeps the details you already entered.": "설정 중에 언어를 변경하면 이미 입력한 세부정보가 유지됩니다.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "이제 언어를 변경하면 이전 언어의 음성을 선택된 상태로 두는 대신 해당 언어의 기본 코치 음성도 선택됩니다.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "이제 언어를 변경하면 음성 다운로드 버튼과 진행 상황이 즉시 표시되며, 다운로드가 실행되는 동안 코칭 끄기가 계속 사용 가능합니다.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "이제 음성 코치에서 페이스 또는 코칭을 변경하면 새로운 선택 사항이 저장됩니다.",
   "Chapters": "장",
   "Chart": "차트",

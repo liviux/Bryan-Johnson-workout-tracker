@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Perubahan disimpan secara otomatis",
   "Changing language during setup keeps the details you already entered.": "Mengubah bahasa selama pengaturan akan mempertahankan detail yang sudah Anda masukkan.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Mengubah bahasa kini juga memilih suara pelatih default bahasa tersebut, alih-alih membiarkan suara bahasa sebelumnya dipilih.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Mengubah bahasa kini menampilkan tombol unduh suara dan progresnya dengan segera, dan Nonaktifkan pelatihan tetap tersedia saat unduhan berjalan.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Mengubah Kecepatan atau Pelatihan dalam Suara kini menyimpan pilihan baru.",
   "Chapters": "bab",
   "Chart": "Bagan",

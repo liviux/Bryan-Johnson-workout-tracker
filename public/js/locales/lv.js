@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Izmaiņas tiek saglabātas automātiski",
   "Changing language during setup keeps the details you already entered.": "Mainot valodu iestatīšanas laikā, tiek saglabāta jau ievadītā informācija.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Mainot valodu, tagad tiek atlasīta arī šīs valodas noklusējuma trenera balss, nevis atstāta atlasīta iepriekšējās valodas balss.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Mainot valodu, tagad uzreiz tiek rādīta balss lejupielādes poga un tās norise, un opcija Izslēgt apmācību paliek pieejama, kamēr notiek lejupielāde.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Mainot tempu vai apmācību programmā Voice coach tagad tiek saglabāta jaunā izvēle.",
   "Chapters": "nodaļas",
   "Chart": "Diagramma",

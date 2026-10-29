@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Ndryshimet ruhen automatikisht",
   "Changing language during setup keeps the details you already entered.": "Ndryshimi i gjuhës gjatë konfigurimit ruan detajet që keni futur tashmë.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Ndryshimi i gjuhës tani zgjedh gjithashtu zërin e parazgjedhur të trajnerit të asaj gjuhe, në vend që të lërë të zgjedhur zërin e gjuhës së mëparshme.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Ndryshimi i gjuhës tani tregon butonin e shkarkimit të zërit dhe përparimin e tij menjëherë, dhe \"Çaktivizimi i stërvitjes\" mbetet i disponueshëm gjatë ekzekutimit të shkarkimit.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Ndryshimi i ritmit ose trajneri i \"Stërvitjes në zë\" tani ruan zgjedhjen e re.",
   "Chapters": "Kapitujt",
   "Chart": "Grafiku",

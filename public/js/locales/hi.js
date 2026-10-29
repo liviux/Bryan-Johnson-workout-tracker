@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "बदलाव अपने आप सहेजे जाते हैं",
   "Changing language during setup keeps the details you already entered.": "सेटअप के दौरान भाषा बदलने से आपके द्वारा पहले ही दर्ज किए गए विवरण बने रहते हैं।",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "अब भाषा बदलने से पिछली भाषा की आवाज़ को चयनित छोड़ने के बजाय, उस भाषा की डिफ़ॉल्ट कोच आवाज़ भी चुन ली जाती है।",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "भाषा बदलने से अब वॉयस डाउनलोड बटन और उसकी प्रगति तुरंत दिखाई देती है, और डाउनलोड चलने के दौरान कोचिंग बंद करना उपलब्ध रहता है।",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "वॉयस कोच में गति या कोचिंग बदलने से अब नया विकल्प बच जाता है।",
   "Chapters": "चैप्टर्स",
   "Chart": "चार्ट",

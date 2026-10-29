@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Veranderinge stoor outomaties",
   "Changing language during setup keeps the details you already entered.": "Die verandering van taal tydens opstelling hou die besonderhede wat jy reeds ingevoer het.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Die verandering van taal kies nou ook daardie taal se verstekafrigterstem, in plaas daarvan om die vorige taal se stem gekies te laat.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Die verandering van taal wys nou die stemaflaaiknoppie en die vordering daarvan onmiddellik, en Skakel afrigting af bly beskikbaar terwyl die aflaai loop.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Die verandering van tempo of Coaching in Voice-afrigter stoor nou die nuwe keuse.",
   "Chapters": "Hoofstukke",
   "Chart": "Grafiek",

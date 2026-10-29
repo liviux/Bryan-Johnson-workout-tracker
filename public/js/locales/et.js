@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Muudatused salvestatakse automaatselt",
   "Changing language during setup keeps the details you already entered.": "Seadistamise ajal keele muutmine säilitab juba sisestatud üksikasjad.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Keele muutmine valib nüüd ka selle keele treeneri vaikehääle, selle asemel, et jätta eelmise keele hääl valituks.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Keele muutmisel kuvatakse nüüd hääle allalaadimise nuppu ja selle edenemist kohe ning suvand Lülita juhendamine välja jääb allalaadimise ajal kättesaadavaks.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Tempo muutmine või juhendamine hääletreeneris salvestab nüüd uue valiku.",
   "Chapters": "Peatükid",
   "Chart": "Diagramm",

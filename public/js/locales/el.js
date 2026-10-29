@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Οι αλλαγές αποθηκεύονται αυτόματα",
   "Changing language during setup keeps the details you already entered.": "Η αλλαγή γλώσσας κατά τη ρύθμιση διατηρεί τα στοιχεία που έχετε ήδη καταχωρίσει.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Η αλλαγή γλώσσας τώρα επιλέγει επίσης την προεπιλεγμένη φωνή προπονητή αυτής της γλώσσας, αντί να αφήνει επιλεγμένη τη φωνή της προηγούμενης γλώσσας.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Η αλλαγή γλώσσας εμφανίζει τώρα το κουμπί φωνητικής λήψης και την πρόοδό του αμέσως και το Turn coaching off παραμένει διαθέσιμο όσο εκτελείται η λήψη.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Αλλαγή ρυθμού ή Coaching in Voice προπονητή σώζει τώρα τη νέα επιλογή.",
   "Chapters": "Κεφάλαια",
   "Chart": "Διάγραμμα",

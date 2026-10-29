@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "A változtatások automatikusan mentésre kerülnek",
   "Changing language during setup keeps the details you already entered.": "A beállítás során a nyelv megváltoztatása megtartja a már megadott adatokat.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "A nyelv megváltoztatása most az adott nyelv alapértelmezett edzői hangját is kiválasztja, ahelyett, hogy az előző nyelv hangját választaná.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "A nyelv megváltoztatása mostantól azonnal megjeleníti a hangletöltés gombot és annak előrehaladását, a Coaching kikapcsolása pedig elérhető marad, amíg a letöltés fut.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Az ütemváltás vagy a Coaching a Voice coachban most menti az új választást.",
   "Chapters": "Chapters",
   "Chart": "Diagram",

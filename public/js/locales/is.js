@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Breytingar vistast sjálfkrafa",
   "Changing language during setup keeps the details you already entered.": "Að breyta tungumáli meðan á uppsetningu stendur heldur þeim upplýsingum sem þú hefur þegar slegið inn.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Að breyta tungumáli velur nú einnig sjálfgefna þjálfararödd þess tungumáls, í stað þess að skilja rödd fyrra tungumáls eftir valið.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Að breyta tungumáli sýnir núna raddniðurhalshnappinn og framvindu hans strax og Slökkva á þjálfun er áfram tiltæk á meðan niðurhalið er í gangi.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Að breyta hraða eða markþjálfun í raddþjálfara vistar nú nýja valið.",
   "Chapters": "kaflar",
   "Chart": "Myndrit",

@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Các thay đổi được lưu tự động",
   "Changing language during setup keeps the details you already entered.": "Việc thay đổi ngôn ngữ trong quá trình thiết lập sẽ giữ nguyên các chi tiết bạn đã nhập.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Giờ đây, việc thay đổi ngôn ngữ cũng chọn giọng huấn luyện mặc định của ngôn ngữ đó, thay vì vẫn chọn giọng của ngôn ngữ trước đó.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Giờ đây, việc thay đổi ngôn ngữ sẽ hiển thị nút tải xuống bằng giọng nói và tiến trình của nút đó ngay lập tức, đồng thời Tắt huấn luyện vẫn khả dụng trong khi quá trình tải xuống chạy.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Thay đổi Tốc độ hoặc Huấn luyện trong Huấn luyện viên bằng giọng nói giờ đây sẽ lưu lại lựa chọn mới.",
   "Chapters": "chương",
   "Chart": "Biểu đồ",

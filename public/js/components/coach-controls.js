@@ -11,11 +11,11 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
     <div class="coach-panel${popup ? " radio-panel" : ""}" ${popup ? 'id="workout-coach-panel" hidden' : ""} role="group" aria-label="${esc(t("Voice coach"))}">
       <div class="radio-head"><div><h3>${t("Voice coach")}</h3><small class="muted">${t("Spoken guidance for your workout")}</small></div>${popup ? `<button type="button" class="btn sm ghost icon-only" data-coach="close" aria-label="${esc(t("Close coach"))}">${icon("x", "sm")}</button>` : ""}</div>
       <p class="coach-status muted" role="status" aria-live="polite"></p>
-      <p class="coach-cache muted" role="status" aria-live="polite"></p>
+      <div class="btn-row"><button type="button" class="btn primary" data-coach="enable"></button><button type="button" class="btn" data-coach="preview">${icon("play", "sm")} ${t("Preview")}</button></div>
+      <button type="button" class="btn" data-coach="cache" hidden>${icon("download", "sm")} ${t("Download voice")}</button>
       <progress data-coach="progress" max="1" value="0" aria-label="${esc(t("Voice cache preparation"))}" hidden style="width:100%"></progress>
       <small class="muted coach-progress-text" data-coach="progress-text" hidden></small>
-      <button type="button" class="btn" data-coach="cache" hidden>${icon("download", "sm")} ${t("Download voice")}</button>
-      <div class="btn-row"><button type="button" class="btn primary" data-coach="enable"></button><button type="button" class="btn" data-coach="preview">${icon("play", "sm")} ${t("Preview")}</button></div>
+      <p class="coach-cache muted" role="status" aria-live="polite"></p>
       <button type="button" class="btn" data-coach="install">${t("Download local voice")}</button>
       <small class="muted" data-coach="download-info">${t("The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.")}</small>
       <div class="coach-voices" aria-label="${esc(t("Coach voice"))}">${voicesForLanguage(language()).map((v) => `<button type="button" class="choice" data-coach-voice="${v.id}" aria-pressed="false"><b data-i18n-skip>${esc(v.name)}</b><small>${esc(t(v.detail))}</small></button>`).join("")}</div>
@@ -62,7 +62,7 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
     const button = el.querySelector('[data-coach="enable"]');
     button.textContent = enabled ? t("Turn coaching off") : t("Turn coaching on");
     button.setAttribute("aria-pressed", String(enabled));
-    button.disabled = !status.installed || status.installing || !cacheReady;
+    button.disabled = enabled ? status.installing : (!status.installed || status.installing || !cacheReady);
     toggle?.classList.toggle("is-on", enabled && status.installed);
     toggle?.setAttribute("aria-busy", String(status.preparing));
     toggle?.setAttribute("aria-label", t("Voice coach, {state}", { state: enabled && status.installed ? t("on") : t("off") }));
@@ -90,8 +90,8 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
     if (voice) {
       cancelVoice(); previewToken += 1;
       updateProfile((p) => { p.settings ||= {}; p.settings.coachVoice = voice.dataset.coachVoice; }, { silent: true });
+      if (state.profile?.settings?.voiceCoach) cacheVoice({ activate: true, voice: voice.dataset.coachVoice });
       await refreshVoiceStatus();
-      if (state.profile?.settings?.voiceCoach && voiceStatus.installed && !voiceStatus.cacheEnabled) cacheVoice({ activate: true, voice: voice.dataset.coachVoice });
       sync(voiceStatus); onChange();
       return;
     }

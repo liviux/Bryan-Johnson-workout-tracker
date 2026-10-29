@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.44.4] - 2026-10-29
+
+### Fixed
+- Changing language now shows the voice download button and its progress immediately, and **Turn coaching off** stays available while the download runs.
+
 ## [1.44.3] - 2026-10-29
 
 ### Changed

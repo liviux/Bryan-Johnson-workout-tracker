@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Muutokset tallentuvat automaattisesti",
   "Changing language during setup keeps the details you already entered.": "Kielen vaihtaminen asennuksen aikana säilyttää jo antamasi tiedot.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Kielen vaihtaminen valitsee nyt myös kyseisen kielen oletusvalmentajan äänen sen sijaan, että edellisen kielen ääni jää valituksi.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Kielen vaihtaminen näyttää nyt äänen latauspainikkeen ja sen edistymisen välittömästi, ja Poista valmennus käytöstä pysyy käytettävissä latauksen aikana.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Vauhdin tai valmennuksen muuttaminen Voice coachissa tallentaa nyt uuden valinnan.",
   "Chapters": "Luvut",
   "Chart": "Kartoittaa",

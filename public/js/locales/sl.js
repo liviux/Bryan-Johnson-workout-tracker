@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Spremembe se samodejno shranijo",
   "Changing language during setup keeps the details you already entered.": "Spreminjanje jezika med nastavitvijo ohrani podrobnosti, ki ste jih že vnesli.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Spreminjanje jezika zdaj izbere tudi privzeti glas trenerja tega jezika, namesto da ostane izbran glas prejšnjega jezika.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Spreminjanje jezika zdaj takoj prikaže gumb za glasovni prenos in njegov napredek, Izklopi inštruiranje pa ostane na voljo, medtem ko poteka prenos.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Spreminjanje tempa ali Coaching v Voice coach zdaj shrani novo izbiro.",
   "Chapters": "Poglavja",
   "Chart": "grafikon",

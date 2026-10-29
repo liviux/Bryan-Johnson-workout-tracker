@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Değişiklikler otomatik olarak kaydedilir",
   "Changing language during setup keeps the details you already entered.": "Kurulum sırasında dilin değiştirilmesi, önceden girmiş olduğunuz ayrıntıları korur.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Dili değiştirmek artık önceki dilin sesini seçili bırakmak yerine o dilin varsayılan koç sesini de seçiyor.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Dili değiştirmek artık ses indirme düğmesini ve ilerleme durumunu anında gösteriyor ve Koçluğu kapat seçeneği, indirme işlemi devam ederken kullanılabilir durumda kalıyor.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Hızı Değiştirmek veya Sesli koçta Koçluk yapmak artık yeni seçimi kaydediyor.",
   "Chapters": "Bölümler",
   "Chart": "Çizelge",

@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "Modificările se salvează automat",
   "Changing language during setup keeps the details you already entered.": "Schimbarea limbii în timpul configurării păstrează datele deja introduse.",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "Schimbarea limbii acum selectează și vocea implicită de antrenor a acelei limbi, în loc să lase vocea limbii anterioare selectată.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Schimbarea limbii afișează acum butonul de descărcare vocală și progresul acestuia imediat, iar Dezactivați antrenamentul rămâne disponibil în timpul descărcării.",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "Schimbarea ritmului sau Coaching in Voice coach acum salvează noua alegere.",
   "Chapters": "Capitole",
   "Chart": "Diagramă",

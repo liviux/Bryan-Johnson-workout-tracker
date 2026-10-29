@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "تبدیلیاں خود بخود محفوظ ہوجاتی ہیں۔",
   "Changing language during setup keeps the details you already entered.": "سیٹ اپ کے دوران زبان تبدیل کرنے سے وہ تفصیلات برقرار رہتی ہیں جو آپ پہلے سے درج کر چکے ہیں۔",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "اب زبان تبدیل کرنے سے اس زبان کی ڈیفالٹ کوچ آواز بھی منتخب ہو جاتی ہے، بجائے اس کے کہ پچھلی زبان کی آواز کو منتخب کیا جائے۔",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "زبان کو تبدیل کرنے سے اب صوتی ڈاؤن لوڈ بٹن اور اس کی پیشرفت فوری طور پر ظاہر ہوتی ہے، اور ڈاؤن لوڈ کے چلنے کے دوران ٹرن کوچنگ دستیاب رہتی ہے۔",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "وائس کوچ میں رفتار یا کوچنگ کو تبدیل کرنا اب نئے انتخاب کو بچاتا ہے۔",
   "Chapters": "ابواب",
   "Chart": "چارٹ",

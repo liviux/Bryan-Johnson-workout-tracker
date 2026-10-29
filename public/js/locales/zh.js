@@ -1059,6 +1059,7 @@ export default {
   "Changes save automatically": "更改会自动保存",
   "Changing language during setup keeps the details you already entered.": "在设置过程中更改语言会保留你已输入的详细信息。",
   "Changing language now also selects that language’s default coach voice, instead of leaving the previous language’s voice selected.": "现在更改语言还会选择该语言的默认教练语音，而不是选择先前语言的语音。",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "现在，更改语言会立即显示语音下载按钮及其进度，并且在下载运行时“关闭辅导”仍然可用。",
   "Changing Pace or Coaching in Voice coach now saves the new choice.": "现在，在语音教练中更改速度或教练可以保存新的选择。",
   "Chapters": "章节",
   "Chart": "图表",
