@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Ko Braiens dara tagad",
   "What's up": "Kas notiek",
   "Whats Up Dude": "Kas notiek draugs",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Kad apmācība ir ieslēgta, izvēloties balsi vai valodu, šī balss tiek lejupielādēta automātiski. Kad apmācība ir izslēgta, izmantojiet pogu Lejupielādēt vietējo balsi, kas parāda klipa norisi kopēšanas laikā.",
   "When to change:": "Kad mainīt:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Kad vēlaties doties ārā, nomainiet 2. zonas bloku pret tāda paša garuma vai garāku ātru pastaigu, pārgājienu vai braucienu ar velosipēdu.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Kad jums rodas iespēja, ātra pastaiga, pārgājiens vai izbrauciens ar velosipēdu ārpus telpām tiek ņemts vērā.",

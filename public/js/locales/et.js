@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Mida Bryan praegu teeb",
   "What's up": "Mis lahti",
   "Whats Up Dude": "Mis lahti kutt",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Kui juhendamine on sisse lülitatud, laadib hääle või keele valimine selle hääle automaatselt alla. Kui juhendamine on välja lülitatud, kasutage nuppu Laadi alla kohalik hääl, mis näitab klipi edenemist kopeerimise ajal.",
   "When to change:": "Millal muuta:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Kui tunned isu õue minna, vaheta 2. tsooni plokk sama pika või pikema kiire jalutuskäigu, matka või rattasõidu vastu.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Võimaluse korral loeb ka kiire jalutuskäik, matk või rattasõit õues samaväärseks.",

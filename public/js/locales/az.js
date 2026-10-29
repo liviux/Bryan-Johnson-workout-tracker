@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Bryan indi nə edir",
   "What's up": "Nə var",
   "Whats Up Dude": "Nə var dostum",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Kouçinq aktiv olduqda, səs və ya dil seçmək həmin səsi avtomatik endirir. Kouçinq söndürüldükdə, kopyalanan zaman klipin gedişatını göstərən Yerli səsi endirin düyməsini istifadə edin.",
   "When to change:": "Nə vaxt dəyişdirilməlidir:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Çölə çıxmaq istədiyiniz zaman 2-ci Zona blokunu sürətli gəzinti, gəzinti və ya eyni uzunluqda və ya daha uzun velosiped sürmək üçün dəyişdirin.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Fürsət əldə etdikdə, çöldə sürətli gəzinti, gəzinti və ya velosiped sürmə eyni sayılır.",

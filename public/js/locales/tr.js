@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Bryan'ın şimdi ne yaptığı",
   "What's up": "Naber",
   "Whats Up Dude": "Naber dostum",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Koçluk açıkken bir ses veya dil seçildiğinde o ses otomatik olarak indirilir. Koçluk kapalıyken, kopyalanırken klibin ilerleme durumunu gösteren Yerel sesi indir düğmesini kullanın.",
   "When to change:": "Ne zaman değiştirilmeli:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Dışarı çıkmak istediğinizde Bölge 2 bloğunu aynı uzunlukta veya daha uzun bir tempolu yürüyüş, yürüyüş veya bisiklete binme ile değiştirin.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Fırsatınız olduğunda, dışarıda hızlı bir yürüyüş, yürüyüş veya bisiklete binmek de aynı sayılır.",

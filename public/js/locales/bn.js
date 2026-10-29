@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "ব্রায়ান এখন কী করেন",
   "What's up": "কি খবর",
   "Whats Up Dude": "হোয়াটস আপ ডুড",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "যখন কোচিং চালু থাকে, তখন একটি ভয়েস বা ভাষা বেছে নিলে সেই ভয়েসটি স্বয়ংক্রিয়ভাবে ডাউনলোড হয়ে যায়। যখন কোচিং বন্ধ থাকে, তখন ডাউনলোড স্থানীয় ভয়েস বোতামটি ব্যবহার করুন, যা কপি করার সময় ক্লিপের অগ্রগতি দেখায়।",
   "When to change:": "কখন বদলাবেন:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "বাইরে যেতে ইচ্ছা হলে জোন ২ ব্লকের বদলে একই বা বেশি সময়ের দ্রুত হাঁটা, হাইক বা বাইক চালান।",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "সুযোগ পেলে বাইরে দ্রুত হাঁটা, হাইক বা বাইক চালানোও সমান গণনা হয়।",

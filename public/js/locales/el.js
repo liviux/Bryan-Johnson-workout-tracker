@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Τι κάνει τώρα ο Μπράιαν",
   "What's up": "Τι συμβαίνει",
   "Whats Up Dude": "Whats Up φίλε",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Όταν το coaching είναι ενεργοποιημένο, η επιλογή φωνής ή γλώσσας κατεβάζει αυτόματα αυτήν τη φωνή. Όταν το coaching είναι απενεργοποιημένο, χρησιμοποιήστε το κουμπί Λήψη τοπικής φωνής, το οποίο δείχνει την πρόοδο του κλιπ κατά την αντιγραφή.",
   "When to change:": "Πότε να αλλάξετε:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Όταν θέλετε να βγείτε έξω, αλλάξτε το τετράγωνο της Ζώνης 2 για έναν γρήγορο περπάτημα, πεζοπορία ή βόλτα με το ποδήλατο ίδιας διάρκειας ή μεγαλύτερης.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Όταν έχετε την ευκαιρία, ένα γρήγορο περπάτημα, πεζοπορία ή βόλτα με ποδήλατο έξω μετράει το ίδιο.",

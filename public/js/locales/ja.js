@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "ブライアンが今していること",
   "What's up": "どうしたの",
   "Whats Up Dude": "ワッツアップデュード",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "コーチングがオンの場合、音声または言語を選択すると、その音声が自動的にダウンロードされます。コーチングがオフの場合は、[ローカル音声をダウンロード] ボタンを使用すると、コピー中のクリップの進行状況が表示されます。",
   "When to change:": "いつ変更するか:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "外に出たくなったら、ゾーン 2 ブロックを交換して、同じ長さ以上の早歩き、ハイキング、またはサイクリングに出かけましょう。",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "機会があれば、屋外での早歩き、ハイキング、サイクリングも同様にカウントされます。",

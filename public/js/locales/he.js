@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "מה בריאן עושה עכשיו",
   "What's up": "מה קורה",
   "Whats Up Dude": "מה קורה אחי",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "כאשר האימון פועל, בחירת קול או שפה מורידה את הקול הזה באופן אוטומטי. כאשר האימון כבוי, השתמש בלחצן הורד קול מקומי, המראה את התקדמות הקליפ בזמן שהוא מעתיק.",
   "When to change:": "מתי לשנות:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "כשמתחשק לך לצאת החוצה, החלף את בלוק Zone 2 להליכה מהירה, טיול רגלי או רכיבה על אופניים באותו אורך או יותר.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "כשיש לך הזדמנות, הליכה מהירה, הליכה או רכיבה על אופניים בחוץ נחשבים אותו הדבר.",

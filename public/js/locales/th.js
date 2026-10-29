@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "สิ่งที่ไบรอันทำตอนนี้",
   "What's up": "ว่าไง",
   "Whats Up Dude": "ว่าไงนะเพื่อน",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "เมื่อเปิดการฝึกสอน การเลือกเสียงหรือภาษาจะดาวน์โหลดเสียงนั้นโดยอัตโนมัติ เมื่อปิดการฝึกสอน ให้ใช้ปุ่มดาวน์โหลดเสียงท้องถิ่น ซึ่งจะแสดงความคืบหน้าของคลิปในขณะที่คัดลอก",
   "When to change:": "เมื่อใดควรเปลี่ยน:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "เมื่อคุณรู้สึกอยากออกไปข้างนอก ให้เปลี่ยนบล็อก Zone 2 เป็นการเดินเร็ว เดินป่า หรือปั่นจักรยานในระยะทางเท่ากันหรือนานกว่านั้น",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "เมื่อคุณมีโอกาส การเดินเร็ว เดินป่า หรือปั่นจักรยานออกไปข้างนอกก็มีค่าเท่ากัน",

@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "El que fa Bryan ara",
   "What's up": "Què passa",
   "Whats Up Dude": "Què passa Amic",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Quan l'entrenament està activat, escollir una veu o un idioma la baixa automàticament. Quan l'entrenament està desactivat, utilitzeu el botó Baixa la veu local, que mostra el progrés del clip mentre es copia.",
   "When to change:": "Quan canviar:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Quan tinguis ganes de sortir al carrer, canvia el bloc de la Zona 2 per una caminada ràpida, una caminada o un passeig amb bicicleta de la mateixa durada o més.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Quan tens l'oportunitat, una caminada ràpida, una caminada o un passeig amb bicicleta a l'exterior compta igual.",

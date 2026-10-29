@@ -53,7 +53,7 @@ export function videoVoice(value) { mutedByVideo = value; if (value) cancelVoice
 export function setVoiceEnabled(value) {
   updateProfile((p) => { p.settings ||= {}; p.settings.voiceCoach = value; }, { silent: true });
   if (!value) { voiceStatus.preparing = false; cancelVoice(); }
-  else { mutedByVideo = false; unlockVoice(); }
+  else { mutedByVideo = false; unlockVoice(); cacheVoice({ activate: true }); }
   notify();
 }
 

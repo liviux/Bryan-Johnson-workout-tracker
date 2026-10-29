@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Wat Bryan nou doen",
   "What's up": "Wat gaan aan",
   "Whats Up Dude": "Wat gaan aan ou",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Wanneer afrigting aan is, word die stem outomaties afgelaai deur 'n stem of taal te kies. Wanneer afrigting af is, gebruik die Laai plaaslike stem-knoppie af, wat die vordering van die snit wys terwyl dit kopieer.",
   "When to change:": "Wanneer om te verander:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Wanneer jy lus is om buite te gaan, ruil die Sone 2-blok vir 'n vinnige stap, stap of fietsrit van dieselfde lengte of langer.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Wanneer jy die kans kry, tel 'n flink stap, stap of fietsrit buite dieselfde.",

@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Bryan làm gì bây giờ",
   "What's up": "Có chuyện gì thế",
   "Whats Up Dude": "Có chuyện gì vậy anh bạn",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Khi huấn luyện được bật, việc chọn giọng nói hoặc ngôn ngữ sẽ tự động tải giọng nói đó xuống. Khi tắt huấn luyện, hãy sử dụng nút Tải xuống giọng nói cục bộ để hiển thị tiến trình của clip trong khi sao chép.",
   "When to change:": "Khi nào cần thay đổi:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Khi bạn cảm thấy muốn ra ngoài, hãy đổi khối Khu 2 để đi bộ nhanh, đi bộ đường dài hoặc đạp xe với cùng độ dài hoặc lâu hơn.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Khi có cơ hội, bạn có thể đi bộ nhanh, đi bộ đường dài hoặc đạp xe bên ngoài cũng như vậy.",

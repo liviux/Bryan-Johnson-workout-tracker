@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Bryan anafanya nini sasa",
   "What's up": "Kuna nini",
   "Whats Up Dude": "Mambo vipi Jamani",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Wakati ufundishaji umewashwa, kuchagua sauti au lugha kupakua sauti hiyo kiotomatiki. Wakati kufundisha kumezimwa, tumia kitufe cha Pakua sauti ya ndani, ambacho kinaonyesha maendeleo ya klipu wakati inakili.",
   "When to change:": "Wakati wa kubadilisha:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Unapohisi kutaka kwenda nje, badilisha eneo la Zone 2 kwa matembezi ya haraka, kupanda au kupanda baiskeli ya urefu sawa au zaidi.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Unapopata nafasi, kutembea haraka, kupanda juu au kupanda baiskeli nje kunahesabiwa vivyo hivyo.",

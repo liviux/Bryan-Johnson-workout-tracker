@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Ce face Bryan acum",
   "What's up": "Care-i treaba",
   "Whats Up Dude": "Whats Up Dude",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Când coaching-ul este activat, alegerea unei voci sau a unei limbi descarcă automat acea voce. Când antrenamentul este dezactivat, utilizați butonul Descărcați voce locală, care arată progresul clipului în timp ce acesta se copiează.",
   "When to change:": "Când să schimbi:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Când ai chef să ieși afară, schimbă blocul de Zona 2 cu o plimbare alertă, o drumeție sau o tură cu bicicleta, de aceeași durată sau mai lungă.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Când ai ocazia, o plimbare alertă, o drumeție sau o tură cu bicicleta afară contează la fel.",

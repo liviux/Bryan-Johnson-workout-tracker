@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "브라이언은 지금 무엇을 하고 있나요?",
   "What's up": "무슨 일이야",
   "Whats Up Dude": "무슨 일이야 친구",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "코칭이 켜져 있을 때 음성이나 언어를 선택하면 해당 음성이 자동으로 다운로드됩니다. 코칭이 꺼진 경우 로컬 음성 다운로드 버튼을 사용하면 복사하는 동안 클립 진행 상황이 표시됩니다.",
   "When to change:": "변경 시기:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "밖으로 나가고 싶을 때는 Zone 2 블록을 빠르게 걷기, 하이킹, 같은 길이 이상의 자전거 타기로 바꿔보세요.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "기회가 생기면 밖에서 활발한 산책, 하이킹, 자전거 타기도 똑같이 중요합니다.",

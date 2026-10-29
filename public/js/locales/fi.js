@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Mitä Bryan tekee nyt",
   "What's up": "Mitä kuuluu",
   "Whats Up Dude": "Mitä kuuluu Kaveri",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Kun valmennus on päällä, äänen tai kielen valitseminen lataa kyseisen äänen automaattisesti. Kun valmennus on pois päältä, käytä Lataa paikallinen ääni -painiketta, joka näyttää leikkeen edistymisen kopioinnin aikana.",
   "When to change:": "Milloin vaihtaa:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Kun haluat lähteä ulos, vaihda Zone 2 -kortteli reippaaseen kävelyyn, patikointiin tai pyöräilyyn, joka on vähintään yhtä pitkä.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Kun saat mahdollisuuden, reipas kävely, vaellus tai pyöräily ulkona laskee saman.",

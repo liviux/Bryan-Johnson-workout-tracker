@@ -18,7 +18,7 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
       <div class="btn-row"><button type="button" class="btn primary" data-coach="enable"></button><button type="button" class="btn" data-coach="preview">${icon("play", "sm")} ${t("Preview")}</button></div>
       <button type="button" class="btn" data-coach="install">${t("Download local voice")}</button>
       <small class="muted" data-coach="download-info">${t("The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.")}</small>
-      <div class="coach-voices" aria-label="${esc(t("Coach voice"))}">${voicesForLanguage(language()).map((v) => `<div class="coach-voice"><button type="button" class="choice" data-coach-voice="${v.id}" aria-pressed="false"><b data-i18n-skip>${esc(v.name)}</b><small>${esc(t(v.detail))}</small></button><button type="button" class="btn sm icon-only coach-save" data-coach-save="${v.id}" aria-label="${esc(t("Download locally"))}: ${esc(v.name)}" title="${esc(t("Download locally"))}: ${esc(v.name)}">${icon("download", "sm")}</button></div>`).join("")}</div>
+      <div class="coach-voices" aria-label="${esc(t("Coach voice"))}">${voicesForLanguage(language()).map((v) => `<button type="button" class="choice" data-coach-voice="${v.id}" aria-pressed="false"><b data-i18n-skip>${esc(v.name)}</b><small>${esc(t(v.detail))}</small></button>`).join("")}</div>
       <div class="coach-options">
         <label class="field"><span>${t("Coaching")}</span><select class="input" data-coach-option="coachDetail"><option value="coach">${t("Cues and form tips during rest")}</option><option value="cues">${t("Essential cues only")}</option></select></label>
         <label class="field"><span>${t("Pace")}</span><select class="input" data-coach-option="coachPace"><option value="steady">${t("Steady")}</option><option value="brisk">${t("Brisk")}</option></select></label>
@@ -54,9 +54,11 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
     progressText.hidden = !building && !installing;
     progressText.textContent = building ? (cache?.total ? t("{done} of {total} clips ready", { done: cache.completed || 0, total: cache.total }) : t("Preparing the voice…")) : installing ? t("Downloading the local speech runtime…") : "";
     const cacheButton = el.querySelector('[data-coach="cache"]');
-    cacheButton.hidden = !status.known || !status.installed || installing || building || cacheReady;
-    cacheButton.disabled = installing;
-    cacheButton.innerHTML = `${icon("download", "sm")} ${t("Download locally")}`;
+    cacheButton.hidden = !status.known || !status.installed || installing || cacheReady;
+    cacheButton.disabled = installing || building;
+    cacheButton.innerHTML = building
+      ? `${icon("download", "sm")} ${t("Downloading…")} ${cache?.completed || 0}/${cache?.total || "…"}`
+      : `${icon("download", "sm")} ${t("Download local voice")}`;
     const button = el.querySelector('[data-coach="enable"]');
     button.textContent = enabled ? t("Turn coaching off") : t("Turn coaching on");
     button.setAttribute("aria-pressed", String(enabled));
@@ -72,12 +74,6 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
     el.querySelector('[data-coach="preview"]').disabled = !status.installed || status.installing || !cacheReady;
     el.querySelector('[data-coach="unlock"]').hidden = !status.blocked;
     for (const v of el.querySelectorAll("[data-coach-voice]")) v.setAttribute("aria-pressed", String(v.dataset.coachVoice === selectedVoice().id));
-    for (const save of el.querySelectorAll("[data-coach-save]")) {
-      const ready = save.dataset.coachSave === status.voice && cacheReady;
-      save.disabled = installing;
-      save.classList.toggle("is-ready", !!ready);
-      save.innerHTML = ready ? icon("check", "sm") : icon("download", "sm");
-    }
     for (const input of el.querySelectorAll("[data-coach-option]")) input.value = state.profile?.settings?.[input.dataset.coachOption] || (input.dataset.coachOption === "coachDetail" ? "coach" : "steady");
     clearTimeout(poll);
     if (status.installing || building) poll = setTimeout(() => refreshVoiceStatus(), 2000);
@@ -85,6 +81,7 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
   const unsubscribe = onVoice(sync);
   refreshVoiceStatus().then(() => {
     if (disposed) return;
+    if (state.profile?.settings?.voiceCoach && voiceStatus.installed && !voiceStatus.cacheEnabled) cacheVoice({ activate: true });
     onChange();
   });
   toggle?.addEventListener("click", () => setOpen(panel.hidden));
@@ -94,19 +91,8 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
       cancelVoice(); previewToken += 1;
       updateProfile((p) => { p.settings ||= {}; p.settings.coachVoice = voice.dataset.coachVoice; }, { silent: true });
       await refreshVoiceStatus();
+      if (state.profile?.settings?.voiceCoach && voiceStatus.installed && !voiceStatus.cacheEnabled) cacheVoice({ activate: true, voice: voice.dataset.coachVoice });
       sync(voiceStatus); onChange();
-      return;
-    }
-    const save = event.target.closest("[data-coach-save]");
-    if (save) {
-      const id = save.dataset.coachSave;
-      if (!id) return;
-      cancelVoice(); previewToken += 1;
-      updateProfile((p) => { p.settings ||= {}; p.settings.coachVoice = id; }, { silent: true });
-      await refreshVoiceStatus();
-      sync(voiceStatus);
-      cacheVoice({ activate: true, voice: id });
-      onChange();
       return;
     }
     const action = event.target.closest("[data-coach]")?.dataset.coach;

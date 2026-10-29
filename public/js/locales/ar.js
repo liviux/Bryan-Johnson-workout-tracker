@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "ما يفعله براين الآن",
   "What's up": "ما أخبارك",
   "Whats Up Dude": "Whats Up Dude",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "عند تشغيل التدريب، يؤدي اختيار الصوت أو اللغة إلى تنزيل هذا الصوت تلقائيًا. عند إيقاف التدريب، استخدم زر تنزيل الصوت المحلي، الذي يعرض تقدم المقطع أثناء النسخ.",
   "When to change:": "متى يتم التغيير:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "عندما ترغب في الخروج، استبدل المنطقة 2 بالمشي السريع أو المشي لمسافات طويلة أو ركوب الدراجة بنفس الطول أو لفترة أطول.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "عندما تسنح لك الفرصة، يُحتسب المشي السريع أو التنزه أو ركوب الدراجة في الخارج بالمثل.",

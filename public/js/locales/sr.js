@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Шта Брајан сада ради",
   "What's up": "Шта има",
   "Whats Up Dude": "Шта има друже",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Када је обука укључена, одабир гласа или језика аутоматски преузима тај глас. Када је обука искључена, користите дугме Преузми локални глас, које приказује напредак клипа док се копира.",
   "When to change:": "Када променити:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Када желите да изађете напоље, замените блок Зоне 2 за брзу шетњу, пешачење или вожњу бициклом исте дужине или дуже.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Када имате прилику, брзо ходање, пешачење или вожња бициклом напољу се рачунају исто.",

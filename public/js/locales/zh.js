@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Bryan 现在怎么做",
   "What's up": "这是怎么回事",
   "Whats Up Dude": "怎么了老兄",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "当辅导开启时，选择语音或语言会自动下载该语音。当辅导关闭时，使用“下载本地语音”按钮，该按钮会在复制时显示剪辑进度。",
   "When to change:": "何时升级：",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "想出门时，可以把 2 区训练换成同样时长或更长的快走、徒步或骑行。",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "有机会时，户外快走、徒步或骑车同样有效。",

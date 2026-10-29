@@ -19,7 +19,7 @@ The model is [Kokoro v1.0 int8 packaged by Sherpa](https://k2-fsa.github.io/sher
 
 ## Included recordings and rebuilding
 
-The app plays shared Kokoro recordings without installing or running a speech model. **Turn coaching on** unpacks the default Heart voice once. Every other voice stays in its compressed pack until you press **Download locally**; the download shows clip-by-clip progress and saves that voice for later. Opening Settings or selecting a voice before the first activation saves no playback cache. Recordings work offline on the server and are shared by PC, tablet and phone browsers.
+The app plays shared Kokoro recordings without installing or running a speech model. **Turn coaching on** unpacks the default Heart voice once. With coaching on, choosing a voice or language prepares that voice automatically. With coaching off, every other voice stays in its compressed pack until you press **Download local voice**; the download shows clip-by-clip progress and saves that voice for later. Opening Settings or selecting a voice before the first activation saves no playback cache. Recordings work offline on the server and are shared by PC, tablet and phone browsers.
 
 Each compressed clip in `voice/packs/<voice>/` is one short recording. English packs use `wav.gz` from Kokoro; translated packs use `mp3.gz` from native Microsoft Edge neural voices. The ID includes the voice and exact spoken text. `<voice>.json` records the file sizes and SHA-256 checksums. Form tips are split by sentence, and timer durations use reusable minute and second phrases. A sentence edit creates only the affected clip in each voice; existing recordings keep their filenames and bytes. Obsolete recordings are removed from the current pack when it is rebuilt.
 

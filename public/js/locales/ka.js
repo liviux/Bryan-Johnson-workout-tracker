@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "რას აკეთებს ახლა ბრაიანი",
   "What's up": "რა შუაშია",
   "Whats Up Dude": "რა არის ძმაო",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "როდესაც ქოუჩინგი ჩართულია, ხმის ან ენის არჩევა ამ ხმას ავტომატურად ჩამოტვირთავს. როდესაც ქოუჩინგი გამორთულია, გამოიყენეთ ადგილობრივი ხმის ჩამოტვირთვა ღილაკი, რომელიც აჩვენებს კლიპის პროგრესს მისი კოპირების დროს.",
   "When to change:": "როდის უნდა შეიცვალოს:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "როდესაც გაგიჩნდებათ სურვილი გარეთ გასვლა, შეცვალეთ ზონა 2 ბლოკი სწრაფი სიარულით, ლაშქრობით ან ველოსიპედით გასეირნებაზე იმავე სიგრძის ან უფრო მეტ ხანს.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "როდესაც შესაძლებლობა გეძლევათ, გარეთ სწრაფი სიარული, ლაშქრობა ან ველოსიპედით სიარული იგივეა.",

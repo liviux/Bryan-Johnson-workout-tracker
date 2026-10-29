@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Ang ginagawa ngayon ni Bryan",
   "What's up": "Anong meron",
   "Whats Up Dude": "Kumusta Dude",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Kapag naka-on ang coaching, ang pagpili ng boses o wika ay awtomatikong magda-download ng boses na iyon. Kapag naka-off ang coaching, gamitin ang button na I-download ang lokal na boses, na nagpapakita ng progreso ng clip habang kumokopya ito.",
   "When to change:": "Kailan dapat baguhin:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Kapag gusto mong lumabas, palitan ang Zone 2 block para sa mabilis na paglalakad, paglalakad, o pagbibisikleta na pareho ang haba o mas matagal.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Kapag nagkaroon ka ng pagkakataon, ang mabilis na paglalakad, paglalakad, o pagbibisikleta sa labas ay pareho ang bilang.",

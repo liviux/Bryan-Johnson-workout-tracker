@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Hva Bryan gjør nå",
   "What's up": "Hva skjer",
   "Whats Up Dude": "Hva skjer dude",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Når coaching er på, vil stemme- eller språkvalg laste ned stemmen automatisk. Når coaching er av, bruk Last ned lokal stemme-knappen, som viser fremdriften mens det kopieres.",
   "When to change:": "Når du skal endre:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Når du har lyst til å gå ut, bytt sone 2-blokken for en rask spasertur, fottur eller sykkeltur av samme lengde eller lengre.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Når du får sjansen, teller en rask spasertur, fottur eller sykkeltur utenfor det samme.",

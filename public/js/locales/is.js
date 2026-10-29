@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Það sem Bryan gerir núna",
   "What's up": "Hvað er að",
   "Whats Up Dude": "Hvað er að þér",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Þegar kveikt er á þjálfun, þá hleður röddinni sjálfkrafa niður þegar þú velur rödd eða tungumál. Þegar slökkt er á þjálfun, notaðu niðurhala staðbundna raddhnappinn, sem sýnir framvindu myndbandsins á meðan það afritar.",
   "When to change:": "Hvenær á að breyta:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Þegar þú vilt fara út skaltu skipta um svæði 2 blokkina fyrir hressilega göngu, göngu eða hjólatúr af sömu lengd eða lengri.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Þegar tækifæri gefst gildir hressilegur göngu-, göngu- eða hjólatúr fyrir utan það sama.",

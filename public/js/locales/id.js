@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Apa yang dilakukan Bryan sekarang",
   "What's up": "Ada apa?",
   "Whats Up Dude": "Ada Apa Bung",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Saat pelatihan aktif, memilih suara atau bahasa akan mendownload suara tersebut secara otomatis. Saat pelatihan tidak aktif, gunakan tombol Unduh suara lokal, yang menampilkan kemajuan klip saat disalin.",
   "When to change:": "Kapan harus berubah:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Saat Anda ingin keluar rumah, tukar blok Zona 2 dengan jalan cepat, mendaki, atau bersepeda dengan jarak yang sama atau lebih lama.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Jika Anda mempunyai kesempatan, jalan cepat, mendaki, atau bersepeda di luar juga dianggap sama.",

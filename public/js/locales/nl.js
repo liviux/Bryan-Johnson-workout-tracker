@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Wat Bryan nu doet",
   "What's up": "Wat is er",
   "Whats Up Dude": "Hoe gaat het kerel",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Wanneer coaching is ingeschakeld, wordt die stem automatisch gedownload als u een stem of taal kiest. Wanneer coaching is uitgeschakeld, gebruikt u de knop Lokale stem downloaden, die de voortgang van de clip toont terwijl deze wordt gekopieerd.",
   "When to change:": "Wanneer wijzigen:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Wanneer je zin hebt om naar buiten te gaan, ruil je het Zone 2-blok in voor een stevige wandeling, hike of fietstocht van dezelfde lengte of langer.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Als je de kans krijgt, telt een stevige wandeling, wandel- of fietstocht buiten hetzelfde.",

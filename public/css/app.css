@@ -583,12 +583,9 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
 .coach-options .field { min-width: 0; }
 .coach-progress-text { margin-top: -8px; font-variant-numeric: tabular-nums; }
 .coach-toggle.is-on { color: var(--accent); background: var(--accent-soft); }
-.coach-voices { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
-.coach-voice { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px; align-items: stretch; }
-.coach-voices .choice { min-width: 0; padding: 12px; height: 100%; }
+.coach-voices { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
+.coach-voices .choice { min-width: 0; padding: 12px; }
 .coach-voices .choice[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
-.coach-save { width: 42px; height: 42px; padding: 0; align-self: center; }
-.coach-save.is-ready { color: var(--accent); border-color: var(--accent); }
 .coach-status, .coach-note { font-size: 0.85rem; line-height: 1.5; }
 .guided-voice-status { flex: none; margin: 0; padding: 0; min-height: 0; font-size: 0.8rem; }
 .guided-voice-status:not(:empty) { padding: 8px 0; }

@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Apa yang Bryan lakukan sekarang",
   "What's up": "Apa khabar",
   "Whats Up Dude": "Apa khabar kawan",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Apabila bimbingan dihidupkan, memilih suara atau bahasa memuat turun suara itu secara automatik. Apabila bimbingan dimatikan, gunakan butang Muat turun suara tempatan, yang menunjukkan kemajuan klip semasa ia menyalin.",
   "When to change:": "Bila hendak menukar:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Apabila anda ingin keluar, tukar blok Zon 2 untuk berjalan pantas, mendaki atau berbasikal dengan panjang yang sama atau lebih lama.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Apabila anda mendapat peluang, berjalan pantas, mendaki atau menunggang basikal di luar adalah sama.",

@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "Mit csinál most Bryan",
   "What's up": "Mi újság",
   "Whats Up Dude": "Mi van haver",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Ha a coaching be van kapcsolva, a hang vagy nyelv kiválasztása automatikusan letölti azt a hangot. Ha a coaching ki van kapcsolva, használja a Helyi hang letöltése gombot, amely a klip előrehaladását mutatja másolás közben.",
   "When to change:": "Mikor kell változtatni:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "Ha kedve van kimenni a szabadba, cserélje le a 2-es zóna blokkot egy ugyanilyen hosszúságú vagy hosszabb gyors sétára, túrára vagy kerékpározásra.",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "Amikor lehetőség nyílik rá, egy tempós séta, túrázás vagy kerékpározás a szabadban ugyanúgy számít.",

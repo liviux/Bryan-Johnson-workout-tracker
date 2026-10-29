@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.44.3] - 2026-10-29
+
+### Changed
+- When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the **Download local voice** button, which shows clip progress while it copies.
+
 ## [1.44.2] - 2026-10-29
 
 ### Changed

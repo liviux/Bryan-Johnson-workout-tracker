@@ -4167,6 +4167,7 @@ export default {
   "What Bryan does now": "برائن اب کیا کرتا ہے۔",
   "What's up": "کیا حال ہے",
   "Whats Up Dude": "واٹس اپ یار",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "جب کوچنگ آن ہو، آواز یا زبان کا انتخاب کرنے سے وہ آواز خود بخود ڈاؤن لوڈ ہو جاتی ہے۔ جب کوچنگ آف ہو تو، ڈاؤن لوڈ لوکل وائس بٹن کا استعمال کریں، جو کاپی کرتے وقت کلپ کی پیشرفت دکھاتا ہے۔",
   "When to change:": "کب تبدیل کرنا ہے:",
   "When you feel like going outside, swap the Zone 2 block for a brisk walk, hike or bike ride of the same length or longer.": "جب آپ باہر جانے کا سوچیں تو زون 2 بلاک کو تیز چہل قدمی، ہائیک یا موٹر سائیکل کی اسی لمبائی یا اس سے زیادہ کی سواری کے لیے تبدیل کریں۔",
   "When you get the chance, a brisk walk, hike or bike ride outside counts the same.": "جب آپ کو موقع ملتا ہے، ایک تیز چہل قدمی، پیدل سفر یا باہر موٹر سائیکل کی سواری ایک ہی شمار ہوتی ہے۔",
