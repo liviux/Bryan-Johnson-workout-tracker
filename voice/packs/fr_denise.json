@@ -142,20 +142,20 @@
       "bytes": 22993
     },
     {
-      "id": "3ef831ddda46984e4071ab42f41164110f32d8f1b28ac3f3bdf60c0117ec9ff9",
-      "text": "Tenez-vous droit, bras écartésecondes.",
+      "id": "8f7ec57a0d9a649cd5f4f9a285858d924d9aada3bd3921dd0147f2b3a95dc7ef",
+      "text": "Tenez-vous droit, bras écartés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4780c655810ffb730aed7f32917f38d5ca747e47daab78252ddc23d3b4f5dabc",
-      "bytes": 15030
+      "sha256": "35c4b0a52fc4900ccd8eb26928eed423c4b6ef35abe0d2caf75ab2cb69b619af",
+      "bytes": 13083
     },
     {
-      "id": "6ac2d350eb75a7ea270fa10dc037616b9d9298cb489c371ffceb0f8e3cd1fc68",
-      "text": "Faites des cercles contrôlésecondes vers l’avant, puis vers l’arrière, en gardant vos épaules détendues.",
+      "id": "b4aa54c454582806975acc2fbe1afdea65acccd91dcb6e842f3d0dfd31c77fe9",
+      "text": "Faites des cercles contrôlés vers l’avant, puis vers l’arrière, en gardant vos épaules détendues.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "2bec9dd5cdb53b67e0163de25f1d8370215c3db2fbd49e8649761cf221814c2f",
-      "bytes": 34708
+      "sha256": "9b420c585d2d4d125e0a8b84586cf999b9f474436ce2ea7fc505b1f54d0775a7",
+      "bytes": 29927
     },
     {
       "id": "e29bc19f63be2979fc1bf2a96c773f4a248788b411aa44cacf023c307dcdbb64",
@@ -182,12 +182,12 @@
       "bytes": 19279
     },
     {
-      "id": "578c5080d7cd73e4e1966b5f08100c16d3e949286f5f26a61dad6503ce10c294",
-      "text": "Tenez-vous prèsecondes d’un mur avec une main pour vous soutenir.",
+      "id": "d35cb1c7e047b24cfe8f57bdf0674baaae307188e8b5e49993b6c3c3d9bf3a65",
+      "text": "Tenez-vous près d’un mur avec une main pour vous soutenir.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "f0d6113bf949948baa99b54822a62cf51e704bd9a7d03f41e251c30a13a262a2",
-      "bytes": 19253
+      "sha256": "addfef1dd6dc5f535c7ee422126306a2558ed086ff061ec0756ea74f0f6d7b4d",
+      "bytes": 16592
     },
     {
       "id": "9457eaf48db67fbe6fb16a3fe46b02bea4be9b48762d109de363fc7325c48f81",
@@ -478,12 +478,12 @@
       "bytes": 11631
     },
     {
-      "id": "954a585f40fde3535b99aed5f45f9b1c0e014e4bfaff1df83310103ed42569a7",
-      "text": "Sauts pogo. 1 secondeséries de 10 répétitions, trèsecondes bas.",
+      "id": "3835e8bdf871c07ff214e2187adbd00d48dd8345d9c78472097514e4f1e6f7aa",
+      "text": "Sauts pogo. 1 secondeséries de 10 répétitions, très bas.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4613fe0ca95e9beb579cdc1e9657b66b378ac78a710237aefa874d84dd1ed32e",
-      "bytes": 24885
+      "sha256": "2972d6bbc0a2098413d328edeb8da9e2400cf58d32f1c60f38216492d8d83213",
+      "bytes": 22633
     },
     {
       "id": "8934601bb9df077b0f6f5b255c19666551d01a18f1c5852cb2cbee8dce881d8d",
@@ -558,28 +558,28 @@
       "bytes": 26172
     },
     {
-      "id": "caaca769d0c58531b9df0d371ff52ef950c58f4c08996f4fb265597e1482ee60",
-      "text": "Équilibre sur une jambe. 2 secondeséries de 20 secondes, jambe, main prèsecondes d'un mur.",
+      "id": "595dfb3c49fff96cf8e8604d7e1dd519e915c4d60ac69645bd89c3dc8b63891f",
+      "text": "Équilibre sur une jambe. 2 secondeséries de 20 secondes, jambe, main près d'un mur.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "84fb56b467b746ffbbdc86d803869ac9b19da007fc42b834fbb673d49b0fc1a2",
-      "bytes": 35203
+      "sha256": "538de0826bd394d5984c75ba279591a24beac0ea92ed6a716e39201ba1f26888",
+      "bytes": 32813
     },
     {
-      "id": "621a0b9aad69e20033d52d2a6d585643fde740bb5fcd2a8c5a753bae984a0028",
-      "text": "Tenez-vous sur une jambe prèsecondes d'un mur, mains sur les hanches, l'autre pied décollé du sol.",
+      "id": "0fbb32e8bdc5e4805db08662043c593200850cb6fe7c6efc2fd488c08073ceb3",
+      "text": "Tenez-vous sur une jambe près d'un mur, mains sur les hanches, l'autre pied décollé du sol.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "d357d3bde0caacd96f3edaab32241b1e92e942c467308bb8d49175c39d8b0d45",
-      "bytes": 34690
+      "sha256": "d09ecbda84ec5d59d569397ffe7e9b59d4786f9539925fb2c4fdc541675ef723",
+      "bytes": 29891
     },
     {
-      "id": "b3d5f9f1a6e87070667366fb83dc70bbc3f68846e0a6897030b6ed5c1d5cde81",
-      "text": "Maintenez pendant le temps prescrit par votre niveau, puis progressez vers les yeux fermésecondes.",
+      "id": "ffbdef3ac60f5ef17fcff8490db03ee8bac96052f6c27d6b426347c526ac7bcf",
+      "text": "Maintenez pendant le temps prescrit par votre niveau, puis progressez vers les yeux fermés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "b63847b2410187d7341f8c9aa09f3706de29b364e307bb920fc6f7de621dd8b4",
-      "bytes": 28451
+      "sha256": "128ac8589841478587c0a70983aa182948ad9af7d8c907b561838840ac735e1d",
+      "bytes": 26095
     },
     {
       "id": "3193e26f21e7c4c508f557ff0983ddf1d44268a35838890c5603eca95c885650",
@@ -590,12 +590,12 @@
       "bytes": 30498
     },
     {
-      "id": "c063d2ea1ec753be0c0ea319ab131f0baf6d48d6201ee538f5fc436a89d4b20c",
-      "text": "Une fois par mois, enregistrez votre meilleur temps les yeux fermésecondes par jambe.",
+      "id": "ee8b4a2c7e2f2af4d066ac1887e43f2be882a6146e7fecfa32bc5c4a858ac32d",
+      "text": "Une fois par mois, enregistrez votre meilleur temps les yeux fermés par jambe.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "175a3ee6b5a4c9567c4d197c772b0df21318cd5a598c5ee56d93b0a5eabdf6ce",
-      "bytes": 26834
+      "sha256": "1fdbcbaac0d66633928e724f8663f7ccb2b21d20201f4fdc260c4b59ad67ea03",
+      "bytes": 24845
     },
     {
       "id": "3c04f60fc5255ff1abba54294bb2f35456b839eeeba8cab1f4696e897c504dcf",
@@ -630,12 +630,12 @@
       "bytes": 12955
     },
     {
-      "id": "13eacff0880323d539231e7ea15f6891c9e6438097e76e3cb3dda2bbfcbb4b53",
-      "text": "Goblet squat talons surélevésecondes, squat sur planche inclinée. 2 secondeséries de 8 répétitions avec la charge affichée à l'écran, jusqu'à une chaise, 3 secondes de descente.",
+      "id": "dc59a394d606d689052b5cea1d1033af004755cfcbf0f638e79c038b90a9dc97",
+      "text": "Goblet squat talons surélevés, squat sur planche inclinée. 2 secondeséries de 8 répétitions avec la charge affichée à l'écran, jusqu'à une chaise, 3 secondes de descente.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4a6e4d6e3116a0f6b9364c170347314f9ae85207cbceccf442bdee606f3e62d8",
-      "bytes": 62913
+      "sha256": "204bd805b75dbca465e165ba94fdf18633c3ea8218be73855854a45b0f46b3aa",
+      "bytes": 60776
     },
     {
       "id": "5789bb6013254c4471270e77eded74df16765a899b9c3e6d82d4abd849ae3f6c",
@@ -710,28 +710,28 @@
       "bytes": 17787
     },
     {
-      "id": "08461b2a5efc7380499b5fd41fa37472cff6671f893b2f7377193355fe27d955",
-      "text": "Vient ensuite Goblet squat talons surélevésecondes, squat sur planche inclinée.",
+      "id": "42e240a9550f92087b1e688c722d3e376347aa6e524675bdd7b91e086ca9f396",
+      "text": "Vient ensuite Goblet squat talons surélevés, squat sur planche inclinée.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "223ae7b1d68704e4d0ddbab512866384e8d83e0a1c7ed3a51e5f3d515e04b0fe",
-      "bytes": 28372
+      "sha256": "d23e8380410c443b4f35b9cf77f40efa7a460d540b18d2f2a7f9074155ddac02",
+      "bytes": 26246
     },
     {
-      "id": "ca63062e4e297ec7b5a9ef9089ebd91d0c94bca288ba9d20862adc61181d932a",
-      "text": "Retour à Goblet squat talons surélevésecondes, squat sur planche inclinée.",
+      "id": "492e61515dbc36ff21cf4d563345e05083c0d145fc37706359ce09b3a102a231",
+      "text": "Retour à Goblet squat talons surélevés, squat sur planche inclinée.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "303b8ff30cfe11074ca232e17763634416577949e4814ebbf1080248daaca754",
-      "bytes": 26962
+      "sha256": "2ad1f73a18c5f981c5e8627764421a0654697734fb1edfa80b2e93052ec0159d",
+      "bytes": 24826
     },
     {
-      "id": "1556fe33001b7c4946a42736a9ffaea6249ea8fb8bab99fc4f73617fd182ebc0",
-      "text": "Pompes. 2 secondeséries de 6 à8 répétitions, mains sur une table ou un mur.",
+      "id": "8a8e32956741d57ab8ac66d7ba330308ea48f0c8ebd91204c33925eee8695e86",
+      "text": "Pompes. 2 secondeséries de 6 à 8 répétitions, mains sur une table ou un mur.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "c18a5628f0e33a09198829062a22b7b382987c85976b8e00ed6e74d6db0a0cad",
-      "bytes": 33968
+      "sha256": "5772a5b9ebb1ef680a037c4f250beecc69a71d320a8ec53ec3f675c114e27c19",
+      "bytes": 34016
     },
     {
       "id": "6c76f94e5b4c81c35fe51aa82cd97ba174b399c4ae35eb292482eaf343d1f200",
@@ -766,28 +766,28 @@
       "bytes": 16077
     },
     {
-      "id": "6a0bf3ffabf96291382c075b32df8b65f136273aa9d95a506d4748a826964c0a",
-      "text": "Trop facile : 3 secondes en descente, ou pieds surélevésecondes.",
+      "id": "585bf65aa8607c938338a01b572550367bb6f5c50fa54c1d5624a12f9955bc7d",
+      "text": "Trop facile : 3 secondes en descente, ou pieds surélevés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "834b3ef9046e7cb06fbfd6a900dcd0ae44f37a36b5a7792cf41beeac30e170e5",
-      "bytes": 24697
+      "sha256": "99b17c077b9e668ed3157f10d610733210eccee12f3b8ee995e42385ca6e8215",
+      "bytes": 22281
     },
     {
-      "id": "9572ea18b3ca0388a3dcabb70bf58a455c20167cc2ec61caa24153ac5366552d",
-      "text": "Série 1 sur 2. 6 à8 répétitions.",
+      "id": "0f821b119306ca32b9025b332b58e1cb488f2ca0fb713bd5d2bb373fdbace0f2",
+      "text": "Série 1 sur 2. 6 à 8 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4d5bc4093bce0ec8beae1c51cecb3a2ee591f22abb380bc0f97d72c5118fd07c",
-      "bytes": 20498
+      "sha256": "ade3c931f418ab203b5e11f90a3d8bd8e208553cd308735ee49d1e8ff9a9a8cb",
+      "bytes": 16930
     },
     {
-      "id": "b3f4154fe10a35fee86258c3a09dbf7c6b44e950196c6d40bc2c0193316a3958",
-      "text": "Série 2 sur 2. 6 à8 répétitions.",
+      "id": "9f5342f07d231c92645ff2521f9efe6ada611b4d3c806535a5c89e8a6522f8d5",
+      "text": "Série 2 sur 2. 6 à 8 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "5d28e9207253860b19ce6d30cc016965266024ad73b191715802ba4dada6cc66",
-      "bytes": 20621
+      "sha256": "a0ae5814755947a39b22b7c5853ff562563cfd60239200086866a1e22ef33ac4",
+      "bytes": 20582
     },
     {
       "id": "db41c6cd4a430a47ddea66186e8bc7cdf944f1e9ed3cfb282cdea88cf438703a",
@@ -830,12 +830,12 @@
       "bytes": 15177
     },
     {
-      "id": "0fc9729b418afa4f0de3e7957896b840ce1984318fe44353a699976e0806f632",
-      "text": "Tirez l'haltère vers votre hanche, le coude prèsecondes du corps.",
+      "id": "ae8b94c3eef01cf7595c4f6ab7a184c2916abc061d7ae8d5e63d4b02c3646956",
+      "text": "Tirez l'haltère vers votre hanche, le coude près du corps.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "bc37ef4a36cecd341b797b0141c8a970df2e78f79d9fb937f0c482574459edec",
-      "bytes": 21580
+      "sha256": "5c512c599fe7a573ef33dd4a606883983686ec1922ffaf1c583878d0392e863c",
+      "bytes": 19261
     },
     {
       "id": "b8bc9fae9dbf97b9d41fea6ab044d90de6c959af3c66cca06b0ca97fb0434c51",
@@ -958,20 +958,20 @@
       "bytes": 10919
     },
     {
-      "id": "a9216883239cce11b1a3e58c08fb971479ae186432870cfc108aa9ae2487d788",
-      "text": "Élévation tibiale sur deux jambes. 1 secondeséries de 12 à15 répétitions.",
+      "id": "42a2e5344ebc52a2e14f70b7a1ed74c3e4302aaf64efef2eaf902a87fbe16ebb",
+      "text": "Élévation tibiale sur deux jambes. 1 secondeséries de 12 à 15 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "86ca20aab4a2382a23d752550a47d34d3b8312f9be23ce62740e572adb39688f",
-      "bytes": 30968
+      "sha256": "6337fa4bc663273b4a95f93d4915577325764d2d163753369c7d7c6b3e18cc9f",
+      "bytes": 30816
     },
     {
-      "id": "03a10ac122a4ca1df48cf52bd19b5d94fd168b1dfca79e9fec54fe5c2d08897c",
-      "text": "Appuyez le dos et les hanches contre un mur, pieds à 30 à60 centimètres devant.",
+      "id": "af4f7d3ff7f7b1642cae97b17bd4fa8808aa66d35edbcb87edbef4bacdf50662",
+      "text": "Appuyez le dos et les hanches contre un mur, pieds à 30 à 60 centimètres devant.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "87a817f3b6301c63a721aa6edd265ce2f38ede0346fd4c7262072e6d4c197755",
-      "bytes": 27212
+      "sha256": "2bec93b5ee33323e0c6b8c6f8740c2ecece4a20d6fe370430c4a2da79f7fc22d",
+      "bytes": 27210
     },
     {
       "id": "b0844868ac6f9be78897ab85c7ddc625b3ed448de16876acf12810255c2de023",
@@ -990,12 +990,12 @@
       "bytes": 15295
     },
     {
-      "id": "114ec3e2eeae80b3883643243ec57d8a262280c29a04dd69660a386633af0b6c",
-      "text": "Série 1 sur 1. 12 à15 répétitions.",
+      "id": "74a9f4ef3c5bf984643f312bf33f5e5eb2b07939e6e673e0e903548f0a14ff9b",
+      "text": "Série 1 sur 1. 12 à 15 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "63db2c220f21fe444b81121bc85e8e207a1675218d1ceda56317d19e34ca4af9",
-      "bytes": 21050
+      "sha256": "9bb32ba4607cdce7a6ad4e45c889cd78458f03fbd573de8d9d4477fe58878c22",
+      "bytes": 21037
     },
     {
       "id": "92b8220fd9c3b484d55fb6a9ff78c8a339825036aa42db5c4d6a49b54a7e824e",
@@ -1070,12 +1070,12 @@
       "bytes": 16150
     },
     {
-      "id": "cca70239630b1fdd067a80e26d6fb281dbb4163d59a1de91ecb88a41225ecbd4",
-      "text": "Planche. 2 secondeséries de 15 à20 secondes, genoux au sol, c'est trèsecondes bien.",
+      "id": "0c99ccf902b523ab3c3f0838efe87b46882dfdc297ade03cc997ec9103f845ed",
+      "text": "Planche. 2 secondeséries de 15 à 20 secondes, genoux au sol, c'est très bien.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "b3b2558b8192c87f1eac9a69b518075125af373b137f77b8bb02e97cbdff53e5",
-      "bytes": 36995
+      "sha256": "66bafcdbb1ccb45be2d9be91e99210d611e4d3873e43d4e10d9740e927502889",
+      "bytes": 34410
     },
     {
       "id": "dedd1245847ceea648cb05dd701f249c8e413e5df6cb71131130457f8e08b2a5",
@@ -1102,20 +1102,20 @@
       "bytes": 14025
     },
     {
-      "id": "7b18df92bca3b0cc116ec9a8246ee7a58f540a400fd33cc039014dc8723d59f9",
-      "text": "Série 1 sur 2. 15 à20 secondes.",
+      "id": "4f0340680ce2f058d22496e1f20cca6de3e9200d2d924d8b20c3220b94a4311d",
+      "text": "Série 1 sur 2. 15 à 20 secondes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "06c099c91666b73655560da849a60c6819f761a5af8d8e9347a2997ddc66f6c0",
-      "bytes": 19377
+      "sha256": "3618ab8ebc98de9a2a9e853c899bb37c7db942c32956d0660f72325ed17859eb",
+      "bytes": 19395
     },
     {
-      "id": "9da040725e04cbb3c7d5b77cd04eb65cffde78b94f92e345f9f759f2733a471b",
-      "text": "Série 2 sur 2. 15 à20 secondes.",
+      "id": "765fc8c5ea1d7657d27d36c9cd6efee74a78902bf2e3fb2e07fca2ab239436fd",
+      "text": "Série 2 sur 2. 15 à 20 secondes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "25fe8e1f77576afe29554e9ecf35b792f7cb16b5d7ca9aa60904350d76089b7b",
-      "bytes": 19379
+      "sha256": "6ddafd399d6da92437a212728b76293536fa16f30c31e1243910490b756437fd",
+      "bytes": 15905
     },
     {
       "id": "1f504cd43c4b1796360fde6325327a4caa4660470d05caebb12495460243aa85",
@@ -1134,12 +1134,12 @@
       "bytes": 10730
     },
     {
-      "id": "b4912b98217657c09d4b8fd6d42a564917698881198534ccb589d82d12a766ed",
-      "text": "Relevé de genou suspendu. 2 secondeséries de 5 répétitions relevésecondes de genoux, petite amplitude.",
+      "id": "4ecc03917cb079957f1f6f17ea5f8bffacc6497f1c00bbe3db3870ac288cd50b",
+      "text": "Relevé de genou suspendu. 2 secondeséries de 5 répétitions relevés de genoux, petite amplitude.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "f4076823bb81d34b19982ccabad231c5f4767deeb62a9c9df7cb5c11def78840",
-      "bytes": 38506
+      "sha256": "4301d59399559af4d2a03b3424953a6783cb18ef268e5e06d31346f10a8be449",
+      "bytes": 35919
     },
     {
       "id": "182e5ede9b477d457231ff156a5eabc61f136fc60625d3142002cdc6f8635a36",
@@ -1150,12 +1150,12 @@
       "bytes": 20037
     },
     {
-      "id": "42e212add7a89f8e4e641ee1185a0a920a776dd3e3a5bc5d2066fe4b0b5eac22",
-      "text": "Amenez vos genoux pliésecondes vers votre poitrine et enroulez votre bassin vers le haut.",
+      "id": "d61785c1ace78464d7e2191ea06f5830fc6bc513d9901088c2acdf846936f6d9",
+      "text": "Amenez vos genoux pliés vers votre poitrine et enroulez votre bassin vers le haut.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "d966a211f1396835f826a4b2c930a29ffea35773fbc4d819dc713285c0c1b9d8",
-      "bytes": 25673
+      "sha256": "4b15ade9c055db8303a5a0d5df2bd81629073239b28ac22a6fb28124cbb1e01b",
+      "bytes": 23353
     },
     {
       "id": "eba265558df9a1722d2119d4d0b63374d831cd6e87297b3ad73d7e2772e89f34",
@@ -1198,12 +1198,12 @@
       "bytes": 13319
     },
     {
-      "id": "2c77b9c0fdc5efca7a863f9c31fef563240438b5d10f2b2c93707413e54b27db",
-      "text": "Relevésecondes de jambes allongé au sol.",
+      "id": "e6de3884bc41fb1b244b7e491d611c2cdb17a11553a6a01c497c6b1a3e7dc097",
+      "text": "Relevés de jambes allongé au sol.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "79fdd852def3b33a5250376ca9d7ef8434f3bfb2eb6eccf4af0a5d6f1369ae42",
-      "bytes": 15919
+      "sha256": "6049f56ea7859976292d60b2957c1ae1eb2418e109ff7521eb8a5cf61f5e66d5",
+      "bytes": 13048
     },
     {
       "id": "f2feb3a6bc95af10fe22afb2736488f2bfdd5d1cc4595ba62f5b1c3363b71465",
@@ -1262,12 +1262,12 @@
       "bytes": 58291
     },
     {
-      "id": "79bb3fadebff1a6890c72b52d151eb0a697b5f9acfb4eae5a8f96f716da13452",
-      "text": "La musique, un podcast ou une secondesérie aident, Bryan alterne aussi musique, livres et podcasts.",
+      "id": "5f72439827ca4af3ac07b0aa2e2253b6d1906c5cdeb2ee607bd3c98d1bf6988e",
+      "text": "La musique, un podcast ou une série aident, Bryan alterne aussi musique, livres et podcasts.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "6670107ca2706d1e0d43e0f747e62d52e661baa8e90756204c9030de0a34bb09",
-      "bytes": 37506
+      "sha256": "b4f5edb7847eafa67f5ead986ec27fb36a8f2adceed6b50c0af052119828caeb",
+      "bytes": 35398
     },
     {
       "id": "0716cb1519d0d30b7cfa072b59fb8fce85f78f0a3d2ce4aa061303f710391176",
@@ -1758,12 +1758,12 @@
       "bytes": 10885
     },
     {
-      "id": "c933d9dbb0482973bee1fd24a0a86e4af421119327dab9af26aaf3f444b70459",
-      "text": "Faites le même nombre de répétitions des deux côtésecondes.",
+      "id": "63ca4589b5f8a83f41c2fd41ced4095e76c9d8f6c11bf77f4c7674f5498e131b",
+      "text": "Faites le même nombre de répétitions des deux côtés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "db88d1d3fe632b5cc5c7e0e6053be8190a66efa656dc0eba2ff83085f6f92b99",
-      "bytes": 19458
+      "sha256": "7f315c30cd6e8a0b608470bc8c0bc063cbe068577a5a842dc2ffb0fc3ae75f39",
+      "bytes": 17430
     },
     {
       "id": "9fd7c1cbe12ad671303d84c95f71595e86c050395b4e6ad56b74288c34399e20",
@@ -1854,12 +1854,12 @@
       "bytes": 21408
     },
     {
-      "id": "dc5e23b594498aacf356208957de1281ac66d1e0b53927af3d959a6ce82daa0d",
-      "text": "Posez le talon sur une marche ou une chaise, jambe tendue et orteils relevésecondes.",
+      "id": "8e0b98635cce2962114dc372524b9857e8dfadc6185688c534ed53224035d3af",
+      "text": "Posez le talon sur une marche ou une chaise, jambe tendue et orteils relevés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "fd8c033d992282357f6598dbe0bc1c6eac66459d413d11330033c73b6b816240",
-      "bytes": 27364
+      "sha256": "2495ce6ee288aaddf4b3cbb29617599b2a9377d4579a81991f7f31fab7979486",
+      "bytes": 25004
     },
     {
       "id": "3d72fc675131237c463066e60c96eb73b7174340175eb11e9525295f2e33de9b",
@@ -1926,12 +1926,12 @@
       "bytes": 23842
     },
     {
-      "id": "860588034f65c25cfd3d10e3ddbb221d9d9cf80e94d28a44cc330345d86802f0",
-      "text": "Tête, haut du dos et fesses contre un mur, pieds légèrement écartésecondes du mur.",
+      "id": "f6ef686d9a8be9d29989b9c19d75fe92fcef3bbe9343ac4261db28343bb36498",
+      "text": "Tête, haut du dos et fesses contre un mur, pieds légèrement écartés du mur.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "2f3ef4207f3c447e4f0d14422fab30b4efbfd67139d153661f3dd1f52e0a2745",
-      "bytes": 27204
+      "sha256": "e5b5352596f1e6dec3be68d0b018c4a01008ffb25bec40320ccba08e3e2e5beb",
+      "bytes": 24295
     },
     {
       "id": "a21b5644897a08d3025af299c8093c827fb4ec14612da4880f207fec0980a95e",
@@ -2022,12 +2022,12 @@
       "bytes": 10787
     },
     {
-      "id": "e6994089024f44f485f9ecc9d6ec6f9e327109af1c7d305265852c180dfcecc1",
-      "text": "Suspension passive. 3 secondeséries de 10 à20 secondes de suspension passive.",
+      "id": "1ede1011154bc45fcaeaf3cc45ea1006c3a020404b1d4328f2bf59622d01e025",
+      "text": "Suspension passive. 3 secondeséries de 10 à 20 secondes de suspension passive.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "d092d5be23a459d842c512e58f5e109fde199a676e774a0a4d68460fbf43280b",
-      "bytes": 33226
+      "sha256": "6e2cb8cce4e12ea594b8afc74ad85b022451ad7f237d1292887c0c229aaacb46",
+      "bytes": 33175
     },
     {
       "id": "21e22b3a1198a6f47f398afbbf433a5b893d7019d78b2fe6ce132b7a8708008d",
@@ -2054,28 +2054,28 @@
       "bytes": 24956
     },
     {
-      "id": "87952f6f7d0e5ad65b82e4daa3b53322675c19b0b605a1c117a2f9d676d13684",
-      "text": "Série 1 sur 3. 10 à20 secondes.",
+      "id": "4e19756c60f0380821492c2c8030e44223be00a73b63431c46517a9b021c6b4d",
+      "text": "Série 1 sur 3. 10 à 20 secondes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "dc0f1141087bf6906886526aca40292f482531cdcbd053ddc0c21b851bf6cc64",
-      "bytes": 19309
+      "sha256": "957bf415edc5d684dfe4cb007b92630b8c7068e39719fde6ce80ce186d19f0de",
+      "bytes": 19302
     },
     {
-      "id": "0b28f9b6bc6d7138cc5a145171b2fad9486c4c32d6a714c011a468da85277c91",
-      "text": "Série 2 sur 3. 10 à20 secondes.",
+      "id": "4d6571321036c8d424543e2b1bfa8411f805d7bf34e639a4ef5b88155775b2fd",
+      "text": "Série 2 sur 3. 10 à 20 secondes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "9d66d5bf70cf2cd53e598c4ff1ae9c956291455e7435a0d2334e398be806e8c3",
-      "bytes": 19193
+      "sha256": "75fda4c9a4051ec6f41ca1277c8a2ce5a022f861a6474d20e24d8dba0eacb91e",
+      "bytes": 19230
     },
     {
-      "id": "44e4fe331d8884924458b21780c32b9de99b17257d4e526a8fe35eca9d01bec8",
-      "text": "Série 3 sur 3. 10 à20 secondes.",
+      "id": "38faeea6cce2e908312dca99521f5334b4723aa9cb665d0f646daea2c93a562f",
+      "text": "Série 3 sur 3. 10 à 20 secondes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "40e38680f85307214c19abd0a0051a903ce909e18b19c312de28cb80c1d7ad14",
-      "bytes": 19352
+      "sha256": "83bf4251271343e444ba492fab71ab8fdbee517497fabc151bd8c451d23badc2",
+      "bytes": 17040
     },
     {
       "id": "d691191b3d880d396db4ede36e4c1d2a891ab6f42d7f48481b145123c73d3a43",
@@ -2094,12 +2094,12 @@
       "bytes": 11779
     },
     {
-      "id": "c21df84385e2bbd8cd3a01e5f0006fcc56d90a9fb66b147b9201f6fe9a433306",
-      "text": "Gardez vos orteils légèrement posésecondes sur le sol ou sur une marche pour supporter 20 à 30 pour cent de votre poids corporel.",
+      "id": "e7de28a80c46857835a4910b3b88d92b934e48178b6290dbfe89778aa52335a8",
+      "text": "Gardez vos orteils légèrement posés sur le sol ou sur une marche pour supporter 20 à 30 pour cent de votre poids corporel.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "929c63bce80f0b8dcc8508c374f373a6fae2100b7c6cd547bafe89facf756434",
-      "bytes": 40315
+      "sha256": "c4ec9265394a24b00150f69b92933b1a2a31fc9760dc15992ac8a622386c3ba9",
+      "bytes": 37452
     },
     {
       "id": "838c8f58e659388f71f7c1f68392ebac695888ffb189b3c8460df2999cdef5bf",
@@ -2294,12 +2294,12 @@
       "bytes": 32551
     },
     {
-      "id": "a6a52735d36819cbc7ceaab23fb2ee48b5b78a77699db97bf658353d574ebd05",
-      "text": "Tenez-vous droit, coudes collésecondes au corps.",
+      "id": "0c2192f1cb88d79be1dbe10fa169205f76b809220a6c19b651570a810f94e963",
+      "text": "Tenez-vous droit, coudes collés au corps.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "bdcabcec957be39ba4018cbf66cb10c03d5152ee387490332aec5008678eff8a",
-      "bytes": 15836
+      "sha256": "1d959717eadfcc8e9a6e1071bd64d139cf020898441ac564b09606b804388bff",
+      "bytes": 14020
     },
     {
       "id": "54aac6bfdb89cf7aad4ad5a8869da1b2828b35da95f80279d8db47869de5659d",
@@ -2334,12 +2334,12 @@
       "bytes": 13617
     },
     {
-      "id": "d47ce380d521a8af136cc020aeac9544121af609b98b74bfd9f12ab84574be20",
-      "text": "Écartésecondes à l'élastique. 1 secondeséries de 12 répétitions, élastique léger.",
+      "id": "564c0c75cd4e3c86d0abca568b3d25a0453985e93ea544b54be82e704bea3a27",
+      "text": "Écartés à l'élastique. 1 secondeséries de 12 répétitions, élastique léger.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "ea879a235b62b820eb654c6f4057d37f797a0a8dddb702373b6cdc284b9804ec",
-      "bytes": 31615
+      "sha256": "d2c37321ee0d0ea7759dc4150c1518d2d3fd9c01ea69a44d0fb89817652522c3",
+      "bytes": 32728
     },
     {
       "id": "3b200ab75a0156f65daf7a211ee7b89fb6976e19df19eb3f0be5ce9c4b318a11",
@@ -2350,12 +2350,12 @@
       "bytes": 37678
     },
     {
-      "id": "92ab055423fed5d65f3caa6cbdc3d7a84a9f10f1cfed4105d37a592d4f947c32",
-      "text": "Bras écartésecondes, coudes légèrement fléchis.",
+      "id": "34b4fbde4d67c82eb081b07949d32980fb9d2d688820a7fb473cf7fd2adf16ce",
+      "text": "Bras écartés, coudes légèrement fléchis.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "7144a784ecdfe09c44c59f9bc96e0cfbdb2da13d156c5a578b0f187cca87d0d5",
-      "bytes": 17837
+      "sha256": "91050bcefc9b7f0205f0915dad14a6d912a5a8de4775046d62891e23073185b5",
+      "bytes": 15887
     },
     {
       "id": "c93bab1a13628194cb1393ccf3b9b18367f91eff65f5284708921adfb73e1d0b",
@@ -2374,20 +2374,20 @@
       "bytes": 10892
     },
     {
-      "id": "4da18a8465269947a0e2177f6718e45d16a16bab0a1f4fd06814c84a45ca9824",
-      "text": "Vient ensuite Écartésecondes à l'élastique.",
+      "id": "436fd4f0b240e7bcf9fc611e1790f8f5db44fcc8d2d4151a69c7b9f6f18719dc",
+      "text": "Vient ensuite Écartés à l'élastique.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "76aa56e1f7b2753bcbd410c13c1396e31113daa04932b3d1c1a3babb4d7b3ba6",
-      "bytes": 15710
+      "sha256": "be2d75b77e5199798df0b48814e6f26347feb42d5c946f88a9a927192ab5ad2b",
+      "bytes": 13189
     },
     {
-      "id": "c3316b689a1538cfa537030d7b33c9e41ef43d4a98df36a562ffe2fa8657d56a",
-      "text": "Retour à Écartésecondes à l'élastique.",
+      "id": "6c79892f1a6417f3eb1b8ba112d3349139ddd76244b1227f4ea0fe48bfe21dda",
+      "text": "Retour à Écartés à l'élastique.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "0d8a5f9957f8fd25b62d78aee57aa62415372dbb9cb186ac08be421ddb8bb0c0",
-      "bytes": 14323
+      "sha256": "71b0845a497d0a7e878077915732e4bdc34e246d811d092c35a6e46f1310ef47",
+      "bytes": 11898
     },
     {
       "id": "5bb2ae2e4a9e5f408a42e823844189dd878a76018f03ab4b47e0a4e9effe09a4",
@@ -2422,12 +2422,12 @@
       "bytes": 22875
     },
     {
-      "id": "53f2c1761016f535ffa48a24e46d65b86085886316142074addf1769e2e87764",
-      "text": "Ne laissez pas les haltères cogner vos jambes ni les épaules secondes'enrouler vers l'avant.",
+      "id": "4acca51b9a519b1c4e0279d89a3929c6fdd69a05365a660bdef8388744b1798f",
+      "text": "Ne laissez pas les haltères cogner vos jambes ni les épaules s'enrouler vers l'avant.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "498377e60bc86af795d79e7c82c2f07323d0d87ed808246aacf0188e01c2edfb",
-      "bytes": 24701
+      "sha256": "b221bd466d5cf0aeadb93121c8308db4e9ab63dc90df323c6460e113579520c0",
+      "bytes": 23550
     },
     {
       "id": "41e1145037b9a06307c98016cf3d35ad5e415934575fd59b8fecdaac62a2e146",
@@ -2550,12 +2550,12 @@
       "bytes": 10847
     },
     {
-      "id": "e065b1113eefef3805478155091182157636c7a8d47d1c72db5c99228b349a6a",
-      "text": "Pose de l'arbre. 2 secondeséries de 20 secondes, côté, main prèsecondes d'un mur.",
+      "id": "cb85ae4dc91c66f6c3fda736e9493200ca489a21497e1c084f89a2513e93b44b",
+      "text": "Pose de l'arbre. 2 secondeséries de 20 secondes, côté, main près d'un mur.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "9071c8b3120f852d4483febf92e0ad523b824d8dc65a118dc4dbfbba33f43db1",
-      "bytes": 31404
+      "sha256": "b322e2bc5c16cac764b23cb93addc6262f8791b3cda7b4f8132a10cc357c0fc2",
+      "bytes": 34722
     },
     {
       "id": "790e0b1d59417fdb9666f1711124f5036663bf03ae49256fd72788e88b2783c1",
@@ -2598,12 +2598,12 @@
       "bytes": 17368
     },
     {
-      "id": "db29a1d05ddca1d6ff3723303781156db555ba0f9fe51f649875abfb6f2b210f",
-      "text": "Allongez-vous sur le ventre, mains sous les épaules, coudes rentrésecondes.",
+      "id": "e090fb2fd390ba3d9f97325f786e642a5e5c1006442bdd57a6e13d5a831623c0",
+      "text": "Allongez-vous sur le ventre, mains sous les épaules, coudes rentrés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "0a6f855c88bc0abda142aad7c3e953f87a90e1ae4bfcc7f268a817fb42656e02",
-      "bytes": 24325
+      "sha256": "9025898c3f1874e1fd7730e7bb6d7ed02148aed7c6c06a20d724fb6a1d321628",
+      "bytes": 22578
     },
     {
       "id": "ee3edba744882c5680bab9d473ef7c2eb53c0bc5732237b74e7a46bc35831e10",
@@ -2702,12 +2702,12 @@
       "bytes": 30610
     },
     {
-      "id": "6fc77c8045a3120a37da4a2a32355a93caa3dbbf88f1d93176b6542f1da8f033",
-      "text": "Agenouillez-vous avec les orteils rentrésecondes en dessous.",
+      "id": "cc0105e6ee2625220101d42c044b3d7ec1ede7e29cd04c17ab4493284a114e5f",
+      "text": "Agenouillez-vous avec les orteils rentrés en dessous.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "e3e447ecff7b9e843951516a8fc5c49e9dfcf6097e930fc96ba71573f61dc8bb",
-      "bytes": 18458
+      "sha256": "3eff9616959716a19e4d63957679b28c19fd9bc0b133058ebd2c8ae241037c77",
+      "bytes": 16118
     },
     {
       "id": "089c2221e4ce357597eec0213ca3610c56ebdb0956744bbc7b2fbaaedd6e8cfb",
@@ -3054,12 +3054,12 @@
       "bytes": 27893
     },
     {
-      "id": "f4733ffb124d0095699e22d10c911d96dad4912d0f64c1b64e37e903e865308c",
-      "text": "Allongez-vous sur le dos, les bras pointésecondes vers le plafond, les hanches et les genoux fléchis à 90 degrés.",
+      "id": "a61326b5c016b70dda324eac4996bbf8bd8895989176c6b6962fe8f57973502b",
+      "text": "Allongez-vous sur le dos, les bras pointés vers le plafond, les hanches et les genoux fléchis à 90 degrés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "b21cf81b3edee49002639884416a833208aecdc19fe97e953a46ad0635d2a821",
-      "bytes": 37458
+      "sha256": "91e6156ae985de2a59edb1060ac2ce272d5eb0b2e1ccbb590d20396782644d1f",
+      "bytes": 35066
     },
     {
       "id": "17796644c52bfae164660c56a0c04ddddb9043327c2ae6b9e1fbfd6db4477a53",
@@ -3078,12 +3078,12 @@
       "bytes": 28646
     },
     {
-      "id": "8c97737d15e7189de603936bb5ad023ce19f7906efee6ce492bba88363f7d67b",
-      "text": "Alternez les côtésecondes, bougez lentement et expirez en tendant.",
+      "id": "e256ad4f798c0c25bed91ffea630eb55e75aa408d1199b41a88b20fe1012168c",
+      "text": "Alternez les côtés, bougez lentement et expirez en tendant.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "a70001808db874d1be9231f0e1cf92a55f19774ababc51388208d5803ec5ab8a",
-      "bytes": 22995
+      "sha256": "f88804118af021f5d00b1f740d8e440afeb5cef14b24816eae3dfa182a522552",
+      "bytes": 20836
     },
     {
       "id": "ea63453b3a40be2eed55ba8387d3731e0dc3232a68bae00d50711f251a057f1a",
@@ -3110,12 +3110,12 @@
       "bytes": 33010
     },
     {
-      "id": "b26a4e487be70e5123f3096520643190a7bbfa3bdc1d6678c120c4085937b4f5",
-      "text": "Planche haute, mains sous les épaules, pieds un peu plus écartésecondes que les hanches.",
+      "id": "6dc500d6c8ad6386e9097655399e600e8d74ce3780ee8e3eb49938883d84491a",
+      "text": "Planche haute, mains sous les épaules, pieds un peu plus écartés que les hanches.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "616ee6f2a03cfc89844b66b4950ce115c4e52440afda151aaa3c37d13cf7a069",
-      "bytes": 27660
+      "sha256": "76ca610c90d206075cc7fb8fc0b6569e859af18803277aa2262bb2ac9bf32b4e",
+      "bytes": 24924
     },
     {
       "id": "dc0ad989274652a5b6977cf4728ab77a327a0bcb2f283590d797035aa6e63050",
@@ -3134,12 +3134,12 @@
       "bytes": 10755
     },
     {
-      "id": "51f548a6667d133122ca8809c16feb15f062db1f6bc27893cc9bc349a6f67aba",
-      "text": "Des pieds plus écartésecondes facilitent le mouvement.",
+      "id": "65004c7ead65dc4373b15434ee574440c5ceea2ad981c6537c668c08b3ba8717",
+      "text": "Des pieds plus écartés facilitent le mouvement.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "44382a05555e5853f0529b7e051a35f5d091a72310b8f7c63aa67c250af06032",
-      "bytes": 17147
+      "sha256": "3d05a2b59f8f7457a531d36ea8f9c01e27cef39a22c75400d78f02535f75f731",
+      "bytes": 14763
     },
     {
       "id": "cc6a850f2066140aaa780c3b19acbdd66f90716899dd140df91edabb96575504",
@@ -3342,20 +3342,20 @@
       "bytes": 37571
     },
     {
-      "id": "57c6c5832e61fdcc17f321515efd034d268b7e435266d66668aa4461887de62c",
-      "text": "Tenez les haltères devant vos cuisses avec les genoux légèrement pliésecondes.",
+      "id": "7193272312f4006ac11f4353d087ea5d7cea37f1c070a2fbdc7fa60e7567a948",
+      "text": "Tenez les haltères devant vos cuisses avec les genoux légèrement pliés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "45e4f033df4a7521f336174a76c342e6846fad1c4b1041f30ecf8159a8da574f",
-      "bytes": 23848
+      "sha256": "6db41f5b05d63fc6736a0bb79741be353c29c0b7658bca3017c69f4d02a4508e",
+      "bytes": 21501
     },
     {
-      "id": "6b04cd1d98397c6bf81fc4d97ce19c2cfdc1e1ab222138574371386c808d2192",
-      "text": "Reculez les hanches avec le dos plat, les haltères glissant prèsecondes des jambes.",
+      "id": "e93274fdb9e3ab8d522000a7e4952edc583e6a6228c14734d3c6b57366cba903",
+      "text": "Reculez les hanches avec le dos plat, les haltères glissant près des jambes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "0762c2762a6cc5d72c47e2af9ab3b7b2b1b07306014a938f21dda3aea8c5dd91",
-      "bytes": 25859
+      "sha256": "bd0b3825cc58c4a8e4fba16e73a96dbadb873c2f64a3d01820ce5950b187e128",
+      "bytes": 23613
     },
     {
       "id": "4b65689e8860a5b4ec8a31c5444430fa4f5cffde9680f917b63eb95603e59b7f",
@@ -3502,28 +3502,28 @@
       "bytes": 14412
     },
     {
-      "id": "dff6817116cb0c76d07ac226323996c41d8a50891e70a734c05d2676dd21a0dd",
-      "text": "Suspension passive. 2 secondeséries de 10 à20 secondes de suspension passive.",
+      "id": "28cab6f0d1e9586b53e2b8066c037aee7e02b0662a4e36e61ee1fb3d9868d310",
+      "text": "Suspension passive. 2 secondeséries de 10 à 20 secondes de suspension passive.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "76a5ab113aaf89a84a859208822d278859561cdef9cfe2d50bb0232a57859034",
-      "bytes": 32751
+      "sha256": "60255610b6c18b9b48c4634a326dbae961be1496e33c8c7968aa28dbb227eb34",
+      "bytes": 30370
     },
     {
-      "id": "f7f591626f8b14fcab885b3824b0be2a9296bc540d37a8cc653b202bd72c8dce",
-      "text": "Série 1 sur 2. 10 à20 secondes.",
+      "id": "31c2a953642a210efae419babaf66b8e8dcb15b765bd4399c9158ea8f7cea794",
+      "text": "Série 1 sur 2. 10 à 20 secondes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "29d9d634afe9df88bb0950319f6b087e037b68e73cc708668d77bec77aba9ec0",
-      "bytes": 19248
+      "sha256": "99971aed3506a1a282b69fcb31b09c8dae79a0ea65224906c7f0f0b8dac881af",
+      "bytes": 15648
     },
     {
-      "id": "02488bc23a707b48e5171f54c8de17c47f30ee69325fc00e71e708e20b6da178",
-      "text": "Série 2 sur 2. 10 à20 secondes.",
+      "id": "08cfe110d1af41ba6fa02cfdb17e48255e78baa563c2ea91cebfd6dbda639e05",
+      "text": "Série 2 sur 2. 10 à 20 secondes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "6b7c5f579f244dc51928cf5e7ea21661b36cdb7e8141eeb6f1897b53a827cb45",
-      "bytes": 19291
+      "sha256": "d35781193c78fec819129539c453a1a03ad1748d8376ade8c7d27e0e66283d12",
+      "bytes": 19326
     },
     {
       "id": "e5cccc457de16ae7202468ac2490669755c980e09085c3c73cddbb5c92fd7eee",
@@ -3598,12 +3598,12 @@
       "bytes": 40179
     },
     {
-      "id": "6ada4f59d2bb33ebcf8d30178cf5b2733c06f7fce0c57c4cf7e5b44de98560f0",
-      "text": "Utilisez un step ou un escalier stable, en commençant à la hauteur la plus basse et secondesûre.",
+      "id": "a60a7b3a87836757d1a4718ec27085e7ff43346ce9dea83a21b4534ec5916b4d",
+      "text": "Utilisez un step ou un escalier stable, en commençant à la hauteur la plus basse et sûre.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "0fecf66627ad107c8c0a83107a24e5583c1fd6e370879d73fd9f33d8cd50d470",
-      "bytes": 34492
+      "sha256": "9fbaa8cecc18ead34016e86d858f2fffbadea6e587d43046999e7c633ff3365b",
+      "bytes": 29368
     },
     {
       "id": "504e3af92bd9538d7c41773264fbb360e3517336f048677b701671094989f02e",
@@ -3670,20 +3670,20 @@
       "bytes": 16025
     },
     {
-      "id": "463dd7b4e21378cde8edd2fdd775538cec1c003881fc5e477743216e3ca78e18",
-      "text": "Planche latérale. 2 secondeséries de 15 secondes, côté, genoux baissésecondes.",
+      "id": "0441430e31b5ab65b29d76ce1d1e3107601694a7e4618c2e9c62a26a0c6702e1",
+      "text": "Planche latérale. 2 secondeséries de 15 secondes, côté, genoux baissés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4868e955cdf9fd3a3f1a135cb63bb3c562259887c8cf3fd57e67f7e2c2830f7f",
-      "bytes": 36353
+      "sha256": "df1e190daa548f74ffe6e9d8fbcfc08d0467f16477ecd4d785f312382d0e49c5",
+      "bytes": 34322
     },
     {
-      "id": "d771b35037f5b9f38b8441614288920b9c6c732a39870f50da2e31d9f85ee6a8",
-      "text": "Sur un avant-bras, coude sous l'épaule, pieds empilésecondes, pliez les genoux si c'est plus facile, .",
+      "id": "99ecbbfbc91b843dd897e274eff1d19d407d3e4974e76d9ed07dfe37a523390d",
+      "text": "Sur un avant-bras, coude sous l'épaule, pieds empilés, pliez les genoux si c'est plus facile, .",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "ee3ad8b0a73d4405f1c658216ffa82fdcd26ffaa461b0230d0cc1b535d2dc36a",
-      "bytes": 34669
+      "sha256": "0ab0e2218d64066fa708b126c7ae84adebc628b38193080a7a57f978e44bbd52",
+      "bytes": 34719
     },
     {
       "id": "32b8c37db595b2bb5672cbe75185241c9779f28e0ac992fde07fe27fc9e845d0",
@@ -4038,12 +4038,12 @@
       "bytes": 12624
     },
     {
-      "id": "27acf7e374d39f84ce51f63c3a10b6d5ad25b813ec5937e4bd63499cf0101c9c",
-      "text": "Rentrésecondes de menton. 1 secondeséries de 6 répétitions, maintien 3 secondes.",
+      "id": "73dc0098ebc709c78cb9faca9688b3e76f322d8907ebcfd5a41e9c6fe78ae837",
+      "text": "Rentrés de menton. 1 secondeséries de 6 répétitions, maintien 3 secondes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "15ee731936ed6498369bd08c6257dbb6d5f39d83e89fc3e389514469f6795b8e",
-      "bytes": 31579
+      "sha256": "b24c68e4d4bf2d7784a5f80c0908d00b3cf11a50c4ee3877812d68cc5e4687a8",
+      "bytes": 33974
     },
     {
       "id": "c180d55f6e3c1cfe590df5e98481314aa3918807fa93abac513c97e3f826063d",
@@ -4086,20 +4086,20 @@
       "bytes": 18578
     },
     {
-      "id": "503972d5132ae366d2aa39f1894ff13293283ad8e0e4210e3723fd8852afa331",
-      "text": "Vient ensuite Rentrésecondes de menton.",
+      "id": "37200b8965a937eee2586d78f8cac3dfe5a496c409ec728641c396f9a57fd672",
+      "text": "Vient ensuite Rentrés de menton.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "9efedfb9a52f6f7a1579f74f7e4f9d0626430d4cae2c2ef405016493b4ddb66b",
-      "bytes": 14956
+      "sha256": "84f18f17b5fd05d0f7aa2166ee7b8a7ffc5eb42c1fa9338783eff933f70fb8e7",
+      "bytes": 11736
     },
     {
-      "id": "96ba724f6cb4a032b8628d8c4a20083d4917cf20c64fb2f686ee8de4f9bd703b",
-      "text": "Retour à Rentrésecondes de menton.",
+      "id": "7690af7ca0c8914e3f551e0e3a9dac0223e73bf4344798f85d3346a9ccff804c",
+      "text": "Retour à Rentrés de menton.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "65471ce5813e2e2c24ac35c7994dd0a7d52e153a74203768c3a4817470ab071e",
-      "bytes": 13585
+      "sha256": "f0e803fa7c29c9363f7266ff31e3dd0e993f05a3d54c9b2b14bc1f02813fbe44",
+      "bytes": 10755
     },
     {
       "id": "8d448e7038f39f4dea97dfbb0c42819d6d6560855f34585750fd4065f5ee91e7",
@@ -4326,12 +4326,12 @@
       "bytes": 23194
     },
     {
-      "id": "8de5ba637d749ac140213150c89e544d789882778a04383d604958074fa5bcd5",
-      "text": "Avant-bras sur l'encadrement de la porte, coudes à hauteur d'épaule et pliésecondes à 90 degrés.",
+      "id": "a271ef2627353d69cffd9753ed7886e6c60fb3822abae6a9216b5f3b73dccce2",
+      "text": "Avant-bras sur l'encadrement de la porte, coudes à hauteur d'épaule et pliés à 90 degrés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "b8d347848e01767a343e8bd190d22b04041b263277df14d0c8f3532f1bda7bb4",
-      "bytes": 34726
+      "sha256": "29c8878519d47495aae1475361e8dc964c396e041f7db2a34b032681e9c8567a",
+      "bytes": 29959
     },
     {
       "id": "8881f8d57744810f2104c48b04f68fdb4733c01aadab91456ed5ebbf2157ef36",
@@ -4390,12 +4390,12 @@
       "bytes": 34760
     },
     {
-      "id": "01f9a00763f253dd2a6cf48f97f198488c3de40de9c0c11bff4c06384a7bd691",
-      "text": "Pliez légèrement les coudes et gardez-les tirésecondes vers l'arrière, légèrement derrière le corps.",
+      "id": "f23b1ae7f9060818e367f2831a4781eb762e44c5aa24dfee52d40aff47b8aab1",
+      "text": "Pliez légèrement les coudes et gardez-les tirés vers l'arrière, légèrement derrière le corps.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "10194a0c4f42371ffd8223ad6b20723e66373133afc001a9a07fc095b4b4046c",
-      "bytes": 29474
+      "sha256": "b1967e5d3bedd98863acb96a32cc35f466dd1301786d36a425e583cb27fd476c",
+      "bytes": 27089
     },
     {
       "id": "6c2db5c783066a1fc2a62f728f22e1169ed46acb123e4126134889ebd43d9551",
@@ -4502,12 +4502,12 @@
       "bytes": 28102
     },
     {
-      "id": "2225e0447a773e5addcb01cb7e725db2cd5651169f7e303d68589d9ecb881fd7",
-      "text": "Tenez-vous droit, les pieds écartésecondes à la largeur des hanches, sur une surface ferme ou un tapis fin.",
+      "id": "4680066c04ad89dd0b1f7ff34a16794e1652e9a8ff3e4a69b85d969933938204",
+      "text": "Tenez-vous droit, les pieds écartés à la largeur des hanches, sur une surface ferme ou un tapis fin.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "f9c4e721dd2c7036329b735e858fadd21f3d6e87a771c9d7c720f3b2ca13dcf2",
-      "bytes": 34667
+      "sha256": "be442e37a6c8921e5533ddaa4fb24d9018e73275aef7508caec3948939441771",
+      "bytes": 34718
     },
     {
       "id": "61d2d191d706b83f15ef9c4ab72275185293f252009c3e242297cd52c70fafca",
@@ -4534,12 +4534,12 @@
       "bytes": 34716
     },
     {
-      "id": "64de018bb0843a3d26bbb0fd21ac31f0774b159bcf205cceeb15d5142925918b",
-      "text": "Faites des chutes de talons rythmées et contrôlées : 20 à 30 répétitions pour les débutants, jusqu'à 50 pour les entraînésecondes.",
+      "id": "8e9cdc3c31cd1a1fa67b730e9b27d8d8f69a3746d2a1ad7618e080a8be2ef9d2",
+      "text": "Faites des chutes de talons rythmées et contrôlées : 20 à 30 répétitions pour les débutants, jusqu'à 50 pour les entraînés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "596e7851bd1175edbabee696183c3babf8fafb78a3e26f2f38ee800bc34aca75",
-      "bytes": 44636
+      "sha256": "2cbfe7b12d23f5fa5ef4c833b9c4bd200b909c278ca6d975e37d6d8d695ca2a4",
+      "bytes": 42258
     },
     {
       "id": "ca62f2125c416927fc2bc2d8fd5d3c831a97380d76a64131643c14d4c6a68fb0",
@@ -4574,12 +4574,12 @@
       "bytes": 10781
     },
     {
-      "id": "3a5615eaf3319bafe554303db8cc67e797fa08ae57f1916bd15707c7a7803fb4",
-      "text": "Tenez-vous à un mur ou à une chaise solide pour l'équilibre, ou réduisez l'élévation du talon à 1 à2 centimètres.",
+      "id": "a186db3af5e2c095606283df08413ba55f41c5e3e767cbd95450307aaa6f0afc",
+      "text": "Tenez-vous à un mur ou à une chaise solide pour l'équilibre, ou réduisez l'élévation du talon à 1 à 2 centimètres.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "f949aced5d7cda7f74cedc8676e316bfab5be79eafe0305d6eab05b428775ea6",
-      "bytes": 37329
+      "sha256": "28a213d030635e597a46233af95a5443512d2eca9f57b9fcf2ca26d12d6858e9",
+      "bytes": 37308
     },
     {
       "id": "793d8e5efad333c9c5100e5d44a16bcf633f2fa4e251ee6b518895f31e1ae1a6",
@@ -4662,20 +4662,20 @@
       "bytes": 28809
     },
     {
-      "id": "d070e9dec2c317f7913f161f8550c0a91fb3e9c6082b0ed6bd56d3dd663a4c74",
-      "text": "Suspension passive. 1 secondeséries de 15 à20 secondes, pieds en appui.",
+      "id": "490745854c01040b889294a83621425ec801f5ed7e97ab18d36d4dc38032bdbf",
+      "text": "Suspension passive. 1 secondeséries de 15 à 20 secondes, pieds en appui.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "8c070737e9b0cbca51b2f2e0efb39cf770b196d8b030f1e147c730c47b897f1c",
-      "bytes": 32984
+      "sha256": "cbe03da75e6246c81c08462e6762b8d5b3399d9a9dfda690d021825a370e6b3b",
+      "bytes": 29103
     },
     {
-      "id": "e9530f517e5f5c6fad9921dc40bab2d9069a1e0d5b5a3042d2e005ac7cb2a10f",
-      "text": "Série 1 sur 1. 15 à20 secondes.",
+      "id": "ebec027b6cc40454482a12629329ffd1c3a9acbb71551446f385da903d125082",
+      "text": "Série 1 sur 1. 15 à 20 secondes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "ca3649c9e736386466b39d7899b307d25ac987f0d086f6a38bd068dc563c8340",
-      "bytes": 19287
+      "sha256": "f3704aecd3418592dd361361bbf854b9889a451ec23e30155d48c2759c5a6625",
+      "bytes": 19331
     },
     {
       "id": "4f9fa65bc68b6e4497603d7ca56d9c2ec8c50b9decca180c354acafe08529fe7",
@@ -4686,12 +4686,12 @@
       "bytes": 10689
     },
     {
-      "id": "0f803555fbf8de8e3343d167abf57223921834f0672d80c7fc65a3e8e76a2621",
-      "text": "Suspension active. 1 secondeséries de 15 à20 secondes, pieds en appui.",
+      "id": "cfdee20c9334f30f5e96ffab1ecc91a58bec31f980a69a8bb284a3bf9721205a",
+      "text": "Suspension active. 1 secondeséries de 15 à 20 secondes, pieds en appui.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4b7a843a2788f1ff718fa35fc7eb19f56300753b02c5c7f2f4ab53cc6bb6d430",
-      "bytes": 32831
+      "sha256": "c73e5020a9d950769204c7dd931e6deddd2849b9aaeb7fadfce7f2b63de0a13d",
+      "bytes": 32796
     },
     {
       "id": "e9536e913b8c51ce29bc2ec952fb744561369854fec21698c0c2055ef190a0d2",
@@ -4822,12 +4822,12 @@
       "bytes": 10884
     },
     {
-      "id": "1b006d28d53efb7e00a7f99d63d1e6d5eeec554b39421b02a95cf759c5f538e5",
-      "text": "Goblet squat talons surélevésecondes, squat sur planche inclinée. 2 secondeséries de 10 répétitions avec la charge affichée à l'écran, 3 secondes de descente.",
+      "id": "cdb655ac51fba9d5566875051c3854ba1cb427bcd786c0a6ac5d8a1ccf077420",
+      "text": "Goblet squat talons surélevés, squat sur planche inclinée. 2 secondeséries de 10 répétitions avec la charge affichée à l'écran, 3 secondes de descente.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "0b004cf51e57ddd24c86bd456373e668b3ec9de06bf00ddafd1bf5e267bed758",
-      "bytes": 55445
+      "sha256": "4edbded424ef362a7d8c182cf7f0ca95421968e56d0b05a3e2008b0f4bcfb222",
+      "bytes": 54498
     },
     {
       "id": "8866d7e1ecafdd0e6fb7e5da8e8cf3ce46c9d4d02575147ccdb4ca199b8da3a0",
@@ -4838,36 +4838,36 @@
       "bytes": 18034
     },
     {
-      "id": "64755ee0f8aa96d035b92ee8a8ab9fc32168b91c92fe14fb22b3ca25ffa578f0",
-      "text": "Pompes. 3 secondeséries de 8 à10 répétitions, mains levées si nécessaire.",
+      "id": "4d2f0062420a121bf8057dfe6ad3513692721b62b7a0e5c6da73418d7c7c060d",
+      "text": "Pompes. 3 secondeséries de 8 à 10 répétitions, mains levées si nécessaire.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "e82b507d5aa4142535c987c87fc355d71bc8afce8bc4d34038b2bb140a2e3282",
-      "bytes": 29142
+      "sha256": "75a98df38c51e15ceaf0a6042842ee702d16bc7f48e0d718e42218198f574d48",
+      "bytes": 33930
     },
     {
-      "id": "3f1416db28acc20110eb36e4398d3feb1d4442068ea15156b093b55a3b15ec17",
-      "text": "Série 1 sur 3. 8 à10 répétitions.",
+      "id": "973f5e760cd10608f5d5f581fdee29ff933e79ebe9015099b5eb475f4bdb5529",
+      "text": "Série 1 sur 3. 8 à 10 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "82612cb6b044434c74a9801281ccc3fb5e2aab60df73d8262b8b1046e103c41a",
-      "bytes": 19797
+      "sha256": "c69644e2c3f4ed91aa0fac93f3373f229cc8651245d73f71ff9eb2b9cd07dbcc",
+      "bytes": 19807
     },
     {
-      "id": "4376e5b39ce2465322370c1acca3761a2b80b3f46ea00fc0f586622d4893a2e9",
-      "text": "Série 2 sur 3. 8 à10 répétitions.",
+      "id": "61fae73016631509f83c8f49e39d39626dd8bc4f7ba0f122aad465f07a8d0009",
+      "text": "Série 2 sur 3. 8 à 10 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "a9ec471084322147d769b8787d50b16b306fffb4b43ccef6637ed59be6e3a303",
-      "bytes": 19695
+      "sha256": "3b507b81946622a20fe93e31eaaaec98c940620fed7beaff9d69aeeb2135c2a0",
+      "bytes": 19682
     },
     {
-      "id": "b62b41cb5689f53148909d0a2d9531557beb0372832c3bb0ef679d78cb3200c1",
-      "text": "Série 3 sur 3. 8 à10 répétitions.",
+      "id": "19f4903d009ebb1e8457259be49d2b73ff9430207816918d5431e3ed4d0c20a7",
+      "text": "Série 3 sur 3. 8 à 10 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "aec95b6086bc09eb657d80517ed843c044f63ac80e1cbc21b56e9d05f6b79531",
-      "bytes": 19761
+      "sha256": "9059129d3275d5837604bf765db8c867d899d207617b2783b2b40e4113af7324",
+      "bytes": 19789
     },
     {
       "id": "d201ce759855100d17f70d6c8548b33d5ed6db6cc99095788d023b33e9ce6ea9",
@@ -4886,12 +4886,12 @@
       "bytes": 33226
     },
     {
-      "id": "3919bc70eeda62a879bc75b6bae10217ecab2d281e58959b38b18b3bc532ac6b",
-      "text": "Utilisez un haltère avec une prise secondesécurisée à deux mains, pieds un peu plus écartésecondes que les hanches.",
+      "id": "d27b5c19fcdaa98f5367098293b9d247015dd57422a7e4b4151ec244b8aafabf",
+      "text": "Utilisez un haltère avec une prise sécurisée à deux mains, pieds un peu plus écartés que les hanches.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "eb3d6f3f4d866abf8359bae4526c359c025d75b9314815a1ef8341cac6a24358",
-      "bytes": 35945
+      "sha256": "108d3e220cd6ef8e54237e8ba7d3cbffc77aef35a11f07c4f7a3ae3b42979b88",
+      "bytes": 30487
     },
     {
       "id": "b795d3c837bfc2d0efadb7f1dc7ad55e1d41be4670fc56e74f9ba66af03bb571",
@@ -4934,12 +4934,12 @@
       "bytes": 18515
     },
     {
-      "id": "9f412d01b7679a5551cf6c451cfd4a6f2e897fad4f74f193b1ae78cc28ebefb1",
-      "text": "Si le matériel n'est pas prévu pour les swings, utilisez la marche du fermier déjà présente dans cette secondeséance, le modèle de Bryan permet l'un ou l'autre.",
+      "id": "3fcd066ab8d3144f2ed9ce6b177b9bf57d7af8b8ff479d015b45c4de9995fcff",
+      "text": "Si le matériel n'est pas prévu pour les swings, utilisez la marche du fermier déjà présente dans cette séance, le modèle de Bryan permet l'un ou l'autre.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "8338538f0f683bb285e939c34145cc7a4b1df144576ab180b23852d6c06e6966",
-      "bytes": 51125
+      "sha256": "8ac9c94f4e4815f373467ff057d4ada2944deb8573f38f1a8aee78a46c201c60",
+      "bytes": 48654
     },
     {
       "id": "f5049765bf18e683aa415f81b7f032958daf328a4a11a4127004ea4ae47230d5",
@@ -4958,20 +4958,20 @@
       "bytes": 11035
     },
     {
-      "id": "f1b4cced954e8f8dc425bc381387b6f1cc6be2d8ed5219f5bf82dd912102a4a5",
-      "text": "Élévation tibiale sur deux jambes. 1 secondeséries de 15 à20 répétitions.",
+      "id": "2582aa50b86fed837b92742c976483d07a06d22023ce5649be3b3b0a616bf2bf",
+      "text": "Élévation tibiale sur deux jambes. 1 secondeséries de 15 à 20 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "a82dc6c50af1bdc8deec39c6c0e71de96c3925d537ed0a1ed99057cf5117ceeb",
-      "bytes": 30807
+      "sha256": "ad0f3fb72b95472db9c331189a515daa8649cc561431bf04c919eb3061d61a86",
+      "bytes": 30877
     },
     {
-      "id": "2465e504a892231d84e21e4466438e8c4de184ca8f402f015f8c607f86c0ecc5",
-      "text": "Série 1 sur 1. 15 à20 répétitions.",
+      "id": "b5fef38e1aa2949afc4a8c859cc8a553500a0b537ae32b49cce3fcb1fab9d3a3",
+      "text": "Série 1 sur 1. 15 à 20 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "682dffde3f6965807bebd54e47e4e460953fe46c878932cbcb23e9d2168cceab",
-      "bytes": 20444
+      "sha256": "b500b24565c588fb874c4c2d5702dd775154e0750946f7e4d9e5c2ba99a757ab",
+      "bytes": 16899
     },
     {
       "id": "8874050f710913d648cb82a64b74f10033729cbdc1e1d94f03a39e7bbef5a86e",
@@ -5014,12 +5014,12 @@
       "bytes": 18640
     },
     {
-      "id": "b1878470a239dcf70ca96d6be6c7cffe23418e3a76912a6b7ef4d9d6a3b158a9",
-      "text": "Relevé de genou suspendu. 2 secondeséries de 8 répétitions relevésecondes de genoux.",
+      "id": "302230fe020929874fd5acb484b7a76fcbd2fe67b132f03930e1535ac83bab3d",
+      "text": "Relevé de genou suspendu. 2 secondeséries de 8 répétitions relevés de genoux.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "256d22980271603f333026e720bc6a820129432f8a71389bceb1a8a71eafec66",
-      "bytes": 31127
+      "sha256": "87eccb9b611825cd54b55efab19e93778ad2ee7d5e40671489c3c7efcc636bff",
+      "bytes": 28618
     },
     {
       "id": "9afca8cc408e21f1f592d021a6b1556ab0d0e277916071e080c5cbace58d6531",
@@ -5222,12 +5222,12 @@
       "bytes": 23024
     },
     {
-      "id": "71f97c5b5f4b8afbb1765b39fe71039da6b5a0637a60cf79b03b73925c3582b7",
-      "text": "Traction pronation, paumes vers l'extérieur. 3 secondeséries de 3 à5 répétitions assistées par élastique ou 5 secondes de négatives.",
+      "id": "393b27c50dad4e3bd7a1c97d9ee830bc0c3954f8101319d2069138b2afdded3d",
+      "text": "Traction pronation, paumes vers l'extérieur. 3 secondeséries de 3 à 5 répétitions assistées par élastique ou 5 secondes de négatives.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "b673e54982f3a5f5837a8a023c0ce8a8f7f5f67e034634311e5c245810a1e72f",
-      "bytes": 48759
+      "sha256": "3578d24729e164d528e72d185dfc54efc08939c387ab30d2a63abf6101c36318",
+      "bytes": 48835
     },
     {
       "id": "150df9d554cd816db8767429a0e3f4449ca1df8292b97105cec8793e16c96c0c",
@@ -5254,28 +5254,28 @@
       "bytes": 22132
     },
     {
-      "id": "b77050ef5cc343d2e7e4d4fee0bf0ab6bbe7cd8214b63e38e6d1807c7da18755",
-      "text": "Série 1 sur 3. 3 à5 répétitions.",
+      "id": "711290248d16aa673b5b27c01f689da066c2c00b65f01c948a403c46d70b194f",
+      "text": "Série 1 sur 3. 3 à 5 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "9bdcef8ca00b1d3cab2847ad6bfca986971600ea41192b9d96cccba0b8c9612f",
-      "bytes": 21414
+      "sha256": "32530b65858dc3db4bb4e13eb354a8948f421b0bd648b021aefed07c0e89c2bc",
+      "bytes": 21299
     },
     {
-      "id": "23f5c262be3cdf99c17071c268ce5d0890117a32ac0b096409850d431fc8706d",
-      "text": "Série 2 sur 3. 3 à5 répétitions.",
+      "id": "b55e72458cafc0afb7878449e8e044aacce5d65f1d71fd1b5189df4197941d18",
+      "text": "Série 2 sur 3. 3 à 5 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "f4bcad180ddcc659917d6e2aa5e2a69090307de316d9c040aea27ff3e6934d8d",
-      "bytes": 21288
+      "sha256": "bfc6f05e0dab757417dd2e435296955ad3a4869126e7a9dc8481e434e3c58db0",
+      "bytes": 21344
     },
     {
-      "id": "c9c45f3fc1eebf4abecfcd56fe6906f761db94a83390e3261df5901edac946e8",
-      "text": "Série 3 sur 3. 3 à5 répétitions.",
+      "id": "a0aafd086987d85e07e6b9c6f72ecf51b406aee51bf0bcedb573ac23edb8fc80",
+      "text": "Série 3 sur 3. 3 à 5 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "faca1b9a5e3c97f8c50a54663f139bb45782d13c133d1cc7da04df1c0309b2b6",
-      "bytes": 21325
+      "sha256": "918ab1eb1b0fdadac51b1efc41666f2e8b81b5e83a9f179220c8012dc13e8c12",
+      "bytes": 21356
     },
     {
       "id": "f505581a51b163a968f59a0ef753d8fd209c76537f6b6bf626b5698059e9065f",
@@ -5302,12 +5302,12 @@
       "bytes": 34622
     },
     {
-      "id": "36255daa18ab1eb07b40d0611d07c5a564a05b07926de756b1fd18d1d2301d0d",
-      "text": "Curl nordique des ischio-jambiers. 2 secondeséries de 3 à4 répétitions descentes lentes.",
+      "id": "64f54ce325284f2768521ca8d14e731d9396bc01e7f06729c7ef8b7b379c5f29",
+      "text": "Curl nordique des ischio-jambiers. 2 secondeséries de 3 à 4 répétitions descentes lentes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "896050bd718edb423ee93f6cd586f370f72334702e920835be778ddaff8b631c",
-      "bytes": 33296
+      "sha256": "96b0808ee86e23253b60e956dd3c7d39738ef12acc8998135792c4433eb66aee",
+      "bytes": 33272
     },
     {
       "id": "7c954d60dee9564480279ae751951a52887d92c5bfcf29061b93f343958ada6b",
@@ -5350,20 +5350,20 @@
       "bytes": 20707
     },
     {
-      "id": "f87c1644c5ef7255b64e5bc096fc73fefa2a1be7b3080a20c36deeba50770a07",
-      "text": "Série 1 sur 2. 3 à4 répétitions.",
+      "id": "888421571933f3fe5c9f19c55953ccfaa74c1ebfed2e03c649be304fbdb93832",
+      "text": "Série 1 sur 2. 3 à 4 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "2490c1f6a99091c70ddc7e5ab5aac73493fb26821d935848cefd5463e801f2fa",
-      "bytes": 21462
+      "sha256": "7a47fd471fcba77bd98f066e4da4117795597f1a4fdfbba3996fbbe00af7d637",
+      "bytes": 17971
     },
     {
-      "id": "d7ce1d4ef66ad97914a032df4926f67d41f871b097691e1a9e025a4bfd17dbcd",
-      "text": "Série 2 sur 2. 3 à4 répétitions.",
+      "id": "0f37b771964fdb79b788a48b98dd2c7fb289fa992da4135849382f6bae5af972",
+      "text": "Série 2 sur 2. 3 à 4 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "c0024316c79fdba84d15c9545b1118b6ed0d2b62aa8ea174dc87d60544dee4f5",
-      "bytes": 18016
+      "sha256": "ab001d12e85fa783213904d5362a135c86aa5dea98f799b1f47af13996ef5015",
+      "bytes": 21446
     },
     {
       "id": "fe9b78b70c9e103dd55f1d65ccbc8fe61e6573f55b3c8736640c34ddde1d2326",
@@ -5414,12 +5414,12 @@
       "bytes": 33102
     },
     {
-      "id": "b9a0116182fb06a5664eac10ef52f5efd686bf21653e6eb2b68325d81c4adff6",
-      "text": "Écartésecondes à l'élastique. 1 secondeséries de 15 répétitions, élastique léger.",
+      "id": "f861c171086186c560217680b273223efec1903783962bf358edf877d70b56ef",
+      "text": "Écartés à l'élastique. 1 secondeséries de 15 répétitions, élastique léger.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "27eb121229b6e8b32ebbcbe855b5171762c2fc9fe6ff47c436f97e36b45d0ef1",
-      "bytes": 31569
+      "sha256": "dd6af6dfb2030210b0451a65671a2b657bd228f30fc3e02e35680b39e6e17d49",
+      "bytes": 32641
     },
     {
       "id": "8caf6cfeaa05c597ed9229ef2beba13c16ed07df895c041306b7f543d714dfb7",
@@ -5558,12 +5558,12 @@
       "bytes": 27286
     },
     {
-      "id": "4dbb61b616429831470a60e5064402ce6712b91a190f2e33576267d45b99bdf0",
-      "text": "Touches d'épaules en planche. 2 secondeséries de 8 répétitions, côté, pieds écartésecondes.",
+      "id": "15caa268816705725affc46c00d42e7f300fc098a27cd88e675ad6c6e990361c",
+      "text": "Touches d'épaules en planche. 2 secondeséries de 8 répétitions, côté, pieds écartés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "711e229089666b24019f12c03df98a9246272f69399c137f632b55bf88c894b8",
-      "bytes": 36049
+      "sha256": "50c7680904e53cad5111a8e7b95cc12e03476698fdf731512315e1fbeab6542b",
+      "bytes": 34012
     },
     {
       "id": "62c9659816d658017e1dbf2c9f5799b4a9227e30f9377f2ef1b38293af50188a",
@@ -5614,12 +5614,12 @@
       "bytes": 36305
     },
     {
-      "id": "7705617a84f05de510cd867d5c93ab8b390db822e57f34757a5175c7c731c059",
-      "text": "Traction supination, paumes vers vous. 2 secondeséries de 3 à5 répétitions assistées par élastique.",
+      "id": "2de2f5a8d99ad8fbdefa27d628cfc8258d2a43f4daa18898dd522bcad13244cc",
+      "text": "Traction supination, paumes vers vous. 2 secondeséries de 3 à 5 répétitions assistées par élastique.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "70af49ff945439d273554912fdb1c73b420ab2619a6745d34468590533e2fcba",
-      "bytes": 37254
+      "sha256": "f93fff98dc5a399916e0298c7c568a562aaf5c367f1dc9f2505783865587209d",
+      "bytes": 37278
     },
     {
       "id": "9cce4c595ec9c018c800d809e56b774ee183d1116416c9f27fb37747536da923",
@@ -5630,20 +5630,20 @@
       "bytes": 23253
     },
     {
-      "id": "60becdb1387c9f37176801745a858d4a949dd8496c04c7be4682c01ef3242e1c",
-      "text": "Série 1 sur 2. 3 à5 répétitions.",
+      "id": "ab7f76359117f92cc0f49373628735256d4681055ec76ed68fb7215a2901b294",
+      "text": "Série 1 sur 2. 3 à 5 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "770028c15c51b4c9a8212a11b3803d3b0b5df78bfecb28e4e3a3a89c56c7bb04",
-      "bytes": 21280
+      "sha256": "4f6766174245045afc0f5174f69040bcf6e375cc06c3f9525a17bef8df835293",
+      "bytes": 21337
     },
     {
-      "id": "44b6e4efbc4710f6e151f6a4711c022c0320ce866201f33d3ce30f909b03a4c6",
-      "text": "Série 2 sur 2. 3 à5 répétitions.",
+      "id": "091d2a46b66f486a242f6fb23edd4ce7f1bc307fb297f9347d9d021c1809eb8e",
+      "text": "Série 2 sur 2. 3 à 5 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "e8c734e5d4a4b1c2d8afbff9d366f0f8035833e6798a9b5501e5da24cccc1cef",
-      "bytes": 21256
+      "sha256": "a90b22d5691bf43722091bf6fb00b4f6e5a6ecf1ea7b6b1d83cc204333f43ded",
+      "bytes": 17895
     },
     {
       "id": "551c8694fc69e071d868a1e7503d92129f60d7330f9871d5390b9cde03dbc1d6",
@@ -5678,12 +5678,12 @@
       "bytes": 36182
     },
     {
-      "id": "0ed84a0568d5e775100a600872f4dd6a85c7b4665ff73a28a76b0c1f39191de3",
-      "text": "Planche latérale. 2 secondeséries de 20 secondes, côté, genoux au sol, c'est trèsecondes bien.",
+      "id": "c8e4f8a89bce8c59c2eefb23b038e1ca60d9390cb90a09798779c1cd117ab932",
+      "text": "Planche latérale. 2 secondeséries de 20 secondes, côté, genoux au sol, c'est très bien.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4fa2eccb367478eec34d410bc399031b5d76698134bca91dae0f5329c1ca760c",
-      "bytes": 40947
+      "sha256": "42560b884408afdbbe48b621efa9efbcc5e447c3678066bfbdb4a153c668df9b",
+      "bytes": 38584
     },
     {
       "id": "ce04fd4410323552c3268e2d07aed7c462f2f4c3e954b2c1440e04b6cb1fdf75",
@@ -5774,12 +5774,12 @@
       "bytes": 17234
     },
     {
-      "id": "48955eaf766fbba55e7024e2e6b8b2f6a8576412c96ea656e4c53e1fa8604c5b",
-      "text": "Rentrésecondes de menton. 1 secondeséries de 8 répétitions, 3 secondes de maintien.",
+      "id": "0cea18c87dbc852d7156f9933c810bb695a5424024ab99d18354b410ceb1ee7f",
+      "text": "Rentrés de menton. 1 secondeséries de 8 répétitions, 3 secondes de maintien.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "91c486ea13de035e7d0249d6e82701d183717f27282330466c4784c9460e2935",
-      "bytes": 32371
+      "sha256": "8f77c733417d403e7a9fbfaa1ed008112eebffb164265426be9e952b4be6b919",
+      "bytes": 34120
     },
     {
       "id": "0206eecc6f0d8d5f90911096b709b1b550d9f4b9688b9a48e369d5cdc834c422",
@@ -6014,12 +6014,12 @@
       "bytes": 19226
     },
     {
-      "id": "e779070131bbae53d52f12628fba26750f9df3a2e71f360ac72ee3a3f3c9cd02",
-      "text": "Équilibre sur une jambe. 2 secondeséries de 30 secondes, jambe, yeux fermésecondes.",
+      "id": "312230921a3c77c8b2e3bb277e28569cdf37cc623765c232d6d0c848fc1b89af",
+      "text": "Équilibre sur une jambe. 2 secondeséries de 30 secondes, jambe, yeux fermés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "481a5631b5a7aebff9263db644ac76453ad37764b0eea8c41827db604c16e02d",
-      "bytes": 33648
+      "sha256": "38d2b4582f54e8f5b863cd7b71d9cfe3e6e0bc6409b46abea675b5c076d6ce4c",
+      "bytes": 30120
     },
     {
       "id": "cfe71ac947ae28a089f135af8699cd83ceab1386448e7e0f416914d3b069fba4",
@@ -6078,12 +6078,12 @@
       "bytes": 10923
     },
     {
-      "id": "6f6c83454b964177820e697b3accdcb5002549e00363d6f3acf5c9e78a45f5b7",
-      "text": "Goblet squat talons surélevésecondes, squat sur planche inclinée. 3 secondeséries de 8 à10 répétitions avec la charge affichée à l'écran.",
+      "id": "6c72927fa4457d1aa5886b8e8af220b4b74476b7ff993859c9749737a6ddb07d",
+      "text": "Goblet squat talons surélevés, squat sur planche inclinée. 3 secondeséries de 8 à 10 répétitions avec la charge affichée à l'écran.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "09316cf6feae70218c64eafe0512bbc9da614a70c6464bc02c61b73d8eec01b2",
-      "bytes": 48413
+      "sha256": "085deb264d71ff612a058556db2bdd86b3cf3ae2de4533241701966363bcba8a",
+      "bytes": 46121
     },
     {
       "id": "9e12b1e9e7fcb47b3d6f725e72ce00fb62fada54321cfc5091ea5d15a78a37fa",
@@ -6094,36 +6094,36 @@
       "bytes": 16447
     },
     {
-      "id": "b7ffe1698bbb7435e73148963d628fa56f4c3e144d620cf87c6b14f742913bb9",
-      "text": "Pompes. 3 secondeséries de 10 à12 répétitions.",
+      "id": "f6d18aaa8f7d3eddbf4c0b24c73e4d8e8f8e949d1fe75cc5350dbb724b43a972",
+      "text": "Pompes. 3 secondeséries de 10 à 12 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "e035c4cb4a95d2f890a09a3f6135b9eb55d55e5194016037d1aca960c1f5420f",
-      "bytes": 20504
+      "sha256": "a7b885c0a31ba387a85d9551ce1aa04fa0414b8e01d95f1099f8ffef6846ba9e",
+      "bytes": 23592
     },
     {
-      "id": "faef7bbc0d568e68a59accf351f5a5f1e595148547808386fba55a2fc60da4fd",
-      "text": "Série 1 sur 3. 10 à12 répétitions.",
+      "id": "b5e7824cde3a10cd16ce086154e2dbff2e8e31df61b1727f436e0fd85a610435",
+      "text": "Série 1 sur 3. 10 à 12 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "918ca56d2ee5fb48726c9b5ce2c7cf38254b58b46469fcfe8d2d5215d4f4db80",
-      "bytes": 20637
+      "sha256": "c8eba5e4e5584b443b8d42c61da48d99095406ae36c8449286d44abf3bd27d39",
+      "bytes": 18070
     },
     {
-      "id": "2966abc2a834ce8a55fee4b257645e7e93057f501a4d96b481e321bbc44282fd",
-      "text": "Série 2 sur 3. 10 à12 répétitions.",
+      "id": "e6449847a08490f94189975de2890f455a3f628869f56e98a3e93b2e001ab3a1",
+      "text": "Série 2 sur 3. 10 à 12 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "6b2c38026eac7128daa873f8d462adb19d594e23f57dc8928c36fd52f7eaa270",
-      "bytes": 20481
+      "sha256": "a01a593caf5ef6bd9b1247fb947b6ed80ab5e07147852b17bda441cddce29da7",
+      "bytes": 20551
     },
     {
-      "id": "373963e87a2d54241e2b5d1a2addc85d46faad084c19f7356ead88c38cef5d0e",
-      "text": "Série 3 sur 3. 10 à12 répétitions.",
+      "id": "47bd2de5b699a4f078f9226047ac1de0ee305f3f0066695df26ff7d069873dc8",
+      "text": "Série 3 sur 3. 10 à 12 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "1cc787d1d74c7b3e92f098619303641c909fff4a46794d6cc9d2fb40c19591d0",
-      "bytes": 20601
+      "sha256": "d89d60081ae2e1a0a9734541e06d3db7b194b8471b85d00017e9d73b472aa3ad",
+      "bytes": 20600
     },
     {
       "id": "fcecdf2fef5fb1d2aa12a1499776ac1485b83f5e84f2356bf2557da394d2dcda",
@@ -6254,12 +6254,12 @@
       "bytes": 18083
     },
     {
-      "id": "937c143ed2d89c7d6c4e6c0f40539c628de3595c6d584c11db5ed67cd6462d97",
-      "text": "Relevé de genou suspendu. 2 secondeséries de 12 répétitions relevésecondes de genoux.",
+      "id": "9ab0fb5e215745dfb71c84665d3394b1255e00aedb9ea217a056797a8491916a",
+      "text": "Relevé de genou suspendu. 2 secondeséries de 12 répétitions relevés de genoux.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "7516797ef5878ab501e5e5067b53190f4d3b7ccd1672d782faf42366766b4193",
-      "bytes": 31570
+      "sha256": "c941a045f8dc1e78979072f8168faf251580e55dc6351b997a8962eafe700fbd",
+      "bytes": 30869
     },
     {
       "id": "910038e418e3da87ed33b68a8750b69a545f9f42e102d17c1f2569623e98bfd1",
@@ -6422,36 +6422,36 @@
       "bytes": 31204
     },
     {
-      "id": "ba10520d96a3c7584677063a0fb41007cedbe949382a350f12e75375109fb8b7",
-      "text": "Traction pronation, paumes vers l'extérieur. 3 secondeséries de 5 à6 répétitions.",
+      "id": "613dab2bc7f8748809f50b02b76ec9bf6543a9059c0b97b5d30c547797acd6a7",
+      "text": "Traction pronation, paumes vers l'extérieur. 3 secondeséries de 5 à 6 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "8997dc644e7ebecd4345c14cfd113cf82324f6378cf707a21ca693d02c94ab4d",
-      "bytes": 32247
+      "sha256": "2877cf8076507dd27cd10919dac759a29ff42ab6ec439741ed462900cd95f9ca",
+      "bytes": 32190
     },
     {
-      "id": "9c26d99be4b57b721ac53f46b06a873950106992382d2c8d1c91470675c677ab",
-      "text": "Série 1 sur 3. 5 à6 répétitions.",
+      "id": "f999679e7f5d636f7c2ec92efa95728939ed43225f545be65f16b380be32c847",
+      "text": "Série 1 sur 3. 5 à 6 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "d62c4db6944cc5eee21d50050c86735b707ca1edc81927cd885237bd819f5be0",
-      "bytes": 21016
+      "sha256": "a5af100a29b285ac0c94c74c0dfce60b7d3e1a83d2d7e0cbef57e24c0a983a20",
+      "bytes": 21092
     },
     {
-      "id": "774ba40cc8a07925073faf6f255ae7330d89cc6a92e89ccb5dfeeb8dbdb94588",
-      "text": "Série 2 sur 3. 5 à6 répétitions.",
+      "id": "03f54a72fc84be5ebae9d82ddbd4e3990a2afbaaaaae8d73d87d1751797d34b2",
+      "text": "Série 2 sur 3. 5 à 6 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "af3ceff7b6ab923cd67b3b55f5c7fa1162e870bcd916e3cc9c147db8ac8f2d2a",
-      "bytes": 21072
+      "sha256": "aa82a3a37457f7c1fe7c3c2f445303e22dca6a1669f884d3efbb36bcb6e50b24",
+      "bytes": 21096
     },
     {
-      "id": "6b3582d8004fdedec617c92c526b8442f341f606ceb04e06c21cde24f5b96f27",
-      "text": "Série 3 sur 3. 5 à6 répétitions.",
+      "id": "99b0dd0a2a922dd8bfb533a267361b601418a68940b82fcc8b4c5e99feda6a51",
+      "text": "Série 3 sur 3. 5 à 6 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "e923cd9e31b735a843eca7e59018f5e122f7173cb20acb1d0f017701bed29fd3",
-      "bytes": 21022
+      "sha256": "819cd2e2486fa4cc8b3031510b8e83036e974ac9bd4fdb4289383cf537bc1948",
+      "bytes": 21041
     },
     {
       "id": "c68c2f518ee680d38d541d609d3a6ab7b1bec7a378d5f03ae53fab0766bd64ef",
@@ -6486,44 +6486,44 @@
       "bytes": 18271
     },
     {
-      "id": "6b234ebf2dd08cc28c3d45afd639297a194399c8db2f3ff242e08658a6d54b9e",
-      "text": "Curl nordique des ischio-jambiers. 2 secondeséries de 4 à6 répétitions.",
+      "id": "6b226292c67b75da8b6000261435891492cc995481c70600d21c2213264ec21f",
+      "text": "Curl nordique des ischio-jambiers. 2 secondeséries de 4 à 6 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "77c5382f8188e5ce93499cd2cb67caaeb6982c929e943512d72ac02f18aa1965",
-      "bytes": 30855
+      "sha256": "c2b5bfc1598983d3b93e716a60cd23026b94b3e9da3bd6efdbf26a06931d079f",
+      "bytes": 27512
     },
     {
-      "id": "f8f1692e2981f53b917fd2b090206b0cfc75f56058ed1517baf66dcf5029a8c9",
-      "text": "Série 1 sur 2. 4 à6 répétitions.",
+      "id": "aa9e0be0a2dd254144d55fc7e059dc0b41e072b2e38486665bd54995b407a560",
+      "text": "Série 1 sur 2. 4 à 6 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "aca89d3d54d314f768127749825fa2b26a20e5d37965cdb4e4157a2859792d82",
-      "bytes": 20594
+      "sha256": "000790399891bf7f9d128dcf3e705e698c337a14d15764689d4d90a7b01eb635",
+      "bytes": 20621
     },
     {
-      "id": "5d7286d6b2a1f6c93bfd4e7c00752de3001087d1110e4142e8da27f44de10568",
-      "text": "Série 2 sur 2. 4 à6 répétitions.",
+      "id": "4f7712ac1290e119fd4e144601c2ef6b976388c79b545fcaa55a8c9ebb5e005c",
+      "text": "Série 2 sur 2. 4 à 6 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "30a7394720dbef57cb5f7de05769fa259e11dc929004d9e79f3da51648a66f5b",
-      "bytes": 20629
+      "sha256": "dc6e5f13e0a633c19fb8ba447f7ecf90b36b566ca88e46a268a491d6a35080ee",
+      "bytes": 20582
     },
     {
-      "id": "23480cb5a64feba7ff1a0e4a4e43604af629d279707d3c211949d42f22783607",
-      "text": "Nordic inversé. 1 secondeséries de 8 à10 répétitions.",
+      "id": "3c9ec3d396aa80591031117ad8ff8422f5e7628e8b7cda62f5a120bd3915fcc7",
+      "text": "Nordic inversé. 1 secondeséries de 8 à 10 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "7a02c28d6d8cc42b64cf356db118d429a0ce4eb49a225e76919997ec04ea2ec3",
-      "bytes": 25527
+      "sha256": "04550ac12c71ecca2ec66d0ca110a2cd498a266ae81ce2313db81ca6bd96fb29",
+      "bytes": 22845
     },
     {
-      "id": "7aa19013adbbdafa94bd24192cd28490293cdbe63a433213e929fea22c2ffba7",
-      "text": "Série 1 sur 1. 8 à10 répétitions.",
+      "id": "e0d62ea30a81f9ea8ab43aaea1a80c3961d4e048ef8a6dea790e667a53c59abe",
+      "text": "Série 1 sur 1. 8 à 10 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "767e7927968cb414024ba856e8575653eda61535e0c45e37b0239b216b3bb30f",
-      "bytes": 19770
+      "sha256": "fd2d9aae38ad3dd698a44bc2bf76a6d2d2d45858289695719cb6b887100b4741",
+      "bytes": 19773
     },
     {
       "id": "6b15cc5c8d1cea81ea5ae7411172cbda8fd9723cb1b2997f7db208a2763e8b92",
@@ -6542,12 +6542,12 @@
       "bytes": 33269
     },
     {
-      "id": "42d4f6f308b0d1693b95e84a8b5c40b0905a4cfd1a7e404dd7ac5e2518448649",
-      "text": "Écartésecondes à l'élastique. 1 secondeséries de 15 répétitions.",
+      "id": "ae86ec1a5e10762a1094a62640e3aab353ecf93a39592340cfbd97546935adfe",
+      "text": "Écartés à l'élastique. 1 secondeséries de 15 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "5c09395ed40741d7dcfa67f178fce840faf423ea955db5c1ec848a5a15e619db",
-      "bytes": 25043
+      "sha256": "21978d95bb035e0b6716a5f3dc98bbfc498aba4fcff3a22c3da90c66b9519e49",
+      "bytes": 24592
     },
     {
       "id": "038d86748addde8c2e9ffd9994530c671b93702876cfc6bba93d63e0a323dd7f",
@@ -6830,28 +6830,28 @@
       "bytes": 24866
     },
     {
-      "id": "e24b6eb01ae53ec51df55559717776fc3776bfe66f73329f4df48666f0a417f7",
-      "text": "Rentrésecondes de menton. 2 secondeséries de 8 répétitions, maintien 3 secondes.",
+      "id": "c732c2edb075f4e42f2185f20c66435cc541749c207a0e62c77e8a5f034322ac",
+      "text": "Rentrés de menton. 2 secondeséries de 8 répétitions, maintien 3 secondes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "bb9223b61f8f64ce93ad7ae1de9fe8270c1115ca1e4b1ae2521e35e95e606f20",
-      "bytes": 31925
+      "sha256": "765d862fde0ae8cf9eb30889de49abbbfdfda879e303b1391df70f3b081c3242",
+      "bytes": 33998
     },
     {
-      "id": "dfa991614f636cf952f165c345a3a9211e11fbcff0fe6856f0d1864796dbeac2",
-      "text": "Pull-apart à l'élastique. 1 secondeséries de 15 à20 répétitions.",
+      "id": "b4dc2d0c78f5f47641bb93d8e9503c9e42164373f7feb126a290eb1ce9293508",
+      "text": "Pull-apart à l'élastique. 1 secondeséries de 15 à 20 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4eaf2f4fd4eb0fb7f800004539ee6b1d4e0c1234b386f6908ea90221713b28a9",
-      "bytes": 26285
+      "sha256": "501fc886c11258c50ad114f587e4e0f0fb1987d42f5bcb5e87d23b95ecef2ce5",
+      "bytes": 26278
     },
     {
-      "id": "344a9eab2fb6ad64585cc832d61ef51a1f84142adf64d23024280e3d3b953aae",
-      "text": "Face pull à l'élastique. 1 secondeséries de 15 à20 répétitions.",
+      "id": "864a1b5923400aa70a790160056b1bef4eb1b46fcd9aad1060cb5278d824bde1",
+      "text": "Face pull à l'élastique. 1 secondeséries de 15 à 20 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "66ef37ffaff0bb13940c39c9b2151e9a1bf74b65f6f9f92e32529b6591026451",
-      "bytes": 26235
+      "sha256": "dd004b43d5def3a8bcc275e6a35106c5d8f3dbf9aa84a8956df22edfa223e547",
+      "bytes": 26224
     },
     {
       "id": "1a2f5425768922d12de4e6d82cc33e34b8245f4b92c2b0292491e9854272ea5a",
@@ -6990,12 +6990,12 @@
       "bytes": 18645
     },
     {
-      "id": "16fd86b01d57aea28486e14f41ef4a04bbfce775fd97bc49a020f73bd98e665a",
-      "text": "Équilibre sur une jambe. 2 secondeséries de 30 secondes, jambe, yeux fermésecondes sur un tapis replié.",
+      "id": "fe6b1cc21f2508c12805dfdfa1a41d2c1ddd45f2e82aeaa8119abf3bc0f0f178",
+      "text": "Équilibre sur une jambe. 2 secondeséries de 30 secondes, jambe, yeux fermés sur un tapis replié.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "9a6e2106143e9f8fe7854e6d41346a00b91001f836321d421b371093d4b57b7f",
-      "bytes": 41209
+      "sha256": "1796854d03ed7465b764095545e28ff7b0c0e6a95338ff61bf5a228f90913fdd",
+      "bytes": 38229
     },
     {
       "id": "bc20ed80c88de96615575d2daf65ff5c0c83fe4596679a6fc732e44340daa638",
@@ -7038,36 +7038,36 @@
       "bytes": 12321
     },
     {
-      "id": "c45ceb942ea4c2517ab26f15189c74aa3887ea62772969a57c1c76744db30c6f",
-      "text": "Goblet squat talons surélevésecondes, squat sur planche inclinée. 3 secondeséries de 6 à8 répétitions, haltère le plus lourd, 3 secondes de descente.",
+      "id": "646c15efe8b5a5c3d9e04ae1bf690b7b28ea4b4f15d387b59364f76f762574d7",
+      "text": "Goblet squat talons surélevés, squat sur planche inclinée. 3 secondeséries de 6 à 8 répétitions, haltère le plus lourd, 3 secondes de descente.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "75796afda54c220f599ed0710f237d45332de66876f295e7b9aea04a0ef29820",
-      "bytes": 57057
+      "sha256": "485f222a192cfcf6797c3600167d02cf6b2de79a14d1b73ecb5f51c8c2ba5232",
+      "bytes": 54964
     },
     {
-      "id": "121d07e795fd7a0c8cd192e10c00b1f4082f4197b881627c53d20d3129dc6915",
-      "text": "Série 1 sur 3. 6 à8 répétitions.",
+      "id": "60c4dc8e22a7ac9de417d602d61c2793fb281f63bfc7683712a31a314f08a036",
+      "text": "Série 1 sur 3. 6 à 8 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "6f2f6b9db473daf8465ed8c310ebd5d11d4111cdb54676f18c4d64c38d92399e",
-      "bytes": 20546
+      "sha256": "e12a6175dd5dabb3b474e803307b76ee045ad3da94ec55faa08da39e46fcf1a7",
+      "bytes": 17920
     },
     {
-      "id": "e219a7248515b9ca444534a74cf899c690945b66805450fef7abdf9730725f20",
-      "text": "Série 2 sur 3. 6 à8 répétitions.",
+      "id": "215938491760b420f94ddc09dbcd5a8b10bedfb3c987fa0ac3c7a566bb5d2de2",
+      "text": "Série 2 sur 3. 6 à 8 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "7e10214336cb1da7917e36624944eaef0c1a43785ff29c978116ca80087e3aa3",
-      "bytes": 20508
+      "sha256": "0d74bcbfd2b90089fe14f8d268d6ff70087bd3275f5fe2418c75ef76d91001b3",
+      "bytes": 17821
     },
     {
-      "id": "f27c2be3cb878c411cab97140b3ac1aa997bffe0f762184ea9ec8c7c68128f70",
-      "text": "Série 3 sur 3. 6 à8 répétitions.",
+      "id": "4d1491fd3aca53b700a1be148953091e0af697ab804b9fceb5928cd29c70c184",
+      "text": "Série 3 sur 3. 6 à 8 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "a1f994531f8f71ed1ddaecb8522db5c5ab0cf6f2b0b4878bd9a2788b689a8178",
-      "bytes": 20650
+      "sha256": "c5607f099320a3b3e7e8046c1d27935595df45c92a1d7fedd5b5515578718392",
+      "bytes": 20610
     },
     {
       "id": "8c2b723221496e7a5fb3957618e0b019b15f1c310b19065b957154a7d2660814",
@@ -7078,44 +7078,44 @@
       "bytes": 22687
     },
     {
-      "id": "0d38ffcbb5b4fa62c08894da9e30c21480832930259d36403f6236df5ed69a19",
-      "text": "Pompes. 3 secondeséries de 12 à15 répétitions, 3 secondes de descente, ou pieds surélevésecondes.",
+      "id": "7db558becb327f755628672831894de282b4a64baeda0b9667ff272054219bad",
+      "text": "Pompes. 3 secondeséries de 12 à 15 répétitions, 3 secondes de descente, ou pieds surélevés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "23979d79948ab74429a72827669f41c836c2d276085fe21d1edfb87519a20dfa",
-      "bytes": 41654
+      "sha256": "f7630521566b0a9b62fbeae03c525248b4bc1caa13c2b1de9f9618025bd754ba",
+      "bytes": 39501
     },
     {
-      "id": "b8b055df598872e991058fdb5fa45c13ae1976ca5e2cec92646ee992dd53dfc5",
-      "text": "Série 1 sur 3. 12 à15 répétitions.",
+      "id": "8f194f1f0457bbeb7e792cc6022e98c973e851a6b391a62392fcd1de8fe3496d",
+      "text": "Série 1 sur 3. 12 à 15 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "fcfbfa1485059e93870734793fbf3bf0c6eee26cb4ce55113a918d650d73729b",
-      "bytes": 21087
+      "sha256": "eafc306b7379def7a0fbc2fcd8a57db6d68691959c90eedd70a0db267d59250b",
+      "bytes": 21103
     },
     {
-      "id": "f689e539d046acc5ca326f0ba0b23f69c1b393559bda1eab8f523a996c7815e9",
-      "text": "Série 2 sur 3. 12 à15 répétitions.",
+      "id": "f683826dc83ca6a9ce0e4ac801aaddfc5c88cbacba4b06cc496b52e95def2378",
+      "text": "Série 2 sur 3. 12 à 15 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "8fdf6a657b7f5713ed18c910b983b60862f78afc41fa67c03b8d8033700f2ca2",
-      "bytes": 21024
+      "sha256": "6fa430f3c93d2cac96cc2220bcc40ae4f988000240290a0b1a98ad88a11c7ebf",
+      "bytes": 21022
     },
     {
-      "id": "e609c20d0b142da92fc8155a68329a9ab166d3dfd39f23fbce1d483d4f443d5f",
-      "text": "Série 3 sur 3. 12 à15 répétitions.",
+      "id": "a2f7c1060b1b9654b579d9e57a49ceea6562cc2fdcd9867b18274478d475a7e8",
+      "text": "Série 3 sur 3. 12 à 15 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "0acf2bb7a507aa04908e891ad8bfd00b7fb82421ba213d573aef79ed090cfa6f",
-      "bytes": 21072
+      "sha256": "1bf141f7fe88a103cf0d2b759bd1b17a153fc55f2aa82c794752914cd81d1339",
+      "bytes": 21105
     },
     {
-      "id": "f48aef797b02cf715dbb45ca6b06dc303b98f8bf67f1f952e7e4cd5ee2de8fa1",
-      "text": "Rowing un bras aux haltères. 3 secondeséries de 8 à10 répétitions, côté, haltère le plus lourd.",
+      "id": "938edc9703433e32306aed8685df94f600619e72ce1e6c87d8e2ade40c60f699",
+      "text": "Rowing un bras aux haltères. 3 secondeséries de 8 à 10 répétitions, côté, haltère le plus lourd.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "0829a6dfb6cbce75950ef1d89a4f186e499420a044fcf1a291fd5440d58e5e7f",
-      "bytes": 38015
+      "sha256": "7e18ed76a8e43937376dd346b5cfa772c78b74b87700df321deeebd7cc738aad",
+      "bytes": 37812
     },
     {
       "id": "3a9d2e570acc24e540e351b16d33277dbd9c1dc5cf422af6f18668ea3fc4ea1f",
@@ -7254,12 +7254,12 @@
       "bytes": 17687
     },
     {
-      "id": "947aa11a9ff74bd68b71b7de68feafd9b56bdf0313fff46a15d19eff49137969",
-      "text": "Relevé de jambes tendues suspendu. Jambes tendues : 30 à 50 répétitions en aussi peu de secondeséries que possible.",
+      "id": "247fd069a3d85112dbd7694c8e3199503a4c7364a5904ae8b71ae8aa00dcc99d",
+      "text": "Relevé de jambes tendues suspendu. Jambes tendues : 30 à 50 répétitions en aussi peu de séries que possible.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "95723600d33eb0593c3cbbe14c1984f37d655ada3e134764eb90d5ac36ff65a2",
-      "bytes": 42245
+      "sha256": "4dc7eaa9dc0fb61f1e5497a50ffa1c9e0243361e2c9373afe702d1e2c99fcd0b",
+      "bytes": 39816
     },
     {
       "id": "e4a2c83d7f9adaab9ba2f656fbea0329b443da2835b6a3ceee564edd5d9dd24d",
@@ -7278,12 +7278,12 @@
       "bytes": 11895
     },
     {
-      "id": "36ea5f0211e4d2accf951d1d7d794d78fe561a65cc23f7d99f0c7191cd5e772b",
-      "text": "Faites le total de répétitions prescrit en aussi peu de secondeséries que nécessaire.",
+      "id": "82127bc42f7696e0c87565e25fcd567a9a64e8dc502ef51c7e80eedbedc152be",
+      "text": "Faites le total de répétitions prescrit en aussi peu de séries que nécessaire.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "a47ca967e2644fad3dbf224ed3d8d20681114496500c7e8c73e1d4fbac0d6177",
-      "bytes": 28235
+      "sha256": "8eaaded6bef2ac5e92ee32de75f5f4ca64da9fbae897705f564ae374a2d849f0",
+      "bytes": 25685
     },
     {
       "id": "c03ae1479fdf8d7799553905804cf1fdfef6422034dc9088abccef01b2e5d14c",
@@ -7486,44 +7486,44 @@
       "bytes": 36503
     },
     {
-      "id": "6dc267618807c09c2032eee520a7579530ae4c0c2db4ac3280b3d91456a1ad54",
-      "text": "Traction pronation, paumes vers l'extérieur. 3 secondeséries de 6 à8 répétitions, ajoutez un sac à dos lesté à 3 secondeséries de 8 répétitions.",
+      "id": "8076e4fecb6b34907aa30bc976bb53b509cc9bd79ed17f046f6e6139fb9ada53",
+      "text": "Traction pronation, paumes vers l'extérieur. 3 secondeséries de 6 à 8 répétitions, ajoutez un sac à dos lesté à 3 secondeséries de 8 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "675dcbae594835f07d6e118575d8028508307138ddac2170c625a30019122722",
-      "bytes": 54810
+      "sha256": "566d23f3cde72fa1409d0ce855837563080aa20f0e4e3195ccca53a457f529a6",
+      "bytes": 54756
     },
     {
-      "id": "e7090afa269fa3acc3edb0ea66a3bf539df3b7c2b7b3a160e0b46a8217d7da3a",
-      "text": "Split squat A T G. 3 secondeséries de 8 à10 répétitions, jambe tenant 2 haltères au poids indiqué à l'écran.",
+      "id": "7229b9cf9dfb51df5fad54a0923cfee80ce0f18edc6795f56eba9d7389218330",
+      "text": "Split squat A T G. 3 secondeséries de 8 à 10 répétitions, jambe tenant 2 haltères au poids indiqué à l'écran.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "6f442290b0edd44b044671152aaed6f5ad96762438c06e5a3b8b92872e91c112",
-      "bytes": 38620
+      "sha256": "70edba6e6f2f56ce5bacc40e54ade87fb2a848cb9d9d2d7e04520dabd34de808",
+      "bytes": 38638
     },
     {
-      "id": "959978d4a32452cd88657557c05832ef572f8d89696d4622d7aa25f167c65b72",
-      "text": "Curl nordique des ischio-jambiers. 2 secondeséries de 5 à8 répétitions.",
+      "id": "3c336e7f08dba3267b7cb2d7045a55507fe38c8d528a55aea4ea756ee5074799",
+      "text": "Curl nordique des ischio-jambiers. 2 secondeséries de 5 à 8 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "6c26b98404f1ebffc8375d83f4d2d2961b59d96d183c88c7d2b519625287885d",
-      "bytes": 30708
+      "sha256": "f01ef59bc6d20cb9f71554abe54c7e7b850ff57ea9e01281b64dcd7f434ec697",
+      "bytes": 30880
     },
     {
-      "id": "e3c59003ecc8b1958d6f10fe365a9251cad1f738a919316cdb38f1d45752f764",
-      "text": "Série 1 sur 2. 5 à8 répétitions.",
+      "id": "fc91c76330a9f8521ba50420aadf6b667cf1c9fe5c773386014dba4bb72f6d1a",
+      "text": "Série 1 sur 2. 5 à 8 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4aef32ce0d4815482e7532ee12403f3cbb03dc19c411d0f0db8ca106baaf4376",
-      "bytes": 20898
+      "sha256": "09dcdd1a94ccf5f84e7ad378579ec40d0b8ac5552fcb6655dfb194b33b935fbf",
+      "bytes": 20891
     },
     {
-      "id": "b0407b30c99ce3309f8c77409a18d80f45045a152b134c2cb845fd9a5ebbd2c6",
-      "text": "Série 2 sur 2. 5 à8 répétitions.",
+      "id": "9197900094a5df3392c75e92ccd305d30493dc1f4f6cb01ece5c67f2d4810a41",
+      "text": "Série 2 sur 2. 5 à 8 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "1f0a15cfc2940824a07e5a8423690e4b08ede751c3de2a1afb4fb978d0fa9dbf",
-      "bytes": 20997
+      "sha256": "4af756255213213dd2b76bcee7a69980c223debc0491a97b6c72a0070e6df84c",
+      "bytes": 17652
     },
     {
       "id": "87251a070c1f95fcc998341ab0cb50df947bc246b3f2e478ee41c91355f9effd",
@@ -7542,20 +7542,20 @@
       "bytes": 54547
     },
     {
-      "id": "6d7e05de1e33891b4a973cf4b60591efe6031c7567e419626ab01ea30413e866",
-      "text": "Curl biceps aux haltères. 1 secondeséries de 15 à20 répétitions avec la charge affichée à l'écran.",
+      "id": "ccbd0fa327e1c1f817773c0ee7b27485b9a4ff197ea3a77b8fe11355157755d3",
+      "text": "Curl biceps aux haltères. 1 secondeséries de 15 à 20 répétitions avec la charge affichée à l'écran.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "17577075931e8ee1b5e6a62167d0c82e1b41981a7266a8a0f7bf72986e6fe311",
-      "bytes": 34573
+      "sha256": "c307f09d8e4b5e572edaf4143ae80ac1f13cf1147a06ceb033769badd5fc2472",
+      "bytes": 34605
     },
     {
-      "id": "d54adee31106b8a29dfd282e09aee919e300e39f39e9c71b92779f7cf942d226",
-      "text": "Écartésecondes à l'élastique. 1 secondeséries de 15 répétitions, 1 secondes de contraction.",
+      "id": "ac66d308b4874b8439123097b9502f0e8f5cdd6745f561cefdac4fd62d39e4fd",
+      "text": "Écartés à l'élastique. 1 secondeséries de 15 répétitions, 1 secondes de contraction.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4c049daf0d41e0522f1952df620bf18a6b15eba1b79dcbad4422355045c38d0a",
-      "bytes": 34675
+      "sha256": "51042e5bd05bd14f21320bbc1c29db8d1508f26befe18bc0b51d2464b9a04610",
+      "bytes": 34225
     },
     {
       "id": "62d14b992732f11420037548d002a768faf99e2b7910b9d09ef46feb461f8843",
@@ -7590,12 +7590,12 @@
       "bytes": 18387
     },
     {
-      "id": "835d7fd4b12600afcff3513a2e25af7352a01eccce781d3ebe0eef3b6e708131",
-      "text": "Pose de l'arbre. 2 secondeséries de 30 secondes, côté, yeux fermésecondes.",
+      "id": "d04b016ceca48d40f6ca3acd23ff73b48d8e11b71cacb7bb64185c9ecd407480",
+      "text": "Pose de l'arbre. 2 secondeséries de 30 secondes, côté, yeux fermés.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "19ad90f8beb0e4a175741de2f1abb39d6997f5374c305d67672064ec35eaf9ca",
-      "bytes": 34649
+      "sha256": "99ca5dfb9ebeb7b7aecc55cb7062e6efc11f39baa9621b09015a272a2207df07",
+      "bytes": 28018
     },
     {
       "id": "ea1f50e0401d44e6a9073f03896c53f8b6cf2f1028e13404dd8657689584519b",
@@ -7654,12 +7654,12 @@
       "bytes": 43579
     },
     {
-      "id": "7a395d937c88adf3fad0a7219ba88234084cde5af6138722186d9f47b0bc74c4",
-      "text": "Soulevé de terre roumain aux haltères. 3 secondeséries de 6 à8 répétitions, paire la plus lourde.",
+      "id": "497276b60c2c01c20a0d8a14874910fba4fbdd14cb6abd43ca488f29b29b5481",
+      "text": "Soulevé de terre roumain aux haltères. 3 secondeséries de 6 à 8 répétitions, paire la plus lourde.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "a8c41f7bbc4faad069b7b965b9bb50502c4d29c621515f54b636b2e814717939",
-      "bytes": 34984
+      "sha256": "692fb888b3ef26c6b7b5d9311a64f1a3a9e329aaba2a2b589ea38a77d8afa1db",
+      "bytes": 35016
     },
     {
       "id": "c344d9173bd836d4fc88fca43c23398afee5f4ebcc770604f2c0af2321c3efab",
@@ -7670,12 +7670,12 @@
       "bytes": 22102
     },
     {
-      "id": "57f1d362bbb71c44370d4b6bd1846a9adeb46841bf84d96de8f11ddf7bef1b45",
-      "text": "Saut avec contre-mouvement. 3 secondeséries de 3 répétitions, attendez 20 à 30 secondes aprèsecondes chaque secondesérie de soulevé de terre.",
+      "id": "effa589cfe9fab9c15c6b0b695c7f46880abcd4a372fd1dd1ad37180a3b097eb",
+      "text": "Saut avec contre-mouvement. 3 secondeséries de 3 répétitions, attendez 20 à 30 secondes après chaque série de soulevé de terre.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "7c3f8f9e21c8b959166d30b8b0943d9940469f714e965c99b7fc8bc69b47d893",
-      "bytes": 50154
+      "sha256": "40603807c23bddbf3387338258d41afb52084aa444741204b5a6a1d55a04bd4a",
+      "bytes": 45807
     },
     {
       "id": "9efcab45f0e338e6b73768bf8eec5774aad685439beb17f43918cff5c85f37e1",
@@ -7702,36 +7702,36 @@
       "bytes": 18792
     },
     {
-      "id": "a2dcf086e0df2d5198c8ff0cb94b352421c0c7b50c2064ae31be91a85a3ff188",
-      "text": "Fente arrière. 3 secondeséries de 10 à12 répétitions, jambe avec 2 haltères au poids indiqué à l'écran.",
+      "id": "001c288256a1d050c5056e47f6142dae320198d4918753609070ee4b3e612724",
+      "text": "Fente arrière. 3 secondeséries de 10 à 12 répétitions, jambe avec 2 haltères au poids indiqué à l'écran.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "fbd18bd35c43a23c5f4ef85790fcfda0650c91bd960e5f2cba8da4412cd853d1",
-      "bytes": 42304
+      "sha256": "b1a71790094d587c4434bacbb4aab535c25d9db70045b24940247a5133621ba2",
+      "bytes": 38548
     },
     {
-      "id": "174d964a26e052f5d2772f8d94f0156bc7fd84e40d8d1558c96dde823f2a7d2b",
-      "text": "Développé au sol aux haltères. 3 secondeséries de 8 à10 répétitions, paire la plus lourde.",
+      "id": "bca5ff6e0b8b8d8a39d881ea41b0c63205e650f8cc0387c35140c751b36e5794",
+      "text": "Développé au sol aux haltères. 3 secondeséries de 8 à 10 répétitions, paire la plus lourde.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "cb9932d5ea1c21afabccc8676a8572fc9fbf48d6c683a1008a03a6a05265821b",
-      "bytes": 33812
+      "sha256": "13d26c64d187d5dc373ce612d00876869cc954cee815a104b8b1b95e3f35f50f",
+      "bytes": 33785
     },
     {
-      "id": "aca0063174dc49a4006588e68f06506a262beffff1442292e8754bb73f9e6e32",
-      "text": "Traction supination, paumes vers vous. 3 secondeséries de 6 à8 répétitions.",
+      "id": "6f8443cf595b7d0e7f8d7eb6a5f787b6466e031158affaf569693ce9a7075f18",
+      "text": "Traction supination, paumes vers vous. 3 secondeséries de 6 à 8 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "e7d4f7a7979b1df51fc5f4cd02c5d4f3161b0ca268f0c588dda8fd46219ec9c3",
-      "bytes": 30828
+      "sha256": "d067c358a9d48a622fe3a804d40377aa743391d1f975ac7797f91faab8c86690",
+      "bytes": 30942
     },
     {
-      "id": "b88cfa9102e708011abd5a2b85fb98c4a62af65bb553709edb5de5c11c95de4e",
-      "text": "Développé militaire aux haltères, debout. 3 secondeséries de 8 à10 répétitions avec 2 haltères au poids indiqué à l'écran.",
+      "id": "408c3859723cfb554a48dbd716993907af0c6ebf309e0890b7260ca062830449",
+      "text": "Développé militaire aux haltères, debout. 3 secondeséries de 8 à 10 répétitions avec 2 haltères au poids indiqué à l'écran.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4c4ac9e6a107193ed445a2a73602ac294b2e60b2c619720838acee7bf0159e9e",
-      "bytes": 42805
+      "sha256": "9e11c6cbb8c503b59d87d85f983cae86f840e576b0154d1fceff418ca9d68bc3",
+      "bytes": 42773
     },
     {
       "id": "b6a21e4bdaec73072e724ab87a9b3a3e553d69fe38fb1a33b0f077615b36654e",
@@ -7806,12 +7806,12 @@
       "bytes": 30105
     },
     {
-      "id": "755bc821c783971c33b0b509d3fe375bf86889ffdc4cd56cb7982257a72f76df",
-      "text": "Rentrésecondes de menton. 2 secondeséries de 10 répétitions, 3 secondes de maintien.",
+      "id": "1a263d4725f6830564e2ff5a3b53858e5978674a6ed0e5cd251e81684fe6f9f2",
+      "text": "Rentrés de menton. 2 secondeséries de 10 répétitions, 3 secondes de maintien.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "6a0d6b4c208fe61af37e8439a3651021a7ed8c554c228cd465d4b6d9c2dd77f8",
-      "bytes": 32456
+      "sha256": "56414e2dbf54fcea7e41066677250c8e90cd9a37e87816bf9ca486d55db02289",
+      "bytes": 33864
     },
     {
       "id": "ec23959584538d8599b9493a60e50f1e9906eeeb24d9ddaf16f32b63499186af",
@@ -7830,20 +7830,20 @@
       "bytes": 23866
     },
     {
-      "id": "6372cdd5bc32404b98847d89e2f636e5c86ee8446c37f130a7afa786888b123a",
-      "text": "Face pull à l'élastique. 1 secondeséries de 20 à25 répétitions.",
+      "id": "6cd09e1b60c437943d289c5624980250b4de8a9c64a2888f6626789a8f80deef",
+      "text": "Face pull à l'élastique. 1 secondeséries de 20 à 25 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "6835c1ac3381749ff65f1e2b9aa3f76cb464d020d4750d69cb97b108297e2973",
-      "bytes": 27923
+      "sha256": "c6ddf2b24fa36b630c6cfde3c692fcd8b30673a256583a53cec1b81cd8e087a7",
+      "bytes": 26275
     },
     {
-      "id": "501f26aa094487eb58907615ca910ff1c9dc28ee446cca25c1444a0209a80ced",
-      "text": "Série 1 sur 1. 20 à25 répétitions.",
+      "id": "575bd08ad5dd43b938df9e2e5f7b8a44e5117d4d6cf2da51597ec4f5db833a35",
+      "text": "Série 1 sur 1. 20 à 25 répétitions.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "e1114ef88c1829ee55adafcf70984acffe8ce38e666c383c9510d365d582c949",
-      "bytes": 22278
+      "sha256": "865412c5c6eada8215dad33af0364938062c4465818b9687d00efbe0315d5ece",
+      "bytes": 18858
     },
     {
       "id": "4a8092f53fe3fdc3603e0f512fb5d12afad464d844ded9b7a61ff900006c3e26",

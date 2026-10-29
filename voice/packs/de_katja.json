@@ -2398,12 +2398,12 @@
       "bytes": 10762
     },
     {
-      "id": "f0bc198754968564a1e05594e9982085738ecfb3d792e032c5b6613a71e0321a",
-      "text": "Farmer’Sekunden Carry. 2 Sätze à 20 Sekunden mit 2 Gewichte mit dem angezeigten Gewicht.",
+      "id": "601c0f24e31d30c68fa25c8dcac7ed49356d66c9083d3e1f577ad88d1b0eb73b",
+      "text": "Farmer’s Carry. 2 Sätze à 20 Sekunden mit 2 Gewichte mit dem angezeigten Gewicht.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "81da05c8c3b3309bfc51806a5b51b57b868f2a20f45ffb7700e12a7cee880820",
-      "bytes": 38910
+      "sha256": "77ef9d48a34ae70b56265e58fb7e21ad03e0e6b07f8b3cff2b4d1e00a38fe4d7",
+      "bytes": 38400
     },
     {
       "id": "fbba271bd3453142c06540dc7c74279c99b6644807d21aa16c5652fc9cc210da",
@@ -2438,20 +2438,20 @@
       "bytes": 34734
     },
     {
-      "id": "5caaf605b94b5a4545cc2e46411651919bf1dfb7ef594d4d34313be70c42f0f6",
-      "text": "Als nächstes kommt Farmer’Sekunden Carry.",
+      "id": "f4499f153ee7c99965b47de89115f9dc36d15d94f5ab50024e0983ba99a2d5ab",
+      "text": "Als nächstes kommt Farmer’s Carry.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "d05ef7a929fdda174726308234772fa6d9911bce0cbff7fa16ed402fcd42d4a7",
-      "bytes": 15982
+      "sha256": "a42ae644931f1c5106e6307104782a86af4629f530ad260f554f0853d423c988",
+      "bytes": 12956
     },
     {
-      "id": "83a86ed54141af810da65a05d858770dc3a3645e331f98ea77d4442d79636e24",
-      "text": "Zurück zu Farmer’Sekunden Carry.",
+      "id": "923c4dc487049075af5107d57e0899ebd48b5444af10edd45e928848e9c59e85",
+      "text": "Zurück zu Farmer’s Carry.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "23130a58596447c4598d926d09aaf927b2c4cc848c63a9588ef2beda4d8e446f",
-      "bytes": 13183
+      "sha256": "b7476389ca597e600324142b4363d3019a3f07436df3e1aea9a8fe3f92be7421",
+      "bytes": 10893
     },
     {
       "id": "501e09edac70447a8f2b55c3d142917c582b3168e98e05a85fb9237644f070de",
@@ -4766,28 +4766,28 @@
       "bytes": 11045
     },
     {
-      "id": "0b25dd2436dbe246f95b7fe6983256f7b5a29ce80d304c4cf96351be5970e2e0",
-      "text": "Farmer’Sekunden Hold mit Kurzhanteln. 1 Sätze à 20 Sekunden mit das angezeigte Gewicht.",
+      "id": "cd80e10e9b08c0585faaf539c98db1540cabd3839fc79b5c68fc0d404713a0ff",
+      "text": "Farmer’s Hold mit Kurzhanteln. 1 Sätze à 20 Sekunden mit das angezeigte Gewicht.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "728d878866ac337d31d7b386d9e15dc0f7fe10473e76bb20b98d043ae282decd",
-      "bytes": 37703
+      "sha256": "56463cf36d7e3fa8d0e3166dbba767c2dd5a7980549bcd30d3b6bc548bcb74ce",
+      "bytes": 34841
     },
     {
-      "id": "e32ebef9ba00f41a7845837072d60f272790597431d9faf293cdded820cdef80",
-      "text": "Als nächstes kommt Farmer’Sekunden Hold mit Kurzhanteln.",
+      "id": "7837b3f34cb69dc6e5a502ea1a1fc9ccecb5404a1c7a324d3fcbfcfaebdbcb05",
+      "text": "Als nächstes kommt Farmer’s Hold mit Kurzhanteln.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "f7d9e848e688e48abc207ee9c176b27bacbe1c88320120b6f0621f9e0533ea90",
-      "bytes": 21712
+      "sha256": "58533d6caac17e05042e71b2d1a9be5f2d80b9df4d9f460f87fcd9d8fb242e7d",
+      "bytes": 18175
     },
     {
-      "id": "df23222783e7ab0a214b2deaeec5e32102aaf2c5743b286a3ea1989f6cdc20b3",
-      "text": "Zurück zu Farmer’Sekunden Hold mit Kurzhanteln.",
+      "id": "56a024614710706b6a4005515b54f993051ff7308395f3d795e4806782e6cbfe",
+      "text": "Zurück zu Farmer’s Hold mit Kurzhanteln.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "6f8c6555e8047fbf9039863986562cde913fce7161dfbd54a9dd3a1c437951f9",
-      "bytes": 19208
+      "sha256": "126c02cb958be440e01a198a8805f661bdb1d63f03b4c0b32882e2dbbe3b7e27",
+      "bytes": 15826
     },
     {
       "id": "9c5ec475d491b7882b46787fd4c96b19d657e6b143fb46924be76fb6cb131774",
@@ -4958,12 +4958,12 @@
       "bytes": 23534
     },
     {
-      "id": "24dc48c37bd9788ddcf9be61ace95a2ba6257bd4a62f21da4e325b3709d7052c",
-      "text": "Wenn Ihre Hantel nicht für Swings geeignet ist, nutzen Sie den Farmer’Sekunden Carry aus dieser Einheit, Bryans Vorlage erlaubt beides.",
+      "id": "7502ffa5fae121bd81a0fdabc342a17b8878ab7c04a385c8ab74222300131ef2",
+      "text": "Wenn Ihre Hantel nicht für Swings geeignet ist, nutzen Sie den Farmer’s Carry aus dieser Einheit, Bryans Vorlage erlaubt beides.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "e1a69d8401665154e594099eb99fb6c7291dc75f28ec61442283840397462c18",
-      "bytes": 48771
+      "sha256": "e689566b7ea7e0de8e8fa0e7e905c95ca5fa1634681af8233f31a3b8288bb2d9",
+      "bytes": 45839
     },
     {
       "id": "9583926e064184d6f028cfd62aedf8ed47dbc9618ee23e6ef2b3063c732c4826",
@@ -5446,12 +5446,12 @@
       "bytes": 27226
     },
     {
-      "id": "004485f313191aa5664422a7fe7b64c33a16ee2f569adb91593a0868e8c00e0e",
-      "text": "Farmer’Sekunden Carry. 2 Sätze à 30 Sekunden mit 2 Gewichte mit dem angezeigten Gewicht.",
+      "id": "51af319c704245b76437324d4ae943b495f66595606452db578b30ed8ccced98",
+      "text": "Farmer’s Carry. 2 Sätze à 30 Sekunden mit 2 Gewichte mit dem angezeigten Gewicht.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "7853323a40d15360395522e801d7fae8bae1445a8ea06cd0f42ce588fba7b65d",
-      "bytes": 39243
+      "sha256": "5384cc27df3814ef40cdddf118d4d496cc0529569617e861070923e44f544983",
+      "bytes": 34839
     },
     {
       "id": "6f9727b619ff5934fadff7aa8e215001eb9eb9144cba9ef0b422ecabf2a6e68b",
@@ -5950,12 +5950,12 @@
       "bytes": 26476
     },
     {
-      "id": "34e02b088242d7530ff33bc8c52613506b4e3e4076ae30b490b37c4ba93baadc",
-      "text": "Farmer’Sekunden Hold mit Kurzhanteln. 2 Sätze à 25 Sekunden mit das angezeigte Gewicht.",
+      "id": "649acc56f5664b655aecf069e58e58d9870badab8c115a91507b7cfb461d1bf5",
+      "text": "Farmer’s Hold mit Kurzhanteln. 2 Sätze à 25 Sekunden mit das angezeigte Gewicht.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "eb4f2bb56911c5c47ba472264d1dee245a05ef7abce8737ef9fd577766980c28",
-      "bytes": 40155
+      "sha256": "444dab8bd44c4b9c7af5373b0a0d56cc0cdb50892338268e4929960375c76ea4",
+      "bytes": 37369
     },
     {
       "id": "2accb634ac93007501fedf73fcec1e78b4f8b211ac06371634fd6f680b0c2a2b",
@@ -6582,12 +6582,12 @@
       "bytes": 24782
     },
     {
-      "id": "64f37ef03cfb475d08d56f4c8764558110fb27cddc8c5ca1befca0c924da4211",
-      "text": "Farmer’Sekunden Carry. 3 Sätze à 30 Sekunden mit 2 Gewichte mit dem angezeigten Gewicht.",
+      "id": "fd6d1b3c5b069162857e30991d2f760529ea78ac7adbd95baf0a45eeac85635d",
+      "text": "Farmer’s Carry. 3 Sätze à 30 Sekunden mit 2 Gewichte mit dem angezeigten Gewicht.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "0db9df54bc999d5bb7f544bd310e576ce32b4c7030d5afb7d113be69e4686368",
-      "bytes": 39499
+      "sha256": "3fe60d2e00b4c93a961393a0256923ab094730c8da6b6d8d140689cd94898125",
+      "bytes": 38882
     },
     {
       "id": "9bb2fdfca7dae405b22801b0852133b54de3a874bd653ef75d1c77cbc108a878",
@@ -6974,12 +6974,12 @@
       "bytes": 21718
     },
     {
-      "id": "9d687804c5d70a62206b5db9ad96806ac928629e2062b7ec8b91004f620d1ee9",
-      "text": "Farmer’Sekunden Hold mit Kurzhanteln. 2 Sätze à 35 Sekunden mit das angezeigte Gewicht.",
+      "id": "c2bd1660d61252abe4ac571e8c56bd1d79a6013f3e0042d41085ccbb30a805b5",
+      "text": "Farmer’s Hold mit Kurzhanteln. 2 Sätze à 35 Sekunden mit das angezeigte Gewicht.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "91ccca7b4739a2b582da3fb6fe9f37adbafd03e92ea2592168c3cc0044d3c9bd",
-      "bytes": 40483
+      "sha256": "dafa55a552d2f64587e88bbce91c5cecbd394b8e6fa69d8c07b3359a14c56ff6",
+      "bytes": 37671
     },
     {
       "id": "497082e0a59cd239f10d3611c8e487316f0c984365cf076ea910cbf8ddbf03a1",
@@ -7606,12 +7606,12 @@
       "bytes": 34746
     },
     {
-      "id": "c6e1320b6e5902421ef3810b0546fc0a1cf9b405d5f228c418a9cdf0b57092a0",
-      "text": "Farmer’Sekunden Carry. 3 Sätze à 40 Sekunden, schwerstes Paar.",
+      "id": "4fcc8e9da57a478681e030b68c192cf84bc5b940000f676a151c0ecabb0716a8",
+      "text": "Farmer’s Carry. 3 Sätze à 40 Sekunden, schwerstes Paar.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "63604c3e0868795d3d5805b67c13b3ba6a63ad57dc5968df26858add5164c4b8",
-      "bytes": 31993
+      "sha256": "db9e735cf4c3ea0ab5cb83da78f3e746251beebbf11b16c8ea363a951df1c378",
+      "bytes": 34660
     },
     {
       "id": "f7e931ac948067fbb2686f7729aa2686af10d2d2d621bd687a9d2a79f67618c4",
@@ -7990,12 +7990,12 @@
       "bytes": 15300
     },
     {
-      "id": "33b3aa72b55f65d9fdfca43a3172d9684677e712793adb3abd2f85721d9be1d2",
-      "text": "Farmer’Sekunden Hold mit Kurzhanteln. 3 Sätze à 40 Sekunden mit das angezeigte Gewicht.",
+      "id": "55c373556b2fde38e9e64096c4e83c64e76030c35091af4cb5ff740a0ce6aae4",
+      "text": "Farmer’s Hold mit Kurzhanteln. 3 Sätze à 40 Sekunden mit das angezeigte Gewicht.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "8a55f4a0ce5d8091e59875cc03729c1a597b35ea69d49bbce590366a599b1e20",
-      "bytes": 38208
+      "sha256": "3969c8507371fa5fbe2a8bd722bfd2ccc36a68b7f45cf94d1242d7e3eda20569",
+      "bytes": 35435
     },
     {
       "id": "6e344d2f78f9f592b2aa4eb8dbe78b376b6294391fff2c15a5897d1bea63571c",

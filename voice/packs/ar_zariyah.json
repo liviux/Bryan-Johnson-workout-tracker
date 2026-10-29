@@ -14,12 +14,12 @@
       "bytes": 48275
     },
     {
-      "id": "9a931d9dd55092e22646b56b9b28ba3a2803533df1df4dc28634b5c81f2b1467",
-      "text": "المشي للخلف. إلى 12 دقيقة، وزن الجسم، بطيء.",
+      "id": "7689abb8a9f5f495574c763acf3b99c133a035491029ef7c9288a78a67c54023",
+      "text": "المشي للخلف. إلى 1 2 دقيقة، وزن الجسم، بطيء.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "c6a98041673a2fa2381aa62f70e5a9641678c33177686773210f8efc3fb7f495",
-      "bytes": 33956
+      "sha256": "7909f8eebda7ac8eefb1bd198d2c352d602e850ed56941b04c898ef3f23b3032",
+      "bytes": 33748
     },
     {
       "id": "0e0ca3a5c4960c6385269561bc45e22ff12ef2e63f3ebf568f1f06932d98b916",
@@ -726,12 +726,12 @@
       "bytes": 28300
     },
     {
-      "id": "227e3d484f37ec02b2cd5ec2e47df56d053350ae94dfbfcb596921e1725c669f",
-      "text": "تمارين الضغط. 2 مجموعات من إلى 68 تكرارات، الأيدي على طاولة أو على الحائط.",
+      "id": "0d125f8c56b4f41571f7e4278f0e6dd9dc70ab7c776c9381c3b2a178a0d035e2",
+      "text": "تمارين الضغط. 2 مجموعات من إلى 6 8 تكرارات، الأيدي على طاولة أو على الحائط.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "baa9fe645af936212f14ea5e084ded71bca78d4ea7d1ca105e5cac10c2237c8e",
-      "bytes": 50530
+      "sha256": "d83e7d97d75b735fd21d6569baff2b215f18e476285fbcc683bb8116d1e8685c",
+      "bytes": 48997
     },
     {
       "id": "2ac33d7951ac32456b8cc33509118a51f572c0c9afca3216d97b4170e995bdb3",
@@ -774,20 +774,20 @@
       "bytes": 34596
     },
     {
-      "id": "368e538f051c5c85b6d422e93ddd05c5b77af0c3a7444ed65485fd38681d95fe",
-      "text": "المجموعة 1 من 2. إلى 68 تكرارات.",
+      "id": "fdd60def88ec7dea97c0eaf5211a7b854d8c71dbfbc9470ae749263873743836",
+      "text": "المجموعة 1 من 2. إلى 6 8 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "866821df52e8ee4634b4a9a641201d5b9ea8cbe2c7bd8c8a5de0728ccb4b35c0",
-      "bytes": 31093
+      "sha256": "8fa2f8518cbecca3af235453d821ebe4900d8b718baf2f9576e8256335d854b4",
+      "bytes": 27633
     },
     {
-      "id": "e380a6bcb2ba0a233c32ecf0a07a1b28c59b2eeb1bc9510560bb78f486dc91d1",
-      "text": "المجموعة 2 من 2. إلى 68 تكرارات.",
+      "id": "d9cbdce27d65c26ca85ebeb5a80738ddd1692815de582f1364cd7e7fa55d2e05",
+      "text": "المجموعة 2 من 2. إلى 6 8 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "624a128bb7d6b3862efffcfb0819890fdbc63f231cd7c6cb6d0fd449865844a1",
-      "bytes": 30927
+      "sha256": "4dc8e7bd33993753efb57a68df4833063a293242a7380b9b738efef021ce6d87",
+      "bytes": 30879
     },
     {
       "id": "d3d4e1d3e0c6fc99041c3cb5c714b9edd2f26d4e9b6b46596604f1842a4da3ac",
@@ -958,20 +958,20 @@
       "bytes": 14561
     },
     {
-      "id": "de605591c44aa4449f3465db053e74e9790b8cdfa339e31f967f7acc6e510cc9",
-      "text": "رفع الظنبوب بساقين. 1 مجموعات من 1إلى 215 تكرارات.",
+      "id": "0cd8c8aa2d0394902878edd690dca86cabcbbc42679df910e71763284054642d",
+      "text": "رفع الظنبوب بساقين. 1 مجموعات من 1إلى 2 15 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "73caa9a96fac26ce9002a345a86d72f40ada7feafec97e758fb566d5827d17e3",
-      "bytes": 39014
+      "sha256": "e4b5aa9097cd8b6e6c31de42a4df086532f2d2f4e15d7a72c7f70db4a1a4105a",
+      "bytes": 37814
     },
     {
-      "id": "51cced549f13a862e7f0ea0bc3b84b6e64f21ee8931a7e63e6a9dcf41f2f92ad",
-      "text": "قم بإمالة ظهرك ووركيك على الحائط وقدميك للأمام بمقدار 3إلى 060 سم.",
+      "id": "e7af7dafccc3d54eddb0fa0d5647650daf2efc3b5cf2e7d947264063facd16f7",
+      "text": "قم بإمالة ظهرك ووركيك على الحائط وقدميك للأمام بمقدار 3إلى 0 60 سم.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "dcd0cb846f1e3b18b262caec412ef4570764da96e4a9d91be307c36dfd8eb149",
-      "bytes": 40440
+      "sha256": "30d4d9f26983c175315420c6282adf0438d319cc17c58d912a826baaf45ffd02",
+      "bytes": 42027
     },
     {
       "id": "01a58f9400b5ff6cda45ac186e2d5654a9bfa0a630443455d9459f4e42927294",
@@ -990,12 +990,12 @@
       "bytes": 20163
     },
     {
-      "id": "2bb2569b206cd4ec990f18508072f8e0423f3d8d412345e117b76156c27788ff",
-      "text": "المجموعة 1 من 1. 1إلى 215 تكرارات.",
+      "id": "1ace8f77b5b1cd0cccc63ce5716d50c4a811c71eef3a85687cde427b5ee007d7",
+      "text": "المجموعة 1 من 1. 1إلى 2 15 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "1481bf6ba74fa7525ddd74f829abf74d458ed41688bae4ada5ce2de8ded98525",
-      "bytes": 32279
+      "sha256": "c0abd4ecc0826dbfcf71d64543a1e37c940284b89618acba09dcfce71300b0fd",
+      "bytes": 30955
     },
     {
       "id": "a00eb1b8b4bb0014342aa09125fefca9e205287e7b7070fdeecbb072c7acd9f6",
@@ -1070,12 +1070,12 @@
       "bytes": 20719
     },
     {
-      "id": "aea338ae22b4d384cfe0c290a5f8707f6deb7916d9ed3ad72614971b0c8af82f",
-      "text": "البلانك. 2 مجموعات من 1إلى 520 تكرارات ثانية، ويمكن إنزال الركبتين.",
+      "id": "267db32fae06d789d9ae62d133c80c4f6e47c7188b43f2b66c42f8f9df6403e5",
+      "text": "البلانك. 2 مجموعات من 1إلى 5 20 تكرارات ثانية، ويمكن إنزال الركبتين.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "6604710002cc46bd9df0769a5b7183a9e395197829d1686dddb7b403757d9d89",
-      "bytes": 47711
+      "sha256": "1df7e39d48fbe1e19b896eddec0bd52cef2eb49f48e658814c869fd274dcc460",
+      "bytes": 49085
     },
     {
       "id": "6d3603952e1308e42cb44976dbcf5ea6c9f82be467b566c647de8ae55c0fa1b1",
@@ -1102,20 +1102,20 @@
       "bytes": 19462
     },
     {
-      "id": "71302e75c5bb5bc611bc47b356a5b4591d6edb171b884ccf8a5928be6a493e00",
-      "text": "المجموعة 1 من 2. 1إلى 520 تكرارات.",
+      "id": "3dc32d58a6af4fbcef201c5737cf7d477751340e4b02cfc1e0939ae5c5285f95",
+      "text": "المجموعة 1 من 2. 1إلى 5 20 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "086a445eebb203f8f3579336feb2b94473bbd172eeeb90211ab9df20a5f6782c",
-      "bytes": 32409
+      "sha256": "7fb483289ca115335061727f056c3f5d920e716318c67625ebe152010befe7c1",
+      "bytes": 31031
     },
     {
-      "id": "f5628045bbfe156a4d3feef249f3fba0737737f9beb0536e9687eb652820e87d",
-      "text": "المجموعة 2 من 2. 1إلى 520 تكرارات.",
+      "id": "260a4085c3a924f264a2ddac3c2e9135b0bd039a2ef6968dde8d644d916cecfb",
+      "text": "المجموعة 2 من 2. 1إلى 5 20 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "46504e5b78242556389b3d709c9d3d09d7da5a7537dd463fcb3206ca5cfe84c7",
-      "bytes": 32574
+      "sha256": "b7212827494e6a9d501ea4727d18b1570b653ccd3e6b47b90d09c88368c18d63",
+      "bytes": 30965
     },
     {
       "id": "716073f53c84ad806208c643cff565d64716cdd7471f383ec4bf7fc97165a831",
@@ -1214,12 +1214,12 @@
       "bytes": 54646
     },
     {
-      "id": "8fec5f166efb7097219d9a9dbc6e63404c0b7d4957d770f4c129bed9a8bc700b",
-      "text": "معدل ضربات القلب نطاق معدل ضربات القلب الموصوف لك, 6إلى 070 بالمائة من الحد الأقصى, .",
+      "id": "b3aa6282afd8d1c42d6eaa78fa756620ed2152530e274124dd15b91fc2352574",
+      "text": "معدل ضربات القلب نطاق معدل ضربات القلب الموصوف لك, 6إلى 0 70 بالمائة من الحد الأقصى, .",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "bfa758867f4a510bfad1ecf6d9152b40cc828dac9a298f5bbe672ccab3def453",
-      "bytes": 45195
+      "sha256": "249f6fe4ade121fda020ec59a809740f46fad32e524a0643d737bbd4b52244e2",
+      "bytes": 47349
     },
     {
       "id": "98a4e0798f1b300cd402dd44ade2060bf3bfabd250548b3e1405c0cd46757f17",
@@ -1350,12 +1350,12 @@
       "bytes": 14602
     },
     {
-      "id": "4d505a754ab6409f197caed84e783c9998588cd52390894f5f4538b140c30bf7",
-      "text": "تمدد الظنبوب جاثيًا. 2إلى 030 ثانية.",
+      "id": "9c45bc814f9433bd897a1076181b70deb3901e044869459762edaaa77505fa24",
+      "text": "تمدد الظنبوب جاثيًا. 2إلى 0 30 ثانية.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "e19aa3b3eddc0cc3cbc08c6e0c1708620f83278759ad4a9cc35e5e7c28c2d1aa",
-      "bytes": 25051
+      "sha256": "7295bb1cd1af8b1c9b099524f8aafa6780d98e6cdee3e23562c997d1bca9fe90",
+      "bytes": 26182
     },
     {
       "id": "38da83adcb335d85d6659bb77e939b267af05abe83a1961a6d8ab6a24e1ad1cc",
@@ -1622,12 +1622,12 @@
       "bytes": 29585
     },
     {
-      "id": "ce37efac98638bd82d2e9756b61b676b922b95dfe0ac8c7b99e2cd3ee3f105fc",
-      "text": "اثبت إلى 12 ثانية ثم انزل ببطء.",
+      "id": "fad4ee4e11310914af7076d4158ecda222b6dc71271498b93eb358e00da17e6e",
+      "text": "اثبت إلى 1 2 ثانية ثم انزل ببطء.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "793ff1927887a904a692fefd15da37ed237f2a26405773ff8b8112d75ffbb252",
-      "bytes": 21041
+      "sha256": "6b9364242ab9a5fdc98eae737161706144280872001303be155e91f01509af22",
+      "bytes": 22725
     },
     {
       "id": "26db6988a03b45b6236e1036e5b9508de5241d35e1019c960903636caa537cfc",
@@ -2022,12 +2022,12 @@
       "bytes": 13747
     },
     {
-      "id": "9a1e78c5bc32164671fc55b4c3ea652f1969f81b0496fd0493b72eae946c1c33",
-      "text": "تعليق ميت سلبي. 3 مجموعات من 1إلى 020 تكرارات ثانية تعليق ميت.",
+      "id": "1e48a3adfb1433ca357062195792ce662e45c9d65ac41493c588423cdf6eac99",
+      "text": "تعليق ميت سلبي. 3 مجموعات من 1إلى 0 20 تكرارات ثانية تعليق ميت.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "7f38b57552c474793f6b6b9eabcb0b6ce66e1bc872dc6f1b754191f11642ba51",
-      "bytes": 42034
+      "sha256": "39a4970516a44d20754ee6bcde039c2804cf97eac27d6be01b30221c4a234989",
+      "bytes": 43920
     },
     {
       "id": "94ded5fd1d41122906ec179c3c8fa7e3ec2ae5be2503de1ab541e8ac97c28209",
@@ -2054,28 +2054,28 @@
       "bytes": 21432
     },
     {
-      "id": "544af375117fef26b9816357c83d2b68a52b239375f47f45ed48e07acb87de05",
-      "text": "المجموعة 1 من 3. 1إلى 020 تكرارات.",
+      "id": "fa31982cf35ac043fcd2434622c4e8bd06949b5922c86f9144a0232eb22a673e",
+      "text": "المجموعة 1 من 3. 1إلى 0 20 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "54813998056d50c41006ff9a9d8a16ff25b3c69c235833971acf270c3c0408d4",
-      "bytes": 26333
+      "sha256": "fc714c47973ae89f780d251ded6bf03672da34cd237d557f6a7cb45744d02924",
+      "bytes": 28164
     },
     {
-      "id": "641f829536df17c452c2e0d33d10eca3e1aa8c88b61e554ea8a002ecaa75d950",
-      "text": "المجموعة 2 من 3. 1إلى 020 تكرارات.",
+      "id": "d1b1a5fb1d677e8bc8f66c12d07d4cca5728e705f063f9e43556bdc62abb983d",
+      "text": "المجموعة 2 من 3. 1إلى 0 20 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "9ddaf01105036fbcb9c812593224e185acd7637a7257418d8067c3a059aaf14c",
-      "bytes": 26783
+      "sha256": "bc537fccd2f29b01bd3e7b7129863d42e652014d04998585715fd65afe7629c6",
+      "bytes": 30965
     },
     {
-      "id": "c9ef0facd1f47bdea123559d07ef0da8e8dbfccd09fe8e77fb8cd67170d96544",
-      "text": "المجموعة 3 من 3. 1إلى 020 تكرارات.",
+      "id": "f6bf49b4d2827290cc6ef35ad5c2f620b94c98188dfcead5b7ab03baba21df8c",
+      "text": "المجموعة 3 من 3. 1إلى 0 20 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "e70c78188a560ef06dd7d5bdca193ed196b6a5a45cb250465fc3300e4eb0a1ab",
-      "bytes": 26769
+      "sha256": "7d647fca9c1b9a13e0dc41ae8a28e2453a486ae13dd81a2161e56b7eba0fa4de",
+      "bytes": 30944
     },
     {
       "id": "9fefc6531c9d1bece3f2e3cd2e8b222ca8d171fb17720252bce60fcef30b54b2",
@@ -2094,12 +2094,12 @@
       "bytes": 16548
     },
     {
-      "id": "6bbb60485bf4ced441990da8c648b8803460dd3a2de0df79da157bf9c470f46a",
-      "text": "أبقِ أصابع قدميك مستندة بخفة على الأرض أو درجة لدعم 2إلى 030 بالمائة من وزن جسمك.",
+      "id": "d470c37c985c7fd874c74b28c33558c67aad0d914357acb8d5c65e9c5577ea41",
+      "text": "أبقِ أصابع قدميك مستندة بخفة على الأرض أو درجة لدعم 2إلى 0 30 بالمائة من وزن جسمك.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "ddd509837fb97b4bd03f991a0c669705dd5da3075dd5aed938683ff3f189b346",
-      "bytes": 45377
+      "sha256": "49b6d5ceeeb73849f961875768e11c7757f5332355851a66efb723bccde2fd3e",
+      "bytes": 47242
     },
     {
       "id": "1b4000e9b6c35f9c7c8973fb46d8bc08b7b168c3627d38c2b6f1ad8bd78a19c4",
@@ -2310,12 +2310,12 @@
       "bytes": 26424
     },
     {
-      "id": "8d696ce6dbeed76176c882676edc99ab1cb8f6e7c0d1e79b40fdc680250750e7",
-      "text": "اخفض جسمك لمدة إلى 23 ثوانٍ وحافظ على ثبات جسمك.",
+      "id": "08915cd386ea3248be8d51b2ac725fc3d8374bc12585553da27623ada9fc93f8",
+      "text": "اخفض جسمك لمدة إلى 2 3 ثوانٍ وحافظ على ثبات جسمك.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "3406160b0f751163e1568356ee68ca7bad5251b623951fb8d7cd71c4d7861687",
-      "bytes": 34801
+      "sha256": "87d97d9d20431fb3fce07399f98013a18b3d849bfd84e30e8e548f587c97505c",
+      "bytes": 34767
     },
     {
       "id": "a6dec8523e8f6beba87592eb3e89bb82e26e31367b762b656e4cf262eea9b243",
@@ -2414,12 +2414,12 @@
       "bytes": 17473
     },
     {
-      "id": "9db0347c12dfe86af4bc2fac5ed819e06e23e218784b616e94b58e6f0a346afa",
-      "text": "امشِ في الغرفة بخطوات بطيئة وثابتة لمدة 3إلى 040 ثانية.",
+      "id": "3eb0be38ef4e138346ff2c6ebf9b7b427be5f3c1f53dbb1724405870680c53b4",
+      "text": "امشِ في الغرفة بخطوات بطيئة وثابتة لمدة 3إلى 0 40 ثانية.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "a6f19389d2327975ecff8795b67228d321f4273e7fc44fedbe885acbb67c240a",
-      "bytes": 34732
+      "sha256": "593da2976bc6ea19ae446d57743f38850bbc6ec848cce1f0c651203bac31256b",
+      "bytes": 34907
     },
     {
       "id": "780bc85ef7c4bd7707ebebbccae2e47c93397fb3e9c97e19d53b2153c6031bda",
@@ -2678,12 +2678,12 @@
       "bytes": 14197
     },
     {
-      "id": "6aa29a649609f4a8984e418535bda84b6ea9bfaaa46334cebe6fe0596b7b0720",
-      "text": "تمدد إصبع القدم الكبير, الجلوس على الأصابع. 2إلى 030 ثانية.",
+      "id": "079c13883807961eeff40ef945af39cbe8194caec1baef7606b49664baa7dad0",
+      "text": "تمدد إصبع القدم الكبير, الجلوس على الأصابع. 2إلى 0 30 ثانية.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4ae9ec6a94c8d7c18d99e34d1ed2c8eba336b983f9d8ce570ada53cbfad80624",
-      "bytes": 37258
+      "sha256": "52bb00b6340c2c96833d738a4cc705d209461735f055c7cedcf315059731216c",
+      "bytes": 38380
     },
     {
       "id": "0a96ab4d78ec678d059abd1aee5cc46e30a729105ce934c391652ff984619db9",
@@ -3174,12 +3174,12 @@
       "bytes": 23422
     },
     {
-      "id": "0384331b836d996584a11511bf23ac431cf85ea12c8248e19be45bc9ecaa24a9",
-      "text": "ثبّت الهبوط إلى 12 ثانية: الوركان للخلف والركبة فوق أصابع القدم.",
+      "id": "29147ebb87cce1c03ec3e78815b042dddcf6de4fbda17516dd863b4674ad0347",
+      "text": "ثبّت الهبوط إلى 1 2 ثانية: الوركان للخلف والركبة فوق أصابع القدم.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "ad0e872ea0f73a8775dca8a2b110511b17c77e1a303725b5611960cd862c2ad5",
-      "bytes": 36705
+      "sha256": "57a96972c120c8eebaf534bded22cf2baefd91f5ec99538bf8409780f34864dd",
+      "bytes": 38500
     },
     {
       "id": "8f84d9a4c23ebac748bc257b1acbe500cf02e037e625bb4c99febfdeee06224c",
@@ -3286,12 +3286,12 @@
       "bytes": 19044
     },
     {
-      "id": "caae87847ee45ad6c80ba252086e15eff06ff7191de99a1516de66bf7a649ec8",
-      "text": "اسحب لأسفل بسرعة، ثم عد خلال إلى 23 ثوانٍ.",
+      "id": "13672ec7cb731d9fd80294f6f294e81a32165920b5f3b9c959dac58945539d0d",
+      "text": "اسحب لأسفل بسرعة، ثم عد خلال إلى 2 3 ثوانٍ.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "12b591a2cdf77738879fde7cfa016e17e97a2ba02da95b4a3066c1cf9095fa78",
-      "bytes": 29747
+      "sha256": "f194a28f590acf974497bf166bf6c44db47e8457483d805b9b34e8701d1e83a7",
+      "bytes": 28092
     },
     {
       "id": "a95dc51bd6f928302c2d245dfd36328e678997f9d04781774d9349e4731be75a",
@@ -3494,28 +3494,28 @@
       "bytes": 16382
     },
     {
-      "id": "1bd23a949813f4a31c477229c43ec947f1cd2c312794a1fa4fd9885be0856c77",
-      "text": "تعليق ميت سلبي. 2 مجموعات من 1إلى 020 تكرارات ثانية تعليق ميت.",
+      "id": "cca898880ff9538ac7987f23af0749f484585c26451053b239a218428830279a",
+      "text": "تعليق ميت سلبي. 2 مجموعات من 1إلى 0 20 تكرارات ثانية تعليق ميت.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "29c402718e239af9072f7106126dc168103bfef45d2e75ac9d5bfef9eb96552b",
-      "bytes": 42385
+      "sha256": "df271b041ff061c555b918aba141fa7de487f771a73c53eb99114e28e6847c26",
+      "bytes": 44567
     },
     {
-      "id": "107a180c0aa79b56a71e9da85e45a8c8693bbee913bda7204971edd31f88837b",
-      "text": "المجموعة 1 من 2. 1إلى 020 تكرارات.",
+      "id": "bec1e95b6c99e047adfec8518759221cf48d2e24d0695356f2b25b910e2e0309",
+      "text": "المجموعة 1 من 2. 1إلى 0 20 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "bcebb25325a2ff8a3c4f317bcb6da4bdc5fdd9a63c93384432a72d06aefbd1d9",
-      "bytes": 30974
+      "sha256": "5504428f044a23c5e535ea5bed992ca8825e002bb4d4c716f4a503486f0d4222",
+      "bytes": 31073
     },
     {
-      "id": "85f87af46b8dd172ebbc9ca2249e4e63390dce8743e6ed61c82591f0fba5f1c5",
-      "text": "المجموعة 2 من 2. 1إلى 020 تكرارات.",
+      "id": "54a93a11c426601ed62c8bbb9398ee72fb8e9af4ea2b9f5425d3dea6c40399f3",
+      "text": "المجموعة 2 من 2. 1إلى 0 20 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "13b5f6d51e66e022d14a5526c86885f618008f735d4a9767f8cf707b0142f0f2",
-      "bytes": 30815
+      "sha256": "b4eb73bfab779b9a1281bce2c5224964c7a7d244be0c8643866477798061d18e",
+      "bytes": 29123
     },
     {
       "id": "b97fd385f774053f4563681d69bd8ec5643428fc03b65c93650d9f61b818e39b",
@@ -3750,12 +3750,12 @@
       "bytes": 27920
     },
     {
-      "id": "e66e08f88c153ad8fd9703fa114446d543e955a6468898fbd0fb9b9d32f1a0d2",
-      "text": "اثبت إلى 23 ثوانٍ، ثم ارفع نفسك من الأسفل والرأس أخيرًا.",
+      "id": "af66417eea0fc9017dad9ec7b399159c1a7ea9049b773c4ba8c8fe02ae7c4f50",
+      "text": "اثبت إلى 2 3 ثوانٍ، ثم ارفع نفسك من الأسفل والرأس أخيرًا.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "daea944538ec5df1909552a3d216fe04dd5e75dc690ecae9a6c2d65976c8ce8e",
-      "bytes": 35935
+      "sha256": "295aa9d12807702f80c5f91b84d963629f03ca9bb6203cf43466dfb24a531564",
+      "bytes": 34752
     },
     {
       "id": "33b88b24ccc62dee01c149bb0ed10e37433f19ad6eaaf75829e54c2d8fc1dd20",
@@ -4222,12 +4222,12 @@
       "bytes": 30516
     },
     {
-      "id": "9d53e2052ef71743c8420fd07673d337443a8313bc72b45ef761117cb11b314f",
-      "text": "قم بالخفض لمدة إلى 23 ثواني، مع الحفاظ على لوح الكتف للخلف وللأسفل.",
+      "id": "27e597df194cd590cea6b60f901c46dededa66703cc1a9c5d733df028c2c50ac",
+      "text": "قم بالخفض لمدة إلى 2 3 ثواني، مع الحفاظ على لوح الكتف للخلف وللأسفل.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "065d158453c5895f533609ceaa1654d98bd81f27682d60ba55e7e3e3f778249f",
-      "bytes": 42056
+      "sha256": "2935e278cc64d201583ed6938492c53693ab6dcc39c84c5fb19912f07f038b5c",
+      "bytes": 40603
     },
     {
       "id": "5666b2b8ffa244986647af2e1ae7d8b153754e722c1d793244a87af47616ab33",
@@ -4270,12 +4270,12 @@
       "bytes": 34698
     },
     {
-      "id": "817c072e38b7a65ea5e418ba21e0f9d15740817ea24ea79202d08bd417c51916",
-      "text": "استخدم 3إلى 050 بالمائة من الجهد للتعليقات الموصوفة.",
+      "id": "10986fab8ed9428152d6124267647c0dda24fc8e37605e415a8db6286c846f85",
+      "text": "استخدم 3إلى 0 50 بالمائة من الجهد للتعليقات الموصوفة.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "87b06391fb890d2ed8b7b8e34b5aefa8e5c93a36fe3828ea053e6644e9ad4ecd",
-      "bytes": 27867
+      "sha256": "1a5a5297e8cc1586661ff90eea9315190e693b51e9d78db0e6262f49293ef098",
+      "bytes": 29853
     },
     {
       "id": "7873617e3bdaf5d51c6edff0902bc95ab969ead9a133de8fd38fe02abe6b8061",
@@ -4438,12 +4438,12 @@
       "bytes": 29379
     },
     {
-      "id": "55432cd4bdbaba3f0f4923fada665333afb4ef944b6a5873a7e233d187fa87d2",
-      "text": "اضغط برفق على جبهتك واترك يدك تحرك رأسك للخلف ببطء لمدة إلى 35 ثوانٍ، حتى حوالي 30 درجة.",
+      "id": "9ee0557c6ad20c364879ab309ad1fb34781ba873e9f690c88d87dac3ce7d688b",
+      "text": "اضغط برفق على جبهتك واترك يدك تحرك رأسك للخلف ببطء لمدة إلى 3 5 ثوانٍ، حتى حوالي 30 درجة.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "200682c3c1304e693753d17dda21a6ffdac5140495e9bd6cff3cceb51bdadd6d",
-      "bytes": 58895
+      "sha256": "5ca5efaa8784d3f1bf24f7e96cb73c16a2cf962fc2a5095c02eed9d34619f86a",
+      "bytes": 58461
     },
     {
       "id": "659909462708856053b9f9cd0d31d54b32e6120aef8e8c9bff30cd727ca1c584",
@@ -4486,12 +4486,12 @@
       "bytes": 34740
     },
     {
-      "id": "1fe1f6fdd5acb3a00fc164aaca0bba1dba9986f2fdab898b27d8fd29ded332e2",
-      "text": "ارتفع بسلاسة على مشط القدمين مع رفع الكعبين إلى 35 سم.",
+      "id": "ed4ccf1db93d39cc6b00205354c08675671e362bd6076e7913ccc32ea5198594",
+      "text": "ارتفع بسلاسة على مشط القدمين مع رفع الكعبين إلى 3 5 سم.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "ad322f07d52008f7e2e6ef2343a94b150fc83610b065c3ca651abfc825cdb0b6",
-      "bytes": 37601
+      "sha256": "88fb3ed5778532299037bc110d77433f898ab0649a3bb3dc58c308f24b75ee9b",
+      "bytes": 35500
     },
     {
       "id": "e70337d2263134bb9a41d82c5d02757b397eb0cbdebcdfc69f7a4a51e2e68b5f",
@@ -4510,12 +4510,12 @@
       "bytes": 38043
     },
     {
-      "id": "684db7d5a0231bc7af151686c1ff23aed1d3a923e15d72c64c21c808af73b72e",
-      "text": "نفّذ إسقاطات منتظمة ومتحكمًا فيها: 2إلى 030 تكرارًا للمبتدئين، وحتى 50 للمتدربين.",
+      "id": "69cb7526251c8c5e0ef7646905239614b0fbef0d48c582eb88220aef1da29732",
+      "text": "نفّذ إسقاطات منتظمة ومتحكمًا فيها: 2إلى 0 30 تكرارًا للمبتدئين، وحتى 50 للمتدربين.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "980b7dfcc2b0d26c4745d67315ac778a833c548fb8a55cd45ea16f1ee02e6638",
-      "bytes": 54138
+      "sha256": "44ed16efbda2f33b1c39832695d08ce8a8fe224e43c258ec965341b342ebf5b7",
+      "bytes": 58468
     },
     {
       "id": "41ef199e102b9c412509a839eec21fb30c712d93b91855b4230cf3165941a933",
@@ -4550,12 +4550,12 @@
       "bytes": 12899
     },
     {
-      "id": "be4fd9bc01b18cde387091c97bb6ca83de2e1afb9683a9e6a0074b4ace5cc506",
-      "text": "أمسك بحائط أو كرسي ثابت للتوازن، أو قلل رفع الكعب إلى إلى 12 سم.",
+      "id": "e49480a82ffc78da4a6f89fd8e505449cc46f0620caee7e41f8852fc9c93df3c",
+      "text": "أمسك بحائط أو كرسي ثابت للتوازن، أو قلل رفع الكعب إلى إلى 1 2 سم.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "e443f602b341a645a6c686b969c5602b42e7370276b75aca766e3e54483b887f",
-      "bytes": 41995
+      "sha256": "fc996553154c162dbf442126f2e7e30eea8f073bd9e884f6d4def6c914493d0d",
+      "bytes": 43453
     },
     {
       "id": "44273b9f0851af257aae8c2d63c0f5f2c3896ebaf5455c00769a57191cdeab35",
@@ -4630,20 +4630,20 @@
       "bytes": 39448
     },
     {
-      "id": "a8e16f7d58a736940507e91ecdff9368e8021103190592be991c864fc64c872d",
-      "text": "تعليق ميت سلبي. 1 مجموعات من 1إلى 520 تكرارات ثانية، والقدمان مدعومتان.",
+      "id": "7e2fbfb61f71d039f05745705d0434b15a0185743de7fe72757e323dd56c7dba",
+      "text": "تعليق ميت سلبي. 1 مجموعات من 1إلى 5 20 تكرارات ثانية، والقدمان مدعومتان.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "bb2233b935df7e032d7fc25b233e9b93caa13fe26cef236807642bbbbee741b9",
-      "bytes": 50767
+      "sha256": "e2a022d09aa10a574f83e1afbbd00083481d9ad7c95fb5876b9af7f657c4a0aa",
+      "bytes": 49238
     },
     {
-      "id": "8c6f512c375ef5513036a464abcc5caac0df0b1c5ae892a716050923371310a3",
-      "text": "المجموعة 1 من 1. 1إلى 520 تكرارات.",
+      "id": "061bcdf06e35f42293b49e8c72a878593755cd3f2992f8ab9899321c2943dcba",
+      "text": "المجموعة 1 من 1. 1إلى 5 20 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "61a39132409f2cf9e35400df7b4378a9f4f9b4a107898c08e903f5435e79e30b",
-      "bytes": 31974
+      "sha256": "dc43552920a9e597ae67bbb052a3fd6c19c1cc4abf66edebee18ec046e75b8b0",
+      "bytes": 29574
     },
     {
       "id": "ba57215668d397fd821cdb7d96ccc6b6d34ec46ccba3dad5b6a8c33674c8a3dd",
@@ -4654,12 +4654,12 @@
       "bytes": 13736
     },
     {
-      "id": "2a418da03be0b8b85e4ec932fb7136312f3a500abcbcbe1d5a366a937362a2a9",
-      "text": "تعليق ميت نشط. 1 مجموعات من 1إلى 520 تكرارات ثانية، والقدمان مدعومتان.",
+      "id": "f4dc56094c5d662354bb8ba46b1f72f697a047a4e999ed4ae665201713aaa11e",
+      "text": "تعليق ميت نشط. 1 مجموعات من 1إلى 5 20 تكرارات ثانية، والقدمان مدعومتان.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "93f3e9b0219d476ad37e944b5ce0d624e311fa4d4757dfc99591f04e16cd270c",
-      "bytes": 50539
+      "sha256": "1f6434d1189ace6ad1af59f49462e34029b68a3459cc4a3ca48a5dd489aa8c85",
+      "bytes": 49035
     },
     {
       "id": "0216ad8fb1c00d19ef620ed56e3a729bbcc0a0e4bc622270652a5d120e203778",
@@ -4806,36 +4806,36 @@
       "bytes": 22433
     },
     {
-      "id": "9ac6e7dfabc99ec8bc560c9d255cbc8aa1dd79deedd785abc63be760a6a55d91",
-      "text": "تمارين الضغط. 3 مجموعات من إلى 810 تكرارات، مع رفع اليدين عند الحاجة.",
+      "id": "654bd3b926dc1cb14929dea77f8c88ee08dbba5a77fe73479e7db472ac8c7f05",
+      "text": "تمارين الضغط. 3 مجموعات من إلى 8 10 تكرارات، مع رفع اليدين عند الحاجة.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "d7202f59fd660eccf1241e5cfed32461a909654f5e1a8b30d329641fafb442ff",
-      "bytes": 48277
+      "sha256": "ea95e175bdc9901a02b4a966902bef0e133187b753e1c2c2b7c2776a7365864f",
+      "bytes": 46053
     },
     {
-      "id": "403a2b7c6f65da62482328fca5d70c442ecc453b0459fb6587db5556903e8f7c",
-      "text": "المجموعة 1 من 3. إلى 810 تكرارات.",
+      "id": "d9dec4fe90b7b80beae23a61cdae615f1af7d696575c65e08fb54d5d060cb954",
+      "text": "المجموعة 1 من 3. إلى 8 10 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "95027948cf1bfefe80fc683c9b873648ec5e050dee3bd86340f4b9f8bcd300db",
-      "bytes": 31044
+      "sha256": "ee0afa737a1ecec4905876cd9583259296e620b62a5d1c93307f1b7f5e9cd94e",
+      "bytes": 27325
     },
     {
-      "id": "547fa8f4f8a9b8cb2fe274030824540486571e9358a9e49734a8ed71ca510453",
-      "text": "المجموعة 2 من 3. إلى 810 تكرارات.",
+      "id": "9c566373145d4bca58d35c5c3579400bf0387858b306dea24e0d842f2bde130a",
+      "text": "المجموعة 2 من 3. إلى 8 10 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "2999f0c1f0ce9bc5448cdbcc437188a667c9ab11cc8f1dad1cdacd3c99e4946e",
-      "bytes": 30890
+      "sha256": "fbd8038ca823cc7124a48f9789cdab0532cb81f71e68908ba763acc3baa56621",
+      "bytes": 31001
     },
     {
-      "id": "37a9cf8fb5643426c5f6bab8120322dbc017bf41f36d2dd0054e1076a1e593ba",
-      "text": "المجموعة 3 من 3. إلى 810 تكرارات.",
+      "id": "919f8c2f8b9b070e66814523e995c813521094133baf5430c20ca248d7a37663",
+      "text": "المجموعة 3 من 3. إلى 8 10 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "ac6f8a2e581cb7cad0f8c9ee0f678ef98544f0e4e2c854619d7d7cbb9e5e209f",
-      "bytes": 30990
+      "sha256": "be5a13afceb0fe8b7d1e21662c621f479a7b5ed04decffd405b74d9c4772b949",
+      "bytes": 30913
     },
     {
       "id": "48e9f55d5cbafb06ec107a8a5334d7c0ffec5fe972f9ee200a11c485ffb370ed",
@@ -4926,12 +4926,12 @@
       "bytes": 15795
     },
     {
-      "id": "1660aac769ccbf8e0a2ad8aaba662d87cb96a5cf89093f8bf07493436ad0a873",
-      "text": "رفع الظنبوب بساقين. 1 مجموعات من 1إلى 520 تكرارات.",
+      "id": "37fd47050b32a07098ec021b861377c39be3efecb60341986db4165f10f78330",
+      "text": "رفع الظنبوب بساقين. 1 مجموعات من 1إلى 5 20 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "bba66319d00f802c582d9f990ff8b76eda6c407a21f5e4aa2a6747445b2c8e99",
-      "bytes": 38834
+      "sha256": "b36a30d43ec635801c5a4a387c58584178e778b0e36f015f28d6e7412476d09b",
+      "bytes": 36282
     },
     {
       "id": "0a1025cb2d26bd9ed2bb657fe3afe2c1b6e54425ede4ac69c5195c52d51b137b",
@@ -4950,28 +4950,28 @@
       "bytes": 25048
     },
     {
-      "id": "7dea58d487c979cff4d7e2488332857546ca321bbf20e70dd3d9b77baa8d860e",
-      "text": "البلانك. 2 مجموعات من 2إلى 030 تكرارات ثانية.",
+      "id": "ec5e116488c41db05809bf752fa0f8657dd76fb81d1523a13d3c9b8b25e2428f",
+      "text": "البلانك. 2 مجموعات من 2إلى 0 30 تكرارات ثانية.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "2169d7fc81293b022df76ceff3c2dc9ec0e9e8ec40aca15229e0de5fecf344ba",
-      "bytes": 31553
+      "sha256": "f5c1695023db12b8b2cd1999a8ece48a452c7869cc8325ee6ae352810c9c6e74",
+      "bytes": 37108
     },
     {
-      "id": "26dfe18a64d9ed3c0406aa219d605dc22e91e2e471d5a1f6e0026b79ecdc5bdf",
-      "text": "المجموعة 1 من 2. 2إلى 030 تكرارات.",
+      "id": "9c654e381955c884cca02682499c69d9db1ed4afe9ebdcab5a48c083a05f43d9",
+      "text": "المجموعة 1 من 2. 2إلى 0 30 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "7d72e9d76bbc7b093a4b1b2794ae28619982ff4d911a7b924f8d5c082dd50a76",
-      "bytes": 31106
+      "sha256": "38e61e31b07e0403a6d54133aff7d3c8ff35feadd6931b92f4b845816df9d412",
+      "bytes": 31076
     },
     {
-      "id": "803b981c4057a253b5186c3b2ab375f94b46ac09666279b65fffd0b5432c802c",
-      "text": "المجموعة 2 من 2. 2إلى 030 تكرارات.",
+      "id": "e05a31f5c8e60448dcac9322b79081a77043d0fe54d6637e502ff6e5b43c8615",
+      "text": "المجموعة 2 من 2. 2إلى 0 30 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4bea129e7eec4ee6785c463a0055aaec799e03f281aa688bb081851dd0c64f9d",
-      "bytes": 30903
+      "sha256": "ae5f5679ede464a306b9167769d09c68c332d27feeb6f60d44bb76b2c8431ef9",
+      "bytes": 30866
     },
     {
       "id": "e1a12ada8ccb78bb4de09d0a89884638ce6a9b7dc34dbbcbdc2542d4380768a2",
@@ -5182,12 +5182,12 @@
       "bytes": 28863
     },
     {
-      "id": "914fd802f8b8c2c898a3a4c4912dd2f03673971c198bfd5bde28d18e1f32b62f",
-      "text": "عقلة, الكفان للخارج. 3 مجموعات من إلى 35 تكرارات بمساعدة الشريط أو 5 ثوانٍ سلبية.",
+      "id": "f6cfa0bef1090f7e89a94603d8c84181ce179458007a753d9c3709d6817df2a3",
+      "text": "عقلة, الكفان للخارج. 3 مجموعات من إلى 3 5 تكرارات بمساعدة الشريط أو 5 ثوانٍ سلبية.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "904d95098aeefadf709ffbb13d6e8b3ed753246900dea457a92db6f560be9ae4",
-      "bytes": 55110
+      "sha256": "ccfec06dd8bf1083f55c53f49969dff6839d082e2128ce313486ca5acbc645e2",
+      "bytes": 53739
     },
     {
       "id": "7d5a871f9638edf90de0655baf6b7676fbf4f82072d75ca9d5da45ae7f90baad",
@@ -5198,12 +5198,12 @@
       "bytes": 47892
     },
     {
-      "id": "11903a80bdf5b4d4af5f839b4249eb042e115e88933505fc40d7784e8d354874",
-      "text": "اسحب صدرك نحو البار، ثم اخفضه لمدة إلى 23 ثوانٍ حتى يتم تعليقه بالكامل.",
+      "id": "77be1b9ec9dfebd56751e91b3e1ed57e7b3634aadb52bab1d9de6e241b146455",
+      "text": "اسحب صدرك نحو البار، ثم اخفضه لمدة إلى 2 3 ثوانٍ حتى يتم تعليقه بالكامل.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "ec12f956a6f712e849461742ce64243b65658b44dac0a39f1e08d1e8da106687",
-      "bytes": 45978
+      "sha256": "6a82fa520251ffa77ba732c6d6cd20cdbb2d43db4372c26b4be1b80b34a210f9",
+      "bytes": 43711
     },
     {
       "id": "85a53e47e9adfed75808cb1e087f8ce1f0ccb82b909839c886b08c8cc673c4b9",
@@ -5214,28 +5214,28 @@
       "bytes": 34580
     },
     {
-      "id": "1bfff9300f28f10742d12a3be88a39be581325cb54d35fe4135ecb303c45b6ea",
-      "text": "المجموعة 1 من 3. إلى 35 تكرارات.",
+      "id": "0cc082db49730b2370f2b9278a32a92106378bfbc90e82df5944f78ee131efef",
+      "text": "المجموعة 1 من 3. إلى 3 5 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "68354334ce38f832e05e8ab798cd8b269422f890a6df66b95eb8c1e92088fddc",
-      "bytes": 31114
+      "sha256": "a8140c9f76060529ca6f0e69b761a124594b8766ae5bc7d6c64267120c4d206a",
+      "bytes": 26584
     },
     {
-      "id": "dd8fe703e1033518238fa211344a3d9284b15ec7fb8635657a81af266248a0b5",
-      "text": "المجموعة 2 من 3. إلى 35 تكرارات.",
+      "id": "47a60e46301cf8c9c2526bd7e748731eea56d02c00112915c8709787c4a35a6a",
+      "text": "المجموعة 2 من 3. إلى 3 5 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4242d66226cef41a2ca15961668f77b0008394bd5814368ab8f229d3b89e68aa",
-      "bytes": 30957
+      "sha256": "94ccc6f118d8a01ca98bfe36c87d94334d6ba0238d13a86fc1e8dbe6efc11da8",
+      "bytes": 30942
     },
     {
-      "id": "bae2551adc767d1c488e84840519044dbf9b4761d9ea89fbc8b5e4c0c060b119",
-      "text": "المجموعة 3 من 3. إلى 35 تكرارات.",
+      "id": "55140e25dd41a35458a6f54f0d3e485d3c7c1228b76ef60b4e01d9f6666e20ba",
+      "text": "المجموعة 3 من 3. إلى 3 5 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "64d5a4f6a30c5c31038ac939df48775a53467f2b36a2b30374b15f7cf859506d",
-      "bytes": 30963
+      "sha256": "ba911016ccfa2190cf877077b592bee8d1b9518b7c709957ab407331da38daf6",
+      "bytes": 30864
     },
     {
       "id": "106b3e742b24b3135c93c838379bd7df89b24c0bf7ea0f39135a01d2f82ebdf2",
@@ -5262,12 +5262,12 @@
       "bytes": 44861
     },
     {
-      "id": "e9f92f8501e743e49b4aae17045c98ca23362070e576dafeb5db8a3323d95ebd",
-      "text": "ثني الفخذ النوردي. 2 مجموعات من إلى 34 تكرارات نزولات بطيئة.",
+      "id": "4e820d108492a8ab7311d0340012f335bd97f7ab35c54810e1faeb7c356a7ede",
+      "text": "ثني الفخذ النوردي. 2 مجموعات من إلى 3 4 تكرارات نزولات بطيئة.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "a90b4cb348c3e37891e7cb3c6fbf9f0fdf2ef7d2eb6eed8be302826600a4201d",
-      "bytes": 41028
+      "sha256": "86a083682f05102b3503fa1a21a2af13a538501ab79da2bbc8f54d39ef53aae1",
+      "bytes": 39663
     },
     {
       "id": "ac8a8aed2da98ccfc7749d0cf0cb616f1df1545baae4cb5a7424747fd1eac585",
@@ -5310,20 +5310,20 @@
       "bytes": 31250
     },
     {
-      "id": "c9cb6f448fb2e94ec243759974653d0b28c07a0d971532061d29e780182d0c68",
-      "text": "المجموعة 1 من 2. إلى 34 تكرارات.",
+      "id": "fac6c8dd49f2c868d298201bd52ccef09ad28cf76b23b5b4e69af01f47d8ab90",
+      "text": "المجموعة 1 من 2. إلى 3 4 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "a197b774c938513e2f9ad18ad570dd39e984022f84f1078d4b00d4cfc9ca5803",
-      "bytes": 31115
+      "sha256": "29bd395463d747814288a0c956614724f34880bc1d27f8590a9f72ae3aa666e2",
+      "bytes": 27916
     },
     {
-      "id": "0833c91fb574e0cca0118c5ee1dabe07678102e018f8ca1b8f8ebbd4855cab7c",
-      "text": "المجموعة 2 من 2. إلى 34 تكرارات.",
+      "id": "5da201ca6d84d8d598d0b8555a2645500220625bd837b2aa8b8a1e2ec4035b3e",
+      "text": "المجموعة 2 من 2. إلى 3 4 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "5e6a33b42e2bbef2692217849fdf3c53b8e907f63f500bd385bddb2db08bc2df",
-      "bytes": 30893
+      "sha256": "e652b59064edc29ba876d00d54a33793e355492f67e79f846dae4dbd4e5ec4a1",
+      "bytes": 30898
     },
     {
       "id": "f68d212e23435354c96759b6713db2494d5d1117d8126940942df237a45e5ef9",
@@ -5574,12 +5574,12 @@
       "bytes": 49175
     },
     {
-      "id": "9c261babde3ad97397a80594d197f18330d942156f052d3735e32683a5b7e110",
-      "text": "عقلة بقبضة معاكسة, الكفان نحوك. 2 مجموعات من إلى 35 تكرارات بمساعدة الشريط.",
+      "id": "fc7439f105049af089f600c84d6670a405852b3374214a29c5fa430a9e27bde5",
+      "text": "عقلة بقبضة معاكسة, الكفان نحوك. 2 مجموعات من إلى 3 5 تكرارات بمساعدة الشريط.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "13b2e60336f98c75b3e577ea3c5ea8f147f4cadc11447947364e122d3f1bde49",
-      "bytes": 54690
+      "sha256": "8dc4e714b2fa6e7fb8be30b9bfa19f79709a4fb7c18d95f47e1a9d0417d819b0",
+      "bytes": 54822
     },
     {
       "id": "915e95d3a33890b06da3f1365249a21588549e2cd0f431615512a94c329fe8cd",
@@ -5590,20 +5590,20 @@
       "bytes": 41670
     },
     {
-      "id": "a616da97445983f8267b5de3a50d201c2d609d6c96d7e53920e21a5d5959ac6c",
-      "text": "المجموعة 1 من 2. إلى 35 تكرارات.",
+      "id": "cffd295667ec698d7b617a9d9f6379decfe4d9e8d3ae796dcef02967b59ca1c0",
+      "text": "المجموعة 1 من 2. إلى 3 5 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "56790ee1df364845362680bdee7e05cb75f7f902dc042dd5587bc68016ff4705",
-      "bytes": 31123
+      "sha256": "803adc9cb32119e6117ff7c4a2ce4bb8bab569e6c2be066659099894675ff7e7",
+      "bytes": 27498
     },
     {
-      "id": "85f02a005488974b89badf7eda53931dab9357c9922351b08ba8ba7117ad676d",
-      "text": "المجموعة 2 من 2. إلى 35 تكرارات.",
+      "id": "7a0cf10726b9b00c4137159b7f6e3706b55fa87e4bb669b799ce32f757f84e71",
+      "text": "المجموعة 2 من 2. إلى 3 5 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "0b38c0e9af00966a02bd1fc7cb53a095104bdd6a157cbc47c433c278fae3f407",
-      "bytes": 30984
+      "sha256": "b70251d09dfcb1895924cd546879d36016fe1245946a3b99e8b8ee7c35f78003",
+      "bytes": 30934
     },
     {
       "id": "b91acdf95b1bb878add7792eb38ce494d2e3056ef1e3aa031457137982db4d9b",
@@ -6022,12 +6022,12 @@
       "bytes": 15604
     },
     {
-      "id": "fabc425d637148240e5c9488ded0f87a59f6e11150622e3faf14c3194f515332",
-      "text": "قرفصاء الكأس برفع الكعبين, على لوح مائل. 3 مجموعات من إلى 810 تكرارات باستخدام الوزن الموضح على الشاشة.",
+      "id": "d694e6b4c4b5d688a88fa38c405860d3cd656d4f3697606beb75da3f4afe8b37",
+      "text": "قرفصاء الكأس برفع الكعبين, على لوح مائل. 3 مجموعات من إلى 8 10 تكرارات باستخدام الوزن الموضح على الشاشة.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "2099a9aa77bec8377203440e3e0ae134bed2d12751584977c46fe8659a5cb024",
-      "bytes": 60338
+      "sha256": "3bb20eb9e0432972e184f79581fd4647b38870c4bba2e1adb4c7eca1a60c7851",
+      "bytes": 58230
     },
     {
       "id": "36ace178ee2932f277fad46ee622f03e841b8341f478ab3aad193cd1936c33f6",
@@ -6038,36 +6038,36 @@
       "bytes": 25554
     },
     {
-      "id": "ec4d19f03ded8e6f708cf07a24901afbbedcdee1e704bf9d5ffaa56fe64dfd17",
-      "text": "تمارين الضغط. 3 مجموعات من 1إلى 012 تكرارات.",
+      "id": "aed7f56e722b3221485fc0d5134c7e839ad6429316a35ac4135b1aac1632ffbd",
+      "text": "تمارين الضغط. 3 مجموعات من 1إلى 0 12 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "33e06cf6d30c8924ffc012a997c1da11f3c489b3c980d64bc9656adad4cc4e43",
-      "bytes": 34094
+      "sha256": "894ee737e61ae8612cd5b3a6012725266826f601ffdeb70bcdcca6ccbd8db14f",
+      "bytes": 32598
     },
     {
-      "id": "d72c0851759b06ca20ca220154e7b81b6b24474998701fac42ec5c96ff33d978",
-      "text": "المجموعة 1 من 3. 1إلى 012 تكرارات.",
+      "id": "25007907e00dafc88abb117142a5bd07d75ad2c008594240448314179a8a9349",
+      "text": "المجموعة 1 من 3. 1إلى 0 12 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "b71595b7b91d0bdecf73121cd28f67a9579122e485148d527873908fa591608b",
-      "bytes": 31077
+      "sha256": "05e1d0b1eaba3a20ef65687966bd20230658c62c8f8b0be78dc77bb698803c8d",
+      "bytes": 31052
     },
     {
-      "id": "8ff4e702b83aebb4a5ff7e10629a4854cbe6a09e85cac23ce43013e8a0e60a50",
-      "text": "المجموعة 2 من 3. 1إلى 012 تكرارات.",
+      "id": "47cdeab8c54f48de5539ddfd713f3b432dc08f005b045d90b3bfaa456088e9d3",
+      "text": "المجموعة 2 من 3. 1إلى 0 12 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "6e945e3153a909572acc93f089782f7e782e6bfa7966bf2925c49dda6d269d26",
-      "bytes": 30931
+      "sha256": "b705aaba5ef8c3ad24a7e23b5f2bf19cf80b7ef5fe66fa659a60979c55b06310",
+      "bytes": 30191
     },
     {
-      "id": "db82095ec74cb1fcc440a27d4cae5116a1f9bbfdea436e07148548a569d2acdf",
-      "text": "المجموعة 3 من 3. 1إلى 012 تكرارات.",
+      "id": "b4f9af56d6a3f4ddba2d9f2641a0d4a94d460bce17067ae2413f3776d154a326",
+      "text": "المجموعة 3 من 3. 1إلى 0 12 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "82d5f3c07c8fbcc4425d3b8dd63a0ef5f780e9aab8c5c2c6a152953ade4362a2",
-      "bytes": 30861
+      "sha256": "d8ba9456ad3f0eec7552283d6b3fbf3b57a53b33a8bd52b1ca44188ca6778a86",
+      "bytes": 30201
     },
     {
       "id": "aff64d2a12c2782ca1497d5a716cc4903157a34803b360a52b7a58a778879e69",
@@ -6310,12 +6310,12 @@
       "bytes": 49994
     },
     {
-      "id": "d9d38140dec273147af97b7c2ece270b6e0d9653f1f37ea5475f181bcb9bf5d4",
-      "text": "كارديو المنطقة 2, داخلي. 2إلى 530 دقيقة.",
+      "id": "24cd5600a97148af6603572d2c4dc90eaf6306342d562b964fa0566639d6ebc8",
+      "text": "كارديو المنطقة 2, داخلي. 2إلى 5 30 دقيقة.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "df9239b4a673784ede7744fc2431019003ff9028063e9180d992642ba322b1aa",
-      "bytes": 35048
+      "sha256": "f681d6d080094f13ea38a8109dd465e1856a2d5cc9a533f3cba1dbb591d80799",
+      "bytes": 32907
     },
     {
       "id": "eec2efa72e0d6439853866c33353c3f602be2b251a08046a977d3dab4fbb8984",
@@ -6342,36 +6342,36 @@
       "bytes": 35257
     },
     {
-      "id": "770401732aa69d2f118e73882e75e0810431484ce29093fb84040eb34ff7f2a0",
-      "text": "عقلة, الكفان للخارج. 3 مجموعات من إلى 56 تكرارات.",
+      "id": "4990acd685f8c05b660a6d019808849cb22b810f314c156f1ae024287dc7635b",
+      "text": "عقلة, الكفان للخارج. 3 مجموعات من إلى 5 6 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "43a1bf9225e883cfbe24d751ef5c2e9b10d09aab3f2d7bcb95bcf83d5369d0a4",
-      "bytes": 38786
+      "sha256": "0b794746afabd87edcc9c178b90b81ff85dbf80fb65a4e9c460daae154102ceb",
+      "bytes": 36991
     },
     {
-      "id": "253fa34a1981c4c1dcc7b971fdb3838cc425489f0d0e47da77cd2bc03aca7f68",
-      "text": "المجموعة 1 من 3. إلى 56 تكرارات.",
+      "id": "289b4c09425bf7d3d4a4c51f69224810fbd442312f44e8e0f9566a4f604016fd",
+      "text": "المجموعة 1 من 3. إلى 5 6 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "2e0cdb20cf5ce607dc937b08a80a6ce8fd76923595d61e10444c4d693fd1cd7b",
-      "bytes": 31096
+      "sha256": "5ca33e7250c41317dfede6b1ef95806194d2bd87646a30cce019a3e03c550648",
+      "bytes": 26016
     },
     {
-      "id": "4e46f8ac6fc6afaf9e7a5c7e7903444bf32224c717ccb044546b0054181acaf8",
-      "text": "المجموعة 2 من 3. إلى 56 تكرارات.",
+      "id": "5342c27dfa7a2a71ed09a1b1581ad625bb630b17475ff3119ee793435c0f1e47",
+      "text": "المجموعة 2 من 3. إلى 5 6 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4af069e0c86b4ee3a45fd6a0370af8a1cf8d1f242182dcb6157bf4cebfe88a4a",
-      "bytes": 30885
+      "sha256": "8bcc4c8d5603d60ea8416ac3da0c57946e7b20bd20dd790b1c274172508228f4",
+      "bytes": 26476
     },
     {
-      "id": "af65e672d38b995398b60d93b18fe52e66e92f76ebf61af58e631412f4dbce1e",
-      "text": "المجموعة 3 من 3. إلى 56 تكرارات.",
+      "id": "eca7853e87f3300d736aff0ca0506c49b1156bf9eb911bd9855a67a4f425fba2",
+      "text": "المجموعة 3 من 3. إلى 5 6 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4adb6aeada3a0e6513f6cfc81c4982db5e48fcde99bbd0a0b17e4909e0bfbb1f",
-      "bytes": 30870
+      "sha256": "bbd3823b49d5a1bd50a085ffccccf93e05492d1e8e10bac55467c689ab874f9f",
+      "bytes": 26491
     },
     {
       "id": "89267db80177e43a1a756f607bc027c70253797a3787e808ab154976c9c90bf4",
@@ -6406,44 +6406,44 @@
       "bytes": 23935
     },
     {
-      "id": "2c845ac44843d6df6e5252ec545dec56306eb3e7d31dd75f11a95a742011d217",
-      "text": "ثني الفخذ النوردي. 2 مجموعات من إلى 46 تكرارات.",
+      "id": "a987a9259507601fe6cacb924dc1cc8ee4f3d54a30d872683b22b0d05a493233",
+      "text": "ثني الفخذ النوردي. 2 مجموعات من إلى 4 6 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "7e0480154b0608b86d0c1346d7ff6e52a1b8c964f67fdeeb455467e2aac44f5f",
-      "bytes": 34504
+      "sha256": "3cbc352458303d168fa1c3973b751c22c198cc60a001741f1f008ba9c05e2968",
+      "bytes": 32855
     },
     {
-      "id": "fc2b47d33c3e1d768f40f3ce1ea6038d2974a291a8af7d840dd3c17bd16f6053",
-      "text": "المجموعة 1 من 2. إلى 46 تكرارات.",
+      "id": "ead19dfc4f671db072613fbde7e5fca73d63d8f7af3e49a34f1534f500ce751e",
+      "text": "المجموعة 1 من 2. إلى 4 6 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "02c39c03cc4bab5e4ac5a87b1cb01ea909fe5fdf6ab0bcd3137b69dca857118e",
-      "bytes": 31025
+      "sha256": "629b29a2fdf3c44a2998a7b2da642882a4a4b1daedc2eed166d300578ef4540a",
+      "bytes": 31079
     },
     {
-      "id": "8ea7b533a055a7bb8bda76496d5f711a3ad467145e8cc17a8daf1da7cd02af60",
-      "text": "المجموعة 2 من 2. إلى 46 تكرارات.",
+      "id": "7c089e77d4bbba6daef814271910d8addda18a26f47eec5f1f7a05dcf44dba48",
+      "text": "المجموعة 2 من 2. إلى 4 6 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "767ef01418516ee4f2812f6786efed74239633d6447cf13d3fddc67ef2be4d47",
-      "bytes": 30906
+      "sha256": "5f244075a114232e53be4e00c3e5d181e35993dc544c84bfae7e0ceff0973f23",
+      "bytes": 27213
     },
     {
-      "id": "cc831f85e8b92c45bb94166c35914773b50c6741a446fff1ace6866a0e3321c2",
-      "text": "ثني الفخذ النوردي العكسي. 1 مجموعات من إلى 810 تكرارات.",
+      "id": "4f6bd454d0394a072cc8e980d399643bba53eac4cff11db49fe3e5ef7ca3bf22",
+      "text": "ثني الفخذ النوردي العكسي. 1 مجموعات من إلى 8 10 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "ee0d1ef1e1ef79a43d6847f500ffc0a6626577df38a47b744683ff145daa84f9",
-      "bytes": 38498
+      "sha256": "d53aff933cecbe90120b6b920350eb6f0fd03e35ec822ad6e983e10aa6f95fdb",
+      "bytes": 36619
     },
     {
-      "id": "ee704bff4dbcd01d5516ba81efbf5d916c4e9fb17c959673131375ae6fe4cc6a",
-      "text": "المجموعة 1 من 1. إلى 810 تكرارات.",
+      "id": "40e40d9154a80290e6c468f4749661eb5a708c05d851c04df7d545bd9bcd0d3a",
+      "text": "المجموعة 1 من 1. إلى 8 10 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "ce5836d71cb903f2066802ff80a0098b9f9ed72f922f485d303c1b2309f30552",
-      "bytes": 31093
+      "sha256": "c47c210123032ae6dcaaad69cb56d118c5db5238670b29a3852d055c97eccb35",
+      "bytes": 31100
     },
     {
       "id": "afbbfb9d557d58676ebf8047658e7a0c713f63f9e03b6f72efdf60ac24e5e94d",
@@ -6734,12 +6734,12 @@
       "bytes": 30795
     },
     {
-      "id": "6bfb60e78d0d73622677bad6510458183459d8e90edda843c16db869f71eb8a9",
-      "text": "كارديو المنطقة 2, داخلي. 3إلى 035 دقيقة.",
+      "id": "ce4dc3291baab94d194d5421fb2c81aaebed7122e051a73cf608793dffda0643",
+      "text": "كارديو المنطقة 2, داخلي. 3إلى 0 35 دقيقة.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "77d3763cd4e8733527a287b8cf45b58e036d4f6a26747a80a485ace6e89b6b83",
-      "bytes": 33288
+      "sha256": "92a6c7a3fb027c87a662986d6df18aae698a85547322a741f2316c5528dfabb1",
+      "bytes": 35213
     },
     {
       "id": "4fd85252e23a85adc18421e9a9a3d0ef2f48594fd74af365b0f55b7d8590db4d",
@@ -6750,20 +6750,20 @@
       "bytes": 41227
     },
     {
-      "id": "956e8ea1db98409ecf036594b566b81421782160fb89cace4f3aa58e1bafb02a",
-      "text": "فتح المطاط. 1 مجموعات من 1إلى 520 تكرارات.",
+      "id": "7004cd9e91041fbe19b684dd6ea5391bf25169f295c60850039647180f860a08",
+      "text": "فتح المطاط. 1 مجموعات من 1إلى 5 20 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "1007a40987885f58ac2fee879ef3f374d695675d358ecef662ff911b47f34934",
-      "bytes": 37505
+      "sha256": "9e9267715f4e9682314462b5c52e8e36c1a45128b2df45a83c9aa98956df5e2f",
+      "bytes": 34781
     },
     {
-      "id": "4c7cba9fed1635bb3fda0a622c98fd5439bc4bb091a3eed4ccf5828928783a1d",
-      "text": "سحب المطاط نحو الوجه. 1 مجموعات من 1إلى 520 تكرارات.",
+      "id": "b255cd3ab182529984dd203fcfcdca65a5320d2db1f5f8934d433173818d7898",
+      "text": "سحب المطاط نحو الوجه. 1 مجموعات من 1إلى 5 20 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "9d8b0fc4860d7eaa952dedef64b0eab4e35a6c45cf2b2a06cda430a25bb959d6",
-      "bytes": 38679
+      "sha256": "c851d47b22a50ea455de009595202daf1806aaa9850cbfc97ae74ce9777091b4",
+      "bytes": 35974
     },
     {
       "id": "f81fbfdfff5fd134db2a3809979337b3cf9d2aa576ad50eb03186963b4d9df60",
@@ -6822,44 +6822,44 @@
       "bytes": 33264
     },
     {
-      "id": "4e1f15bd396eb23da831c11700b51b50033a5ebfa9cff3c9626be270295b4eb9",
-      "text": "تعليق ميت سلبي. 2 مجموعات من 3إلى 045 تكرارات ثانية ثبات.",
+      "id": "6d4acddd69964c422dc6b8a3b48eddd7ec2d2a024343180e4d340a7a7e9d44c4",
+      "text": "تعليق ميت سلبي. 2 مجموعات من 3إلى 0 45 تكرارات ثانية ثبات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "c7fccc8ee5cf06db69f1ddbc07301520c712b64135c193f753f4a7655b8f0d44",
-      "bytes": 42328
+      "sha256": "fec53a4d64d0f16cbec36a563b0b037d67334dea8469cc0050008dc46d7a7f15",
+      "bytes": 44599
     },
     {
-      "id": "b64674e504e22c0defc114d4109cdb78d4f9ee5b7d3338f6e941851d247e9f3f",
-      "text": "المجموعة 1 من 2. 3إلى 045 تكرارات.",
+      "id": "478c6f495c57deb39aba5b7dde97bd9d465b72619aa2e18a5693d40d837a8298",
+      "text": "المجموعة 1 من 2. 3إلى 0 45 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "92f39a98c4ac4e5b252225635ae6ab2517e94eb63c01fa60a255602b92c7f658",
-      "bytes": 31435
+      "sha256": "bd3e88ee10fd0c171008f5c98becfd3d5b10b444f996a53fe7995dda02251cfd",
+      "bytes": 33292
     },
     {
-      "id": "2a3947c9eb1283250595a386bfe3c4d9eaabd86d74477e6488dd7aa06d25d989",
-      "text": "المجموعة 2 من 2. 3إلى 045 تكرارات.",
+      "id": "fe12622d61299b5d35789f6872f955ff447e42543f228519575e5322b73b7c96",
+      "text": "المجموعة 2 من 2. 3إلى 0 45 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "1196531687abb1ccdc5527309650aa563f5baa5f3be4702e49e346447fcc09c7",
-      "bytes": 31413
+      "sha256": "7dd9e7cd829092290c1f950fa9e1b2cffe65fd990fef1fc02354839b99e56c87",
+      "bytes": 33412
     },
     {
-      "id": "c33a0ef04a04caa8f7dab381e34b2ab6b73f60153e2cc08a81a49d6c631af837",
-      "text": "تعليق ميت نشط. 1 مجموعات من 3إلى 045 تكرارات ثانية ثبات.",
+      "id": "945b3534e68a2b0d3c20948eb31693927ddc1e3cf9347ecab10bcb37385b7bf6",
+      "text": "تعليق ميت نشط. 1 مجموعات من 3إلى 0 45 تكرارات ثانية ثبات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "392a243efde972ffaf0635dd6556c89d63a09782c09ce41cdaef8f33f9a504ca",
-      "bytes": 41832
+      "sha256": "e17fdf0933e502787ab3343c6fffe8fd2127f9b5c44e733c83a42414269bd9b8",
+      "bytes": 43806
     },
     {
-      "id": "050e64bcd11731b69bd3d8f8494e9650477dc93bf5b4e2aad141e1f0f6e46fd4",
-      "text": "المجموعة 1 من 1. 3إلى 045 تكرارات.",
+      "id": "2a8d31f80cab209e9171c0d16507dda213365387a1d68851d76190604272fd4d",
+      "text": "المجموعة 1 من 1. 3إلى 0 45 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "9b5cbd2be31919b4a9762e41a5acd7beff473e669d37f1fd021ae37e1ef63b9b",
-      "bytes": 30995
+      "sha256": "526c9e0e8436c37a707ce60f0aaf589b147b881cce2b279f8cff2f001decd41a",
+      "bytes": 32882
     },
     {
       "id": "c59c5f1e3cb3fdfc882461be4567f8ba10b86d43012a5b9a020318b43ff97779",
@@ -6886,12 +6886,12 @@
       "bytes": 30881
     },
     {
-      "id": "e1039d2c375872f96f019f9ae98a80613e8f1be4c891f03de25901da184f681a",
-      "text": "المشي للخلف مع مقاومة. إلى 23 دقائق مع حمل 2 دمبل بالوزن الموضح على الشاشة أو بمقاومة الشريط.",
+      "id": "d8fff079e514d9e260a0a774647c1693eb64f5496e6315f85e48cd6b666070ef",
+      "text": "المشي للخلف مع مقاومة. إلى 2 3 دقائق مع حمل 2 دمبل بالوزن الموضح على الشاشة أو بمقاومة الشريط.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "8536f749da2010afd8fcf5b6988f18b3ec700471635b6815c06ef91cc312b452",
-      "bytes": 56861
+      "sha256": "7c96d86f3a5dedd6ccaa5454c52fa897103c0efd6e373621ab1226c08685dc8d",
+      "bytes": 55471
     },
     {
       "id": "54abe63df8ebe04c885ccf6209b07b5092c50080619324cede6cfb9abfc0e4ef",
@@ -6950,36 +6950,36 @@
       "bytes": 18327
     },
     {
-      "id": "0075eccc4040ce73bb7187140c46574310d7040f2de63e83b127c8c6e88dbfbf",
-      "text": "قرفصاء الكأس برفع الكعبين, على لوح مائل. 3 مجموعات من إلى 68 تكرارات، بأثقل دمبل، ونزول خلال 3 ثوانٍ.",
+      "id": "bbda8de89bb52c41d8bb36a3da45aeee420fd8da652fd723b7af1513f3fec8be",
+      "text": "قرفصاء الكأس برفع الكعبين, على لوح مائل. 3 مجموعات من إلى 6 8 تكرارات، بأثقل دمبل، ونزول خلال 3 ثوانٍ.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "edae46d8fb822521ccd83d9102e0e12bdec6f285eef1af52876f0a57dfab6192",
-      "bytes": 67701
+      "sha256": "3a082c8c711b3fbbdcf74c540cbc05b9aab5ff7ec12fee59edfceb101b9ad8bf",
+      "bytes": 66538
     },
     {
-      "id": "22fd1c07370d4715c736304feeb94f00fbd91d891fc4f83dc184d0bcf2335acc",
-      "text": "المجموعة 1 من 3. إلى 68 تكرارات.",
+      "id": "f106fe0fea2df3b8ecf172bf767fbbb78c6a8c2b6bd8d2704412721908dc52ee",
+      "text": "المجموعة 1 من 3. إلى 6 8 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "af01b8e095af5c73afa3f49543677004d6755639eaac7189fbc4a9bc4d490650",
-      "bytes": 31020
+      "sha256": "8f0f961c7daf6839aed3b40540cc46c03f8a374f6cb38612a31300fc04509686",
+      "bytes": 26759
     },
     {
-      "id": "309e71699d62858689a68ebb1b5b337201f2f30e0b3562f02c8b89fa96cbe5cc",
-      "text": "المجموعة 2 من 3. إلى 68 تكرارات.",
+      "id": "754da5696198a39cc887f9a1600ef91e49d1b18c2bbc63634bd49238f3c94a40",
+      "text": "المجموعة 2 من 3. إلى 6 8 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "756f555b8d82d29739d4c39c48140e55e1d3842445a51bea821cad6e0adb46a1",
-      "bytes": 30922
+      "sha256": "4b4bf0d36cab91088207662c833b7c1de0a65c06801e22a3bd69bed095c7b99a",
+      "bytes": 30900
     },
     {
-      "id": "26326b514c23d1cc2f5a06e1698de9151404d93c7be5bfb432b9d2f331cb0fcf",
-      "text": "المجموعة 3 من 3. إلى 68 تكرارات.",
+      "id": "17c375b43b8383842ab228af0b652c55c205ad3c31d42a7fb485bbbbd5fa45d3",
+      "text": "المجموعة 3 من 3. إلى 6 8 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "f3d63928c73e1986204cb385ec3f6ead5232aea495e314c6758c3cf95a7e69c4",
-      "bytes": 30904
+      "sha256": "8f0c3df56ec0305f85e30a94dd36bfd2c5d5b15c1f41b2d86a482a2beab67a2e",
+      "bytes": 30957
     },
     {
       "id": "fe57a79ba70762a6292caeb769960d0fdb0667f049e089af7ece49b2d261cf59",
@@ -6990,44 +6990,44 @@
       "bytes": 29774
     },
     {
-      "id": "f6833c7c1d60c8a88cd4077d77f344aedc329b377997dadfbeddab00e35a2026",
-      "text": "تمارين الضغط. 3 مجموعات من 1إلى 215 تكرارات، نزول خلال 3 ثوانٍ، أو رفع القدمين.",
+      "id": "62e523df9ee32959509ec061b9f0e51134e8667b8acc9e3d12726b8c42885945",
+      "text": "تمارين الضغط. 3 مجموعات من 1إلى 2 15 تكرارات، نزول خلال 3 ثوانٍ، أو رفع القدمين.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "41ac4a410681eebef6369c3d4dfee654c657872ec0d9e0919438bed709674ac1",
-      "bytes": 59782
+      "sha256": "9095e105bd79dc5ab398a9218dfcf4b0a5dc2ff0d8f2e128ee07fc91f91d7db1",
+      "bytes": 58211
     },
     {
-      "id": "f428843b14fe768947baa7c0b36723a04ed9afc7579546a6f2ea915f95acf5d1",
-      "text": "المجموعة 1 من 3. 1إلى 215 تكرارات.",
+      "id": "496181702707e7e1f1f5af2f19279d3bdd4211df9f5e0ee446dc2b36ea5879ed",
+      "text": "المجموعة 1 من 3. 1إلى 2 15 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "1a18d80dcfeb3a7e02e367a9aad61deb417cb554eaa9bd97e32ab2501a0da140",
-      "bytes": 31970
+      "sha256": "cb524f8b41d2cdfe87945263abfab36b597f8064806e82f5b7b58f00c41a772b",
+      "bytes": 30951
     },
     {
-      "id": "ca1975c32375e968f3f305b7c83ce8ec31e3dd15ae52866749dd584ef2ebcb31",
-      "text": "المجموعة 2 من 3. 1إلى 215 تكرارات.",
+      "id": "4de70d7b7a9d1e2129212c3245df998f2778332eec67af0813e756806116b4a6",
+      "text": "المجموعة 2 من 3. 1إلى 2 15 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "22b333f7d7195cc7469e14b37ff70a1d5c9921c235e711b5d677556922be0310",
-      "bytes": 32425
+      "sha256": "0aa5fdd9db2a2d5f39c619f4d1bacfee79e71598d7a6264a627f13489def1681",
+      "bytes": 30859
     },
     {
-      "id": "1e9e6fcae04c11ae9a7fd2d2aa8042b4fe5596c7c4f3b1f31966088c2ba0defa",
-      "text": "المجموعة 3 من 3. 1إلى 215 تكرارات.",
+      "id": "6309292778c33530de4fd72a2241bdb26f3b286947d10343fb77f6878ecaea8d",
+      "text": "المجموعة 3 من 3. 1إلى 2 15 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "e17b5a268bb943753197e49161e7e2a5d36140be7ea45967b3be40ce68794a58",
-      "bytes": 32373
+      "sha256": "8cd5d6f20a6d15bda67750f3e161b9bcf6506ee002a5bb2062183939216de3e7",
+      "bytes": 30900
     },
     {
-      "id": "1411fdfaf3ac75d126c6c24665f272d43b61081a01d80a0e9debee08c3947981",
-      "text": "التجديف بالدمبل بذراع واحدة. 3 مجموعات من إلى 810 تكرارات لكل جهة، بأثقل دمبل.",
+      "id": "d26d045d16b3b8c09f20e6be185d2085a77fa78c17c5ded647e8fff30880d1a4",
+      "text": "التجديف بالدمبل بذراع واحدة. 3 مجموعات من إلى 8 10 تكرارات لكل جهة، بأثقل دمبل.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "24f88b411ef5e2db304c1584432485680de5d823ee9ea192c6e644aaf360c83c",
-      "bytes": 54762
+      "sha256": "8adf75a82a8edfeaa0d7401404e90bb5c34b34ae0dd4e1eaa89e7a78f9d84164",
+      "bytes": 50525
     },
     {
       "id": "ec4871203283684ae6442d4fee20e82b202732f7105e3226bc918a14dcc8f8e3",
@@ -7142,12 +7142,12 @@
       "bytes": 30967
     },
     {
-      "id": "ea03433d3905099369d8736364edd9a06adad582af876d590c439df1583bc77f",
-      "text": "رفع الساقين مستقيمتين معلقًا. الأرجل المستقيمة: 3إلى 050 تكرارًا في أقل عدد ممكن من المجموعات.",
+      "id": "8d847c347b06719d25f97cf5cca6c35b2a6cbcb97e36d6fc2e5b54b444ddeb36",
+      "text": "رفع الساقين مستقيمتين معلقًا. الأرجل المستقيمة: 3إلى 0 50 تكرارًا في أقل عدد ممكن من المجموعات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "d7e8300da6135b55175dee0963f049f1d1dcce1765a883bfed85643662e9697e",
-      "bytes": 55167
+      "sha256": "94ac8a03bbb2b94f89dd9048360dbbeb3aec2dd86ac2c8e1731340471aa41e06",
+      "bytes": 57290
     },
     {
       "id": "f6f92cd0c815e856e442544da076f8c2320e9de4bfe6c37edfa308710a521c6b",
@@ -7366,44 +7366,44 @@
       "bytes": 54787
     },
     {
-      "id": "b608798463b0c04fde42d5221a7ddd1ebf0b4cdd2e47d99275a8994bb43825fd",
-      "text": "عقلة, الكفان للخارج. 3 مجموعات من إلى 68 تكرارات؛ أضف حقيبة ظهر محملة بمقاس 3 مجموعات من 8 تكرارات.",
+      "id": "b9a57b0826f1e1deb13b1a3028ad942ac43c2e6ec4a5d96c5a2965dfca3ca9fc",
+      "text": "عقلة, الكفان للخارج. 3 مجموعات من إلى 6 8 تكرارات؛ أضف حقيبة ظهر محملة بمقاس 3 مجموعات من 8 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "0d7b25c1fc006dd0d92b4f222ce57ebe73b19524ffc1acdfd62d73887c40b47e",
-      "bytes": 71666
+      "sha256": "787107822575d6555af24444f2dfaece8ca0f0756b4ddc7427ab21d1259b7bda",
+      "bytes": 70339
     },
     {
-      "id": "9a7d03128c518fd488a9dc5bba02247291b645d24091c6058783dc638d899853",
-      "text": "قرفصاء منقسمة A T G. 3 مجموعات من إلى 810 تكرارات لكل ساق مع حمل 2 دمبل بالوزن الموضح على الشاشة.",
+      "id": "dfebd634a7cb7b21a349057826c19b3f48a3805650dc00159a67d4ae8821b5d7",
+      "text": "قرفصاء منقسمة A T G. 3 مجموعات من إلى 8 10 تكرارات لكل ساق مع حمل 2 دمبل بالوزن الموضح على الشاشة.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "1c541ae8f797fb2f8183cdf6ba8f7765ea9bc3ed6f917f843c1b1f9e4980f7e8",
-      "bytes": 62459
+      "sha256": "d6b4fcbb8a1d3e146274de456d07180945fce9a30c579e89d770d15f665f8c8e",
+      "bytes": 60291
     },
     {
-      "id": "16712347e5466f9762a5b7557d0d05c3c1b308acb4db373da559f4a927a98d5f",
-      "text": "ثني الفخذ النوردي. 2 مجموعات من إلى 58 تكرارات.",
+      "id": "26b0b148d8424fb9aca98d52343aadef5e37b5af55c785161c4982d5e1ff327d",
+      "text": "ثني الفخذ النوردي. 2 مجموعات من إلى 5 8 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "9ac4e46e175c0483beb031dc267baff454966fde0cc39ec2d996e5bc9adc31bb",
-      "bytes": 34905
+      "sha256": "1a528ced392fa553e9d9b9f7fcd67bde3418e271a03e64cac10e800573fd5490",
+      "bytes": 32951
     },
     {
-      "id": "12b017a678df58adf2d25020e2bffda6468a335385211481c985ed700b9d22a7",
-      "text": "المجموعة 1 من 2. إلى 58 تكرارات.",
+      "id": "8bc5d8dd1a99163a8847b16c136b989c2e23f6599b37d5d66a2340218a43de48",
+      "text": "المجموعة 1 من 2. إلى 5 8 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4b6ea50d9669db5ffdccc4ed4e91123c1c82ff2955ddc359ee4161bef3abe695",
-      "bytes": 31089
+      "sha256": "032ec1cabd64acf1514309ea6c92815ec729acce1dfee3ea3dde28db5311fb12",
+      "bytes": 28022
     },
     {
-      "id": "79fbf95d9b2f2b44b06fc6483c5f996433c7c5380bc6f48dad0673a93b18393c",
-      "text": "المجموعة 2 من 2. إلى 58 تكرارات.",
+      "id": "54254d28b725140a84b48dea7b0e85fb95e7a1fde3338d0d81ffe2179b0aacb9",
+      "text": "المجموعة 2 من 2. إلى 5 8 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "761d3ac4fdfb64335a67ace42163f53953af25d19fa875645c0a06ce973f2cd0",
-      "bytes": 30863
+      "sha256": "b0719c9b940b4fea9b5f15e1fe2aed1e432157be1c4ec5677c2dfbd9cf0a3fb7",
+      "bytes": 30876
     },
     {
       "id": "a74ee99d95a169482c0b4fde5383243cd144eb874e4850571ffc8278c1407d4c",
@@ -7422,12 +7422,12 @@
       "bytes": 67710
     },
     {
-      "id": "ec6cdecb9593981366f2f4757532d28f7ba2183181397ca7660a78c3a164ef4b",
-      "text": "ثني البايسبس بالدمبل. 1 مجموعات من 1إلى 520 تكرارات باستخدام الوزن الموضح على الشاشة.",
+      "id": "84980ba603de01f77700c072b3f764d2cbdfbc5d8c0263556f3fe7dc5d1918fa",
+      "text": "ثني البايسبس بالدمبل. 1 مجموعات من 1إلى 5 20 تكرارات باستخدام الوزن الموضح على الشاشة.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "bcbf2193370b7ec3982c2d1847b9f39505101a16fd38a0bb2eeb4d234cdd71f2",
-      "bytes": 50004
+      "sha256": "02a8597ea3ae04572ae4bb4e5b9d9bdb16332016d3e101c7a8ed913cb8d1ff28",
+      "bytes": 47834
     },
     {
       "id": "fc1eb2b3728ea256f475afc567dbe7c54a0ebe4c6359f6534f1c6b938c796403",
@@ -7534,12 +7534,12 @@
       "bytes": 50411
     },
     {
-      "id": "ae571ca0f4a709edcb86f9096209833f97d1935847bc7f5478b015799433e6a5",
-      "text": "الرفعة الرومانية بالدمبل. 3 مجموعات من إلى 68 تكرارات، بأثقل زوج دمبل.",
+      "id": "5448b9e5da181d97c624695659a1cfb85aa6cfdee177361b566ed1665d8bbe45",
+      "text": "الرفعة الرومانية بالدمبل. 3 مجموعات من إلى 6 8 تكرارات، بأثقل زوج دمبل.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "996ffcb2b75e39148e28cfd33915476baf7c8389acab4c09348a0e1afe047cc1",
-      "bytes": 46578
+      "sha256": "d98977f1bea6c14a1cc715586dc95bbebcf3b6610f71a8af15490d017a4fe178",
+      "bytes": 45359
     },
     {
       "id": "74a5b1a48b2f54196fbece0136d35f51f5b495a4f39f2a02a0002f0069d74e5f",
@@ -7550,12 +7550,12 @@
       "bytes": 31632
     },
     {
-      "id": "7cfae1218aa804a36b8750bebb254d669883af30b647416669bc545a99d5f103",
-      "text": "القفزة بتمهيد عكسي. 3 مجموعات من 3 تكرارات، انتظر 2إلى 030 ثانية بعد كل مجموعة رفع مميت.",
+      "id": "26ab4f240ce0a4d4ba89612937eaa3132d76a3cbba7a1c6131cb3bf2728993c0",
+      "text": "القفزة بتمهيد عكسي. 3 مجموعات من 3 تكرارات، انتظر 2إلى 0 30 ثانية بعد كل مجموعة رفع مميت.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "96af1a16ebe42624960208691f8fdb28ca70448b6e4a0c9e4816bb7469bdaad1",
-      "bytes": 59665
+      "sha256": "8d0df255dca8e71caf07b4e294ad28cd4a382d8dc5962fc277495dc87b5f1c01",
+      "bytes": 61116
     },
     {
       "id": "5d63fc0937129e563359137bf885ee2cbaf14f7c4ce76bd548cc2a5a4009f3c4",
@@ -7582,36 +7582,36 @@
       "bytes": 22957
     },
     {
-      "id": "3c2fa31ccc25906898b33f4eb551ad12cb4b343399291473f307b34348ec7de2",
-      "text": "الاندفاع الخلفي. 3 مجموعات من 1إلى 012 تكرارات لكل ساق باستخدام 2 دمبل بالوزن الموضح على الشاشة.",
+      "id": "503cf29c005e271cf3085969e1801cf04b7ae7efa2a0cc174afa39d3f40188fb",
+      "text": "الاندفاع الخلفي. 3 مجموعات من 1إلى 0 12 تكرارات لكل ساق باستخدام 2 دمبل بالوزن الموضح على الشاشة.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "a1e1d7acb12f299f80b05a7fc9c52da5f86d0388ca603d9368f8f63cc247b4bc",
-      "bytes": 56990
+      "sha256": "9ecca5c9e4ca59e00685323739e51c627e9fb3d3c963f7187a205fb1dec6427d",
+      "bytes": 57976
     },
     {
-      "id": "237f62a87e29054ec7096a36944bf5a7fa8441d3bcc1b67d69118a5574c34191",
-      "text": "الضغط الأرضي بالدمبل. 3 مجموعات من إلى 810 تكرارات، بأثقل زوج دمبل.",
+      "id": "d08c4ee4e16523ea06c12269ee60fcaef8a04aeb389406c23cedb50d9fd5da7b",
+      "text": "الضغط الأرضي بالدمبل. 3 مجموعات من إلى 8 10 تكرارات، بأثقل زوج دمبل.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "0af894f9cc104c649a1bd7dab4f8aaa4a66f684bf5b896bf07ee8f0ae6253bac",
-      "bytes": 45692
+      "sha256": "d6e3eed0430b95e90fbc5b5dd2c932d2eacf34939fea32a0358fab0512cbc28f",
+      "bytes": 43571
     },
     {
-      "id": "ab77fba258dd1bad0d4597fd2fa12d7eaf1416fc3ac8142622634be36ac575c6",
-      "text": "عقلة بقبضة معاكسة, الكفان نحوك. 3 مجموعات من إلى 68 تكرارات.",
+      "id": "12b14fd3d6a0e5a8102e1ea240e0ad4508a4e901fd67a4a082c453bc42fe77f3",
+      "text": "عقلة بقبضة معاكسة, الكفان نحوك. 3 مجموعات من إلى 6 8 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "b1aa1419c906220107c7a71215583842e069dbc36f23b401ae20f82b6aa59ff0",
-      "bytes": 46715
+      "sha256": "fdd102f906c70fe31dbbb116cc80820d67f7f9cb98fb806057a5416f4eab11c5",
+      "bytes": 45176
     },
     {
-      "id": "255706bb20d4acd9fcb936c2e7df5c51ce090fbb52015d939ef775ff0395e15b",
-      "text": "الضغط فوق الرأس بالدمبل واقفًا. 3 مجموعات من إلى 810 تكرارات باستخدام 2 دمبل بالوزن الموضح على الشاشة.",
+      "id": "4df0d58d1b5f26a2e3d4c31c6339b336f2a394f94ad3251e04e15fbba4d0bc35",
+      "text": "الضغط فوق الرأس بالدمبل واقفًا. 3 مجموعات من إلى 8 10 تكرارات باستخدام 2 دمبل بالوزن الموضح على الشاشة.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "367023f7de3c27c3e0c6f539850dd16991870dc26bacdbbc201a07d0573693c2",
-      "bytes": 60078
+      "sha256": "83f4e349650ff9cceb1d2d5690be6992b3287cdb12cc98d49a45d8804e01d9cd",
+      "bytes": 58382
     },
     {
       "id": "f5fd9e277b4ff562183313ed646550c76ce738a2b6d0b3a1c9ca3603546a5879",
@@ -7710,20 +7710,20 @@
       "bytes": 29418
     },
     {
-      "id": "20dfa78ac4f04d4fa9da038b4317a5ea622106f3acb805a9dc51718d39971757",
-      "text": "سحب المطاط نحو الوجه. 1 مجموعات من 2إلى 025 تكرارات.",
+      "id": "6d3237c1303b2178cb08b1441c3dbae6dcc10a09e9a4af56a8e63d7d2176f729",
+      "text": "سحب المطاط نحو الوجه. 1 مجموعات من 2إلى 0 25 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "674f99add408b54bca897bc0925cbbcbd3a1e72ac077e35003a363412093adb6",
-      "bytes": 37260
+      "sha256": "be09c0c25e912c946bd4c49ea2761761e8a37ff6b0d6bb79cba6c35aa87a55ce",
+      "bytes": 39291
     },
     {
-      "id": "6b4a5b3b6a5666eb6cfdda30c33c82c9d16da250328acaa6013cee377f2ef2cb",
-      "text": "المجموعة 1 من 1. 2إلى 025 تكرارات.",
+      "id": "15b22f3c10e700929a2560a09812ca356ef9aa5b0489e788aaef25a1ae44d82a",
+      "text": "المجموعة 1 من 1. 2إلى 0 25 تكرارات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "0e78c6765fd55b9092762a1ffea3c5381cf038b8e97d8c269add1ad7a7413f0c",
-      "bytes": 31002
+      "sha256": "5539a25926021519ab747132b0fa53ac1d2e2201b0d3436719ab95ff739af8fe",
+      "bytes": 32665
     },
     {
       "id": "7a85cae3a6c050dc692b1b746cecaaaf820d94d1bae3b5ef4e2e971b9509b0ba",
