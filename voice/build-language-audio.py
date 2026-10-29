@@ -20,7 +20,7 @@ async def one(entry, voice, folder, sem):
         for attempt in range(10):
             tmp = folder / f"{entry['id']}.{os.getpid()}.tmp"
             try:
-                communicate = edge_tts.Communicate(entry["text"], voice)
+                communicate = edge_tts.Communicate(entry["text"], voice, connect_timeout=10, receive_timeout=10)
                 await communicate.save(str(tmp))
                 if tmp.stat().st_size == 0:
                     raise RuntimeError("empty audio")
