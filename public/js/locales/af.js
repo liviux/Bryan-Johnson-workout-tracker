@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Kies die weergawe wat in jou oefensessie voorgeskryf word",
   "Choose workout step": "Kies oefenstap",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Deur 'n video te kies, hou die speler aan die bokant van die paneel in plaas daarvan om na onder te spring.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Die keuse van 'n stem of die verandering van taal begin nie meer 'n aflaai nie. Gebruik die aflaai-knoppie op die stem wat jy wil stoor.",
   "Choosing the box height": "Die keuse van die bokshoogte",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Om die vlak in Instellings te kies, gebruik nou dieselfde skyfies as opstelling, met wat die vlak beteken en wanneer om op of af te beweeg.",
   "Chop fast across, turn the hips, pivot the back foot": "Kap vinnig oor, draai die heupe, draai die agterste voet",

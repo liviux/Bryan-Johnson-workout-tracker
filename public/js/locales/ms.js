@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Pilih versi yang ditetapkan dalam senaman anda",
   "Choose workout step": "Pilih langkah senaman",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Memilih video mengekalkan pemain di bahagian atas panel dan bukannya melompat ke bawah.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Memilih suara atau menukar bahasa tidak lagi memulakan muat turun. Gunakan butang muat turun pada suara yang ingin anda simpan.",
   "Choosing the box height": "Memilih ketinggian kotak",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Memilih tahap dalam Tetapan kini menggunakan cip yang sama seperti persediaan, dengan maksud tahap dan masa untuk naik atau turun.",
   "Chop fast across, turn the hips, pivot the back foot": "Cincang cepat melintasi, pusingkan pinggul, pivot kaki belakang",

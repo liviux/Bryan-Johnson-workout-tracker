@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Piliin ang bersyon na inireseta sa iyong pag-eehersisyo",
   "Choose workout step": "Pumili ng hakbang sa pag-eehersisyo",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Ang pagpili ng video ay nagpapanatili sa player sa tuktok ng panel sa halip na tumalon sa ibaba.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Ang pagpili ng boses o pagpapalit ng wika ay hindi na magsisimula ng pag-download. Gamitin ang download button sa boses na gusto mong i-save.",
   "Choosing the box height": "Pagpili ng taas ng kahon",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Ang pagpili sa antas sa Mga Setting ay gumagamit na ngayon ng parehong mga chip bilang setup, kung ano ang ibig sabihin ng antas at kung kailan dapat umakyat o bababa.",
   "Chop fast across, turn the hips, pivot the back foot": "Mabilis na tumaga, iikot ang mga balakang, i-pivot ang likod na paa",

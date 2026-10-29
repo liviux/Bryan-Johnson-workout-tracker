@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "აირჩიეთ თქვენი ვარჯიშის დროს მითითებული ვერსია",
   "Choose workout step": "აირჩიეთ ვარჯიშის ეტაპი",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "ვიდეოს არჩევა პლეერს პანელის ზედა ნაწილში ტოვებს, ბოლოში გადახტომის ნაცვლად.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "ხმის არჩევა ან ენის შეცვლა აღარ იწყებს ჩამოტვირთვას. გამოიყენეთ ჩამოტვირთვის ღილაკი ხმაზე, რომლის შენახვაც გსურთ.",
   "Choosing the box height": "ყუთის სიმაღლის არჩევა",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "პარამეტრებში დონის არჩევისას ახლა გამოიყენება იგივე ჩიპები, როგორც დაყენება, იმის მიხედვით, თუ რას ნიშნავს დონე და როდის უნდა ასვლა ან დაწევა.",
   "Chop fast across, turn the hips, pivot the back foot": "სწრაფად დაჭერით, მოაბრუნეთ თეძოები, გადაატრიალეთ უკანა ფეხი",

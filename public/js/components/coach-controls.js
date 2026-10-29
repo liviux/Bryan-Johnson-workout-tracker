@@ -93,7 +93,7 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
     if (voice) {
       cancelVoice(); previewToken += 1;
       updateProfile((p) => { p.settings ||= {}; p.settings.coachVoice = voice.dataset.coachVoice; }, { silent: true });
-      cacheVoice({ activate: true });
+      await refreshVoiceStatus();
       sync(voiceStatus); onChange();
       return;
     }

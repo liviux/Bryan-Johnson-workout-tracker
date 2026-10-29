@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "เลือกเวอร์ชันที่กำหนดไว้ในการออกกำลังกายของคุณ",
   "Choose workout step": "เลือกขั้นตอนการออกกำลังกาย",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "การเลือกวิดีโอจะทำให้โปรแกรมเล่นอยู่ที่ด้านบนสุดของแผงแทนที่จะกระโดดไปด้านล่าง",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "การเลือกเสียงหรือการเปลี่ยนภาษาจะไม่เริ่มการดาวน์โหลดอีกต่อไป ใช้ปุ่มดาวน์โหลดบนเสียงที่คุณต้องการบันทึก",
   "Choosing the box height": "การเลือกความสูงของกล่อง",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "ตอนนี้การเลือกระดับในการตั้งค่าจะใช้ชิปเดียวกับการตั้งค่า โดยระบุว่าระดับหมายถึงอะไรและเมื่อใดที่จะเลื่อนขึ้นหรือลง",
   "Chop fast across, turn the hips, pivot the back foot": "สับอย่างรวดเร็ว หมุนสะโพก หมุนเท้าหลัง",

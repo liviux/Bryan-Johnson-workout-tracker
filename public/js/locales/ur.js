@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "اپنی ورزش میں تجویز کردہ ورژن کا انتخاب کریں۔",
   "Choose workout step": "ورزش کا مرحلہ منتخب کریں۔",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "ویڈیو کا انتخاب پلیئر کو نیچے کودنے کے بجائے پینل کے اوپری حصے میں رکھتا ہے۔",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "آواز کا انتخاب یا زبان تبدیل کرنے سے ڈاؤن لوڈ شروع نہیں ہوتا ہے۔ جس آواز کو آپ محفوظ کرنا چاہتے ہیں اس پر ڈاؤن لوڈ بٹن کا استعمال کریں۔",
   "Choosing the box height": "باکس کی اونچائی کا انتخاب",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "ترتیبات میں لیول کا انتخاب اب سیٹ اپ کے طور پر وہی چپس استعمال کرتا ہے، جس میں لیول کا کیا مطلب ہے اور کب اوپر جانا ہے یا نیچے جانا ہے۔",
   "Chop fast across, turn the hips, pivot the back foot": "تیزی سے کاٹیں، کولہوں کو موڑیں، پچھلے پاؤں کو محور کریں۔",

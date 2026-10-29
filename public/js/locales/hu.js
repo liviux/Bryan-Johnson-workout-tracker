@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Válassza ki az edzésben előírt verziót",
   "Choose workout step": "Choose workout step",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Ha videót választ, a lejátszó a panel tetején marad, ahelyett, hogy a panel aljára ugrik.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "A hang kiválasztása vagy a nyelv megváltoztatása már nem indítja el a letöltést. Használja a menteni kívánt hang letöltés gombját.",
   "Choosing the box height": "Choosing the box height",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "A Beállításokban a szint kiválasztása most ugyanazokat a zsetonokat használja, mint a beállítás, a szint jelentése, és mikor kell feljebb vagy lelépni.",
   "Chop fast across, turn the hips, pivot the back foot": "Vágjon gyorsan, fordítsa el a csípőt, fordítsa el a hátsó lábát",

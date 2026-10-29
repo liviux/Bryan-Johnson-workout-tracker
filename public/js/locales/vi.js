@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Chọn phiên bản được quy định trong quá trình tập luyện của bạn",
   "Choose workout step": "Chọn bước tập luyện",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Việc chọn video sẽ giữ trình phát ở đầu bảng thay vì nhảy xuống cuối bảng.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Việc chọn giọng nói hoặc thay đổi ngôn ngữ không còn bắt đầu tải xuống nữa. Sử dụng nút tải xuống trên giọng nói bạn muốn lưu.",
   "Choosing the box height": "Chọn chiều cao hộp",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Việc chọn cấp độ trong Cài đặt hiện sử dụng các khối giống như thiết lập, cho biết ý nghĩa của cấp độ và thời điểm tăng hoặc giảm.",
   "Chop fast across, turn the hips, pivot the back foot": "Chém nhanh qua, xoay hông, xoay chân sau",

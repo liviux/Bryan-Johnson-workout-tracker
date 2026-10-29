@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Veldu útgáfuna sem mælt er fyrir um í æfingunni þinni",
   "Choose workout step": "Veldu líkamsþjálfunarskref",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Með því að velja myndband heldur spilaranum efst á spjaldinu í stað þess að hoppa til botns.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Að velja rödd eða skipta um tungumál ræsir ekki lengur niðurhal. Notaðu niðurhalshnappinn á röddinni sem þú vilt vista.",
   "Choosing the box height": "Að velja hæð kassans",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Þegar þú velur stigið í Stillingum eru nú notuð sömu spilapeningarnir og uppsetningin, með því hvað stigið þýðir og hvenær á að fara upp eða niður.",
   "Chop fast across, turn the hips, pivot the back foot": "Höggðu hratt yfir, snúðu mjöðmunum, snúðu afturfætinum",

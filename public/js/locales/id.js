@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Pilih versi yang ditentukan dalam latihan Anda",
   "Choose workout step": "Pilih langkah latihan",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Memilih video akan membuat pemutar tetap berada di bagian atas panel, bukannya melompat ke bawah.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Memilih suara atau mengubah bahasa tidak lagi memulai pengunduhan. Gunakan tombol unduh pada suara yang ingin Anda simpan.",
   "Choosing the box height": "Memilih tinggi kotak",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Memilih level di Pengaturan sekarang menggunakan chip yang sama dengan pengaturan, dengan arti level tersebut dan kapan harus naik atau turun.",
   "Chop fast across, turn the hips, pivot the back foot": "Potong cepat, putar pinggul, putar kaki belakang",

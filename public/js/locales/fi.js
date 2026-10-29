@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Valitse harjoituksessasi määrätty versio",
   "Choose workout step": "Valitse harjoitusvaihe",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Jos valitset videon, soitin pysyy paneelin yläosassa sen sijaan, että se hyppää alas.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Äänen valitseminen tai kielen vaihtaminen ei enää aloita latausta. Käytä latauspainiketta sen äänen kohdalla, jonka haluat tallentaa.",
   "Choosing the box height": "Laatikon korkeuden valinta",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Tason valitseminen asetuksista käyttää nyt samoja pelimerkkejä kuin asetukset, mitä taso tarkoittaa ja milloin siirtyä ylös tai alas.",
   "Chop fast across, turn the hips, pivot the back foot": "Leikkaa nopeasti poikki, käännä lantiota, käännä takajalkaa",

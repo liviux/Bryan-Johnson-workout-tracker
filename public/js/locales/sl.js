@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Izberite različico, ki je predpisana v vaši vadbi",
   "Choose workout step": "Izberite korak vadbe",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Če izberete videoposnetek, predvajalnik ostane na vrhu plošče, namesto da skoči na dno.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Če izberete glas ali spremenite jezik, se prenos ne začne več. Uporabite gumb za prenos na glasu, ki ga želite shraniti.",
   "Choosing the box height": "Izbira višine škatle",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Izbira ravni v nastavitvah zdaj uporablja iste čipe kot nastavitev, s tem, kaj raven pomeni in kdaj se premakniti navzgor ali navzdol.",
   "Chop fast across, turn the hips, pivot the back foot": "Hitro sekajte čez, obrnite boke, zavrtite zadnjo nogo",

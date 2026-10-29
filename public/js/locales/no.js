@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Velg versjonen som er foreskrevet i treningsøkten",
   "Choose workout step": "Velg treningstrinn",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Ved å velge en video holdes spilleren øverst på panelet i stedet for å hoppe til bunnen.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Å velge en stemme eller endre språk starter ikke lenger en nedlasting. Bruk nedlastingsknappen på stemmen du vil lagre.",
   "Choosing the box height": "Velge bokshøyde",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Å velge nivå i Innstillinger bruker nå de samme sjetongene som oppsettet, med hva nivået betyr og når du skal gå opp eller ned.",
   "Chop fast across, turn the hips, pivot the back foot": "Hakk raskt på tvers, snu hoftene, drei den bakre foten",

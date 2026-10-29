@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Zgjidhni versionin e përshkruar në stërvitjen tuaj",
   "Choose workout step": "Zgjidhni hapin e stërvitjes",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Zgjedhja e një videoje e mban luajtësin në krye të panelit në vend që të hidhet në fund.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Zgjedhja e një zëri ose ndryshimi i gjuhës nuk fillon më shkarkimin. Përdorni butonin e shkarkimit në zërin që dëshironi të ruani.",
   "Choosing the box height": "Zgjedhja e lartësisë së kutisë",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Zgjedhja e nivelit te \"Cilësimet\" përdor tani të njëjtat çipa si konfigurimi, me kuptimin e nivelit dhe kur duhet të ngjiteni ose të zbrisni.",
   "Chop fast across, turn the hips, pivot the back foot": "Prisni shpejt, ktheni ijet, rrotulloni këmbën e pasme",

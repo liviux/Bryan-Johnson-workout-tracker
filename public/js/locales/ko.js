@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "운동에 규정된 버전을 선택하세요.",
   "Choose workout step": "운동 단계 선택",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "비디오를 선택하면 플레이어가 패널 맨 아래로 이동하는 대신 패널 맨 위에 유지됩니다.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "음성을 선택하거나 언어를 변경하면 더 이상 다운로드가 시작되지 않습니다. 저장하고 싶은 음성의 다운로드 버튼을 이용하세요.",
   "Choosing the box height": "상자 높이 선택",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "이제 설정에서 레벨을 선택하면 레벨의 의미와 언제 올라가거나 내려갈지 설정과 동일한 칩이 사용됩니다.",
   "Chop fast across, turn the hips, pivot the back foot": "빠르게 건너뛰고, 엉덩이를 돌리고, 뒷발을 피벗하세요",

@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Antrenmanınızda belirtilen sürümü seçin",
   "Choose workout step": "Antrenman adımını seçin",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Bir video seçmek, oynatıcının panelin altına atlamak yerine panelin üst kısmında kalmasını sağlar.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Bir ses seçmek veya dili değiştirmek artık indirme işlemini başlatmıyor. Kaydetmek istediğiniz sesin üzerindeki indirme düğmesini kullanın.",
   "Choosing the box height": "Kutu yüksekliğini seçme",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Ayarlar'da seviyeyi seçerken artık seviyenin ne anlama geldiği ve ne zaman yukarı veya aşağı hareket edileceği ile birlikte kurulumla aynı çipler kullanılıyor.",
   "Chop fast across, turn the hips, pivot the back foot": "Hızlıca doğrayın, kalçaları çevirin, arka ayağı döndürün",

@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "选择训练中规定的版本",
   "Choose workout step": "选择训练步骤",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "选择视频会使播放器保持在面板顶部，而不是跳到底部。",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "选择声音或更改语言不再开始下载。使用要保存的语音上的下载按钮。",
   "Choosing the box height": "如何选择箱高",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "现在，在“设置”中选择级别使用与设置相同的芯片，包括级别的含义以及何时向上或向下移动。",
   "Chop fast across, turn the hips, pivot the back foot": "快速横向伐木，转髋，后脚跟着转动",

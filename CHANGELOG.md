@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.44.2] - 2026-10-29
+
+### Changed
+- Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.
+
 ## [1.44.1] - 2026-10-29
 
 ### Added

@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Valige treeningul ettenähtud versioon",
   "Choose workout step": "Valige treeningu etapp",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Video valimine hoiab pleieri paneeli ülaosas, mitte ei hüppa alla.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Hääle valimine või keele muutmine ei alusta enam allalaadimist. Kasutage allalaadimisnuppu häälel, mida soovite salvestada.",
   "Choosing the box height": "Kasti kõrguse valimine",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Seadetes taseme valimine kasutab nüüd samu kiipe, mis seadistamisel, mis näitab, mida tase tähendab ja millal liikuda üles või alla.",
   "Chop fast across, turn the hips, pivot the back foot": "Haki kiiresti risti, pööra puusi, pööra tagumist jalga",

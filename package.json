@@ -1,6 +1,6 @@
 {
   "name": "bryan-johnson-workout-website",
-  "version": "1.44.1",
+  "version": "1.44.2",
   "description": "Unofficial home workout planner and tracker based on Bryan Johnson's public exercise protocol, with 3D exercise animations, video demos and an optional posture add-on. Runs locally; your data stays in ./data.",
   "type": "module",
   "private": true,

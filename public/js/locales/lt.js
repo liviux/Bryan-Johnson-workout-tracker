@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Pasirinkite treniruotėje nurodytą versiją",
   "Choose workout step": "Pasirinkite treniruotės žingsnį",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Pasirinkus vaizdo įrašą, grotuvas lieka skydelio viršuje, o ne šokinėja į apačią.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Pasirinkus balsą arba pakeitus kalbą, atsisiuntimas nebebus pradedamas. Naudokite atsisiuntimo mygtuką ant balso, kurį norite išsaugoti.",
   "Choosing the box height": "Dėžės aukščio pasirinkimas",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Pasirinkus lygį nustatymuose, dabar naudojami tie patys lustai, kaip ir nustatant, nurodant, ką reiškia lygis ir kada reikia pakilti arba nusileisti.",
   "Chop fast across, turn the hips, pivot the back foot": "Greitai sukapokite skersai, pasukite klubus, pasukite užpakalinę pėdą",

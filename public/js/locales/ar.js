@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "اختر النسخة الموصوفة في تمرينك",
   "Choose workout step": "اختيار خطوة التمرين",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "يؤدي اختيار مقطع فيديو إلى إبقاء المشغل في أعلى اللوحة بدلاً من القفز إلى الأسفل.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "لم يعد اختيار الصوت أو تغيير اللغة يؤدي إلى بدء التنزيل. استخدم زر التنزيل الموجود على الصوت الذي تريد حفظه.",
   "Choosing the box height": "اختيار ارتفاع الصندوق",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "يستخدم اختيار المستوى في الإعدادات الآن نفس شرائح الإعداد، مع ما يعنيه المستوى ومتى يجب الانتقال لأعلى أو التنحي.",
   "Chop fast across, turn the hips, pivot the back foot": "اقطع بسرعة، وأدر الوركين، وقم بتدوير القدم الخلفية",

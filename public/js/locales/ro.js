@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Alege varianta prescrisă în antrenamentul tău",
   "Choose workout step": "Alege pasul antrenamentului",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Alegerea unui videoclip menține playerul în partea de sus a panoului în loc să sară în jos.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Alegerea unei voci sau schimbarea limbii nu mai începe o descărcare. Folosiți butonul de descărcare de pe vocea pe care doriți să o salvați.",
   "Choosing the box height": "Alegerea înălțimii cutiei",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Alegerea nivelului din Setări folosește acum aceleași pastile ca în configurare, cu ce înseamnă fiecare nivel și când să avansezi sau să cobori.",
   "Chop fast across, turn the hips, pivot the back foot": "Tăiați rapid, întoarceți șoldurile, pivotați piciorul din spate",

@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Välj den version som föreskrivs i ditt träningspass",
   "Choose workout step": "Välj träningssteg",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Att välja en video håller spelaren överst på panelen istället för att hoppa till botten.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Att välja en röst eller ändra språk startar inte längre en nedladdning. Använd nedladdningsknappen på rösten du vill spara.",
   "Choosing the box height": "Att välja lådans höjd",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Att välja nivå i Inställningar använder nu samma marker som inställningen, med vad nivån betyder och när man ska gå upp eller kliva ner.",
   "Chop fast across, turn the hips, pivot the back foot": "Hacka snabbt över, vrid på höfterna, sväng bakre foten",

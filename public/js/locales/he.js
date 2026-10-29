@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "בחר את הגרסה שנקבעה באימון שלך",
   "Choose workout step": "בחר שלב אימון",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "בחירה בסרטון שומרת על הנגן בראש הלוח במקום לקפוץ לתחתית.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "בחירת קול או שינוי שפה כבר לא מתחילה הורדה. השתמש בלחצן ההורדה בקול שברצונך לשמור.",
   "Choosing the box height": "בחירת גובה התיבה",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "בחירת הרמה בהגדרות משתמשת כעת באותם שבבים כמו ההגדרה, עם המשמעות של הרמה ומתי לעלות או לרדת.",
   "Chop fast across, turn the hips, pivot the back foot": "קוצץ מהר לרוחבו, סובב את הירכיים, סובב את כף הרגל האחורית",

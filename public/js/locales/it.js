@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Scegli la versione prescritta nel tuo allenamento",
   "Choose workout step": "Scegli il passaggio dell'allenamento",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "La scelta di un video mantiene il lettore nella parte superiore del pannello invece di saltare in basso.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "La scelta di una voce o la modifica della lingua non avvia più il download. Utilizza il pulsante di download sulla voce che desideri salvare.",
   "Choosing the box height": "Scelta dell'altezza del box",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "La scelta del livello in Impostazioni ora utilizza gli stessi chip della configurazione, con cosa significa il livello e quando salire o scendere.",
   "Chop fast across, turn the hips, pivot the back foot": "Taglia velocemente, gira i fianchi, fai ruotare il piede posteriore",

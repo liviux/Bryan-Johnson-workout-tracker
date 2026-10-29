@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "আপনার ওয়ার্কআউটে নির্ধারিত সংস্করণ বাছুন",
   "Choose workout step": "ওয়ার্কআউট ধাপ বাছুন",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "ভিডিও বাছলে প্লেয়ার প্যানেলের নিচে লাফ না দিয়ে উপরে থাকে।",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "একটি ভয়েস বাছাই করা বা ভাষা পরিবর্তন করা আর ডাউনলোড শুরু করে না। আপনি যে ভয়েসটি সংরক্ষণ করতে চান তাতে ডাউনলোড বোতামটি ব্যবহার করুন।",
   "Choosing the box height": "বাক্সের উচ্চতা বাছাই",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "সেটিংসে লেভেল বাছাই এখন সেটআপের মতো একই চিপ ব্যবহার করে, সঙ্গে লেভেলের অর্থ আর কখন উপরে উঠবেন বা নামবেন।",
   "Chop fast across, turn the hips, pivot the back foot": "দ্রুত কাটুন, নিতম্ব ঘুরান, পিছনের পায়ে পিভট করুন",

@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Izvēlieties treniņā norādīto versiju",
   "Choose workout step": "Izvēlieties treniņa soli",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Izvēloties videoklipu, atskaņotājs paliek paneļa augšpusē, nevis pāriet uz leju.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Izvēloties balsi vai mainot valodu, lejupielāde vairs netiek sākta. Izmantojiet lejupielādes pogu balsij, kuru vēlaties saglabāt.",
   "Choosing the box height": "Kastes augstuma izvēle",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Izvēloties līmeni sadaļā Iestatījumi, tagad tiek izmantoti tie paši mikroshēmas kā iestatīšanā, norādot, ko nozīmē līmenis un kad pārvietoties uz augšu vai pazemināt.",
   "Chop fast across, turn the hips, pivot the back foot": "Ātri sagrieziet pāri, pagrieziet gurnus, pagrieziet aizmugurējo pēdu",

@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "ワークアウトで規定されているバージョンを選択してください",
   "Choose workout step": "ワークアウトステップを選択してください",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "ビデオを選択すると、プレーヤーはパネルの一番下にジャンプするのではなく、パネルの一番上に留まります。",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "音声を選択したり言語を変更してもダウンロードは開始されなくなりました。保存したい音声のダウンロードボタンを使用してください。",
   "Choosing the box height": "ボックスの高さの選択",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "「設定」でレベルを選択すると、レベルの意味と、いつ上がったり下がったりするかについて、セットアップと同じチップが使用されるようになりました。",
   "Chop fast across, turn the hips, pivot the back foot": "素早くチョップして腰を回し、後ろ足を回転させる",

@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Trieu la versió prescrita al vostre entrenament",
   "Choose workout step": "Trieu el pas de l'entrenament",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Si trieu un vídeo, el reproductor es manté a la part superior del tauler en lloc de saltar a la part inferior.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Si escolliu una veu o canvieu l'idioma, ja no s'inicia una baixada. Utilitzeu el botó de baixada de la veu que voleu desar.",
   "Choosing the box height": "Escollint l'alçada de la caixa",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "En triar el nivell a Configuració ara s'utilitzen els mateixos fitxes que la configuració, amb el que significa el nivell i quan pujar o baixar.",
   "Chop fast across, turn the hips, pivot the back foot": "Talleu ràpidament, gireu els malucs, gireu el peu posterior",

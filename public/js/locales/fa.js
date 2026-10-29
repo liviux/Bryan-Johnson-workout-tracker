@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "نسخه تجویز شده در تمرین خود را انتخاب کنید",
   "Choose workout step": "مرحله تمرین را انتخاب کنید",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "انتخاب یک ویدیو، پخش کننده را به جای پریدن به پایین، در بالای پانل نگه می دارد.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "انتخاب صدا یا تغییر زبان دیگر بارگیری را شروع نمی کند. از دکمه دانلود روی صدایی که می خواهید ذخیره کنید استفاده کنید.",
   "Choosing the box height": "انتخاب ارتفاع جعبه",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "اکنون انتخاب سطح در تنظیمات از همان تراشه‌های راه‌اندازی استفاده می‌کند، یعنی سطح به چه معناست و چه زمانی باید بالا یا پایین بروید.",
   "Chop fast across, turn the hips, pivot the back foot": "سریع خرد کنید، باسن را بچرخانید، پای عقب را بچرخانید",

@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Виберіть версію, прописану у вашому тренуванні",
   "Choose workout step": "Виберіть крок тренування",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Якщо вибрати відео, програвач залишиться у верхній частині панелі, а не перескочить униз.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Вибір голосу або зміна мови більше не запускає завантаження. Натисніть кнопку завантаження на голосі, який ви хочете зберегти.",
   "Choosing the box height": "Вибір висоти ящика",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Для вибору рівня в налаштуваннях тепер використовуються ті самі фішки, що й для налаштування, із визначенням значення рівня та часу переходу вгору або вниз.",
   "Chop fast across, turn the hips, pivot the back foot": "Швидко поперек, повертайте стегна, повертайте задню стопу",

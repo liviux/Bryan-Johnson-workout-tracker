@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Chagua toleo lililowekwa kwenye mazoezi yako",
   "Choose workout step": "Chagua hatua ya mazoezi",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Kuchagua video huweka kichezaji juu ya kidirisha badala ya kuruka hadi chini.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Kuchagua sauti au kubadilisha lugha hakuanzishi tena upakuaji. Tumia kitufe cha kupakua kwenye sauti unayotaka kuhifadhi.",
   "Choosing the box height": "Kuchagua urefu wa sanduku",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Kuchagua kiwango katika Mipangilio sasa hutumia chip sawa na usanidi, pamoja na maana ya kiwango na wakati wa kupanda juu au kushuka.",
   "Chop fast across, turn the hips, pivot the back foot": "Kata kwa haraka, geuza viuno, geuza mguu wa nyuma",

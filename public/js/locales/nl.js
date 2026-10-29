@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Kies de versie die tijdens uw training is voorgeschreven",
   "Choose workout step": "Kies een trainingsstap",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Als u een video kiest, blijft de speler bovenaan het paneel staan ​​in plaats van naar de onderkant te springen.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Het kiezen van een stem of het wijzigen van de taal start niet langer een download. Gebruik de downloadknop op de stem die je wilt opslaan.",
   "Choosing the box height": "Keuze van de kasthoogte",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Het kiezen van het niveau in Instellingen gebruikt nu dezelfde fiches als setup, met wat het niveau betekent en wanneer je omhoog of omlaag moet gaan.",
   "Chop fast across, turn the hips, pivot the back foot": "Hak snel over, draai de heupen, draai de achterste voet",

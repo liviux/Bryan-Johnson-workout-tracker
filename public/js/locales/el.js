@@ -1098,6 +1098,7 @@ export default {
   "Choose the version prescribed in your workout": "Επιλέξτε την έκδοση που συνταγογραφείται στην προπόνησή σας",
   "Choose workout step": "Επιλέξτε βήμα προπόνησης",
   "Choosing a video keeps the player at the top of the panel instead of jumping to the bottom.": "Η επιλογή ενός βίντεο διατηρεί το πρόγραμμα αναπαραγωγής στο επάνω μέρος του πίνακα αντί να μεταπηδά στο κάτω μέρος.",
+  "Choosing a voice or changing language no longer starts a download. Use the download button on the voice you want to save.": "Η επιλογή φωνής ή η αλλαγή γλώσσας δεν ξεκινά πλέον μια λήψη. Χρησιμοποιήστε το κουμπί λήψης στη φωνή που θέλετε να αποθηκεύσετε.",
   "Choosing the box height": "Επιλέγοντας το ύψος του κουτιού",
   "Choosing the level in Settings now uses the same chips as setup, with what the level means and when to move up or step down.": "Η επιλογή του επιπέδου στις Ρυθμίσεις χρησιμοποιεί πλέον τις ίδιες μάρκες με τη ρύθμιση, με το τι σημαίνει το επίπεδο και πότε πρέπει να ανεβείτε ή να υποχωρήσετε.",
   "Chop fast across, turn the hips, pivot the back foot": "Κόψτε γρήγορα, γυρίστε τους γοφούς, περιστρέψτε το πίσω πόδι",
