@@ -1,10 +1,16 @@
 name: Build translated coach voices
 on:
   workflow_dispatch:
+    inputs:
+      languages:
+        description: "Comma-separated language ids. Leave empty to build every language."
+        required: false
+        default: ""
 permissions:
   contents: read
 jobs:
   voice:
+    if: inputs.languages == '' || contains(format(',{0},', inputs.languages), format(',{0},', matrix.language))
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
@@ -134,3 +140,11 @@ jobs:
             voice/packs/${{ matrix.voice }}.json
             voice/packs/${{ matrix.voice }}/
           retention-days: 1
+      - name: Upload partial audio
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: audio-${{ matrix.voice }}
+          path: voice/language-audio/${{ matrix.language }}/${{ matrix.voice }}
+          retention-days: 1
+          if-no-files-found: ignore
