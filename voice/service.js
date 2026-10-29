@@ -259,7 +259,9 @@ export function buildSharedVoicePack(voice) {
     const c = clip(text, selected, 1); collect({ id: c.id, ...clips.get(c.id) });
   }
   const and = clip("and", selected, 1); collect({ id: and.id, ...clips.get(and.id) });
-  return [...entries.values()];
+  // Edge voices reject a clip with no letters or numbers, and it would be
+  // inaudible anyway. Punctuation-only fragments can survive a parenthetical.
+  return [...entries.values()].filter((entry) => /[\p{L}\p{N}]/u.test(entry.text));
 }
 
 async function pruneCache() {

@@ -199,7 +199,9 @@ function levelText(text, level) {
 // Keep clips short enough for the model and for the gap before a timer warning.
 export function sentences(text) {
   return (text.match(/[^.!?]+(?:[.!?]+|$)/g) || []).map((s) => s.trim()).filter(Boolean)
-    .flatMap((s) => s.length <= 280 ? [s] : s.split(/,\s+/)).filter(Boolean);
+    .flatMap((s) => s.length <= 280 ? [s] : s.split(/,\s+/))
+    // Punctuation left after removing a parenthetical is not a spoken line.
+    .filter((s) => /[\p{L}\p{N}]/u.test(s));
 }
 
 export function exerciseScript({ item, rx, profile, level, easier = false }) {

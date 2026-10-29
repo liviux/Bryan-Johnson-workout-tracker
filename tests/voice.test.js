@@ -6,7 +6,7 @@ import { EXERCISES } from "../public/js/data/exercises.js";
 import { parseRx } from "../public/js/components/logger.js";
 import { defaultProfile, LEVELS, personalize } from "../public/js/personalize.js";
 import { rxFor } from "../public/js/plan.js";
-import { CLOCK, VOICES, clockKey, durationText, exerciseScript, phaseLine, speechText } from "../public/js/voice/script.js";
+import { CLOCK, VOICES, clockKey, durationText, exerciseScript, phaseLine, sentences, speechText } from "../public/js/voice/script.js";
 import { buildSharedVoicePack, buildVoicePack, prepareManifest } from "../voice/service.js";
 
 const items = [...DAYS.flatMap((d) => d.blocks.flatMap((b) => b.items)), ...ADDONS.flatMap((a) => Object.values(a.variants).flatMap((v) => v.items))];
@@ -27,6 +27,14 @@ test("speech covers real prescriptions at every level, in both unit systems", ()
       if (rx.includes("{kg:")) assert.match(script.intro.join(" "), /weight shown on screen/);
       assert(!script.name.includes("{"));
     }
+  }
+});
+
+test("spoken lines never consist only of punctuation", () => {
+  for (const text of ["Heart rate (60–70%). You can talk.", "Zone 2 (easy). Finish."]) {
+    const lines = sentences(speechText(text));
+    assert(lines.length);
+    for (const line of lines) assert.match(line, /[\p{L}\p{N}]/u);
   }
 });
 

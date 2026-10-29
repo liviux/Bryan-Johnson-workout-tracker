@@ -9,7 +9,7 @@ import sys
 import edge_tts
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CONCURRENCY = int(os.environ.get("EDGE_CONCURRENCY", "24"))
+CONCURRENCY = int(os.environ.get("EDGE_CONCURRENCY", "12"))
 
 
 async def one(entry, voice, folder, sem):
@@ -17,7 +17,7 @@ async def one(entry, voice, folder, sem):
     if file.exists() and file.stat().st_size > 0:
         return 0
     async with sem:
-        for attempt in range(6):
+        for attempt in range(10):
             tmp = folder / f"{entry['id']}.{os.getpid()}.tmp"
             try:
                 communicate = edge_tts.Communicate(entry["text"], voice)
@@ -31,9 +31,11 @@ async def one(entry, voice, folder, sem):
                     tmp.unlink(missing_ok=True)
                 except OSError:
                     pass
-                if attempt == 5:
+                if attempt == 9:
                     raise RuntimeError(f"{entry['id']}: {err}") from err
-                await asyncio.sleep(1.5 * (attempt + 1))
+                # Rate limits and transient empty responses need a longer pause
+                # than a real input error; the quadratic cap keeps jobs moving.
+                await asyncio.sleep(min(30, 1.5 * (attempt + 1) ** 2))
     return 0
 
 

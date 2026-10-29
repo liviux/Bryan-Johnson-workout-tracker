@@ -91,7 +91,7 @@ sudo tailscale serve --bg --https=10000 http://127.0.0.1:3030
 
 Then open `https://<device>.<tailnet>.ts.net:10000` on a Tailscale device. This stays within your tailnet. The app has no login, so do not expose it with Tailscale Funnel or a public port forward.
 
-`npm install` only downloads three.js and three web fonts; the server itself uses nothing but Node. The [voice coach](#voice-coach) recordings are included in the Git download (about 3.3 GiB for the five English voices and 49 translated voices).
+`npm install` only downloads three.js and three web fonts; the server itself uses nothing but Node. The [voice coach](#voice-coach) recordings are included in the Git download (about 2.1 GiB for the five English voices and 49 translated voices).
 
 </details>
 

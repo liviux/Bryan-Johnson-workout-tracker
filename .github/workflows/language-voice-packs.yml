@@ -7,6 +7,8 @@ jobs:
   voice:
     runs-on: ubuntu-latest
     timeout-minutes: 360
+    env:
+      EDGE_CONCURRENCY: "8"
     strategy:
       fail-fast: false
       max-parallel: 20
