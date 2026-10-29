@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Perjungti temą",
   "Switches with the animation": "Persijungia su animacija",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Perjungus judesius ar vaizdo įrašus, 3D animacija automatiškai perkeliama iš automatinio į fiksuotą, kad pasirinktas judesys ir vaizdo įrašų sąrašas liktų užfiksuoti.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Perjungus kalbą, iš karto rodomas balso atsisiuntimo mygtukas. Turn coaching on is no longer greyed out; įjungus jį neišsaugotu balsu, taip pat pradedamas atsisiuntimas.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Perjungus šviesą / tamsą nustatymuose, atvira 3D scena iš karto pakeičia spalvas.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

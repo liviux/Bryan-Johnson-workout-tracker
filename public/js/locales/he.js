@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "החלף נושא",
   "Switches with the animation": "מתגים עם האנימציה",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "מעבר בין תנועות או סרטוני וידאו מעביר אוטומטית את הנפשת התלת-ממד מאוטומטית ל-Fixed כך שרשימת התנועות והסרטונים שנבחרו יישארו נעולות במקום.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "החלפת שפה מציגה כעת את כפתור ההורדה הקולית באופן מיידי. הפעל אימון כבר לא אפור; הפעלתו בקול שלא נשמר מפעילה גם את ההורדה.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "החלפת אור/חושך בהגדרות כעת גם צובעת מחדש סצינת תלת מימד פתוחה מיד.",
   "Sworkit": "Sworkit",
   "Synthwave": "גלי סינת'",

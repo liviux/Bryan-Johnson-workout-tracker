@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Chuyển chủ đề",
   "Switches with the animation": "Chuyển đổi với hình ảnh động",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Việc chuyển đổi giữa các chuyển động hoặc video sẽ tự động chuyển hoạt ảnh 3D từ Tự động sang Cố định để chuyển động đã chọn và danh sách video luôn được khóa tại chỗ.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Chuyển đổi ngôn ngữ hiện hiển thị nút tải xuống bằng giọng nói ngay lập tức. Bật huấn luyện không còn chuyển sang màu xám nữa; bật nó lên với giọng nói chưa được lưu cũng bắt đầu quá trình tải xuống.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Giờ đây, việc chuyển đổi sáng/tối trong Cài đặt cũng có thể đổi màu ngay lập tức cảnh 3D đang mở.",
   "Sworkit": "Sworkit",
   "Synthwave": "Sóng tổng hợp",

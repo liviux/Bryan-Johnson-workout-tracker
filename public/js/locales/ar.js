@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "تبديل السمة",
   "Switches with the animation": "التبديل مع الرسوم المتحركة",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "يؤدي التبديل بين الحركات أو مقاطع الفيديو تلقائيًا إلى نقل الرسوم المتحركة ثلاثية الأبعاد من تلقائي إلى ثابت بحيث تظل الحركة المحددة وقائمة الفيديو ثابتة في مكانها.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "يؤدي تبديل اللغة الآن إلى إظهار زر التنزيل الصوتي على الفور. لم يعد تشغيل التدريب باللون الرمادي؛ يؤدي تشغيله بصوت غير محفوظ إلى بدء التنزيل أيضًا.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "أصبح تبديل الفاتح/الداكن في الإعدادات يعيد تلوين مشهد ثلاثي الأبعاد مفتوح فورًا.",
   "Sworkit": "Sworkit",
   "Synthwave": "سينثويف",

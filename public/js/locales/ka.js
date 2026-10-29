@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "თემის შეცვლა",
   "Switches with the animation": "გადართვა ანიმაციით",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "მოძრაობებსა და ვიდეოებს შორის გადართვა ავტომატურად გადაიყვანს 3D ანიმაციას ავტოდან დაფიქსირებულზე, რათა არჩეული მოძრაობა და ვიდეო სია დარჩეს ადგილზე ჩაკეტილი.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "ენის შეცვლა ახლა აჩვენებს ხმის ჩამოტვირთვის ღილაკს დაუყოვნებლივ. ჩართვა ქოუჩინგი აღარ არის ნაცრისფერი; მისი ჩართვა შენახული ხმით ასევე იწყებს ჩამოტვირთვას.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "შუქის/სიბნელის გადართვა პარამეტრებში ახლავე აფერადებს ღია 3D სცენას.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

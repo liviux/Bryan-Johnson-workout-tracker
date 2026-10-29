@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Tukar tema",
   "Switches with the animation": "Beralih dengan animasi",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Beralih antara pergerakan atau video secara automatik mengalihkan animasi 3D daripada Auto kepada Tetap supaya pergerakan dan senarai video yang dipilih kekal terkunci di tempatnya.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Menukar bahasa kini menunjukkan butang muat turun suara serta-merta. Hidupkan bimbingan tidak lagi dikelabukan; menghidupkannya dengan suara yang tidak disimpan juga memulakan muat turun.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Menukar terang/gelap dalam Tetapan kini turut mewarnakan semula pemandangan 3D terbuka serta-merta.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

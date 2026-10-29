@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Verander tema",
   "Switches with the animation": "Skakel met die animasie",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Om tussen bewegings of video's te wissel, skuif die 3D-animasie outomaties van Outo na Vaste sodat die geselekteerde beweging en videolys op sy plek gesluit bly.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "As u taal verander, word die stemaflaaiknoppie nou dadelik gewys. Skakel afrigting is nie meer grys nie; om dit aan te skakel met 'n ongestoorde stem, begin ook die aflaai.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Deur lig/donker in Instellings oor te skakel, word 'n oop 3D-toneel ook dadelik herkleur.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

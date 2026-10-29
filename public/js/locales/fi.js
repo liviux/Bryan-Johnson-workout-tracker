@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Vaihda teemaa",
   "Switches with the animation": "Vaihtaa animaation kanssa",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Liikkeiden tai videoiden välillä vaihtaminen siirtää 3D-animaatiot automaattisesti tilasta Auto (Automaattinen) kiinteään, joten valittu liike ja videoluettelo pysyvät lukittuina paikalleen.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Kielen vaihtaminen näyttää nyt äänen latauspainikkeen välittömästi. Ota valmennus käyttöön ei ole enää harmaana; sen käynnistäminen tallentamattomalla äänellä aloittaa myös latauksen.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Valon/pimeyden vaihtaminen asetuksissa värittää nyt myös avoimen 3D-näkymän heti uudelleen.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

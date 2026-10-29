@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Vaheta teemat",
   "Switches with the animation": "Lülitub koos animatsiooniga",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Liikumiste või videote vahel vahetamine liigutab 3D-animatsiooni automaatselt olekust Automaatne olekusse Fikseeritud, nii et valitud liikumine ja videoloend jäävad oma kohale lukustatuks.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Keele vahetamisel kuvatakse kohe hääle allalaadimise nupp. Treeneri sisselülitamine ei ole enam hall; Kui lülitate selle sisse salvestamata häälega, algab ka allalaadimine.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Valguse/tumeduse vahetamine menüüs Seaded värvib nüüd ka avatud 3D-stseeni kohe ümber.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

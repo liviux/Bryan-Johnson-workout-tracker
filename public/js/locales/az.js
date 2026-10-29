@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Mövzunu dəyişin",
   "Switches with the animation": "Animasiya ilə keçid",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Hərəkətlər və ya videolar arasında keçid avtomatik olaraq 3D animasiyanı Avtomatikdən Sabitə köçürür ki, seçilmiş hərəkət və video siyahısı yerində qalsın.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Dilin dəyişdirilməsi indi səsli yükləmə düyməsini dərhal göstərir. Məşqçiliyi yandırın artıq boz rəngdə deyil; onu saxlanmamış səslə yandırmaq da yükləməyə başlayır.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "İndi Parametrlərdə işıq/tünd seçimi açıq 3D səhnəni dərhal yenidən rəngləndirir.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

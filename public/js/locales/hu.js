@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Téma váltása",
   "Switches with the animation": "Váltás az animációval",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "A mozgások és videók közötti váltás automatikusan áthelyezi a 3D-s animációt Auto-ról Fixre, így a kiválasztott mozgás és videólista a helyén marad.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "A nyelvváltáskor azonnal megjelenik a hangletöltés gomb. A coaching bekapcsolása funkció már nem szürke; nem mentett hanggal bekapcsolva a letöltés is elindul.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "A Beállításokban a világos/sötét váltás azonnal átszínezi a nyitott 3D-s jelenetet is.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

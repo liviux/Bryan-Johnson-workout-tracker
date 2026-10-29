@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Εναλλαγή θέματος",
   "Switches with the animation": "Εναλλάσσεται με το κινούμενο σχέδιο",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Η εναλλαγή μεταξύ κινήσεων ή βίντεο μετακινεί αυτόματα το 3D animation από Αυτόματο σε Διορθώθηκε, ώστε η επιλεγμένη κίνηση και η λίστα βίντεο να παραμένουν κλειδωμένα στη θέση τους.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Η αλλαγή γλώσσας εμφανίζει τώρα το κουμπί λήψης φωνής αμέσως. Η ενεργοποίηση της προπόνησης δεν είναι πλέον γκρι. Η ενεργοποίηση με μια μη αποθηκευμένη φωνή ξεκινά επίσης τη λήψη.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Η εναλλαγή φωτός/σκότους στις Ρυθμίσεις χρωματίζει τώρα αμέσως μια ανοιχτή τρισδιάστατη σκηνή.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

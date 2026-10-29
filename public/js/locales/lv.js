@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Switch theme",
   "Switches with the animation": "Pārslēdzas ar animāciju",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Pārslēdzoties starp kustībām vai videoklipiem, 3D animācija tiek automātiski pārvietota no Automātiska uz Fiksētu, lai atlasītā kustība un video saraksts paliktu fiksēts.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Pārslēdzot valodu, tūlīt tiek parādīta balss lejupielādes poga. Ieslēgt apmācību vairs nav pelēkā krāsā; ieslēdzot to ar nesaglabātu balsi, tiek sākta arī lejupielāde.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Gaismas/tumšuma pārslēgšana iestatījumos tagad arī uzreiz maina atvērto 3D ainu.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

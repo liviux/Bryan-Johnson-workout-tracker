@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "切换主题",
   "Switches with the animation": "随动画切换",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "在动作或视频之间切换会自动将 3D 动画从“自动”移动到“固定”，以便所选的动作和视频列表保持锁定状态。",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "现在切换语言会立即显示语音下载按钮。打开辅导不再是灰色的；用未保存的声音打开它也会开始下载。",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "现在，在“设置”中切换亮/暗也可以立即为开放的 3D 场景重新着色。",
   "Sworkit": "斯沃基特",
   "Synthwave": "合成波",

@@ -74,6 +74,7 @@ export async function refreshVoiceStatus() {
 
 export function voiceCacheMessage() {
   const cache = voiceStatus.cache;
+  if (voiceStatus.voice && voiceStatus.voice !== selectedVoice().id) return t("Download the included {voice} recordings for playback. This only copies saved audio; no speech model runs.", { voice: selectedVoice().name });
   if (!voiceStatus.cacheEnabled) return t("Download the included {voice} recordings for playback. This only copies saved audio; no speech model runs.", { voice: selectedVoice().name });
   if (!cache) return t("Download this voice locally to prepare it.");
   if (cache.state === "error") return t("Voice cache paused: {error} Turn coaching on again to retry; finished audio is kept.", { error: cache.error });
@@ -93,6 +94,7 @@ export async function cacheVoice({ activate = false, voice = selectedVoice().id 
   pendingCache = key;
   clearTimeout(cachePoll);
   const wasEnabled = voiceStatus.cacheEnabled;
+  voiceStatus.voice = voice;
   voiceStatus.cacheEnabled = true;
   voiceStatus.cache = { state: "building", completed: 0, total: 0 };
   notify();

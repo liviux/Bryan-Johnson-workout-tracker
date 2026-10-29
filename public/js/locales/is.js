@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Skiptu um þema",
   "Switches with the animation": "Skiptir með hreyfimyndinni",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Skipt er á milli hreyfinga eða myndskeiða færir þrívíddarhreyfinguna sjálfkrafa úr Auto til Fixed þannig að valin hreyfing og myndskeiðslisti haldist læstur á sínum stað.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Að skipta um tungumál sýnir núna raddniðurhalshnappinn strax. Kveiktu á þjálfun er ekki lengur gráleitt; ef kveikt er á því með óvistuðu rödd hefst niðurhalið líka.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Með því að skipta um ljós/dökkt í stillingum endurlitar það nú einnig opna þrívíddarsenu strax.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

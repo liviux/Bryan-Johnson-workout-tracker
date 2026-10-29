@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "थीम बदलें",
   "Switches with the animation": "एनीमेशन के साथ स्विच करता है",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "गतिविधियों या वीडियो के बीच स्विच करने से 3डी एनीमेशन स्वचालित रूप से ऑटो से फिक्स्ड में चला जाता है ताकि चयनित गतिविधि और वीडियो सूची अपनी जगह पर लॉक रहे।",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "भाषा बदलने पर अब ध्वनि डाउनलोड बटन तुरंत दिखाई देता है। कोचिंग चालू करना अब धूसर नहीं होगा; बिना सेव की गई आवाज के साथ इसे चालू करने से भी डाउनलोड शुरू हो जाता है।",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "सेटिंग्स में प्रकाश/अंधेरा स्विच करने से अब एक खुला 3डी दृश्य भी तुरंत रंगीन हो जाता है।",
   "Sworkit": "Sworkit",
   "Synthwave": "सिंथवेव",

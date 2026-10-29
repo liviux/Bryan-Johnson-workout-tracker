@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Переключить тему",
   "Switches with the animation": "Переключается с анимацией",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "При переключении между движениями или видео 3D-анимация автоматически перемещается из режима «Авто» в режим «Фиксировано», поэтому выбранное движение и список видео остаются заблокированными.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "При переключении языка теперь сразу отображается кнопка загрузки голоса. Включение коучинга больше не выделено серым цветом; включение несохраненным голосом тоже запускает загрузку.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Переключение света/темноты в настройках теперь также сразу же перекрашивает открытую 3D-сцену.",
   "Sworkit": "Своркит",
   "Synthwave": "Синтвейв",

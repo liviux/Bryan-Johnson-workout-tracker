@@ -41,8 +41,9 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
     const progress = el.querySelector('[data-coach="progress"]');
     const progressText = el.querySelector('[data-coach="progress-text"]');
     const cache = status.cache;
-    const building = cache?.state === "building";
-    const cacheReady = status.cacheEnabled && cache?.state === "ready";
+    const forSelected = status.voice === selectedVoice().id;
+    const building = forSelected && cache?.state === "building";
+    const cacheReady = forSelected && status.cacheEnabled && cache?.state === "ready";
     const installing = !!status.installing;
     progress.hidden = !building && !installing;
     if (building) {
@@ -62,7 +63,7 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
     const button = el.querySelector('[data-coach="enable"]');
     button.textContent = enabled ? t("Turn coaching off") : t("Turn coaching on");
     button.setAttribute("aria-pressed", String(enabled));
-    button.disabled = enabled ? status.installing : (!status.installed || status.installing || !cacheReady);
+    button.disabled = status.installing || (!status.installed && !enabled);
     toggle?.classList.toggle("is-on", enabled && status.installed);
     toggle?.setAttribute("aria-busy", String(status.preparing));
     toggle?.setAttribute("aria-label", t("Voice coach, {state}", { state: enabled && status.installed ? t("on") : t("off") }));

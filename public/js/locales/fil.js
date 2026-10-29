@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Lumipat ng tema",
   "Switches with the animation": "Lumipat gamit ang animation",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Ang paglipat sa pagitan ng mga paggalaw o video ay awtomatikong naglilipat ng 3D animation mula sa Auto patungo sa Fixed upang manatiling naka-lock sa lugar ang napiling paggalaw at listahan ng video.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Ipinapakita na ngayon ng pagpapalit ng wika ang button ng pag-download ng boses kaagad. Ang pag-on sa pagtuturo ay hindi na naka-gray; Ang pag-on nito gamit ang hindi naka-save na boses ay magsisimula rin sa pag-download.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Ang pagpapalit ng liwanag/dilim sa Mga Setting ay agad ding nagpapakulay ng bukas na 3D na eksena.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

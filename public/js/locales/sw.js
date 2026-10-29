@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Badilisha mandhari",
   "Switches with the animation": "Hubadilisha na uhuishaji",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Kubadilisha kati ya miondoko au video huhamisha uhuishaji wa 3D kiotomatiki kutoka kwa Otomatiki hadi kwa Zisizohamishika ili orodha ya harakati iliyochaguliwa na video zibaki zikiwa zimefungwa mahali pake.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Kubadilisha lugha sasa kunaonyesha kitufe cha kupakua sauti mara moja. Kugeuka kufundisha ni tena greyed nje; kuiwasha kwa sauti ambayo haijahifadhiwa pia huanza upakuaji.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Kubadilisha mwanga/nyeusi katika Mipangilio sasa pia hupaka rangi upya eneo lililo wazi la 3D mara moja.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

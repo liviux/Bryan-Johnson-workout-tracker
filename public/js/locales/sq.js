@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Ndërro temën",
   "Switches with the animation": "Ndërron me animacionin",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Kalimi midis lëvizjeve ose videove e zhvendos automatikisht animacionin 3D nga Auto në Fiks, në mënyrë që lista e lëvizjeve dhe videove të zgjedhura të qëndrojnë të kyçura në vend.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Ndërrimi i gjuhës tani tregon butonin e shkarkimit të zërit menjëherë. Aktivizimi i stërvitjes nuk është më gri; aktivizimi i tij me një zë të paruajtur gjithashtu fillon shkarkimin.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Ndërrimi i dritës/errësirës te \"Cilësimet\" tani ringjyr gjithashtu një skenë të hapur 3D menjëherë.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

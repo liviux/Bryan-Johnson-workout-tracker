@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Schimbă tema",
   "Switches with the animation": "Comută cu animația",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Comutarea între mișcări sau videoclipuri mută automat animația 3D de la Auto la Fix, astfel încât mișcarea și lista de videoclipuri selectate să rămână blocate pe loc.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Schimbarea limbii afișează acum butonul de descărcare vocală imediat. Activați coaching-ul nu mai este gri; pornirea acesteia cu o voce nesalvată începe și descărcarea.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Comutarea între luminos și întunecat din Setări recolorează acum imediat și o scenă 3D deschisă.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

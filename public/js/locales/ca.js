@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Canvia el tema",
   "Switches with the animation": "Canvia amb l'animació",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Al canviar entre moviments o vídeos, l'animació 3D es mou automàticament d'Automàtic a Fixat, de manera que el moviment i la llista de vídeos seleccionats es mantenen bloquejats al seu lloc.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Si canvieu d'idioma, ara es mostra immediatament el botó de descàrrega de veu. Activar l'entrenament ja no està en gris; activar-lo amb una veu no desada també s'inicia la descàrrega.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "El canvi de llum/fosc a Configuració ara també torna a pintar una escena 3D oberta immediatament.",
   "Sworkit": "Sworkit",
   "Synthwave": "Onda sintètica",

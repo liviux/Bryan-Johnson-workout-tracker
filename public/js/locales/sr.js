@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Промени тему",
   "Switches with the animation": "Пребацује се са анимацијом",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Пребацивање између покрета или видео записа аутоматски помера 3Д анимацију са Аутоматске на Фиксно тако да изабрани покрети и листа видеа остају закључани на месту.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Промена језика сада одмах приказује дугме за преузимање гласа. Укључи тренирање више није засивљен; укључивање са несачуваним гласом такође покреће преузимање.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Пребацивање светло/тамно у подешавањима сада такође одмах поново боји отворену 3Д сцену.",
   "Sworkit": "Своркит",
   "Synthwave": "Синтхваве",

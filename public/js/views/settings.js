@@ -22,7 +22,7 @@ import { createCoachControls } from "../components/coach-controls.js";
 import { REPO, openChangelogDialog } from "../components/changelog.js";
 import { LANGUAGES, setLanguage, t } from "../i18n.js";
 import { voicesForLanguage } from "../voice/script.js";
-import { cacheVoice } from "../voice/player.js";
+import { cacheVoice, refreshVoiceStatus } from "../voice/player.js";
 
 const LB = 2.20462;
 const REST_PRESETS = [45, 60, 75, 90, 120];
@@ -245,8 +245,12 @@ export function render(el) {
         pr.settings.language = id;
         if (voice) pr.settings.coachVoice = voice;
       }, { silent: true });
-      await setLanguage(id);
-      if (voice && coachingOn) cacheVoice({ activate: true, voice });
+      const loading = setLanguage(id);
+      if (voice) {
+        if (coachingOn) cacheVoice({ activate: true, voice });
+        else refreshVoiceStatus();
+      }
+      await loading;
       return;
     }
     if (target.matches("[data-anim-ex]")) {

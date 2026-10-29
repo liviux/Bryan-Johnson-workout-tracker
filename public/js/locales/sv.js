@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Byt tema",
   "Switches with the animation": "Växlar med animationen",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Växling mellan rörelser eller videor flyttar automatiskt 3D-animationen från Auto till Fixed så att den valda rörelsen och videolistan förblir låst på plats.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Byte av språk visar nu röstnedladdningsknappen omedelbart. Slå på coaching är inte längre nedtonat; Om du slår på den med en osparad röst startar också nedladdningen.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Genom att byta ljus/mörker i inställningarna färgas nu också om en öppen 3D-scen direkt.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

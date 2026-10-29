@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "테마 전환",
   "Switches with the animation": "애니메이션으로 전환",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "움직임이나 비디오 사이를 전환하면 3D 애니메이션이 자동에서 고정으로 자동 이동되므로 선택한 움직임과 비디오 목록이 제자리에 고정됩니다.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "이제 언어를 전환하면 음성 다운로드 버튼이 즉시 표시됩니다. 코칭 켜기가 더 이상 회색으로 표시되지 않습니다. 저장되지 않은 음성으로 켜면 다운로드도 시작됩니다.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "이제 설정에서 밝음/어두움을 전환하면 열려 있는 3D 장면을 곧바로 다시 칠할 수도 있습니다.",
   "Sworkit": "스워크잇",
   "Synthwave": "신스웨이브",

@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "Prepnúť tému",
   "Switches with the animation": "Prepína s animáciou",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Prepínanie medzi pohybmi alebo videami automaticky presunie 3D animáciu z Auto do Fixed, takže vybraný pohyb a zoznam videí zostane uzamknutý na mieste.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Pri prepínaní jazyka sa teraz okamžite zobrazí tlačidlo sťahovania hlasu. Zapnutie koučovania už nie je sivé; jeho zapnutím neuloženým hlasom sa spustí aj sťahovanie.",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "Prepínanie svetla/tmy v Nastaveniach teraz tiež okamžite prefarbí otvorenú 3D scénu.",
   "Sworkit": "Sworkit",
   "Synthwave": "Synthwave",

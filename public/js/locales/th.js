@@ -3731,6 +3731,7 @@ export default {
   "Switch theme": "สลับธีม",
   "Switches with the animation": "สลับกับภาพเคลื่อนไหว",
   "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.": "Switching between movements or videos automatically moves the 3D animation from Auto to Fixed so the selected movement and video list stay locked in place.",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "การสลับภาษาจะแสดงปุ่มดาวน์โหลดเสียงทันที การเปิดการฝึกสอนจะไม่เป็นสีเทาอีกต่อไป การเปิดด้วยเสียงที่ไม่ได้บันทึกไว้จะเป็นการเริ่มการดาวน์โหลดด้วย",
   "Switching light/dark in Settings now also recolours an open 3D scene straight away.": "ตอนนี้การสลับแสง/มืดในการตั้งค่าจะเปลี่ยนสีของฉาก 3D ที่เปิดอยู่ทันที",
   "Sworkit": "สเวิร์คิต",
   "Synthwave": "ซินธ์เวฟ",

@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.44.5] - 2026-10-29
+
+### Fixed
+- Switching language now shows the voice download button immediately. **Turn coaching on** is no longer greyed out; turning it on with an unsaved voice also starts the download.
+
 ## [1.44.4] - 2026-10-29
 
 ### Fixed
