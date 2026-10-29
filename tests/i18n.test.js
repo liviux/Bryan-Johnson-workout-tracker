@@ -8,9 +8,9 @@ import { ALL_VOICES, LANGUAGE_VOICES, VOICES, voiceById, voicesForLanguage } fro
 const keys = JSON.parse(readFileSync(new URL("../scripts/i18n-keys.json", import.meta.url), "utf8"));
 const translated = LANGUAGES.filter((language) => language.id !== "en");
 
-test("ten languages are offered, each with a native catalogue", async () => {
-  assert.equal(LANGUAGES.length, 10);
-  assert.deepEqual(LANGUAGES.map((language) => language.id), ["en", "ro", "de", "it", "fr", "es", "zh", "hi", "ar", "bn"]);
+test("fifty languages are offered, each with a native catalogue", async () => {
+  assert.equal(LANGUAGES.length, 50);
+  assert.deepEqual(LANGUAGES.map((language) => language.id), ["en", "zh", "es", "ar", "hi", "pt", "ru", "ja", "fr", "de", "id", "bn", "tr", "vi", "ko", "it", "fa", "ur", "pl", "th", "nl", "ms", "ro", "fil", "uk", "sw", "el", "cs", "sv", "hu", "he", "da", "fi", "no", "bg", "sk", "hr", "sr", "lt", "sl", "lv", "et", "ca", "is", "af", "sq", "mk", "bs", "ka", "az"]);
   for (const language of translated) {
     const catalogue = (await import(`../public/js/locales/${language.id}.js`)).default;
     const missing = keys.filter((key) => typeof catalogue[key] !== "string" || !catalogue[key].trim());
@@ -60,8 +60,11 @@ test("language review files keep every placeholder", async () => {
 
 test("each language has a native coach voice and English keeps its five", () => {
   assert.equal(VOICES.length, 5);
-  assert.equal(LANGUAGE_VOICES.length, 9);
-  assert.equal(ALL_VOICES.length, 14);
+  assert.equal(LANGUAGE_VOICES.length, 49);
+  assert.equal(ALL_VOICES.length, 54);
+  assert.equal(new Set(ALL_VOICES.map((voice) => voice.id)).size, ALL_VOICES.length, "voice ids are unique");
+  assert.equal(new Set(LANGUAGE_VOICES.map((voice) => voice.edge)).size, LANGUAGE_VOICES.length, "each language uses a different native voice");
+  assert.deepEqual(LANGUAGE_VOICES.map((voice) => voice.lang).sort(), translated.map((language) => language.id).sort(), "every translated language has exactly one voice");
   for (const language of translated) {
     const voices = voicesForLanguage(language.id);
     assert.equal(voices.length, 1, `${language.id} has one voice`);

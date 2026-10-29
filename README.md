@@ -22,7 +22,7 @@ A local web app that plans and tracks a six-day home workout built from **Bryan 
 - **Your equipment**: record what you own, with names and product links, during setup or any time in Settings. Add equivalent or extra equipment, including a separate Massage category. Exercise instructions keep generic equipment names.
 - **Personalised**: heart-rate zones from your age (or measured max), starting weights scaled to your weight, sex, age and level, metric or imperial.
 - **Optional add-ons** chosen on first run: a daily **posture correction** block for tech neck and forward shoulders, **bone density loading** (heel drops and pogo hops), **dead hang & grip longevity** (passive and active hangs), and separate **desk breaks** for long sitting days.
-- **Ten languages**: English, Romanian, German, Italian, French, Spanish, Simplified Chinese, Hindi, Arabic and Bengali. Pick one first in setup, or change it any time in Settings. The interface, exercise names, instructions and coach audio follow it; Arabic switches the layout to right-to-left.
+- **Fifty languages**: the languages with the widest reach on the internet, from English, Chinese, Spanish and Arabic to Estonian, Icelandic and Azerbaijani. Pick one first in setup, or change it any time in Settings. The interface, exercise names, instructions and coach audio follow it; Arabic, Persian, Urdu and Hebrew switch the layout to right-to-left.
 - **Nine themes** to pick from during setup or any time in Settings, each with its own layout, type and colours (not just a palette), in light or dark.
 - **Activity**: a weekly schedule, history calendar with skip reasons, progress charts and longevity benchmarks.
 - An exercise library with equipment, muscle, source and category filters, and the full plan with dated sources.
@@ -91,7 +91,7 @@ sudo tailscale serve --bg --https=10000 http://127.0.0.1:3030
 
 Then open `https://<device>.<tailnet>.ts.net:10000` on a Tailscale device. This stays within your tailnet. The app has no login, so do not expose it with Tailscale Funnel or a public port forward.
 
-`npm install` only downloads three.js and three web fonts; the server itself uses nothing but Node. The [voice coach](#voice-coach) recordings are included in the Git download (about 900 MiB for the five English voices and nine translated voices).
+`npm install` only downloads three.js and three web fonts; the server itself uses nothing but Node. The [voice coach](#voice-coach) recordings are included in the Git download (about 3.3 GiB for the five English voices and 49 translated voices).
 
 </details>
 

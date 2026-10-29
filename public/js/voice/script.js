@@ -16,15 +16,55 @@ export const VOICES = [
 // by the language-pack workflow. One native voice per language keeps the
 // download size reasonable.
 export const LANGUAGE_VOICES = [
-  { id: "ro_alina", sid: null, name: "Alina", detail: "Romanian woman · warm", lang: "ro", engine: "edge", edge: "ro-RO-AlinaNeural" },
-  { id: "de_katja", sid: null, name: "Katja", detail: "German woman · clear", lang: "de", engine: "edge", edge: "de-DE-KatjaNeural" },
-  { id: "it_elsa", sid: null, name: "Elsa", detail: "Italian woman · warm", lang: "it", engine: "edge", edge: "it-IT-ElsaNeural" },
-  { id: "fr_denise", sid: null, name: "Denise", detail: "French woman · warm", lang: "fr", engine: "edge", edge: "fr-FR-DeniseNeural" },
-  { id: "es_elvira", sid: null, name: "Elvira", detail: "Spanish woman · warm", lang: "es", engine: "edge", edge: "es-ES-ElviraNeural" },
   { id: "zh_xiaoxiao", sid: null, name: "晓晓", detail: "Chinese woman · warm", lang: "zh", engine: "edge", edge: "zh-CN-XiaoxiaoNeural" },
-  { id: "hi_swara", sid: null, name: "Swara", detail: "Hindi woman · warm", lang: "hi", engine: "edge", edge: "hi-IN-SwaraNeural" },
+  { id: "es_elvira", sid: null, name: "Elvira", detail: "Spanish woman · warm", lang: "es", engine: "edge", edge: "es-ES-ElviraNeural" },
   { id: "ar_zariyah", sid: null, name: "Zariyah", detail: "Arabic woman · warm", lang: "ar", engine: "edge", edge: "ar-SA-ZariyahNeural" },
+  { id: "hi_swara", sid: null, name: "Swara", detail: "Hindi woman · warm", lang: "hi", engine: "edge", edge: "hi-IN-SwaraNeural" },
+  { id: "pt_francisca", sid: null, name: "Francisca", detail: "Portuguese woman · warm", lang: "pt", engine: "edge", edge: "pt-BR-FranciscaNeural" },
+  { id: "ru_svetlana", sid: null, name: "Svetlana", detail: "Russian woman · warm", lang: "ru", engine: "edge", edge: "ru-RU-SvetlanaNeural" },
+  { id: "ja_nanami", sid: null, name: "Nanami", detail: "Japanese woman · warm", lang: "ja", engine: "edge", edge: "ja-JP-NanamiNeural" },
+  { id: "fr_denise", sid: null, name: "Denise", detail: "French woman · warm", lang: "fr", engine: "edge", edge: "fr-FR-DeniseNeural" },
+  { id: "de_katja", sid: null, name: "Katja", detail: "German woman · clear", lang: "de", engine: "edge", edge: "de-DE-KatjaNeural" },
+  { id: "id_gadis", sid: null, name: "Gadis", detail: "Indonesian woman · warm", lang: "id", engine: "edge", edge: "id-ID-GadisNeural" },
   { id: "bn_nabanita", sid: null, name: "Nabanita", detail: "Bengali woman · warm", lang: "bn", engine: "edge", edge: "bn-BD-NabanitaNeural" },
+  { id: "tr_emel", sid: null, name: "Emel", detail: "Turkish woman · warm", lang: "tr", engine: "edge", edge: "tr-TR-EmelNeural" },
+  { id: "vi_hoaimy", sid: null, name: "HoaiMy", detail: "Vietnamese woman · warm", lang: "vi", engine: "edge", edge: "vi-VN-HoaiMyNeural" },
+  { id: "ko_sunhi", sid: null, name: "SunHi", detail: "Korean woman · warm", lang: "ko", engine: "edge", edge: "ko-KR-SunHiNeural" },
+  { id: "it_elsa", sid: null, name: "Elsa", detail: "Italian woman · warm", lang: "it", engine: "edge", edge: "it-IT-ElsaNeural" },
+  { id: "fa_dilara", sid: null, name: "Dilara", detail: "Persian woman · warm", lang: "fa", engine: "edge", edge: "fa-IR-DilaraNeural" },
+  { id: "ur_uzma", sid: null, name: "Uzma", detail: "Urdu woman · warm", lang: "ur", engine: "edge", edge: "ur-PK-UzmaNeural" },
+  { id: "pl_zofia", sid: null, name: "Zofia", detail: "Polish woman · warm", lang: "pl", engine: "edge", edge: "pl-PL-ZofiaNeural" },
+  { id: "th_premwadee", sid: null, name: "Premwadee", detail: "Thai woman · warm", lang: "th", engine: "edge", edge: "th-TH-PremwadeeNeural" },
+  { id: "nl_colette", sid: null, name: "Colette", detail: "Dutch woman · warm", lang: "nl", engine: "edge", edge: "nl-NL-ColetteNeural" },
+  { id: "ms_yasmin", sid: null, name: "Yasmin", detail: "Malay woman · warm", lang: "ms", engine: "edge", edge: "ms-MY-YasminNeural" },
+  { id: "ro_alina", sid: null, name: "Alina", detail: "Romanian woman · warm", lang: "ro", engine: "edge", edge: "ro-RO-AlinaNeural" },
+  { id: "ph_blessica", sid: null, name: "Blessica", detail: "Filipino woman · warm", lang: "fil", engine: "edge", edge: "fil-PH-BlessicaNeural" },
+  { id: "uk_polina", sid: null, name: "Polina", detail: "Ukrainian woman · warm", lang: "uk", engine: "edge", edge: "uk-UA-PolinaNeural" },
+  { id: "sw_zuri", sid: null, name: "Zuri", detail: "Swahili woman · warm", lang: "sw", engine: "edge", edge: "sw-KE-ZuriNeural" },
+  { id: "el_athina", sid: null, name: "Athina", detail: "Greek woman · warm", lang: "el", engine: "edge", edge: "el-GR-AthinaNeural" },
+  { id: "cs_vlasta", sid: null, name: "Vlasta", detail: "Czech woman · warm", lang: "cs", engine: "edge", edge: "cs-CZ-VlastaNeural" },
+  { id: "sv_sofie", sid: null, name: "Sofie", detail: "Swedish woman · warm", lang: "sv", engine: "edge", edge: "sv-SE-SofieNeural" },
+  { id: "hu_noemi", sid: null, name: "Noemi", detail: "Hungarian woman · warm", lang: "hu", engine: "edge", edge: "hu-HU-NoemiNeural" },
+  { id: "he_hila", sid: null, name: "Hila", detail: "Hebrew woman · warm", lang: "he", engine: "edge", edge: "he-IL-HilaNeural" },
+  { id: "da_christel", sid: null, name: "Christel", detail: "Danish woman · warm", lang: "da", engine: "edge", edge: "da-DK-ChristelNeural" },
+  { id: "fi_noora", sid: null, name: "Noora", detail: "Finnish woman · warm", lang: "fi", engine: "edge", edge: "fi-FI-NooraNeural" },
+  { id: "no_pernille", sid: null, name: "Pernille", detail: "Norwegian woman · warm", lang: "no", engine: "edge", edge: "nb-NO-PernilleNeural" },
+  { id: "bg_kalina", sid: null, name: "Kalina", detail: "Bulgarian woman · warm", lang: "bg", engine: "edge", edge: "bg-BG-KalinaNeural" },
+  { id: "sk_viktoria", sid: null, name: "Viktoria", detail: "Slovak woman · warm", lang: "sk", engine: "edge", edge: "sk-SK-ViktoriaNeural" },
+  { id: "hr_gabrijela", sid: null, name: "Gabrijela", detail: "Croatian woman · warm", lang: "hr", engine: "edge", edge: "hr-HR-GabrijelaNeural" },
+  { id: "sr_sophie", sid: null, name: "Sophie", detail: "Serbian woman · warm", lang: "sr", engine: "edge", edge: "sr-RS-SophieNeural" },
+  { id: "lt_ona", sid: null, name: "Ona", detail: "Lithuanian woman · warm", lang: "lt", engine: "edge", edge: "lt-LT-OnaNeural" },
+  { id: "sl_petra", sid: null, name: "Petra", detail: "Slovenian woman · warm", lang: "sl", engine: "edge", edge: "sl-SI-PetraNeural" },
+  { id: "lv_everita", sid: null, name: "Everita", detail: "Latvian woman · warm", lang: "lv", engine: "edge", edge: "lv-LV-EveritaNeural" },
+  { id: "et_anu", sid: null, name: "Anu", detail: "Estonian woman · warm", lang: "et", engine: "edge", edge: "et-EE-AnuNeural" },
+  { id: "ca_joana", sid: null, name: "Joana", detail: "Catalan woman · warm", lang: "ca", engine: "edge", edge: "ca-ES-JoanaNeural" },
+  { id: "is_gudrun", sid: null, name: "Gudrun", detail: "Icelandic woman · warm", lang: "is", engine: "edge", edge: "is-IS-GudrunNeural" },
+  { id: "af_adri", sid: null, name: "Adri", detail: "Afrikaans woman · warm", lang: "af", engine: "edge", edge: "af-ZA-AdriNeural" },
+  { id: "sq_anila", sid: null, name: "Anila", detail: "Albanian woman · warm", lang: "sq", engine: "edge", edge: "sq-AL-AnilaNeural" },
+  { id: "mk_marija", sid: null, name: "Marija", detail: "Macedonian woman · warm", lang: "mk", engine: "edge", edge: "mk-MK-MarijaNeural" },
+  { id: "bs_vesna", sid: null, name: "Vesna", detail: "Bosnian woman · warm", lang: "bs", engine: "edge", edge: "bs-BA-VesnaNeural" },
+  { id: "ka_eka", sid: null, name: "Eka", detail: "Georgian woman · warm", lang: "ka", engine: "edge", edge: "ka-GE-EkaNeural" },
+  { id: "az_banu", sid: null, name: "Banu", detail: "Azerbaijani woman · warm", lang: "az", engine: "edge", edge: "az-AZ-BanuNeural" },
 ];
 
 export const ALL_VOICES = [...VOICES, ...LANGUAGE_VOICES];
@@ -106,11 +146,15 @@ function translatedSpeechText(text, profile) {
     .replace(/\bkg\b/g, t("kilograms")).replace(/\blb\b/g, t("pounds"))
     .replace(/\bbpm\b/g, t("beats per minute")).replace(/\bcm\b/g, t("centimeters"))
     .replace(/(\d)\s*in\b/g, (_, n) => t("{count} inches", { count: n }))
-    .replace(/\bmin\b/g, t("minutes")).replace(/\b(?:s|sec)\b/g, t("seconds"))
+    .replace(/\bmin\b/g, t("minutes"))
+    // A bare `s` inside a translated word (Portuguese "trás", French "après")
+    // is not a unit. Only numbers and separate words count as seconds.
+    .replace(/(\d)\s*(?:s|sec)(?![A-Za-z])/g, (_, count) => `${count} ${t("seconds")}`)
+    .replace(/(^|[\s.,;:(])(?:s|sec)(?=$|[\s.,;:)])/g, (_, before) => `${before}${t("seconds")}`)
     .replace(/\bDB\b/gi, t("dumbbell")).replace(/\bRDL\b/g, t("Romanian deadlift"))
     .replace(/\bCARs\b/g, t("controlled joint circles")).replace(/\bROM\b/g, t("range of motion"))
     .replace(/\bATG\b/g, "A T G")
-    .replace(/(\d)[–-](?=\d)/g, (_, n) => t("{value} to ", { value: n }))
+    .replace(/(\d)[–-](?=\d)/g, (_, n) => `${t("{value} to ", { value: n }).trimEnd()} `)
     .replace(/(\d)°/g, (_, n) => t("{count} degrees", { count: n })).replace(/%/g, ` ${t("percent")}`)
     .replace(/[≈~]/g, ` ${t("about")} `).replace(/@/g, ` ${t("using")} `).replace(/\+/g, `, ${t("then")} `)
     .replace(/×/g, ` ${t("by")} `).replace(/→/g, `, ${t("then")} `).replace(/[·;()/]/g, ", ")

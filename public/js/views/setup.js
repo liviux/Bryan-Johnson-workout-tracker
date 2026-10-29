@@ -53,7 +53,7 @@ export function render(el, params) {
       const current = draft.settings.language || "en";
       return `<p class="muted">${t("Choose the language for the app, the exercise instructions and the coach. You can change it later in Settings.")}</p>
         <div class="choice-grid languages">${LANGUAGES.map((l) => `<button type="button" class="choice" data-language="${l.id}" data-i18n-skip aria-pressed="${l.id === current}"><b>${esc(l.native)}</b></button>`).join("")}</div>
-        <p class="muted" style="font-size:0.86rem">${t("Arabic also switches the layout to right to left.")}</p>`;
+        <p class="muted" style="font-size:0.86rem">${t("Arabic, Persian, Urdu and Hebrew also switch the layout to right to left.")}</p>`;
     }
     if (step === 1) {
       return `<p>Plan and track six home workouts a week based on Bryan Johnson's public exercise protocol. You'll do strength training three days a week, plus short intervals, the Norwegian 4×4, Zone 2, balance and mobility. The workouts use bodyweight, adjustable dumbbells, a pull-up bar and bands.</p>

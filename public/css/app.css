@@ -29,9 +29,9 @@
   --shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 12px 32px -18px rgba(0, 0, 0, 0.7);
   --shadow-pop: 0 24px 64px -20px rgba(0, 0, 0, 0.75);
   --stage-bg: radial-gradient(120% 90% at 50% 15%, #1d2a3a 0%, #121a24 55%, #0d141c 100%);
-  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
-  --font-body: "Inter Variable", Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", "Noto Sans", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter Variable", Inter, "Segoe UI", system-ui, -apple-system, "Noto Sans", "Noto Sans Arabic", "Noto Sans Devanagari", "Noto Sans Bengali", "Noto Sans Thai", "Noto Sans Hebrew", "Noto Sans Georgian", "Nirmala UI", "Malgun Gothic", "Microsoft YaHei", "Yu Gothic", "Leelawadee UI", "Sylfaen", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Noto Sans Mono", monospace;
   --r-sm: 8px;
   --r: 12px;
   --r-lg: 18px;

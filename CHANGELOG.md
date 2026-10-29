@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.44.0] - 2026-10-29
+
+### Added
+- Fifty languages, from English, Chinese, Spanish and Arabic to Estonian, Icelandic and Azerbaijani. Pick one during setup or in Settings; the interface, exercise names, instructions and coach audio follow it.
+- Right-to-left layout for Arabic, Persian, Urdu and Hebrew.
+- A native coach voice for every translated language, built by the translated-voice workflow.
+
+### Changed
+- The language picker lists the languages with the widest reach on the internet first.
+
 ## [1.43.2] - 2026-10-29
 
 ### Changed

@@ -6,29 +6,110 @@ permissions:
 jobs:
   voice:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 360
     strategy:
       fail-fast: false
+      max-parallel: 20
       matrix:
         include:
-          - language: ro
-            voice: ro_alina
-          - language: de
-            voice: de_katja
-          - language: it
-            voice: it_elsa
-          - language: fr
-            voice: fr_denise
-          - language: es
-            voice: es_elvira
           - language: zh
             voice: zh_xiaoxiao
-          - language: hi
-            voice: hi_swara
+          - language: es
+            voice: es_elvira
           - language: ar
             voice: ar_zariyah
+          - language: hi
+            voice: hi_swara
+          - language: pt
+            voice: pt_francisca
+          - language: ru
+            voice: ru_svetlana
+          - language: ja
+            voice: ja_nanami
+          - language: fr
+            voice: fr_denise
+          - language: de
+            voice: de_katja
+          - language: id
+            voice: id_gadis
           - language: bn
             voice: bn_nabanita
+          - language: tr
+            voice: tr_emel
+          - language: vi
+            voice: vi_hoaimy
+          - language: ko
+            voice: ko_sunhi
+          - language: it
+            voice: it_elsa
+          - language: fa
+            voice: fa_dilara
+          - language: ur
+            voice: ur_uzma
+          - language: pl
+            voice: pl_zofia
+          - language: th
+            voice: th_premwadee
+          - language: nl
+            voice: nl_colette
+          - language: ms
+            voice: ms_yasmin
+          - language: ro
+            voice: ro_alina
+          - language: fil
+            voice: ph_blessica
+          - language: uk
+            voice: uk_polina
+          - language: sw
+            voice: sw_zuri
+          - language: el
+            voice: el_athina
+          - language: cs
+            voice: cs_vlasta
+          - language: sv
+            voice: sv_sofie
+          - language: hu
+            voice: hu_noemi
+          - language: he
+            voice: he_hila
+          - language: da
+            voice: da_christel
+          - language: fi
+            voice: fi_noora
+          - language: no
+            voice: no_pernille
+          - language: bg
+            voice: bg_kalina
+          - language: sk
+            voice: sk_viktoria
+          - language: hr
+            voice: hr_gabrijela
+          - language: sr
+            voice: sr_sophie
+          - language: lt
+            voice: lt_ona
+          - language: sl
+            voice: sl_petra
+          - language: lv
+            voice: lv_everita
+          - language: et
+            voice: et_anu
+          - language: ca
+            voice: ca_joana
+          - language: is
+            voice: is_gudrun
+          - language: af
+            voice: af_adri
+          - language: sq
+            voice: sq_anila
+          - language: mk
+            voice: mk_marija
+          - language: bs
+            voice: bs_vesna
+          - language: ka
+            voice: ka_eka
+          - language: az
+            voice: az_banu
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444

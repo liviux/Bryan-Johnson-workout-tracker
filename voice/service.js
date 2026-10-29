@@ -14,20 +14,33 @@ import { INTERVAL_MOVES, intervalPhases } from "../public/js/data/routines.js";
 import { rxFor, timerPresets } from "../public/js/plan.js";
 import { defaultProfile, LEVELS, levelIndex, personalize } from "../public/js/personalize.js";
 import { useCatalogue, language, t as tr } from "../public/js/i18n.js";
-import ro from "../public/js/locales/ro.js";
-import de from "../public/js/locales/de.js";
-import it from "../public/js/locales/it.js";
-import fr from "../public/js/locales/fr.js";
-import es from "../public/js/locales/es.js";
-import zh from "../public/js/locales/zh.js";
-import hi from "../public/js/locales/hi.js";
-import ar from "../public/js/locales/ar.js";
-import bn from "../public/js/locales/bn.js";
 
 // The voice service builds one language at a time. The catalogue follows the
-// requested voice, not the last browser request.
-const CATALOGUES = { en: {}, ro, de, it, fr, es, zh, hi, ar, bn };
-const useVoiceLanguage = (voice) => useCatalogue(voice?.lang || "en", CATALOGUES[voice?.lang || "en"] || {});
+// requested voice, not the last browser request. Load a catalogue only when
+// that language is used, so startup does not parse every translation.
+const CATALOGUES = { en: {} };
+const catalogueLoads = new Map();
+export async function loadCatalogue(lang = "en") {
+  if (lang === "en" || CATALOGUES[lang]) return CATALOGUES[lang] || {};
+  if (!catalogueLoads.has(lang)) {
+    catalogueLoads.set(lang, import(`../public/js/locales/${lang}.js`).then((module) => {
+      CATALOGUES[lang] = module.default || {};
+      return CATALOGUES[lang];
+    }).catch((err) => {
+      console.warn(`Language ${lang}: ${err.message}. Its coach voice is unavailable until the catalogue is built.`);
+      catalogueLoads.delete(lang);
+      return {};
+    }));
+  }
+  return catalogueLoads.get(lang);
+}
+const useVoiceLanguage = (voice) => {
+  const lang = voice?.lang || "en";
+  if (CATALOGUES[lang]) return useCatalogue(lang, CATALOGUES[lang]);
+  // Pack builders load the catalogue themselves before calling in.
+  if (language() === lang) return lang;
+  return useCatalogue(lang, {});
+};
 export const DEFAULT_VOICE = "af_heart";
 
 const catalog = new Map();
@@ -375,7 +388,10 @@ export async function handleVoice(req, res, pathname, { readBody, send, fail, pr
     if (!selected) return fail(res, 400, "Unknown voice");
     if (installer || (!bundled(voice) && !await modelInstalled())) return fail(res, 409, "Install the local voice first");
     if (bundled(voice)) await voiceCache.start(voice, await sharedEntries(voice));
-    else await voiceCache.start(voice, buildVoicePack(body, await profile()));
+    else {
+      await loadCatalogue(selected.lang);
+      await voiceCache.start(voice, buildVoicePack(body, await profile()));
+    }
     return send(res, 202, { cacheEnabled: true, defaultCached: voiceCache.packs.has(DEFAULT_VOICE), cache: cacheStatus(voice) });
   }
   if (pathname === "/api/voice/install" && method === "POST") {
@@ -397,7 +413,11 @@ export async function handleVoice(req, res, pathname, { readBody, send, fail, pr
     }
     return send(res, 202, { installed: false, installing: true, message: installMessage });
   }
-  if (pathname === "/api/voice/prepare" && method === "POST") return send(res, 200, prepareManifest(await readBody(req), await profile()));
+  if (pathname === "/api/voice/prepare" && method === "POST") {
+    const body = await readBody(req);
+    await loadCatalogue(voiceById(body?.voice || DEFAULT_VOICE)?.lang);
+    return send(res, 200, prepareManifest(body, await profile()));
+  }
   const match = pathname.match(/^\/api\/voice\/audio\/([a-f0-9]{64})\.wav$/);
   if (match && method === "GET") {
     const data = clips.get(match[1]);
