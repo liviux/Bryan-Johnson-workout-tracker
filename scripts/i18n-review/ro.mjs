@@ -1976,4 +1976,9 @@ export default {
   "Orrery": "Planetariu mecanic",
   "Chill": "Relax",
   "New releases": "Lansări noi",
+  "Use these values": "Folosește aceste valori",
+  "Filled in last time's values": "Am completat valorile de data trecută",
+  "This is the last set.": "Aceasta este ultima serie.",
+  "Do one set now. Set {set} of this exercise comes after {exercise}.": "Fă o serie acum. Seria {set} din acest exercițiu vine după {exercise}.",
+  "{done} of {total} steps done. Record how it felt below.": "{done} din {total} pași finalizați. Notează mai jos cum te-ai simțit.",
 };

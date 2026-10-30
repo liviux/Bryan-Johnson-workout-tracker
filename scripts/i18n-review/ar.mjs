@@ -2216,4 +2216,9 @@ export default {
   "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "يؤدي تغيير اللغة الآن إلى إظهار زر تنزيل الصوت وتقدمه فورًا، ويظل «إيقاف التدريب الصوتي» متاحًا أثناء تنزيل الصوت.",
   "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "عند تشغيل التدريب الصوتي، يؤدي اختيار صوت أو لغة إلى تنزيل ذلك الصوت تلقائيًا. وعند إيقافه، استخدم زر «تنزيل الصوت المحلي»، الذي يعرض تقدم المقاطع أثناء نسخها.",
   "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "أصبح لكل صوت في المدرب الصوتي زر تنزيل خاص به، بما في ذلك الأصوات الإنجليزية الخمسة وكل لغة مترجمة. لا يزال اختيار صوت يبدأ تنزيله عند تشغيل التدريب الصوتي.",
+  "Use these values": "استخدم هذه القيم",
+  "Filled in last time's values": "تم ملء قيم المرة الماضية",
+  "This is the last set.": "هذه آخر مجموعة.",
+  "Do one set now. Set {set} of this exercise comes after {exercise}.": "أدِّ مجموعة واحدة الآن. المجموعة {set} من هذا التمرين تأتي بعد {exercise}.",
+  "{done} of {total} steps done. Record how it felt below.": "أنجزت {done} من {total} خطوة. دوِّن أدناه كيف شعرت.",
 };

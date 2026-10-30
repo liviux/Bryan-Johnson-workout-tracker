@@ -422,6 +422,8 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
 .extras { display: grid; gap: 8px; overflow-x: auto; }
 .extra-row { display: grid; grid-template-columns: minmax(130px, 1.5fr) 60px 75px minmax(110px, 1fr) 32px; gap: 6px; align-items: center; min-width: 450px; }
 .extra-row .input { min-width: 0; padding: 8px; }
+.obs-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(110px, 170px); gap: 12px; align-items: start; }
+.obs-row .obs-extras { min-width: 0; }
 
 
 /* ---------- detail panel ---------- */
@@ -597,6 +599,12 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
 .guided-rx { font-family: var(--font-mono); padding: 8px 10px; border-radius: var(--r-sm); background: var(--surface-2); border: 1px solid var(--line); font-size: 0.9rem; }
 .guided-bryan { flex: 0 1 auto; margin-left: auto; white-space: normal; text-align: right; }
 .guided-set-note { font-size: 0.82rem; margin: 0; }
+.guided-set-pill { display: inline-block; margin-right: 6px; padding: 1px 7px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-family: var(--font-body); font-size: 0.78rem; }
+.logger .last-time .btn.sm { min-height: 26px; padding: 2px 8px; font-size: 0.76rem; vertical-align: baseline; }
+.guided-notes .guided-main { grid-template-columns: minmax(0, 1fr); }
+.guided-notes .guided-demo { display: none; }
+.guided-notes .guided-side { width: min(100%, 820px); margin-inline: auto; }
+.guided-notes .obs.card { padding: 0; border: 0; background: none; box-shadow: none; }
 .guided-tools { position: sticky; top: 0; z-index: 4; display: flex; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface-2); }
 .guided-tools [data-tool] { flex: 1; min-width: 0; min-height: 34px; padding: 5px 7px; border-radius: var(--r-sm); color: var(--ink-2); font-size: 0.8rem; }
 .guided-tools [data-tool][aria-expanded="true"] { background: var(--surface); color: var(--accent); box-shadow: var(--shadow); }

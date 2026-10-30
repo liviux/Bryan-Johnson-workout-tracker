@@ -2183,4 +2183,9 @@ export default {
   "Lab": "Laboratoire",
   "Pulse": "Pouls",
   "New releases": "Nouveautés",
+  "Use these values": "Reprendre ces valeurs",
+  "Filled in last time's values": "Valeurs de la dernière fois reprises",
+  "This is the last set.": "C’est la dernière série.",
+  "Do one set now. Set {set} of this exercise comes after {exercise}.": "Faites une série maintenant. La série {set} de cet exercice vient après {exercise}.",
+  "{done} of {total} steps done. Record how it felt below.": "{done} étapes sur {total} effectuées. Notez vos sensations ci-dessous.",
 };

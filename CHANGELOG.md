@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.45.0] - 2026-10-30
+
+### Added
+- **Use these values** next to Last time fills today's sets with what you did last time.
+- Alternating exercises now have **Add set** on the step for their last set.
+- A guided workout now ends on a **Notes & observations** page with the day's ratings, notes, extra activity, body weight and level check.
+
+### Changed
+- In guided mode, **How to** is the first tab and is open when each step starts.
+- Alternating exercises show **Set 1 of 2** and a one-set dose, and say which exercise comes before the next set.
+- Body weight now sits beside Extra activity in Notes & observations.
+
 ## [1.44.7] - 2026-10-30
 
 ### Fixed

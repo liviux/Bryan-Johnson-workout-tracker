@@ -2276,4 +2276,9 @@ export default {
   "World": "বিশ্ব",
   "UK dance": "ব্রিটিশ নৃত্য",
   "Chill": "আরাম",
+  "Use these values": "এই মানগুলো ব্যবহার করুন",
+  "Filled in last time's values": "শেষবারের মানগুলো বসানো হয়েছে",
+  "This is the last set.": "এটাই শেষ সেট।",
+  "Do one set now. Set {set} of this exercise comes after {exercise}.": "এখন একটি সেট করুন। এই ব্যায়ামের সেট {set} আসবে {exercise}-এর পরে।",
+  "{done} of {total} steps done. Record how it felt below.": "{total}টির মধ্যে {done}টি ধাপ সম্পন্ন। কেমন লাগল নিচে লিখে রাখুন।",
 };

@@ -1554,4 +1554,9 @@ export default {
   "Chill": "Relax",
   "Course": "Percorso",
   "Coaching": "Guida",
+  "Use these values": "Usa questi valori",
+  "Filled in last time's values": "Valori dell’ultima volta inseriti",
+  "This is the last set.": "Questa è l’ultima serie.",
+  "Do one set now. Set {set} of this exercise comes after {exercise}.": "Fai una serie adesso. La serie {set} di questo esercizio arriva dopo {exercise}.",
+  "{done} of {total} steps done. Record how it felt below.": "{done} di {total} passaggi completati. Annota qui sotto come è andata.",
 };

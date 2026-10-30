@@ -13,7 +13,7 @@ import { createStagePanel } from "../components/stage-panel.js";
 import { editItem, fillDefaults, getItemLog, renderLogger } from "../components/logger.js";
 import { exerciseInfoHtml } from "../components/exercise-panel.js";
 import { renderVideos, videoGroupsFor, videosFor } from "../components/video.js";
-import { mountLevelCheck } from "../components/level-check.js";
+import { mountObservations } from "../components/observations.js";
 import { t } from "../i18n.js";
 import { pauseDesk, resumeDesk } from "../components/desk.js";
 import { onRest, onTimer, stopInlineTimer, stopRest } from "../components/timer.js";
@@ -54,7 +54,11 @@ export function startGuided(date, onExit) {
   pauseDesk("guided");
   let i = steps.findIndex((s) => !stepDone(date, s));
   if (i < 0) i = 0;
-  const stepLabels = steps.map((step, index) => `${index + 1}/${steps.length} · ${personalize(step.item.label || EXERCISES[step.item.ex].name, state.profile)}${step.setIndex != null ? ` · ${t("Set {set} of {sets}", { set: step.setIndex + 1, sets: step.sets })}` : ""}`);
+  const stepName = (step) => personalize(step.item.label || EXERCISES[step.item.ex].name, state.profile);
+  const stepLabels = steps.map((step, index) => `${index + 1}/${steps.length} · ${stepName(step)}${step.setIndex != null ? ` · ${t("Set {set} of {sets}", { set: step.setIndex + 1, sets: step.sets })}` : ""}`);
+  // Notes & observations follow the last exercise as one more page.
+  const notesIndex = steps.length;
+  stepLabels.push(t("Notes & observations"));
   // Keep the guided workout in the same blocks as Today. Consecutive steps with
   // the same block share a group; add-ons get their own colour.
   const stepGroups = [];
@@ -64,6 +68,7 @@ export function startGuided(date, onExit) {
     if (!last || last.key !== key) stepGroups.push({ key, title: step.block, addon: step.scope !== "main", steps: [] });
     stepGroups[stepGroups.length - 1].steps.push(index);
   }
+  stepGroups.push({ key: "notes", title: t("Notes & observations"), addon: false, steps: [notesIndex] });
   const stepButton = (index) => `<button type="button" data-step-index="${index}" aria-label="${esc(stepLabels[index])}"><span class="guided-progress-preview">${esc(stepLabels[index])}</span></button>`;
   const wrap = h(`<div class="guided" role="dialog" aria-modal="true" aria-label="${esc(t("Guided workout"))}">
     <div class="guided-top">
@@ -129,24 +134,36 @@ export function startGuided(date, onExit) {
   }
   startClocks();
 
+  function markSteps() {
+    wrap.querySelectorAll("[data-step-index]").forEach((button) => {
+      const index = Number(button.dataset.stepIndex);
+      button.setAttribute("aria-current", index === i ? "step" : "false");
+      if (index < steps.length) button.dataset.completion = getItemLog(date, steps[index].scope, steps[index].item.id)?.skipped ? "skipped" : stepDone(date, steps[index]) ? "done" : "";
+    });
+  }
+
+  // The last page: no animation, just the day's notes and the level check.
   function finishScreen() {
     stopRest(); stopInlineTimer(); voice.finish();
     clearInterval(clockTimer); clockTimer = null;
     tickClocks();
+    wrap.classList.add("guided-notes");
     wrap.querySelector(".guided-foot").hidden = true;
     wrap.querySelector(".guided-next-time-host").innerHTML = "";
     const done = steps.filter((s) => stepDone(date, s)).length;
     stage.pause();
     wrap.querySelector("[data-routine]").innerHTML = "";
+    side.scrollTop = 0;
     side.innerHTML = `<span class="eyebrow">${t("Finished")}</span><h2 class="display" style="font-size:2.2rem">${t("Workout complete")}</h2>
-      <p>${t("{done} of {total} steps done. You can record how it felt in the day's notes.", { done, total: steps.length })}</p>
-      <div class="btn-row"><button type="button" class="btn primary" data-g="close">${icon("check")} ${t("Back to the day")}</button></div>
-      <div data-level-check-host></div>`;
+      <p>${t("{done} of {total} steps done. Record how it felt below.", { done, total: steps.length })}</p>
+      <div data-obs-host></div>`;
+    mountObservations(side.querySelector("[data-obs-host]"), date, { levelCheck: true, compact: true });
     bar.style.width = `${done / steps.length * 100}%`;
-    count.textContent = `${steps.length}/${steps.length}`;
-    wrap.querySelector(".guided-bottom").hidden = true;
-    const lcHost = side.querySelector("[data-level-check-host]");
-    if (lcHost) mountLevelCheck(lcHost, { compact: true, showStepDown: false });
+    count.innerHTML = `${steps.length}/${steps.length}<small class="guided-count-group">${esc(t("Notes & observations"))}</small>`;
+    markSteps();
+    wrap.querySelector('[data-g="skip"]').hidden = true;
+    wrap.querySelector('[data-g="prev"]').disabled = false;
+    wrap.querySelector('[data-g="next"]').innerHTML = `${icon("check")} ${t("Back to the day")}`;
   }
 
   function show(reason = "next") {
@@ -155,7 +172,9 @@ export function startGuided(date, onExit) {
     if (i >= steps.length) return finishScreen();
     stepStartedAt = Date.now();
     startClocks();
-    wrap.querySelector(".guided-bottom").hidden = false;
+    wrap.classList.remove("guided-notes");
+    wrap.querySelector('[data-g="skip"]').hidden = false;
+    wrap.querySelector('[data-g="next"]').innerHTML = `${icon("check")} ${t("Done, next")}`;
     wrap.querySelector(".guided-foot").hidden = false;
     const s = steps[i];
     const ex = EXERCISES[s.item.ex];
@@ -167,33 +186,30 @@ export function startGuided(date, onExit) {
     bar.style.width = `${steps.filter((step) => stepDone(date, step)).length / steps.length * 100}%`;
     count.innerHTML = `${i + 1}/${steps.length}<small class="guided-count-group${s.scope !== "main" ? " addon" : ""}">${esc(s.block)}</small>`;
     count.setAttribute("aria-label", t("Step {step} of {total}. Choose workout step", { step: i + 1, total: steps.length }));
-    wrap.querySelectorAll("[data-step-index]").forEach((button) => {
-      const index = Number(button.dataset.stepIndex);
-      button.setAttribute("aria-current", index === i ? "step" : "false");
-      button.dataset.completion = getItemLog(date, steps[index].scope, steps[index].item.id)?.skipped ? "skipped" : stepDone(date, steps[index]) ? "done" : "";
-    });
+    markSteps();
     const itemLog = getItemLog(date, s.scope, s.item.id);
     wrap.querySelector("[data-routine]").innerHTML = ex.routine ? routineHtml(s.item, s.level, itemLog || {}, { compact: true }) : "";
     side.scrollTop = 0;
+    const rx = personalize((itemLog && itemLog.rxOverride) || rxFor(s.item, s.level), p);
     const bryanCount = videosFor(demo).filter((v) => v.kind === "bryan").length;
     side.innerHTML = `
       <span class="eyebrow${s.scope !== "main" ? " addon" : ""}">${esc(s.item.group || s.block)}${s.round ? ` · ${t("Round {round} of {rounds}", { round: s.round, rounds: s.rounds })}` : ""}</span>
       <h2 class="display" style="font-size:2.1rem;line-height:1">${esc(s.item.label ? personalize(s.item.label, p) : ex.name)}</h2>
       <div class="guided-tools" role="group" aria-label="${esc(t("Exercise details"))}">
+        <button type="button" class="btn sm ghost" data-tool="how" aria-expanded="true">${icon("list", "sm")} ${t("How to")}</button>
         <button type="button" class="btn sm ghost" data-tool="note" aria-expanded="false">${icon("note", "sm")} ${t("Note")}</button>
-        <button type="button" class="btn sm ghost" data-tool="how" aria-expanded="false">${icon("list", "sm")} ${t("How to")}</button>
         <button type="button" class="btn sm ghost" data-tool="videos" aria-expanded="false">${icon("video", "sm")} ${t("Videos")}${bryanCount ? ` <small class="tab-bryan">${t("Bryan")}</small>` : ""}</button>
       </div>
-      <div class="guided-tool-body" hidden>
-        <section data-tool-panel="note"><span class="eyebrow">${t("Note for this exercise")}</span><div data-note-host></div></section>
-        <section data-tool-panel="how" hidden>${exerciseInfoHtml(ex)}</section>
+      <div class="guided-tool-body">
+        <section data-tool-panel="how">${exerciseInfoHtml(ex)}</section>
+        <section data-tool-panel="note" hidden><span class="eyebrow">${t("Note for this exercise")}</span><div data-note-host></div></section>
         <section data-tool-panel="videos" hidden data-g="videos"></section>
       </div>
       <div class="guided-dose-row">
-        <div class="rx guided-rx">${esc(personalize((itemLog && itemLog.rxOverride) || rxFor(s.item, s.level), p))}</div>
+        <div class="rx guided-rx">${s.setIndex != null ? `<b class="guided-set-pill">${t("Set {set} of {sets}", { set: s.setIndex + 1, sets: s.sets })}</b> ` : ""}${esc(s.setIndex != null ? oneSet(rx) : rx)}</div>
         ${s.item.bryan ? `<span class="chip bryan guided-bryan">${esc(personalize(s.item.bryan, p))}</span>` : ""}
       </div>
-      ${s.setIndex != null ? `<p class="muted guided-set-note">${t("Complete set {set} of {sets}, then continue to the next movement.", { set: s.setIndex + 1, sets: s.sets })}</p>` : ""}
+      ${s.setIndex != null ? `<p class="muted guided-set-note">${setNote(s)}</p>` : ""}
       ${alternativeHtml(s.item, s.level)}
       <div class="logger-host guided-logger-host${s.scope !== "main" ? " addon-scope" : ""}"></div>`;
     renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), nextTimeHost: wrap.querySelector(".guided-next-time-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
@@ -207,6 +223,16 @@ export function startGuided(date, onExit) {
     });
     wrap.querySelector('[data-g="prev"]').disabled = i === 0;
     voice.enter(i, reason);
+  }
+
+  // A paired step is one set, so its dose reads "1 × 8" and the note says
+  // when the next set of this exercise comes back.
+  const oneSet = (rx) => rx.replace(/^(\s*)\d+(\s*[×x])/, "$11$2");
+  function setNote(s) {
+    const later = steps.findIndex((step, index) => index > i && step.scope === s.scope && step.item.id === s.item.id);
+    if (later < 0) return t("This is the last set.");
+    if (later > i + 1) return t("Do one set now. Set {set} of this exercise comes after {exercise}.", { set: s.setIndex + 2, exercise: esc(stepName(steps[i + 1])) });
+    return t("Complete set {set} of {sets}, then continue to the next movement.", { set: s.setIndex + 1, sets: s.sets });
   }
 
   function toggleTool(name) {
@@ -284,7 +310,7 @@ export function startGuided(date, onExit) {
     const target = e.target.closest("[data-step-index]");
     if (target) {
       const next = Number(target.dataset.stepIndex);
-      if (!Number.isInteger(next) || next < 0 || next >= steps.length) return;
+      if (!Number.isInteger(next) || next < 0 || next > notesIndex) return;
       const reason = next < i ? "back" : "next";
       i = next;
       jump.open = false;
@@ -321,7 +347,7 @@ export function startGuided(date, onExit) {
       i += 1;
       show();
     } else if (a === "next") {
-      if (i >= steps.length) return show();
+      if (i >= steps.length) return close();
       const s = steps[i];
       fillDefaults({ date, scope: s.scope, item: s.item, ex: EXERCISES[s.item.ex], level: s.level, setIndex: s.setIndex });
       editItem(date, s.scope, s.item, (l) => {

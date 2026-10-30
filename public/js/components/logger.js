@@ -182,6 +182,12 @@ export function nextTimeRecommendation({ item, ex, level, date }) {
   return { kind: "repeat", reps: top, text: t("Aim for {reps} reps again — {top}; two in a row unlock the next step.", { reps: top, top: topText(count) }) };
 }
 
+// A paired guided step shows one set. The step for the last planned set also
+// shows any sets added after it, so extra sets have a place to live.
+function showsSet(i, setIndex, sets) {
+  return setIndex == null || i === setIndex || (setIndex >= sets - 1 && i > setIndex);
+}
+
 // The number to record when a field is left blank: the level's target (top of
 // a rep or hold range), or the next-time suggestion when there is one.
 function topNumber(value) {
@@ -237,7 +243,7 @@ export function fillDefaults({ date, scope = "main", item, ex, level, setIndex =
     l.sets = Array.isArray(l.sets) ? l.sets : [];
     while (l.sets.length < (target.sets || 1)) l.sets.push({});
     for (let i = 0; i < l.sets.length; i++) {
-      if (setIndex != null && i !== setIndex) continue;
+      if (!showsSet(i, setIndex, target.sets || 1)) continue;
       const s = l.sets[i] || (l.sets[i] = {});
       if (d.reps != null && s.reps == null) s.reps = d.reps;
       if (d.sec != null && s.sec == null) s.sec = d.sec;
@@ -307,7 +313,7 @@ export function renderLogger(container, ctx) {
       body += `<div class="sets">
         ${sets
           .map(
-            (s, i) => ctx.setIndex != null && i !== ctx.setIndex ? "" : `<div class="set-row">
+            (s, i) => !showsSet(i, ctx.setIndex, target.sets || 1) ? "" : `<div class="set-row">
               <span class="n">${t("Set {set}", { set: i + 1 })}</span>
               ${cols
                 .map(([k, label, ph]) => {
@@ -332,7 +338,7 @@ export function renderLogger(container, ctx) {
                   ${timed ? `<button type="button" class="btn sm icon-only timer-start" data-l="hold" data-i="${i}" aria-label="${esc(t("Start {seconds} second timer for set {set}", { seconds: defaults.sec || target.seconds || 30, set: i + 1 }))}" title="${esc(t("Start set timer"))}">${icon("timer", "sm")}</button>` : ""}
                 </span>
                 ${sets.length > 1 ? `<button type="button" class="btn sm icon-only ghost" data-l="del" data-i="${i}" aria-label="${esc(t("Remove set {set}", { set: i + 1 }))}">${icon("minus", "sm")}</button>` : ""}
-                ${i === sets.length - 1 && ctx.setIndex == null ? `<button type="button" class="btn sm" data-l="add" aria-label="${esc(t("Add set"))}" title="${esc(t("Add set"))}">${icon("plus", "sm")} ${t("Add set")}</button>` : ""}
+                ${i === sets.length - 1 ? `<button type="button" class="btn sm" data-l="add" aria-label="${esc(t("Add set"))}" title="${esc(t("Add set"))}">${icon("plus", "sm")} ${t("Add set")}</button>` : ""}
               </span>
             </div>`
           )
@@ -374,7 +380,7 @@ export function renderLogger(container, ctx) {
     else body += nextTime;
     const easierButton = `<button type="button" class="btn sm ghost" data-l="easier" aria-label="${esc(l.easier ? t("Change easier choice") : t("Something hurts or too hard?"))}" title="${esc(t("Something hurts or too hard?"))}">${icon("info", "sm")} ${l.easier ? t("Change easier choice") : ctx.compactActions ? t("Something hurts?") : t("Something hurts or too hard?")}</button>`;
     const last = type !== "check" && type !== "cardio" && type !== "intervals" ? lastPerformance(item.ex, date, { level }) : null;
-    body += last ? `<p class="muted" style="font-size:0.84rem">${t("Last time ({date}):", { date: esc(fmtShort(last.date)) })} <span class="mono">${esc(summarizeLog(last.log, type))}</span></p>` : "";
+    body += last ? `<p class="muted last-time" style="font-size:0.84rem">${t("Last time ({date}):", { date: esc(fmtShort(last.date)) })} <span class="mono">${esc(summarizeLog(last.log, type))}</span> <button type="button" class="btn sm ghost" data-l="use-last">${icon("check", "sm")} ${t("Use these values")}</button></p>` : "";
     const noteField = `<textarea class="input" data-l="note" aria-label="${esc(t("Note for this exercise"))}" rows="2" placeholder="${esc(t("Note how it felt, any pain or a technique cue to remember."))}">${esc(l.note || "")}</textarea>`;
     const notePanel = `<div class="note-panel">${noteField}<div class="note-easier">${easierButton}</div></div>`;
     if (ctx.noteHost) ctx.noteHost.innerHTML = notePanel;
@@ -643,6 +649,27 @@ export function renderLogger(container, ctx) {
     toast(t("Filled in the suggestion"));
   }
 
+  // Copy last time's sets over the plan defaults, set by set. When today has
+  // more sets than last time, the extra ones repeat the last logged set.
+  function useLast() {
+    const last = lastPerformance(item.ex, date, { level });
+    const rows = (last?.log.sets || []).filter((s) => s.reps != null || s.kg != null || s.sec != null);
+    if (!rows.length) return;
+    const target = currentTarget();
+    save((l) => {
+      l.sets = l.sets || [];
+      const n = Math.max(l.sets.length, target.sets || 1, ctx.setIndex == null ? rows.length : 0);
+      while (l.sets.length < n) l.sets.push({});
+      l.sets.forEach((s, i) => {
+        if (!showsSet(i, ctx.setIndex, target.sets || 1)) return;
+        const from = rows[i] || rows[rows.length - 1];
+        for (const k of ["reps", "sec", "kg", "band", "bandCustom"]) if (from[k] != null) s[k] = from[k];
+      });
+    });
+    draw();
+    toast(t("Filled in last time's values"));
+  }
+
   container.addEventListener("click", (e) => {
     const b = e.target.closest("button");
     if (!b) return;
@@ -673,6 +700,8 @@ export function renderLogger(container, ctx) {
       toast(t("Back to the plan's dose for today"));
     } else if (a === "use") {
       useSuggestion(b);
+    } else if (a === "use-last") {
+      useLast();
     } else if (a === "add") {
       const target = currentTarget();
       save((l) => {

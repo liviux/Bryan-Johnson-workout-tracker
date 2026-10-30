@@ -1348,4 +1348,9 @@ export default {
   "Orrery": "Planetarium",
   "Googly": "Kulleraugen",
   "Metal": "Metal",
+  "Use these values": "Diese Werte übernehmen",
+  "Filled in last time's values": "Werte vom letzten Mal eingetragen",
+  "This is the last set.": "Das ist der letzte Satz.",
+  "Do one set now. Set {set} of this exercise comes after {exercise}.": "Machen Sie jetzt einen Satz. Satz {set} dieser Übung folgt nach {exercise}.",
+  "{done} of {total} steps done. Record how it felt below.": "{done} von {total} Schritten erledigt. Halten Sie unten fest, wie es sich angefühlt hat.",
 };

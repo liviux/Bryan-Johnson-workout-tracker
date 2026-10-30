@@ -5,26 +5,25 @@ import { DAYS } from "../data/program.js";
 import { EXERCISES } from "../data/exercises.js";
 import { onChange, state, updateDay, updateProfile } from "../store.js";
 import {
-  EXTRA_TYPES, SKIP_REASONS, addonProgress, addonsForDate, blockItems, blockMins, countable, currentReadiness, dayDef, dayMins,
+  SKIP_REASONS, addonProgress, addonsForDate, blockItems, blockMins, countable, currentReadiness, dayDef, dayMins,
   editDay, isRestKey, lastSessionDate, levelFor, progressOf, rxFor, sessionKeyFor, visible,
 } from "../plan.js";
-import { LEVELS, fmtWeight, kgUnit, levelIndex, personalize } from "../personalize.js";
-import { addDays, daysBetween, esc, fmtDate, fmtShort, parseIso, todayIso, uid, weekStart, weekdayKey } from "../util.js";
+import { LEVELS, levelIndex, personalize } from "../personalize.js";
+import { addDays, daysBetween, esc, fmtDate, fmtShort, parseIso, todayIso, weekStart, weekdayKey } from "../util.js";
 import { EQUIPMENT_NAMES, icon } from "../components/icons.js";
 import { createExercisePanel } from "../components/exercise-panel.js";
 import { animBarOpen } from "../components/anim-bar.js";
 import { hasAnimStyles } from "../anim-styles.js";
 import { getItemLog, editItem, fillDefaults, summarizeLog } from "../components/logger.js";
 import { deskState, deskStreak, doneDesk, pauseDesk, resumeDesk, snoozeDesk, startDesk, stopDesk, subscribeDesk } from "../components/desk.js";
-import { mountLevelCheck } from "../components/level-check.js";
+import { mountObservations } from "../components/observations.js";
 import { weekTargets } from "../week-targets.js";
-import { confirmDialog, openDialog, ring, toast } from "../components/ui.js";
+import { openDialog, ring, toast } from "../components/ui.js";
 import { blockKind, detailMode, sessionKind } from "../themes.js";
 import { unlockVoice } from "../voice/player.js";
 import { stopInlineTimer } from "../components/timer.js";
 import { t } from "../i18n.js";
 
-const ENERGY = ["Very low", "Low", "OK", "Good", "Great"];
 const STATUS_TEXT = { done: "Done", partial: "In progress", skipped: "Skipped" };
 
 export function render(el, params) {
@@ -224,38 +223,6 @@ export function render(el, params) {
     return true;
   }
 
-  function obsHtml() {
-    const l = log() || {};
-    const u = kgUnit(profile());
-    const rpe = Array.from({ length: 10 }, (_, i) => `<button type="button" data-rpe="${i + 1}" aria-pressed="${l.rpe === i + 1}">${i + 1}</button>`).join("");
-    const energy = ENERGY.map((e, i) => `<button type="button" data-energy="${i + 1}" aria-pressed="${l.energy === i + 1}">${esc(e)}</button>`).join("");
-    const extras = (l.extras || [])
-      .map(
-        (x) => `<div class="extra-row" data-extra="${esc(x.id)}">
-          <select class="input" data-x="type" aria-label="${esc(t("Activity"))}">${EXTRA_TYPES.map((t) => `<option value="${t.id}" ${x.type === t.id ? "selected" : ""}>${esc(t.name)}</option>`).join("")}</select>
-          <input class="input num" data-x="min" inputmode="numeric" placeholder="${esc(t("min"))}" value="${esc(x.min ?? "")}" aria-label="${esc(t("Minutes"))}">
-          <input class="input num" data-x="avg" inputmode="numeric" placeholder="bpm" value="${esc(x.avg ?? "")}" aria-label="${esc(t("Average heart rate"))}">
-          <select class="input" data-x="intensity" aria-label="${esc(t("Intensity"))}"><option value="zone2" ${x.intensity !== "hard" && x.intensity !== "light" ? "selected" : ""}>${t("Easy / Zone 2")}</option><option value="hard" ${x.intensity === "hard" ? "selected" : ""}>${t("Hard effort")}</option><option value="light" ${x.intensity === "light" ? "selected" : ""}>${t("Light effort")}</option></select>
-          <button type="button" class="btn sm icon-only ghost" data-x-del aria-label="${esc(t("Remove activity"))}">${icon("trash", "sm")}</button>
-        </div>`
-      )
-      .join("");
-    return `<section class="card card-pad obs">
-      <div class="section-title"><h2>${t("Notes & observations")}</h2><span class="eyebrow">${t("saved automatically")}</span></div>
-      <div class="obs-ratings">
-        <div class="rating-line"><span class="label" title="${esc(t("1 = very easy, 10 = maximum"))}">${t("Session effort")} <small>(1–10)</small></span><div class="scale" role="group" aria-label="${esc(t("Session effort, 1 very easy to 10 maximum"))}">${rpe}</div></div>
-        <div class="rating-line"><span class="label">${t("Energy today")}</span><div class="seg" role="group" aria-label="${esc(t("Energy today"))}">${energy}</div></div>
-      </div>
-      <label class="field"><span>${t("Notes")}</span><textarea class="input" data-notes rows="3" placeholder="${esc(t("How did the workout feel? Note soreness or anything to change next time."))}">${esc(l.notes || "")}</textarea></label>
-      <div class="field"><span>${t("Extra activity")} <small>· ${t("counts toward your weekly minutes")}</small></span>
-        <div class="extras">${extras}</div>
-        <div><button type="button" class="btn sm" data-x-add>${icon("plus", "sm")} ${t("Add activity")}</button></div>
-      </div>
-      <label class="field" style="max-width:220px"><span>${t("Body weight today (optional, {unit})", { unit: esc(u) })}</span><input class="input num" data-bw inputmode="decimal" value="${l.bodyWeightKg != null ? esc(u === "lb" ? Math.round(l.bodyWeightKg * 2.20462 * 10) / 10 : l.bodyWeightKg) : ""}" placeholder="${esc(fmtWeight(profile(), profile() && profile().weightKg).replace(/ (kg|lb)$/, ""))}"></label>
-      ${isToday ? '<div class="level-check-host" data-level-check-host></div>' : ""}
-    </section>`;
-  }
-
   function missedHint(ctx) {
     if (!isToday || ctx.rest) return "";
     const l = log();
@@ -419,7 +386,7 @@ export function render(el, params) {
           ${showBlocks ? blocksHtml(ctx.def, ctx.level) : ""}
           ${addonsForDate(date).filter((a) => a.addon.id !== "desk").map((a) => addonHtml(a, ctx.level)).join("")}
           ${addonsForDate(date).filter((a) => a.addon.id === "desk").map(deskAddonHtml).join("")}
-          ${obsHtml()}
+          <div data-obs-host></div>
         </div>
         <div class="detail-col"><div data-panel-host></div></div>
       </div>
@@ -428,8 +395,7 @@ export function render(el, params) {
     panel = null;
     if (selected) showPanel(selected);
     else autoselect();
-    const lcHost = el.querySelector("[data-level-check-host]");
-    if (lcHost) mountLevelCheck(lcHost, { showStepDown: false });
+    mountObservations(el.querySelector("[data-obs-host]"), date, { levelCheck: isToday });
     syncDeskPause();
     const r = el.querySelector("[data-ring] .ring-wrap");
     if (r) r.classList.add("intro");
@@ -742,16 +708,6 @@ export function render(el, params) {
         sessionStorage.setItem("hp:readiness-dismiss:" + date, "1");
       } catch {}
       draw();
-    } else if (b.dataset.rpe) {
-      editDay(date, (d) => {
-        d.rpe = d.rpe === Number(b.dataset.rpe) ? null : Number(b.dataset.rpe);
-      });
-      b.parentElement.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(log().rpe === Number(x.dataset.rpe))));
-    } else if (b.dataset.energy) {
-      editDay(date, (d) => {
-        d.energy = d.energy === Number(b.dataset.energy) ? null : Number(b.dataset.energy);
-      });
-      b.parentElement.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(log().energy === Number(x.dataset.energy))));
     } else if (b.dataset.metric) {
       const aid = b.closest("[data-addon]").dataset.addon;
       const v = Number(b.dataset.v);
@@ -786,20 +742,6 @@ export function render(el, params) {
         if (d.addons[aid]) d.addons[aid].skipped = false;
       });
       draw();
-    } else if (b.hasAttribute("data-x-add")) {
-      editDay(date, (d) => {
-        d.extras = d.extras || [];
-        d.extras.push({ id: uid(), type: "desk", min: null, avg: null, intensity: "zone2" });
-      });
-      draw();
-    } else if (b.hasAttribute("data-x-del")) {
-      const id = b.closest("[data-extra]").dataset.extra;
-      if (await confirmDialog({ title: t("Remove activity?"), message: t("This removes the activity from this day."), confirm: t("Remove"), danger: true })) {
-        editDay(date, (d) => {
-          d.extras = (d.extras || []).filter((x) => x.id !== id);
-        });
-        draw();
-      }
     }
   });
 
@@ -808,34 +750,6 @@ export function render(el, params) {
     if ((e.key === "Enter" || e.key === " ") && e.target.matches(".item[tabindex]")) {
       e.preventDefault();
       select(e.target.dataset.scope, e.target.dataset.id);
-    }
-  });
-
-  el.addEventListener("change", (e) => {
-    const target = e.target;
-    if (target.matches("[data-x]") && target.tagName === "SELECT") {
-      const id = target.closest("[data-extra]").dataset.extra;
-      editDay(date, (d) => {
-        const x = d.extras.find((y) => y.id === id);
-        if (x) x[target.dataset.x] = target.value;
-      });
-    }
-  });
-
-  el.addEventListener("input", (e) => {
-    const target = e.target;
-    if (target.matches("[data-notes]")) editDay(date, (d) => (d.notes = target.value), { delay: 900 });
-    else if (target.matches("[data-bw]")) {
-      const v = Number(String(target.value).replace(",", "."));
-      const kg = target.value === "" || !Number.isFinite(v) ? null : kgUnit(profile()) === "lb" ? Math.round((v / 2.20462) * 10) / 10 : v;
-      editDay(date, (d) => (d.bodyWeightKg = kg), { delay: 900 });
-    } else if (target.matches("[data-x]") && target.tagName === "INPUT") {
-      const id = target.closest("[data-extra]").dataset.extra;
-      const v = target.value === "" ? null : Number(target.value);
-      editDay(date, (d) => {
-        const x = d.extras.find((y) => y.id === id);
-        if (x) x[target.dataset.x] = Number.isFinite(v) ? v : null;
-      });
     }
   });
 

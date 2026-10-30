@@ -64,3 +64,21 @@ test("blank logs get the level's prescribed values, while typed values stay unto
   assert.deepEqual(state.days[date].items["default-pushup"].sets.map((set) => set.reps), [6, 10]);
   flushNow();
 });
+
+test("a paired guided step shows its own set, and the last one also shows added sets", () => {
+  state.mode = "local";
+  state.profile = { ...defaultProfile(), level: "new" };
+  const date = "2026-10-30";
+  const item = { id: "paired-pushup", ex: "pushup", rx: ["2 × 8–10"] };
+  state.days = { [date]: { date, items: { [item.id]: { ex: "pushup", sets: [{}, {}, {}] } }, addons: {} } };
+  const rows = (setIndex) => {
+    const container = { innerHTML: "", addEventListener() {}, querySelector: () => null };
+    renderLogger(container, { date, item, ex: EXERCISES.pushup, level: 0, setIndex, manualCompletion: true, guided: true });
+    return [...container.innerHTML.matchAll(/class="n">Set (\d)/g)].map((m) => Number(m[1]));
+  };
+  assert.deepEqual(rows(0), [1]);
+  assert.deepEqual(rows(1), [2, 3]);
+  fillDefaults({ date, item, ex: EXERCISES.pushup, level: 0, setIndex: 1 });
+  assert.deepEqual(state.days[date].items[item.id].sets.map((set) => set.reps ?? null), [null, 10, 10]);
+  flushNow();
+});

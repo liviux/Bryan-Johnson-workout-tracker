@@ -1080,4 +1080,9 @@ export default {
   "Studio": "Estudio",
   "Googly": "Ojos saltones",
   "Coaching": "Guía",
+  "Use these values": "Usar estos valores",
+  "Filled in last time's values": "Valores de la última vez copiados",
+  "This is the last set.": "Esta es la última serie.",
+  "Do one set now. Set {set} of this exercise comes after {exercise}.": "Haz una serie ahora. La serie {set} de este ejercicio viene después de {exercise}.",
+  "{done} of {total} steps done. Record how it felt below.": "{done} de {total} pasos hechos. Anota abajo cómo te sentiste.",
 };

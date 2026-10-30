@@ -2449,4 +2449,9 @@ export default {
   "World": "विश्व संगीत",
   "UK dance": "ब्रिटिश डांस",
   "Chill": "आराम",
+  "Use these values": "ये मान इस्तेमाल करें",
+  "Filled in last time's values": "पिछली बार के मान भर दिए गए",
+  "This is the last set.": "यह आखिरी सेट है।",
+  "Do one set now. Set {set} of this exercise comes after {exercise}.": "अभी एक सेट करें। इस व्यायाम का सेट {set} {exercise} के बाद आएगा।",
+  "{done} of {total} steps done. Record how it felt below.": "{total} में से {done} चरण पूरे। नीचे लिखें कि कैसा लगा।",
 };
