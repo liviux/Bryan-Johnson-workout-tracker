@@ -1344,4 +1344,8 @@ export default {
   "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Wenn Sie die Sprache ändern, werden jetzt sofort die Schaltfläche zum Herunterladen der Stimme und ihr Fortschritt angezeigt. „Coaching ausschalten“ bleibt verfügbar, während der Download läuft.",
   "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Wenn das Coaching eingeschaltet ist, lädt die Auswahl einer Stimme oder Sprache diese automatisch herunter. Wenn das Coaching ausgeschaltet ist, verwenden Sie die Schaltfläche „Lokale Stimme herunterladen“, die den Fortschritt der Clips beim Kopieren anzeigt.",
   "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Jede Stimme im Sprachcoach hat jetzt eine eigene Download-Schaltfläche, einschließlich aller fünf englischen Stimmen und jeder übersetzten Sprache. Wenn Sie eine Stimme auswählen, wird ihr Download weiterhin gestartet, solange das Coaching eingeschaltet ist.",
+  "Blueprint": "Blaupause",
+  "Orrery": "Planetarium",
+  "Googly": "Kulleraugen",
+  "Metal": "Metal",
 };

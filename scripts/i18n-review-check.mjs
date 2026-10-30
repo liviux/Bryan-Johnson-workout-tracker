@@ -3,6 +3,7 @@
 // catalogues are rebuilt.
 import { readFileSync } from "node:fs";
 import { review } from "./i18n-review/index.mjs";
+import { uiNames } from "./i18n-ui-names.mjs";
 import { core } from "./i18n-core.mjs";
 
 const keys = new Set(JSON.parse(readFileSync(new URL("./i18n-keys.json", import.meta.url), "utf8")));
@@ -45,6 +46,9 @@ function check(language, source, value, origin) {
 
 for (const [language, map] of Object.entries(review)) {
   for (const [key, value] of Object.entries(map)) check(language, key, value, "review");
+}
+for (const [language, map] of Object.entries(uiNames)) {
+  for (const [key, value] of Object.entries(map)) check(language, key, value, "names");
 }
 for (const [language, map] of Object.entries(core)) {
   for (const [key, value] of Object.entries(map)) check(language, key, value, "core");

@@ -1968,4 +1968,12 @@ export default {
   "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Schimbarea limbii afișează acum imediat butonul de descărcare vocală și progresul acestuia, iar „Oprește coachingul” rămâne disponibil în timpul descărcării.",
   "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Când coachingul este activat, alegerea unei voci sau a unei limbi descarcă automat acea voce. Când coachingul este dezactivat, folosiți butonul „Descarcă vocea locală”, care arată progresul clipurilor în timp ce sunt copiate.",
   "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Fiecare voce din antrenorul vocal are acum propriul buton de descărcare, inclusiv toate cele cinci voci în engleză și fiecare limbă tradusă. Selectarea unei voci începe în continuare descărcarea acesteia când coachingul este activat.",
+  "Blueprint": "Schiță tehnică",
+  "Course": "Traseu",
+  "Doodle": "Mâzgăleală",
+  "Googly": "Ochi bulbucați",
+  "Halftone": "Semiton",
+  "Orrery": "Planetariu mecanic",
+  "Chill": "Relax",
+  "New releases": "Lansări noi",
 };

@@ -2269,4 +2269,11 @@ export default {
   "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "ভাষা পরিবর্তন করলে এখন ভয়েস ডাউনলোড বোতাম ও তার অগ্রগতি সঙ্গে সঙ্গে দেখা যায়, এবং ডাউনলোড চলার সময় «কোচিং বন্ধ করুন» উপলব্ধ থাকে।",
   "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "কোচিং চালু থাকলে একটি ভয়েস বা ভাষা বেছে নিলে সেই ভয়েসটি স্বয়ংক্রিয়ভাবে ডাউনলোড হয়। কোচিং বন্ধ থাকলে «স্থানীয় ভয়েস ডাউনলোড করুন» বোতামটি ব্যবহার করুন, যা কপি করার সময় ক্লিপের অগ্রগতি দেখায়।",
   "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "ভয়েস কোচের প্রতিটি ভয়েসের এখন নিজস্ব ডাউনলোড বোতাম আছে, যার মধ্যে পাঁচটি ইংরেজি ভয়েস এবং প্রতিটি অনুবাদিত ভাষা রয়েছে। কোচিং চালু থাকলে ভয়েস বেছে নিলে তার ডাউনলোড এখনও শুরু হয়।",
+  "Chapters": "অধ্যায়",
+  "Course": "পথ",
+  "Dark room": "অন্ধকার ঘর",
+  "Lab": "ল্যাবরেটরি",
+  "World": "বিশ্ব",
+  "UK dance": "ব্রিটিশ নৃত্য",
+  "Chill": "আরাম",
 };

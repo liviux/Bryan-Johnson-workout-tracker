@@ -2445,4 +2445,8 @@ export default {
   "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "वॉइस कोच में अब हर आवाज़ का अपना डाउनलोड बटन है, जिसमें पांचों अंग्रेज़ी आवाज़ें और हर अनुवादित भाषा शामिल है। कोचिंग चालू होने पर आवाज़ चुनने से उसका डाउनलोड अब भी शुरू होता है।",
   "New features": "नई सुविधाएँ",
   "Bug fixes": "बग फिक्स",
+  "Week of {date}": "{date} का सप्ताह",
+  "World": "विश्व संगीत",
+  "UK dance": "ब्रिटिश डांस",
+  "Chill": "आराम",
 };

@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.44.7] - 2026-10-30
+
+### Fixed
+- Theme, animation-style and radio-tag names now use natural local words in more languages instead of falling back to English.
+- The coaching setting now reads as guidance rather than the coach in Spanish, Italian and Portuguese, and Hindi “Week of” dates are translated.
+
 ## [1.44.6] - 2026-10-30
 
 ### Fixed

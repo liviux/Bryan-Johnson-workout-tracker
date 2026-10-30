@@ -57,10 +57,13 @@ export const fixes = {
     "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "שינוי שפה מציג כעת מיד את כפתור ההורדה הקולית ואת התקדמותו, והאפשרות «כבה את האימון» נשארת זמינה בזמן ההורדה.",
     "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "כאשר האימון פועל, בחירת קול או שפה מורידה את הקול הזה אוטומטית. כאשר האימון כבוי, השתמש בלחצן «הורד קול מקומי», שמציג את התקדמות הקליפים בזמן ההעתקה.",
     "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "לכל קול במאמן הקולי יש כעת כפתור הורדה משלו, כולל כל חמשת הקולות באנגלית וכל שפה מתורגמת. בחירת קול עדיין מתחילה את ההורדה שלו כאשר האימון פועל.",
+    "Theme, animation-style and radio-tag names now use natural local words in more languages instead of falling back to English.": "שמות ערכות, סגנונות אנימציה ותגי רדיו משתמשים כעת במילים מקומיות טבעיות ביותר שפות במקום ליפול חזרה לאנגלית.",
+    "The coaching setting now reads as guidance rather than the coach in Spanish, Italian and Portuguese, and Hindi “Week of” dates are translated.": "הגדרת האימון מוצגת כעת כהדרכה ולא כמאמן בספרדית, איטלקית ופורטוגזית, ותאריכי „השבוע של” בהינדי מתורגמים.",
   },
   bg: {
     "Couldn't load the changelog": "Дневникът на промените не можа да се зареди",
     "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Всеки глас в «Гласов треньор» вече има свой собствен бутон за изтегляне, включително всичките пет английски гласа и всеки преведен език. Избирането на глас все още започва изтеглянето му, когато обучението е включено.",
+    "The coaching setting now reads as guidance rather than the coach in Spanish, Italian and Portuguese, and Hindi “Week of” dates are translated.": "Настройката за обучение вече се показва като насока, а не като треньор на испански, италиански и португалски, а датите „Седмица на“ на хинди са преведени.",
   },
   bs: {
     "Full changelog": "Potpuni dnevnik promjena",

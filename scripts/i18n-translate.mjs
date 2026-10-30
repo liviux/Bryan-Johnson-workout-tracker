@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import { overrides } from "./i18n-overrides.mjs";
 import { fixes } from "./i18n-fixes.mjs";
 import { terms } from "./i18n-terms.mjs";
+import { uiNames } from "./i18n-ui-names.mjs";
 import { review } from "./i18n-review/index.mjs";
 import { core } from "./i18n-core.mjs";
 import { LANGUAGES } from "../public/js/i18n.js";
@@ -14,7 +15,7 @@ import { LANGUAGES } from "../public/js/i18n.js";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const keys = JSON.parse(readFileSync(path.join(root, "scripts/i18n-keys.json"), "utf8"));
 const languages = process.argv.slice(2).length ? process.argv.slice(2) : LANGUAGES.filter((entry) => entry.id !== "en").map((entry) => entry.id);
-const allKeys = [...new Set([...keys, ...Object.values(overrides).flatMap((map) => Object.keys(map)), ...Object.values(fixes).flatMap((map) => Object.keys(map)), ...Object.values(terms).flatMap((map) => Object.keys(map)), ...Object.values(review).flatMap((map) => Object.keys(map)), ...Object.values(core).flatMap((map) => Object.keys(map))])];
+const allKeys = [...new Set([...keys, ...Object.values(overrides).flatMap((map) => Object.keys(map)), ...Object.values(fixes).flatMap((map) => Object.keys(map)), ...Object.values(terms).flatMap((map) => Object.keys(map)), ...Object.values(uiNames).flatMap((map) => Object.keys(map)), ...Object.values(review).flatMap((map) => Object.keys(map)), ...Object.values(core).flatMap((map) => Object.keys(map))])];
 const cacheFile = process.env.I18N_CACHE || path.join(root, "scripts/i18n-cache.json");
 const cache = existsSync(cacheFile) ? JSON.parse(readFileSync(cacheFile, "utf8")) : {};
 
@@ -143,7 +144,7 @@ function usableReview(language, map) {
 for (const language of languages) {
   console.log(`${language}: ${allKeys.length} phrases`);
   const translations = await translate(allKeys, language);
-  Object.assign(translations, overrides[language] || {}, terms[language] || {}, fixes[language] || {}, usableReview(language, review[language]), core[language] || {});
+  Object.assign(translations, overrides[language] || {}, terms[language] || {}, fixes[language] || {}, uiNames[language] || {}, usableReview(language, review[language]), core[language] || {});
   for (const key of allKeys) {
     const value = translations[key];
     const placeholders = [...key.matchAll(/\{(\w+)\}/g)].map((match) => match[0]);

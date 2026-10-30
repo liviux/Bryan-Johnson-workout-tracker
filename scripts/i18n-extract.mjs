@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { overrides } from "./i18n-overrides.mjs";
 import { fixes } from "./i18n-fixes.mjs";
 import { terms } from "./i18n-terms.mjs";
+import { uiNames } from "./i18n-ui-names.mjs";
 import { review } from "./i18n-review/index.mjs";
 import { core } from "./i18n-core.mjs";
 
@@ -262,7 +263,7 @@ add("Plan change:");
 add("Read more");
 add("Latest changes");
 
-for (const map of [overrides, fixes, terms, review, core]) {
+for (const map of [overrides, fixes, terms, uiNames, review, core]) {
   for (const language of Object.values(map)) for (const key of Object.keys(language || {})) keys.add(key);
 }
 for (const key of ["Plan change:", "Read more", "Latest changes", "Plan changed", "Full changelog", "Couldn't load the changelog", "New features", "Improvements", "Bug fixes", "Removed features"]) keys.add(key);
