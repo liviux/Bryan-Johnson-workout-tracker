@@ -2212,4 +2212,8 @@ export default {
   "Zone 2 minutes ({percent}% of Bryan's 150)": "دقائق المنطقة 2 ({percent}% من 150 لدى براين)",
   "Zone 2 minutes (0% of Bryan's 150)": "دقائق المنطقة 2 (0% من 150 لدى براين)",
   "Zone 2 minutes per week": "دقائق المنطقة 2 أسبوعيًا",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "يؤدي تبديل اللغة الآن إلى إظهار زر تنزيل الصوت فورًا. لم يعد «تفعيل التدريب الصوتي» رماديًا؛ كما أن تشغيله بصوت غير محفوظ يبدأ التنزيل.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "يؤدي تغيير اللغة الآن إلى إظهار زر تنزيل الصوت وتقدمه فورًا، ويظل «إيقاف التدريب الصوتي» متاحًا أثناء تنزيل الصوت.",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "عند تشغيل التدريب الصوتي، يؤدي اختيار صوت أو لغة إلى تنزيل ذلك الصوت تلقائيًا. وعند إيقافه، استخدم زر «تنزيل الصوت المحلي»، الذي يعرض تقدم المقاطع أثناء نسخها.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "أصبح لكل صوت في المدرب الصوتي زر تنزيل خاص به، بما في ذلك الأصوات الإنجليزية الخمسة وكل لغة مترجمة. لا يزال اختيار صوت يبدأ تنزيله عند تشغيل التدريب الصوتي.",
 };

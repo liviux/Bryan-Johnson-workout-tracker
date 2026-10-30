@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.44.6] - 2026-10-30
+
+### Fixed
+- Release notes now translate every line, including lines with button names in bold, and use the same translated button names as the app.
+- Release note headings now read **New features**, **Improvements**, **Bug fixes** and **Removed features**.
+
 ## [1.44.5] - 2026-10-29
 
 ### Fixed

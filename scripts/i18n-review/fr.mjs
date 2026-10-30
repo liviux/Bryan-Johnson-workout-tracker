@@ -2168,4 +2168,8 @@ export default {
   "Zone 2 minutes per week": "Minutes de zone 2 par semaine",
   "Zoom in": "Zoom avant",
   "Zoom out": "Zoom arrière",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Changer de langue affiche désormais immédiatement le bouton de téléchargement vocal. « Activer le coaching » n'est plus grisé ; l'activer avec une voix non enregistrée démarre aussi le téléchargement.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Changer de langue affiche désormais immédiatement le bouton de téléchargement vocal et sa progression, et « Désactiver le coaching » reste disponible pendant le téléchargement.",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Lorsque le coaching est activé, choisir une voix ou une langue télécharge cette voix automatiquement. Lorsque le coaching est désactivé, utilisez le bouton « Télécharger la voix locale », qui affiche la progression des clips pendant leur copie.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Chaque voix du coach vocal possède désormais son propre bouton de téléchargement, y compris les cinq voix en anglais et chaque langue traduite. Sélectionner une voix démarre toujours son téléchargement lorsque le coaching est activé.",
 };

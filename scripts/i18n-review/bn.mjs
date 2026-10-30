@@ -2265,4 +2265,8 @@ export default {
   "3 × 8/leg, full depth": "3 × 8/পা, পুরো গভীরতা",
   "Bryan: 3 × 10/leg": "ব্রায়ান: 3 × 10/পা",
   "3 × 10/leg": "3 × 10/পা",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "ভাষা পরিবর্তন করলে এখন ভয়েস ডাউনলোড বোতামটি সঙ্গে সঙ্গে দেখা যায়। «কোচিং চালু করুন» আর ধূসর নয়; অসংরক্ষিত ভয়েস দিয়ে এটি চালু করলেও ডাউনলোড শুরু হয়।",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "ভাষা পরিবর্তন করলে এখন ভয়েস ডাউনলোড বোতাম ও তার অগ্রগতি সঙ্গে সঙ্গে দেখা যায়, এবং ডাউনলোড চলার সময় «কোচিং বন্ধ করুন» উপলব্ধ থাকে।",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "কোচিং চালু থাকলে একটি ভয়েস বা ভাষা বেছে নিলে সেই ভয়েসটি স্বয়ংক্রিয়ভাবে ডাউনলোড হয়। কোচিং বন্ধ থাকলে «স্থানীয় ভয়েস ডাউনলোড করুন» বোতামটি ব্যবহার করুন, যা কপি করার সময় ক্লিপের অগ্রগতি দেখায়।",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "ভয়েস কোচের প্রতিটি ভয়েসের এখন নিজস্ব ডাউনলোড বোতাম আছে, যার মধ্যে পাঁচটি ইংরেজি ভয়েস এবং প্রতিটি অনুবাদিত ভাষা রয়েছে। কোচিং চালু থাকলে ভয়েস বেছে নিলে তার ডাউনলোড এখনও শুরু হয়।",
 };

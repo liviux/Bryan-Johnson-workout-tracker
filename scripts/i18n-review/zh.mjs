@@ -2422,4 +2422,8 @@ export default {
   "Tuck the pelvis, squeeze the back glute": "收骨盆，夹紧后侧臀肌",
   "Wide stance; sit the hips back over one foot": "宽站距；髋部向后坐到一只脚上方",
   "Rotator Cuff": "肩袖",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "切换语言后现在会立即显示语音下载按钮。「开启语音指导」不再灰显；用未保存的语音开启它也会开始下载。",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "更改语言后现在会立即显示语音下载按钮及其进度，下载运行期间「关闭语音指导」仍然可用。",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "开启语音指导后，选择语音或语言会自动下载该语音。关闭语音指导后，请使用「下载本地语音」按钮，它会在复制时显示片段进度。",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "语音教练中的每个语音现在都有自己的下载按钮，包括全部五个英语语音和每种已翻译的语言。开启语音指导时，选择语音仍会开始下载。",
 };

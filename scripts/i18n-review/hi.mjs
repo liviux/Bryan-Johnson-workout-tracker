@@ -2439,4 +2439,10 @@ export default {
   "Week of Oct 5, 2026: 0 sessions": "5 अक्टूबर 2026 का सप्ताह: 0 सत्र",
   "Week of Sep 28, 2026: 0 min": "28 सितंबर 2026 का सप्ताह: 0 मिनट",
   "Week of Sep 28, 2026: 0 sessions": "28 सितंबर 2026 का सप्ताह: 0 सत्र",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "भाषा बदलने पर अब ध्वनि डाउनलोड बटन तुरंत दिखाई देता है। «कोचिंग चालू करें» अब धूसर नहीं है; बिना सहेजी गई आवाज़ के साथ इसे चालू करने पर डाउनलोड भी शुरू होता है।",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "भाषा बदलने पर अब ध्वनि डाउनलोड बटन और उसकी प्रगति तुरंत दिखाई देती है, और डाउनलोड चलने के दौरान «कोचिंग बंद करें» उपलब्ध रहता है।",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "कोचिंग चालू होने पर आवाज़ या भाषा चुनने से वह आवाज़ अपने आप डाउनलोड हो जाती है। कोचिंग बंद होने पर «लोकल वॉइस डाउनलोड करें» बटन का उपयोग करें, जो कॉपी करते समय क्लिप की प्रगति दिखाता है।",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "वॉइस कोच में अब हर आवाज़ का अपना डाउनलोड बटन है, जिसमें पांचों अंग्रेज़ी आवाज़ें और हर अनुवादित भाषा शामिल है। कोचिंग चालू होने पर आवाज़ चुनने से उसका डाउनलोड अब भी शुरू होता है।",
+  "New features": "नई सुविधाएँ",
+  "Bug fixes": "बग फिक्स",
 };

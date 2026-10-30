@@ -265,7 +265,7 @@ add("Latest changes");
 for (const map of [overrides, fixes, terms, review, core]) {
   for (const language of Object.values(map)) for (const key of Object.keys(language || {})) keys.add(key);
 }
-for (const key of ["Plan change:", "Read more", "Latest changes"]) keys.add(key);
+for (const key of ["Plan change:", "Read more", "Latest changes", "Plan changed", "Full changelog", "Couldn't load the changelog", "New features", "Improvements", "Bug fixes", "Removed features"]) keys.add(key);
 
 const list = [...keys].sort((a, b) => a.localeCompare(b, "en"));
 writeFileSync(path.join(root, "scripts/i18n-keys.json"), JSON.stringify(list, null, 2) + "\n");

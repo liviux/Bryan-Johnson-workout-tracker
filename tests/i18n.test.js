@@ -89,3 +89,20 @@ test("German coach speech is generated from translated plan text", async () => {
     useCatalogue("en", {});
   }
 });
+
+test("release notes translate the whole line, not just text around bold labels", async () => {
+  const german = (await import("../public/js/locales/de.js")).default;
+  useCatalogue("de", german);
+  try {
+    const { renderReleases } = await import("../public/js/components/changelog.js");
+    const html = renderReleases([
+      "## [1.44.5] - 2026-10-29\n\n### Fixed\n- Switching language now shows the voice download button immediately. **Turn coaching on** is no longer greyed out; turning it on with an unsaved voice also starts the download.",
+    ]);
+    assert.match(html, /<h4>Fehlerbehebungen<\/h4>/);
+    assert.match(html, /Beim Wechseln der Sprache wird jetzt sofort/);
+    assert.match(html, /„<strong>Coaching einschalten<\/strong>“/);
+    assert.doesNotMatch(html, /Turn coaching on/);
+  } finally {
+    useCatalogue("en", {});
+  }
+});

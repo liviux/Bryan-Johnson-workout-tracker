@@ -1538,5 +1538,9 @@ export default {
   "Zone 2 minutes": "Minuti in Zona 2",
   "Zone 2 minutes ({percent}% of Bryan's 150)": "Minuti in Zona 2 ({percent}% dei 150 di Bryan)",
   "Zone 2 minutes (0% of Bryan's 150)": "Minuti in Zona 2 (0% dei 150 di Bryan)",
-  "Zone 2 minutes per week": "Minuti in Zona 2 a settimana"
+  "Zone 2 minutes per week": "Minuti in Zona 2 a settimana",
+  "Switching language now shows the voice download button immediately. Turn coaching on is no longer greyed out; turning it on with an unsaved voice also starts the download.": "Cambiare lingua ora mostra subito il pulsante di download vocale. «Attiva il coach» non è più in grigio; attivarlo con una voce non salvata avvia anche il download.",
+  "Changing language now shows the voice download button and its progress immediately, and Turn coaching off stays available while the download runs.": "Cambiare lingua ora mostra subito il pulsante di download vocale e il suo avanzamento, e «Disattiva il coach» resta disponibile mentre il download è in corso.",
+  "When coaching is on, choosing a voice or language downloads that voice automatically. When coaching is off, use the Download local voice button, which shows clip progress while it copies.": "Quando il coaching è attivo, scegliere una voce o una lingua scarica automaticamente quella voce. Quando il coaching è disattivato, usa il pulsante «Scarica la voce locale», che mostra l'avanzamento dei clip durante la copia.",
+  "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Ogni voce del coach vocale ora ha il proprio pulsante di download, incluse tutte e cinque le voci inglesi e ogni lingua tradotta. Selezionare una voce ne avvia comunque il download quando il coaching è attivo.",
 };
