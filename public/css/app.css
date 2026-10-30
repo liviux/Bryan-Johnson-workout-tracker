@@ -603,7 +603,12 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
 .logger .last-time .btn.sm { min-height: 26px; padding: 2px 8px; font-size: 0.76rem; vertical-align: baseline; }
 .guided-notes .guided-main { grid-template-columns: minmax(0, 1fr); }
 .guided-notes .guided-demo { display: none; }
-.guided-notes .guided-side { width: min(100%, 820px); margin-inline: auto; }
+.guided-notes .guided-side { width: min(100%, 1320px); margin-inline: auto; }
+.guided-notes-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.guided-notes-grid > * { min-width: 0; }
+.guided-notes-grid > div > p { margin: 4px 0 12px; }
+.guided-notes-grid .level-check { margin-top: 0; }
+@media (max-width: 900px) { .guided-notes-grid { grid-template-columns: minmax(0, 1fr); } }
 .guided-notes .obs.card { padding: 0; border: 0; background: none; box-shadow: none; }
 .guided-tools { position: sticky; top: 0; z-index: 4; display: flex; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface-2); }
 .guided-tools [data-tool] { flex: 1; min-width: 0; min-height: 34px; padding: 5px 7px; border-radius: var(--r-sm); color: var(--ink-2); font-size: 0.8rem; }

@@ -14,6 +14,7 @@ import { editItem, fillDefaults, getItemLog, renderLogger } from "../components/
 import { exerciseInfoHtml } from "../components/exercise-panel.js";
 import { renderVideos, videoGroupsFor, videosFor } from "../components/video.js";
 import { mountObservations } from "../components/observations.js";
+import { mountLevelCheck } from "../components/level-check.js";
 import { t } from "../i18n.js";
 import { pauseDesk, resumeDesk } from "../components/desk.js";
 import { onRest, onTimer, stopInlineTimer, stopRest } from "../components/timer.js";
@@ -154,10 +155,13 @@ export function startGuided(date, onExit) {
     stage.pause();
     wrap.querySelector("[data-routine]").innerHTML = "";
     side.scrollTop = 0;
-    side.innerHTML = `<span class="eyebrow">${t("Finished")}</span><h2 class="display" style="font-size:2.2rem">${t("Workout complete")}</h2>
+    // Notes on the left and the level check on the right, so a wide window
+    // shows the whole page without scrolling.
+    side.innerHTML = `<div class="guided-notes-grid"><div><span class="eyebrow">${t("Finished")}</span><h2 class="display" style="font-size:2.2rem">${t("Workout complete")}</h2>
       <p>${t("{done} of {total} steps done. Record how it felt below.", { done, total: steps.length })}</p>
-      <div data-obs-host></div>`;
-    mountObservations(side.querySelector("[data-obs-host]"), date, { levelCheck: true, compact: true });
+      <div data-obs-host></div></div><div data-level-check-host></div></div>`;
+    mountObservations(side.querySelector("[data-obs-host]"), date);
+    mountLevelCheck(side.querySelector("[data-level-check-host]"), { compact: true, showStepDown: false });
     bar.style.width = `${done / steps.length * 100}%`;
     count.innerHTML = `${steps.length}/${steps.length}<small class="guided-count-group">${esc(t("Notes & observations"))}</small>`;
     markSteps();

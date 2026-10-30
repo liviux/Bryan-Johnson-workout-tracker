@@ -3822,6 +3822,7 @@ export default {
   "The language picker lists the languages with the widest reach on the internet first.": "언어 선택기는 인터넷에서 가장 널리 사용되는 언어를 먼저 나열합니다.",
   "The language picker sits above Voice coach in Settings.": "언어 선택기는 설정의 음성 코치 위에 있습니다.",
   "The language picker sits between During workouts and Voice coach in Settings.": "언어 선택기는 설정의 운동 중과 음성 코치 사이에 있습니다.",
+  "The last page of a guided workout shows Notes & observations on the left and the level check on the right, so it fits a wide window without scrolling.": "안내된 운동의 마지막 페이지는 왼쪽에 메모 및 관찰 내용, 오른쪽에 레벨 확인이 표시되어 스크롤 없이 넓은 창에 맞습니다.",
   "The level check now appears at the end of Today and at the end of a guided workout, with a progress ring, short explanations for each check and a clearer style. It also lives in Settings and no longer appears in Progress.": "이제 레벨 확인은 오늘과 가이드 운동이 끝날 때 진행률 링, 각 확인에 대한 간략한 설명 및 더욱 명확한 스타일과 함께 표시됩니다. 또한 설정에도 있으며 더 이상 진행 중으로 표시되지 않습니다.",
   "The level check now shows a Level check ready chip in the day header when both checks are done, and explains what the next level changes before moving up.": "이제 레벨 확인은 두 확인이 모두 완료되면 날짜 헤더에 레벨 확인 준비 칩을 표시하고 위로 이동하기 전에 다음 레벨이 변경되는 내용을 설명합니다.",
   "The level check shows the plan's weeks alongside the session count.": "레벨 확인에는 세션 수와 함께 계획의 주가 표시됩니다.",

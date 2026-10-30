@@ -3822,6 +3822,7 @@ export default {
   "The language picker lists the languages with the widest reach on the internet first.": "语言选择器首先列出了互联网上覆盖范围最广的语言。",
   "The language picker sits above Voice coach in Settings.": "语言选择器位于“设置”中的“语音教练”上方。",
   "The language picker sits between During workouts and Voice coach in Settings.": "语言选择器位于“锻炼期间”和“设置”中的语音教练之间。",
+  "The last page of a guided workout shows Notes & observations on the left and the level check on the right, so it fits a wide window without scrolling.": "指导锻炼的最后一页在左侧显示注释和观察结果，在右侧显示级别检查，因此它适合宽窗口，无需滚动。",
   "The level check now appears at the end of Today and at the end of a guided workout, with a progress ring, short explanations for each check and a clearer style. It also lives in Settings and no longer appears in Progress.": "现在，级别检查出现在“今天”结束时和指导训练结束时，带有进度环、每项检查的简短说明和更清晰的风格。它也存在于“设置”中，不再出现在“进度”中。",
   "The level check now shows a Level check ready chip in the day header when both checks are done, and explains what the next level changes before moving up.": "现在，当两项检查完成后，级别检查会在日期标题中显示级别检查就绪芯片，并解释在升级之前下一个级别会发生什么变化。",
   "The level check shows the plan's weeks alongside the session count.": "级别检查显示计划的周数以及训练计数。",

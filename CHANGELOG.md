@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.45.1] - 2026-10-30
+
+### Changed
+- The last page of a guided workout shows Notes & observations on the left and the level check on the right, so it fits a wide window without scrolling.
+
 ## [1.45.0] - 2026-10-30
 
 ### Added

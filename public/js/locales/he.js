@@ -3822,6 +3822,7 @@ export default {
   "The language picker lists the languages with the widest reach on the internet first.": "בוחר השפות מפרט תחילה את השפות עם טווח ההגעה הרחב ביותר באינטרנט.",
   "The language picker sits above Voice coach in Settings.": "בוחר השפה יושב מעל מאמן הקול בהגדרות.",
   "The language picker sits between During workouts and Voice coach in Settings.": "בוחר השפה יושב בין במהלך האימונים לבין מאמן קול בהגדרות.",
+  "The last page of a guided workout shows Notes & observations on the left and the level check on the right, so it fits a wide window without scrolling.": "העמוד האחרון של אימון מודרך מציג הערות ותצפיות משמאל ואת בדיקת הרמה מימין, כך שהוא מתאים לחלון רחב מבלי לגלול.",
   "The level check now appears at the end of Today and at the end of a guided workout, with a progress ring, short explanations for each check and a clearer style. It also lives in Settings and no longer appears in Progress.": "בדיקת הרמה מופיעה כעת בסוף היום ובתום אימון מודרך, עם טבעת התקדמות, הסברים קצרים לכל בדיקה וסגנון ברור יותר. הוא גם חי בהגדרות ואינו מופיע עוד בתהליך.",
   "The level check now shows a Level check ready chip in the day header when both checks are done, and explains what the next level changes before moving up.": "בדיקת הרמה מציגה כעת שבב מוכן לבדיקת רמות בכותרת היום כאשר שתי הבדיקות מתבצעות, ומסביר מה הרמה הבאה משתנה לפני העלייה למעלה.",
   "The level check shows the plan's weeks alongside the session count.": "בדיקת הרמה מציגה את השבועות של התוכנית לצד ספירת הפגישות.",

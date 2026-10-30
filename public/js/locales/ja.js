@@ -3822,6 +3822,7 @@ export default {
   "The language picker lists the languages with the widest reach on the internet first.": "言語ピッカーは、インターネット上で最も広く普及している言語を最初にリストします。",
   "The language picker sits above Voice coach in Settings.": "言語ピッカーは、設定の音声コーチの上にあります。",
   "The language picker sits between During workouts and Voice coach in Settings.": "言語ピッカーは、設定のワークアウト中と音声コーチの間にあります。",
+  "The last page of a guided workout shows Notes & observations on the left and the level check on the right, so it fits a wide window without scrolling.": "ガイド付きワークアウトの最後のページには、左側にメモと観察結果、右側にレベル チェックが表示されるため、スクロールせずに広いウィンドウに収まります。",
   "The level check now appears at the end of Today and at the end of a guided workout, with a progress ring, short explanations for each check and a clearer style. It also lives in Settings and no longer appears in Progress.": "レベル チェックは、Today の最後とガイド付きワークアウトの最後に表示され、進行状況リング、各チェックの短い説明、およびより明確なスタイルが表示されます。これは設定にも存在し、「進行中」には表示されなくなります。",
   "The level check now shows a Level check ready chip in the day header when both checks are done, and explains what the next level changes before moving up.": "レベル チェックでは、両方のチェックが完了すると、日のヘッダーにレベル チェック準備完了チップが表示され、上に進む前に次のレベルで何が変わるかが説明されます。",
   "The level check shows the plan's weeks alongside the session count.": "レベルチェックでは、セッション数とともにプランの週数が表示されます。",
