@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "3D-kohtaukset ja harjoituksen pikkukuvat ottavat teeman värit.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4 on kova, mutta hallittu. Jos et pysty pitämään vauhtia viimeisellä kierroksella, aloita seuraavalla kerralla hitaammin.",
   "The Active Life": "Aktiivinen elämä",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Toiminto-sivu avautuu jälleen, ja sen Tämä viikko-välilehdillä on Historia-, Edistys- ja Vertailuarvot-välilehdet, ja välilehtien nimet noudattavat valittua kieltä.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Animaatiota ei voitu ladata. Suorita npm install projektikansiossa ja lataa tämä sivu uudelleen.",
   "The Animation style section is no longer marked as a test.": "Animaatiotyyli-osiota ei enää ole merkitty testiksi.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Sovellus sisältää tallenteita jokaiselle äänelle. Lataa valittu ääni kerran tallentaaksesi sen toistoa varten; puhemallia tarvitaan vain, jos jaetut tallenteet puuttuvat.",

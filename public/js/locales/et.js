@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "3D-stseenid ja harjutuste pisipildid võtavad teema värvid.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4 × 4 on raske, kuid kontrollitud. Kui sa ei suuda viimases voorus tempot hoida, alusta järgmisel korral aeglasemalt.",
   "The Active Life": "Aktiivne elu",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Tegevuste leht avaneb uuesti selle nädala vahekaartidega Ajalugu, Edenemine ja Võrdlused ning vahekaartide nimed järgivad valitud keelt.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Animatsiooni ei saanud laadida. Käivitage projekti kaustas npm install, seejärel laadige see leht uuesti.",
   "The Animation style section is no longer marked as a test.": "Animatsioonistiili jaotist ei märgita enam testiks.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Rakendus sisaldab iga hääle salvestusi. Laadige valitud hääl üks kord alla, et see taasesitamiseks salvestada; kõnemudelit on vaja ainult siis, kui jagatud salvestised puuduvad.",

@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "3D 장면과 운동 썸네일은 테마 색상을 사용합니다.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4는 단단하지만 제어됩니다. 마지막 라운드에서 속도를 유지할 수 없다면 다음 번에는 천천히 시작하세요.",
   "The Active Life": "활동적인 삶",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "이번 주, 내역, 진행 상황 및 벤치마크 탭이 포함된 활동 페이지가 다시 열리고 탭 이름은 선택한 언어를 따릅니다.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "애니메이션을 로드할 수 없습니다. 프로젝트 폴더에서 npm install을 실행한 후 이 페이지를 다시 로드하세요.",
   "The Animation style section is no longer marked as a test.": "애니메이션 스타일 섹션은 더 이상 테스트로 표시되지 않습니다.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "이 앱에는 모든 음성에 대한 녹음이 포함되어 있습니다. 선택한 음성을 한 번 다운로드하여 재생용으로 저장하세요. 음성 모델은 공유 녹음이 누락된 경우에만 필요합니다.",

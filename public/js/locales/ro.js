@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "Scenele 3D și miniaturile de exerciții iau culorile temei.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4 este intens, dar controlat. Dacă nu poți ține ritmul în ultima rundă, începe mai încet data viitoare.",
   "The Active Life": "The Active Life",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Pagina Activitate se deschide din nou cu filele Săptămâna aceasta, Istoric, Progres și Benchmarks, iar numele filelor urmează limba aleasă.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Animația nu s-a putut încărca. Rulează npm install în folderul proiectului, apoi reîncarcă pagina.",
   "The Animation style section is no longer marked as a test.": "Secțiunea Stilul de animație nu mai este marcată ca test.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Aplicația include înregistrări pentru fiecare voce. Descărcați vocea selectată o dată pentru a o salva pentru redare; un model de vorbire este necesar doar dacă înregistrările partajate lipsesc.",

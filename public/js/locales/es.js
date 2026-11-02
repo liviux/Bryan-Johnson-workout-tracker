@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "Las escenas 3D y las miniaturas de los ejercicios toman los colores del tema.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "El 4×4 es intenso pero controlado. Si no puedes mantener el ritmo en la última ronda, empieza más lento la próxima vez.",
   "The Active Life": "The Active Life",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "La página Actividad se abre nuevamente con las pestañas Esta semana, Historial, Progreso y Puntos de referencia, y los nombres de las pestañas siguen el idioma elegido.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "No se pudo cargar la animación. Ejecuta npm install en la carpeta del proyecto y vuelve a cargar esta página.",
   "The Animation style section is no longer marked as a test.": "La sección Estilo de animación ya no está marcada como prueba.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "La aplicación incluye grabaciones para cada voz. Descargue la voz seleccionada una vez para guardarla y reproducirla; solo se necesita un modelo de voz si faltan las grabaciones compartidas.",

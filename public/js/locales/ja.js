@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "3D シーンとエクササイズのサムネイルにはテーマの色が適用されます。",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4は難しいですが、コントロールされています。最終ラウンドでペースを維持できなかった場合は、次回はゆっくりスタートしてください。",
   "The Active Life": "アクティブな生活",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "[アクティビティ] ページが再び開き、[今週]、[履歴]、[進捗状況]、および [ベンチマーク] タブが表示され、タブ名は選択した言語に従います。",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "アニメーションを読み込めませんでした。プロジェクト フォルダーで npm install を実行し、このページをリロードします。",
   "The Animation style section is no longer marked as a test.": "アニメーション スタイル セクションはテストとしてマークされなくなりました。",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "アプリにはあらゆる音声の録音が含まれています。選択した音声を一度ダウンロードして、再生用に保存します。音声モデルは、共有録音が見つからない場合にのみ必要になります。",

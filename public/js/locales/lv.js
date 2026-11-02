@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "3D ainas un vingrinājumu sīktēli iegūst motīva krāsas.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4 × 4 ir grūts, bet kontrolēts. Ja nevarat noturēt tempu pēdējā kārtā, nākamreiz sāciet lēnāk.",
   "The Active Life": "Aktīvā dzīve",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Lapa Darbības atkal tiek atvērta ar cilnēm Šonedēļ Vēsture, Progress un Etaloni, un ciļņu nosaukumi atbilst izvēlētajai valodai.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Animāciju nevarēja ielādēt. Palaidiet npm install projektu mapē, pēc tam atkārtoti ielādējiet šo lapu.",
   "The Animation style section is no longer marked as a test.": "Animācijas stila sadaļa vairs nav atzīmēta kā pārbaude.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Lietotnē ir iekļauti ieraksti katrai balsij. Vienreiz lejupielādējiet atlasīto balsi, lai saglabātu to atskaņošanai; runas modelis ir nepieciešams tikai tad, ja trūkst kopīgoto ierakstu.",

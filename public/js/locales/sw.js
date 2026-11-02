@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "Mandhari ya 3D na vijipicha vya mazoezi huchukua rangi za mandhari.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4 × 4 ni ngumu lakini inadhibitiwa. Ikiwa huwezi kushikilia kasi katika raundi ya mwisho, anza polepole wakati ujao.",
   "The Active Life": "Maisha Mahiri",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Ukurasa wa Shughuli hufunguliwa tena kwa vichupo vyake vya Wiki Hii, Historia, Maendeleo na Vigezo, na majina ya vichupo hufuata lugha iliyochaguliwa.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Uhuishaji haukuweza kupakia. Endesha npm install kwenye folda ya mradi, kisha upakie upya ukurasa huu.",
   "The Animation style section is no longer marked as a test.": "Sehemu ya mtindo wa Uhuishaji haijatiwa alama kuwa jaribio.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Programu inajumuisha rekodi kwa kila sauti. Pakua sauti iliyochaguliwa mara moja ili kuihifadhi kwa kucheza tena; mtindo wa hotuba unahitajika tu ikiwa rekodi zilizoshirikiwa hazipo.",

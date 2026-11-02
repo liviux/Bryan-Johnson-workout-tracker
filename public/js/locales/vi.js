@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "Cảnh 3D và hình thu nhỏ bài tập mang màu sắc của chủ đề.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "Xe 4x4 cứng nhưng được kiểm soát. Nếu bạn không thể giữ tốc độ ở hiệp cuối, hãy bắt đầu chậm hơn vào lần tiếp theo.",
   "The Active Life": "Cuộc sống năng động",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Trang Hoạt động sẽ mở lại với các tab Tuần này, Lịch sử, Tiến độ và Điểm chuẩn, đồng thời tên tab tuân theo ngôn ngữ đã chọn.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Hoạt hình không thể tải được. Chạy cài đặt npm trong thư mục dự án, sau đó tải lại trang này.",
   "The Animation style section is no longer marked as a test.": "Phần Kiểu hoạt hình không còn được đánh dấu là thử nghiệm nữa.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Ứng dụng này bao gồm các bản ghi âm cho mọi giọng nói. Tải xuống giọng nói đã chọn một lần để lưu nó để phát lại; mẫu giọng nói chỉ cần thiết nếu thiếu bản ghi được chia sẻ.",

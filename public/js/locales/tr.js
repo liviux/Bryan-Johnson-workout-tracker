@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "3B sahneler ve egzersiz küçük resimleri temanın renklerini alır.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4 sert ama kontrollü. Son turda hızınızı koruyamazsanız, bir dahaki sefere daha yavaş başlayın.",
   "The Active Life": "Aktif Yaşam",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Etkinlik sayfası Bu hafta, Geçmiş, İlerleme ve Karşılaştırmalar sekmeleriyle yeniden açılır ve sekme adları seçilen dili takip eder.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Animasyon yüklenemedi. Proje klasöründe npm kurulumunu çalıştırın ve ardından bu sayfayı yeniden yükleyin.",
   "The Animation style section is no longer marked as a test.": "Animasyon stili bölümü artık test olarak işaretlenmiyor.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Uygulama her ses için kayıt içerir. Seçilen sesi oynatmak üzere kaydetmek için bir kez indirin; bir konuşma modeline yalnızca paylaşılan kayıtların eksik olması durumunda ihtiyaç duyulur.",

@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "3D scenos ir pratimų miniatiūros įgauna temos spalvas.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4 yra sunkus, bet valdomas. Jei negalite išlaikyti tempo paskutiniame raunde, kitą kartą pradėkite lėčiau.",
   "The Active Life": "Aktyvus gyvenimas",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Veiklos puslapis vėl atidaromas su „Šią savaitę“ skirtukais „Istorija“, „Pažanga“ ir „Palyginimai“, o skirtukų pavadinimai atitinka pasirinktą kalbą.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Animacijos įkelti nepavyko. Projekto aplanke paleiskite npm install, tada iš naujo įkelkite šį puslapį.",
   "The Animation style section is no longer marked as a test.": "Animacijos stiliaus skyrius nebėra pažymėtas kaip bandymas.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Programoje yra kiekvieno balso įrašai. Vieną kartą atsisiųskite pasirinktą balsą, kad išsaugotumėte jį atkūrimui; kalbos modelis reikalingas tik tuo atveju, jei trūksta bendrinamų įrašų.",

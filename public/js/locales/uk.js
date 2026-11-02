@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "Тривимірні сцени та мініатюри вправ мають кольори теми.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4 важкий, але керований. Якщо ви не можете втримати темп в останньому раунді, почніть повільніше наступного разу.",
   "The Active Life": "Активне життя",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Знову відкриється сторінка «Активність» із вкладками «Цей тиждень», «Історія», «Прогрес» і «Порівняльні показники», а назви вкладок відповідають вибраній мові.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Не вдалося завантажити анімацію. Запустіть npm install у папці проекту, а потім перезавантажте цю сторінку.",
   "The Animation style section is no longer marked as a test.": "Розділ Стиль анімації більше не позначається як тестовий.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Додаток містить записи для кожного голосу. Завантажте вибраний голос один раз, щоб зберегти його для відтворення; модель мовлення потрібна, лише якщо спільні записи відсутні.",

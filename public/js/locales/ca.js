@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "Les escenes en 3D i les miniatures dels exercicis prenen els colors del tema.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "El 4×4 és dur però controlat. Si no pots aguantar el ritme a l'última ronda, comença més lent la propera vegada.",
   "The Active Life": "La Vida Activa",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "La pàgina Activitat s'obre de nou amb les pestanyes Aquesta setmana, Historial, Progrés i Punts de referència, i els noms de les pestanyes segueixen l'idioma escollit.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "No s'ha pogut carregar l'animació. Executeu npm install a la carpeta del projecte i torneu a carregar aquesta pàgina.",
   "The Animation style section is no longer marked as a test.": "La secció Estil d'animació ja no es marca com a prova.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "L'aplicació inclou enregistraments per a cada veu. Baixeu la veu seleccionada una vegada per desar-la per reproduir-la; un model de parla només és necessari si falten les gravacions compartides.",

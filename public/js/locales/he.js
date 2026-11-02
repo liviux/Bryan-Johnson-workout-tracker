@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "הסצנות התלת-ממדיות והתמונות הממוזערות של התרגיל מקבלים את צבעי הנושא.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "ה-4×4 קשה אך נשלט. אם אתה לא יכול להחזיק את הקצב בסיבוב האחרון, התחל לאט יותר בפעם הבאה.",
   "The Active Life": "החיים הפעילים",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "דף הפעילות נפתח שוב עם הכרטיסיות 'השבוע', 'היסטוריה', התקדמות ובנצ'מרקים, ושמות הכרטיסיות עוקבים אחר השפה הנבחרת.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "האנימציה לא הצליחה לטעון. הפעל את npm install בתיקיית הפרויקט ולאחר מכן טען מחדש את הדף הזה.",
   "The Animation style section is no longer marked as a test.": "הקטע בסגנון אנימציה אינו מסומן עוד כמבחן.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "האפליקציה כוללת הקלטות לכל קול. הורד את הקול שנבחר פעם אחת כדי לשמור אותו להשמעה; יש צורך במודל דיבור רק אם חסרות ההקלטות המשותפות.",

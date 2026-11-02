@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "3D-prizori in sličice vadbe prevzamejo barve teme.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4 je trd, a nadzorovan. Če v zadnjem krogu ne morete zadržati tempa, naslednjič začnite počasneje.",
   "The Active Life": "Aktivno življenje",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Ponovno se odpre stran Dejavnost z zavihki Ta teden, Zgodovina, Napredek in Primerjalna merila, imena zavihkov pa sledijo izbranemu jeziku.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Animacije ni bilo mogoče naložiti. Zaženite npm install v mapi projekta, nato znova naložite to stran.",
   "The Animation style section is no longer marked as a test.": "Razdelek Slog animacije ni več označen kot test.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Aplikacija vključuje posnetke za vsak glas. Enkrat prenesite izbrani glas, da ga shranite za predvajanje; govorni model je potreben le, če manjkajo skupni posnetki.",

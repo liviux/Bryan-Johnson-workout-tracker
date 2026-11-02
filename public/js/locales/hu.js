@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "A 3D jelenetek és a gyakorlatok bélyegképei a téma színeit veszik fel.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "A 4×4 kemény, de kontrollált. Ha az utolsó körben nem tudja tartani a tempót, legközelebb kezdje lassabban.",
   "The Active Life": "Az aktív élet",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "A Tevékenység oldal ismét megnyílik az E héten, Előzmények, Haladás és Összehasonlítások lappal, és a lapnevek a választott nyelvet követik.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Az animációt nem sikerült betölteni. Futtassa az npm install parancsot a projekt mappában, majd töltse be újra ezt az oldalt.",
   "The Animation style section is no longer marked as a test.": "Az Animációs stílus szakasz már nincs tesztként megjelölve.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Az alkalmazás minden hanghoz tartalmaz felvételeket. Töltse le egyszer a kiválasztott hangot, hogy elmentse lejátszásra; beszédmodellre csak akkor van szükség, ha hiányoznak a megosztott felvételek.",

@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "Adegan 3D dan lakaran kecil senaman mengambil warna tema.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4 itu keras tetapi terkawal. Jika anda tidak dapat mengekalkan rentak pada pusingan terakhir, mulakan dengan perlahan pada kali seterusnya.",
   "The Active Life": "Kehidupan Aktif",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Halaman Aktiviti dibuka semula dengan tab Minggu ini, Sejarah, Kemajuan dan Penanda Aras, dan nama tab mengikut bahasa yang dipilih.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Animasi tidak dapat dimuatkan. Jalankan pemasangan npm dalam folder projek, kemudian muat semula halaman ini.",
   "The Animation style section is no longer marked as a test.": "Bahagian gaya Animasi tidak lagi ditanda sebagai ujian.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Aplikasi ini termasuk rakaman untuk setiap suara. Muat turun suara yang dipilih sekali untuk menyimpannya untuk main semula; model pertuturan hanya diperlukan jika rakaman yang dikongsi tiada.",

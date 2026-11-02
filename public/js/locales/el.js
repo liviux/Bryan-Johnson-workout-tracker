@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "Οι τρισδιάστατες σκηνές και οι μικρογραφίες ασκήσεων παίρνουν τα χρώματα του θέματος.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "Το 4×4 είναι σκληρό αλλά ελεγχόμενο. Εάν δεν μπορείτε να κρατήσετε τον ρυθμό στον τελευταίο γύρο, ξεκινήστε πιο αργά την επόμενη φορά.",
   "The Active Life": "Η ενεργός ζωή",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Η σελίδα Δραστηριότητα ανοίγει ξανά με τις καρτέλες This week, History, Progress και Benchmarks και τα ονόματα των καρτελών ακολουθούν την επιλεγμένη γλώσσα.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Δεν ήταν δυνατή η φόρτωση της κινούμενης εικόνας. Εκτελέστε το npm install στο φάκελο του έργου και, στη συνέχεια, φορτώστε ξανά αυτήν τη σελίδα.",
   "The Animation style section is no longer marked as a test.": "Η ενότητα Στυλ κινούμενης εικόνας δεν επισημαίνεται πλέον ως δοκιμή.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Η εφαρμογή περιλαμβάνει ηχογραφήσεις για κάθε φωνή. Κάντε λήψη της επιλεγμένης φωνής μία φορά για να την αποθηκεύσετε για αναπαραγωγή. ένα μοντέλο ομιλίας απαιτείται μόνο εάν λείπουν οι κοινόχρηστες εγγραφές.",

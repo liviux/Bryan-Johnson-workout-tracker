@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.45.2] - 2026-11-02
+
+### Fixed
+- The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.
+
 ## [1.45.1] - 2026-10-30
 
 ### Changed

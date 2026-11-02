@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "Þrívíddarsenurnar og æfingasmámyndirnar taka liti þemaðs.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4 er harður en stjórnaður. Ef þú getur ekki haldið hraðanum í síðustu umferð skaltu byrja hægar næst.",
   "The Active Life": "Hið virka líf",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Aðgerðasíðan opnast aftur með flipunum Þessa viku, Saga, Framfarir og Viðmið, og flipanöfnin fylgja því tungumáli sem valið er.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Ekki tókst að hlaða hreyfimyndina. Keyrðu npm uppsetningu í verkefnamöppunni, endurhlaðaðu síðan þessa síðu.",
   "The Animation style section is no longer marked as a test.": "Hreyfimyndastílhlutinn er ekki lengur merktur sem próf.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Forritið inniheldur upptökur fyrir hverja rödd. Sæktu valda rödd einu sinni til að vista hana til spilunar; tallíkan er aðeins þörf ef samnýttu upptökurnar vantar.",

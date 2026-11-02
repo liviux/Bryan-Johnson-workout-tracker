@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "Kinukuha ng mga 3D na eksena at thumbnail ng ehersisyo ang mga kulay ng tema.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "Ang 4×4 ay mahirap ngunit kontrolado. Kung hindi mo kayang hawakan ang bilis sa huling round, magsimula nang mas mabagal sa susunod.",
   "The Active Life": "Ang Aktibong Buhay",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Magbubukas muli ang pahina ng Aktibidad kasama ang mga tab na This week, History, Progress at Benchmarks, at sinusunod ng mga pangalan ng tab ang piniling wika.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Hindi ma-load ang animation. Patakbuhin ang npm install sa folder ng proyekto, pagkatapos ay i-reload ang pahinang ito.",
   "The Animation style section is no longer marked as a test.": "Ang seksyon ng istilo ng animation ay hindi na minarkahan bilang pagsubok.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Kasama sa app ang mga pag-record para sa bawat boses. I-download ang napiling boses nang isang beses upang i-save ito para sa pag-playback; kailangan lang ng speech model kung nawawala ang mga nakabahaging recording.",

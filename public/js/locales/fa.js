@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "صحنه‌های سه بعدی و ریز عکس‌های تمرین، رنگ‌های تم را می‌گیرند.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4 سخت است اما کنترل شده است. اگر نمی توانید سرعت را در دور آخر حفظ کنید، دفعه بعد آهسته تر شروع کنید.",
   "The Active Life": "زندگی فعال",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "صفحه Activity دوباره با برگه های This week، History، Progress و Benchmarks باز می شود و نام برگه ها از زبان انتخاب شده پیروی می کنند.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "انیمیشن بارگیری نشد. npm install را در پوشه پروژه اجرا کنید، سپس این صفحه را بارگیری مجدد کنید.",
   "The Animation style section is no longer marked as a test.": "بخش سبک انیمیشن دیگر به عنوان آزمایش علامت گذاری نمی شود.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "این برنامه شامل ضبط برای هر صدا است. صدای انتخاب شده را یک بار دانلود کنید تا برای پخش ذخیره شود. مدل گفتار فقط در صورتی مورد نیاز است که ضبط‌های مشترک وجود نداشته باشند.",

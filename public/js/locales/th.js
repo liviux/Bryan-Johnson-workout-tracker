@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "ฉาก 3 มิติและภาพขนาดย่อของการออกกำลังกายจะใช้สีของธีม",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "The 4×4 is hard but controlled. หากคุณไม่สามารถก้าวทันในรอบที่แล้วให้เริ่มช้าลงในครั้งต่อไป",
   "The Active Life": "ชีวิตที่กระตือรือร้น",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "หน้ากิจกรรมจะเปิดขึ้นอีกครั้งพร้อมกับแท็บสัปดาห์นี้ ประวัติ ความคืบหน้า และเกณฑ์มาตรฐาน และชื่อแท็บเป็นไปตามภาษาที่เลือก",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "The animation couldn't load. รันการติดตั้ง npm ในโฟลเดอร์โปรเจ็กต์ จากนั้นโหลดหน้านี้ซ้ำ",
   "The Animation style section is no longer marked as a test.": "The Animation style section is no longer marked as a test.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "The app includes recordings for every voice. ดาวน์โหลดเสียงที่เลือกหนึ่งครั้งเพื่อบันทึกไว้สำหรับการเล่น a speech model is only needed if the shared recordings are missing.",

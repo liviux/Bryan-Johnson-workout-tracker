@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "3D 场景和练习缩略图采用主题颜色。",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4 很吃力，但要受控。如果最后一轮跟不上，下次开始慢一点。",
   "The Active Life": "积极的生活",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "“活动”页面将再次打开，其中包含“本周”、“历史记录”、“进度”和“基准”选项卡，并且选项卡名称遵循所选语言。",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "动画加载失败。在项目文件夹运行 npm install，然后刷新页面。",
   "The Animation style section is no longer marked as a test.": "动画样式部分不再标记为测试。",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "该应用程序包含每个声音的录音。下载一次选定的语音并保存以供播放；仅当共享录音丢失时才需要语音模型。",

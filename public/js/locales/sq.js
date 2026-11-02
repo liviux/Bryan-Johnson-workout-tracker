@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "Skenat 3D dhe miniaturat e ushtrimeve marrin ngjyrat e temës.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4 është i vështirë, por i kontrolluar. Nëse nuk mund ta mbani ritmin në raundin e fundit, filloni më ngadalë herën tjetër.",
   "The Active Life": "Jeta aktive",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Faqja e \"Aktivitetit\" hapet sërish me skedat \"Kjo javë\", \"Historia\", \"Përparimi\" dhe \"Kapelet\" dhe emrat e skedave ndjekin gjuhën e zgjedhur.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Animacioni nuk mund të ngarkohej. Ekzekutoni npm install në dosjen e projektit, më pas ringarkoni këtë faqe.",
   "The Animation style section is no longer marked as a test.": "Seksioni i stilit të animacionit nuk shënohet më si test.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Aplikacioni përfshin regjistrime për çdo zë. Shkarkoni zërin e zgjedhur një herë për ta ruajtur për riprodhim; Një model i të folurit nevojitet vetëm nëse mungojnë regjistrimet e përbashkëta.",

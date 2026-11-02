@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "3D scény a miniatúry cvičení majú farby témy.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "Pohon 4×4 je tvrdý, ale ovládateľný. Ak nedokážete udržať tempo v poslednom kole, nabudúce začnite pomalšie.",
   "The Active Life": "Aktívny život",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Opäť sa otvorí stránka Aktivita s kartami Tento týždeň, História, Pokrok a Porovnania a názvy kariet zodpovedajú zvolenému jazyku.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Animáciu sa nepodarilo načítať. Spustite inštaláciu npm v priečinku projektu a potom znova načítajte túto stránku.",
   "The Animation style section is no longer marked as a test.": "Sekcia Štýl animácie už nie je označená ako testovacia.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Aplikácia obsahuje nahrávky pre každý hlas. Stiahnite si vybraný hlas raz, aby ste ho uložili na prehrávanie; rečový model je potrebný len vtedy, ak chýbajú zdieľané nahrávky.",

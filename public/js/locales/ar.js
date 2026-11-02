@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "تأخذ المشاهد ثلاثية الأبعاد والصور المصغرة للتمارين ألوان السمة.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "بروتوكول 4×4 صعب لكنه متحكم فيه. وإذا لم تستطع الحفاظ على الوتيرة في الجولة الأخيرة، فابدأ أبطأ في المرة القادمة.",
   "The Active Life": "The Active Life",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "يتم فتح صفحة النشاط مرة أخرى مع علامات التبويب \"هذا الأسبوع\" و\"السجل\" و\"التقدم\" و\"المعايير\"، وتتبع أسماء علامات التبويب اللغة المختارة.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "تعذر تحميل الرسوم المتحركة. شغّل npm install في مجلد المشروع، ثم أعد تحميل الصفحة.",
   "The Animation style section is no longer marked as a test.": "لم يعد يتم وضع علامة على قسم نمط الرسوم المتحركة كاختبار.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "يتضمن التطبيق تسجيلات لكل صوت. قم بتنزيل الصوت المحدد مرة واحدة لحفظه للتشغيل؛ نموذج الكلام مطلوب فقط في حالة فقدان التسجيلات المشتركة.",

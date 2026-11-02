@@ -3784,6 +3784,7 @@ export default {
   "The 3D scenes and exercise thumbnails take the theme's colours.": "3D-scenerna och träningsminiatyrerna tar temats färger.",
   "The 4×4 is hard but controlled. If you can’t hold the pace in the last round, start slower next time.": "4×4:an är hård men kontrollerad. Om du inte kan hålla tempot i den sista omgången, börja långsammare nästa gång.",
   "The Active Life": "Det aktiva livet",
+  "The Activity page opens again with its This week, History, Progress and Benchmarks tabs, and the tab names follow the chosen language.": "Aktivitetssidan öppnas igen med flikarna Den här veckan, Historik, Framsteg och Benchmarks, och flikarnas namn följer det valda språket.",
   "The animation couldn't load. Run npm install in the project folder, then reload this page.": "Animeringen kunde inte laddas. Kör npm installation i projektmappen och ladda sedan om den här sidan.",
   "The Animation style section is no longer marked as a test.": "Avsnittet Animeringsstil är inte längre markerat som ett test.",
   "The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.": "Appen innehåller inspelningar för varje röst. Ladda ner den valda rösten en gång för att spara den för uppspelning; en talmodell behövs bara om de delade inspelningarna saknas.",
