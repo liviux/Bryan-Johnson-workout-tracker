@@ -84,7 +84,7 @@ const ERROR_TEXT = {
   "no-sessions": "No exercise sessions were found in this file.",
   "invalid-json": "This JSON file could not be read.",
   "unknown-file": "Choose a Health Connect .zip, .db or .json export.",
-  "server-required": "Start the local server with npm start to sync Health Connect.",
+  "server-required": "Start the local server with npm start to import Health Connect.",
   "no-file": "Choose a Health Connect export first.",
   "import-failed": "Could not read this Health Connect export.",
 };
@@ -226,11 +226,11 @@ function logHtml(plan) {
 }
 
 function introHtml() {
-  return `<p class="hc-intro muted">${t("Read-only, one-way sync from your phone's fitness apps. Nothing is written back to Health Connect.")}</p>
+  return `<p class="hc-intro muted">${t("Read-only, one-way import from your phone's fitness apps. Nothing is written back to Health Connect.")}</p>
     <ol class="hc-steps">
       <li>${t("On your Android phone, open Health Connect → Manage data → Backup and restore → Export now.")}</li>
       <li>${t("Save the Health Connect.zip file where this computer can reach it, such as Google Drive.")}</li>
-      <li>${t("Choose it below. Only exercise sessions are kept here; the file is not sent anywhere else.")}</li>
+      <li>${t("Import it below. Only exercise sessions are kept here; the file is not sent anywhere else.")}</li>
     </ol>
     <p class="muted hc-note">${t("ZIP and database exports need Node.js 22.13 or newer. A JSON export works on older versions.")}</p>`;
 }
@@ -252,7 +252,7 @@ function trackerLine(win) {
 export function openHealthConnectSync(date, { onDone = null } = {}) {
   const store = state.health;
   if (!store || !Array.isArray(store.sessions)) {
-    toast(t("Connect Health Connect in Settings first."), { icon: "info" });
+    toast(t("Import a Health Connect export in Settings first."), { icon: "info" });
     return;
   }
   const window = trackerWindowFor(date);
@@ -281,9 +281,9 @@ export function openHealthConnectSync(date, { onDone = null } = {}) {
     <div class="btn-row hc-dialog-actions">
       ${link ? `<button type="button" class="btn ghost" data-hc-unlink>${t("Remove this day's link")}</button>` : ""}
       <button type="button" class="btn" data-hc-cancel>${t("Cancel")}</button>
-      ${candidates.length ? `<button type="button" class="btn primary" data-hc-use ${selected < 0 ? "disabled" : ""}>${icon("check")} ${t("Sync this session")}</button>` : ""}
+      ${candidates.length ? `<button type="button" class="btn primary" data-hc-use ${selected < 0 ? "disabled" : ""}>${icon("check")} ${t("Link this session")}</button>` : ""}
     </div>`;
-  const dialog = openDialog({ title: t("Sync {date} with Health Connect", { date: fmtDate(date) }), content, sheet: false });
+  const dialog = openDialog({ title: t("Link a Health Connect session to {date}", { date: fmtDate(date) }), content, sheet: false });
   const use = content.querySelector("[data-hc-use]");
   content.addEventListener("change", (event) => {
     if (event.target.name === "hc-session" && use) use.disabled = false;
@@ -293,7 +293,7 @@ export function openHealthConnectSync(date, { onDone = null } = {}) {
     if (!chosen) return;
     const session = candidates[Number(chosen.value)].session;
     editDay(date, (day) => { day.healthConnect = exerciseSnapshot(session); });
-    toast(t("Synced {activity} for {date}.", { activity: activityName(session), date: fmtDate(date) }));
+    toast(t("Linked {activity} to {date}.", { activity: activityName(session), date: fmtDate(date) }));
     dialog.close();
     onDone?.();
   });
@@ -324,11 +324,11 @@ export function mountHealthConnect(host, date, { compact = false, onSync = null 
     const linked = linkedSession(date);
     const plan = planFor(date);
     const total = store && Array.isArray(store.sessions) ? store.sessions.length : 0;
-    const syncLabel = store ? t("Import a new export") : t("Connect Health Connect");
+    const syncLabel = store ? t("Import a new file") : t("Import Health Connect file");
     const button = busy
       ? `<span class="btn sm" aria-disabled="true">${icon("upload", "sm")} ${t("Reading…")}</span>`
       : `<label class="btn sm hc-file">${icon("upload", "sm")} ${esc(syncLabel)}<input class="sr-only" type="file" accept=".zip,.db,.json,application/zip,application/octet-stream,application/json"></label>`;
-    const clear = store && !busy ? `<button type="button" class="btn sm ghost" data-hc-clear>${icon("trash", "sm")} ${t("Remove synced data")}</button>` : "";
+    const clear = store && !busy ? `<button type="button" class="btn sm ghost" data-hc-clear>${icon("trash", "sm")} ${t("Remove imported data")}</button>` : "";
     const choose = store && sessions.length && !busy
       ? `<button type="button" class="btn sm" data-hc-sync>${icon("swap", "sm")} ${linked ? t("Change session") : t("Choose a session")}</button>`
       : "";
@@ -343,7 +343,7 @@ export function mountHealthConnect(host, date, { compact = false, onSync = null 
           ? `<p class="hc-empty muted">${t("No Health Connect session for this date.")}</p>`
           : "";
     const storeLine = store
-      ? `<div class="hc-store-line"><span>${t("Last synced {date}", { date: esc(syncTime(store.syncedAt)) })}</span><span class="muted">${t("{count} sessions in the synced copy", { count: total })}</span></div>`
+      ? `<div class="hc-store-line"><span>${t("Last import {date}", { date: esc(syncTime(store.syncedAt)) })}</span><span class="muted">${t("{count} sessions in the imported copy", { count: total })}</span></div>`
       : "";
     const linkedCount = linked ? 1 : 0;
     const linkedMinutes = linked ? Number(linked.minutes) || 0 : sessions.reduce((sum, session) => sum + (Number(session.minutes) || 0), 0);
@@ -381,7 +381,7 @@ export function mountHealthConnect(host, date, { compact = false, onSync = null 
     });
     host.querySelector("[data-hc-clear]")?.addEventListener("click", async () => {
       const ok = await confirmDialog({
-        title: t("Remove synced Health Connect data?"),
+        title: t("Remove imported Health Connect data?"),
         message: t("This only removes the sessions imported here. Your Health Connect data, linked days and workout log stay untouched."),
         confirm: t("Remove"),
         danger: true,
@@ -389,7 +389,7 @@ export function mountHealthConnect(host, date, { compact = false, onSync = null 
       if (!ok) return;
       try {
         await clearHealthConnect();
-        toast(t("Synced Health Connect data removed."), { icon: "trash" });
+        toast(t("Health Connect import removed."), { icon: "trash" });
         onSync?.();
       } catch (err) {
         error = t(ERROR_TEXT["import-failed"]);
@@ -405,7 +405,7 @@ export function mountHealthConnect(host, date, { compact = false, onSync = null 
     draw();
     try {
       const result = await syncHealthFile(file);
-      toast(t("Synced {count} sessions from Health Connect.", { count: result.imported }));
+      toast(t("Loaded {count} sessions from Health Connect.", { count: result.imported }));
       onSync?.();
     } catch (err) {
       error = t(ERROR_TEXT[err.code] || ERROR_TEXT["import-failed"]);
@@ -443,24 +443,33 @@ export function mountHealthConnectSettings(host, { onChanged = null } = {}) {
     const sessions = sessionsForDate(day);
     const linked = linkedSession(day);
     const total = store && Array.isArray(store.sessions) ? store.sessions.length : 0;
-    const status = store ? t("Connected") : t("Not connected");
-    const last = store ? t("Last synced {date}", { date: syncTime(store.syncedAt) }) : "";
+    const status = store ? t("Ready") : t("No file imported");
+    const last = store ? t("Last import {date}", { date: syncTime(store.syncedAt) }) : "";
     const support = state.mode === "local"
-      ? t("Start the local server to sync Health Connect.")
-      : t("Health Connect is on your phone. Export it, then choose the file here. Nothing is written back.");
+      ? t("Start the local server to import Health Connect.")
+      : t("Health Connect is on your phone. Export it, then import the file here. Nothing is written back.");
     const importButton = busy
       ? `<span class="btn" aria-disabled="true">${icon("upload")} ${t("Reading…")}</span>`
-      : `<label class="btn hc-file">${icon("upload")} ${store ? t("Import a new export") : t("Connect Health Connect")}<input class="sr-only" type="file" accept=".zip,.db,.json,application/zip,application/octet-stream,application/json"></label>`;
+      : `<label class="btn hc-file">${icon("upload")} ${store ? t("Import a new file") : t("Import Health Connect file")}<input class="sr-only" type="file" accept=".zip,.db,.json,application/zip,application/octet-stream,application/json"></label>`;
     host.innerHTML = `<section class="card card-pad health-connect-settings" data-hc-settings>
-      <div class="section-title"><div style="display:grid;gap:3px"><h3>${t("Health Connect")}</h3><p class="sub">${t("Read-only, one-way sync")}</p></div><span class="chip ${store ? "accent" : ""}">${esc(status)}</span></div>
+      <div class="section-title"><div style="display:grid;gap:3px"><h3>${t("Health Connect")}</h3><p class="sub">${t("Read-only, one-way import")}</p></div><span class="chip ${store ? "accent" : ""}">${esc(status)}</span></div>
       <p class="muted" style="font-size:0.88rem">${support}</p>
-      <p class="muted hc-note">${t("On your Android phone, open Health Connect → Manage data → Backup and restore → Export now.")}</p>
-      <p class="muted hc-note">${t("ZIP and database exports need Node.js 22.13 or newer. A JSON export works on older versions.")}</p>
-      <div class="hc-connect-row">${importButton}${store ? `<button type="button" class="btn ghost" data-hc-remove>${icon("trash")} ${t("Remove synced data")}</button>` : ""}</div>
-      ${store ? `<p class="muted hc-store-line"><span>${esc(last)}</span><span>${t("{count} sessions in the synced copy", { count: total })}</span></p>` : ""}
+      <details class="hc-help" ${store ? "" : "open"}>
+        <summary>${t("How to import from Health Connect")}</summary>
+        <ol class="hc-steps">
+          <li>${t("Make sure your fitness app writes workouts to Health Connect.")}</li>
+          <li>${t("On your Android phone, open Health Connect → Manage data → Backup and restore → Export now.")}</li>
+          <li>${t("Save the Health Connect.zip file where this computer can reach it, such as Google Drive.")}</li>
+          <li>${t("Import the file below, then pick the day and the session that matches your tracker time.")}</li>
+        </ol>
+        <p class="muted hc-note">${t("Health Connect has no live web API, so this reads the export you choose.")}</p>
+        <p class="muted hc-note">${t("ZIP and database exports need Node.js 22.13 or newer. A JSON export works on older versions.")}</p>
+      </details>
+      <div class="hc-connect-row">${importButton}${store ? `<button type="button" class="btn ghost" data-hc-remove>${icon("trash")} ${t("Remove imported data")}</button>` : ""}</div>
+      ${store ? `<p class="muted hc-store-line"><span>${esc(last)}</span><span>${t("{count} sessions in the imported copy", { count: total })}</span></p>` : ""}
       ${error ? `<div class="banner hc-error" role="status"><span>${icon("info", "lg")}</span><div class="grow">${esc(error)}</div></div>` : ""}
       <div class="hc-day-row">
-        <label class="field"><span>${t("Day to sync")}</span><input class="input" type="date" data-hc-day value="${esc(day)}"></label>
+        <label class="field"><span>${t("Day")}</span><input class="input" type="date" data-hc-day value="${esc(day)}"></label>
         <div class="btn-row" style="align-items:end">
           <button type="button" class="btn" data-hc-choose ${!store || busy ? "disabled" : ""}>${icon("swap")} ${t("Choose a session")}</button>
           ${linked ? `<button type="button" class="btn ghost" data-hc-settings-unlink>${icon("trash")} ${t("Remove this day's link")}</button>` : ""}
@@ -498,7 +507,7 @@ export function mountHealthConnectSettings(host, { onChanged = null } = {}) {
     });
     host.querySelector("[data-hc-remove]")?.addEventListener("click", async () => {
       const ok = await confirmDialog({
-        title: t("Remove synced Health Connect data?"),
+        title: t("Remove imported Health Connect data?"),
         message: t("This only removes the sessions imported here. Your Health Connect data, linked days and workout log stay untouched."),
         confirm: t("Remove"),
         danger: true,
@@ -506,7 +515,7 @@ export function mountHealthConnectSettings(host, { onChanged = null } = {}) {
       if (!ok) return;
       try {
         await clearHealthConnect();
-        toast(t("Synced Health Connect data removed."), { icon: "trash" });
+        toast(t("Health Connect import removed."), { icon: "trash" });
         onChanged?.();
         draw();
       } catch (err) {
@@ -523,7 +532,7 @@ export function mountHealthConnectSettings(host, { onChanged = null } = {}) {
     draw();
     try {
       const result = await syncHealthFile(file);
-      toast(t("Synced {count} sessions from Health Connect.", { count: result.imported }));
+      toast(t("Loaded {count} sessions from Health Connect.", { count: result.imported }));
       onChanged?.();
     } catch (err) {
       error = t(ERROR_TEXT[err.code] || ERROR_TEXT["import-failed"]);

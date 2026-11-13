@@ -293,14 +293,14 @@ export function healthSessions(date) {
 // it, stores only the exercise sessions and never writes anything back.
 export async function syncHealthFile(file) {
   if (!file) throw Object.assign(new Error("Choose a Health Connect export first."), { code: "no-file" });
-  if (state.mode !== "server") throw Object.assign(new Error("Start the local server to sync Health Connect."), { code: "server-required" });
+  if (state.mode !== "server") throw Object.assign(new Error("Start the local server to import Health Connect."), { code: "server-required" });
   const response = await fetch(`/api/health-connect?name=${encodeURIComponent(file.name || "export")}`, {
     method: "POST",
     headers: { "Content-Type": file.type || "application/octet-stream" },
     body: await file.arrayBuffer(),
   });
   const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw Object.assign(new Error(data.error || "Health Connect sync failed."), { code: data.code || "import-failed" });
+  if (!response.ok) throw Object.assign(new Error(data.error || "Health Connect import failed."), { code: data.code || "import-failed" });
   state.health = data;
   emit({ type: "health" });
   return data;
@@ -309,7 +309,7 @@ export async function syncHealthFile(file) {
 export async function clearHealthConnect() {
   if (state.mode === "server") {
     const response = await fetch("/api/health-connect", { method: "DELETE" });
-    if (!response.ok) throw new Error("Could not remove synced Health Connect data.");
+    if (!response.ok) throw new Error("Could not remove imported Health Connect data.");
   }
   state.health = null;
   lsSet(LS.health, undefined);

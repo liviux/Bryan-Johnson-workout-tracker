@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.47.1] - 2026-11-13
+
+### Changed
+- Moved **Health Connect** to the end of Settings and renamed **Connect Health Connect** to **Import Health Connect file**, with the export steps and a note that Health Connect has no live web API.
+- The selected session action now says **Link this session**, and the status reads **Ready** or **No file imported**.
+
 ## [1.47.0] - 2026-11-13
 
 ### Added

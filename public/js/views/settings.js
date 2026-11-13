@@ -167,8 +167,6 @@ export function render(el) {
         <p class="muted" style="font-size:0.82rem;margin:0">${t("Desk break notifications wait while an exercise or rest timer is running, and arrive after the workout instead.")}</p>
       </section>
 
-      <section data-health-connect-settings></section>
-
       <section class="card card-pad" data-settings="language" style="display:grid;gap:10px">
         <h3>Language</h3>
         <label class="field"><span>${t("App language")}</span><select class="input" data-language>${LANGUAGES.map((l) => `<option value="${l.id}" data-i18n-skip${l.id === (st.language || "en") ? " selected" : ""}>${esc(l.native)}</option>`).join("")}</select></label>
@@ -211,6 +209,8 @@ export function render(el) {
           <button type="button" class="btn danger" data-reset-days>${icon("trash")} Reset workout history</button>
         </div>
       </section>
+
+      <section data-health-connect-settings></section>
 
       <p class="muted" style="font-size:0.82rem">Home Protocol is open source and unaffiliated with Bryan Johnson or Blueprint. It provides a training plan, not medical advice.</p>
       <div class="settings-footer"><button type="button" class="btn ghost sm" data-changelog>${t("Version {version} · Latest changes", { version: esc(state.version || t("unavailable")) })}</button><a href="${REPO}" target="_blank" rel="noopener noreferrer">GitHub repository ${icon("external", "sm")}</a></div>

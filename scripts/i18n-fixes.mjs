@@ -323,3 +323,13 @@ Object.assign(fixes.mk, { "Full match": "Целосно совпаѓање" });
 Object.assign(fixes.ka, { "Full match": "სრული დამთხვევა" });
 Object.assign(fixes.fil, { "Full match": "Ganap na tugma" });
 Object.assign(fixes.ro, { "Tracker time": "Timp în tracker" });
+Object.assign(fixes.ro, {
+  "Import Health Connect export": "Importă exportul Health Connect",
+  "Link this session": "Asociază această sesiune",
+  "Link a Health Connect session to {date}": "Asociază o sesiune Health Connect cu {date}",
+  "Linked {activity} to {date}.": "{activity} a fost asociată cu {date}.",
+});
+Object.assign(fixes.ar, { "Import Health Connect file": "استيراد ملف Health Connect", "Loaded {count} sessions from Health Connect.": "تم تحميل {count} جلسات من Health Connect." });
+Object.assign(fixes.hi, { "Import Health Connect file": "Health Connect फ़ाइल आयात करें", "Loaded {count} sessions from Health Connect.": "Health Connect से {count} सत्र लोड किए गए।" });
+Object.assign(fixes.bn, { "Import Health Connect file": "Health Connect ফাইল আমদানি করুন", "Loaded {count} sessions from Health Connect.": "Health Connect থেকে {count}টি সেশন লোড করা হয়েছে।" });
+Object.assign(fixes.sr, { "Loaded {count} sessions from Health Connect.": "Учитано {count} сесија из Health Connect." });
