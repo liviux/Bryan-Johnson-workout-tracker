@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.46.0] - 2026-11-13
+
+### Added
+- **Health Connect (read-only):** import the exercise sessions your phone's fitness apps save and compare them with the day's log on Today and Activity → This week. Duration, heart rate, calories and any recorded sets or reps sit beside your own session; nothing is sent back.
+- The sync reads the official Health Connect ZIP or database export, or a JSON export from a Health Connect exporter app. The file stays on this computer.
+
+### Changed
+- **Plan change:** Rest now follows Bryan's guidance for each block: 60–90 s between strength sets, 45–60 s between jumps, 20–30 s for Friday's deadlift and jump pairs, and little rest in core blocks. **Rest from the plan** is the default; a fixed rest still works.
+- **Plan change:** Timed single-side exercises name the side in the timer, with **Switch legs**, **Switch arms** or **Switch sides** and **Other leg**, **Other arm** or **Other side**. Written side cues also appear on per-side strength and mobility exercises.
+- **Plan change:** Rest timers start only after a strength, jump or core set and stop when the next set begins; warm-ups, mobility, cardio and cool-downs do not start one. Desk break notifications wait while an exercise or rest timer runs and arrive after the workout.
+
 ## [1.45.2] - 2026-11-02
 
 ### Fixed

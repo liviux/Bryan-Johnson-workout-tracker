@@ -14,6 +14,7 @@ export default {
     daily: {
       name: "Spinal decompression & grip",
       mins: 3,
+      rest: 0,
       note: "Start with feet lightly supported if needed. Alternate between relaxing into a passive hang (spine decompression) and engaging the active hang (shoulders pulled down).",
       items: [
         {

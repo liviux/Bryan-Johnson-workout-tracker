@@ -5,14 +5,14 @@ import { CATEGORIES, EXERCISES } from "../data/exercises.js";
 import { INTERVAL_MOVES } from "../data/routines.js";
 import { bandById, bandOptionsHtml } from "../data/bands.js";
 import { state } from "../store.js";
-import { editDay, itemLog, loggedExerciseId, logLevel, rxFor, timerPresets } from "../plan.js";
+import { editDay, itemLog, loggedExerciseId, logLevel, restSecondsFor, rxFor, timerPresets } from "../plan.js";
 import { LEVELS, bpmRange, fmtWeight, kgUnit, personalize, suggestedKg } from "../personalize.js";
 import { esc, fmtShort } from "../util.js";
 import { parseRx } from "../rx.js";
 import { icon } from "./icons.js";
 import { openDialog, toast } from "./ui.js";
 import { t } from "../i18n.js";
-import { startCountdown, startHold, startIntervals, startRest } from "./timer.js";
+import { startCountdown, startHold, startIntervals, startRest, stopRest } from "./timer.js";
 import { voiceRequest } from "../voice/player.js";
 
 export { parseRx };
@@ -276,7 +276,7 @@ export function renderLogger(container, ctx) {
   const p = state.profile;
   const type = ex.log;
   const u = kgUnit(p);
-  const restSec = item.id === "fri-strength-rdl" && level === 3 ? 25 : (p && p.settings && p.settings.restSec) || 75;
+  const restSec = restSecondsFor(item, level, ctx.blockRest, (p && p.settings) || {});
   const cardioRange = item.intensity === "light" ? [50, 60] : ex.intensity === "hard" ? [80, level === 1 ? 85 : 90] : [60, 70];
   const cardioLabel = item.intensity === "light" ? t("Easy pace") : ex.intensity === "hard" ? t("Vigorous") : t("Zone 2");
   const hasBand = ex.band === true || (ex.equipment || []).includes("band");
@@ -308,6 +308,7 @@ export function renderLogger(container, ctx) {
       if (type === "load" || type === "carry") cols.push(["kg", u, ""]);
       if (hasBand) cols.push(["band", t("Band"), ""]);
       const timed = type === "hold" || type === "carry" || timedCheck;
+      const side = target.perSide ? ex.side || "side" : null;
       const n = Math.max(l.sets ? l.sets.length : 0, target.sets || 1);
       const sets = Array.from({ length: n }, (_, i) => (l.sets && l.sets[i]) || {});
       body += `<div class="sets">
@@ -344,6 +345,7 @@ export function renderLogger(container, ctx) {
           )
           .join("")}
       </div>
+      ${side ? `<p class="muted side-cue">${icon("swap", "sm")} ${esc(t("First {side}, then switch and repeat.", { side: t(side) }))}</p>` : ""}
       ${doneBtn ? `<div class="btn-row">${doneBtn}</div>` : ""}`;
     } else if (type === "cardio" || (type === "check" && target.minutes != null)) {
       const c = l.cardio || {};
@@ -526,6 +528,17 @@ export function renderLogger(container, ctx) {
     };
   }
 
+  // Starting the next set ends the previous rest. A rest only starts for a
+  // value that was blank, so correcting an old entry does not restart it.
+  container.addEventListener("focusin", (e) => {
+    const field = e.target;
+    if (!field.dataset || !["reps", "sec"].includes(field.dataset.k)) return;
+    const before = getItemLog(date, scope, item.id) || {};
+    const row = field.dataset.set != null && before.sets ? before.sets[Number(field.dataset.set)] : null;
+    field.dataset.restWasFilled = row && row[field.dataset.k] != null ? "1" : "";
+    stopRest();
+  });
+
   // Rest timer after you log the reps of a set.
   container.addEventListener("change", (e) => {
     const t = e.target;
@@ -544,7 +557,9 @@ export function renderLogger(container, ctx) {
       save((l) => { l.moves = Array.isArray(l.moves) ? l.moves : ["highknees"]; l.moves[index] = t.value; });
       draw();
     }
-    if (["reps", "sec"].includes(t.dataset.k) && num(t.value) != null && (!p.settings || p.settings.autoRest !== false)) startRest(restSec, { itemId: item.id, scope, setIndex: Number(t.dataset.set) });
+    if (["reps", "sec"].includes(t.dataset.k) && num(t.value) != null && restSec > 0 && !t.dataset.restWasFilled && (!p.settings || p.settings.autoRest !== false)) {
+      startRest(restSec, { itemId: item.id, scope, setIndex: Number(t.dataset.set) });
+    }
   });
 
   function currentTarget() {
@@ -572,6 +587,7 @@ export function renderLogger(container, ctx) {
       voiceContext: voiceRequest(item, level, getItemLog(date, scope, item.id) || {}, restSec),
       seconds: secs,
       sides: t.perSide ? 2 : 1,
+      side: ex.side || "side",
       onFinish: () => {
         save((l) => {
           if (type === "hold" || type === "carry" || type === "check") {
@@ -582,6 +598,7 @@ export function renderLogger(container, ctx) {
           if (ctx.setIndex == null) l.done = true;
         });
         draw();
+        if (restSec > 0 && (!p.settings || p.settings.autoRest !== false)) startRest(restSec, { itemId: item.id, scope, setIndex: i });
       },
     });
   }

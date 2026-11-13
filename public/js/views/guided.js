@@ -32,10 +32,10 @@ function buildSteps(date) {
     return !!(l && l.skipped);
   };
   const def = dayDef(sessionKeyFor(date));
-  if (def) for (const b of def.blocks) for (const step of orderedSteps(blockItems(b, level).filter((it) => countable(it) && !skipped("main", it.id)), level)) steps.push({ scope: "main", block: b.name, ...step, level });
+  if (def) for (const b of def.blocks) for (const step of orderedSteps(blockItems(b, level).filter((it) => countable(it) && !skipped("main", it.id)), level)) steps.push({ scope: "main", block: b.name, blockRest: b.rest, ...step, level });
   for (const a of addonsForDate(date)) {
     if (log && log.addons && log.addons[a.addon.id] && log.addons[a.addon.id].skipped) continue;
-    for (const step of orderedSteps(a.variant.items.filter((it) => visible(it, level) && countable(it) && !skipped(a.addon.id, it.id)), level)) steps.push({ scope: a.addon.id, block: a.addon.name, ...step, level });
+    for (const step of orderedSteps(a.variant.items.filter((it) => visible(it, level) && countable(it) && !skipped(a.addon.id, it.id)), level)) steps.push({ scope: a.addon.id, block: a.addon.name, blockRest: a.variant.rest, ...step, level });
   }
   return steps;
 }
@@ -214,9 +214,10 @@ export function startGuided(date, onExit) {
         ${s.item.bryan ? `<span class="chip bryan guided-bryan">${esc(personalize(s.item.bryan, p))}</span>` : ""}
       </div>
       ${s.setIndex != null ? `<p class="muted guided-set-note">${setNote(s)}</p>` : ""}
+      ${ex.side ? `<p class="muted side-cue">${icon("swap", "sm")} ${esc(t("First {side}, then switch and repeat.", { side: t(ex.side) }))}</p>` : ""}
       ${alternativeHtml(s.item, s.level)}
       <div class="logger-host guided-logger-host${s.scope !== "main" ? " addon-scope" : ""}"></div>`;
-    renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), nextTimeHost: wrap.querySelector(".guided-next-time-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
+    renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, blockRest: s.blockRest, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), nextTimeHost: wrap.querySelector(".guided-next-time-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
     videoCtrl?.destroy();
     videoCtrl = renderVideos(side.querySelector('[data-g="videos"]'), videosFor(demo), {
       groups: videoGroupsFor(demo),

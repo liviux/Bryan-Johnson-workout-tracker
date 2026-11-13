@@ -3,6 +3,15 @@
 // map so buttons and labels stay consistent with the app, not a dictionary.
 export const core = {
   ro: {
+    "Rest from the plan": "Odihnă conform planului",
+    "Read-only": "Doar citire",
+    "Your log": "Jurnalul tău",
+    "Sync again": "Sincronizează din nou",
+    "Remove synced data": "Elimină datele sincronizate",
+    "Reading…": "Se citește…",
+    "Running": "Alergare",
+    "Squash": "Squash",
+
     "March · block recovery": "Mers pe loc · recuperare după bloc",
     "Thread the needle": "Trece acul",
     "Other leg; hips stay square": "Celălalt picior; șoldurile rămân drepte",
@@ -77,6 +86,15 @@ export const core = {
     "Today": "Astăzi",
   },
   de: {
+    "Rest from the plan": "Pause nach Plan",
+    "Read-only": "Nur lesen",
+    "Your log": "Dein Protokoll",
+    "Sync again": "Erneut synchronisieren",
+    "Remove synced data": "Synchronisierte Daten entfernen",
+    "Reading…": "Wird gelesen…",
+    "Running": "Laufen",
+    "Squash": "Squash",
+
     "March · block recovery": "Marschieren · Blockpause",
     "Thread the needle": "Nadel durchfädeln",
     "Other leg; hips stay square": "Anderes Bein; Hüften bleiben gerade",
@@ -151,6 +169,15 @@ export const core = {
     "Today": "Heute",
   },
   it: {
+    "Rest from the plan": "Riposo del piano",
+    "Read-only": "Solo lettura",
+    "Your log": "Il tuo registro",
+    "Sync again": "Sincronizza di nuovo",
+    "Remove synced data": "Rimuovi i dati sincronizzati",
+    "Reading…": "Lettura…",
+    "Running": "Corsa",
+    "Squash": "Squash",
+
     "March · block recovery": "Marcia · recupero del blocco",
     "Thread the needle": "Infila l'ago",
     "Other leg; hips stay square": "Altra gamba; fianchi fermi",
@@ -242,6 +269,15 @@ export const core = {
     "Today": "Oggi",
   },
   fr: {
+    "Rest from the plan": "Repos du programme",
+    "Read-only": "Lecture seule",
+    "Your log": "Votre journal",
+    "Sync again": "Synchroniser à nouveau",
+    "Remove synced data": "Supprimer les données synchronisées",
+    "Reading…": "Lecture…",
+    "Running": "Course à pied",
+    "Squash": "Squash",
+
     "March · block recovery": "Marche · récupération du bloc",
     "Thread the needle": "Passer l'aiguille",
     "Other leg; hips stay square": "Autre jambe ; gardez les hanches d'aplomb",
@@ -316,6 +352,15 @@ export const core = {
     "Today": "Aujourd'hui",
   },
   es: {
+    "Rest from the plan": "Descanso del plan",
+    "Read-only": "Solo lectura",
+    "Your log": "Tu registro",
+    "Sync again": "Sincronizar de nuevo",
+    "Remove synced data": "Eliminar datos sincronizados",
+    "Reading…": "Leyendo…",
+    "Running": "Carrera",
+    "Squash": "Squash",
+
     "March · block recovery": "Marcha · recuperación del bloque",
     "Thread the needle": "Pasar la aguja",
     "Other leg; hips stay square": "Otra pierna; caderas rectas",
@@ -390,6 +435,19 @@ export const core = {
     "Today": "Hoy",
   },
   zh: {
+    "Switch arms": "换手臂",
+    "Other arm": "另一只手臂",
+    "Other side": "另一侧",
+
+    "Rest from the plan": "按计划休息",
+    "Read-only": "只读",
+    "Your log": "你的记录",
+    "Sync again": "再次同步",
+    "Remove synced data": "删除同步数据",
+    "Reading…": "正在读取…",
+    "Running": "跑步",
+    "Squash": "壁球",
+
     "March · block recovery": "原地踏步 · 组间恢复",
     "Thread the needle": "穿针式",
     "Other leg; hips stay square": "换另一条腿；髋部保持正对前方",
@@ -465,6 +523,18 @@ export const core = {
     "Today": "今天",
   },
   hi: {
+    "Switch arms": "भुजाएँ बदलें",
+    "Other arm": "दूसरी भुजा",
+
+    "Rest from the plan": "योजना के अनुसार आराम",
+    "Read-only": "केवल पढ़ने के लिए",
+    "Your log": "आपका लॉग",
+    "Sync again": "फिर से सिंक करें",
+    "Remove synced data": "सिंक किया गया डेटा हटाएं",
+    "Reading…": "पढ़ा जा रहा है…",
+    "Running": "दौड़",
+    "Squash": "स्क्वाश",
+
     "March · block recovery": "मार्चिंग · ब्लॉक रिकवरी",
     "Thread the needle": "सुई धागा",
     "Other leg; hips stay square": "दूसरी टाँग; कूल्हे सीधे रहें",
@@ -540,6 +610,18 @@ export const core = {
     "Today": "आज",
   },
   ar: {
+    "Switch arms": "بدّل الذراعين",
+    "Other arm": "الذراع الأخرى",
+
+    "Rest from the plan": "راحة حسب الخطة",
+    "Read-only": "للقراءة فقط",
+    "Your log": "سجلك",
+    "Sync again": "مزامنة مرة أخرى",
+    "Remove synced data": "إزالة البيانات المتزامنة",
+    "Reading…": "جارٍ القراءة…",
+    "Running": "جري",
+    "Squash": "سكواش",
+
     "March · block recovery": "المشي في المكان · استراحة المجموعة",
     "Thread the needle": "تمرير الإبرة",
     "Other leg; hips stay square": "الساق الأخرى؛ أبقِ الوركين مستويين",
@@ -615,6 +697,17 @@ export const core = {
     "Today": "اليوم",
   },
   bn: {
+    "Switch arms": "বাহু বদলান",
+
+    "Rest from the plan": "পরিকল্পনা অনুযায়ী বিশ্রাম",
+    "Read-only": "শুধু পড়ার জন্য",
+    "Your log": "আপনার লগ",
+    "Sync again": "আবার সিঙ্ক করুন",
+    "Remove synced data": "সিঙ্ক করা ডেটা সরান",
+    "Reading…": "পড়া হচ্ছে…",
+    "Running": "দৌড়",
+    "Squash": "স্কোয়াশ",
+
     "March · block recovery": "মার্চিং · ব্লক রিকভারি",
     "Thread the needle": "সুতা ঢোকানো",
     "Other leg; hips stay square": "অন্য পা; নিতম্ব সমান রাখুন",
@@ -712,6 +805,8 @@ export const core = {
     "Minutes": "Minutos",
   },
   ru: {
+    "Switch arms": "Сменить руки",
+
     "Back": "Спина",
     "Play": "Воспроизвести",
     "Workout": "Тренировка",
@@ -734,6 +829,9 @@ export const core = {
     "Minutes": "Минуты",
   },
   ja: {
+    "Switch arms": "腕を替える",
+    "Switch sides": "側を替える",
+
     "Step {step} of {total} · {name}": "ステップ{step}/{total} · {name}",
     "Back": "背中",
     "Play": "再生",

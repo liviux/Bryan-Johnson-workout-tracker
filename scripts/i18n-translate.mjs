@@ -145,6 +145,14 @@ for (const language of languages) {
   console.log(`${language}: ${allKeys.length} phrases`);
   const translations = await translate(allKeys, language);
   Object.assign(translations, overrides[language] || {}, terms[language] || {}, fixes[language] || {}, uiNames[language] || {}, usableReview(language, review[language]), core[language] || {});
+  // A product name, not a phrase: Google sometimes turns it into "Health Link".
+  for (const brand of ["Health Connect"]) translations[brand] = brand;
+  // Sport labels with a parenthetical sometimes lose the opening bracket and
+  // keep the closing one. Drop the orphan instead of showing "Piscina)".
+  for (const key of ["Swimming (pool)", "Football (American)"]) {
+    const value = translations[key];
+    if (value && (!value.includes("(") && !value.includes("（"))) translations[key] = value.replace(/[)）]\s*$/, "");
+  }
   for (const key of allKeys) {
     const value = translations[key];
     const placeholders = [...key.matchAll(/\{(\w+)\}/g)].map((match) => match[0]);

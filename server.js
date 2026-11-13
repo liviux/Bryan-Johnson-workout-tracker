@@ -10,6 +10,7 @@ import { createReadStream, existsSync } from "node:fs";
 import { mkdir, readFile, readdir, rename, stat, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { clearHealthStore, importHealthConnect, readHealthStore } from "./health-connect.js";
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.join(ROOT, "public");
@@ -19,6 +20,7 @@ const PROFILE_FILE = path.join(DATA_DIR, "profile.json");
 const PORT = Number(process.env.PORT) || 3030;
 const HOST = process.env.HOST || "127.0.0.1";
 const MAX_BODY = 2 * 1024 * 1024;
+const MAX_HEALTH_BODY = 384 * 1024 * 1024;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 // URL prefixes served straight from installed packages, so the app works offline.
@@ -103,6 +105,24 @@ function readBody(req) {
   });
 }
 
+function readRawBody(req, limit) {
+  return new Promise((resolve, reject) => {
+    let size = 0;
+    const chunks = [];
+    req.on("data", (chunk) => {
+      size += chunk.length;
+      if (size > limit) {
+        reject(Object.assign(new Error("File too large"), { status: 413 }));
+        req.destroy();
+        return;
+      }
+      chunks.push(chunk);
+    });
+    req.on("end", () => resolve(Buffer.concat(chunks)));
+    req.on("error", reject);
+  });
+}
+
 function isPlainObject(v) {
   return v !== null && typeof v === "object" && !Array.isArray(v);
 }
@@ -144,6 +164,25 @@ async function handleApi(req, res, pathname) {
 
   if (pathname === "/api/changelog" && method === "GET") {
     return send(res, 200, await readFile(path.join(ROOT, "CHANGELOG.md"), "utf8"), "text/markdown; charset=utf-8");
+  }
+
+  // Read-only Health Connect import. The uploaded file is parsed and discarded;
+  // only the normalized exercise sessions are kept in data/health-connect.json.
+  if (pathname === "/api/health-connect") {
+    if (method === "GET") return send(res, 200, await readHealthStore(DATA_DIR));
+    if (method === "DELETE") {
+      await clearHealthStore(DATA_DIR);
+      return send(res, 200, { ok: true });
+    }
+    if (method === "POST") {
+      const name = new URL(req.url, "http://localhost").searchParams.get("name") || "";
+      const buffer = await readRawBody(req, MAX_HEALTH_BODY);
+      try {
+        return send(res, 200, await importHealthConnect(buffer, { filename: name, dataDir: DATA_DIR }));
+      } catch (err) {
+        return send(res, err.status || 400, { error: err.message, code: err.code || "import-failed" });
+      }
+    }
   }
 
   if (pathname === "/api/profile") {

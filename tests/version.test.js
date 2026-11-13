@@ -10,6 +10,7 @@ test("a running server reports the installed version after an update", async (t)
   const root = await mkdtemp(path.join(tmpdir(), "workout-version-"));
   t.after(() => rm(root, { recursive: true, force: true }));
   await copyFile(new URL("../server.js", import.meta.url), path.join(root, "server.mjs"));
+  await copyFile(new URL("../health-connect.js", import.meta.url), path.join(root, "health-connect.js"));
   await mkdir(path.join(root, "public"));
   const release = async (version) => {
     await writeFile(path.join(root, "package.json"), JSON.stringify({ version }));

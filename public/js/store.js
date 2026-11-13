@@ -9,7 +9,7 @@
 
 import { migrateProfile } from "./personalize.js";
 
-const LS = { profile: "hp:profile", days: "hp:days", pending: "hp:pending", theme: "hp:theme", version: "hp:version" };
+const LS = { profile: "hp:profile", days: "hp:days", pending: "hp:pending", theme: "hp:theme", version: "hp:version", health: "hp:health" };
 const SAVE_DELAY = 600;
 
 export const state = {
@@ -19,6 +19,7 @@ export const state = {
   version: lsGet("hp:version", null),
   profile: null,
   days: {},
+  health: null, // read-only exercise sessions imported from Health Connect
   saveStatus: "idle", // idle | pending | saving | saved | offline
   lastSaved: null,
 };
@@ -76,9 +77,10 @@ export async function init() {
     state.dataDir = info.dataDir;
     state.version = info.version;
     lsSet(LS.version, info.version);
-    const [p, d] = await Promise.all([fetch("/api/profile", { cache: "no-store" }), fetch("/api/days", { cache: "no-store" })]);
+    const [p, d, h] = await Promise.all([fetch("/api/profile", { cache: "no-store" }), fetch("/api/days", { cache: "no-store" }), fetch("/api/health-connect", { cache: "no-store" })]);
     state.profile = p.ok ? await p.json() : null;
     state.days = d.ok ? await d.json() : {};
+    try { state.health = h.ok ? await h.json() : null; } catch { state.health = null; }
     // Changes parked in the browser while the server was unreachable go out now.
     const parked = lsGet(LS.pending, null);
     if (parked) {
@@ -96,6 +98,7 @@ export async function init() {
     state.mode = "local";
     state.profile = lsGet(LS.profile, null);
     state.days = lsGet(LS.days, {});
+    state.health = lsGet(LS.health, null);
   }
   if (migrateProfile(state.profile, state.days)) schedule("profile", 0);
   state.ready = true;
@@ -277,16 +280,53 @@ export async function resetDays() {
   emit({ type: "all" });
 }
 
+// ---------- Health Connect (read-only) ----------
+
+export function healthSessions(date) {
+  const sessions = state.health && Array.isArray(state.health.sessions) ? state.health.sessions : [];
+  return sessions.filter((session) => session.date === date);
+}
+
+// Upload the official Health Connect ZIP/DB or a JSON export. The server reads
+// it, stores only the exercise sessions and never writes anything back.
+export async function syncHealthFile(file) {
+  if (!file) throw Object.assign(new Error("Choose a Health Connect export first."), { code: "no-file" });
+  if (state.mode !== "server") throw Object.assign(new Error("Start the local server to sync Health Connect."), { code: "server-required" });
+  const response = await fetch(`/api/health-connect?name=${encodeURIComponent(file.name || "export")}`, {
+    method: "POST",
+    headers: { "Content-Type": file.type || "application/octet-stream" },
+    body: await file.arrayBuffer(),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw Object.assign(new Error(data.error || "Health Connect sync failed."), { code: data.code || "import-failed" });
+  state.health = data;
+  emit({ type: "health" });
+  return data;
+}
+
+export async function clearHealthConnect() {
+  if (state.mode === "server") {
+    const response = await fetch("/api/health-connect", { method: "DELETE" });
+    if (!response.ok) throw new Error("Could not remove synced Health Connect data.");
+  }
+  state.health = null;
+  lsSet(LS.health, undefined);
+  emit({ type: "health" });
+}
+
 export async function resetAll() {
   if (state.mode === "server") {
     await fetch("/api/import", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ mode: "replace", days: {} }) });
     await fetch("/api/profile", { method: "DELETE" });
+    await fetch("/api/health-connect", { method: "DELETE" }).catch(() => {});
   }
   lsSet(LS.profile, undefined);
   lsSet(LS.days, undefined);
   lsSet(LS.pending, undefined);
+  lsSet(LS.health, undefined);
   versions.clear();
   state.profile = null;
   state.days = {};
+  state.health = null;
   emit({ type: "all" });
 }

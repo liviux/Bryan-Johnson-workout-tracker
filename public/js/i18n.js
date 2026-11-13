@@ -238,7 +238,7 @@ export function watchTranslations() {
 
 // Plan objects are wrapped once. Reading a display string returns the current
 // language's version; ids, urls, enum values and numbers pass through.
-const RAW_KEYS = new Set(["id", "ex", "u", "c", "k", "s", "icon", "color", "log", "type", "kind", "scope", "equipment", "muscles", "cats", "mode", "optional", "tier", "key", "url", "session", "date", "variant"]);
+const RAW_KEYS = new Set(["id", "ex", "u", "c", "k", "s", "icon", "color", "log", "type", "kind", "scope", "equipment", "muscles", "cats", "mode", "optional", "tier", "key", "url", "session", "date", "variant", "side"]);
 
 function localizeValue(value, parentKey = "") {
   if (typeof value === "string") return RAW_KEYS.has(parentKey) ? value : translate(value);

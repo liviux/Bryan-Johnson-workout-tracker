@@ -126,6 +126,7 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
         ex,
         level: ctx.level,
         scope: ctx.scope || "main",
+        blockRest: ctx.blockRest,
         onChange: ctx.onChange,
         compactActions: ctx.compactActions,
         extraActions: toolActions,

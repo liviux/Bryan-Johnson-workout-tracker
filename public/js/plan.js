@@ -49,6 +49,22 @@ export function dose(arr, lvl) {
   return arr.length >= LEVELS.length ? arr[lvl] : arr[Math.max(0, lvl - 1)];
 }
 export const rxFor = (item, lvl) => dose(item.rx, lvl);
+
+// Bryan's rest guidance, read from the block and its own notes. The user can
+// still choose a fixed rest in Settings; the plan is the default.
+export function restSecondsFor(item, lvl, blockRest = null, settings = {}) {
+  const own = item && item.rest != null ? dose(item.rest, lvl) : null;
+  const block = blockRest != null ? dose(blockRest, lvl) : null;
+  // A block marked 0 flows straight on: warm-ups, mobility, cardio and
+  // cool-downs do not start a rest timer, even with a fixed setting.
+  if (own === 0 || (own == null && block === 0)) return 0;
+  const fixed = settings.restMode === "fixed" || (settings.restMode == null && settings.restSec != null && Number(settings.restSec) !== 75);
+  if (fixed) return Math.max(0, Math.round(Number(settings.restSec ?? 75)));
+  // Friday's deadlift and jump contrast uses the plan's 20–30 s wait.
+  if (item && item.id === "fri-strength-rdl" && lvl === 3) return 25;
+  return Math.max(0, Math.round(Number(own ?? block ?? 60)));
+}
+
 export const visible = (item, lvl) => {
   const rx = rxFor(item, lvl);
   return !!rx && rx !== "—";

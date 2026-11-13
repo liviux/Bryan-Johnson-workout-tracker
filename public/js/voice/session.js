@@ -1,5 +1,6 @@
 import { state } from "../store.js";
 import { getItemLog } from "../components/logger.js";
+import { restSecondsFor } from "../plan.js";
 import { PREPARING_VOICE, cacheVoice, cancelTeaching, cancelVoice, clipDuration, playVoice, preloadVoice, prepareVoice, refreshVoiceStatus, setVoicePreparing, videoVoice, voiceEnabled, voiceRequest, voiceStatus } from "./player.js";
 
 export function createGuidedVoice(date, steps, statusEl) {
@@ -19,7 +20,7 @@ export function createGuidedVoice(date, steps, statusEl) {
   const teachingAt = new Map();
   const prepared = new Map();
   const stepKey = (step) => `${step.scope}:${step.item.id}`;
-  const request = (step) => voiceRequest(step.item, step.level, getItemLog(date, step.scope, step.item.id) || {}, step.item.id === "fri-strength-rdl" && step.level === 3 ? 25 : state.profile?.settings?.restSec || 75);
+  const request = (step) => voiceRequest(step.item, step.level, getItemLog(date, step.scope, step.item.id) || {}, restSecondsFor(step.item, step.level, step.blockRest, state.profile?.settings || {}));
   const stepRequestKey = (step) => JSON.stringify([request(step), state.profile?.settings?.coachVoice, state.profile?.settings?.coachPace]);
   function getManifest(step) {
     const body = request(step);

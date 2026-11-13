@@ -149,3 +149,112 @@ export const fixes = {
     "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Elke stem in «Stemafrigter» het nou sy eie aflaaiknoppie, insluitend al vyf Engelse stemme en elke vertaalde taal. Deur 'n stem te kies, begin die aflaai daarvan steeds wanneer afrigting aan is.",
   },
 };
+
+// Health Connect and side cues. Short labels lost their context in the
+// dictionary pass, so keep the product name and the exercise meaning explicit.
+fixes.ms ||= {};
+fixes.fil ||= {};
+fixes.sk ||= {};
+fixes.ur ||= {};
+Object.assign(fixes.pt, { "Rest from the plan": "Descanso do plano", "Sync Health Connect": "Sincronizar Health Connect" });
+Object.assign(fixes.hi, { "Read-only, one-way sync from your phone's fitness apps. Nothing is written back to Health Connect.": "फ़ोन के फ़िटनेस ऐप्स से केवल पढ़ने योग्य, एकतरफ़ा सिंक। Health Connect में कुछ भी वापस नहीं लिखा जाता।" });
+Object.assign(fixes.ms, { "Rest from the plan": "Rehat mengikut pelan", "Sync Health Connect": "Segerakkan Health Connect" });
+Object.assign(fixes.fil, { "Read-only": "Basahin lamang", "Sync Health Connect": "I-sync ang Health Connect" });
+Object.assign(fixes.uk, { "Sync Health Connect": "Синхронізувати Health Connect" });
+Object.assign(fixes.cs, { "Sync Health Connect": "Synchronizovat Health Connect" });
+Object.assign(fixes.sv, { "Sync Health Connect": "Synkronisera Health Connect" });
+Object.assign(fixes.hu, { "Sync Health Connect": "Health Connect szinkronizálása" });
+Object.assign(fixes.he, {
+  "Read-only": "לקריאה בלבד",
+  "Reading…": "קורא…",
+  "Remove synced data": "הסר נתונים מסונכרנים",
+  "Sync Health Connect": "סנכרן את Health Connect",
+  "Last synced {date}": "סונכרן לאחרונה {date}",
+  "No Health Connect session for this date.": "אין אימון Health Connect לתאריך הזה.",
+  "Health Connect keeps the workout as one session. This compares time, length and heart rate; sets stay in your log.": "Health Connect שומר את האימון כפעילות אחת. ההשוואה היא של זמן, משך וקצב לב; הסטים נשארים ביומן שלך.",
+  "Read-only, one-way sync from your phone's fitness apps. Nothing is written back to Health Connect.": "סנכרון חד-כיווני לקריאה בלבד מאפליקציות הכושר בטלפון. שום דבר לא נכתב חזרה ל-Health Connect.",
+  "On your Android phone, open Health Connect → Manage data → Backup and restore → Export now.": "בטלפון Android פתח את Health Connect → ניהול נתונים → גיבוי ושחזור → ייצא עכשיו.",
+  "Choose it below. Only exercise sessions are kept here; the file is not uploaded anywhere.": "בחר אותו למטה. נשמרות רק פעילויות האימון; הקובץ לא מועלה לשום מקום.",
+  "ZIP and database exports need Node.js 22.5 or newer. A JSON export works on older versions.": "ייצוא ZIP ומסד נתונים דורש Node.js 22.5 ואילך. ייצוא JSON עובד בגרסאות ישנות יותר.",
+});
+Object.assign(fixes.da, { "Sync Health Connect": "Synkroniser Health Connect" });
+Object.assign(fixes.fi, {
+  "Read-only": "Vain luku",
+  "Your log": "Oma loki",
+  "Reading…": "Luetaan…",
+  "Sync again": "Synkronoi uudelleen",
+  "Remove synced data": "Poista synkronoidut tiedot",
+  "Sync Health Connect": "Synkronoi Health Connect",
+  "Last synced {date}": "Viimeksi synkronoitu {date}",
+  "{count} sessions in the synced copy": "{count} istuntoa synkronoidussa kopiossa",
+  "Different activity from today's plan": "Eri aktiviteetti kuin tämän päivän suunnitelmassa",
+  "No Health Connect session for this date.": "Tälle päivälle ei ole Health Connect -istuntoa.",
+  "Health Connect keeps the workout as one session. This compares time, length and heart rate; sets stay in your log.": "Health Connect tallentaa treenin yhtenä istuntona. Vertailu koskee aikaa, kestoa ja sykettä; sarjat jäävät omaan lokiisi.",
+  "Read-only, one-way sync from your phone's fitness apps. Nothing is written back to Health Connect.": "Vain luku -tilassa oleva yksisuuntainen synkronointi puhelimen kuntoilusovelluksista. Health Connectiin ei kirjoiteta mitään takaisin.",
+  "On your Android phone, open Health Connect → Manage data → Backup and restore → Export now.": "Avaa Android-puhelimessa Health Connect → Hallitse tietoja → Varmuuskopioi ja palauta → Vie nyt.",
+  "Choose it below. Only exercise sessions are kept here; the file is not uploaded anywhere.": "Valitse se alta. Tänne tallennetaan vain treeni-istunnot; tiedostoa ei lähetetä minnekään.",
+  "ZIP and database exports need Node.js 22.5 or newer. A JSON export works on older versions.": "ZIP- ja tietokantaviennit vaativat Node.js 22.5:n tai uudemman. JSON-vienti toimii vanhemmissa versioissa.",
+});
+Object.assign(fixes.no, { "Your log": "Din logg", "Sync again": "Synkroniser på nytt", "Sync Health Connect": "Synkroniser Health Connect", "ZIP and database exports need Node.js 22.5 or newer. A JSON export works on older versions.": "ZIP- og databaseeksport krever Node.js 22.5 eller nyere. En JSON-eksport fungerer på eldre versjoner." });
+Object.assign(fixes.bg, { "Sync Health Connect": "Синхронизирай Health Connect" });
+Object.assign(fixes.sk, { "Sync Health Connect": "Synchronizovať Health Connect" });
+Object.assign(fixes.hr, {
+  "Read-only": "Samo za čitanje",
+  "Reading…": "Čitanje…",
+  "Remove synced data": "Ukloni sinkronizirane podatke",
+  "Sync Health Connect": "Sinkroniziraj Health Connect",
+  "Last synced {date}": "Zadnje sinkronizirano {date}",
+  "{count} sessions in the synced copy": "{count} sesija u sinkroniziranoj kopiji",
+  "Different activity from today's plan": "Druga aktivnost od današnjeg plana",
+  "No Health Connect session for this date.": "Nema Health Connect sesije za ovaj datum.",
+  "Health Connect keeps the workout as one session. This compares time, length and heart rate; sets stay in your log.": "Health Connect čuva trening kao jednu sesiju. Usporedba je po vremenu, trajanju i pulsu; setovi ostaju u tvom dnevniku.",
+  "Read-only, one-way sync from your phone's fitness apps. Nothing is written back to Health Connect.": "Jednosmjerna sinkronizacija samo za čitanje iz fitness aplikacija na telefonu. Ništa se ne piše natrag u Health Connect.",
+  "On your Android phone, open Health Connect → Manage data → Backup and restore → Export now.": "Na Android telefonu otvori Health Connect → Upravljanje podacima → Sigurnosna kopija i vraćanje → Izvezi sada.",
+  "Choose it below. Only exercise sessions are kept here; the file is not uploaded anywhere.": "Odaberi ga ispod. Ovdje se čuvaju samo sesije treninga; datoteka se nigdje ne prenosi.",
+});
+Object.assign(fixes.sr, { "Last synced {date}": "Poslednje sinhronizovano {date}", "{count} sessions in the synced copy": "{count} sesija u sinhronizovanoj kopiji", "Sync Health Connect": "Синхронизуј Health Connect" });
+Object.assign(fixes.lt, {
+  "Read-only": "Tik skaitymui",
+  "Reading…": "Skaitoma…",
+  "Remove synced data": "Pašalinti sinchronizuotus duomenis",
+  "Sync Health Connect": "Sinchronizuoti Health Connect",
+  "Last synced {date}": "Paskutinį kartą sinchronizuota {date}",
+  "Different activity from today's plan": "Kita veikla nei šiandienos plane",
+  "No Health Connect session for this date.": "Šiai datai nėra Health Connect sesijos.",
+  "Health Connect keeps the workout as one session. This compares time, length and heart rate; sets stay in your log.": "Health Connect išsaugo treniruotę kaip vieną sesiją. Lyginamas laikas, trukmė ir pulsas; setai lieka jūsų žurnale.",
+  "Read-only, one-way sync from your phone's fitness apps. Nothing is written back to Health Connect.": "Vienkryptė sinchronizacija tik skaitymui iš telefono kūno rengybos programėlių. Nieko nerašoma atgal į Health Connect.",
+  "On your Android phone, open Health Connect → Manage data → Backup and restore → Export now.": "Android telefone atidarykite Health Connect → Tvarkyti duomenis → Atsarginė kopija ir atkūrimas → Eksportuoti dabar.",
+  "Choose it below. Only exercise sessions are kept here; the file is not uploaded anywhere.": "Pasirinkite jį žemiau. Čia saugomos tik treniruočių sesijos; failas niekur neįkeliamas.",
+});
+Object.assign(fixes.sl, {
+  "Read-only": "Samo za branje",
+  "Reading…": "Branje…",
+  "Sync Health Connect": "Sinhroniziraj Health Connect",
+  "Read-only, one-way sync from your phone's fitness apps. Nothing is written back to Health Connect.": "Enosmerna sinhronizacija samo za branje iz fitnes aplikacij na telefonu. V Health Connect se nič ne zapiše.",
+});
+Object.assign(fixes.et, {
+  "Read-only": "Ainult lugemiseks",
+  "Reading…": "Loen…",
+  "Remove synced data": "Eemalda sünkroniseeritud andmed",
+  "Sync Health Connect": "Sünkrooni Health Connect",
+  "Read-only, one-way sync from your phone's fitness apps. Nothing is written back to Health Connect.": "Ainult lugemiseks mõeldud ühesuunaline sünkroonimine telefoni treeningrakendustest. Health Connecti ei kirjutata midagi tagasi.",
+});
+Object.assign(fixes.is, { "Sync Health Connect": "Samstilla Health Connect" });
+Object.assign(fixes.af, { "Sync Health Connect": "Sinkroniseer Health Connect" });
+Object.assign(fixes.bs, { "Sync Health Connect": "Sinhroniziraj Health Connect" });
+Object.assign(fixes.ms, { "Switch arms": "Tukar lengan" });
+Object.assign(fixes.fil, { "Switch arms": "Magpalit ng braso" });
+Object.assign(fixes.ur, { "Switch arms": "بازوؤں کو تبدیل کریں" });
+Object.assign(fixes.fi, { "Switch arms": "Vaihda kädet", "Other arm": "Toinen käsi" });
+Object.assign(fixes.no, { "Switch arms": "Bytt armer" });
+Object.assign(fixes.he, { "Other arm": "הזרוע השנייה" });
+Object.assign(fixes.fil, { "Swimming (pool)": "Paglangoy (pool)" });
+Object.assign(fixes.no, { "Swimming (pool)": "Svømming (basseng)" });
+Object.assign(fixes.de, { "Choose it below. Only exercise sessions are kept here; the file is not sent anywhere else.": "Wählen Sie sie unten aus. Hier werden nur Trainingseinheiten gespeichert; die Datei wird nirgendwohin gesendet." });
+Object.assign(fixes.ro, { "Choose it below. Only exercise sessions are kept here; the file is not sent anywhere else.": "Alege-l mai jos. Aici se păstrează doar sesiunile de exerciții; fișierul nu este trimis nicăieri." });
+Object.assign(fixes.hr, { "Other arm": "Druga ruka", "Other leg": "Druga noga" });
+Object.assign(fixes.lt, { "Other arm": "Kita ranka", "Other leg": "Kita koja" });
+Object.assign(fixes.sl, { "Other arm": "Druga roka", "Other leg": "Druga noga" });
+Object.assign(fixes.he, { "Other leg": "הרגל השנייה" });
+Object.assign(fixes.fi, { "Other leg": "Toinen jalka" });
+Object.assign(fixes.sr, { "First {side}, then switch and repeat.": "Прво {side}, затим замените и поновите." });

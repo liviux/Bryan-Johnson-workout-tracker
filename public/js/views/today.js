@@ -17,11 +17,12 @@ import { hasAnimStyles } from "../anim-styles.js";
 import { getItemLog, editItem, fillDefaults, summarizeLog } from "../components/logger.js";
 import { deskState, deskStreak, doneDesk, pauseDesk, resumeDesk, snoozeDesk, startDesk, stopDesk, subscribeDesk } from "../components/desk.js";
 import { mountObservations } from "../components/observations.js";
+import { mountHealthConnect } from "../components/health-connect.js";
 import { weekTargets } from "../week-targets.js";
 import { openDialog, ring, toast } from "../components/ui.js";
 import { blockKind, detailMode, sessionKind } from "../themes.js";
 import { unlockVoice } from "../voice/player.js";
-import { stopInlineTimer } from "../components/timer.js";
+import { onRest, onTimer, stopInlineTimer, stopRest } from "../components/timer.js";
 import { t } from "../i18n.js";
 
 const STATUS_TEXT = { done: "Done", partial: "In progress", skipped: "Skipped" };
@@ -33,6 +34,7 @@ export function render(el, params) {
   let panel = null;
   let showSkipped = false;
   let collapsedAddons = new Set();
+  let healthCtrl = null;
   let lastStatus = state.days[date] ? state.days[date].status : null;
   const narrowView = window.matchMedia("(max-width: 1180px)");
   let panelMode = detailMode();
@@ -358,6 +360,7 @@ export function render(el, params) {
 
   function draw() {
     if (!profile()) return;
+    if (healthCtrl) { healthCtrl.dispose(); healthCtrl = null; }
     collapsedAddons = new Set([...el.querySelectorAll("details[data-addon]:not([open])")].map((card) => card.dataset.addon));
     const ctx = context();
     const l = log();
@@ -386,6 +389,7 @@ export function render(el, params) {
           ${showBlocks ? blocksHtml(ctx.def, ctx.level) : ""}
           ${addonsForDate(date).filter((a) => a.addon.id !== "desk").map((a) => addonHtml(a, ctx.level)).join("")}
           ${addonsForDate(date).filter((a) => a.addon.id === "desk").map(deskAddonHtml).join("")}
+          ${date <= todayIso() ? `<div data-health-connect></div>` : ""}
           <div data-obs-host></div>
         </div>
         <div class="detail-col"><div data-panel-host></div></div>
@@ -396,6 +400,7 @@ export function render(el, params) {
     if (selected) showPanel(selected);
     else autoselect();
     mountObservations(el.querySelector("[data-obs-host]"), date, { levelCheck: isToday });
+    healthCtrl = mountHealthConnect(el.querySelector("[data-health-connect]"), date);
     syncDeskPause();
     const r = el.querySelector("[data-ring] .ring-wrap");
     if (r) r.classList.add("intro");
@@ -421,9 +426,9 @@ export function render(el, params) {
   function findItem(scope, id) {
     const ctx = context();
     if (scope === "main") {
-      for (const b of ctx.def ? ctx.def.blocks : []) for (const it of b.items) if (it.id === id) return { item: it, level: ctx.level };
+      for (const b of ctx.def ? ctx.def.blocks : []) for (const it of b.items) if (it.id === id) return { item: it, level: ctx.level, blockRest: b.rest };
     } else {
-      for (const a of addonsForDate(date)) if (a.addon.id === scope) for (const it of a.variant.items) if (it.id === id) return { item: it, level: ctx.level, scopeName: a.addon.name };
+      for (const a of addonsForDate(date)) if (a.addon.id === scope) for (const it of a.variant.items) if (it.id === id) return { item: it, level: ctx.level, scopeName: a.addon.name, blockRest: a.variant.rest };
     }
     return null;
   }
@@ -443,7 +448,7 @@ export function render(el, params) {
   }
 
   function panelCtx(found) {
-    return { exId: found.item.ex, item: found.item, date, level: found.level, scope: selected.scope, scopeName: found.scopeName, compactActions: true, onChange: refreshStatus };
+    return { exId: found.item.ex, item: found.item, date, level: found.level, scope: selected.scope, scopeName: found.scopeName, blockRest: found.blockRest, compactActions: true, onChange: refreshStatus };
   }
 
   function closeInline() {
@@ -518,6 +523,7 @@ export function render(el, params) {
       const pr = addonProgress(l, a, ctx.level);
       if (pEl) pEl.textContent = pr.skipped ? t("skipped") : t("{done}/{total} · ≈{mins} min", { done: pr.done, total: pr.total, mins: a.variant.mins });
     }
+    healthCtrl?.refresh();
     syncDeskPause();
     if (l && l.status === "done" && lastStatus !== "done") toast(t("Workout complete."), { icon: "flame" });
     lastStatus = l && l.status;
@@ -757,6 +763,14 @@ export function render(el, params) {
     if (evt.type === "all" || evt.type === "profile") draw();
   });
   const unsubDesk = subscribeDesk(refreshDesk);
+  const unsubTimer = onTimer((open) => {
+    if (open) pauseDesk("timer");
+    else resumeDesk("timer");
+  });
+  const unsubRest = onRest((event) => {
+    if (event.type === "start") pauseDesk("rest");
+    else if (event.type === "end" || event.type === "stop") resumeDesk("rest");
+  });
   window.addEventListener("hp:look", onLook);
   narrowView.addEventListener("change", onLook);
   draw();
@@ -775,7 +789,14 @@ export function render(el, params) {
     destroy() {
       unsub();
       unsubDesk();
+      unsubTimer();
+      unsubRest();
+      healthCtrl?.dispose();
+      healthCtrl = null;
       stopInlineTimer();
+      stopRest();
+      resumeDesk("timer");
+      resumeDesk("rest");
       window.removeEventListener("hp:look", onLook);
       narrowView.removeEventListener("change", onLook);
       navigationSize.disconnect();

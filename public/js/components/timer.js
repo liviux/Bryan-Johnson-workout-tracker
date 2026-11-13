@@ -56,8 +56,10 @@ export function stopInlineTimer() {
 // phases: [{ kind: "work" | "rest" | "ready", label, sec, sub }]
 function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = null, mini = false, onClose = null }) {
   if (host) stopInlineTimer();
-  const notifyTimer = !host;
-  if (notifyTimer) for (const fn of timerListeners) fn(true);
+  let timerNotified = false;
+  const notifyTimer = () => { if (!timerNotified) { timerNotified = true; for (const fn of timerListeners) fn(true); } };
+  const clearTimerNotice = () => { if (timerNotified) { timerNotified = false; for (const fn of timerListeners) fn(false); } };
+  notifyTimer();
   stopRest();
   if (!host) {
     cancelVoice();
@@ -185,12 +187,13 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
     if (progress) progress.style.width = "100%";
     if (controls) controls.innerHTML = mini ? `<button class="btn sm icon-only primary" data-t="close" title="${esc(t("Log it"))}" aria-label="${esc(t("Log it"))}">${icon("check", "sm")}</button>` : `<button class="btn primary" data-t="close">${icon("check")} ${t("Log it")}</button>`;
     if (stage) { stage.dispose(); stage = null; }
+    clearTimerNotice();
     if (onFinish) onFinish(phases.filter(isRoundEnd).length);
   }
   function stop(close = true) {
     if (closed) return;
     closed = true;
-    if (notifyTimer) for (const fn of timerListeners) fn(false);
+    clearTimerNotice();
     clearInterval(timer);
     if (stage) { stage.dispose(); stage = null; }
     cancelVoice();
@@ -278,13 +281,27 @@ export function startIntervals({ title, preset, hr, exId, moves, onFinish, voice
 }
 
 // Hold timer: seconds per side, optionally both sides with a short switch.
-export function startHold({ title, seconds, sides = 1, onFinish, voiceContext, host = null, mini = false }) {
-  const phases = [{ kind: "ready", label: "Get set", sec: 5 }];
+// The side word follows the exercise, so a single-leg hold says "First leg" /
+// "Switch legs" / "Other leg" in the timer. The recorded coach audio stays
+// generic ("First side", "Change sides"), so no new voice clips are needed.
+const SIDE_WORDS = {
+  leg: { switch: "Switch legs", other: "Other leg" },
+  arm: { switch: "Switch arms", other: "Other arm" },
+  side: { switch: "Switch sides", other: "Other side" },
+};
+
+export function holdPhases(seconds, sides = 1, side = "side") {
+  const words = SIDE_WORDS[side] || SIDE_WORDS.side;
+  const phases = [{ kind: "ready", label: t("Get set"), sec: 5 }];
   for (let s = 0; s < sides; s++) {
-    phases.push({ kind: "work", label: sides > 1 ? (s === 0 ? "First side" : "Other side") : "Hold", sec: seconds, sub: "Breathe slowly" });
-    if (s < sides - 1) phases.push({ kind: "rest", label: "Switch", sec: 5 });
+    phases.push({ kind: "work", label: sides > 1 ? t(s === 0 ? "First side" : words.other) : t("Hold"), sec: seconds, sub: t("Breathe slowly") });
+    if (s < sides - 1) phases.push({ kind: "rest", label: t(words.switch), sec: 5 });
   }
-  runPhases({ title, phases, onFinish, voiceContext, voiceTimer: { type: "hold", seconds, sides }, host, mini });
+  return phases;
+}
+
+export function startHold({ title, seconds, sides = 1, side = "side", onFinish, voiceContext, host = null, mini = false }) {
+  runPhases({ title, phases: holdPhases(seconds, sides, side), onFinish, voiceContext, voiceTimer: { type: "hold", seconds, sides }, host, mini });
 }
 
 export function startCountdown({ title, minutes, sub, onFinish, voiceContext, host = null, mini = false }) {

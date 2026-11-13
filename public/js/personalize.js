@@ -38,6 +38,12 @@ export function migrateProfile(p, days = {}) {
     p.settings.animStyle = "athlete";
     changed = true;
   }
+  // 75 s was the old default. Treat it as the plan's rest; an explicit 45, 60,
+  // 90, 120 or custom value stays a fixed choice.
+  if (p.settings && p.settings.restMode == null) {
+    p.settings.restMode = Number(p.settings.restSec) === 75 || p.settings.restSec == null ? "plan" : "fixed";
+    changed = true;
+  }
   if (!("startPhase" in p || "phaseLock" in p || "levelSince" in p)) return changed;
   let phase = p.phaseLock != null && p.phaseLock !== "" ? Number(p.phaseLock) : null;
   if (phase == null) {
@@ -72,7 +78,7 @@ export function defaultProfile() {
     hrMax: null,
     startDate: iso(new Date()),
     addons: { posture: true },
-    settings: { language: "en", theme: "system", skin: "original", restSec: 75, sound: true, voiceCoach: true, radio: { station: DEFAULT_RADIO_STATION, volume: DEFAULT_RADIO_VOLUME } },
+    settings: { language: "en", theme: "system", skin: "original", restSec: 75, restMode: "plan", sound: true, voiceCoach: true, radio: { station: DEFAULT_RADIO_STATION, volume: DEFAULT_RADIO_VOLUME } },
     createdAt: new Date().toISOString(),
   };
 }

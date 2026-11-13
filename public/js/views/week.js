@@ -8,6 +8,7 @@ import { icon } from "../components/icons.js";
 import { locale, t } from "../i18n.js";
 import { sessionKind } from "../themes.js";
 import { weekTargets } from "../week-targets.js";
+import { mountHealthConnect } from "../components/health-connect.js";
 
 const STATUS = { done: "Done", partial: "In progress", skipped: "Skipped" };
 
@@ -85,8 +86,11 @@ export function render(el, params) {
       <div class="card kpi">${icon("bolt")}<b>${s.hard}<small class="muted" style="font-size:1rem"> / 75</small></b><span>${t("hard-cardio minutes")}</span></div>
       <div class="card kpi">${icon("history")}<b>${s.extra}</b><span>${t("minutes of extra activity")}</span></div>
     </div>
+    ${isThisWeek ? `<div data-health-connect></div>` : ""}
     <div class="week-grid">${cards}</div>
     <p class="muted" style="font-size:0.85rem">Zone 2 includes scheduled Zone 2 blocks, easy recovery between 4×4 intervals and extra activity logged as "Easy / Zone 2". Hard cardio includes vigorous blocks and hard intervals. Brisk beginner intervals, warm-ups and cool-downs don't count toward these targets. Bryan's weekly targets are at least 150 minutes of Zone 2 and 75 minutes of hard cardio. Lower levels build toward those amounts.</p>
     ${scoreboardHtml()}
   </div>`;
+  const healthCtrl = isThisWeek ? mountHealthConnect(el.querySelector("[data-health-connect]"), today, { compact: true }) : null;
+  return { destroy() { healthCtrl?.dispose(); } };
 }
