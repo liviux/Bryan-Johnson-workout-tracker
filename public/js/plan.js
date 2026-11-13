@@ -111,6 +111,33 @@ export function levelFor(date) {
   return logLevel(state.days[date]) ?? levelIndex(state.profile);
 }
 
+// The hours this day was used in the tracker. Guided workouts record an exact
+// start and end; manual logging records the first and last workout edit. Older
+// logs fall back to the last save minus the planned session length, marked as
+// estimated so the Health Connect chooser can say so.
+export function trackerWindowFor(date) {
+  const log = state.days[date];
+  if (!log) return null;
+  const stored = log.tracker;
+  if (stored && stored.start && Number.isFinite(Date.parse(stored.start))) {
+    const end = stored.end || log.updatedAt || new Date().toISOString();
+    if (Number.isFinite(Date.parse(end)) && Date.parse(end) >= Date.parse(stored.start)) {
+      return { start: stored.start, end, source: stored.source || "log", estimated: false };
+    }
+  }
+  const hasWorkout = log.status === "done" || log.status === "partial" || log.skip
+    || Object.values(log.items || {}).some((item) => item && (item.done || item.skipped || item.sets?.length || item.cardio || item.rounds))
+    || Object.values(log.addons || {}).some((addon) => addon && Object.values(addon.items || {}).some((item) => item && (item.done || item.skipped || item.sets?.length || item.cardio || item.rounds)));
+  if (hasWorkout && log.updatedAt && Number.isFinite(Date.parse(log.updatedAt))) {
+    const end = log.updatedAt;
+    const def = dayDef(log.session || weekdayKey(date));
+    const lvl = logLevel(log) ?? levelIndex(state.profile);
+    const minutes = def ? dayMins(def, lvl) : 60;
+    return { start: new Date(Date.parse(end) - Math.max(20, minutes) * 60000).toISOString(), end, source: "estimated", estimated: true };
+  }
+  return null;
+}
+
 export function progressOf(log) {
   if (!log) return { done: 0, total: 0 };
   const def = dayDef(log.session || weekdayKey(log.date));
@@ -180,6 +207,27 @@ export function editDay(date, fn, opts) {
     },
     opts
   );
+}
+
+// A guided workout knows exactly when it started and ended. Manual logging
+// records its first and last workout edit from the logger instead.
+export function markTrackerStart(date, source = "log") {
+  return editDay(date, (d) => {
+    const now = new Date().toISOString();
+    const tracker = d.tracker || (d.tracker = { start: now, end: now, source });
+    if (!tracker.start || !Number.isFinite(Date.parse(tracker.start)) || Date.parse(now) < Date.parse(tracker.start)) tracker.start = now;
+    tracker.end = now;
+    tracker.source = source;
+  });
+}
+
+export function markTrackerEnd(date, source = "log") {
+  return editDay(date, (d) => {
+    if (!d.tracker) return;
+    const now = new Date().toISOString();
+    if (!d.tracker.end || !Number.isFinite(Date.parse(d.tracker.end)) || Date.parse(now) > Date.parse(d.tracker.end)) d.tracker.end = now;
+    d.tracker.source = source;
+  });
 }
 
 // ---------- add-ons ----------

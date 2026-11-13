@@ -30,6 +30,11 @@ export function getItemLog(date, scope, itemId) {
   return itemLog(state.days[date], scope, itemId);
 }
 
+const trackerSignature = (l) => JSON.stringify([
+  l.done, l.skipped, l.sets, l.completedSets, l.cardio, l.rounds, l.peak,
+  l.easier, l.rxOverride, l.holdProgress,
+]);
+
 export function editItem(date, scope, item, fn) {
   return editDay(date, (d) => {
     let bag;
@@ -42,7 +47,15 @@ export function editItem(date, scope, item, fn) {
     const cur = structuredClone(bag[item.id] || getItemLog(date, scope, item.id) || { ex: item.ex, done: false });
     if (!bag[item.id] && item.id === "fri-strength-rdl") cur.splitMovements = true;
     cur.ex = item.ex;
+    const before = trackerSignature(cur);
     fn(cur);
+    if (trackerSignature(cur) !== before) {
+      const now = new Date().toISOString();
+      const tracker = d.tracker || (d.tracker = { start: now, end: now, source: "log" });
+      if (!tracker.start || !Number.isFinite(Date.parse(tracker.start)) || Date.parse(now) < Date.parse(tracker.start)) tracker.start = now;
+      if (!tracker.end || !Number.isFinite(Date.parse(tracker.end)) || Date.parse(now) > Date.parse(tracker.end)) tracker.end = now;
+      if (tracker.source !== "guided") tracker.source = "log";
+    }
     bag[item.id] = cur;
   });
 }

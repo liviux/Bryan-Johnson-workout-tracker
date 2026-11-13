@@ -45,7 +45,8 @@ function add(value) {
   // text a user reads: MIME types, localStorage keys and CSS selectors.
   if (/^[a-z]+\/[a-z0-9.+-]+$/i.test(text)) return;
   if (/^hp:[a-z-]+$/i.test(text)) return;
-  if (/^[a-z-]+\[[^\]]+\]$/i.test(text)) return;
+  if (/^[a-z-]+\[[^\]]+\](?::[a-z-]+)?$/i.test(text)) return;
+  if (/^[a-z0-9_-]+\[[^\]]+\](?::[a-z-]+)?$/i.test(text)) return;
   if (/^[\d\s.,:;×x/–—%°+@{}()-]+$/.test(text)) return;
   if (!/[A-Za-zÀ-ž\u0900-\u097F\u4e00-\u9fff]/.test(text)) return;
   if (/^[a-z0-9_.-]+$/.test(text) && text === text.toLowerCase() && !text.includes(" ")) return;

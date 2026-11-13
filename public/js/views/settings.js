@@ -19,6 +19,7 @@ import { createEquipmentEditor } from "../components/equipment-editor.js";
 import { createStagePanel } from "../components/stage-panel.js";
 import { thumbnail } from "../components/thumbs.js";
 import { createCoachControls } from "../components/coach-controls.js";
+import { mountHealthConnectSettings } from "../components/health-connect.js";
 import { REPO, openChangelogDialog } from "../components/changelog.js";
 import { LANGUAGES, setLanguage, t } from "../i18n.js";
 import { voicesForLanguage } from "../voice/script.js";
@@ -35,6 +36,7 @@ export function render(el) {
   const hgt = (cm) => (cm == null ? "" : imperial() ? Math.round(cm / 2.54) : cm);
   let restMode = p().settings?.restMode || (Number(p().settings?.restSec) === 75 || p().settings?.restSec == null ? "plan" : "fixed");
   let customRest = restMode === "fixed" && !REST_PRESETS.includes(p().settings?.restSec || 75);
+  let healthSettings = null;
 
   // The animation style preview: one 3D stage, kept across redraws of the page, on the
   // exercise picked under it (remembered for this tab).
@@ -104,6 +106,8 @@ export function render(el) {
   function drawPage() {
     const pr = p();
     const st = pr.settings || {};
+    healthSettings?.dispose();
+    healthSettings = null;
     el.innerHTML = `<div class="page narrow">
       <div class="section-title"><h2>Settings</h2><span class="muted">Changes save automatically</span></div>
 
@@ -163,6 +167,8 @@ export function render(el) {
         <p class="muted" style="font-size:0.82rem;margin:0">${t("Desk break notifications wait while an exercise or rest timer is running, and arrive after the workout instead.")}</p>
       </section>
 
+      <section data-health-connect-settings></section>
+
       <section class="card card-pad" data-settings="language" style="display:grid;gap:10px">
         <h3>Language</h3>
         <label class="field"><span>${t("App language")}</span><select class="input" data-language>${LANGUAGES.map((l) => `<option value="${l.id}" data-i18n-skip${l.id === (st.language || "en") ? " selected" : ""}>${esc(l.native)}</option>`).join("")}</select></label>
@@ -209,6 +215,7 @@ export function render(el) {
       <p class="muted" style="font-size:0.82rem">Home Protocol is open source and unaffiliated with Bryan Johnson or Blueprint. It provides a training plan, not medical advice.</p>
       <div class="settings-footer"><button type="button" class="btn ghost sm" data-changelog>${t("Version {version} · Latest changes", { version: esc(state.version || t("unavailable")) })}</button><a href="${REPO}" target="_blank" rel="noopener noreferrer">GitHub repository ${icon("external", "sm")}</a></div>
     </div>`;
+    healthSettings = mountHealthConnectSettings(el.querySelector("[data-health-connect-settings]"));
   }
 
   el.addEventListener("input", (e) => {

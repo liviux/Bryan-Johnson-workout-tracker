@@ -16,7 +16,7 @@ A local web app that plans and tracks a six-day home workout built from **Bryan 
 - **Next time, on the plan's rule**: every strength exercise gets a one-line suggestion (repeat, add 1–2 kg for upper body or 2–4 kg for legs, or add a rep) showing how far along the two-sessions-at-the-top rule you are (for example “1 of 2 sessions at the top”). Tap **Use** to fill it in. After a level change the count starts fresh at the new level's range.
 - **Level check**: the plan's own move-up checkpoints (sessions and weeks at your level, plus the two questions for that level) in **Today → Notes & observations** and again after a guided workout. A **Level check ready** chip appears in the day header when both checks are done, and moving up first explains what the next level changes. A step-down reminder follows a long break. You always change level yourself; past logs keep theirs.
 - **Bryan's weekly targets**: one comparison in **Activity → This week**, showing your level's weekly targets alongside Bryan's full Well trained week, with what is left and which days count.
-- **Health Connect (read-only)**: import the exercise sessions your phone's fitness apps save to Health Connect, then compare them with your own log on Today or Activity, including duration, heart rate and any sets or reps the app recorded. One-way only; nothing is sent back.
+- **Health Connect (read-only)**: connect in Settings, then manually sync one day at a time by choosing the session that matches the hours you used the tracker. Full and partial time matches are colour-coded, and the chosen session sits beside your own log with duration, heart rate and any sets or reps the app recorded. One-way only; nothing is sent back.
 - **Daily readiness & "Don't Die" session scaling**: check in before training to adapt today's dose if feeling tired or sore, scaling volume for the day without modifying your permanent program.
 - **Longevity benchmarks & fitness age**: 8 zero-blood physical tests from Bryan Johnson's published battery (push-ups, grip strength, dead hangs, balance, sit-and-rise, VO2 Max, sit & reach, heart-rate recovery drop) tracked monthly or quarterly.
 - **Tough day, still on plan**: one tap on any exercise for the easier version already in the plan, the previous level's dose, or skipping it for today. Progression pauses after that until you repeat the session.
@@ -116,7 +116,7 @@ By default, files are stored in the `data/` folder. This folder is excluded from
 ```
 data/
   profile.json          your details, settings, equipment and chosen add-ons
-  days/2026-10-14.json  one file per day: sets, reps, notes, skip reason…
+  days/2026-10-14.json  one file per day: sets, reps, notes, skip reason, linked Health Connect summary…
   health-connect.json   read-only exercise sessions imported from Health Connect
 ```
 
@@ -182,12 +182,15 @@ Activity and Progress with the **Returning** plan, using sample logs:
 
 ## Health Connect (read-only)
 
-Health Connect has no cloud API, so the app reads the export you choose. Make sure your fitness app is allowed to write workouts to Health Connect, then on your Android phone open **Health Connect → Manage data → Backup and restore → Export now**, save the ZIP where this computer can reach it, and choose it in **Health Connect** on **Today** or **Activity → This week**. On the day you exercised, the card shows what your fitness app saved beside your own log: start and end time, duration, heart rate, calories, and sets or reps when the app writes them. Nothing is written back to Health Connect, and the file is not sent anywhere else.
+Health Connect has no cloud API, so the app reads the export you choose. Make sure your fitness app is allowed to write workouts to Health Connect, then on your Android phone open **Health Connect → Manage data → Backup and restore → Export now**, save the ZIP where this computer can reach it, and connect it in **Settings → Health Connect**. The connection and every day's sync are read-only; nothing is written back.
 
+**Sync one day at a time.** In **Settings → Health Connect**, or in the **Health Connect** card on **Today** and **Activity → This week**, pick the day and choose the session that matches the hours you used the tracker. Times are colour-coded: the theme accent when the session sits inside the tracker time, amber when it only overlaps, and muted when it does not overlap. The chosen session is saved with that day's log, so it remains visible after importing a new export and is included in backups.
+
+- The tracker time comes from a guided workout's exact start and end, or from the first and last workout edit when you log manually. For older logs it is estimated from the last save and marked as estimated.
 - The official ZIP and database exports need Node.js 22.13 or newer. A JSON export from a Health Connect exporter app, such as HealthConnect Export, also works on older Node versions. Use its daily `health_YYYY-MM-DD.json` file.
-- Only exercise sessions are kept, in `data/health-connect.json`. They are read-only and are not part of a backup; sync again after restoring one. A ZIP or database export replaces the synced copy; daily JSON files add to it.
-- Health Connect records a workout as one session, so the card compares the whole session. Your sets and notes stay in the app's own log.
-- To remove the synced copy, use **Remove synced data** on the card. This does not touch Health Connect or your workout history.
+- The imported copy is kept in `data/health-connect.json`. It is not part of a backup; import it again after restoring. A ZIP or database export replaces the imported copy; daily JSON files add to it.
+- Health Connect records a workout as one session, so the comparison is for the whole session. Your sets and notes stay in the app's own log.
+- **Remove synced data** deletes the imported copy but leaves the sessions already linked to days. Use **Change session → Remove this day's link** to delete one.
 
 ## The week
 

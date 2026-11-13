@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.47.0] - 2026-11-13
+
+### Added
+- **Health Connect connection in Settings**, with a manual day picker. Choose a day, then the session that matches the hours you used the tracker. Full matches are highlighted, partial overlaps use amber, and no overlap is dimmed.
+- The tracker records the exact guided workout hours, or the first and last edit when you log manually. Older logs show an estimated tracker time.
+
+### Changed
+- Health Connect sync is now per day. Today and Activity show the chosen session for that date, and you can change or remove its link.
+- The chosen session summary is saved with the day's log and included in backups; the full imported copy stays separate.
+
 ## [1.46.0] - 2026-11-13
 
 ### Added

@@ -5,7 +5,7 @@ import { orderedSteps } from "../components/workout-steps.js";
 import { alternativeHtml, routineHtml, routineSteps } from "../components/routine.js";
 import { EXERCISES } from "../data/exercises.js";
 import { state } from "../store.js";
-import { addonsForDate, blockItems, countable, dayDef, levelFor, rxFor, sessionKeyFor, visible } from "../plan.js";
+import { addonsForDate, blockItems, countable, dayDef, levelFor, markTrackerEnd, markTrackerStart, rxFor, sessionKeyFor, visible } from "../plan.js";
 import { personalize } from "../personalize.js";
 import { esc, fmtSecs, h } from "../util.js";
 import { icon } from "../components/icons.js";
@@ -51,6 +51,8 @@ export function startGuided(date, onExit) {
   unlockVoice();
   const steps = buildSteps(date);
   if (!steps.length) return;
+  // Remember the hours the guided workout was used, for the Health Connect chooser.
+  markTrackerStart(date, "guided");
   // Desk breaks stay quiet while the guided workout is open.
   pauseDesk("guided");
   let i = steps.findIndex((s) => !stepDone(date, s));
@@ -268,6 +270,7 @@ export function startGuided(date, onExit) {
   }
 
   function close() {
+    markTrackerEnd(date, "guided");
     stopRest();
     stopInlineTimer();
     clearInterval(clockTimer);

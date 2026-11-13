@@ -209,6 +209,8 @@ export function newDay(date) {
     notes: "",
     extras: [], // [{ id, type, min, avg, note }]
     bodyWeightKg: null,
+    tracker: null, // { start, end, source } — the hours this day was used
+    healthConnect: null, // { start, end, syncedAt } — the session chosen for this day
   };
 }
 
