@@ -149,15 +149,17 @@ export function prepareManifest(body, savedProfile = {}) {
   if (!rx || rx === "—") bad("This exercise is not in this level");
   const script = exerciseScript({ item, rx, profile, level: body.level, easier: body.easier === "version" });
   if (body.easier === "version" && ex.easier) script.intro.push(...[speechText(ex.easier, profile)]);
+  // Zero means the step flows straight on, so it has no rest cue to speak.
   const seconds = body.restSec ?? 75;
-  if (!integer(seconds, 1, 3600)) bad("Invalid rest duration");
+  if (!integer(seconds, 0, 3600)) bad("Invalid rest duration");
+  const restCue = seconds > 0 ? (language() === "en" ? joinedClip(["Rest for", ...durationParts(seconds), "Continue when you are ready."], voice, speed) : joinedClip([tr("Rest for {duration}. Continue when you are ready.", { duration: durationText(seconds) })], voice, speed)) : null;
   const result = {
     name: script.name, setCount: script.setCount,
     intro: script.intro.map(cue), safety: script.safety.map(cue),
     how: script.how.map((text) => clip(text, voice, 1)), sets: script.sets.map(cue),
     block: cue(tr("{block} is next.", { block: speechText(block, profile) })),
     effort: strength ? cue(tr(EFFORT[body.level])) : null,
-    rest: language() === "en" ? joinedClip(["Rest for", ...durationParts(seconds), "Continue when you are ready."], voice, speed) : joinedClip([tr("Rest for {duration}. Continue when you are ready.", { duration: durationText(seconds) })], voice, speed), next: cue(tr("Next is {name}.", { name: script.name })),
+    rest: restCue, next: cue(tr("Next is {name}.", { name: script.name })),
     back: cue(tr("Back to {name}.", { name: script.name })),
     clock: Object.fromEntries(Object.entries(CLOCK).map(([key, text]) => [key, cue(tr(text))])),
   };

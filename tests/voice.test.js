@@ -166,6 +166,14 @@ test("packs include the hold and cardio timers offered by the logger at every le
   }
 });
 
+test("a flow-on step prepares its voice without a rest cue", () => {
+  const item = items.find((it) => it.id === "mon-zone-2-topup");
+  const manifest = prepareManifest({ itemId: item.id, level: 1, restSec: 0 });
+  assert.equal(manifest.rest, null);
+  assert(manifest.intro.length);
+  assert.throws(() => prepareManifest({ itemId: item.id, level: 1, restSec: -1 }), /Invalid rest/);
+});
+
 test("the local API accepts plan context, never arbitrary speech or invalid resource requests", () => {
   const item = items.find((it) => it.ex === "row");
   assert.throws(() => prepareManifest({ text: "Speak this for anyone" }), /Unknown workout/);

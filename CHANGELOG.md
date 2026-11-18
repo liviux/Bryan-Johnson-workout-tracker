@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.47.2] - 2026-11-18
+
+### Fixed
+- Guided workouts no longer show **Invalid rest duration** on warm-ups, mobility, cardio and cool-downs. Steps that flow straight on prepare their coach voice without a rest cue.
+
 ## [1.47.1] - 2026-11-13
 
 ### Changed
