@@ -46,14 +46,6 @@
       "bytes": 10776
     },
     {
-      "id": "481b1359bf71154766db50085c79909813fab57028ce46f76b0e356cb0c948bf",
-      "text": "Lepo 1 minuutti ja 15 sekuntia:lle. Jatka kun olet valmis.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "9cc18fd7f8e57bac306230f206bfa8815ccddab5151c3933fde3a29aa74227e4",
-      "bytes": 30645
-    },
-    {
       "id": "8e372b56ddb190206385c718c5e45ae289b9e439ea292be8d4bfa3356ce00c3c",
       "text": "Seuraava on Kävely taaksepäin.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "7e5ce378ae315c0b83e040597c34be1d921d40f92b0553294a16013928858647",
       "bytes": 16575
-    },
-    {
-      "id": "05919aea86edbf03ea5b5b10125ff86ba5bd9a368a4947011bd6921cb61ee606",
-      "text": "Lepo on ohi. Jatka kun olet valmis.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "d722022579a6c986a23e267d9644917c59c0890466da6008912e5bbd3f29f054",
-      "bytes": 21342
     },
     {
       "id": "36a2dbc4a51d9cbffc0c3f3219420fa131aff6fd8e5ac256cf263ba067802c44",
@@ -1446,12 +1430,12 @@
       "bytes": 22274
     },
     {
-      "id": "5dec799fa1bb73f371b07fce0a9da16fdc81db42eb1657fc9908082d701ae2b6",
-      "text": "Työskentele lujasti 20 sekuntia ja marssi sitten kevyesti lopun aikana.",
+      "id": "f38a2a827e8f3f03593620bb267047e8874859647e090b47eb68dbfde0495feb",
+      "text": "Työskentele lujasti 20 sekuntia ja marssi sitten varovasti kierrosten välillä.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "c59fe482078175beb1f0f5c76623290442515fd945e603086fb5bc716ad67e5f",
-      "bytes": 34665
+      "sha256": "e3bdf71aba30ab6775970969aade4195765a5fa68978dd5739a9e25f799e332d",
+      "bytes": 34651
     },
     {
       "id": "c0141c892ee38d51154d02e86d3ff061cb8b7dabc38149a8553dd78db4b28816",
@@ -7804,14 +7788,6 @@
       "mime": "audio/mpeg",
       "sha256": "5d3234d60c22c95eabc9446d9f1f596abca7b6a170b4ddd223625a03749669db",
       "bytes": 35994
-    },
-    {
-      "id": "400d03702834c1cae8169723c36019e7053ec54224f2e0506c462ac74180df26",
-      "text": "Lepo 25 sekuntia:lle. Jatka kun olet valmis.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "ac46bc5aeb3c21073e00c59c1630a21c38f70ffd9c1a3b3784652f509751c28f",
-      "bytes": 25750
     },
     {
       "id": "5802924d33d2aec6a21b8bf853b39d9dc6524b6548413b2119a85bba1a5a1332",

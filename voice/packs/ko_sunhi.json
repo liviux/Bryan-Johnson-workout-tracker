@@ -46,14 +46,6 @@
       "bytes": 9218
     },
     {
-      "id": "84b70666e9fba7ef4e8de655b3a844e4ac210735efe67e19242e41d93e97fac2",
-      "text": "1분 그리고 15초를 위해 휴식을 취하세요. 준비가 되면 계속하세요.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "71bed1189cd39d361fe6fc2790c850110e78c5daa6cfcd6c35c6462b4fda9b55",
-      "bytes": 30812
-    },
-    {
       "id": "cd752ae25b60a46c24bfd5a23b02b2b3b021e3a856e5e3045d19494ea3f1fecf",
       "text": "다음은 뒤로 걷기입니다.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "a3980021c4a289132c95b183bf79f2e31fff84c53100ea3f6d0c1767eb607314",
       "bytes": 17496
-    },
-    {
-      "id": "ff5948f10dc5d79ea8c46cb9ea7fef6b756556f8bdbf533a9e08175f25ea9c2d",
-      "text": "휴식은 끝났습니다. 준비가 되면 계속하세요.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "df178a6b5b77e199416159415df3d5442b87e712e4123e8795c71ca8e78773b0",
-      "bytes": 21864
     },
     {
       "id": "fdaaee77151a421330689fcff46aa8f3abf5624104d9cb748d078aa3e22990c0",
@@ -1462,12 +1446,12 @@
       "bytes": 24719
     },
     {
-      "id": "b257675f1649e84c9f6417350bd5c03f26bdd6988ef8a90aba61771407357d7b",
-      "text": "20초 동안 열심히 일하고 나머지 시간에는 천천히 행진하세요.",
+      "id": "1a53740159cb0ee5ad67bab892ab97d8ffd78f4fb32fef4d22cdf65d160a918b",
+      "text": "20초 동안 열심히 훈련한 다음 라운드 사이에 부드럽게 행진하십시오.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "75f3753679bd6d385a9dcff2bd252785fe675c768721f950ae100e20fbe31f9a",
-      "bytes": 25882
+      "sha256": "6e64927a88455055f7b5e13d9649a5c681c444e27cd4b1d34dd9bb793f079893",
+      "bytes": 29383
     },
     {
       "id": "a2c6df2bf9df431dd40c1f32ec829e66da58b27c9bbdf917377ea2b624f60cb6",
@@ -7692,14 +7676,6 @@
       "mime": "audio/mpeg",
       "sha256": "33a0f53ed022c427bb7942fed8fa829c96a23246842c12e409bc141cb1e1301e",
       "bytes": 38568
-    },
-    {
-      "id": "07716ca96b09a742b80872a6d69d090f6d97127a7d638d11fa4de345d6ba39fd",
-      "text": "25초를 위해 휴식을 취하세요. 준비가 되면 계속하세요.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "f939fced585f8485fa9449b3a6c21d956e06defe530d8f89f6c13b56237d63e1",
-      "bytes": 25556
     },
     {
       "id": "7a2147b4489d449b3b500e9fa0d4443eb30e673713fe55194587fa016ce6fd57",

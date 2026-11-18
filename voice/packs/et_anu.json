@@ -46,14 +46,6 @@
       "bytes": 9456
     },
     {
-      "id": "828eaca38248a7831fe7bb97ab8a4e01dd6b82d98ff2a9171d015d06fd6db99a",
-      "text": "Puhka 1 minut ja 15 sekundit jaoks. Jätkake, kui olete valmis.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "61449e8d1ac2c321bb1b9edac6e107dbb241970193a63d6b0ce8ca9b92c601dd",
-      "bytes": 28490
-    },
-    {
       "id": "c3b01ea02f9b1634c5eade22348c9b3c9c1a0602ea846e01b950edabab7c6924",
       "text": "Järgmine on Tagurpidi kõndimine.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "77f10590b68ba90d62e6e5c194d4b14ce0d515303ee0a796de253b23a089def5",
       "bytes": 12906
-    },
-    {
-      "id": "5617238deb3e427533885c26b3f53a60a0b29b6bb36931bff2dc5d0b2cf2e9e8",
-      "text": "Puhkus on läbi. Jätkake, kui olete valmis.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "7ff7f9cccb5336e4998e09915c0d9fd3ea30905110381aaad24d5cb0d599d81b",
-      "bytes": 22303
     },
     {
       "id": "7fdeba70569106dc31f51af3c55828debaf9bc3488ec084c69299b82fc780613",
@@ -1446,12 +1430,12 @@
       "bytes": 25317
     },
     {
-      "id": "d808d6850b1b955cfb6101da9629501ffd4c6deccd096a6f9e90e2b85e151986",
-      "text": "Töötage 20 sekundit kõvasti, seejärel marsige ülejäänud ajal õrnalt.",
+      "id": "766b6f2ac8213d3d2b878141474fe41b3d0e1abd6cf6444d0e8526a675ca1f32",
+      "text": "Töötage kõvasti 20 sekundit, seejärel marsige ringide vahel õrnalt.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "aeb04ac3c93d6d4a8130c6d344ee00a27e987a320a9503cbce7559bf91f295dd",
-      "bytes": 29281
+      "sha256": "e2b57ed45c2913b24cb69822d565634d559d987159b9b457bb5d51d63d804893",
+      "bytes": 28589
     },
     {
       "id": "1a90adfbb172ed0f4d92c5c605bfc2fdac1ae935a56cd4147c01bd601c0f1fcf",
@@ -7796,14 +7780,6 @@
       "mime": "audio/mpeg",
       "sha256": "ede21d9102e7a0cdc158be7c7cf7ddee930c04bfa78edda2ee2f73c082b35678",
       "bytes": 36149
-    },
-    {
-      "id": "729853ab72c0572424731be40a204334a3aa3f124d3f8a720ad51c27f680ef51",
-      "text": "Puhka 25 sekundit jaoks. Jätkake, kui olete valmis.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "8ef5db28bdcae65519ab022f5b3a988121084f5b3908bdb23d66112523d27582",
-      "bytes": 26108
     },
     {
       "id": "1553b4c110a3abb9260bc4e02474775f22652acceacb8d25a687d1fb7174cc72",

@@ -46,14 +46,6 @@
       "bytes": 10919
     },
     {
-      "id": "e8d35852f51315ce5f30bfffb4039452d79ce697783362a5849ecb62d632b5da",
-      "text": "برای 1 دقیقه و 15 ثانیه استراحت کنید. وقتی آماده شدید ادامه دهید.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "197c03828bb0b052f4091afe5295a1eff4e3713e96f247b2de03c8a8cfb1726f",
-      "bytes": 31121
-    },
-    {
       "id": "155b2de6ab8c34ca83063b159e7232afc7a26bf1eab27854d644631e931e7b0e",
       "text": "بعدی راه رفتن به عقب است.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "31c8fa4b8114329ec1bd7941490ca3bf6422b5985b6797ed9492f10cacf73583",
       "bytes": 16158
-    },
-    {
-      "id": "43d32f767778e429ea7ef325a2e6260e9d5fcd5e652126ad8924074409ba9f07",
-      "text": "استراحت تمام شد وقتی آماده شدید ادامه دهید.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "ca7098d895d3f29a4a3c44aba025a88c1a2e1faa2451a09a8957efbd8c0c8286",
-      "bytes": 20584
     },
     {
       "id": "a43572a8d985c13c1fb8bf79613bfc10b2b76464f13d64df53de6a8230d18fb0",
@@ -1454,12 +1438,12 @@
       "bytes": 21672
     },
     {
-      "id": "54da0104324b2511f0e4d5692b946f240a3ede5b6e7d1cb54e1dc8de840ff0ab",
-      "text": "20 ثانیه سخت کار کنید، سپس در طول بقیه به آرامی راهپیمایی کنید.",
+      "id": "ef465de595440e39a15bc18ab30242a2817fa3864c0e7ea4777454ea6f4ae9e3",
+      "text": "20 ثانیه سخت کار کنید، سپس به آرامی بین راندها حرکت کنید.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "d49f65c1ed99886b6a7351a88ae2dd06be766334ba21af85a05ced1aac9835d8",
-      "bytes": 27187
+      "sha256": "17b71fdbfa227bb60b5b6ffb86ae033eb08a4fd6ff082a72e4124ad486d28057",
+      "bytes": 25077
     },
     {
       "id": "b4410bef821ef16e3737a1a774a6a0259f52516b1059c17d6419091e56b66413",
@@ -7692,14 +7676,6 @@
       "mime": "audio/mpeg",
       "sha256": "996c5bcf6eaed6a85a2d202d135f9e08d7408303ac1b156de55c12e911b4cdfb",
       "bytes": 31549
-    },
-    {
-      "id": "8f925e2bd24781f570190cbbe44823d41115d577c2b91537d238424c232e86b8",
-      "text": "برای 25 ثانیه استراحت کنید. وقتی آماده شدید ادامه دهید.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "6dfea33fa59ec8a7bd296357d4d954cf53bcfa3a2d5cc840c5fba0c62d9e2824",
-      "bytes": 30906
     },
     {
       "id": "38d76bcc3cb3621ffe1a1765988a943546abea1133fc8b6bba321deb89933904",

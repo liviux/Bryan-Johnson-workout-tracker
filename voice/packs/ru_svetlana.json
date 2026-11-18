@@ -46,14 +46,6 @@
       "bytes": 10641
     },
     {
-      "id": "bb9d5cc0306c9b53ce6eb6034e5f99d00596ffb5d7e8bfcf50798f4062d829c8",
-      "text": "Отдых для 1 минута и 15 секунды. Продолжайте, когда будете готовы.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "a05be1162b471e507b7a0f6b87a321ace0b194db8189824a6fe0d7a6f27ca04d",
-      "bytes": 32787
-    },
-    {
       "id": "512c88cc12c1fd4fea4faf789d5955278e654c481b9cd18916d2fb86edb71cb6",
       "text": "Дальше идет Ходьба назад.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "441173de918d3355c0f18e7543d5d9ee9afb6ea4857ca52aabae10ad8f0dfc27",
       "bytes": 16642
-    },
-    {
-      "id": "5b4269022d6c736641f89ff62f25633ae07fe370c0a2d5e123d714964adc0170",
-      "text": "Отдых окончен. Продолжайте, когда будете готовы.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "21b27663f02199968913be25999efcd36ae58badafc3fc501ca0398acd8fbe19",
-      "bytes": 23397
     },
     {
       "id": "f2b61df3f0459b6ec059612f3026eef4ccd77b438a18c39332fc39d2bd760187",
@@ -1414,12 +1398,12 @@
       "bytes": 27936
     },
     {
-      "id": "7a39eb6dc48c5eb22208665774b63b6aa2695291a824d5ae21efae841277de8e",
-      "text": "Работайте усердно в течение 20 секунд, затем осторожно маршируйте во время отдыха.",
+      "id": "84d8d586c45dc272d35b11d87ad9c8f28a415287ae7f24772537aa34dc4542c1",
+      "text": "Усердно работайте в течение 20 секунд, затем осторожно маршируйте между раундами.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "277a17ddb95180e5e2a16319bf039c879142564c2de415b1ca19031739e7a7b3",
-      "bytes": 34418
+      "sha256": "c1e8ea902199b3c76f3e0a73f51880bcd8ce3f04893ceb2d2906f348e8c78927",
+      "bytes": 34307
     },
     {
       "id": "81ffda536bfc9d4312e6ed26db63d540f36181f86439afa5bdf9eb1314bf16ce",
@@ -7532,14 +7516,6 @@
       "mime": "audio/mpeg",
       "sha256": "4906ab9eeaf62f6ad55db35cd9c624b3f083c1632233eb8a1cd0d45fbf903a4d",
       "bytes": 38862
-    },
-    {
-      "id": "c5905efeece15534fcfc1de17297f764cc11fd3f4621b99ff5af551e6850c7e9",
-      "text": "Отдых для 25 секунды. Продолжайте, когда будете готовы.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "fa1749b546f408f3afa8aaebfd20f39b1c80d4dc8230045ada1ec55c79a9a875",
-      "bytes": 30190
     },
     {
       "id": "48d0e93351c2f0cbee9c1d0e47b7b7b2e7751b0a27fea8cda406f46377105c33",

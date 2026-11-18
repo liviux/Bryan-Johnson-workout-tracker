@@ -46,14 +46,6 @@
       "bytes": 9046
     },
     {
-      "id": "36a42d52d2c9cf36e374722df0e455b37907dd3ff5b22888d51099c4b674ef4f",
-      "text": "Riposa per 1 minuto e 15 secondi. Continua quando sei pronto.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "0882faff503bc8b5a94449550151d9bdd1cf574439c9f62a820bc019b4e28d0d",
-      "bytes": 26234
-    },
-    {
       "id": "572c9d70e9b7b20bb59b7d41d5c309c8de1b7e76588444940fb4c1db269c6691",
       "text": "Il prossimo è Camminata all'indietro.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "d3984e223d9aff8ab33ae3d1a778cbb97cefcd1e01766435caa4d39ac6279248",
       "bytes": 15670
-    },
-    {
-      "id": "865a3f90ec9dec1acd5cf61fd3e750bbddda138dd4d6c4691214f320478454cc",
-      "text": "Il riposo è finito. Continua quando sei pronto.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "c9f873bfabfa1362178509d4390c31c62868e962fceb77ed2f0eab16c2d31c30",
-      "bytes": 20051
     },
     {
       "id": "dd41a5b451fc96718a2165668aa3d06944fea689421c3e36175f398aec5cfacc",
@@ -1414,20 +1398,20 @@
       "bytes": 23792
     },
     {
-      "id": "09098c7963ad0943faa18b07a8256369bdbe0351787f5efcb69ecf4fbff946e6",
-      "text": "Lavora duro per 20 secondi, poi marcia piano durante il recupero.",
+      "id": "b4482694dbc46f3eadc261faae84e4a2b7f4c1bf76f9ec7761110a6d90d37090",
+      "text": "Lavora duro per 20 secondi, poi marcia delicatamente tra un round e l'altro.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "f24c7e8bc8931ce87b36e3010ebde98de805846567b4a80ccc6d57f0f6edf5cf",
-      "bytes": 25837
+      "sha256": "35147474028100dcd31e480c2b13d9cb1e55ca7271242f343cc58fc2f13db90a",
+      "bytes": 30633
     },
     {
-      "id": "5e4dfc67c764042d75d42bf368655c13fa241c0fd54ca812987462b3e57ae247",
-      "text": "Registra il numero di giri.",
+      "id": "94e71814e8be9c78ad5926cbb29c28d6ecf7c9f662cd6605b00561ef503dd617",
+      "text": "Registra il numero di round.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "83a01064d0350954f13684eac206c5e5efefe01f7d482ada602ad2327612f310",
-      "bytes": 11046
+      "sha256": "71003cbd26c516acc87419e72987e16defc3fbeb1ea6ad69f8feb66934aa6ea7",
+      "bytes": 11581
     },
     {
       "id": "8c3a8699146357eaf84c8cf0ec4fe47dbbec5639ff94e569285f7de691cd608c",
@@ -7692,14 +7676,6 @@
       "mime": "audio/mpeg",
       "sha256": "64be7e444e90cf26a0e6f87bc72d25fabc824bb8ae0748439e87638e4407e981",
       "bytes": 35572
-    },
-    {
-      "id": "660c4f6387a5cece4608f0acf151f16fee03dc6dec4a79c7c3aef1b6a8bffe44",
-      "text": "Riposa per 25 secondi. Continua quando sei pronto.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "b1c0f58f5c1dd66ad2d05cc8aace9f666d3dccf3a65d589cb29f4f439e4a4e8b",
-      "bytes": 24080
     },
     {
       "id": "e7c28cb9bc59cdd8d5a9504fded58615682006282aa9ff2ba3b2107b95f6cfc2",

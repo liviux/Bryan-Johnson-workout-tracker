@@ -46,14 +46,6 @@
       "bytes": 10594
     },
     {
-      "id": "fdc510df973321aaab6eaac79e0d9e512db0ad7fae8bc6c7ecb63a929280564a",
-      "text": "Pauză de 1 minut și 15 secunde. Continuă când ești gata.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "ec2fc935ff76edfb9c02a26d5a52f9d1a1a84572ce96b9b92150de0a034ff33b",
-      "bytes": 24528
-    },
-    {
       "id": "c56dbadc01a62fe1ce54086fe0afa73259653e4154bff8febd9cc34cf8616e2e",
       "text": "Următorul este Mers cu spatele.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "d4c84c503ea73f49578cec1ec73338ce58bc20c19c4010118b98b1e65cda660e",
       "bytes": 17312
-    },
-    {
-      "id": "c6f0e1125844b4c89c486d33c065cb14e51bb4cac4fb9115a617adc28907a14e",
-      "text": "Pauza s-a terminat. Continuă când ești gata.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "e6a3e43e054b3a4ac763ebd1283055072b90a29c8b851d2637b7f652f14cc13e",
-      "bytes": 20822
     },
     {
       "id": "b1d47db99975bec73b9b4e29c957a4fd86a9af9c905610127598fb1885c9016d",
@@ -1446,20 +1430,20 @@
       "bytes": 26086
     },
     {
-      "id": "eff30942a4a5361af99da3f37fdeb32efc17e47c71cb29df0ccd16d2b22cd9db",
-      "text": "Muncește intens 20 secunde, apoi marșează ușor în pauză.",
+      "id": "374a7418d62bcae0c90cc19eb90e0e4b131a91db5e5c6c1949be5e6fb986e7c0",
+      "text": "Lucrați din greu timp de 20 de secunde, apoi defilați ușor între runde.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "68cb618238e9960146c99625920491f3fe3c1712dcc48e44c5c721f0e88d8e74",
-      "bytes": 23667
+      "sha256": "3793b2272805e8eda956698b09d941c829f989011d2a2f86cd256bf6fe1c66a3",
+      "bytes": 27492
     },
     {
-      "id": "2cb1cbc513075eaf4cbedc4664b4bbd25cd70f6a94c6f9448127979f97be647e",
-      "text": "Înregistrează numărul de runde.",
+      "id": "389717e4a34090d0be4ea737af4bc58c948371783990594c06363cb35020ebd1",
+      "text": "Înregistrați numărul de runde.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "b400cea6d7a0932177483d63dc1f85e7ebc8b2ca4baf3255f20795d40d3f4813",
-      "bytes": 12326
+      "sha256": "409340580643c71709d25940c81001ddb506dc743db670de90da3c39b47f6ff8",
+      "bytes": 12045
     },
     {
       "id": "fbda9e9b2c7a22353eda76cf0775f7ff11629371469c4fbb303a0d6ef4bd5ac2",
@@ -7796,14 +7780,6 @@
       "mime": "audio/mpeg",
       "sha256": "0b8b132a7834c48c9cd65c18db5113a58301a9ed1bb39e0997b2841a83a70f34",
       "bytes": 33766
-    },
-    {
-      "id": "116122f3811ef34de6893f2d06fe8c1f0d6bf41622ac6f80b9d2a39b24081b6d",
-      "text": "Pauză de 25 secunde. Continuă când ești gata.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "a33e3290fecbf28e24b677f72694ab5abd1b308a65d506348e39737c7e04d223",
-      "bytes": 21992
     },
     {
       "id": "6da1435ccacc30e86d08912f44bbb343839687304c3d6754fb6c027f308efaea",

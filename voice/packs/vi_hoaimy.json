@@ -46,14 +46,6 @@
       "bytes": 8934
     },
     {
-      "id": "65966b9d9705f84e2591962ce7f47d1e04064c81d501d3d81a6eae761c07b95e",
-      "text": "Nghỉ ngơi cho 1 phút Và 15 giây. Tiếp tục khi bạn đã sẵn sàng.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "66fd272c729eb3dbba3d4e6eed897d4380665c2975f3ff6686a4d5d4789fffc8",
-      "bytes": 25159
-    },
-    {
       "id": "7f5f11f430796b6f555883d5d9de41ad34ed7e212c3127d3128e18c497be792a",
       "text": "Tiếp theo là Đi lùi.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "a65b76035027d96f8aab5ad7cced91cdf7fd7009b37ba6de1deff6f3e69d6bf1",
       "bytes": 17105
-    },
-    {
-      "id": "68b4e142b4be9b9d7c295ffa2968a9f3d16a2c4be05c9f49ad55c5421d475e4c",
-      "text": "Nghỉ ngơi là xong. Tiếp tục khi bạn đã sẵn sàng.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "524c387a8eeb1153141c854af8c22267bd221da988365d9de425083593494260",
-      "bytes": 22020
     },
     {
       "id": "d43beeea4b22ef8a743b11a8e51e907b90af1b85b69b42fda4ebc04f6cfcc7bb",
@@ -1406,12 +1390,12 @@
       "bytes": 19297
     },
     {
-      "id": "a10cfbe0b6e4d450652336604be6f196eef05111a42463474098f9abf60e47a0",
-      "text": "Làm việc chăm chỉ trong 20 giây, sau đó di chuyển nhẹ nhàng trong thời gian còn lại.",
+      "id": "ecd3ad0fb39322a3c5078f467805d6de8bf99269331d5946cdc13ff107885e5d",
+      "text": "Tập luyện chăm chỉ trong 20 giây, sau đó bước nhẹ nhàng giữa các hiệp.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "bf785780da64da70edb32c0f4a55cdf1e182ea2ac69602a04b25f29844ece47b",
-      "bytes": 27949
+      "sha256": "c16b4cf9b4374173e70372fbd69ddb8efb3f1e159ebe967568094e993a2246fd",
+      "bytes": 23640
     },
     {
       "id": "fba5490509c30216db7edb370a976fe3d209ef6794fbfab1c315bf3be057633d",
@@ -7484,14 +7468,6 @@
       "mime": "audio/mpeg",
       "sha256": "1bda572354061df14defb529b750f0f9e9bfdd0b07061a483bec4d3f2703ce00",
       "bytes": 31031
-    },
-    {
-      "id": "c03b53723c736dc7eb874aa92f0130b1a02adb74bf4259abb99c81bebee7a19f",
-      "text": "Nghỉ ngơi cho 25 giây. Tiếp tục khi bạn đã sẵn sàng.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "13311ca49514b7d0dafbf274599452ab9796993d6e981a2f55583bc94d1dd54b",
-      "bytes": 22307
     },
     {
       "id": "852617811024ee4fcca0fa8efa3c40e8ca54e3b4c2dbaa6b9dc0e0d96e559304",

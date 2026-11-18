@@ -138,7 +138,7 @@
 
 [data-skin="chapters"] body { background-image: none; font-size: 16px; }
 [data-skin="chapters"] .mono { font-variant-numeric: normal; }
-[data-skin="chapters"] :is(.input.num, .kpi b, .ring-wrap b, .detail .rx, .preview dd, .cal a, td.num, .timer-center .big, .rest-pill b, .set-row .n) { font-variant-numeric: tabular-nums; }
+[data-skin="chapters"] :is(.input.num, .kpi b, .ring-wrap b, .detail .rx, .preview dd, .cal a, td.num, .timer-center .big, .set-row .n) { font-variant-numeric: tabular-nums; }
 [data-skin="chapters"] :where(a:not([class])) { color: var(--ink); text-decoration-thickness: 2px; }
 [data-skin="chapters"] :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; border-radius: 0; }
 [data-skin="chapters"] ::selection { background: var(--accent); color: #000; }
@@ -349,8 +349,6 @@
 [data-skin="chapters"] .reason-grid button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
 [data-skin="chapters"] .reason-grid button[aria-pressed="true"] .icon { color: inherit; }
 [data-skin="chapters"] .toast { border: 0; border-radius: 0; background: var(--ink); color: var(--bg); }
-[data-skin="chapters"] .rest-pill { border: 0; border-radius: 0; background: var(--ink); color: var(--bg); }
-[data-skin="chapters"] .rest-pill b { color: var(--accent); }
 [data-skin="chapters"] .timer-center .big { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.04em; }
 [data-skin="chapters"] .timer-ring .fg { stroke-linecap: butt; }
 [data-skin="chapters"] .guided-top, [data-skin="chapters"] .guided-bottom, [data-skin="chapters"] .guided-main .stage { border: 0; }
@@ -428,7 +426,7 @@
   letter-spacing: 0;
 }
 [data-skin="darkroom"] .mono { font-variant-numeric: normal; }
-[data-skin="darkroom"] :is(.input.num, .kpi b, .detail .rx, .preview dd, .cal a, td.num, .timer-center .big, .rest-pill b, .set-row .n) { font-variant-numeric: tabular-nums; }
+[data-skin="darkroom"] :is(.input.num, .kpi b, .detail .rx, .preview dd, .cal a, td.num, .timer-center .big, .set-row .n) { font-variant-numeric: tabular-nums; }
 [data-skin="darkroom"] .eyebrow { font-size: 0.85rem; color: var(--muted); }
 [data-skin="darkroom"] .section-title h2 { font-size: 2.4rem; line-height: 1; }
 [data-skin="darkroom"] h3 { font-weight: 500; }
@@ -600,7 +598,7 @@
 [data-skin="darkroom"] .modal, [data-skin="darkroom"] .sheet { border: 0; background: var(--surface); }
 [data-skin="darkroom"] .modal { border-radius: var(--r); }
 [data-skin="darkroom"] .reason-grid button { border: 0; background: var(--surface-2); border-radius: var(--r); }
-[data-skin="darkroom"] .toast, [data-skin="darkroom"] .rest-pill { border: 0; background: var(--surface-3); }
+[data-skin="darkroom"] .toast { border: 0; background: var(--surface-3); }
 [data-skin="darkroom"] .toast { border-radius: 999px; }
 [data-skin="darkroom"] .timer-center .big { font-family: var(--font-display); font-weight: 300; font-size: clamp(3.4rem, 10vw, 4.6rem); }
 [data-skin="darkroom"] .timer-ring circle { stroke-width: 4; }
@@ -885,7 +883,7 @@
 [data-skin="pulse"] .modal { border-radius: var(--r-lg); }
 [data-skin="pulse"] .reason-grid button { border: 2px solid transparent; border-radius: var(--r); background: var(--surface-2); }
 [data-skin="pulse"] .reason-grid button[aria-pressed="true"] { border-color: var(--skip); }
-[data-skin="pulse"] .toast, [data-skin="pulse"] .rest-pill { border: 0; }
+[data-skin="pulse"] .toast { border: 0; }
 [data-skin="pulse"] .timer-ring circle { stroke-width: 14; }
 [data-skin="pulse"] .timer-center .big { font-family: var(--font-display); font-weight: 800; font-size: clamp(3.4rem, 11vw, 4.8rem); }
 [data-skin="pulse"] .guided-top, [data-skin="pulse"] .guided-bottom, [data-skin="pulse"] .guided-main .stage { border: 0; }
@@ -1165,7 +1163,7 @@
 [data-skin="lab"] .overlay { backdrop-filter: none; }
 [data-skin="lab"] .modal, [data-skin="lab"] .sheet { border-radius: 0; border-color: var(--line-strong); }
 [data-skin="lab"] .reason-grid button { border-radius: 0; background: var(--bg); border-color: var(--line); }
-[data-skin="lab"] .toast, [data-skin="lab"] .rest-pill { border-radius: 0; border-color: var(--line-strong); background: var(--bg); }
+[data-skin="lab"] .toast { border-radius: 0; border-color: var(--line-strong); background: var(--bg); }
 [data-skin="lab"] .timer-ring circle { stroke-width: 4; }
 [data-skin="lab"] .timer-ring .fg { stroke-linecap: butt; }
 [data-skin="lab"] .guided-top .bar { border-radius: 0; height: 4px; }
@@ -1271,7 +1269,7 @@
 [data-skin="olympia"] ::selection { background: var(--venue); color: var(--venue-ink); }
 [data-skin="olympia"] :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
 [data-skin="olympia"] .mono { font-variant-numeric: normal; }
-[data-skin="olympia"] :is(.input.num, .kpi b, .ring-wrap b, .preview dd, .cal a, td.num, .timer-center .big, .rest-pill b, .set-row .n) { font-variant-numeric: tabular-nums; }
+[data-skin="olympia"] :is(.input.num, .kpi b, .ring-wrap b, .preview dd, .cal a, td.num, .timer-center .big, .set-row .n) { font-variant-numeric: tabular-nums; }
 [data-skin="olympia"] :is(.display, .section-title h2, .block-head h3, .hero h1, .detail h2, .modal-head h2, .setup-head h1, .brand-text b, .brand.small b, .wday .d b, .timer-center .phase, .kpi b, .ring-wrap b) {
   text-transform: none;
   letter-spacing: -0.015em;
@@ -1542,7 +1540,7 @@
 [data-skin="course"] ::selection { background: var(--sidebar); color: #1a1a1a; }
 [data-skin="course"] :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
 [data-skin="course"] .mono { font-variant-numeric: normal; }
-[data-skin="course"] :is(.input.num, .kpi b, .ring-wrap b, .preview dd, .cal a, td.num, .timer-center .big, .rest-pill b, .set-row .n) { font-variant-numeric: tabular-nums; }
+[data-skin="course"] :is(.input.num, .kpi b, .ring-wrap b, .preview dd, .cal a, td.num, .timer-center .big, .set-row .n) { font-variant-numeric: tabular-nums; }
 [data-skin="course"] :is(.display, .section-title h2, .block-head h3, .hero h1, .detail h2, .modal-head h2, .setup-head h1, .brand-text b, .brand.small b, .wday .d b, .timer-center .phase, .kpi b) {
   text-transform: none;
   letter-spacing: 0;

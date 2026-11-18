@@ -46,14 +46,6 @@
       "bytes": 11763
     },
     {
-      "id": "f319ad67e1f7c0f7a4ba1c65b25d22a26c72f9528e4b13c8d09e820ca6727683",
-      "text": "מנוחה עבור דקה אחת ו 15 שניות. המשך כשתהיה מוכן.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "e5f6a2ecc9fab3122c5ca6ee922d3183cb1b6373e36e9b58978d990edb1cf731",
-      "bytes": 30816
-    },
-    {
       "id": "0dad5e58303c33b7315aa1de94ec92060867b8ecb23e422f115c1e89232f7e64",
       "text": "הבא הוא הליכה אחורה.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "3ccf1f5bf465a8289cdc725df78078c304ee26b0f781a90d74b742cf2b2383c0",
       "bytes": 13739
-    },
-    {
-      "id": "3de3909300dd5930a79dc24aeab2ab2bef2ab1cbbb22814a77a05fb147aa240c",
-      "text": "המנוחה הסתיימה. המשך כשתהיה מוכן.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "3b20e057a2974739e6474d9b54fe4b20c652505b319bf21b87519a8b537e3dc9",
-      "bytes": 18861
     },
     {
       "id": "4e455a084e56e92b08ae12cb6ac83aa17f8d6ac7717df170618a6d4006cc0cc8",
@@ -1406,12 +1390,12 @@
       "bytes": 20317
     },
     {
-      "id": "cd3656b30da5368c88c8103d5269edc62b051fb6ef45b87dd56cd490393ef8d2",
-      "text": "עבדו קשה במשך 20 שניות, ואז צעדו בעדינות במהלך המנוחה.",
+      "id": "670c3e52be533bf72fe74c687f8b36162a0aff5c82d2d9c421d214ae3a2a4405",
+      "text": "עבדו קשה במשך 20 שניות, ואז צעדו בעדינות בין הסיבובים.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "fad8b808e400b994527d16c78b856b3ff7abca12c837ba2aad668987a3220b04",
-      "bytes": 28654
+      "sha256": "621e7ac31242f71c3581e7f46d9fbef604b1e873ddf9a6aaf7efcacd2c21dd4a",
+      "bytes": 27520
     },
     {
       "id": "03053913d11a61bb40cf0c670ca7aa64b7eb2e67dde6013f7fb0cd3d89c3b989",
@@ -7524,14 +7508,6 @@
       "mime": "audio/mpeg",
       "sha256": "2921d500a9f2fbe555cf8fa0baaae5d483d3c37a6d47d54a4e97c6f6bb7ece1c",
       "bytes": 35987
-    },
-    {
-      "id": "5e19c9899ce33ac6b91fcf48f2d3f243e7f87d233e19b7f616664264e9db6c8a",
-      "text": "מנוחה עבור 25 שניות. המשך כשתהיה מוכן.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "ca3d8ecc73405895e36f43a2aa094a3428c2ae4ec2ceccbf26baee62cbf842fb",
-      "bytes": 23701
     },
     {
       "id": "fca8d4ded1d0d6cd3ce53fb56a5efbf8a4132a8394de70605ea43cfdbc760191",

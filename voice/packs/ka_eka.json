@@ -46,14 +46,6 @@
       "bytes": 10944
     },
     {
-      "id": "9e0271ac4e608d1b89955834d36e3967ed4745e08bc1a99e7604f66dc90fac3e",
-      "text": "დაისვენეთ 1 წუთი და 15 წამი. გააგრძელეთ როცა მზად იქნებით.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "b1f0ee2c0de3ba27562aecbfa3e9dd10f0c459e7ec6d879f92d4ccd86f51f178",
-      "bytes": 26544
-    },
-    {
       "id": "02f6b325c2de24b6e875ef87ee0fe4b77c27df66bb889c5f62f7b36372ca4e5d",
       "text": "შემდეგი არის უკან სიარული.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "563dda62fba294139fb26f3acf6207188425d7d831c7f3b8d883e98589a0e217",
       "bytes": 14425
-    },
-    {
-      "id": "72685f3d4d09274e694bb0ced8429a5280e8d1dcd3f791d5b529c0bcc04dae06",
-      "text": "დასვენება დასრულდა. გააგრძელეთ როცა მზად იქნებით.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "732ebc9f860a2c566b84c214ff21e230647f572cfe72bdb83d791429eabcdb4c",
-      "bytes": 23659
     },
     {
       "id": "13bd06e90d9a931a655e755cf4fb2d1e467b2d10a58647831fb3cebb4ae742fe",
@@ -1422,12 +1406,12 @@
       "bytes": 21701
     },
     {
-      "id": "0d65158f9a48973ab4937601c159992be64d6946ff31748a96ed410030fcd6b7",
-      "text": "იმუშავეთ მძიმედ 20 წამის განმავლობაში, შემდეგ ნაზად იარეთ დასვენების დროს.",
+      "id": "00ef923b82e17b6e43b2a61a7c08b02b069408ad51f5f03e1d647626ef4a801c",
+      "text": "იმუშავეთ მძიმედ 20 წამის განმავლობაში, შემდეგ ნაზად იარეთ რაუნდებს შორის.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "a69923fb58f40f40302b595202a3874235f89dc288fd2b8066b1dc3d7f333b23",
-      "bytes": 29041
+      "sha256": "d0b42781a08eb488e3bd8a25f8e8fb51e0b88ae6c8812d1eabb7b8f65a7436e7",
+      "bytes": 29182
     },
     {
       "id": "24ec89f71a400ffdc0e03e85084c0a1198f0a78cd3157cdb149b9666c5d53066",
@@ -7524,14 +7508,6 @@
       "mime": "audio/mpeg",
       "sha256": "92189e8947c92295d375790f82c45518fa524e26be0f95f182f459cb95af5d35",
       "bytes": 35134
-    },
-    {
-      "id": "7deb945258b7721735fdb463a05c6438802a39727daff540c41406569e9214c8",
-      "text": "დაისვენეთ 25 წამი. გააგრძელეთ როცა მზად იქნებით.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "aff9f31bdda3f2ae481dec4a042bfc31f81eb80d258b5ccbd34b019779bda718",
-      "bytes": 23627
     },
     {
       "id": "235886b2e69b4fd9410ceb150b259c08b62f7602ea5bf7239ddad87ee649b76d",

@@ -633,9 +633,6 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
 .timer[data-kind="rest"] .phase { color: var(--bryan); }
 .timer-center .big { font-family: var(--font-mono); font-size: clamp(2.6rem, 9vw, 3.6rem); font-weight: 500; line-height: 1; }
 .timer-center .sub { color: var(--muted); font-size: 0.85rem; }
-.rest-pill { position: fixed; left: 50%; transform: translateX(-50%); bottom: 24px; z-index: 70; display: flex; gap: 10px; align-items: center; padding: 8px 10px 8px 16px; border-radius: 999px; background: var(--surface-3); border: 1px solid var(--line-strong); box-shadow: var(--shadow-pop); font-weight: 650; }
-.rest-pill b { font-family: var(--font-mono); color: var(--bryan); min-width: 3.2em; }
-@media (max-width: 900px) { .rest-pill { bottom: calc(86px + env(safe-area-inset-bottom)); } }
 
 /* guided mode */
 .guided { position: fixed; inset: 0; z-index: 50; background: var(--bg); display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
@@ -1094,9 +1091,6 @@ td.cur, th.cur { background: var(--accent-soft); }
 .equipment-settings > summary { font-weight: 650; cursor: pointer; }
 .equipment-settings > summary small { font-weight: 400; margin-left: 8px; }
 .equipment-settings[open] > summary { margin-bottom: 18px; }
-.rest-custom { max-width: 260px; }
-.rest-custom[hidden] { display: none; }
-.rest-custom input:invalid { border-color: var(--danger); }
 .settings-footer { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; font-size: 0.82rem; }
 .settings-footer a { display: inline-flex; gap: 6px; align-items: center; }
 @media (max-width: 1200px) { .source-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

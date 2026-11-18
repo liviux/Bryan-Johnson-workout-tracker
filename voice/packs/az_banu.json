@@ -46,14 +46,6 @@
       "bytes": 10638
     },
     {
-      "id": "0ecd28e83ba93ec386266f50eb2e6a4bef87ef44e5c9041a81e51bdc928bf628",
-      "text": "1 dəqiqə və 15 saniyə üçün istirahət edin. Hazır olduğunuzda davam edin.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "5e5ee5f986ee0ecc79d9bddf7d38e150c07c264badedeb85c8d754bf3b534c39",
-      "bytes": 30575
-    },
-    {
       "id": "a48f02ab1b45201de7182e1524a46d6de94629038a03a21d205539450515d868",
       "text": "Sonrakı Geriyə doğru gediş.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "43ad23a8860c78216baf6c8f469a15b1c8107d61749045658ecdebbd0888af83",
       "bytes": 15616
-    },
-    {
-      "id": "b36f8f9dc3ec7187fad4d6986e942c19443f7f34321691175873f955284a9f4b",
-      "text": "İstirahət bitdi. Hazır olduğunuzda davam edin.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "1a52417acea2ac394f562d8146a3e7d0b98a1f4c1f6ccba6231da6898aefcf36",
-      "bytes": 23014
     },
     {
       "id": "9d4bbf291a1b58abc996601d9c9d4bb4141582adf7b6f10961682f09e9eff1c1",
@@ -1430,12 +1414,12 @@
       "bytes": 25858
     },
     {
-      "id": "9aadd81e3c21998525f6eb3af42cc24f0e1e927678465c43f4a22dcc5ae0d1c1",
-      "text": "20 saniyə çox çalışın, sonra istirahət zamanı yumşaq yürüş edin.",
+      "id": "13ac21c393f2f72abe056334c124ebf93b1b104098870e34febf7fb33850b582",
+      "text": "20 saniyə çox çalışın, sonra raundlar arasında yumşaq yürüş edin.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "693bc593f9b29a11fad41af26ab51f0f93a9e666738ab6da2a05748db997e1cb",
-      "bytes": 25609
+      "sha256": "0cfa397bd52e38d6f0fe5a28892acd7f9a3ebe060bcd3c1ece5ab85a15bfa2c8",
+      "bytes": 25649
     },
     {
       "id": "f996b7d62f3ff5cf1aeb9df122a16e0034471a7b8e1d10aa591900f3e5e4eac7",
@@ -7684,14 +7668,6 @@
       "mime": "audio/mpeg",
       "sha256": "3379ef362a449184484a829515754a7370ea1eba97bc45ca6427f65b06dc9677",
       "bytes": 33045
-    },
-    {
-      "id": "b6b435b01c2e94787fb2e1a6a00b0af1efe9ccf71ba4456bea19a52d0d43e00a",
-      "text": "25 saniyə üçün istirahət edin. Hazır olduğunuzda davam edin.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "772e8ebc5e19dc70edd79ec7ea8fcd47d4d7d731c0aee6d5dea594d6bfa326ed",
-      "bytes": 30618
     },
     {
       "id": "c97145debcd012b58cf304c156d94d1f2ddcdb6232dbb6a78d7d390471c3a3c8",

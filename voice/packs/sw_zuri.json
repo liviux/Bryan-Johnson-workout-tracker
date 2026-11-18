@@ -46,14 +46,6 @@
       "bytes": 9071
     },
     {
-      "id": "21c0e1af696d352d7256cbe5f4f57f1a572f86b85834c15332fce4b28868422b",
-      "text": "Pumzika kwa Dakika 1 na Sekunde za 15. Endelea ukiwa tayari.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "6e031540e6c1bfb94834f2349f0248fbe26093f9d2775289b424e05570cc3d92",
-      "bytes": 30895
-    },
-    {
       "id": "1f5335a037a876bce37b9321224ce8ccc7c1aef86c1e7d2b114473a40fc0db8e",
       "text": "Inayofuata ni Kutembea nyuma.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "98856ef4df030b373b1124d75acdda1022a37b29f6160d83ade9ff227522d87c",
       "bytes": 15251
-    },
-    {
-      "id": "90033fadd086a0befa6354fd6997395b3cbcb659beaf1954b76a0ae99b56bee0",
-      "text": "Kupumzika kumekwisha. Endelea ukiwa tayari.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "4dea90c23931e0a92dea8c000d701a81e33eb70920b667a04ee69d63342c0e1a",
-      "bytes": 20869
     },
     {
       "id": "5f5993650b723d8a76bccab1443a998be59261904a8d5e8543d5d00b656cd199",
@@ -1422,12 +1406,12 @@
       "bytes": 24298
     },
     {
-      "id": "9208f5777f096bffd54cac9f00e4bb268f71364edd7b6a44fcf25227861f04c5",
-      "text": "Fanya kazi kwa bidii kwa sekunde 20, kisha uandamane kwa upole wakati wa mapumziko.",
+      "id": "680c6464cc2c1bd5bb54cb9f285d63ae048b651ae4260cd708ca5f5a93521d37",
+      "text": "Fanya kazi kwa bidii kwa sekunde 20, kisha uandamane kwa upole kati ya mizunguko.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "291b7156e9b598454e709b11a8cf76e2400faad2ea4d14514c0402eb5d8516ea",
-      "bytes": 34485
+      "sha256": "e6857038b9891b29012263812bc637b4b5ac09125bc160dd6b203631db018264",
+      "bytes": 34538
     },
     {
       "id": "be8ff64f8f76c034aff5e646bd4cbab752ba6a4e96d06d5cbe1dfcd014a127a5",
@@ -7644,14 +7628,6 @@
       "mime": "audio/mpeg",
       "sha256": "76d74deea953297203f27605f7fa1c76774c33a5c9c9019a4ba3bb77dbd96ee2",
       "bytes": 36036
-    },
-    {
-      "id": "50239ac72d7351f63854351f248733016c6b222a2d89d0709daf2437b80c0f04",
-      "text": "Pumzika kwa Sekunde za 25. Endelea ukiwa tayari.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "1e416cd7a8d864a9ed1d367fbdcff10725fa6e7ca5f93b230c88861ba9556c29",
-      "bytes": 26185
     },
     {
       "id": "6f0f70eceb94b70d33f569b830540c4e9b587a75b18af7b9c1b8773305bb28cb",

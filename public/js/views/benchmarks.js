@@ -16,7 +16,7 @@ export const BENCHMARKS = localized([
     cat: "Upper body endurance",
     unit: "reps",
     bryan: "Bryan: 60+ strict continuous reps (chest to floor, zero top pauses). Harvard study: 40+ push-ups correlated with 96% lower cardiovascular events.",
-    instructions: "Chest touches floor every rep; elbows reach full lockout; no resting in the plank or downward dog.",
+    instructions: "Chest touches floor every rep; elbows reach full lockout; stay active in the plank or downward dog.",
     hasTimer: false,
     rate(val) {
       if (val >= 40) return { tier: "elite", label: "Elite (top 5% / 18yo standard)" };

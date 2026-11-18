@@ -46,14 +46,6 @@
       "bytes": 10710
     },
     {
-      "id": "e275199817c9fc413748893c6111e9b7aedbaa332512d3ece442dbb5029f9025",
-      "text": "Rehat untuk 1 minit dan 15 saat. Teruskan apabila anda sudah bersedia.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "f156b5e3abd0c841ae3631818c9f17bba926c287718f716fb7aadc20f34161c3",
-      "bytes": 35189
-    },
-    {
       "id": "a2878aedf7884f45bd0b95fdf96a0073dcceba61f1061a1f75467addbb093540",
       "text": "Seterusnya ialah Berjalan ke belakang.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "26ded6e3ecee987fb0a45ad1d69a2b6a887bb44c27a41d7a841e53eef1506388",
       "bytes": 20694
-    },
-    {
-      "id": "1fca3a0ef24fff1bf4a705b447215c4219e094e3d242a9a444f45f9234dbd086",
-      "text": "Rehat dah habis. Teruskan apabila anda sudah bersedia.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "e2a09c65f7c8649e3b83b21c3ce44eed3109a6f461c846f3fc909fddcd11188c",
-      "bytes": 25825
     },
     {
       "id": "506fc88a78219c636284ce2bb7111e5281395f6933174eb7c9e5bde87def3641",
@@ -1446,12 +1430,12 @@
       "bytes": 25840
     },
     {
-      "id": "ff2ec47982ef4009fa6a50797465a91d3c1695e2789b6578b02dbfaa8d059587",
-      "text": "Bekerja keras selama 20 saat, kemudian berarak perlahan-lahan semasa rehat.",
+      "id": "485ac43ea25600c8041f0891c37d8d33330882db76754cafa8e557e03c8c0f6e",
+      "text": "Bekerja keras selama 20 detik, kemudian berarak perlahan-lahan antara pusingan.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "d35f620b89008071a0681abe7aa5a877422a4880304df7f23c2145722c173e4b",
-      "bytes": 34325
+      "sha256": "cfe5a3869411404615ffc083f28027961b3a2d4522ae5cbabf8321dd0748c37a",
+      "bytes": 34395
     },
     {
       "id": "aa716037f55fd81b9a0110721c0f96b0714e4f5457252fb748ebebe7fb4e4cd0",
@@ -7788,14 +7772,6 @@
       "mime": "audio/mpeg",
       "sha256": "f2b536e5f69f83d27150ee412271ddaeb29a98f899d9056a0dc0fcf71763fd0b",
       "bytes": 36652
-    },
-    {
-      "id": "525954c679d88d4eb1d5b29f5b0ead6e9589067e2c70cbb2a0cb37efbe8733b9",
-      "text": "Rehat untuk 25 saat. Teruskan apabila anda sudah bersedia.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "05a724b171ba4dabbdadd3a204f268a9b8e3d8c04a364c1e0d6018c3ee7dc939",
-      "bytes": 31173
     },
     {
       "id": "f8e55666f06256287361bfb9b6d932317dac084815fedcb31eeac74b7f53255e",

@@ -22,7 +22,7 @@ import { weekTargets } from "../week-targets.js";
 import { openDialog, ring, toast } from "../components/ui.js";
 import { blockKind, detailMode, sessionKind } from "../themes.js";
 import { unlockVoice } from "../voice/player.js";
-import { onRest, onTimer, stopInlineTimer, stopRest } from "../components/timer.js";
+import { onTimer, stopInlineTimer } from "../components/timer.js";
 import { t } from "../i18n.js";
 
 const STATUS_TEXT = { done: "Done", partial: "In progress", skipped: "Skipped" };
@@ -426,9 +426,9 @@ export function render(el, params) {
   function findItem(scope, id) {
     const ctx = context();
     if (scope === "main") {
-      for (const b of ctx.def ? ctx.def.blocks : []) for (const it of b.items) if (it.id === id) return { item: it, level: ctx.level, blockRest: b.rest };
+      for (const b of ctx.def ? ctx.def.blocks : []) for (const it of b.items) if (it.id === id) return { item: it, level: ctx.level };
     } else {
-      for (const a of addonsForDate(date)) if (a.addon.id === scope) for (const it of a.variant.items) if (it.id === id) return { item: it, level: ctx.level, scopeName: a.addon.name, blockRest: a.variant.rest };
+      for (const a of addonsForDate(date)) if (a.addon.id === scope) for (const it of a.variant.items) if (it.id === id) return { item: it, level: ctx.level, scopeName: a.addon.name };
     }
     return null;
   }
@@ -767,10 +767,6 @@ export function render(el, params) {
     if (open) pauseDesk("timer");
     else resumeDesk("timer");
   });
-  const unsubRest = onRest((event) => {
-    if (event.type === "start") pauseDesk("rest");
-    else if (event.type === "end" || event.type === "stop") resumeDesk("rest");
-  });
   window.addEventListener("hp:look", onLook);
   narrowView.addEventListener("change", onLook);
   draw();
@@ -790,13 +786,10 @@ export function render(el, params) {
       unsub();
       unsubDesk();
       unsubTimer();
-      unsubRest();
       healthCtrl?.dispose();
       healthCtrl = null;
       stopInlineTimer();
-      stopRest();
       resumeDesk("timer");
-      resumeDesk("rest");
       window.removeEventListener("hp:look", onLook);
       narrowView.removeEventListener("change", onLook);
       navigationSize.disconnect();

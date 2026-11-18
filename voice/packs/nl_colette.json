@@ -62,14 +62,6 @@
       "bytes": 11500
     },
     {
-      "id": "d46abfb5a83a30759b38bf925937cb53d18831f0f0172e707807f7b852015cbb",
-      "text": "Rust voor 1 minuut En 15 seconden. Ga verder als u er klaar voor bent.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "193bdad0a1efa489441175d08dac878e503df2b79789390f40f1b4a6b9082db1",
-      "bytes": 33617
-    },
-    {
       "id": "306ca661eaa3fd091a23c84ca58b1a4b6fe58c91e12bb5d1138a0f5c1adad489",
       "text": "Het volgende is Achteruit lopen.",
       "ext": "mp3",
@@ -124,14 +116,6 @@
       "mime": "audio/mpeg",
       "sha256": "3c9d126a4b497fe358e44c50d115e6f733c20dc496d11ada28a53ee220c14aa5",
       "bytes": 16740
-    },
-    {
-      "id": "890ced14cb7d915ef1527970658472882caafab194f8a1465dbaaaaca5a7cb3f",
-      "text": "De rust is voorbij. Ga verder als u er klaar voor bent.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "57a706ea74d4725c00f7fbbc6a0205e426f8a9a4561bd9fdf77307a30aa7a7b0",
-      "bytes": 25917
     },
     {
       "id": "c2087c53b2d3ef7d1163255c97b025c6d7d8cd71715db2ccdb50f2a73d0226c4",
@@ -1462,12 +1446,12 @@
       "bytes": 20155
     },
     {
-      "id": "830e819ed3b0e00011a798283324f768168c408062d3120ff87904258ddf09cf",
-      "text": "Werk twintig seconden hard en marcheer dan rustig tijdens de rest.",
+      "id": "1b88c86b828cf6fc6e1a9edf479d6583724cfee274792e07568b35c6445cd888",
+      "text": "Werk twintig seconden hard en marcheer dan rustig tussen de rondes door.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "1b048a0004b4c429a8c10dad17dfc55a071e89ba67b2b228fac3ab6ed484c7df",
-      "bytes": 26234
+      "sha256": "4189eed4e972f2def812d65253898743a71119e74ff7848eeaf2aa4a1990c4c4",
+      "bytes": 26777
     },
     {
       "id": "91ee98a9c81f270a091ef5f78d1bd8cbe7d7ea5b964cc89fe0dc57e92a4566ae",
@@ -7748,14 +7732,6 @@
       "mime": "audio/mpeg",
       "sha256": "5a6bb1180ba86475ddfaaf3844ce8db74a4ea9f173798c248b2fc7b7feb46e96",
       "bytes": 35436
-    },
-    {
-      "id": "41e16e7eb0fe923f4d81ce2098e838c0333c395931a660c4520f4bb5fc046841",
-      "text": "Rust voor 25 seconden. Ga verder als u er klaar voor bent.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "d8cbc6014c847a24e928fa0776c652676714475e86bc8b346b749fa777599da1",
-      "bytes": 30972
     },
     {
       "id": "eeb91ec84ef96f6dbf9d030448dfdb7a9073660650ede59d7bcccd27c4fee9f9",

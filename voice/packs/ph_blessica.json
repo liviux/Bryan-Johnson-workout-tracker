@@ -46,14 +46,6 @@
       "bytes": 8489
     },
     {
-      "id": "51006869d26376cd27cc60f78d0ca788a60e75cf82bda584667e550c26f48df0",
-      "text": "Magpahinga para sa 1 minuto at 15 segundo. Magpatuloy kapag handa ka na.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "0641fd7ea88ffb6ab993308f8aab310cf68b6ac67e2239047f76541974a5d26e",
-      "bytes": 29751
-    },
-    {
       "id": "898abd37cf8ed919257a45ec0ab76b33d1aef47ba8ee00262ad6e18ee1d890af",
       "text": "Susunod ay Paatras na paglalakad.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "96126e87474e25708cbbd5c4db67030f2306c42ca3c1a30e62edb4a08e92ca84",
       "bytes": 18631
-    },
-    {
-      "id": "9358fb470b0e3704fac95919809c3bc1685b39df799bc0d7582ff415e807522f",
-      "text": "Tapos na ang pahinga. Magpatuloy kapag handa ka na.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "83869c7753e369b4899bd5bd47001fdc1378c27f8e6e38d273248e43d526561f",
-      "bytes": 22019
     },
     {
       "id": "de612c123504141e27690662cd21f7502704bc417989208edb1a6a430b660eed",
@@ -1470,12 +1454,12 @@
       "bytes": 23261
     },
     {
-      "id": "5af63d87783c2164d95b3f2ac5530644fd896126791ad0377b7f6c9a90d55609",
-      "text": "Magtrabaho nang husto sa loob ng 20 segundo, pagkatapos ay malumanay na magmartsa habang natitira.",
+      "id": "24885b68b82333ffbc059fccf5d448f367c5945e386a4ebb1189dc60cf3589d5",
+      "text": "Magtrabaho nang husto sa loob ng 20 segundo, pagkatapos ay malumanay na magmartsa sa pagitan ng mga pag-ikot.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "a9f047df253ada8f03fbef68a5bbe68119e06c38217176d59c39e5553c83e9b8",
-      "bytes": 35863
+      "sha256": "027fb408c62a564d98d2ca0577694b580238b19ba148ab9d3252e7889a9a82c1",
+      "bytes": 38468
     },
     {
       "id": "849492b322d2a4b5aab194749d8cd6ab1d44cc6ee2312cf6057b0f3c44dcea4c",
@@ -8140,14 +8124,6 @@
       "mime": "audio/mpeg",
       "sha256": "46f0f8f5f926386964314027f5fc8340056740e11803c5d4d2249b74ce9a8f2a",
       "bytes": 34664
-    },
-    {
-      "id": "37d1ac1aed9d53e560c93725488360571d6ae69a8c8a67251aa3fe8f1ae22605",
-      "text": "Magpahinga para sa 25 segundo. Magpatuloy kapag handa ka na.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "c2c7745ad1807d181c49afda78ea0be4131ddb8915976a77d5de6b47f4aa6355",
-      "bytes": 26430
     },
     {
       "id": "4d6574d8089e1c43b1eaad54929902f1a36e7989b5554d5d8df757866819173c",

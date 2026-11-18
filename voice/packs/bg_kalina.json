@@ -46,14 +46,6 @@
       "bytes": 11399
     },
     {
-      "id": "02f298f85f2b75b845177dda61165a6e8f014fa14117358c03235531542b1039",
-      "text": "Почивка за 1 минута и 15 секунди. Продължете, когато сте готови.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "9b267df4b42d1b80794cf441ad11fba5479d45c617b8ae01634c36cc6cc53fbc",
-      "bytes": 31033
-    },
-    {
       "id": "787edfad259f0a5065689c0330a4016b9e305df333f7cd95221345785beedfdd",
       "text": "Следва Ходене назад.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "5a56149cdbfffc91658b9da78d79a9b27daacc6b05122c39c9c3bd03a41b1a76",
       "bytes": 20280
-    },
-    {
-      "id": "54d0b8dff29335968ffe3bdaae496550e5b41026c490147b2aa9c4f84ef33974",
-      "text": "Почивката свърши. Продължете, когато сте готови.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "aef3f4de141dd495700ee2b0877f1d61cb84b1a7f5db6b31905c7ce15e0362bb",
-      "bytes": 22781
     },
     {
       "id": "179fd955a2bbae7ad64a4c86e07cbf0b716929ac1a58cdfea3943b5f004016c7",
@@ -1422,12 +1406,12 @@
       "bytes": 26610
     },
     {
-      "id": "c3e0cc16b30c65e0b8f9628d90bf842c1bf297581d780efbc11cf441d8dbf08b",
-      "text": "Работете усилено в продължение на 20 секунди, след което марширувайте леко през почивката.",
+      "id": "bcd56f5ecdbc7907706b42d2cd4bde86d486d90a3cddf102836a3850845c02d3",
+      "text": "Работете усилено в продължение на 20 секунди, след което марширувайте леко между кръговете.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "fba03c9a360d604a8f45110c1d3e78772835cc1179d9c7fbe8486d1d442e3709",
-      "bytes": 35863
+      "sha256": "b49096e6f281488dbda7b4140e93244646870664feb150c5280fa4e969c2fee7",
+      "bytes": 36700
     },
     {
       "id": "2af07866dccd6053c55baa4aa48a1f8f2bb8cb471d165ff4446603d16655608c",
@@ -7668,14 +7652,6 @@
       "mime": "audio/mpeg",
       "sha256": "0b2afaad2c9609cfce672baffb68296684ff768a4c9384c62d1940c94d9e6534",
       "bytes": 37937
-    },
-    {
-      "id": "58b8bbe012159e6da2b8049ad9785d2b23913f1c448e4a62445e75e8fd14ea6d",
-      "text": "Почивка за 25 секунди. Продължете, когато сте готови.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "dc0ef443fd185d5bc0c1ba30a61159f3437199d51958eb88453227aede14bc16",
-      "bytes": 30847
     },
     {
       "id": "ce9589b1cccb5c9f65cf60f21af3a2f26eac6d578b47e05447d8764acfd32a54",

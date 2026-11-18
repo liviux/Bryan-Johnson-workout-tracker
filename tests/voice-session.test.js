@@ -7,7 +7,7 @@ import { createGuidedVoice } from "../public/js/voice/session.js";
 import { unlockVoice, voiceStatus } from "../public/js/voice/player.js";
 import { prepareManifest } from "../voice/service.js";
 
-test("guided rests continue teaching, respect the remaining time and keep clock cues while typing", async (t) => {
+test("guided voice prepares a step, plays its intro and reports a failed preparation", async (t) => {
   const originalFetch = globalThis.fetch, originalWindow = globalThis.window;
   const texts = new Map(), played = [];
   let manifest;
@@ -66,32 +66,8 @@ test("guided rests continue teaching, respect the remaining time and keep clock 
   assert.equal(voiceStatus.preparing, false, "preparation ends when the opening speech is ready");
   assert.equal(status.textContent, "");
   await new Promise((resolve) => setImmediate(resolve));
-  played.length = 0;
-  const context = { itemId: row.item.id, scope: "main", setIndex: 0 };
-  const event = (type, left, total = 75) => coach.rest({ type, left, total, context });
-  event("start", 75);
-  await new Promise((resolve) => setImmediate(resolve));
-  event("tick", 70);
-  await new Promise((resolve) => setImmediate(resolve));
-  assert(played.includes(manifest.how[1].text), "the first rest continues after the setup cue");
-  const count = played.length;
-  event("tick", 60);
-  assert.equal(played.length, count, "only one teaching sentence per rest");
-  event("end", 0);
-  assert(played.includes(manifest.sets[1].text), "rest end announces the next set");
-  event("start", 75);
-  await new Promise((resolve) => setImmediate(resolve));
-  event("tick", 70);
-  await new Promise((resolve) => setImmediate(resolve));
-  assert(played.includes(manifest.how[2].text), "another rest continues instead of repeating");
-  event("start", 15, 15);
-  const short = played.length;
-  event("tick", 11, 15);
-  assert.equal(played.length, short, "a teaching clip that would cross the warning is not started");
+  assert(played.includes(manifest.intro[0].text), "the step intro plays");
   coach.input();
-  event("tick", 10);
-  assert.equal(played.at(-1), manifest.clock.ten.text, "typing never delays the ten-second cue");
-  event("stop", 0);
   failPreparation = true;
   state.profile.settings.coachVoice = "am_puck";
   await coach.enter(0);

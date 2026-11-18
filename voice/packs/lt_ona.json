@@ -46,14 +46,6 @@
       "bytes": 11005
     },
     {
-      "id": "fdda3a40cca1b77a3d3c5abf9e4964b0cb9d85f2b9956da74fdb6a30ba9bad7f",
-      "text": "Pailsėkite 1 minutę ir 15 sekundės. Tęskite, kai būsite pasiruošę.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "e354033238b2e3725d05306392ca052068d13f0eb591b21504ca6dd267f69b3d",
-      "bytes": 34840
-    },
-    {
       "id": "a5ecfc239df3f92151a213b0c523c2f01740800729542231137470185a269188",
       "text": "Kitas yra Vaikščiojimas atgal.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "ac3ea7d2d0b17911a1c74c99428b087af565dcb8acdd821b39a71a8a8ec89e2b",
       "bytes": 17821
-    },
-    {
-      "id": "9fd58a5b22647535670a2e7d18798aa982f551774e8ab95a38804c2d2be58a1b",
-      "text": "Poilsis baigėsi. Tęskite, kai būsite pasiruošę.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "6f5f4be40dd966a3eb9e51cc4e7638952f2616a102f94b85ed0b4c520965266a",
-      "bytes": 24920
     },
     {
       "id": "216dc6340d597ef11963a934c8e156dced2040a1801a06b2171dc74365c8710c",
@@ -1446,12 +1430,12 @@
       "bytes": 25190
     },
     {
-      "id": "4c6c2594508307451f3cd867e1438610689defe4093a10daa1f0027c72e0b170",
-      "text": "Sunkiai dirbkite 20 sekundžių, tada per likusį švelniai žygiuokite.",
+      "id": "39d8d9f9a0a558701ac73bfe54cbc5393c9f6d80b54f57abed93dd5c8d485852",
+      "text": "Sunkiai dirbkite 20 sekundžių, tada švelniai žygiuokite tarp raundų.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "1b0b6462d88448a51d043a8f41742089399e5804c0b3f4066ffc21eba333dbe6",
-      "bytes": 27366
+      "sha256": "6911022649a9b65a80ee6bd7157fa90ba38869dcd83f54900759c60b9966fa7d",
+      "bytes": 27840
     },
     {
       "id": "a986da03ba6114dc1221179bc2de83b7edaa12c9b380197cf9d9cfcb0689bf60",
@@ -7804,14 +7788,6 @@
       "mime": "audio/mpeg",
       "sha256": "7dd37b8fa1b3ef621a4e2a7316865d374bf6acd77748a04ac2a8cce17ce38f4b",
       "bytes": 35081
-    },
-    {
-      "id": "f4e4d71cf7329ec48349dcbbbf7f4d0d888821055e080663e705f90d7a94b51e",
-      "text": "Pailsėkite 25 sekundės. Tęskite, kai būsite pasiruošę.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "5a66c3bee7c605ea9cacbc490bf8b24266dab3ad0ace67dc257fd9aa091b289e",
-      "bytes": 30195
     },
     {
       "id": "8f4e03ef219e6f314b8248d01ff492e5879a9f3c6d269d425e352330ef299287",

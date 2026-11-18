@@ -46,14 +46,6 @@
       "bytes": 8703
     },
     {
-      "id": "fd8730a385b5ae04ac46090d55fb531f5c42baa14ccb3aba91cef7629f95fbfd",
-      "text": "Відпочинок для 1 хвилина і 15 секунд. Продовжте, коли будете готові.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "2b08b328c1e93268624ee9f673f7d3c73eba0e9da1fbee24bfedc10edab45826",
-      "bytes": 34414
-    },
-    {
       "id": "d1375e9ae85097285a54393eba3d72f179879848bf125bd0af392f2c14a6fcc1",
       "text": "Далі Ходьба назад.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "29c1aa4060fa9e14f918ba097623447b41a2e35f27e2ebf4f0d51840e1fb316a",
       "bytes": 18218
-    },
-    {
-      "id": "3d5bb99071eae88bf733894f29d9d049e68117b0a17cca28e5987980153721ed",
-      "text": "Відпочинок закінчився. Продовжте, коли будете готові.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "5b967ea3bbc1a431e8eaff063aa504ff9e084253d97e22e90a0d6c19636a9b60",
-      "bytes": 24786
     },
     {
       "id": "16f04a56418352dd49f6b867250bf09b523e75a8c634daa7d9c05995faa44efa",
@@ -1414,12 +1398,12 @@
       "bytes": 25736
     },
     {
-      "id": "eb9c91d7315e14b3889d8f128f46031b7c3282e054815218274aeb6767fc8475",
-      "text": "Наполегливо працюйте протягом 20 секунд, потім плавно маршируйте під час відпочинку.",
+      "id": "f30f4ea81737888faef45c728288fb275023fe409bbeb05a57e61d3c313b4316",
+      "text": "Наполегливо працюйте протягом 20 секунд, потім плавно маршируйте між раундами.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "d08f97448011b6d0995f23e6d7edf896d564f9489bdb1c7d7868264a4fb0a7a8",
-      "bytes": 35015
+      "sha256": "9553de24fdf66b73177047b4492dc4b407efb89beb5e7bf7777d986e1814ba8c",
+      "bytes": 34669
     },
     {
       "id": "984e8b2e1b97b0bea7e776810c95561ffaf4546be1dbb5be6c58e5a58490ba56",
@@ -7532,14 +7516,6 @@
       "mime": "audio/mpeg",
       "sha256": "3fe7b8d4648050c1e7b80114318c6a810b6b65f06313d54b3b351f3470a9bf38",
       "bytes": 34625
-    },
-    {
-      "id": "e5b4e44b3fab0caad74c803aca119a504c3161aa82ae82c7964b886dc7a2e6c5",
-      "text": "Відпочинок для 25 секунд. Продовжте, коли будете готові.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "7a9e6e5a11f6f5bec207c25ec2302b98fe43c3f404f8992ff715aa0134caf32f",
-      "bytes": 30968
     },
     {
       "id": "7225fea0b3b2c43d4b6f5fe0cbc635cbe37fa9cf5e7ba9032345ee87b7959fb6",

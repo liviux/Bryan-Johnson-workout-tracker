@@ -6,7 +6,7 @@ import path from "node:path";
 import { ROOT, VOICE_DIR, MODEL, MODEL_SHA, nativeEnv } from "./runtime.js";
 import { VoiceCache } from "./cache.js";
 import { combineWaves, readBundle, unpackBundle } from "./bundles.js";
-import { ALL_VOICES, CLOCK, EFFORT, PREVIEW, VOICES, durationParts, durationText, exerciseScript, numberWords, phaseLine, speechText, voiceById } from "../public/js/voice/script.js";
+import { ALL_VOICES, CLOCK, EFFORT, PREVIEW, VOICES, durationParts, exerciseScript, numberWords, phaseLine, speechText, voiceById } from "../public/js/voice/script.js";
 import { DAYS } from "../public/js/data/program.js";
 import { ADDONS } from "../public/js/data/addons/index.js";
 import { EXERCISES } from "../public/js/data/exercises.js";
@@ -149,17 +149,13 @@ export function prepareManifest(body, savedProfile = {}) {
   if (!rx || rx === "—") bad("This exercise is not in this level");
   const script = exerciseScript({ item, rx, profile, level: body.level, easier: body.easier === "version" });
   if (body.easier === "version" && ex.easier) script.intro.push(...[speechText(ex.easier, profile)]);
-  // Zero means the step flows straight on, so it has no rest cue to speak.
-  const seconds = body.restSec ?? 75;
-  if (!integer(seconds, 0, 3600)) bad("Invalid rest duration");
-  const restCue = seconds > 0 ? (language() === "en" ? joinedClip(["Rest for", ...durationParts(seconds), "Continue when you are ready."], voice, speed) : joinedClip([tr("Rest for {duration}. Continue when you are ready.", { duration: durationText(seconds) })], voice, speed)) : null;
   const result = {
     name: script.name, setCount: script.setCount,
     intro: script.intro.map(cue), safety: script.safety.map(cue),
     how: script.how.map((text) => clip(text, voice, 1)), sets: script.sets.map(cue),
     block: cue(tr("{block} is next.", { block: speechText(block, profile) })),
     effort: strength ? cue(tr(EFFORT[body.level])) : null,
-    rest: restCue, next: cue(tr("Next is {name}.", { name: script.name })),
+    next: cue(tr("Next is {name}.", { name: script.name })),
     back: cue(tr("Back to {name}.", { name: script.name })),
     clock: Object.fromEntries(Object.entries(CLOCK).map(([key, text]) => [key, cue(tr(text))])),
   };
@@ -218,12 +214,12 @@ export function buildVoicePack(body, savedProfile = {}) {
     else if (Array.isArray(value)) value.forEach(collect);
     else if (value && typeof value === "object") Object.values(value).forEach(collect);
   };
-  const base = { voice: body.voice, pace: "steady", level, profile: body.profile, restSec: body.restSec ?? profile.settings?.restSec ?? 75 };
+  const base = { voice: body.voice, pace: "steady", level, profile: body.profile };
   collect(prepareManifest({ ...base, preview: true }, profile));
   for (const { item, addon } of catalog.values()) {
     if (addon && !addons.includes(addon)) continue;
     if (!rxFor(item, level) || rxFor(item, level) === "—") continue;
-    const request = { ...base, itemId: item.id, restSec: item.id === "fri-strength-rdl" && level === 3 ? 25 : base.restSec };
+    const request = { ...base, itemId: item.id };
     collect(prepareManifest(request, profile));
     collect(prepareManifest({ ...request, easier: "version" }, profile));
     const rx = personalize(rxFor(item, level), { ...profile, ...body.profile });

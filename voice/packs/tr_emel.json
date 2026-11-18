@@ -46,14 +46,6 @@
       "bytes": 10880
     },
     {
-      "id": "1d3bafa4ee76d8de8f0bd10945dd93b4e32a2412608c951a8e3820ffa776041f",
-      "text": "1 dakika Ve 15 saniye kadar dinlenin. Hazır olduğunuzda devam edin.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "4ec40f7f3f0975f4cb74873f7c4040653ee433db4d6bebb1ad404caff8200320",
-      "bytes": 30982
-    },
-    {
       "id": "66d8761c275e2cb32607b524c2bb5a6591ec1c7584dc993290f78bd33554d17c",
       "text": "Sırada Geriye doğru yürüyüş var.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "831ea98bdd9eb84336d7445a4cca6c6d2320b4a261de51484ac52a50f1f298ee",
       "bytes": 16024
-    },
-    {
-      "id": "2704bc7d2a40cf32c9cca9bb39613d4555206c27f182aa8326b560d6bfacf22f",
-      "text": "Dinlenme bitti. Hazır olduğunuzda devam edin.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "18287baf6df30a658c19773d42e2170aa48eb41d12bc38b480d29369c7f775ce",
-      "bytes": 22898
     },
     {
       "id": "fed3cc6941f82ba1fd458215eb9ce6815d359832566b8f8d6e274f0f1a08b41b",
@@ -1422,12 +1406,12 @@
       "bytes": 21969
     },
     {
-      "id": "392c696eb60247f2b3e5aaa92a785913e527a1326dfddc0c78253b9200d3072c",
-      "text": "20 saniye boyunca sıkı çalışın, ardından geri kalan süre boyunca yavaşça yürüyün.",
+      "id": "cce467168acd2713e8a91d341d0aaab6f767b238f76a1653bc01e80edf8826b9",
+      "text": "20 saniye boyunca sıkı çalışın, ardından turlar arasında yavaşça ilerleyin.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "77e7f94aa3d6e67a7b884a643ca6b87bb9ef653b5462ed4521caca8d51adda06",
-      "bytes": 30419
+      "sha256": "3725e912685178b701065ff77d7a5041ff7e5b30c742a607f2355c5cbf507990",
+      "bytes": 28451
     },
     {
       "id": "6df60b83660509fefc656a0dcc3479a7544153d5d46f333f024680be739fd276",
@@ -7572,14 +7556,6 @@
       "mime": "audio/mpeg",
       "sha256": "74d6e6c1caad5fa9d7175c5039805341d7f136fafca3683cf4b2de45d35a0ffd",
       "bytes": 32519
-    },
-    {
-      "id": "53ce4a0cd86fcada883af2b0644e0610b8f6a058b5e6b753c096cddb8f120904",
-      "text": "25 saniye kadar dinlenin. Hazır olduğunuzda devam edin.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "6da102df6e984b0542de13d69be0e8ce25b168513bd9fce730d5e8e9481947b1",
-      "bytes": 25482
     },
     {
       "id": "b76fe92f0da97b637f30ee5af42ea54173d9d6c23e0faac44a314cef725bb1ba",

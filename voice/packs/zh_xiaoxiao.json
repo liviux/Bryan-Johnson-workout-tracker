@@ -46,14 +46,6 @@
       "bytes": 10742
     },
     {
-      "id": "9af2509b16bca38fb845aba03a81b0f0b723b9402a307583bde64cc475ac37f0",
-      "text": "休息 1 分钟 和 15 秒，准备好后继续。",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "13f9785d1970803bfc431d70f0db3c8c18da0c0a865faa56198cefb9f9360c4d",
-      "bytes": 21821
-    },
-    {
       "id": "503eb66196ae9b5d55245d1c2a3adac27e3f5f8c33f34d60ea2785f089ab3e53",
       "text": "接下来是倒走。",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "9d262deaa90297d73ee1bd496b1d0f284dd3a425d2793a82d9f1f03b4f2b663c",
       "bytes": 15547
-    },
-    {
-      "id": "a887872fdb07a9c4ed34b80498c7a4ce55dfc838a529349f533294494bd64941",
-      "text": "休息结束，准备好后继续。",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "9fad197b60c2324086ac267719f3351757460534b6cf027655a37c519f0d6cbe",
-      "bytes": 15161
     },
     {
       "id": "1009276f89a0e4a55edd62687ffcb260c58b72e562c15068f997ee1a4eda7eca",
@@ -1334,12 +1318,12 @@
       "bytes": 16843
     },
     {
-      "id": "7232653723056f384b547c7815b26906298190bab23e0ffedf70070ef514834b",
-      "text": "全力做 20 秒，休息时轻松踏步。记录完成的轮数。",
+      "id": "9f99ef65b7d16ba1897b07c284d68f4ea4352ad8f71b12a81cb7f4d9b58183a6",
+      "text": "努力训练 20 秒，然后在回合之间轻轻行进。记录轮数。",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "ffe70e09c0c3a1758f5286233a1bb37f8ba8c14d154e2953a3489c6575b390d8",
-      "bytes": 29401
+      "sha256": "3a06d295810f8a57e4bc723341da8231fd7f2a13b309440fd37cd79358c34915",
+      "bytes": 32670
     },
     {
       "id": "a64ad09ea0d0ee1368bb230f912e7603aeee3588be29645e6dd7554122d00853",
@@ -7140,14 +7124,6 @@
       "mime": "audio/mpeg",
       "sha256": "bc49b4648e6041b2589ac39bb0d258ad9f5b8481cf92769125a7b647985d5c75",
       "bytes": 29828
-    },
-    {
-      "id": "cf1f8aadcb07a9959a1d34564735e9a8f2303297f476d090ad7fef7a1e1d30a2",
-      "text": "休息 25 秒，准备好后继续。",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "6fc650a0523ffa19bd6ece9676a31d81950dd69fbcf26ba30f2e508bbad8770e",
-      "bytes": 17127
     },
     {
       "id": "9caa1956e5783488d1d2d088b1bfe39a32b3f893e8ce3493be7908408deac370",

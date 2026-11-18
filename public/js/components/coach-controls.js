@@ -20,10 +20,9 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
       <small class="muted" data-coach="download-info">${t("The app includes recordings for every voice. Download the selected voice once to save it for playback; a speech model is only needed if the shared recordings are missing.")}</small>
       <div class="coach-voices" aria-label="${esc(t("Coach voice"))}">${voicesForLanguage(language()).map((v) => `<button type="button" class="choice" data-coach-voice="${v.id}" aria-pressed="false"><b data-i18n-skip>${esc(v.name)}</b><small>${esc(t(v.detail))}</small></button>`).join("")}</div>
       <div class="coach-options">
-        <label class="field"><span>${t("Coaching")}</span><select class="input" data-coach-option="coachDetail"><option value="coach">${t("Cues and form tips during rest")}</option><option value="cues">${t("Essential cues only")}</option></select></label>
         <label class="field"><span>${t("Pace")}</span><select class="input" data-coach-option="coachPace"><option value="steady">${t("Steady")}</option><option value="brisk">${t("Brisk")}</option></select></label>
       </div>
-      <p class="muted coach-note">${t("The coach reads today's dose, set numbers and timer cues. Personal weights and heart-rate targets stay on screen. Form tips fit into rests; you count your own reps. Radio gets quieter while the coach speaks.")}</p>
+      <p class="muted coach-note">${t("The coach reads today's dose, set numbers and timer cues. Personal weights and heart-rate targets stay on screen. Form tips play when a step starts; you count your own reps. Radio gets quieter while the coach speaks.")}</p>
       <button type="button" class="btn" data-coach="unlock" hidden>${t("Tap to enable audio")}</button>
     </div>
   </div>`);
@@ -75,7 +74,7 @@ export function createCoachControls({ popup = false, onChange = () => {} } = {})
     el.querySelector('[data-coach="preview"]').disabled = !status.installed || status.installing || !cacheReady;
     el.querySelector('[data-coach="unlock"]').hidden = !status.blocked;
     for (const v of el.querySelectorAll("[data-coach-voice]")) v.setAttribute("aria-pressed", String(v.dataset.coachVoice === selectedVoice().id));
-    for (const input of el.querySelectorAll("[data-coach-option]")) input.value = state.profile?.settings?.[input.dataset.coachOption] || (input.dataset.coachOption === "coachDetail" ? "coach" : "steady");
+    for (const input of el.querySelectorAll("[data-coach-option]")) input.value = state.profile?.settings?.[input.dataset.coachOption] || "steady";
     clearTimeout(poll);
     if (status.installing || building) poll = setTimeout(() => refreshVoiceStatus(), 2000);
   }

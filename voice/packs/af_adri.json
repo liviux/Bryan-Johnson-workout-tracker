@@ -62,14 +62,6 @@
       "bytes": 10815
     },
     {
-      "id": "dc7d6b79ef38c15bd7c4cc2bfc0df8f134cefdae6a207db9ea90d6368e48c188",
-      "text": "Rus vir 1 minuut en 15 sekondes. Gaan voort wanneer jy gereed is.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "d36d29bb0abe7ed0d0ec8d219156c67f4fd2a881c47f33369cb6e898dd301e62",
-      "bytes": 30801
-    },
-    {
       "id": "dc209d040e4957e4d48b4d0c3bc9d51de9ae63b3fefdcab861464dbb2d676119",
       "text": "Volgende is Stap agteruit.",
       "ext": "mp3",
@@ -124,14 +116,6 @@
       "mime": "audio/mpeg",
       "sha256": "984721ed0803a0c9b3a44d626d83b7383c96cc3a9490917bcc782225a3a2eaba",
       "bytes": 17329
-    },
-    {
-      "id": "dcf421ab99e4b09ba12e5877f6ed0198e88af4a8219710ec1fbd8ff2f3d6fc35",
-      "text": "Rus is verby. Gaan voort wanneer jy gereed is.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "24ac6299931831fc25be4122a488bb3d51164c99c60f03df4ee76c8821e5a9dc",
-      "bytes": 23227
     },
     {
       "id": "ba5edb65db5b7ba779b655bf8937770d16f185e5bbf2c1c1b358d86a78a17743",
@@ -1462,12 +1446,12 @@
       "bytes": 22846
     },
     {
-      "id": "c0d6b290e38656d60ca0dd2a1a31f5a693191650e3e0928494b9474a8796960c",
-      "text": "Werk hard vir 20 sekondes, marsjeer dan saggies gedurende die res.",
+      "id": "5434e6c49d18d496f94f390ce3ab2869aea3dcf0d22f8fa35c88993c517a0f6d",
+      "text": "Werk hard vir 20 sekondes, marsjeer dan saggies tussen rondtes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "6e42dacf0903ccc129b75d1f5b1c6abf1b5b22b162551a42c47c8dd4b56a0df7",
-      "bytes": 26266
+      "sha256": "2954a0e40bd72a568202db0f38938e2a926cf26fb2eabde5baf4dc105462f017",
+      "bytes": 25283
     },
     {
       "id": "66be937d5a38fa51d98357e11cf9416cd71623c1e7d2fd884f12c35e6c0c893e",
@@ -7860,14 +7844,6 @@
       "mime": "audio/mpeg",
       "sha256": "d53d480cdf07366b39d09d561bd28538de7f2d8957b8f020316b00ce07b9731b",
       "bytes": 30777
-    },
-    {
-      "id": "ca287d4fe6f14e04170e8a35d9247f8a70a694b9bbd2b9ccef56929332cadb7f",
-      "text": "Rus vir 25 sekondes. Gaan voort wanneer jy gereed is.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "20d9fd6f4bfe252af8e5973120131161a51f4e8175fff105b871a4a9d537273f",
-      "bytes": 25484
     },
     {
       "id": "1a714ce72c963a5498bed2b981d2680205776bb88522c8e2596284954092a835",

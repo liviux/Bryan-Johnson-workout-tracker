@@ -46,14 +46,6 @@
       "bytes": 10611
     },
     {
-      "id": "4da6d3def269a782ab0b558b9cd1e870a64a4c0ebc578b7d13a8edf237b3c8f5",
-      "text": "1 मिनट और 15 सेकंड आराम करें। तैयार होने पर जारी रखें।",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "b1f9ba70cfdca01a2bc10cafed744a0a20db15a7c3a82c7f8cc3422ca257a9a7",
-      "bytes": 31078
-    },
-    {
       "id": "b27412975741885e3a48686844f8ca7239f5689ea56a2595dccbf4aa7648a35c",
       "text": "अगला बैकवर्ड वॉक है।",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "8e04974048d4eb28580057fc49e969bf0566e661278f638595d8f62a9cbdae7f",
       "bytes": 20315
-    },
-    {
-      "id": "9116a0e422822bfabe2d86d49e1de760d096ad6020d3b9e7b8dca8bb665390f1",
-      "text": "आराम खत्म। तैयार होने पर जारी रखें।",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "95cf59d1aee2bbb923abc1d7ce5e157de8367d93a4fd32acfcfe86f1fb119c22",
-      "bytes": 24162
     },
     {
       "id": "c061033713fabc27a975cc4a2b2ae543e82345e6ebe2ef1c4cf0ee9b06f02f45",
@@ -1334,12 +1318,12 @@
       "bytes": 24247
     },
     {
-      "id": "32ee80bd20e39680c41f8037723fa5c7f0552e67f651f6240e6a2e3708678a08",
-      "text": "20 सेकंड तक कड़ी मेहनत करें, फिर आराम के दौरान धीरे-धीरे आगे बढ़ें। राउंड की संख्या रिकॉर्ड करें.",
+      "id": "9552ed2bb6a1d0b8ff4b23f762364ec5330df14501b53406bf4f3772037df979",
+      "text": "20 सेकंड तक कड़ी मेहनत करें, फिर राउंड के बीच धीरे-धीरे आगे बढ़ें। राउंड की संख्या रिकॉर्ड करें.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "e75bf6a64bf8004cd519a3570bccc37035bc34a5321307dd6de0b74ac41ff7cd",
-      "bytes": 48555
+      "sha256": "50fdc25c81300269d58ec3c7ec2a6af225dbde2b37dee381081a327f9f4832e1",
+      "bytes": 48244
     },
     {
       "id": "26a7db115dfac61ed62430946b0760b6cc576195f83cb7af40d85293a637f9a8",
@@ -7156,14 +7140,6 @@
       "mime": "audio/mpeg",
       "sha256": "6bd1f9eb27ddb4738ddc9da1f23c65cb620a3596a94c30ef3551840ba78de436",
       "bytes": 35936
-    },
-    {
-      "id": "f891c93c3cc80d211937d7e61287aa1fab40d18a46ae708d0d4a7537a6e3fb8f",
-      "text": "25 सेकंड आराम करें। तैयार होने पर जारी रखें।",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "a502793f98f6b0c8ae41ed333dd3333e60d2149a7f6f969cf452afd5b8687924",
-      "bytes": 30324
     },
     {
       "id": "f82be25cd83bcb6248ffda779795c94a89523b6ae011f2257c2a4f5d163b3c39",

@@ -82,7 +82,7 @@ test("the public pack covers all levels, units, add-ons, easier alternatives and
   };
   for (const [level, { id }] of LEVELS.entries()) for (const units of ["metric", "imperial"]) {
     const profile = { ...defaultProfile(), level: id, units, age: 82, weightKg: 54, maxDumbbellKg: 2.5, hrMax: 168 };
-    buildVoicePack({ voice: "af_heart", level, addons: ADDONS.map((a) => a.id), restSec: 3599 }, profile).forEach(check);
+    buildVoicePack({ voice: "af_heart", level, addons: ADDONS.map((a) => a.id) }, profile).forEach(check);
   }
 });
 
@@ -166,22 +166,14 @@ test("packs include the hold and cardio timers offered by the logger at every le
   }
 });
 
-test("a flow-on step prepares its voice without a rest cue", () => {
-  const item = items.find((it) => it.id === "mon-zone-2-topup");
-  const manifest = prepareManifest({ itemId: item.id, level: 1, restSec: 0 });
-  assert.equal(manifest.rest, null);
-  assert(manifest.intro.length);
-  assert.throws(() => prepareManifest({ itemId: item.id, level: 1, restSec: -1 }), /Invalid rest/);
-});
-
 test("the local API accepts plan context, never arbitrary speech or invalid resource requests", () => {
   const item = items.find((it) => it.ex === "row");
   assert.throws(() => prepareManifest({ text: "Speak this for anyone" }), /Unknown workout/);
   assert.throws(() => prepareManifest({ preview: true, voice: "unknown" }), /Unknown voice/);
   assert.throws(() => prepareManifest({ itemId: item.id, level: 99 }), /Unknown workout/);
-  assert.throws(() => prepareManifest({ itemId: item.id, level: 1, restSec: 999999 }), /Invalid rest/);
   assert.throws(() => prepareManifest({ itemId: item.id, level: 1, profile: { age: "arbitrary text" } }), /Invalid profile/);
   assert.throws(() => prepareManifest({ itemId: item.id, level: 1, timer: { type: "hold", seconds: -1, sides: 1 } }), /Invalid hold/);
   const hidden = items.find((it) => rxFor(it, 0) === "—");
   assert.throws(() => prepareManifest({ itemId: hidden.id, level: 0 }), /not in this level/);
+  assert.equal(prepareManifest({ itemId: item.id, level: 1, restSec: 75 }).rest, undefined, "legacy rest requests are ignored");
 });

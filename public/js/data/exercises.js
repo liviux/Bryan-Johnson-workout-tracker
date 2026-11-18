@@ -1154,10 +1154,10 @@ export const EXERCISES = localized({
     log: "intervals",
     equipment: ["step"],
     muscles: ["heart", "quads"],
-    bryan: "Tuesday in Bryan’s newest weekly template (exercise newsletter, 4 Oct 2026): 8 rounds of 20 s efforts with 40 s rest for beginners, then moderate cardio. Day 2 of his official protocol uses 20 s all-out with 20 s rest. These bursts are where most of your near-max minutes come from.",
+    bryan: "Tuesday in Bryan’s newest weekly template (exercise newsletter, 4 Oct 2026): 8 rounds of 20 s efforts with 40 s recovery for beginners, then moderate cardio. Day 2 of his official protocol uses 20 s all-out with 20 s recovery. These bursts are where most of your near-max minutes come from.",
     how: [
       "Pick one or two moves from “Indoor interval moves”.",
-      "Work hard for 20 s, then march gently during the rest. Record the number of rounds.",
+      "Work hard for 20 s, then march gently between rounds. Record the number of rounds.",
       "At New to training and Returning, keep the pace brisk and below all-out effort. At Active, work hard. At Well trained, use all-out effort.",
     ],
     bryanVideos: [
@@ -1199,7 +1199,7 @@ export const EXERCISES = localized({
     log: "intervals",
     equipment: ["step"],
     muscles: ["heart", "quads"],
-    bryan: "Thursday in Bryan’s newest weekly template (exercise newsletter, 4 Oct 2026): 4 rounds of 4 min at 85–95% of max heart rate with 3 min at 60–70% between, at a hard, controlled pace below an all-out sprint, starting with 2–3 rounds if four is too much. Bryan’s own variant (X, Dec 2024) is 4 min all-out with 4 min rest.",
+    bryan: "Thursday in Bryan’s newest weekly template (exercise newsletter, 4 Oct 2026): 4 rounds of 4 min at 85–95% of max heart rate with 3 min at 60–70% between, at a hard, controlled pace below an all-out sprint, starting with 2–3 rounds if four is too much. Bryan’s own variant (X, Dec 2024) is 4 min all-out with 4 min recovery.",
     how: [
       "Warm up gently for 10 min, building to about {hr:71}.",
       "4 min hard: reach {hr:85-95} and hold an even pace you could repeat four times.",

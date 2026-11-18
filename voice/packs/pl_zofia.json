@@ -46,14 +46,6 @@
       "bytes": 10758
     },
     {
-      "id": "828f61d3d0a30171c3338c7f1bf7ee9d70196ae0e504d0720fce0c55357cedfd",
-      "text": "Odpoczynek dla 1 minuta I 15 sekund. Kontynuuj, gdy będziesz gotowy.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "00d86d3607e4183c9c33002ab222f096b00eea4126df1eb7ad93b7cde6d7056a",
-      "bytes": 31040
-    },
-    {
       "id": "2b87dfa58b3ba25ee1e01057f7f7d77986ab364dd8f831a98cf92dfb24f6a32c",
       "text": "Następny jest Spacer do tyłu.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "e5a58b07d3a6613f956c2429d5cca6c1e22867cfdfa8259b8e89cd87d4efaed0",
       "bytes": 13751
-    },
-    {
-      "id": "8af09472a8e1534e272f7419bcf6f2c2f9583a06fcf4df0d7ef55500ee26ea28",
-      "text": "Odpoczynek się skończył. Kontynuuj, gdy będziesz gotowy.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "4c55c2cb4474d152e9c69c92a94744e522734000e27a334194740ae7ad5a95c4",
-      "bytes": 23120
     },
     {
       "id": "369f371dc9e9546608e553f80597962f29afb402d1a721453b89c59cdb36f399",
@@ -1406,12 +1390,12 @@
       "bytes": 22438
     },
     {
-      "id": "86e3628484c733d6b99fe1d7410c178d5d5f0d35cd50ac7b95da7ac56e8c77b1",
-      "text": "Pracuj ciężko przez 20 towary drugiej jakości, a następnie maszeruj delikatnie podczas odpoczynku.",
+      "id": "a431323dc95bb2c90f6d5ba728e909a44cd63acc98a5f1deb41a11043c5e2ab2",
+      "text": "Pracuj ciężko przez 20 towary drugiej jakości, a następnie maszeruj delikatnie pomiędzy rundami.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "3fea072e2b435ca81dd441651f144cf1106943124c89c200f88e919f1f17e440",
-      "bytes": 34652
+      "sha256": "1d80e8e177a5f965be88daa8dfde02e5744f54b3dde03f9bc4596c83f04d835e",
+      "bytes": 34595
     },
     {
       "id": "0f6e3ced4c48f128e9a300a585e91398c57403a3dffe956be86afa6fa190cbd9",
@@ -7604,14 +7588,6 @@
       "mime": "audio/mpeg",
       "sha256": "53ba2363dbb822aa27cb8f2c2fb423e62d0dcb4b8ebe35490fb3332091885c25",
       "bytes": 35291
-    },
-    {
-      "id": "91e71eaa3b64a9e913d49ef381396c48b5b24895f604bef4a0ff671ee707cf92",
-      "text": "Odpoczynek dla 25 sekund. Kontynuuj, gdy będziesz gotowy.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "52bfd8646d49d343455df805ce37d976def820b440ec5d45cec2678f1c7e7a3d",
-      "bytes": 30988
     },
     {
       "id": "c96ad9bdb90ea3fadcf5b21d523c4ad4542c731f5ca0b74dbafd27a6bfbb94c5",

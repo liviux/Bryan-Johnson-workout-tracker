@@ -46,14 +46,6 @@
       "bytes": 10740
     },
     {
-      "id": "73c38aeab928520219f2c5bc0010ae618e1692997de08b7f45cc0883d3dec826",
-      "text": "Descanse para 1 minuto e 15 segundos. Continue quando estiver pronto.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "5c5f2d94d166cd49d95aa1b54329e169712387ee1fd53fc9e68c8b1fc906159a",
-      "bytes": 27351
-    },
-    {
       "id": "1726aaf39808c35449e8960c04d3a3465eba0a43a4f694279663225a19045b6b",
       "text": "O próximo é Caminhada para trás.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "83533a6e0b2728a1f0f6cc97330123a3e6d65bfcccde76c92a8f120112336e14",
       "bytes": 15596
-    },
-    {
-      "id": "dd1fc01375b55e83eb20be65966927a26612682e7a64ae7e545e56f2eda594ea",
-      "text": "O descanso acabou. Continue quando estiver pronto.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "947afadb8c8930722c269c6386ecc6e12031f976f1c1da7ddc314745488e1a59",
-      "bytes": 19023
     },
     {
       "id": "07db3d8ba921a56ad915737cb7e982a971aeaceb4a2aa6c87a930da9d26f9661",
@@ -1406,12 +1390,12 @@
       "bytes": 24542
     },
     {
-      "id": "87a1af9da74ea544763cae37a95da914a00843e0864a660220521c13f985beeb",
-      "text": "Trabalhe duro por 20 segundos e depois marche suavemente durante o descanso.",
+      "id": "3e18f66bb1682adb371b50ff5fbfc8d534485eb0a8c5b24e1490e56b2ccb2e20",
+      "text": "Trabalhe duro por 20 segundos e depois marche suavemente entre as rodadas.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "54dbc9413086cdfd0b254b7fb487e174f58f00bfceaf9c77a3bb72c0b09d3b68",
-      "bytes": 27783
+      "sha256": "aa2dfcf6fcea1b005279fe23d0b5ab0f09bb67d2bc783d59dfb6a11f4a01c9d3",
+      "bytes": 28064
     },
     {
       "id": "4d46241984dd236944394064f41d93ad6f954edc509b88a99011a826e10dd839",
@@ -7644,14 +7628,6 @@
       "mime": "audio/mpeg",
       "sha256": "cf116d42c6fb263c1f766c7052d335928ad070161825c63e1fab30b8eedf076f",
       "bytes": 37298
-    },
-    {
-      "id": "39af8dea4f9d52263e4d82057e10b8d402659f8c6410440ea1824ddf298b8424",
-      "text": "Descanse para 25 segundos. Continue quando estiver pronto.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "714d1cf359189a7085212f5139518a5285e3f9b5b887456a32adbf681702e723",
-      "bytes": 25565
     },
     {
       "id": "0f3582da3e5a2c7c2088b06f7ddf0bdb4774305d137e3131c2409915e9ceadf7",

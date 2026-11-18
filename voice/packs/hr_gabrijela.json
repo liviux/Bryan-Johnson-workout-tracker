@@ -46,14 +46,6 @@
       "bytes": 10531
     },
     {
-      "id": "94f1bc0ea2d72dc34b1ef526e780c9ee8545adab933da6c6c9a5bcc4305a05f7",
-      "text": "Odmor za 1 minuta i 15 sekundi. Nastavite kada budete spremni.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "98ef932e98bcef8fd34b53b44a704811c9409c9c4992a4bae8af997955985abd",
-      "bytes": 30458
-    },
-    {
       "id": "892b2cd2a13fdd6bfd0325c3b2afdbe43d0fee518056efbe041f700e825960c6",
       "text": "Sljedeći je Hod unatrag.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "8fc24556d55793e11c998a99fe4fe3fc4397b21a024b2cfbae0843e9817aacfe",
       "bytes": 13847
-    },
-    {
-      "id": "23512b65c1c349a50d94bcbda01e77bb4cd4df6c67ca97f65982b580a46cebe8",
-      "text": "Odmor je gotov. Nastavite kada budete spremni.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "cc8f233a7c430ec25dcbd073fcb1b90381e0db527b79f723050a04da4bdca0fb",
-      "bytes": 23084
     },
     {
       "id": "a6fff566f7d2561c1c911f179a83660c39ec982d9b13d84b71f6373d981c1757",
@@ -1446,12 +1430,12 @@
       "bytes": 26310
     },
     {
-      "id": "3e4d871e734d2c95443cd9484fffc158393f5cc2e8ea40e7a262af0d9f0fc35d",
-      "text": "Naporno radite 20 sekundi, zatim lagano marširajte tijekom odmora.",
+      "id": "c69399f1c12b5d89c15a2eb8ae48c09f606e900e18979202f710058309306ae7",
+      "text": "Naporno radite 20 sekundi, zatim lagano marširajte između rundi.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "3fad5edead6c9317ac777346e5a2c1b85c4682768bbaaa41d125264b1a07dda3",
-      "bytes": 27166
+      "sha256": "471d28398b3ac321cf5b19a36d72b677201109742b7b7471958f5d4b7b3aa5c7",
+      "bytes": 27987
     },
     {
       "id": "24653ab4ce54ea545928227ef66bf397380369011cb47421c9e6dc9e64573a1b",
@@ -7788,14 +7772,6 @@
       "mime": "audio/mpeg",
       "sha256": "ff58ab167f52aa56aa534f79c9088dfad7f771682a362a838e83280d4c72a86e",
       "bytes": 40045
-    },
-    {
-      "id": "742d3eab4363315bd53267ac3848df85ef4c1ce7553eb5c39a93023dafc8b94e",
-      "text": "Odmor za 25 sekundi. Nastavite kada budete spremni.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "2178d3dab8277a262e01b8162972d95e78538843db9d5fd80ceb4aea66a884d7",
-      "bytes": 25661
     },
     {
       "id": "4bb4bc2bb07094eadf52dc8d1543f3e69e82cae03f97ebd16fa862b95da3f8d6",

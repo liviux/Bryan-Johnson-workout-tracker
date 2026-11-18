@@ -46,14 +46,6 @@
       "bytes": 7528
     },
     {
-      "id": "191b77459f58e92e4d7f243dbbe83887a58918ee6c38fba17afc73a9b30df760",
-      "text": "Одмор за 1 минута и 15 секунди. Продолжете кога ќе бидете подготвени.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "07d2c6b529251f5f3144826973db015ddb63b47dfa1a027cc9c015b74e8c0c59",
-      "bytes": 30770
-    },
-    {
       "id": "bdd4886acbfe917026f810b99c873f6682df37bba1e77cfc1255395f5163dcae",
       "text": "Следно е Назад одење.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "8239ecd2d3fb6c56a141ff5deb0750a7dd86a38f7d023f280a44b95d8c4e3a26",
       "bytes": 17573
-    },
-    {
-      "id": "abd7b471c5d83d7fce64be41883fb44cce81d71fa970d875b7eba8c4afe034de",
-      "text": "Одморот заврши. Продолжете кога ќе бидете подготвени.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "f925bdca804bd80b4dab555a954cff439d0ef5e143bed304eafcbeb0a9453c56",
-      "bytes": 24416
     },
     {
       "id": "166d165f23b69a9fef4a5447b86d4e655f1fed4970f3f1c3ec5420ac6f6e39c4",
@@ -1422,12 +1406,12 @@
       "bytes": 23815
     },
     {
-      "id": "fca62f4be7af57348c96c30bfd367fd614359afdbb2b017a34a67ba1498b54cf",
-      "text": "Работете напорно 20 секунди, а потоа нежно марширајте за време на остатокот.",
+      "id": "1f4624940559d35c322170b29194527438507de0846489b0ddf2cacf379ec953",
+      "text": "Работете напорно 20 секунди, а потоа нежно марширајте помеѓу круговите.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "143978eaaca9293dbbaa090375bef998e32ed3633696c7e05800362f40f9066c",
-      "bytes": 29254
+      "sha256": "5552c6c086973d946fda439b4c255acdde1c307364b3dc3a8928405f1df72bdf",
+      "bytes": 27698
     },
     {
       "id": "a4753c26bad13b9bde9e887aee0ad66988bf29ef74a330f710b3c07c06d6beb0",
@@ -7564,14 +7548,6 @@
       "mime": "audio/mpeg",
       "sha256": "7d3e290e778186ac50abc36bff02b5c579277bc06470f15f21e08a85cc1652c9",
       "bytes": 31457
-    },
-    {
-      "id": "706c60028a4527c43bd1681cf6af78d1350dc352f8d2ce9e95d35341f36464f1",
-      "text": "Одмор за 25 секунди. Продолжете кога ќе бидете подготвени.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "75bb4b6f3bb59d9aed65b5b4a16850998d12a88d1c0f4be3557b507be190f87a",
-      "bytes": 25750
     },
     {
       "id": "611bde32952e8fc4306c111c873e5f991c671ea6197c86ca8636406828d781d2",

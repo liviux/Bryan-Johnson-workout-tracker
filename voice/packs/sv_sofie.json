@@ -46,14 +46,6 @@
       "bytes": 11088
     },
     {
-      "id": "7378f17d9340d5604ea4aa04d83131d66a02069b130a59a35d57ed2f4c05b497",
-      "text": "Vila för 1 minut och 15 sekunder. Fortsätt när du är redo.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "a1891125efaada4b29123a50385c0f326d51693dada48ad4d44bf74a5ea9621a",
-      "bytes": 30483
-    },
-    {
       "id": "a1c90b261c67388e2de7acd2e7b602feefb7920d2c249c118848bea82d36e1da",
       "text": "Nästa är Gå bakåt.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "4318136dea30f1f9c68a6f540888a7b27c50467822cbb4f672499abddb43dfcb",
       "bytes": 18829
-    },
-    {
-      "id": "821642bc1ef582df6e71de10378569778a14b666062c2738b08a72cd4a4810e0",
-      "text": "Vilan är över. Fortsätt när du är redo.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "9881b8de5364e1bae2c901eda4d866bbebe4656bc6a785c694db8405c8bc34a2",
-      "bytes": 22724
     },
     {
       "id": "4237e13bec18b1a8d3e3420f1d4be0e7bff84d2ab53221ebe2b2f3f461af7de2",
@@ -1446,12 +1430,12 @@
       "bytes": 24834
     },
     {
-      "id": "46cae4100b0add7602f195a8c5b7de14ae2f9d4b4b3ff27be52fa044e510572d",
-      "text": "Arbeta hårt i 20 sekunder, marschera sedan försiktigt under resten.",
+      "id": "6a4cf0f2a00064b8c0ad8a86aa225c822b56f9910bd728153c94c5437c5baa60",
+      "text": "Arbeta hårt i 20 sekunder, marschera sedan försiktigt mellan varven.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "89ac6303f4cf3dfdef7ca5b2ea157b4f8d9f887f66335ff3ea4210af28dd63db",
-      "bytes": 26947
+      "sha256": "9464fb36426c8b5f7e3d84c1ed777d8e35b24ae50a25f7b2da3e1e5bf6ce6c4f",
+      "bytes": 27963
     },
     {
       "id": "9b132cb63babb3d31bb5b84dbc29c2e9ec6556921584970cde4ce2a93b5b00a5",
@@ -7804,14 +7788,6 @@
       "mime": "audio/mpeg",
       "sha256": "243557a1f1a00a7e01b74dc5ce1bd0fc3e53e4f5640adacc62b3386e804b387c",
       "bytes": 38117
-    },
-    {
-      "id": "a35913035629bd99f8551278fc6fd09b00dff1ef3fe26212c04b80ca37e18604",
-      "text": "Vila för 25 sekunder. Fortsätt när du är redo.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "10a2602377ab79c9e8a7dd7ec9bbdf784ffe8fb86f7e2828989454d539962c9b",
-      "bytes": 30533
     },
     {
       "id": "8034d10e72899baa6162271044411e34767b2b3aca8cb80842050c91f0f28bfc",

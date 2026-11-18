@@ -326,7 +326,7 @@ export default {
         highlight: ["heart"],
         camera: CAM.spot,
         loops: 3,
-        keys: cycle((ph) => onTheSpot(ph, MARCH), MARCH.T, 10, "March gently during your rest; adjust the pace to the effort"),
+        keys: cycle((ph) => onTheSpot(ph, MARCH), MARCH.T, 10, "March gently between rounds; adjust the pace to the effort"),
       },
     ],
   },

@@ -14,7 +14,6 @@ export default {
     daily: {
       name: "Daily posture block",
       mins: 8,
-      rest: 0,
       note: "Keep the effort gentle and focus on form before adding weight. Chin tucks and the doorway stretch are standard exercises outside Bryan's routine.",
       items: [
         { id: "posture-string", ex: "string", rx: ["30 s", "30 s", "30 s", "30 s"] },
@@ -60,7 +59,6 @@ export default {
     strength: {
       name: "Posture strength block",
       mins: 10,
-      rest: 0,
       note: "Do Bryan's two physical-therapist exercises to fatigue today. He does them twice a week.",
       items: [
         { id: "posture-string", ex: "string", rx: ["30 s", "30 s", "30 s", "30 s"] },

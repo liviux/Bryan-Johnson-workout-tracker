@@ -46,14 +46,6 @@
       "bytes": 10818
     },
     {
-      "id": "da0ecc6b21727e92988053a3a05573d0865084358d89e1b3096d9e088e0914b3",
-      "text": "Pause 1 Minute und 15 Sekunden. Machen Sie weiter, wenn Sie bereit sind.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "4403d473a6756db8df6ba3be8af660ba0fc286e03fa09a9185de9b9b701a5998",
-      "bytes": 34437
-    },
-    {
       "id": "1b64b6c56ddd7e1720225c570045a579dbe830baeeca2b95c15fec4bb9b56200",
       "text": "Als nächstes kommt Rückwärtsgehen.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "b67bfb3928f86e3d9f38bcf7390b426b398a010f00d97df9200df2db4d7483f6",
       "bytes": 19572
-    },
-    {
-      "id": "04a170f07c3b21934569764d914270751c0e173fbd0fc1af68874ea94ad628b6",
-      "text": "Die Pause ist vorbei. Machen Sie weiter, wenn Sie bereit sind.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "a62f7c0d3168e8c2051e71162e1ff8651f7ddb5e0997171a38302ef829586266",
-      "bytes": 26542
     },
     {
       "id": "a5805d5e4e1ffeacf066d3bf4a3d510a73955cc2453b9a93e1a413b35f3d3e64",
@@ -1430,20 +1414,20 @@
       "bytes": 25807
     },
     {
-      "id": "fc09b0bf9e3acfc96bff1b08b76c890529b14ef8fd1ef01f520a77a23d9d6bfd",
-      "text": "Arbeiten Sie 20 Sekunden hart und marschieren Sie in der Pause locker.",
+      "id": "f289d1b36e8a360f05b71d34eab87409b9bb10a6a2938b14502764f77887baf6",
+      "text": "Arbeiten Sie 20 Sekunden lang hart und marschieren Sie dann sanft zwischen den Runden.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "afec3e2c816305499c6774076734e475f363a0fcf9d1a5f0d1f44df38e120cd7",
-      "bytes": 26100
+      "sha256": "2269a85d2fbfc956d6bc579220760ae9d9dd6686383eff0772e55d99162ffa00",
+      "bytes": 34615
     },
     {
-      "id": "0e9b79eb7150b80eb4c93eded978485d279a7ff40b871ab9709059ea38f53b26",
-      "text": "Notieren Sie die Zahl der Runden.",
+      "id": "af4e2ee5d97708f8359ccd90cc7cdd5339a049168398369789befe8be0a760c7",
+      "text": "Notieren Sie die Anzahl der Runden.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "29fa11e857d970f9a8e33fb7c89d1c31ca64219757a8b3ebb07073205d0426eb",
-      "bytes": 13286
+      "sha256": "10240e9a1ce818b03fda5898a24bfa22cdde096f01448b76c104e5a2589f0b4b",
+      "bytes": 13957
     },
     {
       "id": "0ed278ed2981fb315cd3757e9805c432e2da98af4ce9a6ea7c98ca60e80a9347",
@@ -7708,14 +7692,6 @@
       "mime": "audio/mpeg",
       "sha256": "d9092e0000e7c18b12ee24d2fa074c7c6a9438a0b6c5a93166685a16dff7ab40",
       "bytes": 39926
-    },
-    {
-      "id": "4cb4a8e327587f583e6278ab52960f54b057f5eb8a6db0596f69309e6a3f0c24",
-      "text": "Pause 25 Sekunden. Machen Sie weiter, wenn Sie bereit sind.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "09cd225980b78cbcc93489964f0e54100e4b04a8b685e080b3e5282ed939b7a7",
-      "bytes": 31109
     },
     {
       "id": "55eda5b110b8a9b8c082626b9f7f2f6740f603808a13ad9168e0eaaf8b789e2b",

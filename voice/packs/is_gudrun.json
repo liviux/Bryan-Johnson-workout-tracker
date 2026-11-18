@@ -46,14 +46,6 @@
       "bytes": 10796
     },
     {
-      "id": "b59b2e348a76c9bd2b046e26d6ceb764e9fff56538f87cb3af87a5eef4a57dff",
-      "text": "Hvíld fyrir 1 mínútu og 15 sekúndur. Haltu áfram þegar þú ert tilbúinn.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "41a5da2113700c4badf69794976763dabf529abecbba68f47c4198ca1ca8165e",
-      "bytes": 30740
-    },
-    {
       "id": "c69008352418e89fa3b9de236a8ef88ffafdca7ccd43ddbc70afdabbb3cd41a1",
       "text": "Næst er Ganga afturábak.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "fb297bca1230d31a0a3289d578ca5c86b5e72ea571ebb691c100332cd9c81d88",
       "bytes": 15492
-    },
-    {
-      "id": "129cae62f5bc4c290799f9afeede37483cf5f5fdd8181a88fcb5c8de6d326454",
-      "text": "Hvíldinni er lokið. Haltu áfram þegar þú ert tilbúinn.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "ec9ab316bc95cc6ef889d9b3fc1ff9f8f47241bf1003da6a9ebf05fc250e0c1c",
-      "bytes": 22488
     },
     {
       "id": "0d18bd433c6c090fab20aa4717beb856d526e5878e3281b656ccd6ada9aa8e36",
@@ -1438,20 +1422,20 @@
       "bytes": 21326
     },
     {
-      "id": "3b11e2f48c1dc1cb43dbc09cc55de81c366a22f6289afb4146246de48d69e9a4",
-      "text": "Vinndu hörðum höndum í 20 sek.",
+      "id": "4670c786bd5b8f53b82567f3e48b5b48c10f03c30bd800ebe8f62ea7a1e1bd82",
+      "text": "Prjónaðu hart í 20 sek.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "c4a01515a083e79481ec2eb4e9d96bf949b1d3ef5f66113aa144d578bbb9a2ce",
-      "bytes": 13512
+      "sha256": "b9b52d141129393894faa3c5256f8e5671444527e14937c49a6f31b82f5e8438",
+      "bytes": 11683
     },
     {
-      "id": "f9cb214b40ebffd90a3b49e45b1270950747772f4d101b5438e9df756fb1184b",
-      "text": ", farðu síðan varlega meðan á hvíldinni stendur.",
+      "id": "270fded84217e9b10b4faccd647013feb72ac2c226047450be6e1ad093547006",
+      "text": ", marsaðu síðan varlega á milli umferða.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "f43ab0f78f4562ec2490dd288f0ccf0483bee596f7e548d73874194453154c7b",
-      "bytes": 16336
+      "sha256": "fbdfc01a22f111d3e01504ff69f577f6f64f7fa1df378825dd5c38cce5b46ffa",
+      "bytes": 14050
     },
     {
       "id": "03936a14baddba3e1aa23b75507b2864b401987a01b0226219fc09aee322e787",
@@ -7836,14 +7820,6 @@
       "mime": "audio/mpeg",
       "sha256": "33fa09b4606f0628349a98b1687c3e6f31c9b49f355c91c70bee4ce37ff7d6f6",
       "bytes": 30731
-    },
-    {
-      "id": "6ba32a59565bdbd9e775e8f7a8c4e5d5a389687c39c629576d34e3a7e7c4c917",
-      "text": "Hvíld fyrir 25 sekúndur. Haltu áfram þegar þú ert tilbúinn.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "0738b970112840581692b165f32b2fa056106bff1085fba1f6d983e2c982c160",
-      "bytes": 25489
     },
     {
       "id": "d2af564d607d6bcb29d76e035b3be1b934e13ca7c8567083c6ffe9cd363c75c5",

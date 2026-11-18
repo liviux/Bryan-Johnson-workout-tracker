@@ -46,14 +46,6 @@
       "bytes": 10936
     },
     {
-      "id": "4652e14645460dfb8e812dc76c2297c91ca50fd7f2b3fca9e601138f380acef3",
-      "text": "Descanso para 1 minuto y 15 segundos. Continúe cuando esté listo.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "e1f74c0ad63cae1d5a4d068a6777abf095ef26a34052d1051b513bbc6595f2e6",
-      "bytes": 30879
-    },
-    {
       "id": "73d8419f04ac67943cc44573497a8b5d962a1e35d5f764159c57cbf6c3b62729",
       "text": "El siguiente es Caminata hacia atrás.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "dc4c57d075bc344fd146a60db1a437a6faeac9ea869dcebf8af256e3df590e25",
       "bytes": 17012
-    },
-    {
-      "id": "d8fbe4607728e7162bafb6df8bd972411ec8fdc36af21d49b252426d084998c9",
-      "text": "Se acabó el descanso. Continúe cuando esté listo.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "097829afac178465462e64e65a9f2326631486e29314dc0804efc631b58ef503",
-      "bytes": 21456
     },
     {
       "id": "6b563a349a5f5f11e9118cae983f7a09c0ab8b42db94c2b6648c25ea5636dcf7",
@@ -1422,20 +1406,20 @@
       "bytes": 21865
     },
     {
-      "id": "8672f0847a5a0e1e2bc17fec750547ff8487d35d4aae44fcbaf092772c8ad5fe",
-      "text": "Trabaja duro 20 segundos y luego marcha suave durante el descanso.",
+      "id": "dc40d42e4ad3cf43648478321e7dac48fac7a5659366e1a3bcf2ce03b5bf230f",
+      "text": "Trabaja duro durante 20 segundos, luego marcha suavemente entre rondas.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "6b3f36111125e0dbd924710cf1db849d2e712b5bd80dcaee8bc5e3e533156cf8",
-      "bytes": 24183
+      "sha256": "feb949522ad74cef21edde4f909824763e740b6d3561a918b918199a6288789d",
+      "bytes": 28258
     },
     {
-      "id": "24a52e6702b85f5f2ea80a1ad97955c0acd81ed8921833485add084342f6c00a",
-      "text": "Registra el número de rondas.",
+      "id": "16cb006d0ebbd51510fd87866360b9853dd3cfc31684d1a67eb5a93efb223c1d",
+      "text": "Registre el número de rondas.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "425b7ba557889877eb711c5cb1e50622927567c136b6bfb21ff1a29081e0b57f",
-      "bytes": 12638
+      "sha256": "4bcb569bc7d761178a782e2715c75f550c6779e12d4263378279bbac7b7020cd",
+      "bytes": 12454
     },
     {
       "id": "f521daf6ed29fa2624487b0da9fd4f8f79a5637213d107c8cd0e33059a0f2cf0",
@@ -7724,14 +7708,6 @@
       "mime": "audio/mpeg",
       "sha256": "5ff72f296d8a54edfbcbeb1b4bf060df5a48b5d5348d226f3c427743bb60a321",
       "bytes": 34677
-    },
-    {
-      "id": "0719dbeddac3d54967621364f30310210949814e4f9d09a38c71293ecfc4ed20",
-      "text": "Descanso para 25 segundos. Continúe cuando esté listo.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "3b46eead6919d08ab0acce3a75090ddeaa547e28f1c78e9f37c44d63bdccb7e0",
-      "bytes": 24878
     },
     {
       "id": "68affa953509e9ef5dfd6fd6d8e6303ce856be8922467bea440604598f931a7d",

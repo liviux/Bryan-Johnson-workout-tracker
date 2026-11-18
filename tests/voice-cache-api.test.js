@@ -97,11 +97,12 @@ test("included recordings activate, switch voices and speak custom timers withou
   await ready("af_heart");
   assert.deepEqual((await readdir(path.join(root, ".voice/packs"))).sort(), ["af_heart.json", "am_michael.json"]);
   assert(!existsSync(path.join(root, ".voice/model")), "no model is downloaded or used");
-  const manifest = await (await post("/api/voice/prepare", { voice: "am_michael", itemId: "mon-strength-row", level: 2, restSec: 777 })).json();
-  assert(manifest.rest, JSON.stringify(manifest));
-  const combined = Buffer.from(await (await fetch(base + manifest.rest.url)).arrayBuffer());
+  const manifest = await (await post("/api/voice/prepare", { voice: "am_michael", itemId: "mon-strength-row", level: 2 })).json();
+  const clip = manifest.intro[0];
+  assert(clip, JSON.stringify(manifest));
+  const combined = Buffer.from(await (await fetch(base + clip.url)).arrayBuffer());
   assert.equal(combined.subarray(0, 4).toString(), "RIFF");
-  assert(combined.length > audio.length, "custom rest duration is assembled from saved fragments");
+  assert(combined.length > 44, "prepared speech is assembled from saved audio");
   const preview = (await (await post("/api/voice/prepare", { voice: "am_michael", preview: true })).json()).preview;
   await rm(path.join(root, ".voice/audio", `${preview.id}.wav`), { force: true });
   assert.equal((await fetch(base + preview.url)).status, 200, "a removed playback file is restored from the included recording");
@@ -109,6 +110,6 @@ test("included recordings activate, switch voices and speak custom timers withou
   assert(saved.entries.every((entry) => Object.keys(entry).every((key) => ["id", "text", "sid", "vid", "speed"].includes(key))));
   await stop(); await start();
   assert.equal((await ready("am_michael")).cache.state, "ready");
-  await post("/api/voice/prepare", { voice: "am_michael", itemId: "mon-strength-row", level: 2, restSec: 777 });
-  assert.equal((await fetch(base + manifest.rest.url)).status, 200);
+  await post("/api/voice/prepare", { voice: "am_michael", itemId: "mon-strength-row", level: 2 });
+  assert.equal((await fetch(base + clip.url)).status, 200);
 });

@@ -46,14 +46,6 @@
       "bytes": 10910
     },
     {
-      "id": "f77bbb1eee7d228bfefbf2d9adaa690eb164c143802809aa3207403bb7f3ee89",
-      "text": "Odpočinek pro 1 minuta a 15 sekund. Pokračujte, až budete připraveni.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "30910ae56054181e00c62df4d9661c3046acae231a3cd85a362d9d952809b025",
-      "bytes": 35280
-    },
-    {
       "id": "43259a7376ae4303342be9aa53c01521ac9dc37b4d5a60d7f459e5fad76b5b5a",
       "text": "Další je Zpětná chůze.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "ca2cd2af7b1d042a18c7a7b857dc4229669b9ec528bbf65e3eb881553a7ae240",
       "bytes": 16129
-    },
-    {
-      "id": "ced760ff89bb7f8e6c6150143ff051f7de17a7b982fb8f12a0a88a74a6989274",
-      "text": "Odpočinek je u konce. Pokračujte, až budete připraveni.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "737d5d4a284ce30fd4d26b2b833a42333415ab804da93ac59a936adfecc00e51",
-      "bytes": 26552
     },
     {
       "id": "1c5c0e1eaca5632912eaa2e6a678d0ce9d11ef43906f91371f13e1d1378f43e6",
@@ -1422,12 +1406,12 @@
       "bytes": 22848
     },
     {
-      "id": "09f07d9f8a10af5ef6d6768aae0907bb0721f442e2b8c6a0cd11b37e4b854120",
-      "text": "Tvrdě pracujte po dobu 20 sekundy, pak během odpočinku jemně pochodujte.",
+      "id": "04330d4785ef768f2ec79667aebd9089bdd7d2e53ad5fffc57db8c46d1d18d54",
+      "text": "Tvrdě pracujte po dobu 20 sekundy, poté mezi koly opatrně pochodujte.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "5cccd1bb44fe2b2f4b321c92b1e3ce5ec83e170069a3af6f670d788fff12a0b9",
-      "bytes": 30852
+      "sha256": "8462230dfb047635207384214f9ecbfabfd0ce72696741353bbbd0cd97bbf2de",
+      "bytes": 34702
     },
     {
       "id": "de9e74778ccd6b0e4aee2495505b6a12e95ec7570c2de362c93a6d7f06a8a14a",
@@ -7692,14 +7676,6 @@
       "mime": "audio/mpeg",
       "sha256": "3119fb8a130953b71749606ee40a4e97514e6f1ad50e47934f9d59c5814832fa",
       "bytes": 39656
-    },
-    {
-      "id": "44c69eb645f84f06de55e7b68b43a377458ccc8eaaea1f38b3a006a17f8db9c1",
-      "text": "Odpočinek pro 25 sekund. Pokračujte, až budete připraveni.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "c5f6a2a6dfa14a61eb593e9415b56c93b63757fea65a7c583d818213e8e326f6",
-      "bytes": 31035
     },
     {
       "id": "0e35760ada1e69ac293f9b392a91b9de190b28c364f28ca665355c3e00920d3b",

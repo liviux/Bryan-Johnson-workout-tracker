@@ -46,14 +46,6 @@
       "bytes": 11730
     },
     {
-      "id": "f99239f66729bfbfcbe5d1cc73b83560e604cf4da77c8222888921bc87c9acc3",
-      "text": "Descansa per 1 minut i 15 segons. Continueu quan estigueu preparats.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "00451ddd2bb9eab7e5e68eda45f9692cf6cceebd2a723935d1ab482735e02386",
-      "bytes": 34424
-    },
-    {
       "id": "c4428eef69d22c88fd1a8f2a0018d99aaa65403b848a947419262b6a36c192fa",
       "text": "El següent és Caminada cap enrere.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "5beb092a72e096c6712b8dbcd256ffc1ea5a3959f754a7b834b17c2f7d7ac3ae",
       "bytes": 20532
-    },
-    {
-      "id": "2bb72726ebaecb94e065fe92f05544e827750ed417051dca910b2f72bf70ae3d",
-      "text": "El descans s'ha acabat. Continueu quan estigueu preparats.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "823f65fdbd571b644982ed9bfd4730e350fcd3992f9df36e0643d259cb863dd4",
-      "bytes": 30595
     },
     {
       "id": "783c19e79c76bd72460f2b0449be78877eeb8943d5b1db771283bc248fe426bf",
@@ -1446,12 +1430,12 @@
       "bytes": 30388
     },
     {
-      "id": "9c87ef43daf2a204d13383b99b59e2815d9439104d17b0ff24ca9eadafe2fba7",
-      "text": "Treballeu fort durant 20 segons, després marxa suaument durant el descans.",
+      "id": "85551b012d272a70b22e17fe7a9251462ce5b9ee12fef007833bacbf48a23b1e",
+      "text": "Treballeu fort durant 20 segons, després marxa suaument entre rondes.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "00795faf8e4833de4ad0bcf9ef3ce1c86352db875cbcf347d240da6c3b093372",
-      "bytes": 34569
+      "sha256": "a3700396e02730779dc8636fa5589bc3dd207bd0ba81afa850ea909a655f7c95",
+      "bytes": 34515
     },
     {
       "id": "e220aa26c6eb14efcb3a91a5c8c0407b7fc28da3486d9f7e543ac272d385775c",
@@ -7796,14 +7780,6 @@
       "mime": "audio/mpeg",
       "sha256": "56944adf7348366aeaedbb702cc0b53942058dceb3ea4311db2415a8387a009f",
       "bytes": 41903
-    },
-    {
-      "id": "7d9a854973f3882949aaa9505e17b3cb23d51f8212bd80e6541294c71902461f",
-      "text": "Descansa per 25 segons. Continueu quan estigueu preparats.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "8d498d9245e529b2bce0ae3dcb16a6895273c26bd2f224ca3ae7ad4c608394ad",
-      "bytes": 31015
     },
     {
       "id": "1d3558ecc042f9a68536e7aef52d8397deee3ce2f807b548da757c791f1e2ae7",

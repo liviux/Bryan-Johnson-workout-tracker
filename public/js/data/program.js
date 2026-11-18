@@ -120,7 +120,6 @@ export const DAYS = localized([
     blocks: [
       {
         name: "Warm-up",
-        rest: 0,
         mins: [8, 9, 9, 10],
         note: "Start with a few minutes of easy movement, then dynamic exercises, as in Bryan’s official warm-up. Hops and balance come from his bone protocol and five exercise pillars.",
         items: [
@@ -156,9 +155,8 @@ export const DAYS = localized([
       },
       {
         name: "Jumps",
-        rest: 60,
         mins: [0, 3, 4, 4],
-        note: "Give each jump your best effort and rest 45–60 s. Stop the set if landings get loud.",
+        note: "Give each jump your best effort. Stop the set if landings get loud.",
         items: [
           {
             id: "mon-jumps-jumps",
@@ -176,7 +174,6 @@ export const DAYS = localized([
       },
       {
         name: "Strength",
-        rest: 75,
         mins: [18, 22, 28, 30],
         note: "Rest 60–90 s between sets. Pair push-ups with rows to save time.",
         items: [
@@ -224,9 +221,8 @@ export const DAYS = localized([
       },
       {
         name: "Core & knees",
-        rest: 30,
         mins: [5, 6, 8, 8],
-        note: "Move from one exercise to the next with little rest.",
+        note: "Move from one exercise to the next.",
         items: [
           {
             id: "mon-core-knees-tibraise",
@@ -262,7 +258,6 @@ export const DAYS = localized([
       },
       {
         name: "Zone 2",
-        rest: 0,
         mins: [5, 10, 15, 25],
         items: [
           {
@@ -282,7 +277,6 @@ export const DAYS = localized([
       },
       {
         name: "Cool-down",
-        rest: 0,
         mins: 3,
         items: [
           { id: "mon-cool-down-couch", ex: "couch", rx: ["30 s/side, gentle", "30 s/side", "30 s/side", "45 s/side"] },
@@ -301,7 +295,6 @@ export const DAYS = localized([
     blocks: [
       {
         name: "Warm-up",
-        rest: 0,
         mins: [8, 9, 9, 10],
         note: "Start with a few minutes of easy movement, then dynamic exercises, as in Bryan’s official warm-up. Hops and balance come from his bone protocol and five exercise pillars.",
         items: [
@@ -337,7 +330,6 @@ export const DAYS = localized([
       },
       {
         name: "Short intervals",
-        rest: 0,
         mins: [5, 7, 9, 14],
         note: "Choose from the indoor interval moves. Each has a quieter version.",
         items: [
@@ -368,7 +360,6 @@ export const DAYS = localized([
       },
       {
         name: "Controlled vigorous cardio",
-        rest: 0,
         mins: [0, 6, 12, 18],
         note: "This block builds toward Bryan’s 75 min/week of vigorous cardio. Keep the effort controlled and below all-out. Log only vigorous minutes; allow extra time for recoveries.",
         items: [
@@ -381,7 +372,6 @@ export const DAYS = localized([
       },
       {
         name: "Zone 2",
-        rest: 0,
         mins: [15, 20, 25, 30],
         items: [
           {
@@ -394,7 +384,6 @@ export const DAYS = localized([
       },
       {
         name: "Back & core",
-        rest: 30,
         mins: [5, 6, 8, 9],
         items: [
           {
@@ -419,7 +408,6 @@ export const DAYS = localized([
       },
       {
         name: "Cool-down",
-        rest: 0,
         mins: 3,
         items: [
           { id: "tue-cool-down-hipflexor", ex: "hipflexor", rx: ["30 s/side", "30 s/side", "30 s/side", "45 s/side"] },
@@ -438,7 +426,6 @@ export const DAYS = localized([
     blocks: [
       {
         name: "Dynamic mobility",
-        rest: 0,
         mins: 10,
         note: "Bryan’s official list: arm circles, wall slides, thread the needle, hip CARs.",
         items: [
@@ -456,9 +443,8 @@ export const DAYS = localized([
       },
       {
         name: "Strength",
-        rest: 75,
         mins: [20, 24, 28, 30],
-        note: "Rest 60–90 s between sets for the first three exercises, then 30–45 s for the rest.",
+        note: "Pair the first three exercises when you want to save time, then finish the session.",
         items: [
           {
             id: "wed-strength-chinup",
@@ -483,42 +469,36 @@ export const DAYS = localized([
             id: "wed-strength-revnordic",
             ex: "revnordic",
             rx: ["1 × 5, small range", "1 × 6, small range", "1 × 8–10", "1 × 10, full range"],
-            rest: 45,
             bryan: "Bryan: 1 × 10",
           },
           {
             id: "wed-strength-triceps",
             ex: "triceps",
             rx: ["1 × 12 @ {kg:4}", "1 × 15 @ {kg:4}", "1 × 20 @ {kg:4.5}", "1 × 25 @ {kg:4.5-6}, 1 s hold at top"],
-            rest: 45,
             bryan: "Bryan: 1 × 25 @ 4.5 kg",
           },
           {
             id: "wed-strength-curl",
             ex: "curl",
             rx: ["1 × 10 @ {kg:6-8}", "1 × 12 @ {kg:6-8}", "1 × 15 @ {kg:8}", "1 × 15–20 @ {kg:8-10}"],
-            rest: 45,
             bryan: "On Bryan’s list",
           },
           {
             id: "wed-strength-fly",
             ex: "fly",
             rx: ["1 × 12, light band", "1 × 15, light band", "1 × 15", "1 × 15, 1 s squeeze"],
-            rest: 45,
             bryan: "Bryan: 1 × 15",
           },
           {
             id: "wed-strength-farmer",
             ex: "farmer",
             rx: ["2 × 20 s @ 2 × {kg:12-16}", "2 × 30 s @ 2 × {kg:12-16}", "3 × 30 s @ 2 × {kg:18-20}", "3 × 40 s, heaviest pair"],
-            rest: 45,
             bryan: "Official: 3 × 30 s",
           },
         ],
       },
       {
         name: "Beginner yoga & balance",
-        rest: 0,
         mins: 10,
         note: "Bryan’s official yoga block includes cat-cow, cobbler’s pose, tree pose and cobra. Stay longer when you have time; his version lasts 15 min.",
         items: [
@@ -548,14 +528,12 @@ export const DAYS = localized([
       },
       {
         name: "Zone 2",
-        rest: 0,
         mins: [5, 10, 15, 25],
         note: "This cardio counts toward Bryan’s 150 min/week target. Outdoor activity is optional.",
         items: [{ id: "wed-zone-2-zone2", ex: "zone2", rx: ["5 min @ {hr:60-70}", "10 min @ {hr:60-70}", "15 min @ {hr:60-70}", "25 min @ {hr:60-70}"] }],
       },
       {
         name: "Static stretching",
-        rest: 0,
         mins: 5,
         items: [
           { id: "wed-static-stretching-couch", ex: "couch", rx: ["30 s/side", "45 s/side", "45 s/side", "45 s/side"] },
@@ -579,7 +557,6 @@ export const DAYS = localized([
     blocks: [
       {
         name: "Warm-up",
-        rest: 0,
         mins: 10,
         items: [
           {
@@ -599,7 +576,6 @@ export const DAYS = localized([
       },
       {
         name: "Norwegian 4×4",
-        rest: 0,
         mins: [12, 15, 25, 25],
         note: "Keep a hard, controlled pace. Change the indoor move every minute.",
         items: [
@@ -664,7 +640,6 @@ export const DAYS = localized([
       },
       {
         name: "Controlled vigorous cardio",
-        rest: 0,
         mins: [0, 6, 12, 18],
         note: "This block builds toward Bryan’s 75 min/week of vigorous cardio. Keep the effort controlled and below all-out. Log only vigorous minutes; allow extra time for recoveries.",
         items: [
@@ -677,7 +652,6 @@ export const DAYS = localized([
       },
       {
         name: "Cool-down",
-        rest: 0,
         mins: 5,
         items: [
           {
@@ -691,7 +665,6 @@ export const DAYS = localized([
       },
       {
         name: "Stability",
-        rest: 30,
         mins: [9, 11, 13, 14],
         note: "Stability exercises from Bryan’s official protocol.",
         items: [
@@ -726,7 +699,6 @@ export const DAYS = localized([
     blocks: [
       {
         name: "Warm-up",
-        rest: 0,
         mins: [8, 9, 9, 10],
         note: "Start with a few minutes of easy movement, then dynamic exercises, as in Bryan’s official warm-up. Hops and balance come from his bone protocol and five exercise pillars.",
         items: [
@@ -762,9 +734,8 @@ export const DAYS = localized([
       },
       {
         name: "Speed & power",
-        rest: 60,
         mins: [4, 5, 7, 8],
-        note: "Give each rep your best effort and rest 30–60 s. Keep every rep controlled.",
+        note: "Give each rep your best effort. Keep every rep controlled.",
         items: [
           {
             id: "fri-speed-power-powerskip",
@@ -788,9 +759,8 @@ export const DAYS = localized([
       },
       {
         name: "Strength",
-        rest: 75,
         mins: [22, 24, 30, 33],
-        note: "Pair floor press with chin-ups and the overhead press with step-ups; rest about 60 s after each pair.",
+        note: "Pair floor press with chin-ups and the overhead press with step-ups.",
         items: [
           {
             id: "fri-strength-rdl",
@@ -838,7 +808,6 @@ export const DAYS = localized([
       },
       {
         name: "Side plank & tendons",
-        rest: 30,
         mins: [6, 7, 8, 9],
         items: [
           {
@@ -864,14 +833,12 @@ export const DAYS = localized([
       },
       {
         name: "Zone 2",
-        rest: 0,
         mins: [5, 10, 20, 30],
         note: "This cardio counts toward Bryan’s 150 min/week target. Outdoor activity is optional.",
         items: [{ id: "fri-zone-2-zone2", ex: "zone2", rx: ["5 min @ {hr:60-70}", "10 min @ {hr:60-70}", "20 min @ {hr:60-70}", "30 min @ {hr:60-70}"] }],
       },
       {
         name: "Cool-down",
-        rest: 0,
         mins: 3,
         items: [
           { id: "fri-cool-down-hipflexor", ex: "hipflexor", rx: ["30 s/side", "30 s/side", "30 s/side", "45 s/side"] },
@@ -891,7 +858,6 @@ export const DAYS = localized([
     blocks: [
       {
         name: "Warm-up",
-        rest: 0,
         mins: 5,
         items: [
           {
@@ -904,7 +870,6 @@ export const DAYS = localized([
       },
       {
         name: "Controlled vigorous cardio",
-        rest: 0,
         mins: [0, 6, 12, 18],
         note: "This block builds toward Bryan’s 75 min/week of vigorous cardio. Keep the effort controlled and below all-out. Log only vigorous minutes; allow extra time for recoveries.",
         items: [
@@ -917,7 +882,6 @@ export const DAYS = localized([
       },
       {
         name: "Zone 2",
-        rest: 0,
         mins: [30, 40, 45, 40],
         items: [
           {
@@ -936,7 +900,6 @@ export const DAYS = localized([
       },
       {
         name: "Long stretch",
-        rest: 0,
         mins: 20,
         note: "Bryan’s official light day: 20–30 min of gentle yoga or stretching.",
         items: [
@@ -1137,7 +1100,7 @@ export const TIMELINE = localized([
   {
     d: "Dec 2024",
     t: "Official exercise protocol + 4×4",
-    s: "A 7-day longevity plan (strength days, interval days, a mobility day, Norwegian 4×4, a light day). On X: 4 min all-out, 4 min rest, four times.",
+    s: "A 7-day longevity plan (strength days, interval days, a mobility day, Norwegian 4×4, a light day). On X: 4 min all-out, 4 min recovery, four times.",
     date: "2024-12-23",
     links: [
       {

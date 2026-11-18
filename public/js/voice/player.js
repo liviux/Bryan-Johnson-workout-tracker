@@ -125,9 +125,9 @@ export async function installVoice() {
   Object.assign(voiceStatus, { installing: !!data.installing, installed: !!data.installed, message: data.message }); notify();
 }
 
-export function voiceRequest(item, level, log = {}, restSec = 75) {
+export function voiceRequest(item, level, log = {}) {
   return {
-    itemId: item.id, level, restSec,
+    itemId: item.id, level,
     easier: ["dose", "version"].includes(log.easier?.choice) ? log.easier.choice : undefined,
     doseLevel: log.rxOverride ? [0, 1, 2, 3].find((n) => rxFor(item, n) === log.rxOverride) : undefined,
     profile: { units: state.profile?.units },

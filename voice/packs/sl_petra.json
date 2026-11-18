@@ -46,14 +46,6 @@
       "bytes": 8535
     },
     {
-      "id": "23b21e9be84622fbd9d49ce63dd5d7fa851c893e7dfa687f54d29e1c8aaef772",
-      "text": "Počitek za 1 minuta in 15 sekund. Nadaljujte, ko boste pripravljeni.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "9eebfed6b07ef121b850633c765e4600ff106598a77a5119f285efbd2cabc004",
-      "bytes": 30596
-    },
-    {
       "id": "42ca3a8422ef0d759fc7644d37b8cf21d81ba7ec63f45b016f0321361c75ffa9",
       "text": "Naslednji je Hoja nazaj.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "bf3867489f5f1e41c2452af00275ab9cb807d1c057e5bf8996d755ecbf8cb7e2",
       "bytes": 12201
-    },
-    {
-      "id": "bb86d6e6bf9d8a95849a21e98ef75b5b2d6659aed46ced911cab91707aab9564",
-      "text": "Počitka je konec. Nadaljujte, ko boste pripravljeni.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "370f726252d3ccc29213949445d5deab88f863aa5350bab0666486041832b31a",
-      "bytes": 24738
     },
     {
       "id": "5fd4d19fb20e01b65cc74f31d6d685cf6de36625afe961221de64d008a2752dd",
@@ -1446,12 +1430,12 @@
       "bytes": 27200
     },
     {
-      "id": "f09ac8fa56da58163a4c094a550d12f443ff82cbcda3d3b682ea58b4b1080e27",
-      "text": "Trdo delajte 20 sekund, nato med počitkom nežno korakajte.",
+      "id": "26523df16d52c25e69ff5760c937554687a8a9936c9a43e70a861b176091d035",
+      "text": "Trdo delajte 20 sekund, nato nežno korakajte med krogi.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "2f6c78c499addec7d9e3c30004a60d87c77fd41ac55b05ebcc01e6ad5b1ebbb7",
-      "bytes": 23283
+      "sha256": "95bce6fda139af001a2e0c03edebb1fa8d5a5951aa10f05caad66829bfb8fce9",
+      "bytes": 22469
     },
     {
       "id": "50a0ab84ff9188416ef317f501b3c5e5b9b83fec3e748b6acba07c5822628844",
@@ -7836,14 +7820,6 @@
       "mime": "audio/mpeg",
       "sha256": "235c3c918a7c31cbe074c74e39550be08b21597b14981484804cc35f71a5d353",
       "bytes": 31314
-    },
-    {
-      "id": "73f91ac9f32d003fb47192f48c5f80d4e96549b424a55e51f91da152b9c4d8dd",
-      "text": "Počitek za 25 sekund. Nadaljujte, ko boste pripravljeni.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "b2b09b54cfbbfa4db90ba3003c783a99692b9a1a3c698da8cddc138b3ebf17d1",
-      "bytes": 30726
     },
     {
       "id": "0b0224d580ec9a6b68869436e3cc89bc90c9b85c2eb06b033e0109a4f22a0b83",

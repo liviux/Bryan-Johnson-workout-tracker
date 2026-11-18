@@ -46,14 +46,6 @@
       "bytes": 10762
     },
     {
-      "id": "8b6b4a7b36cdc832ad626315aa5e6a2298ae49ca65f0df3f4c4aa36f77ade77c",
-      "text": "1 মিনিট এবং 15 সেকেন্ড বিশ্রাম নিন। প্রস্তুত হলে চালিয়ে যান।",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "edac13db90dc29d653a1d7b958a604406cf6f2e9da391f2b71304601d1cd7183",
-      "bytes": 25310
-    },
-    {
       "id": "b863b2a879b0d987235b044e05052e8863db9738d47e8aa2a894cbbe243fa96c",
       "text": "এরপর পিছনে হাঁটা।",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "4ce57c1b6270f484d698c8615accc76805315fe6c3a344da317f65be23f667d5",
       "bytes": 14787
-    },
-    {
-      "id": "ae6a7a52ce2dd5aa733596a59e6351e1f57cdc0d9fc093cb87e8f2804f76c2a0",
-      "text": "বিশ্রাম শেষ। প্রস্তুত হলে চালিয়ে যান।",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "7e04cd7e0e3014c07f85f66f56c9890ad94d9ebe15650e66a82d4245f01715fc",
-      "bytes": 20735
     },
     {
       "id": "22fa0c00b58b5367fe00f8bdbfc861f056066b4cf6da712d1b8778211d71448e",
@@ -1342,12 +1326,12 @@
       "bytes": 19878
     },
     {
-      "id": "5a544e4976d812cf067be8629d313cf24238a19b6000afde0bd36ce7ee9bc2ba",
-      "text": "২০ সেকেন্ড কঠোর পরিশ্রম করুন, তারপর বিশ্রামে আলতো মার্চ করুন। রাউন্ডের সংখ্যা লিখুন।",
+      "id": "fd58fefcbf0981d73de7dafbe99755ece59b631a13b0165dbc719f08227a4f56",
+      "text": "20 সেকেন্ডের জন্য কঠোর পরিশ্রম করুন, তারপর রাউন্ডের মধ্যে আলতোভাবে মার্চ করুন। রাউন্ডের সংখ্যা রেকর্ড করুন।",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "48d24a94543118edfd96aae43139134ab548bd4c56ccfcdf2b5d3263c5b8981d",
-      "bytes": 33166
+      "sha256": "81f388a04a1e3a4402638ee310a0e8a73b146a49a70ff3592bd7bd2a9dcdf1a7",
+      "bytes": 44580
     },
     {
       "id": "f0292851adccf9d439be8d92bb161b1fd7c1ebfa8b71e827b5e6b2259a7368b9",
@@ -7164,14 +7148,6 @@
       "mime": "audio/mpeg",
       "sha256": "4fb2d7f8ba064e4295377f59827b6da3cfb07e138fab61f8c8be83fc6e0cbb0a",
       "bytes": 32171
-    },
-    {
-      "id": "99967540d997c6f363880d2ba0c0a1c6a2cad3b11ee48a660f424c002f67aae4",
-      "text": "25 সেকেন্ড বিশ্রাম নিন। প্রস্তুত হলে চালিয়ে যান।",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "36c09622458d0853baaf0de8971b7acd71ff1ff355ed92452a5f13fc092b74a6",
-      "bytes": 20690
     },
     {
       "id": "b7fa0d39eceaf41f863ab75135f5dce8ca9e89c30960449a46a5ed466bd6fd0a",

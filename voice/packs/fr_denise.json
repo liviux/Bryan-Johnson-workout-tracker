@@ -46,14 +46,6 @@
       "bytes": 10854
     },
     {
-      "id": "f10afb65ceedf51000f13d149331a4bf742d8234e7a053d410f3df27740d4672",
-      "text": "Reposez-vous 1 minute et 15 secondes. Continuez quand vous êtes prêt.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "41b3a26c636a90b19f15948efab51dd9c59da2f5a1f42bb6b023c21d3e80b35b",
-      "bytes": 24993
-    },
-    {
       "id": "fc7f21f82745ed84941c2caf2cdb77a1a44194911693c3a5eb869b551ae39202",
       "text": "Vient ensuite Marche arrière.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "060b20f64c22c4855102d804ef4c348775e4ed3e71b983e64303ebd7031ffd90",
       "bytes": 15267
-    },
-    {
-      "id": "7f29e4f172f1c6ee7578a46fbb1ef50ba7fcc8eb02669dec355544e57bba62d4",
-      "text": "Le repos est fini. Continuez lorsque vous êtes prêt.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "8010546d5f00bdaabe8d38b73c3913e53da3b3998ee528f3d9e146410df563c2",
-      "bytes": 21641
     },
     {
       "id": "b595c8d5a784218a52e58f5ff01005d958511fe60068f7fe8379de7cdd8fb542",
@@ -1422,20 +1406,20 @@
       "bytes": 22974
     },
     {
-      "id": "43473b6e3d2edb92beb59c00e9b2275c95163fce9523d694e3666c6ffdcf30d0",
-      "text": "Travaillez fort pendant 20 secondes, puis marchez doucement pendant le repos.",
+      "id": "75f23b4ae24507612405145fde17674cd65e6eef8388f5c632eb41d141177289",
+      "text": "Travaillez dur pendant 20 secondes, puis marchez doucement entre les tours.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "f0ade128c6e5860488f5791f557cb479d14af15ff3859e542c93483c42a2b5c1",
-      "bytes": 24256
+      "sha256": "9bf3be4fdf69bdfabdc4f78b740d5c2ad09f9dbb644f0a92b9475f069a5656a1",
+      "bytes": 23371
     },
     {
-      "id": "6aa05d670a4494866166a6ac9efc5504a1c75f6e38cb712f9c9555c1179e590a",
-      "text": "Notez le nombre de tours.",
+      "id": "6f9f9ee15c9843c6887c45a6cb5126aaefb6ffa599410451e178138435386ba9",
+      "text": "Enregistrez le nombre de tours.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "d9432dda8aa6669791fede843489eebc21d4a79663a1e182421578017fdf5866",
-      "bytes": 10640
+      "sha256": "430826865a69904bd87254651336ae8d99537b2400ad20c957b5c3363052703b",
+      "bytes": 11601
     },
     {
       "id": "0fd3f508b3818e140a1fdb1e8a92a144536f630ca2e05be3b421baafecaa799c",
@@ -7660,14 +7644,6 @@
       "mime": "audio/mpeg",
       "sha256": "692fb888b3ef26c6b7b5d9311a64f1a3a9e329aaba2a2b589ea38a77d8afa1db",
       "bytes": 35016
-    },
-    {
-      "id": "c344d9173bd836d4fc88fca43c23398afee5f4ebcc770604f2c0af2321c3efab",
-      "text": "Reposez-vous 25 secondes. Continuez quand vous êtes prêt.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "4d4b845794859f400b2e29f1756e5fe041cb2269b7731c03aafaa93811a3d6ad",
-      "bytes": 22102
     },
     {
       "id": "effa589cfe9fab9c15c6b0b695c7f46880abcd4a372fd1dd1ad37180a3b097eb",

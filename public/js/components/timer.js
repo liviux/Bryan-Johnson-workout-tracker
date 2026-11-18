@@ -1,5 +1,5 @@
 // Workout timers: interval timer (20 s bursts, Norwegian 4×4), hold timer
-// (planks, stretches), countdown for Zone 2 blocks, and a floating rest timer.
+// (planks, stretches) and countdown for Zone 2 blocks.
 // Beeps with Web Audio, vibrates on phones, keeps the screen awake while running.
 
 import { EXERCISES } from "../data/exercises.js";
@@ -60,7 +60,6 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
   const notifyTimer = () => { if (!timerNotified) { timerNotified = true; for (const fn of timerListeners) fn(true); } };
   const clearTimerNotice = () => { if (timerNotified) { timerNotified = false; for (const fn of timerListeners) fn(false); } };
   notifyTimer();
-  stopRest();
   if (!host) {
     cancelVoice();
     videoVoice(false);
@@ -306,57 +305,5 @@ export function startHold({ title, seconds, sides = 1, side = "side", onFinish, 
 
 export function startCountdown({ title, minutes, sub, onFinish, voiceContext, host = null, mini = false }) {
   runPhases({ title, phases: [{ kind: "ready", label: "Get ready", sec: 5 }, { kind: "work", label: "Go", sec: Math.round(minutes * 60), sub }], onFinish, voiceContext, voiceTimer: { type: "countdown", minutes }, host, mini });
-}
-
-// Floating rest timer after a set. Tap it to dismiss.
-let restEl = null;
-let restTimer = null;
-const restListeners = new Set();
-let restContext = null;
-export function onRest(fn) { restListeners.add(fn); return () => restListeners.delete(fn); }
-function restEvent(type, left, total) { for (const fn of restListeners) fn({ type, left, total, context: restContext }); }
-export function startRest(seconds, context = null) {
-  stopRest();
-  restContext = context;
-  let left = seconds;
-  let total = seconds;
-  let lastTick = Date.now();
-  restEl = document.createElement("div");
-  restEl.className = "rest-pill";
-  restEl.setAttribute("role", "timer");
-  restEl.innerHTML = `${icon("timer")}<span>${t("Rest")}</span><b class="mono">${fmtSecs(left)}</b><button class="btn sm" data-r="add">${t("+15 s")}</button><button class="btn sm icon-only" data-r="x" aria-label="${esc(t("Dismiss rest timer"))}">${icon("x", "sm")}</button>`;
-  document.body.appendChild(restEl);
-  const out = restEl.querySelector("b");
-  restEl.addEventListener("click", (e) => {
-    const b = e.target.closest("[data-r]");
-    if (!b) return;
-    if (b.dataset.r === "add") { left += 15; total += 15; restEvent("extend", Math.ceil(left), total); }
-    else stopRest();
-  });
-  restEvent("start", left, total);
-  let lastWhole = Math.ceil(left);
-  restTimer = setInterval(() => {
-    const now = Date.now(); left -= (now - lastTick) / 1000; lastTick = now;
-    const whole = Math.ceil(left);
-    if (whole === lastWhole) return;
-    lastWhole = whole;
-    restEvent("tick", whole, total);
-    if (whole <= 3 && whole > 0) beep(780, 90);
-    if (left <= 0) {
-      beep(1040, 350, 0.22);
-      buzz([150, 80, 150]);
-      restEvent("end", 0, total);
-      stopRest(false);
-      return;
-    }
-    out.textContent = fmtSecs(whole);
-  }, 100);
-}
-export function stopRest(notify = true) {
-  clearInterval(restTimer);
-  if (restEl && notify) restEvent("stop", 0, 0);
-  if (restEl) restEl.remove();
-  restEl = null;
-  restContext = null;
 }
 

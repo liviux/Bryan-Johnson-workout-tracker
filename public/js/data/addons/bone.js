@@ -14,7 +14,6 @@ export default {
     daily: {
       name: "Bone density loading",
       mins: 4,
-      rest: 0,
       note: "Bryan's protocol: mechanical shock signals osteoblasts to deposit minerals. Keep knees slightly soft to protect cartilage while the bone absorbs the force.",
       items: [
         {

@@ -46,14 +46,6 @@
       "bytes": 10381
     },
     {
-      "id": "a12c789771993aac25be3158d8f8bc542e14df696683d53ce0f05fd5ee76176d",
-      "text": "Atpūta 1 minūte un 15 sekundes. Turpiniet, kad esat gatavs.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "4216572e5131d938ddab49cbc27ca4d08460fd346e5c02593601d00b4f11596c",
-      "bytes": 29369
-    },
-    {
       "id": "d711f1841cf507f5f80cfb4cb2b8e931acfd5fe280941b32283b0c4b70e6d5c8",
       "text": "Nākamais ir Pastaiga atpakaļ.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "4fdbfc465c746bcc39ead33413622788da1691b0c90d7e378c00c51a765cc1e2",
       "bytes": 15135
-    },
-    {
-      "id": "d52e84c0174d143f3799f003245b03d2cdc57259043733a75059b31243edf75a",
-      "text": "Atpūta ir beigusies. Turpiniet, kad esat gatavs.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "c152f948d0cbcafe3727f0aab2a93964c7f4f3488cc789ef7b588cc2e6dadd04",
-      "bytes": 21068
     },
     {
       "id": "908a5eabfd18e9fbe93c18ab1b5505c17c114ba2a294155ce33e088616dc4bb6",
@@ -1454,12 +1438,12 @@
       "bytes": 24785
     },
     {
-      "id": "ea2a28acd7a5a7fca2efca1b696ab6b34d0ea37dedbc8649051eb70ae9f65e28",
-      "text": "Strādājiet smagi 20 sekundes, pēc tam mierīgi maršējiet pārējā laikā.",
+      "id": "3794db9bf6d0b7e19720f1b94fa6e760cddf39e48013bf992541d8b51adbd067",
+      "text": "Strādājiet smagi 20 sekundes, pēc tam uzmanīgi maršējiet starp kārtām.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "a566ae96c5ad3219fe8d24167aecaa0aab9055d67c6718df427c8d1996386485",
-      "bytes": 34721
+      "sha256": "f69e168b798a383c5cb926f196eaa5c2ead1f01edc7274d34f0e77635ae17000",
+      "bytes": 34730
     },
     {
       "id": "c2cde1ce5e5c4829b5d9ffbe79a904c98ca86fdd4d3d255365148dd61dd910bc",
@@ -7820,14 +7804,6 @@
       "mime": "audio/mpeg",
       "sha256": "6d11e5c6714196e43a47771a8d0aa28001f60e4095c877368ced6833d588ec00",
       "bytes": 35997
-    },
-    {
-      "id": "ab503402159dcb2c6ac8a3c5acf6a114cb8030f9a725b0dc5585b4878bf4dbf5",
-      "text": "Atpūta 25 sekundes. Turpiniet, kad esat gatavs.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "7aab7b7c06dc6116e19e621d82317460f96a1f04a1e42498c366a7a74158a444",
-      "bytes": 25336
     },
     {
       "id": "0c348d6a5eb09e516bd435ccb9bcd32a60bbdb4c3411c684b78d657b3f0e1eee",

@@ -26,7 +26,6 @@ import { voicesForLanguage } from "../voice/script.js";
 import { cacheVoice, refreshVoiceStatus } from "../voice/player.js";
 
 const LB = 2.20462;
-const REST_PRESETS = [45, 60, 75, 90, 120];
 const DEFAULT_ADDON_EVERY = 2;
 
 export function render(el) {
@@ -34,8 +33,6 @@ export function render(el) {
   const imperial = () => p().units === "imperial";
   const w = (kg) => (kg == null ? "" : imperial() ? Math.round(kg * LB * 10) / 10 : kg);
   const hgt = (cm) => (cm == null ? "" : imperial() ? Math.round(cm / 2.54) : cm);
-  let restMode = p().settings?.restMode || (Number(p().settings?.restSec) === 75 || p().settings?.restSec == null ? "plan" : "fixed");
-  let customRest = restMode === "fixed" && !REST_PRESETS.includes(p().settings?.restSec || 75);
   let healthSettings = null;
 
   // The animation style preview: one 3D stage, kept across redraws of the page, on the
@@ -158,13 +155,9 @@ export function render(el) {
 
       <section class="card card-pad" data-settings="during" style="display:grid;gap:14px">
         <h3>During workouts</h3>
-        <div class="field"><span>Rest timer after a set</span>${seg("rest", [{ id: "plan", name: "Rest from the plan" }, ...REST_PRESETS.map((s) => ({ id: String(s), name: `${s} s` })), { id: "custom", name: "Custom" }], restMode === "plan" ? "plan" : customRest ? "custom" : String(st.restSec || 75))}</div>
-        <p class="muted" style="font-size:0.84rem;margin:0">${t("Plan rest follows Bryan's guidance: 60–90 s between strength sets, 45–60 s between jumps, 20–30 s for Friday's deadlift and jump pairs, and little rest in core blocks.")}</p>
-        <label class="field rest-custom" ${customRest ? "" : "hidden"}><span>Custom rest (seconds)</span><input class="input" type="number" data-f="restCustom" min="1" max="3600" step="1" required value="${esc(st.restSec || 75)}"><small>Enter 1 to 3,600 seconds.</small></label>
-        <label style="display:flex;gap:12px;align-items:center">${switchHtml("autoRest", st.autoRest !== false, "Start the rest timer automatically")}<span>${t("Start the rest timer automatically when you log a set")}</span></label>
         <label style="display:flex;gap:12px;align-items:center">${switchHtml("sound", st.sound !== false, "Timer sounds")}<span>${t("Timer beeps")}</span></label>
         <label style="display:flex;gap:12px;align-items:center">${switchHtml("deskNotify", !!st.deskNotify, "Desk break notifications")}<span>${t("Desk break notifications while this tab is in the background")} <small class="muted">${t("(off by default; your browser asks for permission)")}</small></span></label>
-        <p class="muted" style="font-size:0.82rem;margin:0">${t("Desk break notifications wait while an exercise or rest timer is running, and arrive after the workout instead.")}</p>
+        <p class="muted" style="font-size:0.82rem;margin:0">${t("Desk break notifications wait while a workout timer is running, and arrive after the workout instead.")}</p>
       </section>
 
       <section class="card card-pad" data-settings="language" style="display:grid;gap:10px">
@@ -224,11 +217,6 @@ export function render(el) {
     const v = e.target.value;
     const n = Number(String(v).replace(",", "."));
     const ok = v !== "" && Number.isFinite(n);
-    if (f === "restCustom") {
-      const valid = ok && Number.isInteger(n) && n >= 1 && n <= 3600;
-      e.target.setCustomValidity(valid ? "" : t("Enter a whole number from 1 to 3,600 seconds."));
-      if (!valid) return;
-    }
     updateProfile((pr) => {
       if (f === "name") pr.name = v;
       else if (f === "age" && ok && n >= 10 && n <= 110) pr.age = Math.round(n);
@@ -237,12 +225,6 @@ export function render(el) {
       else if (f === "maxdb") pr.maxDumbbellKg = ok ? Math.round((imperial() ? n / LB : n) * 10) / 10 : null;
       else if (f === "hrmax") pr.hrMax = ok && n > 100 ? Math.round(n) : null;
       else if (f === "start" && v) pr.startDate = v;
-      else if (f === "restCustom") {
-        pr.settings = pr.settings || {};
-        pr.settings.restSec = n;
-        pr.settings.restMode = "fixed";
-        restMode = "fixed";
-      }
     });
   });
 
@@ -313,8 +295,6 @@ export function render(el) {
         const days = Object.keys(data.days || {}).length;
         const replace = await confirmDialog({ title: t("Import backup"), message: t("This backup has {days} logged days{mixed}. Choose Replace all to overwrite your current data. Cancel merges the backup instead; its days overwrite matching dates.", { days, mixed: data.profile ? ` ${t("and a profile")}` : "" }), confirm: t("Replace all"), danger: true });
         await importAll(data, replace ? "replace" : "merge");
-        restMode = p().settings?.restMode || (Number(p().settings?.restSec) === 75 || p().settings?.restSec == null ? "plan" : "fixed");
-        customRest = restMode === "fixed" && !REST_PRESETS.includes(p().settings?.restSec || 75);
         applyLook(state.profile && state.profile.settings);
         applyAnimStyle((state.profile && state.profile.settings) || {});
         toast(t("Imported {days} days", { days }));
@@ -372,23 +352,10 @@ export function render(el) {
     if (sg) {
       const name = sg.dataset.seg;
       const v = b.dataset.value;
-      if (name === "rest") {
-        customRest = v === "custom";
-        restMode = v === "plan" ? "plan" : "fixed";
-        if (customRest) {
-          draw();
-          el.querySelector('[data-f="restCustom"]').focus();
-          return;
-        }
-      }
       updateProfile((pr) => {
         pr.settings = pr.settings || {};
         if (name === "sex") pr.sex = v;
         else if (name === "units") pr.units = v;
-        else if (name === "rest") {
-          pr.settings.restMode = restMode;
-          if (v !== "plan" && v !== "custom") pr.settings.restSec = Number(v);
-        }
         else if (name === "theme") pr.settings.theme = v;
       });
       if (name === "theme") applyLook(p().settings);

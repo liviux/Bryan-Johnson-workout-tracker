@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.48.0] - 2026-11-18
+
+### Removed
+- **Plan change:** The rest timer, automatic rest after a set, the rest setting and spoken rest cues are gone. Rest whenever you need it; the app no longer tells you when to start or how long to wait.
+- **Plan change:** Workout notes and form tips no longer prescribe rest between sets or between jumps. Sunday stays a rest day, and interval timers keep their built-in recoveries.
+- The **Cues and form tips** coach option. The coach now reads the short form tip when each step starts.
+
 ## [1.47.2] - 2026-11-18
 
 ### Fixed

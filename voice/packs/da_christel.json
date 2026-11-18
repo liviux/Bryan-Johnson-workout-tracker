@@ -62,14 +62,6 @@
       "bytes": 10530
     },
     {
-      "id": "5c9e3b2656bc06471f258c42ca658eb14a5666257a3d1c8feace1b8cf9f03e3f",
-      "text": "Hvil for 1 minut og 15 sekunder. Fortsæt, når du er klar.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "197a637fb6f10ac1ee7d7342d2026dff984aa68f5bbc0fe0bbd157569f6f5ebc",
-      "bytes": 25126
-    },
-    {
       "id": "98a8bf5db647afd0064c63bdd318f939f01454a97c3ffefcf714840487ac3b79",
       "text": "Næste er Gå tilbage.",
       "ext": "mp3",
@@ -124,14 +116,6 @@
       "mime": "audio/mpeg",
       "sha256": "532930cb4fb002d0ecbe14cad12332cdadc016facac39205b63676621f83e8eb",
       "bytes": 14359
-    },
-    {
-      "id": "7a114cd8fef60cea6dda46b5ad0d2935b4e1c85d51af1561dcf5c582c314ef44",
-      "text": "Hvilen er forbi. Fortsæt, når du er klar.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "9878f4dc70bad972383db0c94db0e627eb0a4be909dff705ab19b66dbdb0974b",
-      "bytes": 23025
     },
     {
       "id": "e24dc63e68881a6c6a87126a9c2631eedab0a8baba862fbed88ba3fb4fea1cf3",
@@ -1494,12 +1478,12 @@
       "bytes": 19740
     },
     {
-      "id": "48bffcc53df56a628fb10f38cf5312ca84ec33b57d823390319acf744aff7094",
-      "text": "Arbejd hårdt i 20 sekunder, og marcher derefter forsigtigt under resten.",
+      "id": "74e3fab0043cabeba4c1fd5587694b40a221c3315f4c4fcc56458142794a53b4",
+      "text": "Arbejd hårdt i 20 sekunder, og marcher derefter forsigtigt mellem runderne.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "226f716cbf9ef46bb7b30d056fcd2605ee5607edcab26aa6457dfb7f69bde965",
-      "bytes": 26236
+      "sha256": "bd8f214e9b96828073b71e4b5be0e3ec8c69028eb6ed59d12c8fa9fa5c595008",
+      "bytes": 26473
     },
     {
       "id": "f97e55113abf1c06824b42873d0e665a58470b84ceec6ee4c1725ffd57184654",
@@ -8108,14 +8092,6 @@
       "mime": "audio/mpeg",
       "sha256": "5e70c9ec9a4fc5ab7ee089313b9a909cc8f48126909dcfc041f6bf39d7171e13",
       "bytes": 30709
-    },
-    {
-      "id": "6ba76ed78d2506b291aab59445b574de1534fe842dd3da3afbd8c678032dc8b9",
-      "text": "Hvil for 25 sekunder. Fortsæt, når du er klar.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "bb4cebc6c913da92472bcfa2ca0d944b697255b50945fa3cda803894cf541639",
-      "bytes": 23473
     },
     {
       "id": "4cadbe268690bd16930f07428b36fac451d3e4493444905b35dc648b7ba78634",

@@ -46,14 +46,6 @@
       "bytes": 10759
     },
     {
-      "id": "af77433339f740113296823f0f5f28c97988ebe099920f04d34bf121feb7d70c",
-      "text": "Pushoni për 1 minutë dhe 15 sekonda. Vazhdoni kur të jeni gati.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "296843f34a73b27e85077b7332b1e6486d8248e72cb2ac747a3a46af6d944201",
-      "bytes": 27493
-    },
-    {
       "id": "8ac42e3561ecbe2e0a44d7362008295a6997c7397bcb65de3d6b298f691c8648",
       "text": "Tjetra është Ecje prapa.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "7e88207cc1b0455c6b7d5228b1e9641c7ef1e184243abccfd5a1ff0f0928e19b",
       "bytes": 20226
-    },
-    {
-      "id": "8caf6f2855952e1be5e343d789678daa37385f57533f444cf2d463f09c5725fb",
-      "text": "Pushimi ka mbaruar. Vazhdoni kur të jeni gati.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "de30dc7071bd72ed6db296a57322adedcf06f79e66051cdeff93d5e44300efce",
-      "bytes": 21800
     },
     {
       "id": "b0d55ce156b3c45e5d6a7f0ac61a933ec6ffb9fac927317af8e93dd6bce6a025",
@@ -1446,12 +1430,12 @@
       "bytes": 23065
     },
     {
-      "id": "108c2c2c37f3671ce96f1fd98ca1d7632bfea3adc190fd80e1015c971a10c259",
-      "text": "Punoni fort për 20 sekonda, pastaj marshoni butësisht gjatë pjesës tjetër.",
+      "id": "ad32c56bc4c62eb65f8129e94b7b8c48241e025bec3b24e308a51b50be26502b",
+      "text": "Punoni fort për 20 sekonda, më pas marshoni butësisht ndërmjet raundeve.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "843c5b27514d1c4847c518ec1ac93e0ec42bc6c6dafe9809d3f2950b92acd47a",
-      "bytes": 27302
+      "sha256": "dbad09bc5b9933572e12f2c8817cf447046cf7c5ba84c11a40bb0a06d993f99c",
+      "bytes": 27057
     },
     {
       "id": "3a6d192e7dc911ff3a81fb5f82f1a2ee8f368a321cf0dfb2a4f1f4588371dded",
@@ -7732,14 +7716,6 @@
       "mime": "audio/mpeg",
       "sha256": "a8773e8206ec7821412793e0b1b340a84d8449f7bbed02e5a2deb87a91c9c6d3",
       "bytes": 31296
-    },
-    {
-      "id": "c13eb4e70f9f471392a6d375439918ce6facfa216eae9d4b82afb1d4b1abba62",
-      "text": "Pushoni për 25 sekonda. Vazhdoni kur të jeni gati.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "132cdbc5ab823ce686431e59e13e4979226d6f7b1e1be7ef672c4636ec01c2ee",
-      "bytes": 24060
     },
     {
       "id": "ab23ffec2f29acc38009209966f3f1503aaa559e1197cceb47abefe51a9f13b1",

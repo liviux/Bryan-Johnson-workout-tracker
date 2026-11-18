@@ -46,14 +46,6 @@
       "bytes": 10895
     },
     {
-      "id": "722b059c737cf88bf1163f7f05da46c257a954a7d8f243bf10d79c6935a0fa5a",
-      "text": "استرح لمدة 1 دقيقة و 15 ثانية. تابع عندما تكون جاهزًا.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "62fc08d17035d2dfc539e4f33a9fad12b0e27a8565e927c5283dc427c8b59c9f",
-      "bytes": 35661
-    },
-    {
       "id": "80cffb566fecf2c39b30c87c15fab93f37527db9b52af1e76aa33d12d38c615c",
       "text": "التالي: المشي للخلف.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "5591a8fb83dfc9ffb90cfb98f7711e7e91ea0a6f6c405b6a42c106fbe9b58745",
       "bytes": 18504
-    },
-    {
-      "id": "bc78c4760ddddcfce89e3bd71e21db9a507b1e3c50d5695eaf29a576d3b1707b",
-      "text": "انتهت الراحة. تابع عندما تكون جاهزًا.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "128aed417694fed522141927f9485d894056715d2dbf9935f64d4df2191b91fa",
-      "bytes": 24528
     },
     {
       "id": "9a05532a01d375cc07165577304e375af389b8b55a6be216f8d2319515158bd4",
@@ -1414,20 +1398,20 @@
       "bytes": 25259
     },
     {
-      "id": "3e33575d8717492235c4c91129c33480fe9ab53db388543aeb98f9f7c990bec4",
-      "text": "اعمل بجد 20 ثانية، ثم امشِ بهدوء أثناء الراحة.",
+      "id": "bb7da522f5607cd99afecc6366068970a32b0302f399572b5055f2d6882eb6ea",
+      "text": "اعمل بجد لمدة 20 ثانية، ثم قم بالسير برفق بين الجولات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "d7bceb2432e928d605184b10c8ccf5d6e8f32506d163f9d40188a391b0886961",
-      "bytes": 29059
+      "sha256": "626be4b3a030cc112dab17f8bedaa9f46624149bb916a781996f46a494f1bf61",
+      "bytes": 34651
     },
     {
-      "id": "5d09c8c835925c0e30d1c2f7e7737e4d242bbe35fda194e644331750260012d2",
-      "text": "وسجّل عدد الجولات.",
+      "id": "1f947e8ff0bacc59f63390f8f27f29c72af27673eb0d31e1816d58b381cc3ff5",
+      "text": "سجل عدد الجولات.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "ac78bc7a4091d29bf8c9ed2c23f37a7d9bcf6e9aa425d326641ccc9d5f6623c8",
-      "bytes": 11747
+      "sha256": "f3cc64798a4de5a1bbff0c2a46b511025b28863e8ed86c5d74f38168ace6be86",
+      "bytes": 11333
     },
     {
       "id": "03322e199c6f668b6653b6cab16667092703c40184eb10507b6e25e839ad3e24",
@@ -7540,14 +7524,6 @@
       "mime": "audio/mpeg",
       "sha256": "d98977f1bea6c14a1cc715586dc95bbebcf3b6610f71a8af15490d017a4fe178",
       "bytes": 45359
-    },
-    {
-      "id": "74a5b1a48b2f54196fbece0136d35f51f5b495a4f39f2a02a0002f0069d74e5f",
-      "text": "استرح لمدة 25 ثانية. تابع عندما تكون جاهزًا.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "581a70ee0f755cc89994058697207dc4090f096de8d730523f4084c90b0c6a59",
-      "bytes": 31632
     },
     {
       "id": "26ab4f240ce0a4d4ba89612937eaa3132d76a3cbba7a1c6131cb3bf2728993c0",

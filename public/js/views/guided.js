@@ -17,7 +17,7 @@ import { mountObservations } from "../components/observations.js";
 import { mountLevelCheck } from "../components/level-check.js";
 import { t } from "../i18n.js";
 import { pauseDesk, resumeDesk } from "../components/desk.js";
-import { onRest, onTimer, stopInlineTimer, stopRest } from "../components/timer.js";
+import { onTimer, stopInlineTimer } from "../components/timer.js";
 import { createWorkoutRadio } from "../components/radio.js";
 import { createCoachControls } from "../components/coach-controls.js";
 import { createGuidedVoice } from "../voice/session.js";
@@ -32,10 +32,10 @@ function buildSteps(date) {
     return !!(l && l.skipped);
   };
   const def = dayDef(sessionKeyFor(date));
-  if (def) for (const b of def.blocks) for (const step of orderedSteps(blockItems(b, level).filter((it) => countable(it) && !skipped("main", it.id)), level)) steps.push({ scope: "main", block: b.name, blockRest: b.rest, ...step, level });
+  if (def) for (const b of def.blocks) for (const step of orderedSteps(blockItems(b, level).filter((it) => countable(it) && !skipped("main", it.id)), level)) steps.push({ scope: "main", block: b.name, ...step, level });
   for (const a of addonsForDate(date)) {
     if (log && log.addons && log.addons[a.addon.id] && log.addons[a.addon.id].skipped) continue;
-    for (const step of orderedSteps(a.variant.items.filter((it) => visible(it, level) && countable(it) && !skipped(a.addon.id, it.id)), level)) steps.push({ scope: a.addon.id, block: a.addon.name, blockRest: a.variant.rest, ...step, level });
+    for (const step of orderedSteps(a.variant.items.filter((it) => visible(it, level) && countable(it) && !skipped(a.addon.id, it.id)), level)) steps.push({ scope: a.addon.id, block: a.addon.name, ...step, level });
   }
   return steps;
 }
@@ -115,7 +115,6 @@ export function startGuided(date, onExit) {
   });
   const radio = createWorkoutRadio();
   const voice = createGuidedVoice(date, steps, wrap.querySelector(".guided-voice-status"));
-  const stopRestListener = onRest((event) => voice.rest(event));
   const stopTimerListener = onTimer((open) => voice.timer(open));
   const coach = createCoachControls({ popup: true, onChange: () => voice.enter(i) });
   wrap.querySelector(".radio-host").append(radio.el, coach.el);
@@ -147,7 +146,7 @@ export function startGuided(date, onExit) {
 
   // The last page: no animation, just the day's notes and the level check.
   function finishScreen() {
-    stopRest(); stopInlineTimer(); voice.finish();
+    stopInlineTimer(); voice.finish();
     clearInterval(clockTimer); clockTimer = null;
     tickClocks();
     wrap.classList.add("guided-notes");
@@ -173,7 +172,6 @@ export function startGuided(date, onExit) {
   }
 
   function show(reason = "next") {
-    stopRest();
     stopInlineTimer();
     if (i >= steps.length) return finishScreen();
     stepStartedAt = Date.now();
@@ -271,12 +269,11 @@ export function startGuided(date, onExit) {
 
   function close() {
     markTrackerEnd(date, "guided");
-    stopRest();
     stopInlineTimer();
     clearInterval(clockTimer);
     videoCtrl?.destroy();
     videoCtrl = null;
-    stopRestListener(); stopTimerListener(); voice.dispose(); coach.dispose();
+    stopTimerListener(); voice.dispose(); coach.dispose();
     resumeDesk("guided");
     radio.dispose();
     stage.dispose();

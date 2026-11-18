@@ -46,14 +46,6 @@
       "bytes": 10760
     },
     {
-      "id": "502b049a4728a649f278761c5224e6c2a713760e77f4af93e66a4852d3d8c044",
-      "text": "Rest for 1 минут и 15 seconds. Continue when you are ready.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "feabb5e899d7e0e47b9900b4b03db3a00554ee9996c419fe551b4ec289f3745a",
-      "bytes": 24722
-    },
-    {
       "id": "611a6dd1c5f35d3b6b3ff65b21deb199cf589fec8917216369221877526bd6ab",
       "text": "Next is Ход уназад.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "ba520a87182bed1f883a829828ba9dbdb8c6f819d816dc53cb6c7af0470b8b9c",
       "bytes": 12162
-    },
-    {
-      "id": "d81212dc7b09ad1d372a8def676028c01f6b5b7029a9d21a239fae7b862afdf1",
-      "text": "Одмор је завршен. Наставите када будете спремни.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "bcc505131c89affdcee8cc69bd08bbe5f77e2673eadff4c3f1c3dcf601efbc05",
-      "bytes": 22615
     },
     {
       "id": "d8a436572ec351a1aef798c48010ca929bc9b9c5569cafa2f698c70cad9ae39e",
@@ -1414,12 +1398,12 @@
       "bytes": 22553
     },
     {
-      "id": "89047f9c151440b4cf40a2c7b2c7033a19b776ff2be42b59de140f61a2a03201",
-      "text": "Радите напорно 20 с, а затим лагано марширајте током одмора.",
+      "id": "4fb25ffbc7c5780e10ec42c497dfed05bc44df42f39c8d3b25bfc1f961824f86",
+      "text": "Радите напорно 20 с, а затим лагано марширајте између рунди.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "ae1174270b6bc650c97ff8bd629e83d47b5a4d19896a6a5fcc81a4e65ca1094d",
-      "bytes": 26941
+      "sha256": "2e0ba7877e79ba92d5d56f51e34f50d737f0d2c31d146c731bc6f3c48ac5d70a",
+      "bytes": 26516
     },
     {
       "id": "10ea865173673cf5d1c8f554a07e4245b67f9433a3a9a648cb44a94530291115",
@@ -7532,14 +7516,6 @@
       "mime": "audio/mpeg",
       "sha256": "8bca7b8e0ee4f580eac298bcf20e929a49472308f19c72ad572eb44bda697054",
       "bytes": 33095
-    },
-    {
-      "id": "16a79e89a6870880cb681dfaeb89c01a628e31d74c123cdf9dce98d53d0a1e33",
-      "text": "Rest for 25 seconds. Continue when you are ready.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "71a3041932a91274d3fb1bd73a245dffe5d4bc5475057a66fdf085a0ad70df34",
-      "bytes": 21484
     },
     {
       "id": "dd9e35b89e5a2d387681526e7ec1b9866832851f5cb8cb2e5a4e1f6d418bab62",

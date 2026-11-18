@@ -143,7 +143,7 @@ _Day 1 of Bryan’s template (squat, push-up, row, swing, plank) with his Knees-
 | [Pogo hops](#pogo-hops) | 1 × 10, very low | 2 × 10, low | 2 × 20 | 3 × 20 | Bone protocol: hops 4–7×/wk |
 | [Single-leg balance](#single-leg-balance) | 2 × 20 s/leg, hand near a wall | 2 × 30 s/leg, eyes open | 2 × 30 s/leg, eyes closed | 2 × 30 s/leg, eyes closed on a folded mat |  |
 
-**Jumps (≈– / 3 / 4 / 4 min)** · Max intent, 45–60 s rest. Stop the set if landings get loud.
+**Jumps (≈– / 3 / 4 / 4 min)** · Max intent. Stop the set if landings get loud.
 
 | Exercise | New to training | Returning | Active | Well trained | Bryan |
 |---|---|---|---|---|---|
@@ -151,7 +151,7 @@ _Day 1 of Bryan’s template (squat, push-up, row, swing, plank) with his Knees-
 | [Squat jump](#squat-jump) | — | — | Squat jumps 3 × 3, stick each landing | — | Bryan 2026: jumps for fast-twitch power |
 | [Countermovement jump](#countermovement-jump) | — | — | — | Countermovement jumps 3 × 3, stick each landing | Bryan 2026: jumps for fast-twitch power |
 
-**Strength (≈18 / 22 / 28 / 30 min)** · Rest 60–90 s between sets. Pair push-ups with rows to save time.
+**Strength (≈18 / 22 / 28 / 30 min)** · Pair push-ups with rows to save time.
 
 | Exercise | New to training | Returning | Active | Well trained | Bryan |
 |---|---|---|---|---|---|
@@ -161,7 +161,7 @@ _Day 1 of Bryan’s template (squat, push-up, row, swing, plank) with his Knees-
 | [Poliquin step-up](#poliquin-step-up) | 1 × 8/leg, slant board on floor | 2 × 10/leg, slant board on floor | 3 × 10/leg | 3 × 10/leg, slant board, optionally holding 2 × 8–10 kg | Bryan: 3 × 10/leg |
 | [Dumbbell swing](#dumbbell-swing) | — | 2 × 10 @ 12–16 kg | 3 × 12 @ 18–24 kg | 3 × 15 @ 26–32 kg | Official: 3 × 30 s |
 
-**Core & knees (≈5 / 6 / 8 / 8 min)** · Back to back, minimal rest.
+**Core & knees (≈5 / 6 / 8 / 8 min)** · Back to back.
 
 | Exercise | New to training | Returning | Active | Well trained | Bryan |
 |---|---|---|---|---|---|
@@ -280,7 +280,7 @@ _Built around Bryan’s mobility strength day, with his pulling, Knees-Over-Toes
 | [Thread the needle](#thread-the-needle) | 5/side | 5/side | 5/side | 5/side |  |
 | [Pogo hops](#pogo-hops) | 1 × 10, very low | 2 × 10 | 2 × 20 | 2 × 20 |  |
 
-**Strength (≈20 / 24 / 28 / 30 min)** · Rest 60–90 s on the first three, 30–45 s on the rest.
+**Strength (≈20 / 24 / 28 / 30 min)** · Pair the first three exercises when you want to save time, then finish the session.
 
 | Exercise | New to training | Returning | Active | Well trained | Bryan |
 |---|---|---|---|---|---|
@@ -407,7 +407,7 @@ _Friday of Bryan’s template (lunge, overhead press, chest press, step-up, side
 | [Pogo hops](#pogo-hops) | 1 × 10, very low | 2 × 10, low | 2 × 20 | 3 × 20 | Bone protocol: hops 4–7×/wk |
 | [Single-leg balance](#single-leg-balance) | 2 × 20 s/leg, hand near a wall | 2 × 30 s/leg, eyes open | 2 × 30 s/leg, eyes closed | 2 × 30 s/leg, eyes closed on a folded mat |  |
 
-**Speed & power (≈4 / 5 / 7 / 8 min)** · Max intent, 30–60 s rest. Quality over quantity.
+**Speed & power (≈4 / 5 / 7 / 8 min)** · Max intent. Quality over quantity.
 
 | Exercise | New to training | Returning | Active | Well trained | Bryan |
 |---|---|---|---|---|---|
@@ -415,7 +415,7 @@ _Friday of Bryan’s template (lunge, overhead press, chest press, step-up, side
 | [Heidens (skater bounds)](#heidens-skater-bounds) | 2 × 4/side, step and stick, no hop | 2 × 5/side, step and stick, no hop | 2 × 4/side, stick | 2 × 5/side, stick | Bryan 2025: 2 × 5 |
 | [Rotational power: band woodchop](#rotational-power-band-woodchop) | 2 × 6/side, slow | 2 × 8/side, controlled | 2 × 5/side, fast | 3 × 5/side, max speed | Bryan 2025: rotational power |
 
-**Strength (≈22 / 24 / 30 / 33 min)** · Pair floor press with chin-ups and the overhead press with step-ups; rest about 60 s after each pair.
+**Strength (≈22 / 24 / 30 / 33 min)** · Pair floor press with chin-ups and the overhead press with step-ups.
 
 | Exercise | New to training | Returning | Active | Well trained | Bryan |
 |---|---|---|---|---|---|
@@ -632,7 +632,7 @@ Checked against Bryan's direct [Workout Protocol, updated 14 October 2026](https
 - **Mar–Apr 2026: Posture guide, morning routine, bone density, squat breaks.** Posture guide updated. His day: 90 min of cardio, strength, balance and stretching, HIIT twice a week, active weekends. Bone protocol: jumping in warm-ups 4–7×/week, power training 2×/week. 9 Apr: 10 squats every 45 min of sitting. [Posture guide](https://blueprint.bryanjohnson.com/blogs/news/youre-likely-reading-this-with-poor-posture) · [Morning routine](https://blueprint.bryanjohnson.com/blogs/news/morning-routine) · [Bone protocol](https://blueprint.bryanjohnson.com/blogs/news/bone-health-protocol) · [Squat breaks](https://x.com/bryan_johnson/status/2042049389880045815)
 - **Jan 2026: Updated protocol.** 6 h a week: 3 strength + 3 cardio sessions, 150 min Zone 2, 75 min vigorous, plus flexibility, balance and mobility. At minimum, 20 min a day. [Official protocol](https://blueprint.bryanjohnson.com/blogs/news/bryan-johnsons-protocol)
 - **2025: Session rebuilt with Dr. Andy Galpin.** Warm-up → speed & power (2 × 5) → strength (2 × 5–8) → posture → conditioning → flexibility (5 × 30 s). Feb 2025: VO2 max personal best 64.29. [Session with Andy Galpin](https://www.youtube.com/watch?v=QhL4VBHRBJY) · [VO₂ max result](https://x.com/bryan_johnson/status/1892287231521673528)
-- **Dec 2024: Official exercise protocol + 4×4.** A 7-day longevity plan (strength days, interval days, a mobility day, Norwegian 4×4, a light day). On X: 4 min all-out, 4 min rest, four times. [His 4×4 intervals](https://x.com/bryan_johnson/status/1871278967984185599)
+- **Dec 2024: Official exercise protocol + 4×4.** A 7-day longevity plan (strength days, interval days, a mobility day, Norwegian 4×4, a light day). On X: 4 min all-out, 4 min recovery, four times. [His 4×4 intervals](https://x.com/bryan_johnson/status/1871278967984185599)
 - **Oct 2024: Posture thread.** He said an MRI showed his posture was restricting blood flow out of his brain. Five habits plus two physical-therapist exercises, done to fatigue twice a week. [Five posture habits](https://x.com/bryan_johnson/status/1844454193572216969) · [PT exercise clips](https://x.com/bryan_johnson/status/1844454212333076616)
 - **Jul 2023: Daily workout protocol.** About 25 exercises in 45–60 min: backward sled, posture work, Knees-Over-Toes leg work, high-rep accessories (1 × 25), 10-min HIIT three times a week. [Full workout video](https://www.youtube.com/watch?v=sYyVi-H-ozI) · [Daily workout post](https://x.com/bryan_johnson/status/1683855033425866755)
 
@@ -1218,7 +1218,7 @@ Watch: [Marching in place](https://www.youtube.com/watch?v=Ac8M_Osjy6s) · [Marc
 
 #### Norwegian 4×4
 
-> **From Bryan:** Thursday in Bryan’s newest weekly template (exercise newsletter, 4 Oct 2026): 4 rounds of 4 min at 85–95% of max heart rate with 3 min at 60–70% between, hard but controlled rather than an all-out sprint, starting with 2–3 rounds if four is too much. Bryan’s own variant (X, Dec 2024) is 4 min all-out with 4 min rest.
+> **From Bryan:** Thursday in Bryan’s newest weekly template (exercise newsletter, 4 Oct 2026): 4 rounds of 4 min at 85–95% of max heart rate with 3 min at 60–70% between, hard but controlled rather than an all-out sprint, starting with 2–3 rounds if four is too much. Bryan’s own variant (X, Dec 2024) is 4 min all-out with 4 min recovery.
 
 1. 10 min easy warm-up that builds to about 130 bpm.
 2. 4 min hard: reach 155–173 bpm and hold an even pace you could repeat four times.

@@ -85,7 +85,6 @@ export const CLOCK = {
   thirty: "You have thirty seconds left on this timer.",
   minute: "You have one minute left on this timer.",
   halfway: "You are halfway through this part of the workout.",
-  restEnd: "Rest is over. Continue when you are ready.",
   done: "This timer is complete. You can log it now.",
   finish: "Your workout is complete. You can record how it felt in your notes.",
 };
@@ -177,10 +176,6 @@ export function durationParts(seconds) {
     return [mins ? (mins === 1 ? t("1 minute") : t("{count} minutes", { count: mins })) : "", mins && secs ? t("and") : "", secs ? (secs === 1 ? t("1 second") : t("{count} seconds", { count: secs })) : ""].filter(Boolean);
   }
   return [mins ? `${numberWords(mins)} ${mins === 1 ? "minute" : "minutes"}` : "", mins && secs ? "and" : "", secs ? `${numberWords(secs)} ${secs === 1 ? "second" : "seconds"}` : ""].filter(Boolean);
-}
-
-export function restLine(seconds) {
-  return t("Rest for {duration}. Continue when you are ready.", { duration: durationText(seconds) });
 }
 
 function levelText(text, level) {

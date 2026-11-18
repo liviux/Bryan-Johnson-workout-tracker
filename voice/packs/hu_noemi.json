@@ -46,14 +46,6 @@
       "bytes": 10462
     },
     {
-      "id": "c913e8a4ec937be18bffda82477c25935a83888e241d8f96844270a5e8efa20d",
-      "text": "Pihenjen 1 perc és 15 másodperc. Folytassa, ha készen áll.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "547d498506f1c06ed275b0a3bae1162ddf96de5c6ec1e20619a493b9e0e78232",
-      "bytes": 32242
-    },
-    {
       "id": "8580199e786e67423fe97379ccc3c229efe1883c3372eaeb69f3077a1e95b2cb",
       "text": "A következő a Visszafelé séta.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "9de354594d1c8c5a6d9133c3a7f1cdfe1d44912110418757d1060cc3d977a818",
       "bytes": 16348
-    },
-    {
-      "id": "13f7d81a0cb4fcee40b39906580d968a3fc831948e6f329487b7824e92ce3b7e",
-      "text": "A pihenésnek vége. Folytassa, ha készen áll.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "f00178af4188723cf9126fc3cee17fbae247809d3cfcd3814e64b2b8d8ba5b78",
-      "bytes": 24397
     },
     {
       "id": "956943116c132236d94bc5a2a2e13fdc59f0887a0915a08711781c6200c1d50b",
@@ -1438,12 +1422,12 @@
       "bytes": 28172
     },
     {
-      "id": "d0776e91f79b3f9cacbb1af96a06f0d8e47fd88f19c05d6d5944bfde3640b697",
-      "text": "Dolgozz keményen 20 másodpercig, majd a többi alatt finoman menetelj.",
+      "id": "a0611a577f986b4b0c85308f4a2fecec8a76abab853efe5393eea6e1fcc40ecc",
+      "text": "Dolgozz keményen 20 másodpercig, majd finoman menetelj a körök között.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "4e5e90bc40bfc02e2269a17b11194336662b6525f8bd2918c5aa35540e8ffb8c",
-      "bytes": 27685
+      "sha256": "338cd3caa1abbef86d51d13219840398f761414fd32f1f26f6e8261671a4b8f9",
+      "bytes": 28432
     },
     {
       "id": "f0e3c8293c0d2a316cc4973bdec57096d79c446910e91d15ad10ad162fd02b93",
@@ -7700,14 +7684,6 @@
       "mime": "audio/mpeg",
       "sha256": "982d9fb02fdab063c3de398b3c5b1cfe5fb2e41163e8daef2d13904c76ad8e09",
       "bytes": 37533
-    },
-    {
-      "id": "231baf6e6a999f8afd9ca43e378c93935d280dc090660db9cbaf776a8d58e9ec",
-      "text": "Pihenjen 25 másodperc. Folytassa, ha készen áll.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "3f77e39d73bf54da9570b5b99d8559f89bde1106838f43d1e512cd227c37e32e",
-      "bytes": 26910
     },
     {
       "id": "1460a0489da53bacfc5caace1b5d62913a7f3c53c3b8dd2cd61bb3285acfdeb1",

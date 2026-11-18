@@ -46,14 +46,6 @@
       "bytes": 10641
     },
     {
-      "id": "c3fb969b3dea779aeee5532c9302970c0d38993544a3bccaa5e81f67ae7af1be",
-      "text": "Istirahat untuk 1 menit Dan 15 detik. Lanjutkan ketika Anda siap.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "bbf9e465556b6e3fd570bc404810259a9d5292edcb4136e1978b275a8fb11aec",
-      "bytes": 32818
-    },
-    {
       "id": "2ccd7b9668c1757c0aba72311a5bdce0cbc6799bd3877b057885c7f1eadcadb8",
       "text": "Berikutnya adalah Berjalan mundur.",
       "ext": "mp3",
@@ -108,14 +100,6 @@
       "mime": "audio/mpeg",
       "sha256": "add142e3af4cc039d6154e56d5bdd270d9062306069c3d000bfcb06e54e5b874",
       "bytes": 22458
-    },
-    {
-      "id": "2e15f0b3e6f5f7b51d7344f8e8808e8bc0919de54f81509952ac94d1bdafe3f1",
-      "text": "Istirahat sudah berakhir. Lanjutkan ketika Anda siap.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "0b8ac7b9af111ab9a3b27375a12d9021fd2cf39f0e07373e75f2c5f00f5d3bca",
-      "bytes": 25463
     },
     {
       "id": "644945ce1a241f1bd6f2da97bd4f9016ee5d47bd6f95f17e6a2bcf840246b6a5",
@@ -1422,12 +1406,12 @@
       "bytes": 28671
     },
     {
-      "id": "8b87bcd0eb25186d8737eff437bb4891e4eb942864f21bcaa7904227c6195d93",
-      "text": "Bekerja keras selama 20 detik, lalu berjalan perlahan selama istirahat.",
+      "id": "ef0d2487f0f98f965d12f968e192621a513dfc8fe39fe9470b24e6606969903a",
+      "text": "Bekerja keras selama 20 detik, lalu berjalan perlahan di antara putaran.",
       "ext": "mp3",
       "mime": "audio/mpeg",
-      "sha256": "625be88a7527f9337bf95d78c83613b93aca1035a3d3a27d66f7304170fb58b8",
-      "bytes": 34408
+      "sha256": "f4f5f4c18b34e0a930e5111c1104333d2d4e9005cf419cc2b2d4defa70eb1aec",
+      "bytes": 34490
     },
     {
       "id": "e1913faa981b474fd9a65b0c51810afb65bcbeb598d159561ab2dcc0d5bbd763",
@@ -7532,14 +7516,6 @@
       "mime": "audio/mpeg",
       "sha256": "1f297bc6e2825fe61c182ff3c5fb27aef59bfd7270a05e7119ba565f7da7189f",
       "bytes": 41406
-    },
-    {
-      "id": "953c4909a1b86e918fb2af449f20399a44d244545aad722f50c22595a37227e7",
-      "text": "Istirahat untuk 25 detik. Lanjutkan ketika Anda siap.",
-      "ext": "mp3",
-      "mime": "audio/mpeg",
-      "sha256": "b6f9f015f2fcac4514b968ebe5273ee2208330c0e77dba81ebef0899301ef272",
-      "bytes": 30248
     },
     {
       "id": "8847bd62f1203297d1e1d200b629ea77635529b3fa42ff280ff9532d7bec7d98",
