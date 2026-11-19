@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.49.0] - 2026-11-19
+
+### Added
+- The small timer inside an exercise now says what to do right now, such as **Round 1 of 2: Fast alternating step-ups**, with your heart-rate target underneath.
+- The small timer uses the voice coach too. It reads each phase aloud and starts right away while the voice loads.
+
+### Changed
+- Timer buttons now sit at the right end of their row.
+
 ## [1.48.1] - 2026-11-19
 
 ### Fixed

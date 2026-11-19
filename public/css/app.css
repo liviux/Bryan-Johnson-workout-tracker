@@ -538,8 +538,9 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
 .set-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .set-row .n { flex: none; min-width: 3.8em; font-family: var(--font-mono); color: var(--muted); font-size: 0.78rem; }
 .set-sep { flex: none; font-weight: 700; color: var(--ink-2); font-size: 0.9rem; line-height: 1; padding: 0 1px; }
-.set-actions { display: flex; align-items: center; gap: 4px; }
-.set-timer-cell { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.set-actions { flex: 1; display: flex; align-items: center; gap: 4px; }
+/* The timer always sits at the right end of its row. */
+.set-timer-cell { display: flex; align-items: center; gap: 4px; min-width: 0; order: 1; margin-left: auto; }
 .set-timer-cell .timer-slot { min-width: 0; }
 .set-actions .btn { white-space: nowrap; }
 .logger:not(.guided-logger) .set-actions .timer-start { width: 34px; min-height: 32px; }
@@ -742,7 +743,11 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
 }
 .timer-mini-copy { display: grid; gap: 1px; line-height: 1; min-width: 36px; }
 .timer.mini .big { font-size: 0.88rem; line-height: 1; }
-.timer.mini .phase, .timer.mini .sub { display: none; }
+.timer.mini { flex-wrap: wrap; max-width: 15rem; }
+.timer-mini-caption { flex-basis: 100%; display: grid; gap: 1px; padding: 0 2px 2px; font-size: 0.7rem; line-height: 1.25; }
+.timer.mini .phase { color: var(--ink); font-weight: 600; }
+.timer.mini .sub { color: var(--muted); }
+.timer.mini .sub:empty { display: none; }
 .timer.mini .timer-mini-controls { display: flex; align-items: center; gap: 0; }
 .timer.mini .btn { width: 24px; min-height: 24px; padding: 0; border: 0; background: transparent; color: var(--ink); }
 .timer.mini .btn:hover { background: var(--surface-2); }

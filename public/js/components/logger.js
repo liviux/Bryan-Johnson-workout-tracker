@@ -365,9 +365,10 @@ export function renderLogger(container, ctx) {
       const min = c.min ?? defaults.min ?? "";
       const minPlan = c.min == null && defaults.min != null;
       body += `<div class="grid-form inline-fields">
-          <div class="field inline"><span>${t("Minutes")}</span><input class="input num" inputmode="decimal" data-c="min" aria-label="${esc(t("Minutes"))}" value="${esc(min)}" placeholder="${esc(target.minutes || "")}"${minPlan ? ` data-default="true" title="${esc(t("Plan default"))}"` : ""}><span class="timer-slot"></span>${target.minutes ? `<button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="countdown" aria-label="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}" title="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}">${icon("timer", "sm")}${ctx.guided ? "" : ` ${t("Timer")}`}</button>` : ""}</div>
+          <div class="field inline"><span>${t("Minutes")}</span><input class="input num" inputmode="decimal" data-c="min" aria-label="${esc(t("Minutes"))}" value="${esc(min)}" placeholder="${esc(target.minutes || "")}"${minPlan ? ` data-default="true" title="${esc(t("Plan default"))}"` : ""}></div>
           ${isCheck ? "" : `<label class="field inline"><span>${t("Avg bpm")}</span><input class="input num" inputmode="numeric" data-c="avg" value="${esc(c.avg ?? "")}" placeholder="${esc(bpmRange(p, ...cardioRange).replace(" bpm", ""))}"></label>
           <label class="field inline"><span>${t("Max bpm")}</span><input class="input num" inputmode="numeric" data-c="max" value="${esc(c.max ?? "")}"></label>`}
+          ${target.minutes ? `<span class="set-timer-cell"><span class="timer-slot"></span><button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="countdown" aria-label="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}" title="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}">${icon("timer", "sm")}${ctx.guided ? "" : ` ${t("Timer")}`}</button></span>` : ""}
         </div>
         <div class="btn-row">${doneBtn}</div>`;
     } else if (type === "intervals") {
@@ -376,8 +377,9 @@ export function renderLogger(container, ctx) {
       if (item.ex === "shortint") body += `<div class="grid-form">${[0, 1].map((index) => `<label class="field"><span>${index ? t("Alternate with (optional)") : t("Movement for work bursts")}</span><select class="input" data-interval-move="${index}">${index ? `<option value="">${t("Same movement every burst")}</option>` : ""}${INTERVAL_MOVES.map((id) => `<option value="${id}" ${(l.moves?.[index] || (index === 0 ? "highknees" : "")) === id ? "selected" : ""}>${esc(EXERCISES[id].name)}</option>`).join("")}</select></label>`).join("")}</div><p class="muted interval-choice-help">${t("Each work burst uses one movement. Pick an alternate to switch movements each round: first → march → alternate → march.")}</p>`;
       body += `${presets.length > 1 ? `<div class="seg" role="group" aria-label="${esc(t("Preset"))}">${presets.map((pr, i) => `<button type="button" data-preset="${i}" aria-pressed="${i === pi}">${esc(pr.label)}</button>`).join("")}</div>` : ""}
         <div class="grid-form inline-fields">
-          <div class="field inline"><span>${t("Hard intervals done")}</span><input class="input num" inputmode="numeric" data-r="rounds" aria-label="${esc(t("Hard intervals done"))}" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ` data-default="true" title="${esc(t("Plan default"))}"` : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"><span class="timer-slot"></span><button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="intervals" aria-label="${esc(t("Start interval timer"))}" title="${esc(t("Start interval timer"))}">${icon("timer", "sm")}${ctx.guided ? "" : ` ${t("Timer")}`}</button></div>
+          <div class="field inline"><span>${t("Hard intervals done")}</span><input class="input num" inputmode="numeric" data-r="rounds" aria-label="${esc(t("Hard intervals done"))}" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ` data-default="true" title="${esc(t("Plan default"))}"` : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"></div>
           <label class="field inline"><span>${t("Peak bpm")}</span><input class="input num" inputmode="numeric" data-r="peak" value="${esc(l.peak ?? "")}"></label>
+          <span class="set-timer-cell"><span class="timer-slot"></span><button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="intervals" aria-label="${esc(t("Start interval timer"))}" title="${esc(t("Start interval timer"))}">${icon("timer", "sm")}${ctx.guided ? "" : ` ${t("Timer")}`}</button></span>
         </div>
         ${doneBtn ? `<div class="btn-row">${doneBtn}</div>` : ""}`;
     } else {
@@ -734,13 +736,13 @@ export function renderLogger(container, ctx) {
       });
       draw();
     } else if (a === "hold") {
-      const slot = b.closest(".set-row, .field")?.querySelector(".timer-slot");
+      const slot = b.parentElement.querySelector(".timer-slot");
       startHoldTimer(Number(b.dataset.i), slot);
     } else if (a === "countdown") {
-      const slot = b.closest(".field")?.querySelector(".timer-slot");
+      const slot = b.parentElement.querySelector(".timer-slot");
       startCountdownTimer(slot);
     } else if (a === "intervals") {
-      const slot = b.closest(".field")?.querySelector(".timer-slot");
+      const slot = b.parentElement.querySelector(".timer-slot");
       startIntervalsTimer(slot);
     } else if (b.dataset.preset != null) {
       save((l) => {

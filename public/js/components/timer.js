@@ -67,11 +67,11 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
   unlockVoice();
   const R = 120;
   const C = 2 * Math.PI * R;
-  let voiceOn = host ? false : voiceEnabled();
+  let voiceOn = voiceEnabled();
   let manifest = null;
   let started = false;
   let closed = false;
-  const miniClock = `<span class="timer-mini-copy"><span class="big mono">0:00</span><span class="phase"></span><span class="sub"></span></span><span class="timer-mini-controls"><button class="btn sm icon-only" data-t="pause" title="${esc(t("Pause timer"))}" aria-label="${esc(t("Pause timer"))}">${icon("pause", "sm")}</button><button class="btn sm icon-only" data-t="skip" title="${esc(t("Next phase"))}" aria-label="${esc(t("Next phase"))}">${icon("skip", "sm")}</button><button class="btn sm icon-only danger" data-t="stop" title="${esc(t("Stop timer"))}" aria-label="${esc(t("Stop timer"))}">${icon("x", "sm")}</button></span><span class="timer-line"><i></i></span><span class="sr-only" data-t="info"></span>`;
+  const miniClock = `<span class="timer-mini-copy"><span class="big mono">0:00</span></span><span class="timer-mini-controls"><button class="btn sm icon-only" data-t="pause" title="${esc(t("Pause timer"))}" aria-label="${esc(t("Pause timer"))}">${icon("pause", "sm")}</button><button class="btn sm icon-only" data-t="skip" title="${esc(t("Next phase"))}" aria-label="${esc(t("Next phase"))}">${icon("skip", "sm")}</button><button class="btn sm icon-only danger" data-t="stop" title="${esc(t("Stop timer"))}" aria-label="${esc(t("Stop timer"))}">${icon("x", "sm")}</button></span><span class="timer-mini-caption" aria-live="polite"><span class="phase"></span><span class="sub"></span></span><span class="timer-line"><i></i></span><span class="sr-only" data-t="info"></span>`;
   const ringClock = `<div class="timer-ring"><svg viewBox="0 0 280 280"><circle class="bg" cx="140" cy="140" r="${R}"/><circle class="fg" cx="140" cy="140" r="${R}" stroke-dasharray="${C}" stroke-dashoffset="0"/></svg>
         <div class="timer-center"><span class="phase"></span><span class="big mono">0:00</span><span class="sub"></span></div></div>`;
   const timerHtml = `<div class="timer${mini ? " mini" : host ? " inline" : ""}" data-kind="ready">
@@ -109,6 +109,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
   let lastWhole = null;
   let finished = false;
   let lastSpokenPhase = -1;
+  let voicedPhase = -1;
   const spoken = new Set();
   let lastTick = Date.now();
   const say = (clip) => voiceOn && playVoice(clip, { urgent: true });
@@ -141,7 +142,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
       if (stage) stage.load(p.ex || phases.find((phase) => phase.ex).ex);
       spoken.clear();
       lastWhole = Math.ceil(left);
-      if (started) say(manifest?.phases?.[i]);
+      if (started && manifest) { voicedPhase = i; say(manifest.phases[i]); }
     }
   }
   function next() {
@@ -179,7 +180,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
     cancelVoice();
     say(manifest?.clock?.done);
     el.dataset.kind = "done";
-    phaseEl.textContent = "Done";
+    phaseEl.textContent = t("Done");
     big.textContent = "✓";
     sub.textContent = "";
     if (fg) fg.setAttribute("stroke-dashoffset", "0");
@@ -213,7 +214,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
       paused = !paused;
       if (mini) {
         b.innerHTML = icon(paused ? "play" : "pause", "sm");
-        const label = paused ? "Resume timer" : "Pause timer";
+        const label = t(paused ? "Resume timer" : "Pause timer");
         b.title = label;
         b.setAttribute("aria-label", label);
       } else {
@@ -243,26 +244,30 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
   }
   async function prepare() {
     try {
-      // The inline timer is deliberately quiet: the guided voice keeps talking
-      // and the compact controls have no voice switch.
-      if (host || !voiceContext || state.profile?.settings?.voiceCoach !== true) return begin();
+      // Inline timers talk too; the guided voice goes quiet while a timer runs.
+      if (!voiceContext || state.profile?.settings?.voiceCoach !== true) return begin();
       if (!voiceStatus.installed || !voiceStatus.cacheEnabled) await refreshVoiceStatus();
       if (!voiceStatus.installed) {
         const button = el.querySelector('[data-t="voice"]');
-        button.textContent = "Voice unavailable"; button.disabled = true;
-        button.title = "Download the local voice in Settings → Voice coach.";
+        if (button) { button.textContent = "Voice unavailable"; button.disabled = true; button.title = "Download the local voice in Settings → Voice coach."; }
         return begin();
       }
       voiceOn = voiceEnabled();
-      el.querySelector('[data-t="voice"]').innerHTML = `${icon(voiceOn ? "volume" : "mute", "sm")} ${voiceOn ? t("Voice on") : t("Voice off")}`;
+      const voiceButton = el.querySelector('[data-t="voice"]');
+      if (voiceButton) voiceButton.innerHTML = `${icon(voiceOn ? "volume" : "mute", "sm")} ${voiceOn ? t("Voice on") : t("Voice off")}`;
       if (!voiceOn) return begin();
       cacheVoice();
-      el.querySelector('[data-t="begin"]').hidden = started;
+      const beginButton = el.querySelector('[data-t="begin"]');
+      if (beginButton) beginButton.hidden = started;
       info.textContent = "Preparing coach audio. You can start the timer while it loads.";
+      // The compact timer has no start button, so it runs while the voice loads.
+      if (mini) begin();
       manifest = await prepareVoice({ ...voiceContext, timer: voiceTimer });
       const keys = new Set(phases.flatMap((p) => Array.from({ length: p.sec }, (_, n) => clockKey(p.sec, n + 1, p.kind))).filter(Boolean));
       const essential = [manifest.phases[0], manifest.phases[1], ...[...keys].map((key) => manifest.clock[key]), manifest.clock.done];
       await preloadVoice(essential, () => !closed && voiceEnabled());
+      // Announce the phase the compact timer reached while the voice loaded.
+      if (mini && started && !closed && !finished && voicedPhase !== i) { voicedPhase = i; say(manifest.phases[i]); }
       if (!closed) { begin(); preloadVoice(manifest.phases.slice(2), () => !closed && voiceEnabled()); }
     } catch { if (!closed) begin(); }
   }
@@ -304,6 +309,6 @@ export function startHold({ title, seconds, sides = 1, side = "side", onFinish, 
 }
 
 export function startCountdown({ title, minutes, sub, onFinish, voiceContext, host = null, mini = false }) {
-  runPhases({ title, phases: [{ kind: "ready", label: "Get ready", sec: 5 }, { kind: "work", label: "Go", sec: Math.round(minutes * 60), sub }], onFinish, voiceContext, voiceTimer: { type: "countdown", minutes }, host, mini });
+  runPhases({ title, phases: [{ kind: "ready", label: t("Get ready"), sec: 5 }, { kind: "work", label: t("Go"), sec: Math.round(minutes * 60), sub }], onFinish, voiceContext, voiceTimer: { type: "countdown", minutes }, host, mini });
 }
 
