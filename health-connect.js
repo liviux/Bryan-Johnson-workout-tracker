@@ -495,7 +495,7 @@ export async function readHealthStore(dataDir) {
 async function writeHealthStore(dataDir, store) {
   await mkdir(dataDir, { recursive: true });
   const file = storeFile(dataDir);
-  const temp = `${file}.${process.pid}.${Date.now()}.tmp`;
+  const temp = `${file}.${process.pid}.${Date.now()}.${Math.random().toString(36).slice(2)}.tmp`;
   await writeFile(temp, JSON.stringify(store, null, 2) + "\n", "utf8");
   await rename(temp, file);
 }

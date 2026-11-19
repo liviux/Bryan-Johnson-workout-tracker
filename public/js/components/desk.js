@@ -134,7 +134,7 @@ export function startDesk() {
   desk.nextSquatAt = Date.now() + SQUAT_MS;
   desk.due.clear();
   desk.notified.clear();
-  if (desk.pauses.size && !pausedAt) pausedAt = Date.now();
+  if (desk.pauses.size) pausedAt = Date.now();
   save();
   startTicker();
   emit();

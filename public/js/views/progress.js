@@ -89,7 +89,7 @@ export function render(el) {
     const beginning = progressBeginning(state.profile, state.days);
     const full = W.filter((w) => w.start >= selected.start && w.start >= beginning && addDays(w.start, 6) <= selected.end);
     const basis = full.length ? full : W;
-    const avg = (k) => basis.reduce((a, w) => a + w.s[k], 0) / basis.length;
+    const avg = (k) => basis.reduce((a, w) => a + w.s[k], 0) / (basis.length || 1);
     const avgSess = avg("sessions").toFixed(1);
     const avgZ2 = Math.round(avg("zone2"));
     const avgNote = full.length ? (full.length === 1 ? t("1 full week in range") : t("{count} full weeks in range", { count: full.length })) : t("selected period");

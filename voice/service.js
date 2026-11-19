@@ -366,11 +366,16 @@ async function audioFile(id) {
   }
 }
 
+// URL.canParse needs Node 18.17+; a bad Origin gives null, which fails the host check.
+function originHost(origin) {
+  try { return new URL(origin).host; } catch { return null; }
+}
+
 export async function handleVoice(req, res, pathname, { readBody, send, fail, profile }) {
   const method = req.method;
   if (method !== "GET") {
     const origin = req.headers.origin;
-    if (req.headers["sec-fetch-site"] === "cross-site" || (origin && new URL(origin).host !== req.headers.host)) return fail(res, 403, "Use the voice controls from this app");
+    if (req.headers["sec-fetch-site"] === "cross-site" || (origin && originHost(origin) !== req.headers.host)) return fail(res, 403, "Use the voice controls from this app");
   }
   await migrateSharedPacks();
   if (pathname === "/api/voice/status" && method === "GET") {

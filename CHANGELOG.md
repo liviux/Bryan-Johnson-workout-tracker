@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.49.2] - 2026-11-19
+
+### Fixed
+- Fixed rare failed or broken saves when the same day was saved twice at once.
+- Fixed a rare crash of the local server while it was serving app files.
+- Fixed a server error when voice controls were called from a page with no origin.
+- A day you deleted while offline no longer comes back as an empty entry after a reload.
+- Cardio and interval minutes from older logs count toward your weekly totals again.
+- Week stats no longer break on an empty add-on entry.
+- A timer in a log row no longer keeps running and talking after you add a set or mark the exercise done.
+- 3D animations no longer slow down or go blank after you move between screens many times.
+- History's 4-week adherence and skipped-day counts now include sessions you swapped onto another day.
+- Fixed a crash when moving on from an exercise that has no videos.
+- Desk break reminders no longer come late when you start them during a workout.
+- Benchmark ratings show their colour again for elite and good results.
+- Progress averages no longer show NaN when the time interval has no weeks.
+
 ## [1.49.1] - 2026-11-19
 
 ### Changed

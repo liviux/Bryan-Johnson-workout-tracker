@@ -145,9 +145,15 @@ export function renderVideos(container, list, opts = {}) {
       ? opts.groups
       : [{ title: "", videos: Array.isArray(list) ? list : videosFor(list) }];
   const hasAny = groups.some((g) => g.videos && g.videos.length);
+  if (container._videoClick && container.removeEventListener) {
+    container.removeEventListener("click", container._videoClick);
+    container.removeEventListener("keydown", container._videoKey);
+    container._videoClick = null;
+    container._videoKey = null;
+  }
   if (!hasAny) {
     container.innerHTML = `<p class="muted">${t("No video available. Follow the instructions and animation.")}</p>`;
-    return { setGroup() {}, playing: false, activeGroup: 0 };
+    return { setGroup() {}, destroy() { container.innerHTML = ""; }, playing: false, activeGroup: 0 };
   }
   let activeGroup = Math.min(Math.max(0, opts.activeGroup || 0), groups.length - 1);
   let active = 0;
@@ -228,10 +234,6 @@ export function renderVideos(container, list, opts = {}) {
     frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.id}?${params}" title="${esc(v.title)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
   }
 
-  if (container._videoClick && container.removeEventListener) {
-    container.removeEventListener("click", container._videoClick);
-    container.removeEventListener("keydown", container._videoKey);
-  }
   container._videoClick = (e) => {
     const sub = e.target.closest("[data-sub]");
     if (sub) {

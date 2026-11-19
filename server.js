@@ -10,6 +10,7 @@ import { createReadStream, existsSync } from "node:fs";
 import { mkdir, readFile, readdir, rename, stat, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { randomUUID } from "node:crypto";
 import { clearHealthStore, importHealthConnect, readHealthStore } from "./health-connect.js";
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
@@ -75,7 +76,7 @@ async function appVersion() {
 // Write to a temp file first, then rename: a crash mid-write never corrupts your data.
 async function writeJson(file, value) {
   await mkdir(path.dirname(file), { recursive: true });
-  const tmp = `${file}.${process.pid}.${Date.now()}.tmp`;
+  const tmp = `${file}.${process.pid}.${randomUUID()}.tmp`;
   await writeFile(tmp, JSON.stringify(value, null, 2) + "\n", "utf8");
   await rename(tmp, file);
 }
@@ -301,7 +302,7 @@ async function serveStatic(req, res, pathname) {
     "Cache-Control": "no-cache",
   });
   if (req.method === "HEAD") return res.end();
-  createReadStream(file).pipe(res);
+  createReadStream(file).on("error", () => res.destroy()).pipe(res);
 }
 
 // ---------- server ----------

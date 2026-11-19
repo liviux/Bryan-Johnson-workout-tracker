@@ -802,8 +802,16 @@ export class Stage {
     this.loadedFigures.forEach((f) => f.dispose());
     this.scene.traverse((o) => {
       if (o.geometry) o.geometry.dispose();
+      [].concat(o.material || []).forEach((m) => {
+        m.map && m.map.dispose();
+        m.alphaMap && m.alphaMap.dispose();
+        m.dispose();
+      });
     });
     this.renderer.dispose();
+    // dispose() alone keeps the WebGL context alive until GC; browsers cap live
+    // contexts (~16) and drop the oldest, so release it now.
+    this.renderer.forceContextLoss();
     this.renderer.domElement.remove();
   }
 }

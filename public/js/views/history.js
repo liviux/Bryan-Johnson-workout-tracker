@@ -22,7 +22,7 @@ export function render(el, params) {
     for (let i = 1; i <= 28; i++) {
       const d = addDays(today, -i);
       if (state.profile && d < state.profile.startDate) break;
-      if (isRestKey(weekdayKey(d))) continue;
+      if (isRestKey(sessionKeyFor(d))) continue;
       train += 1;
       const log = state.days[d];
       if (countsAsSession(log)) done += 1;

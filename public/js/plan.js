@@ -290,7 +290,7 @@ export function dayLoad(log) {
   if (def) {
     for (const b of def.blocks) {
       for (const it of blockItems(b, lvl)) {
-        const l = log.items[it.id];
+        const l = itemLog(log, "main", it.id);
         if (!l) continue;
         if (EXERCISES[it.ex]?.log === "cardio" && it.intensity !== "light") {
           const min = l.cardio?.min;
@@ -330,7 +330,7 @@ export function weekStats(start, { from, to } = {}) {
     s.zone2 += l.zone2;
     s.hard += l.hard;
     s.extra += l.extra;
-    if (Object.values(log.addons || {}).some((a) => a && a.items && Object.values(a.items).some((x) => x.done))) s.addonDays += 1;
+    if (Object.values(log.addons || {}).some((a) => a && a.items && Object.values(a.items).some((x) => x && x.done))) s.addonDays += 1;
   }
   return s;
 }

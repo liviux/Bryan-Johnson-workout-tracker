@@ -195,7 +195,7 @@ export function render(el) {
   function benchmarkCardHtml(b) {
     const last = latestBenchmarkLog(b.id);
     const rating = last ? b.rate(last.value) : null;
-    const tierColor = rating ? (rating.tier === "elite" ? "var(--teal)" : rating.tier === "good" ? "var(--amber)" : "var(--muted)") : "var(--muted)";
+    const tierColor = rating ? (rating.tier === "elite" ? "var(--accent)" : rating.tier === "good" ? "var(--warn)" : "var(--muted)") : "var(--muted)";
 
     return `<section class="card block benchmark-card" data-bm-id="${esc(b.id)}" style="display:grid;gap:12px;padding:16px 18px">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">

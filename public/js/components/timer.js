@@ -156,6 +156,9 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
     show();
   }
   function tick() {
+    // A redraw of the host (e.g. logging a set) can drop an inline timer from
+    // the page; stop it rather than let it run and talk unseen.
+    if (host && !el.isConnected) return stop(false);
     const now = Date.now();
     const elapsed = (now - lastTick) / 1000;
     lastTick = now;
@@ -189,6 +192,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
     if (stage) { stage.dispose(); stage = null; }
     clearTimerNotice();
     if (onFinish) onFinish(phases.filter(isRoundEnd).length);
+    if (host && !el.isConnected) stop(false);
   }
   function stop(close = true) {
     if (closed) return;

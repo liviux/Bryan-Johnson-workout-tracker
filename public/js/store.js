@@ -89,7 +89,8 @@ export async function init() {
         touch("profile");
       }
       for (const [date, day] of Object.entries(parked.days || {})) {
-        state.days[date] = day;
+        if (day == null) delete state.days[date]; // parked delete
+        else state.days[date] = day;
         touch("day:" + date);
       }
       flushNow();
