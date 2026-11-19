@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.49.1] - 2026-11-19
+
+### Changed
+- Cardio and interval log rows are more compact, so minutes, heart rate and the timer fit on one line.
+- Timer buttons show only the timer icon.
+- A running timer moves to its own line below the fields, so its phase and target stay readable.
+
 ## [1.49.0] - 2026-11-19
 
 ### Added

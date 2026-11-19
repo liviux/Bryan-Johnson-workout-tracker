@@ -734,8 +734,15 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
 }
 
 /* Inline fields keep their natural width and wrap instead of overflowing fixed grid columns. */
-.grid-form.inline-fields { display: flex; flex-wrap: wrap; column-gap: 20px; }
-.guided .grid-form.inline-fields { column-gap: 14px; }
+.grid-form.inline-fields { display: flex; flex-wrap: wrap; align-items: center; column-gap: 10px; }
+/* Compact labels and inputs so a whole log row fits on one line in the card. */
+.inline-fields .field.inline { gap: 5px; }
+.inline-fields .field.inline > span { font-size: 0.76rem; }
+.inline-fields .field.inline .input { width: 56px; min-height: 32px; padding: 4px 1px; font-size: 0.8rem; }
+/* A running timer takes its own line under the fields, so its caption has room. */
+.set-actions:has(.timer-slot:not(:empty)) { display: contents; }
+.set-timer-cell:has(> .timer-slot:not(:empty)) { flex-basis: 100%; margin-left: 0; }
+.set-timer-cell > .timer-slot:not(:empty) { flex: 1; }
 
 .timer.mini {
   position: relative; display: inline-flex; align-items: center; gap: 4px; padding: 3px 4px 4px;
@@ -743,8 +750,8 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
 }
 .timer-mini-copy { display: grid; gap: 1px; line-height: 1; min-width: 36px; }
 .timer.mini .big { font-size: 0.88rem; line-height: 1; }
-.timer.mini { flex-wrap: wrap; max-width: 15rem; }
-.timer-mini-caption { flex-basis: 100%; display: grid; gap: 1px; padding: 0 2px 2px; font-size: 0.7rem; line-height: 1.25; }
+.timer.mini { display: flex; flex-wrap: wrap; column-gap: 8px; width: 100%; }
+.timer-mini-caption { flex: 1 1 12rem; min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 8px; padding: 2px 4px; border-left: 1px solid var(--line); font-size: 0.72rem; line-height: 1.3; }
 .timer.mini .phase { color: var(--ink); font-weight: 600; }
 .timer.mini .sub { color: var(--muted); }
 .timer.mini .sub:empty { display: none; }

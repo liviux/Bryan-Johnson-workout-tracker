@@ -368,7 +368,7 @@ export function renderLogger(container, ctx) {
           <div class="field inline"><span>${t("Minutes")}</span><input class="input num" inputmode="decimal" data-c="min" aria-label="${esc(t("Minutes"))}" value="${esc(min)}" placeholder="${esc(target.minutes || "")}"${minPlan ? ` data-default="true" title="${esc(t("Plan default"))}"` : ""}></div>
           ${isCheck ? "" : `<label class="field inline"><span>${t("Avg bpm")}</span><input class="input num" inputmode="numeric" data-c="avg" value="${esc(c.avg ?? "")}" placeholder="${esc(bpmRange(p, ...cardioRange).replace(" bpm", ""))}"></label>
           <label class="field inline"><span>${t("Max bpm")}</span><input class="input num" inputmode="numeric" data-c="max" value="${esc(c.max ?? "")}"></label>`}
-          ${target.minutes ? `<span class="set-timer-cell"><span class="timer-slot"></span><button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="countdown" aria-label="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}" title="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}">${icon("timer", "sm")}${ctx.guided ? "" : ` ${t("Timer")}`}</button></span>` : ""}
+          ${target.minutes ? `<span class="set-timer-cell"><span class="timer-slot"></span><button type="button" class="btn sm icon-only timer-start" data-l="countdown" aria-label="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}" title="${esc(t("Start {minutes} minute timer", { minutes: target.minutes }))}">${icon("timer", "sm")}</button></span>` : ""}
         </div>
         <div class="btn-row">${doneBtn}</div>`;
     } else if (type === "intervals") {
@@ -379,7 +379,7 @@ export function renderLogger(container, ctx) {
         <div class="grid-form inline-fields">
           <div class="field inline"><span>${t("Hard intervals done")}</span><input class="input num" inputmode="numeric" data-r="rounds" aria-label="${esc(t("Hard intervals done"))}" value="${esc(l.rounds ?? defaults.rounds ?? "")}"${l.rounds == null && defaults.rounds != null ? ` data-default="true" title="${esc(t("Plan default"))}"` : ""} placeholder="${presets[pi] ? presets[pi].rounds * (presets[pi].blocks || 1) : ""}"></div>
           <label class="field inline"><span>${t("Peak bpm")}</span><input class="input num" inputmode="numeric" data-r="peak" value="${esc(l.peak ?? "")}"></label>
-          <span class="set-timer-cell"><span class="timer-slot"></span><button type="button" class="btn sm${ctx.guided ? " icon-only" : ""} timer-start" data-l="intervals" aria-label="${esc(t("Start interval timer"))}" title="${esc(t("Start interval timer"))}">${icon("timer", "sm")}${ctx.guided ? "" : ` ${t("Timer")}`}</button></span>
+          <span class="set-timer-cell"><span class="timer-slot"></span><button type="button" class="btn sm icon-only timer-start" data-l="intervals" aria-label="${esc(t("Start interval timer"))}" title="${esc(t("Start interval timer"))}">${icon("timer", "sm")}</button></span>
         </div>
         ${doneBtn ? `<div class="btn-row">${doneBtn}</div>` : ""}`;
     } else {
