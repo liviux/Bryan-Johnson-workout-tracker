@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Cardio (ndani)",
   "Cardio & monitoring": "Cardio & ufuatiliaji",
   "Cardio + long stretch": "Cardio + kunyoosha kwa muda mrefu",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Sehemu za kumbukumbu za Cardio na muda hazimwagiki tena kutoka kwa kadi au kuingiliana. Safu mlalo inapoishia nafasi, uga unaofuata husogezwa hadi kwenye mstari mpya.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Jumla ya Cardio haijumuishi vipindi rahisi vya joto, kushuka kwa joto na vipindi vya kuanza haraka kutoka kwa kazi ngumu.",
   "CARDIO: Stomping": "CARDIO: Kukanyaga",
   "Cardiorespiratory longevity": "Urefu wa maisha ya moyo",

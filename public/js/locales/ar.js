@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "الكارديو (داخلي)",
   "Cardio & monitoring": "القلب والرصد",
   "Cardio + long stretch": "تمارين القلب + التمدد الطويل",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "لم تعد حقول سجل القلب والفاصل الزمني تتسرب من البطاقة أو تتداخل مع بعضها البعض. عندما ينفد الصف من المساحة، ينتقل الحقل التالي إلى سطر جديد.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "تستبعد إجماليات الكارديو عمليات الإحماء والتهدئة السهلة وفواصل المبتدئ السريعة من العمل عالي الشدة.",
   "CARDIO: Stomping": "أمراض القلب: الدوس",
   "Cardiorespiratory longevity": "طول عمر الجهاز القلبي التنفسي",

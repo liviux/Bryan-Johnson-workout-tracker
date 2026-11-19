@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Konditionsträning (inomhus)",
   "Cardio & monitoring": "Cardio & övervakning",
   "Cardio + long stretch": "Cardio + lång stretch",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Konditions- och intervallloggfält rinner inte längre ut ur kortet eller överlappar varandra. När en rad tar slut på utrymme flyttas nästa fält till en ny rad.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Konditionsbelopp utesluter lätt uppvärmning, nedkylning och snabba nybörjarintervaller från hårt arbete.",
   "CARDIO: Stomping": "CARDIO: Stompande",
   "Cardiorespiratory longevity": "Kardiorespiratorisk livslängd",

@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "কার্ডিও (ঘরে)",
   "Cardio & monitoring": "কার্ডিও ও মনিটরিং",
   "Cardio + long stretch": "কার্ডিও + দীর্ঘ স্ট্রেচ",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "কার্ডিও এবং ইন্টারভাল লগ ফিল্ডগুলি আর কার্ড থেকে ছিটকে যায় না বা একে অপরকে ওভারল্যাপ করে না। যখন একটি সারি ঘরের বাইরে চলে যায়, তখন পরবর্তী ক্ষেত্রটি একটি নতুন লাইনে চলে যায়।",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "কার্ডিওর মোট হিসাব থেকে সহজ ওয়ার্ম-আপ, কুল-ডাউন আর নতুনদের দ্রুত ইন্টারভাল হার্ড কাজ হিসেবে বাদ যায়।",
   "CARDIO: Stomping": "কার্ডিও: স্টম্পিং",
   "Cardiorespiratory longevity": "কার্ডিওরেসপিরেটরি দীর্ঘায়ু",

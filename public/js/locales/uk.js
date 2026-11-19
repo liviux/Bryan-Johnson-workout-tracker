@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Кардіо (в приміщенні)",
   "Cardio & monitoring": "Кардіо та моніторинг",
   "Cardio + long stretch": "Кардіо + довга розтяжка",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Поля кардіо та інтервального журналу більше не виливаються з картки та не накладаються одне на одне. Коли в рядку закінчується місце, наступне поле переміщується на новий рядок.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Кардіо підсумки виключають легку розминку, охолодження та швидкі інтервали для початківців після важкої роботи.",
   "CARDIO: Stomping": "КАРДІО: Тупотіння",
   "Cardiorespiratory longevity": "Серцево-респіраторна довголіття",

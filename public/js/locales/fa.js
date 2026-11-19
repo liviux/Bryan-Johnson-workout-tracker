@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "کاردیو (داخلی)",
   "Cardio & monitoring": "کاردیو و مانیتورینگ",
   "Cardio + long stretch": "کاردیو + کشش طولانی",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "فیلدهای گزارش کاردیو و فواصل دیگر از کارت بیرون نمی ریزند یا روی یکدیگر همپوشانی ندارند. هنگامی که یک ردیف از اتاق خارج می شود، فیلد بعدی به یک خط جدید منتقل می شود.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "مجموع کاردیو گرم کردن آسان، سرد کردن و فواصل سریع مبتدی را از کار سخت حذف نمی کند.",
   "CARDIO: Stomping": "کاردیو: پا زدن",
   "Cardiorespiratory longevity": "طول عمر قلبی تنفسی",

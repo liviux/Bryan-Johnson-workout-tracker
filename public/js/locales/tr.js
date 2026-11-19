@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Kardiyo (kapalı mekan)",
   "Cardio & monitoring": "Kardiyo ve izleme",
   "Cardio + long stretch": "Kardiyo + uzun esneme",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Kardiyo ve aralık günlüğü alanları artık kartın dışına taşmıyor veya birbiriyle örtüşmüyor. Bir satırda yer kalmadığında sonraki alan yeni bir satıra taşınır.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Kardiyo toplamları, kolay ısınmaları, soğumaları ve başlangıç ​​için yoğun çalışma aralıklarını hariç tutar.",
   "CARDIO: Stomping": "KARDİYO: Ezmek",
   "Cardiorespiratory longevity": "Kardiyorespiratuar uzun ömür",

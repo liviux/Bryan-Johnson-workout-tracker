@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Kardio (dalam ruangan)",
   "Cardio & monitoring": "Kardio & pemantauan",
   "Cardio + long stretch": "Kardio + peregangan panjang",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Bidang log kardio dan interval tidak lagi keluar dari kartu atau saling tumpang tindih. Ketika suatu baris kehabisan ruang, bidang berikutnya berpindah ke baris baru.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Total kardio tidak termasuk pemanasan mudah, pendinginan, dan interval cepat bagi pemula dari kerja keras.",
   "CARDIO: Stomping": "KARDIO: Menghentak",
   "Cardiorespiratory longevity": "Umur panjang kardiorespirasi",

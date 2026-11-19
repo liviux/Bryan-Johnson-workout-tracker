@@ -732,9 +732,9 @@ details[data-addon]:not([open]) .addon-chevron { transform: rotate(-90deg); }
   .guided-clock small { display: none; }
 }
 
-.cardio-form { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.cardio-form.one { grid-template-columns: minmax(0, 180px); }
-.guided .cardio-form.one { grid-template-columns: minmax(0, 180px); }
+/* Inline fields keep their natural width and wrap instead of overflowing fixed grid columns. */
+.grid-form.inline-fields { display: flex; flex-wrap: wrap; column-gap: 20px; }
+.guided .grid-form.inline-fields { column-gap: 14px; }
 
 .timer.mini {
   position: relative; display: inline-flex; align-items: center; gap: 4px; padding: 3px 4px 4px;

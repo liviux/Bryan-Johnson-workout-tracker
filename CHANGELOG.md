@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.48.1] - 2026-11-19
+
+### Fixed
+- Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.
+
 ## [1.48.0] - 2026-11-18
 
 ### Removed

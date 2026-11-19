@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Kardio (viduje)",
   "Cardio & monitoring": "Kardio ir stebėjimas",
   "Cardio + long stretch": "Kardio + ilgas tempimas",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Kardio ir intervalų žurnalo laukai nebeišsilieja iš kortelės ir neperdengia vienas kito. Kai eilutėje pritrūksta vietos, kitas laukas perkeliamas į naują eilutę.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Kardio treniruotės neapima lengvo apšilimo, atvėsimo ir greitų pradedančiųjų intervalų nuo sunkaus darbo.",
   "CARDIO: Stomping": "KARDIO: Triukšmas",
   "Cardiorespiratory longevity": "Širdies ir kvėpavimo sistemos ilgaamžiškumas",

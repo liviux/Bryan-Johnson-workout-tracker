@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "კარდიო (შიდა)",
   "Cardio & monitoring": "კარდიო და მონიტორინგი",
   "Cardio + long stretch": "კარდიო + ხანგრძლივი გაჭიმვა",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "კარდიო და ინტერვალის ჟურნალის ველები აღარ იღვრება ბარათიდან ან ერთმანეთს გადაფარავს. როდესაც რიგი ამოიწურება ოთახიდან, შემდეგი ველი გადადის ახალ ხაზზე.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "კარდიო ტოტალი გამორიცხავს მარტივ გახურებას, გაგრილებას და დამწყებთათვის სწრაფ ინტერვალებს მძიმე შრომისგან.",
   "CARDIO: Stomping": "კარდიო: მსხვრევა",
   "Cardiorespiratory longevity": "კარდიორესპირატორული დღეგრძელობა",

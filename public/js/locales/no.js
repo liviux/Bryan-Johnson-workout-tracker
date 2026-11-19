@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Kardio (innendørs)",
   "Cardio & monitoring": "Kardio og overvåking",
   "Cardio + long stretch": "Cardio + lang stretch",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Kardio- og intervallloggfelt renner ikke lenger ut av kortet eller overlapper hverandre. Når en rad går tom for plass, flyttes neste felt til en ny linje.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Kardiototaler ekskluderer lett oppvarming, nedkjøling og raske nybegynnerintervaller fra hardt arbeid.",
   "CARDIO: Stomping": "KARDIO: Tramper",
   "Cardiorespiratory longevity": "Kardiorespiratorisk lang levetid",

@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "有酸素運動（屋内）",
   "Cardio & monitoring": "有酸素運動とモニタリング",
   "Cardio + long stretch": "有酸素運動 + ロングストレッチ",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "カーディオログフィールドとインターバルログフィールドがカードからはみ出したり、互いに重なったりすることがなくなりました。行のスペースがなくなると、次のフィールドが新しい行に移動します。",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "有酸素運動の合計には、簡単なウォームアップ、クールダウン、およびハードワークによる初心者の活発なインターバルは含まれていません。",
   "CARDIO: Stomping": "有酸素運動: ストンピング",
   "Cardiorespiratory longevity": "心肺機能の長寿化",

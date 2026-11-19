@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Kardió (beltéri)",
   "Cardio & monitoring": "Kardió és monitorozás",
   "Cardio + long stretch": "Kardió + hosszú nyújtás",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "A kardió és az intervallum naplómezői már nem szóródnak ki a kártyáról, és nem fedik egymást. Ha egy sorban elfogy a hely, a következő mező új sorba kerül.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "A kardió összesített edzései kizárják a könnyű bemelegítéseket, lehűléseket és a kezdők lendületes intervallumait a kemény munkától.",
   "CARDIO: Stomping": "KÁRDIÓ: Toporog",
   "Cardiorespiratory longevity": "Kardiorespiratorikus élettartam",

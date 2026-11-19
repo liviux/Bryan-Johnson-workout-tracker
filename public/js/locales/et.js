@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Kardio (siseruumides)",
   "Cardio & monitoring": "Kardio ja jälgimine",
   "Cardio + long stretch": "Kardio + pikk venitus",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Kardio- ja intervalllogi väljad ei valgu enam kaardilt välja ega kattu üksteisega. Kui rea ruum saab otsa, liigub järgmine väli uuele reale.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Kardio kokkuvõtted välistavad raskest tööst kerged soojendused, jahtumised ja kiired algajate intervallid.",
   "CARDIO: Stomping": "KARDIO: Trampimine",
   "Cardiorespiratory longevity": "Kardiorespiratoorne pikaealisus",

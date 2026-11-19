@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Kardio (u zatvorenom)",
   "Cardio & monitoring": "Kardio i praćenje",
   "Cardio + long stretch": "Kardio + dugo istezanje",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Polja kardio i intervalnog dnevnika više se ne izlijevaju iz kartice niti se preklapaju. Kada u redu ponestane prostora, sljedeće polje prelazi u novi red.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Kardio ukupne vrijednosti isključuju lako zagrijavanje, hlađenje i brze početničke intervale od napornog rada.",
   "CARDIO: Stomping": "KARDIO: Gaženje",
   "Cardiorespiratory longevity": "Kardiorespiratorna dugovječnost",

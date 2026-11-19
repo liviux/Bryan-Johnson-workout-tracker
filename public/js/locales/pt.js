@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Cardio (interno)",
   "Cardio & monitoring": "Cardio e monitoramento",
   "Cardio + long stretch": "Cardio + alongamento longo",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Os campos de registro cardiovascular e de intervalo não saem mais do cartão nem se sobrepõem. Quando uma linha fica sem espaço, o próximo campo passa para uma nova linha.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Os totais de cardio excluem aquecimentos fáceis, desaquecimentos e intervalos rápidos para iniciantes do trabalho duro.",
   "CARDIO: Stomping": "CARDIO: Pisando forte",
   "Cardiorespiratory longevity": "Longevidade cardiorrespiratória",

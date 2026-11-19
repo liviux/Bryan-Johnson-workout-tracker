@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Cardio (trong nhà)",
   "Cardio & monitoring": "Tim mạch & theo dõi",
   "Cardio + long stretch": "Cardio + giãn cơ dài",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Các trường nhật ký tim mạch và quãng thời gian không còn tràn ra khỏi thẻ hoặc chồng chéo lên nhau. Khi một hàng hết chỗ, trường tiếp theo sẽ chuyển sang dòng mới.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Tổng số bài tập tim mạch loại trừ các bài khởi động dễ dàng, thư giãn và các khoảng thời gian khởi động nhanh cho người mới bắt đầu khỏi việc tập luyện chăm chỉ.",
   "CARDIO: Stomping": "CARDIO: Dậm chân",
   "Cardiorespiratory longevity": "Tuổi thọ tim mạch",

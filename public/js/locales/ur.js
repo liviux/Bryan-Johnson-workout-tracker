@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "کارڈیو (اندرونی)",
   "Cardio & monitoring": "کارڈیو اور نگرانی",
   "Cardio + long stretch": "کارڈیو + لمبی اسٹریچ",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "کارڈیو اور وقفہ لاگ فیلڈز اب کارڈ سے باہر نہیں نکلتے یا ایک دوسرے کو اوورلیپ نہیں کرتے۔ جب ایک قطار کمرے سے باہر چلی جاتی ہے، تو اگلا فیلڈ ایک نئی لائن میں چلا جاتا ہے۔",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "کارڈیو ٹوٹل آسان وارم اپس، کولڈ ڈاؤن اور تیز ابتدائی وقفوں کو سخت محنت سے خارج کرتا ہے۔",
   "CARDIO: Stomping": "کارڈیو: اسٹمپنگ",
   "Cardiorespiratory longevity": "قلبی سانس کی لمبی عمر",

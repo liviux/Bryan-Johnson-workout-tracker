@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Cardio (în interior)",
   "Cardio & monitoring": "Cardio și monitorizare",
   "Cardio + long stretch": "Cardio + întindere lungă",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Câmpurile de jurnal cardio și interval nu se mai vărsă din card și nu se mai suprapun. Când un rând epuizează spațiul, următorul câmp se mută pe o nouă linie.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Totalurile cardio exclud încălzirile ușoare, răcirile și intervalele alerte pentru începători din efortul intens.",
   "CARDIO: Stomping": "CARDIO: Călcând",
   "Cardiorespiratory longevity": "Longevitatea cardiorespiratorie",

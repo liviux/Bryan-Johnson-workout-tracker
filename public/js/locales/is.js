@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "hjartalínurit (inni)",
   "Cardio & monitoring": "Hjartalínu og eftirlit",
   "Cardio + long stretch": "Cardio + löng teygja",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Hjartalínurit og tímabilsskráareitir leka ekki lengur út úr kortinu eða skarast hvort annað. Þegar röð klárast af plássi færist næsti reitur í nýja línu.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Heildartölur í þolþjálfun útiloka auðvelda upphitun, niðurkólnun og hröð byrjendabil frá erfiðri vinnu.",
   "CARDIO: Stomping": "HJARTLÖGÐ: Stampandi",
   "Cardiorespiratory longevity": "Langlífi hjarta- og öndunarfæra",

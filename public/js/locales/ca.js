@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Cardio (interior)",
   "Cardio & monitoring": "Cardio i monitorització",
   "Cardio + long stretch": "Cardio + estirament llarg",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Els camps de registre de cardio i d'interval ja no surten de la targeta ni es superposen. Quan una fila es queda sense espai, el camp següent es mou a una nova línia.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Els totals de cardio exclouen els escalfaments fàcils, els refredaments i els intervals ràpids per a principiants del treball dur.",
   "CARDIO: Stomping": "CARDIO: Trepitjant",
   "Cardiorespiratory longevity": "Longevitat cardiorespiratòria",

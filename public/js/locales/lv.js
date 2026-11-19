@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Kardio (iekštelpās)",
   "Cardio & monitoring": "Kardio un uzraudzība",
   "Cardio + long stretch": "Kardio + garš stiepšanās",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Kardio un intervālu žurnāla lauki vairs neizplūst no kartes un nepārklājas viens ar otru. Kad rindā pietrūkst vietas, nākamais lauks tiek pārvietots uz jaunu rindu.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Kardio vingrinājumi neietver vieglu iesildīšanos, atdzišanu un ātrus iesācēju intervālus no smaga darba.",
   "CARDIO: Stomping": "KARDIO: Stopēt",
   "Cardiorespiratory longevity": "Sirds un elpošanas sistēmas ilgmūžība",

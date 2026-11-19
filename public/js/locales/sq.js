@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Kardio (të brendshme)",
   "Cardio & monitoring": "Kardio dhe monitorim",
   "Cardio + long stretch": "Kardio + shtrirje e gjatë",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Fushat e regjistrit kardio dhe intervali nuk derdhen më jashtë kartës ose nuk mbivendosen me njëra-tjetrën. Kur një rresht mbaron nga dhoma, fusha tjetër zhvendoset në një rresht të ri.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Totali i kardio përjashton ngrohjen e lehtë, ftohjen dhe intervalet e shpejta të fillestarëve nga puna e vështirë.",
   "CARDIO: Stomping": "KARDIO: Goditje me këmbë",
   "Cardiorespiratory longevity": "Jetëgjatësia kardiorespiratore",

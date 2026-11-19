@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Cardio (sa loob ng bahay)",
   "Cardio & monitoring": "Cardio at pagsubaybay",
   "Cardio + long stretch": "Cardio + mahabang kahabaan",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Ang mga field ng cardio at interval log ay hindi na lumalabas sa card o nagsasapawan sa isa't isa. Kapag ang isang hilera ay naubusan ng silid, ang susunod na field ay lilipat sa isang bagong linya.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Ang mga kabuuan ng cardio ay hindi kasama ang mga madaling warm-up, cool-down at mabilis na mga agwat ng nagsisimula mula sa pagsusumikap.",
   "CARDIO: Stomping": "CARDIO: Pagpapadyak",
   "Cardiorespiratory longevity": "Longevity ng cardiorespiratory",

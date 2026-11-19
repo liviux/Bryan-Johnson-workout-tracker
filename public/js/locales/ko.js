@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "심장강화(실내)",
   "Cardio & monitoring": "심장 강화 및 모니터링",
   "Cardio + long stretch": "유산소 운동 + 장기 스트레칭",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "심장 강화 및 인터벌 로그 필드가 더 이상 카드 밖으로 흘러나오거나 서로 겹치지 않습니다. 행의 공간이 부족해지면 다음 필드가 새 줄로 이동됩니다.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "심장강화 운동 총계에는 쉬운 워밍업, 쿨다운 및 힘든 운동에서 나오는 활발한 초보자 간격이 제외됩니다.",
   "CARDIO: Stomping": "심장강화: 쿵쾅쿵쾅",
   "Cardiorespiratory longevity": "심폐 수명",

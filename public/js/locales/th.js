@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "คาร์ดิโอ (ในร่ม)",
   "Cardio & monitoring": "คาร์ดิโอและการตรวจติดตาม",
   "Cardio + long stretch": "คาร์ดิโอ+ยืดยาว",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "ช่องบันทึกคาร์ดิโอและช่วงเวลาจะไม่หกออกจากการ์ดหรือทับซ้อนกันอีกต่อไป เมื่อแถวไม่มีพื้นที่ว่าง ฟิลด์ถัดไปจะย้ายไปยังบรรทัดใหม่",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "ผลรวมของคาร์ดิโอไม่รวมการอบอุ่นร่างกายแบบง่ายๆ คูลดาวน์ และช่วงเริ่มต้นที่รวดเร็วจากการทำงานหนัก",
   "CARDIO: Stomping": "คาร์ดิโอ: การกระทืบ",
   "Cardiorespiratory longevity": "อายุยืนยาวของระบบหัวใจและหลอดเลือด",

@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "קרדיו (מקורה)",
   "Cardio & monitoring": "אירובי וניטור",
   "Cardio + long stretch": "קרדיו + מתיחה ארוכה",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "שדות Cardio ו-Interval Log לא נשפכים יותר מהכרטיס או חופפים זה לזה. כשנגמר המקום לשורה, השדה הבא עובר לשורה חדשה.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "סיכומי אירובי אינם כוללים חימום קל, התקררות ואינטרוולים זריזים למתחילים מעבודה קשה.",
   "CARDIO: Stomping": "קרדיו: רקע",
   "Cardiorespiratory longevity": "אריכות ימים קרדיו-נשימה",

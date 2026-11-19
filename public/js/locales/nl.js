@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Cardio (binnen)",
   "Cardio & monitoring": "Cardio en monitoring",
   "Cardio + long stretch": "Cardio + lange rekoefeningen",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Cardio- en intervallogvelden lopen niet langer over de kaart heen en overlappen elkaar niet meer. Wanneer er in een rij geen ruimte meer is, wordt het volgende veld naar een nieuwe regel verplaatst.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Cardiototalen sluiten gemakkelijke warming-ups, cool-downs en stevige beginnersintervallen uit van hard werken.",
   "CARDIO: Stomping": "CARDIO: Stampen",
   "Cardiorespiratory longevity": "Cardiorespiratoire levensduur",

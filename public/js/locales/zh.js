@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "有氧（室内）",
   "Cardio & monitoring": "有氧与监测",
   "Cardio + long stretch": "有氧 + 长时拉伸",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "有氧运动和间歇记录字段不再溢出卡或彼此重叠。当一行空间不足时，下一个字段将移至新行。",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "有氧总量不包括轻松热身、放松和初学者的轻快间歇。",
   "CARDIO: Stomping": "有氧运动：跺脚",
   "Cardiorespiratory longevity": "心肺长寿",

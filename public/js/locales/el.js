@@ -1047,6 +1047,7 @@ export default {
   "Cardio (indoor)": "Cardio (σε εσωτερικούς χώρους)",
   "Cardio & monitoring": "Καρδιο & παρακολούθηση",
   "Cardio + long stretch": "Cardio + μεγάλη διάταση",
+  "Cardio and interval log fields no longer spill out of the card or overlap each other. When a row runs out of room, the next field moves to a new line.": "Τα πεδία καρδιοκαταγραφής και διαστήματος δεν ξεχύνονται πλέον από την κάρτα ούτε επικαλύπτονται μεταξύ τους. Όταν μια σειρά εξαντληθεί από το δωμάτιο, το επόμενο πεδίο μετακινείται σε νέα γραμμή.",
   "Cardio totals exclude easy warm-ups, cool-downs and brisk beginner intervals from hard work.": "Τα σύνολα καρδιο αποκλείουν τις εύκολες προθέρμανση, τις δροσίσεις και τα γρήγορα διαστήματα για αρχάριους από τη σκληρή δουλειά.",
   "CARDIO: Stomping": "ΚΑΡΔΙΟ: Πατώντας",
   "Cardiorespiratory longevity": "Καρδιοαναπνευστική μακροζωία",
