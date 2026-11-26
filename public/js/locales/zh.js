@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "第 {current}/{total} 个间歇",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "间隔组按轮顺序列出每个运动和恢复，计时器显示当前运动。",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "间歇计时器的演示会在准备倒计时、每个训练和恢复阶段播放动画。",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "现在，间隔计时器会在引导锻炼和今天的每个工作和恢复阶段更改锻炼动画，然后在计时器停止时返回锻炼。",
   "Intervals": "间隔",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "间歇 1 · 20 秒冲刺 + 2 区 + 背部与核心",
   "Intervals 2 · Norwegian 4×4 + stability": "间歇 2 · 挪威 4×4 + 稳定性",

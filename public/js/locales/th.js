@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "ช่วง {current} ของ {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "กลุ่มช่วงเวลาแสดงรายการการเคลื่อนไหวและการฟื้นตัวแต่ละครั้งตามลำดับ โดยตัวจับเวลาจะแสดงการเคลื่อนไหวในปัจจุบัน",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "การสาธิตตัวจับเวลาเป็นช่วงจะเคลื่อนไหวระหว่างการนับถอยหลังที่พร้อมและแต่ละขั้นตอนการทำงานและการกู้คืน",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "ตอนนี้ตัวจับเวลาช่วงเปลี่ยนแอนิเมชั่นการออกกำลังกายกับแต่ละระยะการทำงานและระยะฟื้นตัว ในการออกกำลังกายที่แนะนำและในวันนี้ จากนั้นจึงกลับสู่การออกกำลังกายเมื่อตัวจับเวลาหยุด",
   "Intervals": "ช่วงเวลา",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "ช่วงเวลา 1 · ระเบิดต่อเนื่อง 20 วินาที + โซน 2 + ด้านหลังและลำตัว",
   "Intervals 2 · Norwegian 4×4 + stability": "ช่วง 2 · นอร์เวย์ 4×4 + เสถียรภาพ",

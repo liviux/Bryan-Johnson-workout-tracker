@@ -632,6 +632,7 @@ export function renderLogger(container, ctx) {
       title: `${ex.name} · ${preset.label}`,
       host,
       mini: !!host,
+      demo: ctx.timerDemo,
       voiceContext: voiceRequest(item, level, l0),
       presetIndex: Math.min(l0.preset || 0, presets.length - 1),
       exId: item.ex, moves: l0.moves,

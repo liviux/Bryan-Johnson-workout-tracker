@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Väli {current} {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Intervalliryhmät listaavat jokaisen liikkeen ja palautumisen pyöreässä järjestyksessä, ja ajastin näyttää nykyisen liikkeen.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Intervalliajastimen esittelyt animoituvat valmiuslaskennan ja jokaisen työ- ja palautusvaiheen aikana.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Intervalliajastimet muuttavat nyt harjoitusanimaatiota jokaisen työ- ja palautumisvaiheen yhteydessä, ohjatuissa harjoituksissa ja Tänään, ja palaavat sitten harjoitukseen, kun ajastin pysähtyy.",
   "Intervals": "Intervallit",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Intervallit 1 · 20 sekunnin purskeet + vyöhyke 2 + takaosa ja ydin",
   "Intervals 2 · Norwegian 4×4 + stability": "Välit 2 · Norjan 4×4 + vakaus",

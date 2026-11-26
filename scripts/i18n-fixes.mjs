@@ -117,6 +117,7 @@ export const fixes = {
   },
   no: {
     "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Hver stemme i «Stemmecoach» har nå sin egen nedlastingsknapp, inkludert alle fem engelske stemmene og hvert oversatt språk. Å velge en stemme starter fortsatt nedlastingen når coaching er på.",
+    "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Intervalltimere endrer nå animasjonen for hver arbeids- og hvilefase, både i guidede treningsøkter og i dagvisningen, og går tilbake til øvelsen når timeren stopper.",
   },
   hr: {
     "Every voice in Voice coach now has its own download button, including all five English voices and each translated language. Selecting a voice still starts its download when coaching is on.": "Svaki glas u «Glasovni trener» sada ima vlastiti gumb za preuzimanje, uključujući svih pet engleskih glasova i svaki prevedeni jezik. Odabirom glasa još uvijek počinje njegovo preuzimanje kada je obučavanje uključeno.",

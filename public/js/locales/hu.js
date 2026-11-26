@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "{current} intervallum {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Az intervallumcsoportok minden mozgást és helyreállítást körkörös sorrendben listáznak, az időzítő pedig az aktuális mozgást mutatja.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Az időzítő bemutatói animálnak a készenléti visszaszámlálás, valamint az egyes munka- és helyreállítási fázisok során.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Az intervallumidőzítők mostantól minden munka- és felépülési fázisban változtatják az edzés animációját, irányított edzéseken és a mai napon, majd visszatérnek az edzéshez, amikor az időzítő leáll.",
   "Intervals": "Intervallumok",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Intervallumok 1 · 20 másodperces sorozatok + 2. zóna + hátsó és mag",
   "Intervals 2 · Norwegian 4×4 + stability": "Intervallumok 2 · Norvég 4×4 + stabilitás",

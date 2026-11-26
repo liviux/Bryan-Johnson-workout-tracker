@@ -45,6 +45,14 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
   let tabOpen = mode !== "log";
   let current = null;
   let movement = null;
+  // An inline interval timer moves the animation with its phases, then puts
+  // the chosen movement back when the timer stops.
+  const timerDemo = {
+    load: (id) => { if (EXERCISES[id]) stage.load(id); },
+    restore: () => { if (current) stage.load(movement || current.exId); },
+    pause: () => stage.pause(),
+    play: () => stage.play(),
+  };
 
   function drawTab() {
     const host = body.querySelector(".tab-body");
@@ -130,6 +138,7 @@ export function createExercisePanel(container, { mode = "log" } = {}) {
         onChange: ctx.onChange,
         compactActions: ctx.compactActions,
         extraActions: toolActions,
+        timerDemo,
         // Keep the dose above the logger in step with an easier choice.
         onDraw: (log) => {
           const routine = body.querySelector("[data-routine]");

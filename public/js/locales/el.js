@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Διάστημα {current} του {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Οι ομάδες διαστήματος καταγράφουν κάθε κίνηση και ανάκτηση με στρογγυλή σειρά, με το χρονόμετρο να δείχνει την τρέχουσα κίνηση.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Οι επιδείξεις με χρονοδιακόπτη διαστήματος ενεργοποιούνται κατά τη διάρκεια της έτοιμης αντίστροφης μέτρησης και κάθε φάσης εργασίας και ανάκτησης.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Οι χρονομετρητές διαστήματος αλλάζουν τώρα την κινούμενη εικόνα της άσκησης με κάθε φάση εργασίας και αποκατάστασης, σε καθοδηγούμενες προπονήσεις και στο Σήμερα, και μετά επιστρέψτε στην άσκηση όταν σταματήσει το χρονόμετρο.",
   "Intervals": "Διαστήματα",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Διαστήματα 1 · ριπές 20 δευτερολέπτων + Ζώνη 2 + πίσω και πυρήνας",
   "Intervals 2 · Norwegian 4×4 + stability": "Διαστήματα 2 · Νορβηγικά 4×4 + σταθερότητα",

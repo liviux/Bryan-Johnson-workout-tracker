@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "{total} {current} intervalı",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Interval qrupları hər bir hərəkəti və bərpanı dairəvi qaydada sadalayır, taymer cari hərəkəti göstərir.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "İnterval taymer nümayişləri hazır geri sayma və hər bir iş və bərpa mərhələsində canlandırır.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "İnterval taymerləri indi hər bir iş və bərpa mərhələsi ilə, idarə olunan məşqlərdə və Bu gün məşq animasiyasını dəyişir, sonra taymer dayandıqda məşqə qayıdır.",
   "Intervals": "Intervallar",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Fasilələr 1 · 20 saniyəlik partlayışlar + Zona 2 + arxa və əsas",
   "Intervals 2 · Norwegian 4×4 + stability": "Intervallar 2 · Norveç 4×4 + sabitlik",

@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "{total} の間隔 {current}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "インターバル グループには、各動作と回復がラウンド順にリストされ、タイマーには現在の動作が表示されます。",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "インターバルタイマーのデモンストレーションは、準備完了のカウントダウンと各作業および回復フェーズ中にアニメーション表示されます。",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "インターバルタイマーは、ガイド付きワークアウトおよび今日のワークアウトおよび回復フェーズごとにエクササイズアニメーションを変更し、タイマーが停止するとエクササイズに戻ります。",
   "Intervals": "間隔",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "インターバル 1 · 20 秒バースト + ゾーン 2 + バック & コア",
   "Intervals 2 · Norwegian 4×4 + stability": "インターバル 2 · ノルウェージャン 4×4 + 安定性",

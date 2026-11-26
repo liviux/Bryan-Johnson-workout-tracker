@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.49.3] - 2026-11-26
+
+### Fixed
+- Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.
+
 ## [1.49.2] - 2026-11-19
 
 ### Fixed

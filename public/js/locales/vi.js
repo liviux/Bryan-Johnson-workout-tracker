@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Khoảng {current} của {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Các nhóm khoảng thời gian liệt kê từng chuyển động và quá trình phục hồi theo thứ tự tròn, với bộ đếm thời gian hiển thị chuyển động hiện tại.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Trình diễn bộ hẹn giờ ngắt quãng hoạt hình trong quá trình đếm ngược sẵn sàng cũng như từng giai đoạn làm việc và phục hồi.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Giờ đây, bộ hẹn giờ ngắt quãng sẽ thay đổi hoạt ảnh bài tập theo từng giai đoạn tập luyện và phục hồi, trong các bài tập được hướng dẫn và trong Hôm nay, sau đó quay lại bài tập khi bộ hẹn giờ dừng.",
   "Intervals": "Khoảng thời gian",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Khoảng thời gian 1 · Các đợt 20 giây + Vùng 2 + lưng & lõi",
   "Intervals 2 · Norwegian 4×4 + stability": "Khoảng thời gian 2 · Na Uy 4×4 + ổn định",

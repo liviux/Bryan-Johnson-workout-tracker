@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Intervall {current} von {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Intervallgruppen listen jede Bewegung und Erholung in Rundenreihenfolge auf, wobei der Timer die aktuelle Bewegung anzeigt.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Intervall-Timer-Demonstrationen laufen während des Start-Countdowns sowie in jeder Belastungs- und Erholungsphase.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Intervall-Timer ändern jetzt die Trainingsanimation mit jeder Arbeits- und Erholungsphase, in geführten Trainingseinheiten und am Tag „Heute“ und kehren dann zur Übung zurück, wenn der Timer stoppt.",
   "Intervals": "Intervalle",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Intervalle 1 · 20-Sekunden-Belastungen + Zone 2 + Rücken & Rumpf",
   "Intervals 2 · Norwegian 4×4 + stability": "Intervalle 2 · Norwegischer 4×4 + Stabilität",

@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Muda wa {current} wa {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Vikundi vya muda huorodhesha kila harakati na uokoaji kwa mpangilio wa pande zote, na kipima saa kinaonyesha harakati za sasa.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Maonyesho ya kipima muda huhuishwa wakati wa kuhesabu tarehe tayari na kila awamu ya kazi na urejeshaji.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Vipima muda sasa hubadilisha uhuishaji wa mazoezi kwa kila awamu ya kazi na urejeshaji, katika mazoezi ya kuongozwa na Leo, kisha urejee kwenye zoezi kipima muda kinaposimama.",
   "Intervals": "Vipindi",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Vipindi 1 · Mipasuko ya sekunde 20 + Eneo la 2 + nyuma na msingi",
   "Intervals 2 · Norwegian 4×4 + stability": "Vipindi 2 · Kinorwe 4×4 + utulivu",

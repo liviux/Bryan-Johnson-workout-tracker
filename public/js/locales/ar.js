@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "الفاصل {current} من {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "تسرد المجموعات الزمنية كل حركة وتعافي بترتيب دائري، مع عرض المؤقت للحركة الحالية.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "يتم عرض العروض التوضيحية للمؤقت الزمني أثناء العد التنازلي الجاهز وكل مرحلة عمل واسترداد.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "تعمل أجهزة ضبط الوقت بفواصل زمنية الآن على تغيير الرسوم المتحركة للتمرين مع كل مرحلة من مراحل العمل والتعافي، في التدريبات الموجهة وفي اليوم، ثم العودة إلى التمرين عندما يتوقف المؤقت.",
   "Intervals": "فترات",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "الفواصل 1 · رشقات 20 ثانية + المنطقة 2 + الظهر والجذع",
   "Intervals 2 · Norwegian 4×4 + stability": "الفواصل 2 · 4×4 النرويجي + الثبات",

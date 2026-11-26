@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "इंटरवल {current}/{total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "इंटरवल ग्रुप हर मूवमेंट और रिकवरी को राउंड क्रम में दिखाते हैं, और टाइमर वर्तमान मूवमेंट बताता है।",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "इंटरवल टाइमर डेमो रेडी काउंटडाउन और हर वर्क तथा रिकवरी फेज़ में चलते हैं।",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "अंतराल टाइमर अब प्रत्येक कार्य और पुनर्प्राप्ति चरण के साथ, निर्देशित वर्कआउट में और आज व्यायाम एनीमेशन को बदलते हैं, फिर टाइमर बंद होने पर व्यायाम पर वापस लौट आते हैं।",
   "Intervals": "इंटरवल्स",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "इंटरवल 1 · 20 सेकंड के बर्स्ट + ज़ोन 2 + बैक और कोर",
   "Intervals 2 · Norwegian 4×4 + stability": "अंतराल 2 · नॉर्वेजियन 4×4 + स्थिरता",

@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Intervalul {current} din {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Grupurile de intervale listează fiecare mișcare și recuperare în ordinea rundei, cronometrul indicând mișcarea curentă.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Demonstrațiile cronometrului de interval se animă în timpul numărătorii inverse de pregătire și în fiecare fază de efort și recuperare.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Cronometrele cu intervale modifică acum animația exercițiului cu fiecare fază de lucru și de recuperare, în antrenamentele ghidate și pe Azi, apoi revin la exercițiu când cronometrul se oprește.",
   "Intervals": "Intervale",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Intervale 1 · rafale de 20 de secunde + Zona 2 + spate și abdomen",
   "Intervals 2 · Norwegian 4×4 + stability": "Intervale 2 · Norvegianul 4×4 + stabilitate",

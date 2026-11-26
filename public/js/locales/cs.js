@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Interval {current} z {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Skupiny intervalů vypisují každý pohyb a zotavení v okrouhlém pořadí, přičemž časovač ukazuje aktuální pohyb.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Ukázky intervalového časovače animují během připraveného odpočítávání a každé fáze práce a zotavení.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Intervalové časovače nyní mění animaci cvičení s každou fází práce a zotavení, v řízených trénincích a na Dnes, poté se vrátí ke cvičení, když se časovač zastaví.",
   "Intervals": "Intervaly",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Intervaly 1 · 20sekundové dávky + zóna 2 + zadní část a jádro",
   "Intervals 2 · Norwegian 4×4 + stability": "Intervaly 2 · Norština 4×4 + stabilita",

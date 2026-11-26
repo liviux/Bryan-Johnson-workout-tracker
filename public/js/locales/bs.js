@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Interval {current} od {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Grupe intervala navode svaki pokret i oporavak u krugu, sa tajmerom koji pokazuje trenutno kretanje.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Demonstracije intervalnog tajmera animiraju se tokom odbrojavanja spremnosti i svake faze rada i oporavka.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Intervalni mjerači sada mijenjaju animaciju vježbe sa svakom fazom rada i oporavka, u vođenim vježbama i na Today, a zatim se vraćaju na vježbu kada se tajmer zaustavi.",
   "Intervals": "Intervali",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Intervali 1 · rafali od 20 sekundi + zona 2 + leđa i jezgro",
   "Intervals 2 · Norwegian 4×4 + stability": "Intervali 2 · Norveški 4×4 + stabilnost",

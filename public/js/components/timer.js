@@ -53,8 +53,10 @@ export function stopInlineTimer() {
   if (fn) fn();
 }
 
-// phases: [{ kind: "work" | "rest" | "ready", label, sec, sub }]
-function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = null, mini = false, onClose = null }) {
+// phases: [{ kind: "work" | "rest" | "ready", label, sec, sub, ex? }]
+// demo: the view's own animation controller, so an inline interval timer can
+// change the demonstration with each phase and put it back when the timer ends.
+function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = null, mini = false, onClose = null, demo = null }) {
   if (host) stopInlineTimer();
   let timerNotified = false;
   const notifyTimer = () => { if (!timerNotified) { timerNotified = true; for (const fn of timerListeners) fn(true); } };
@@ -115,9 +117,17 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
   const say = (clip) => voiceOn && playVoice(clip, { urgent: true });
   const isRoundEnd = (p) => p.kind === "work" && p.roundEnd !== false;
   const workDone = () => phases.slice(0, i).filter(isRoundEnd).length;
+  const hasDemo = phases.some((p) => p.ex);
+  const sharedDemo = host && hasDemo ? demo : null;
+  let demoRestored = false;
+  const restoreDemo = () => {
+    if (!sharedDemo || demoRestored) return;
+    demoRestored = true;
+    sharedDemo.restore();
+  };
   const stageHost = document.createElement("div");
   let stage = null;
-  if (!host && phases.some((p) => p.ex)) {
+  if (!host && hasDemo) {
     stageHost.className = "interval-stage";
     el.prepend(stageHost);
     stage = createStagePanel(stageHost);
@@ -139,7 +149,9 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
 
     if (lastSpokenPhase !== i) {
       lastSpokenPhase = i;
-      if (stage) stage.load(p.ex || phases.find((phase) => phase.ex).ex);
+      const ex = p.ex || phases.find((phase) => phase.ex)?.ex;
+      if (ex && sharedDemo) sharedDemo.load(ex);
+      else if (ex && stage) stage.load(ex);
       spoken.clear();
       lastWhole = Math.ceil(left);
       if (started && manifest) { voicedPhase = i; say(manifest.phases[i]); }
@@ -189,6 +201,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
     if (fg) fg.setAttribute("stroke-dashoffset", "0");
     if (progress) progress.style.width = "100%";
     if (controls) controls.innerHTML = mini ? `<button class="btn sm icon-only primary" data-t="close" title="${esc(t("Log it"))}" aria-label="${esc(t("Log it"))}">${icon("check", "sm")}</button>` : `<button class="btn primary" data-t="close">${icon("check")} ${t("Log it")}</button>`;
+    restoreDemo();
     if (stage) { stage.dispose(); stage = null; }
     clearTimerNotice();
     if (onFinish) onFinish(phases.filter(isRoundEnd).length);
@@ -199,6 +212,7 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
     closed = true;
     clearTimerNotice();
     clearInterval(timer);
+    restoreDemo();
     if (stage) { stage.dispose(); stage = null; }
     cancelVoice();
     if (lock) lock.release().catch(() => {});
@@ -224,7 +238,8 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
       } else {
         b.innerHTML = paused ? `${icon("play")} ${t("Resume")}` : `${icon("pause")} ${t("Pause")}`;
       }
-      if (stage) paused ? stage.pause() : stage.play();
+      if (sharedDemo) paused ? sharedDemo.pause() : sharedDemo.play();
+      else if (stage) paused ? stage.pause() : stage.play();
       if (paused) cancelVoice();
     } else if (b.dataset.t === "voice") {
       setVoiceEnabled(!voiceEnabled());
@@ -279,13 +294,13 @@ function runPhases({ title, phases, onFinish, voiceContext, voiceTimer, host = n
 }
 
 // Interval timer from a preset: { rounds, work, rest, blocks?, blockRest?, workHr?, restHr? }
-export function startIntervals({ title, preset, hr, exId, moves, onFinish, voiceContext, presetIndex = 0, host = null, mini = false }) {
+export function startIntervals({ title, preset, hr, exId, moves, onFinish, voiceContext, presetIndex = 0, host = null, mini = false, demo = null }) {
   const phases = intervalPhases(exId, preset, moves);
   for (const phase of phases) {
     if (phase.kind === "work" && hr?.work) phase.sub = t("Aim for {range}", { range: hr.work });
     else if (phase.kind === "rest" && hr?.rest) phase.sub += ` · ${hr.rest}`;
   }
-  runPhases({ title, phases, onFinish, voiceContext, voiceTimer: { type: "intervals", preset: presetIndex, moves }, host, mini });
+  runPhases({ title, phases, onFinish, voiceContext, voiceTimer: { type: "intervals", preset: presetIndex, moves }, host, mini, demo });
 }
 
 // Hold timer: seconds per side, optionally both sides with a short switch.

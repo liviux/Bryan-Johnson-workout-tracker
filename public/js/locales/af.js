@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Interval {current} van {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Intervalgroepe lys elke beweging en herstel in ronde volgorde, met die timer wat die huidige beweging wys.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Interval timer demonstrasies animeer tydens die gereed aftelling en elke werk- en herstelfase.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Intervaltydtellers verander nou die oefenanimasie met elke werk- en herstelfase, in begeleide oefensessies en op Vandag, en keer dan terug na die oefening wanneer die tydteller stop.",
   "Intervals": "Intervalle",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Intervalle 1 · 20-sekonde-sarsies + Sone 2 + rug en kern",
   "Intervals 2 · Norwegian 4×4 + stability": "Intervalle 2 · Noorse 4×4 + stabiliteit",

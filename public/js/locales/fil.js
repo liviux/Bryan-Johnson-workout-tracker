@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Interval {current} ng {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Inililista ng mga pangkat ng pagitan ang bawat paggalaw at pagbawi sa pagkakasunud-sunod ng pag-ikot, kasama ang timer na nagpapakita ng kasalukuyang paggalaw.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Ang mga pagpapakita ng interval timer ay nag-a-animate sa panahon ng handa na countdown at sa bawat yugto ng trabaho at pagbawi.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Binabago na ngayon ng mga interval timer ang exercise animation sa bawat yugto ng trabaho at pagbawi, sa mga guided workout at sa Today, pagkatapos ay babalik sa ehersisyo kapag huminto ang timer.",
   "Intervals": "Mga pagitan",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Mga agwat 1 · 20 segundong pagsabog + Zone 2 + likod at core",
   "Intervals 2 · Norwegian 4×4 + stability": "Intervals 2 · Norwegian 4×4 + stability",

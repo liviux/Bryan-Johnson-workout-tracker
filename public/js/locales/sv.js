@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Intervall {current} av {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Intervallgrupper listar varje rörelse och återhämtning i rund ordning, med timern som visar den aktuella rörelsen.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Intervalltimerdemonstrationer animeras under den färdiga nedräkningen och varje arbets- och återhämtningsfas.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Intervalltimer ändrar nu träningsanimationen med varje arbets- och återhämtningsfas, i guidade träningspass och på Idag, och återgår sedan till träningen när timern stannar.",
   "Intervals": "Intervaller",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Intervaller 1 · 20-sekunders skurar + Zon 2 + rygg & kärna",
   "Intervals 2 · Norwegian 4×4 + stability": "Intervaller 2 · Norsk 4×4 + stabilitet",

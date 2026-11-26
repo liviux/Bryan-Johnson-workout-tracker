@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "{total}의 간격 {current}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "간격 그룹에는 각 움직임과 회복이 라운드 순서로 나열되며 타이머에는 현재 움직임이 표시됩니다.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "준비 카운트다운과 각 작업 및 복구 단계 동안 간격 타이머 데모가 애니메이션으로 표시됩니다.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "이제 간격 타이머는 가이드 운동 및 오늘의 각 작업 및 회복 단계에서 운동 애니메이션을 변경한 다음 타이머가 중지되면 운동으로 돌아갑니다.",
   "Intervals": "간격",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "간격 1 · 20초 버스트 + 영역 2 + 백 & 코어",
   "Intervals 2 · Norwegian 4×4 + stability": "간격 2 · 노르웨이어 4×4 + 안정성",

@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Selang {current} daripada {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Kumpulan selang menyenaraikan setiap pergerakan dan pemulihan dalam susunan bulat, dengan pemasa menunjukkan pergerakan semasa.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Demonstrasi pemasa selang bernyawa semasa kira detik sedia dan setiap fasa kerja dan pemulihan.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Pemasa selang kini menukar animasi senaman dengan setiap fasa kerja dan pemulihan, dalam latihan berpandu dan pada Hari Ini, kemudian kembali ke latihan apabila pemasa berhenti.",
   "Intervals": "Selang waktu",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Selang 1 · letusan 20 saat + Zon 2 + belakang & teras",
   "Intervals 2 · Norwegian 4×4 + stability": "Selang 2 · Norway 4×4 + kestabilan",

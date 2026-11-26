@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Интервал {current} на {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Интервалните групи го наведуваат секое движење и обновување по кружен редослед, при што тајмерот го покажува тековното движење.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Демонстрациите на тајмерот со интервал се анимираат за време на подготвеното одбројување и секоја фаза на работа и закрепнување.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Сега тајмерите за интервал ја менуваат анимацијата на вежбањето со секоја фаза на работа и закрепнување, во водени тренинзи и на Денес, а потоа вратете се на вежбата кога тајмерот ќе престане.",
   "Intervals": "Интервали",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Интервали 1 · рафали од 20 секунди + зона 2 + назад и јадро",
   "Intervals 2 · Norwegian 4×4 + stability": "Интервали 2 · Норвешки 4×4 + стабилност",

@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "فاصله {current} از {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "گروه های فاصله ای هر حرکت و ریکاوری را به ترتیب گرد لیست می کنند و تایمر حرکت فعلی را نشان می دهد.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "نمایش های تایمر بازه زمانی در طول شمارش معکوس آماده و هر مرحله کار و بازیابی متحرک می شوند.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "اکنون تایمرهای فاصله زمانی انیمیشن تمرین را با هر مرحله کار و ریکاوری، در تمرینات هدایت شده و در امروز تغییر می دهند، سپس با توقف تایمر به تمرین بازگردید.",
   "Intervals": "فواصل",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "فواصل 1 · انفجارهای 20 ثانیه ای + منطقه 2 + پشت و هسته",
   "Intervals 2 · Norwegian 4×4 + stability": "فواصل 2 · نروژی 4×4 + پایداری",

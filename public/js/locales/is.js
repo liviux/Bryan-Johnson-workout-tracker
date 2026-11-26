@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "Tímabil {current} af {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Bilahópar skrá hverja hreyfingu og bata í hringröð, með tímamælinum sem sýnir núverandi hreyfingu.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Sýningarmyndir með tímamælatíma eru fjörugar meðan á tilbúinni niðurtalningu stendur og hverju vinnu- og batastigi.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Tímamælir breyta nú hreyfimyndinni fyrir hverja vinnu og bata, í æfingum með leiðsögn og í dag, fara svo aftur í æfinguna þegar tímamælirinn hættir.",
   "Intervals": "Millibil",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Millibil 1 · 20 sekúndna sprengingar + svæði 2 + bak og kjarni",
   "Intervals 2 · Norwegian 4×4 + stability": "Millibil 2 · Norskur 4×4 + stöðugleiki",

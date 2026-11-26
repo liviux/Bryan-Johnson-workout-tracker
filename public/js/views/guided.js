@@ -98,11 +98,45 @@ export function startGuided(date, onExit) {
   document.body.style.overflow = "hidden";
   let videoCtrl = null;
   let currentDemo = null;
+  let baseDemoId = null;
   const stage = createStagePanel(wrap.querySelector(".stage-host"), {
     onClipChange: ({ clipIndex, manual }) => {
       if (videoCtrl) videoCtrl.setGroup(clipIndex, { manual });
     },
   });
+  // Let an inline interval timer move the demonstration with its phases, then
+  // put the step's own movement back when the timer stops.
+  const timerDemo = {
+    load(id) {
+      const demo = EXERCISES[id];
+      if (!demo) return;
+      currentDemo = demo;
+      stage.load(id);
+      syncDemoVideos();
+    },
+    restore() {
+      const demo = baseDemoId && EXERCISES[baseDemoId];
+      if (!demo) return;
+      currentDemo = demo;
+      stage.load(baseDemoId);
+      syncDemoVideos();
+    },
+    pause: () => stage.pause(),
+    play: () => stage.play(),
+  };
+  function syncDemoVideos() {
+    if (!videoCtrl || videoCtrl.playing || !currentDemo) return;
+    const host = side.querySelector('[data-g="videos"]');
+    if (!host) return;
+    videoCtrl.destroy();
+    videoCtrl = renderVideos(host, videosFor(currentDemo), {
+      groups: videoGroupsFor(currentDemo),
+      activeGroup: stage.clipIndex,
+      onSelectGroup: (gi) => stage.setClip(gi),
+      onSelectVideo: () => { stage.setAutoAdvance(false); videoVoice(true); },
+      onPlay: () => { stage.setAutoAdvance(false); videoVoice(true); },
+    });
+  }
   const side = wrap.querySelector(".guided-side");
   const bar = wrap.querySelector(".bar i");
   const count = wrap.querySelector('[data-g="count"]');
@@ -186,6 +220,7 @@ export function startGuided(date, onExit) {
     const demoId = routineSteps(s.item, s.level, getItemLog(date, s.scope, s.item.id) || {})[0]?.ex || s.item.ex;
     const demo = EXERCISES[demoId];
     currentDemo = demo;
+    baseDemoId = demoId;
     stage.load(demoId);
     bar.style.width = `${steps.filter((step) => stepDone(date, step)).length / steps.length * 100}%`;
     count.innerHTML = `${i + 1}/${steps.length}<small class="guided-count-group${s.scope !== "main" ? " addon" : ""}">${esc(s.block)}</small>`;
@@ -217,7 +252,7 @@ export function startGuided(date, onExit) {
       ${ex.side ? `<p class="muted side-cue">${icon("swap", "sm")} ${esc(t("First {side}, then switch and repeat.", { side: t(ex.side) }))}</p>` : ""}
       ${alternativeHtml(s.item, s.level)}
       <div class="logger-host guided-logger-host${s.scope !== "main" ? " addon-scope" : ""}"></div>`;
-    renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, blockRest: s.blockRest, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), nextTimeHost: wrap.querySelector(".guided-next-time-host"), onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
+    renderLogger(side.querySelector(".logger-host"), { date, item: s.item, ex, level: s.level, scope: s.scope, blockRest: s.blockRest, setIndex: s.setIndex, manualCompletion: true, guided: true, noteHost: side.querySelector("[data-note-host]"), nextTimeHost: wrap.querySelector(".guided-next-time-host"), timerDemo, onDraw: (log) => { const host = wrap.querySelector("[data-routine]"); if (host) host.innerHTML = ex.routine ? routineHtml(s.item, s.level, log, { compact: true }) : ""; voice.changed(); } });
     videoCtrl?.destroy();
     videoCtrl = renderVideos(side.querySelector('[data-g="videos"]'), videosFor(demo), {
       groups: videoGroupsFor(demo),

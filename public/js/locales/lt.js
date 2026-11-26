@@ -2154,6 +2154,7 @@ export default {
   "Interval {current} of {total}": "{current} intervalas {total}",
   "Interval groups list each movement and recovery in round order, with the timer showing the current movement.": "Intervalinės grupės pateikia kiekvieną judesį ir atsigavimą apvalia tvarka, o laikmatis rodo esamą judėjimą.",
   "Interval timer demonstrations animate during the ready countdown and each work and recovery phase.": "Intervalinio laikmačio demonstracijos animuoja paruoštos atgalinės atskaitos ir kiekvieno darbo bei atkūrimo etapo metu.",
+  "Interval timers now change the exercise animation with each work and recovery phase, in guided workouts and on Today, then return to the exercise when the timer stops.": "Intervaliniai laikmačiai dabar keičia pratimų animaciją su kiekvienu darbo ir atsigavimo etapu, treniruotėse su treniruotėmis ir šiandien, tada grįžta į pratimą, kai laikmatis sustoja.",
   "Intervals": "Intervalai",
   "Intervals 1 · 20-second bursts + Zone 2 + back & core": "Intervalai 1 · 20 sekundžių serijos + 2 zona + nugarėlė ir šerdis",
   "Intervals 2 · Norwegian 4×4 + stability": "Intervalai 2 · Norvegiškas 4×4 + stabilumas",
